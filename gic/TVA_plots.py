@@ -17,7 +17,7 @@
 # This notebook reads in both measured and calculated GIC data from TVA for May 10-13, 2024
 
 # %%
-#importing neccessary modules
+#importing necessary modules
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -30,7 +30,7 @@ import matplotlib.pyplot as plt
 import csv
 
 # csv file name
-GIC_m = "gic-anderson_20240510.csv" #GIC data w/ 1s cadence from May 10-12
+GIC_m = "data/gic/gic-anderson_20240510.csv" #GIC data w/ 1s cadence from May 10-12
 
 # empty arrays to store values
 t_m=[]
@@ -59,8 +59,8 @@ plt.show()
 #reading in calculated data - BULL RUN
 
 #data file names - Bull Run
-BR10 = '20240510_BullRunXfrmGIC.dat' #GIC calculated data w/ 1m cadence from May 10
-BR11 = '20240511_BullRunXfrmGIC.dat' #GIC calculated data w/ 1m cadence from May 11
+BR10 = 'data/gic/20240510_BullRunXfrmGIC.dat' #GIC calculated data w/ 1m cadence from May 10
+BR11 = 'data/gic/20240511_BullRunXfrmGIC.dat' #GIC calculated data w/ 1m cadence from May 11
 
 #defining variables
 gic_c10,t_c10=np.loadtxt(BR10,unpack=True,skiprows=1,delimiter=',')
@@ -94,8 +94,8 @@ plt.show()
 #reading in calculated data - MONTGOMERY
 
 #data file names - Montgomery
-MG10 = '20240510_MontgomeryGIC.dat' #GIC calculated data w/ 1m cadence from May 10
-MG11 = '20240511_MontgomeryGIC.dat' #GIC calculated data w/ 1m cadence from May 11
+MG10 = 'data/gic/20240510_MontgomeryGIC.dat' #GIC calculated data w/ 1m cadence from May 10
+MG11 = 'data/gic/20240511_MontgomeryGIC.dat' #GIC calculated data w/ 1m cadence from May 11
 
 #defining variables
 gic_c10,t_c10=np.loadtxt(MG10,unpack=True,skiprows=1,delimiter=',')
@@ -125,8 +125,8 @@ plt.show()
 #reading in calculated data - UNION
 
 #data file names - Union
-UN10 = '20240510_UnionGIC.dat' #GIC calculated data w/ 1m cadence from May 10
-UN11 = '20240511_UnionGIC.dat' #GIC calculated data w/ 1m cadence from May 11
+UN10 = 'data/gic/20240510_UnionGIC.dat' #GIC calculated data w/ 1m cadence from May 10
+UN11 = 'data/gic/20240511_UnionGIC.dat' #GIC calculated data w/ 1m cadence from May 11
 
 #defining variables
 gic_c10,t_c10=np.loadtxt(UN10,unpack=True,skiprows=1,delimiter=',')
@@ -155,8 +155,8 @@ plt.show()
 #reading in calculated data - WIDOWS CREEK
 
 #data file names - Widows Creek
-WC10 = '20240510_WidowsCreek2GIC.dat' #GIC calculated data w/ 1m cadence from May 10
-WC11 = '20240511_WidowsCreek2GIC.dat' #GIC calculated data w/ 1m cadence from May 11
+WC10 = 'data/gic/20240510_WidowsCreek2GIC.dat' #GIC calculated data w/ 1m cadence from May 10
+WC11 = 'data/gic/20240511_WidowsCreek2GIC.dat' #GIC calculated data w/ 1m cadence from May 11
 
 #defining variables
 gic_c10,t_c10=np.loadtxt(WC10,unpack=True,skiprows=1,delimiter=',')
