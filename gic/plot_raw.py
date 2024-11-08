@@ -15,6 +15,8 @@ def plot_combined(gic_all):
   out_dir = os.path.join(data_dir, 'plots')
   if not os.path.exists(out_dir):
     os.makedirs(out_dir)
+  with open(gic_all, 'rb') as f:
+    data = pickle.load(f)
 
   # Loop to create four subpanels with GIC model vs anderson
 
