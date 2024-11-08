@@ -16,27 +16,32 @@ def plot_combined(gic_all):
   out_dir = os.path.join(data_dir, 'plots')
   if not os.path.exists(out_dir):
     os.makedirs(out_dir)
+
+  # setting up 4-panel plot
+    
+  fig, axs = plt.subplots(2, 2,figsize=(23,10))
+  fig.suptitle('TVA calculated GIC',fontsize=20)
   
   # Loop to create four subpanels with GIC model vs anderson
   for i in key:
-        if i != 'anderson':
-            for j,ax in enumerate(axs.flat):
-                loc = key[j+1]
-                if loc == i:
-                    ax.plot(gic_all[loc]['time'], gic_all[loc]['data'],label=i)
-                else:
-                    continue
-        else:
-            for ax in (axs.flat):
-                ax.plot(gic_all[i]['time'], gic_all[i]['data'],label=i)
-              
+    if i != 'anderson':
+      for j,ax in enumerate(axs.flat):
+          loc = key[j+1]
+          if loc == i:
+            ax.plot(gic_all[loc]['time'], gic_all[loc]['data'],linewidth=.5,label='Calculated data')
+            ax.set_title(i,fontsize=15) 
+    else:
+      for ax in (axs.flat):
+        ax.plot(gic_all[i]['time'], gic_all[i]['data'],linewidth=.5,label='Measured data')
+         
   # Plot code here
   for ax in axs.flat:
-        ax.set(xlabel='time', ylabel='GIC (Amps)')
-        #ax.set_xticks(np.arange(0,172800,43200))
-        ax.set_yticks(np.arange(-20,45,10))
-        ax.legend()
-        ax.grid()
+    ax.set(xlabel='time', ylabel='GIC (Amps)')
+    ax.set_xlim(datetime.datetime(2024, 5, 10, 12, 0),datetime.datetime(2024, 5, 12, 0, 0))
+    ax.set_ylim(-25,45)
+    ax.legend()
+    ax.grid('--')
+    ax.label_outer()
 
   # code to save plots out_dir here
   #fname = use key from info, e.g., bullrun
