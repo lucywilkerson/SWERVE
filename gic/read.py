@@ -1,33 +1,17 @@
 import os
 import csv
+import json
 import numpy
 import pickle
 import datetime
 
 # .dat files are 1-min cadence and are model-predicted GICs (what model?)
 # .csv is 1-min cadence and is observed GIC (from where?)
-data_dir = os.path.join('..', '..', '2024-AGU-data', 'gic')
-gic_all = {
-          'anderson': {
-            'files': ['gic-anderson_20240510.csv']
-          },
-          'bullrun': {
-            'files': ['20240510_BullRunXfrmGIC.dat', '20240511_BullRunXfrmGIC.dat'],
-            'start': ['2024-05-10 00:00:00','2024-05-11 00:00:00']
-          },
-          'montgomery': {
-            'files': ['20240510_MontgomeryGIC.dat', '20240511_MontgomeryGIC.dat'],
-            'start': ['2024-05-10 00:00:00','2024-05-11 00:00:00']
-          },
-          'union': {
-            'files': ['20240510_UnionGIC.dat', '20240511_UnionGIC.dat'],
-            'start': ['2024-05-10 00:00:00','2024-05-11 00:00:00']
-          },
-          'widowscreek': {
-            'files': ['20240510_WidowsCreek2GIC.dat', '20240511_WidowsCreek2GIC.dat'],
-            'start': ['2024-05-10 00:00:00','2024-05-11 00:00:00']
-          }
-        }
+data_dir = os.path.join('..', '..', '2024-AGU-data')
+data_dir_gic = os.path.join(data_dir, 'gic')
+
+with open(os.path.join(data_dir, 'info.json'), 'r') as f:
+  gic_all = json.load(f)
 
 def read(info, starts=None, data_dir=data_dir):
 
@@ -65,10 +49,10 @@ def read(info, starts=None, data_dir=data_dir):
 for key, value in gic_all.items():
   info = gic_all[key]
   for file in value['files']:
-    path = os.path.join(data_dir, file)
-    info['data'], info['time'] = read(info, data_dir=data_dir)
+    path = os.path.join(data_dir_gic, file)
+    info['data'], info['time'] = read(info, data_dir=data_dir_gic)
 
-fname = os.path.join(data_dir, 'gic_all.pkl')
+fname = os.path.join(data_dir_gic, 'gic_all.pkl')
 print(f"Writing {fname}")
 with open(fname, 'wb') as f:
   pickle.dump(gic_all, f)
