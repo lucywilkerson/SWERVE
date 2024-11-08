@@ -16,11 +16,22 @@ def plot_combined(gic_all):
   if not os.path.exists(out_dir):
     os.makedirs(out_dir)
   
-
   # Loop to create four subpanels with GIC model vs anderson
-
+  for i in key:
+        if i != 'anderson':
+            #for ax in (axs.flat):
+                #ax.plot(gic_all[i]['time'], gic_all[i]['data'],label=i)
+            print(i)
+        else:
+            for ax in (axs.flat):
+                ax.plot(gic_all[i]['time'], gic_all[i]['data'],label='Measured Data')
   # Plot code here
-
+  for ax in axs.flat:
+        ax.set(xlabel='time', ylabel='GIC (Amps)')
+        #ax.set_xticks(np.arange(0,172800,43200))
+        ax.set_yticks(np.arange(-20,45,10))
+        ax.legend()
+        ax.grid()
 
   # code to save plots out_dir here
   # fname = use key from info, e.g., bullrun
@@ -29,5 +40,8 @@ def plot_combined(gic_all):
 
 with open(data_file, 'rb') as f:
   gic_all = pickle.load(f)
+
+key = ['anderson', 'bullrun', 'montgomery', 'union', 'widowscreek']
+item = ['data', 'files', 'time']
 
 plot_combined(gic_all)
