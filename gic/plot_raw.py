@@ -1,5 +1,6 @@
 import os
 import pickle
+import numpy as np
 import matplotlib.pyplot as plt
 
 data_dir = os.path.join('..', '..', '2024-AGU-data', 'gic')
