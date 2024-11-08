@@ -20,12 +20,16 @@ def plot_combined(gic_all):
   # Loop to create four subpanels with GIC model vs anderson
   for i in key:
         if i != 'anderson':
-            #for ax in (axs.flat):
-                #ax.plot(gic_all[i]['time'], gic_all[i]['data'],label=i)
-            print(i)
+            for j,ax in enumerate(axs.flat):
+                loc = key[j+1]
+                if loc == i:
+                    ax.plot(gic_all[loc]['time'], gic_all[loc]['data'],label=i)
+                else:
+                    continue
         else:
             for ax in (axs.flat):
-                ax.plot(gic_all[i]['time'], gic_all[i]['data'],label='Measured Data')
+                ax.plot(gic_all[i]['time'], gic_all[i]['data'],label=i)
+              
   # Plot code here
   for ax in axs.flat:
         ax.set(xlabel='time', ylabel='GIC (Amps)')
@@ -35,7 +39,7 @@ def plot_combined(gic_all):
         ax.grid()
 
   # code to save plots out_dir here
-  # fname = use key from info, e.g., bullrun
+  #fname = use key from info, e.g., bullrun
   #fname_base = os.path.join(out_dir, fname)
   #plot_save(fname)
 
