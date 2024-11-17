@@ -5,6 +5,9 @@ import numpy as np
 import datetime
 import csv
 
+data_dir = os.path.join('..', '..', '2024-AGU-data')
+data_dir_gic = os.path.join(data_dir, 'tva', 'gic')
+
 ## function to save figure(s)
 def plot_save(fname):
   print(f"Saving {fname}_hist")
