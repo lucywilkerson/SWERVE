@@ -7,7 +7,7 @@ import datetime
 
 # .dat files are 1-min cadence and are model-predicted GICs (what model?)
 # .csv is 1-min cadence and is observed GIC (from where?)
-data_dir = os.path.join('..', '..', '2024-AGU-data')
+data_dir = os.path.join('..', '2024-AGU-data')
 data_dir_gic = os.path.join(data_dir, 'gic')
 
 with open(os.path.join(data_dir, 'info.json'), 'r') as f:
