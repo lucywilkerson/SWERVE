@@ -133,6 +133,4 @@ def plot_hist(loc):
 plot_hist(TVA_dat["bullrun"])
 plot_hist(TVA_dat["union"])
 plot_hist(TVA_dat["widowscreek"])
-## you might notice that montgomery is missing
-## that's because the measured data is missing 2 seconds somewhere, which throws everything off
-## ideally this would be fixed by looping over time instead of length to get the averages but I haven't gotten there yet
+plot_hist(TVA_dat["montgomery"])
