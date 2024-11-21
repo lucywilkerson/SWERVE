@@ -88,6 +88,7 @@ def plot_hist(loc):
     gic_c = np.array(gic_c).flatten()
     t_c = np.array(t_c).flatten()
     # averaging measured values
+    ## this loop isn't the most efficient, but it works for now
     gic_avg=[]
     gic_min=[]
     for i in range(len(t_c)):
