@@ -90,13 +90,17 @@ def plot_hist(loc):
     # averaging measured values
     gic_avg=[]
     gic_min=[]
-    for i in np.arange(len(gic_m)):
-        gic_min.append(gic_m[i])
-        if i in np.arange(59,len(gic_m),60):
-            gic_avg.append(np.mean(gic_min))
-            gic_min=[]
+    for i in range(len(t_c)):
+        t_start=t_c[i]
+        if i == len(t_c)-1:
+            t_stop = t_m[len(t_m)-1] + datetime.timedelta(seconds=1)
         else:
-            continue
+            t_stop=t_c[i+1]
+        for j in range(len(t_m)):
+            if t_m[j] >= t_start and t_m[j] < t_stop:
+                gic_min.append(gic_m[j])
+        gic_avg.append(np.mean(minute_tot))
+        gic_min=[]
     # finding difference
     gic_diff=[]
     for i in np.arange(len(gic_c)):
