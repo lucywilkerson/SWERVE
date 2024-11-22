@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 import csv
+from tqdm import tqdm
 
 data_dir = os.path.join('..', '..', '2024-AGU-data')
 data_dir_gic = os.path.join(data_dir, 'tva', 'gic')
@@ -91,7 +92,8 @@ def plot_hist(loc):
     ## this loop isn't the most efficient, but it works for now
     gic_avg=[]
     gic_min=[]
-    for i in range(len(t_c)):
+    print("Averaging measured GIC over 1-min bins")
+    for i in tqdm(range(len(t_c))):
         t_start=t_c[i]
         if i == len(t_c)-1:
             t_stop = t_m[len(t_m)-1] + datetime.timedelta(seconds=1)
@@ -100,7 +102,7 @@ def plot_hist(loc):
         for j in range(len(t_m)):
             if t_m[j] >= t_start and t_m[j] < t_stop:
                 gic_min.append(gic_m[j])
-        gic_avg.append(np.mean(minute_tot))
+        gic_avg.append(np.mean(gic_min))
         gic_min=[]
     # finding difference
     gic_diff=[]
