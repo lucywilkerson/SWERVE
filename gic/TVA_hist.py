@@ -7,7 +7,8 @@ import csv
 from tqdm import tqdm
 
 data_dir = os.path.join('..', '..', '2024-AGU-data')
-data_dir_gic = os.path.join(data_dir, 'tva', 'gic')
+data_dir_gic = os.path.join(data_dir, 'tva', 'gic', 'orig', 'GIC-calculated')
+data_dir_meas = os.path.join(data_dir, 'tva', 'gic', 'orig', 'GIC-measured')
 
 ## function to save figure(s)
 def plot_save(fname):

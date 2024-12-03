@@ -67,27 +67,6 @@ def readSWMF( i, info):
         dftot = dataframe with SWMF data    
     """
      
-    filegap  = info['gap' ][i]
-    fileiono = info['iono'][i]
-    filemsph = info['msph'][i]
-    
-    dfgap  = pd.read_pickle( filegap )
-    dfiono = pd.read_pickle( fileiono )
-    dfmsph = pd.read_pickle( filemsph )
-    
-    dftot = pd.DataFrame()
-    
-    # Pull data from SWMF files. Note, total delta B is sum of gap, ionosphere Hall,
-    # ionosphere Pedersen, and magnetospheric contributions
-    dftot['Time'] = dfgap['Datetime']
-    dftot['Bn'] = dfgap['Bn'] + dfiono['Bnh'] + dfiono['Bnp'] + dfmsph['Bn']
-    dftot['Be'] = dfgap['Be'] + dfiono['Beh'] + dfiono['Bnp'] + dfmsph['Be']
-    dftot['Bd'] = dfgap['Bd'] + dfiono['Bdh'] + dfiono['Bnp'] + dfmsph['Bd']
-    
-    # Determine magnitude of delta B horizontal
-    dftot['dBh'] = np.sqrt( dftot['Bn']**2 + dftot['Be']**2 )
-    
-    return dftot
 
 #save fig
 def plot_save(fname):
