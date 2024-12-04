@@ -19,6 +19,8 @@ def read(data_info, data_type, data_class, data_dir):
       for file in files:
         file = os.path.join(data_dir, file)
         print(f"    Reading {file}")
+        if not os.path.exists(file):
+          raise FileNotFoundError(f"File not found: {file}")
         with open(file,'r') as csvfile:
           rows = csv.reader(csvfile, delimiter = ',')
           for row in rows:
@@ -37,6 +39,8 @@ def read(data_info, data_type, data_class, data_dir):
       dto = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
       file = os.path.join(data_dir, file)
       print(f"    Reading {file}")
+      if not os.path.exists(file):
+        raise FileNotFoundError(f"File not found: {file}")
       d, times = numpy.loadtxt(file, unpack=True, skiprows=1, delimiter=',')
       data.append(d)
       for t in times:
@@ -50,9 +54,12 @@ def read(data_info, data_type, data_class, data_dir):
       time = []
 
       file = data_info[data_type][data_class]['files'][0]
-      filepath = os.path.join(data_dir, file)
-      print(f"    Reading {filepath}")
-      with open(filepath,'r') as csvfile:
+      file = os.path.join(data_dir, file)
+      print(f"    Reading {file}")
+      if not os.path.exists(file):
+        raise FileNotFoundError(f"File not found: {file}")
+
+      with open(file,'r') as csvfile:
         rows = csv.reader(csvfile, delimiter = ',')
         next(rows)  # Skip header row.
         for row in rows:
@@ -61,12 +68,14 @@ def read(data_info, data_type, data_class, data_dir):
 
       return numpy.array(time), numpy.array(b)
 
-  if data_type == 'mag' and data_class == 'calculated/swmf':
+  if data_type == 'mag' and data_class == 'calculated-swmf':
 
     df = {}
     for region in ["gap", "iono", "msph"]:
       file = os.path.join(data_dir, data_info[data_type][data_class]['files'][region])
       print(f"    Reading {file}")
+      if not os.path.exists(file):
+        raise FileNotFoundError(f"File not found: {file}")
       df[region]  = pandas.read_pickle(file)
 
     bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
@@ -81,7 +90,8 @@ def read(data_info, data_type, data_class, data_dir):
 
 def resample(time, data, start, stop, freq, ave=None):
 
-  date_range = pandas.date_range(start=start, end=stop, freq=freq)
+  # inclusive='left' will exclude the stop time.
+  date_range = pandas.date_range(start=start, end=stop, freq=freq, inclusive='left')
 
   datetime_series = pandas.Series(time)
   dfo = pandas.DataFrame(data, index=datetime_series)
@@ -97,11 +107,11 @@ def resample(time, data, start, stop, freq, ave=None):
 
   df.update(dfo)
 
-  # Seems like there should be an easier way to shift timestamps.
-  # https://stackoverflow.com/questions/47395119/center-datetimes-of-resampled-time-series
   if ave is not None:
+    # Seems like there should be an easier way to shift timestamps.
+    # https://stackoverflow.com/questions/47395119/center-datetimes-of-resampled-time-series
     df = df.resample(f"{ave}s").mean()
-    #df.index = df.index + datetime.timedelta(seconds=ave/2)
+    df.index = df.index + datetime.timedelta(seconds=ave/2)
 
   data = df.to_numpy()
   # If data.shape is (n, ), return a 1D array.
@@ -126,10 +136,12 @@ for sid in info.keys(): # site ids
   data_types = info[sid]['data'].keys()
 
   for data_type in data_types: # e.g., gic, mag
+
     data[sid][data_type] = {}
     data_classes = info[sid]['data'][data_type].keys()
 
     for data_class in data_classes: # e.g., measured, calculated
+
       print(f"  Reading '{data_type}/{data_class}' data")
       time, data_ = read(info[sid]['data'], data_type, data_class, data_dir)
       print(f"    data.shape = {data_.shape}")
@@ -149,7 +161,9 @@ for sid in info.keys(): # site ids
         print("    Creating timeseries with mean removed")
         data_m = numpy.full(data_.shape, numpy.nan)
         for i in range(3):
-          data_m[:,i] = data_[:,i] - numpy.nanmean(data_[:,i])
+          #numpy.nanmean(data_[:,i])
+          # TODO: Get IGRF value 
+          data_m[:,i] = data_[:,i] - data_[0,i]
         print(f"    data.shape = {data_.shape}")
         modified = {'time': time, 'data': data_m, 'modification': 'mean removed'}
         data[sid][data_type][data_class]['modified'] = modified

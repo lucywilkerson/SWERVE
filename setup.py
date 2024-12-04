@@ -1,0 +1,22 @@
+from setuptools import setup, find_packages
+
+install_requires = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "cartopy",
+    "datetick @ git+https://github.com/rweigel/datetick@main#egg=hapiplot"
+    ]
+
+setup(
+    name='gannon-data',
+    version='0.0.1',
+    author='Lucy Wilkerson, Bob Weigel',
+    author_email='rweigel@gmu.edu',
+    packages=find_packages(),
+    description='Data for the May, 2024 geomagnetic storm',
+    long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
+    install_requires=install_requires,
+    include_package_data=True,
+)
