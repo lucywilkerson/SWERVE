@@ -10,7 +10,7 @@ from datetick import datetick
 import matplotlib.pyplot as plt
 plt.rcParams['font.family'] = 'Times'
 plt.rcParams['figure.dpi'] = 100
-plt.rcParams['savefig.dpi'] = 300
+plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-AGU-data')
 sids = None # If none, plot all sites
@@ -67,8 +67,8 @@ def compare_gic(info, data, sid):
 
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
   time_calc, data_calc = subset(time_calc, data_calc, start, stop)
-  #if sid == 'bullrun' or sid == 'union':
-    # TODO: Put in info.json or find sign with best calc/meas agreement
+
+  # TODO: Document why this is necessary
   data_calc = -data_calc
 
   name = info[sid]['name']
@@ -83,15 +83,16 @@ def compare_gic(info, data, sid):
     else:
       labels.append(str(ytick))
 
-  plt.axhline(y=-35, color='w', linestyle='-', linewidth=10, xmin=0, xmax=1)
-  plt.axhline(y=-80, color='w', linestyle='-', linewidth=10, xmin=0, xmax=1)
+  kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
+  plt.axhline(y=-35, **kwargs)
+  plt.axhline(y=-80, **kwargs)
   plt.title(name)
   plt.grid()
   plt.plot()
   plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
   plt.plot(time_calc, data_calc, 'b', label='GIC Calculated', linewidth=0.4)
-  # TODO: Put error on subplot
-  plt.plot(time_calc, data_meas-data_calc-error_shift, color=3*[0.3], label=f'Error', linewidth=0.5)
+
+  plt.plot(time_calc, data_meas-data_calc-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
   plt.legend()
   plt.ylabel('[A]', rotation=0, labelpad=10)
   plt.yticks(yticks, labels=labels)
@@ -168,6 +169,13 @@ def compare_dB(info, data, sid):
   datetick()
   plt.legend()
   plt.grid()
+  ax = plt.gca()
+  ratio = 0.5
+  xleft, xright = ax.get_xlim()
+  ybottom, ytop = ax.get_ylim()
+  ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*ratio)
+  savefig(sid, 'mag-timeseries-meas-calc', data_dir=data_dir)
+
 
 def plot_original(info, data, sid):
 
@@ -250,7 +258,6 @@ for sid in sids: # site ids
   mag_types = info[sid]['data']['mag'].keys()
   if 'measured' in mag_types and 'calculated-swmf' in mag_types:
     compare_dB(info, data, sid)
-  continue
 
   plot_original(info, data, sid)
 
