@@ -9,7 +9,7 @@ name=[]
 coords=[]
 val=[]
 source=[]
-with open('Data_Sources.csv', 'r') as csvfile:
+with open('2024-AGU-data/Data_Sources.csv', 'r') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     header = next(plots)
     print(header)
