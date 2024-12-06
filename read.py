@@ -8,11 +8,22 @@ import datetime
 
 data_dir = os.path.join('..', '2024-AGU-data')
 
-def read(data_info, data_type, data_class, data_dir):
-  data_dir = os.path.join(data_dir, data_info[data_type][data_class]['dir'])
+def read(info, sid, data_type, data_class, data_subclass, data_dir):
+
+  data_info = info[sid]['data'][data_type][data_class]
+
+  if data_subclass is None:
+    data_dir = os.path.join(data_dir, data_info['dir'])
+  else:
+    for idx, subclass in enumerate(data_info):
+      # Loop through array of objects.
+      if subclass['model'] == data_subclass:
+        data_info = data_info[idx]
+        break
+    data_dir = os.path.join(data_dir, data_info['dir'])
 
   if data_type == 'gic' and data_class == 'measured':
-    files = data_info[data_type][data_class]['files']
+    files = data_info['files']
     if files[0].endswith('.csv'):
       data = []
       time = []
@@ -30,8 +41,8 @@ def read(data_info, data_type, data_class, data_dir):
       return numpy.array(time), numpy.array(data)
 
   if data_type == 'gic' and data_class == 'calculated':
-    files = data_info[data_type][data_class]['files']
-    starts = data_info[data_type][data_class]['start']
+    files = data_info['files']
+    starts = data_info['start']
     time = []
     data = []
     for idx, file in enumerate(files):
@@ -53,7 +64,7 @@ def read(data_info, data_type, data_class, data_dir):
       b  = []
       time = []
 
-      file = data_info[data_type][data_class]['files'][0]
+      file = data_info['files'][0]
       file = os.path.join(data_dir, file)
       print(f"    Reading {file}")
       if not os.path.exists(file):
@@ -68,25 +79,55 @@ def read(data_info, data_type, data_class, data_dir):
 
       return numpy.array(time), numpy.array(b)
 
-  if data_type == 'mag' and data_class == 'calculated-swmf':
+  if data_type == 'mag' and data_class == 'calculated':
 
-    df = {}
-    for region in ["gap", "iono", "msph"]:
-      file = os.path.join(data_dir, data_info[data_type][data_class]['files'][region])
+    if data_subclass == 'swmf':
+      df = {}
+      for region in ["gap", "iono", "msph"]:
+        file = os.path.join(data_dir, data_info['files'][region])
+        print(f"    Reading {file}")
+        if not os.path.exists(file):
+          raise FileNotFoundError(f"File not found: {file}")
+        df[region]  = pandas.read_pickle(file)
+
+      bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
+      by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
+      bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
+
+      b = numpy.vstack([bx.to_numpy(), by.to_numpy(), bz.to_numpy()])
+      time = bx.keys() # Will be the same for all
+      time = time.to_pydatetime()
+
+      return time, b.T
+
+    if data_subclass == 'mage':
+      # TODO: A single file has data from all sites. Here we read full
+      # file and extract data for the requested site. Modify this code
+      # so sites dict is cached and used if found.
+      file = os.path.join(data_dir, data_info['files'][0])
       print(f"    Reading {file}")
       if not os.path.exists(file):
         raise FileNotFoundError(f"File not found: {file}")
-      df[region]  = pandas.read_pickle(file)
 
-    bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
-    by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
-    bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
+      sites = {}
+      with open(file,'r') as csvfile:
+        rows = csv.reader(csvfile, delimiter = ',')
+        next(rows)  # Skip header row.
+        for row in rows:
+          site = row[0]
+          if site not in sites:
+            sites[site] = {"time": [], "data": []}
+          sites[site]["time"].append(datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S'))
+          # TODO: Determine the coordinate system of the data.
+          #       Header is
+          #          site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
+          sites[site]["data"].append([float(row[2]), float(row[3]), float(row[4])])
 
-    b = numpy.vstack([bx.to_numpy(), by.to_numpy(), bz.to_numpy()])
-    time = bx.keys() # Will be the same for all
-    time = time.to_pydatetime()
+      site_requested = info[sid]['name']
+      if site_requested not in sites:
+        raise ValueError(f"Requested site name = '{site_requested}' associated with site id = '{sid}' not found in {file}")
 
-    return time, b.T
+      return numpy.array(sites[site_requested]["time"]), numpy.array(sites[site_requested]["data"])
 
 def resample(time, data, start, stop, freq, ave=None):
 
@@ -142,11 +183,22 @@ for sid in info.keys(): # site ids
 
     for data_class in data_classes: # e.g., measured, calculated
 
-      print(f"  Reading '{data_type}/{data_class}' data")
-      time, data_ = read(info[sid]['data'], data_type, data_class, data_dir)
-      print(f"    data.shape = {data_.shape}")
-      original = {'original': {'time': time, 'data': data_}}
-      data[sid][data_type][data_class] = original
+      if isinstance(info[sid]['data'][data_type][data_class], list):
+        data_subclasses = info[sid]['data'][data_type][data_class]
+        data[sid][data_type][data_class] = []
+        for data_subclass in data_subclasses:
+          model = data_subclass["model"]
+          print(f"  Reading '{data_type}/{data_class}/{model}' data")
+          time, data_ = read(info, sid, data_type, data_class, model, data_dir)
+          print(f"    data.shape = {data_.shape}")
+          original = {'original': {'time': time, 'data': data_}}
+          data[sid][data_type][data_class].append(original)
+      else:
+        print(f"  Reading '{data_type}/{data_class}' data")
+        time, data_ = read(info, sid, data_type, data_class, None, data_dir)
+        print(f"    data.shape = {data_.shape}")
+        original = {'original': {'time': time, 'data': data_}}
+        data[sid][data_type][data_class] = original
 
       if data_type == 'gic' and data_class == 'measured':
         # Resample to 1-min average.

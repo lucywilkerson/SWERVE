@@ -16,7 +16,7 @@ data_dir = os.path.join('..', '2024-AGU-data')
 sids = None # If none, plot all sites
 #sids = ['widowscreek']
 #sids = ['bullrun', 'widowscreek']
-#sids = ['bullrun']
+sids = ['bullrun']
 
 #%config InlineBackend.figure_formats = ['png']
 #try:
@@ -153,31 +153,43 @@ def compare_dB(info, data, sid):
 
   time_meas = data[sid]['mag']['measured']['modified']['time']
   data_meas = data[sid]['mag']['measured']['modified']['data']
-  time_calc = data[sid]['mag']['calculated-swmf']['original']['time']
-  data_calc = data[sid]['mag']['calculated-swmf']['original']['data']
-
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-  time_calc, data_calc = subset(time_calc, data_calc, start, stop)
-
   data_meas = numpy.linalg.norm(data_meas, axis=1)
-  data_calc = numpy.linalg.norm(data_calc, axis=1)
+
+  model_names = []
+  time_calcs = []
+  data_calcs = []
+  model_colors = ['b', 'g']
+  for idx, data_subclass in enumerate(info[sid]['data']['mag']['calculated']):
+    model_names.append(data_subclass["model"])
+    time_calc = data[sid]['mag']['calculated'][idx]['original']['time']
+    data_calc = data[sid]['mag']['calculated'][idx]['original']['data']
+    time_calc, data_calc = subset(time_calc, data_calc, start, stop)
+    data_calc = numpy.linalg.norm(data_calc[:,0:2], axis=1)
+    time_calcs.append(time_calc)
+    data_calcs.append(data_calc)
+
   plt.figure()
   plt.title(name)
   plt.plot(time_meas, data_meas, 'k', linewidth=1, label='Measured')
-  plt.plot(time_calc, data_calc, 'b', linewidth=1, label='SWMF')
-  plt.ylabel(r'$\Delta$B [nT]')
+  for idx in range(len(model_names)):
+    label = model_names[idx].upper()
+    plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
+  plt.ylabel(r'$\Delta B_H$ [nT]')
   datetick()
   plt.legend()
   plt.grid()
+
   ax = plt.gca()
-  ratio = 0.5
+  aspect_ratio = 0.5
   xleft, xright = ax.get_xlim()
   ybottom, ytop = ax.get_ylim()
-  ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*ratio)
+  ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
+
   savefig(sid, 'mag-timeseries-meas-calc', data_dir=data_dir)
 
 
-def plot_original(info, data, sid):
+def plot_original(info, data, sid, data_type, data_class, model):
 
   # Plot original data on separate figures
 
@@ -198,55 +210,56 @@ def plot_original(info, data, sid):
     datetick()
     plt.grid()
 
-  for data_type in info[sid]['data'].keys(): # e.g., gic, mag
-    for data_class in info[sid]['data'][data_type].keys(): # e.g., measured, calculated
+  #print(f"  {sid}/{data_type}/{data_class}")
+  title = f"{sid}/{data_type}/{data_class}"
+  mag_legend = ["$\\Delta B_x$", "$\\Delta B_y$", "$\\Delta B_z$"]
+  base_name = f'{data_type}-{data_class}'
+  if model is not None:
+    title = f"{title}/{model}"
+    base_name = f'{base_name}-{model}'
 
-      #print(f"  {sid}/{data_type}/{data_class}")
-      title = f"{sid}/{data_type}/{data_class}"
+  # Extract time and data arrays. "o" for original.
+  time_o = data['original']['time']
+  data_o = data['original']['data']
 
-      # Extract time and data arrays. "o" for original.
-      time_o = data[sid][data_type][data_class]['original']['time']
-      data_o = data[sid][data_type][data_class]['original']['data']
+  # Subset to desired time range
+  time_o, data_o = subset(time_o, data_o, start, stop)
 
-      # Subset to desired time range
-      time_o, data_o = subset(time_o, data_o, start, stop)
+  ylabel = None
+  if data_type == 'gic':
+    ylabel = 'GIC [A]'
 
-      ylabel = None
-      if data_type == 'gic':
-        ylabel = 'GIC [A]'
+  legend = None
+  if data_type == 'mag':
+    legend = mag_legend
+    ylabel = '[nT]'
 
-      legend = None
-      if data_type == 'mag':
-        legend = info[sid]['data'][data_type][data_class]['legend']
-        ylabel = '[nT]'
+  time_m, data_m = None, None
 
-      time_m, data_m = None, None
+  if data_type == 'gic' and data_class == 'measured':
+    time_m = data['modified']['time']
+    data_m = data['modified']['data']
+    time_m, data_m = subset(time_m, data_m, start, stop)
+    legend = ['1-sec orig', '1-min avg']
 
-      if data_type == 'gic' and data_class == 'measured':
-        time_m = data[sid][data_type][data_class]['modified']['time']
-        data_m = data[sid][data_type][data_class]['modified']['data']
-        time_m, data_m = subset(time_m, data_m, start, stop)
-        legend = ['1-sec orig', '1-min avg']
+  plt.figure()
+  plot(time_o, data_o, title, ylabel, legend, time_m, data_m)
+  savefig(sid, f'{base_name}', data_dir=data_dir)
 
-      plt.figure()
-      plot(time_o, data_o, title, ylabel, legend, time_m, data_m)
-      savefig(sid, f'{data_type}-{data_class}', data_dir=data_dir)
+  if data_type == 'mag' and data_class == 'measured':
 
-      if data_type == 'mag' and data_class == 'measured':
+    plt.figure()
+    time_m = data['modified']['time']
+    data_m = data['modified']['data']
+    time_m, data_m = subset(time_m, data_m, start, stop)
+    legend = mag_legend
+    ylabel = '[nT]'
+    title = f"{title} with mean removed"
 
-        plt.figure()
-        time_m = data[sid][data_type][data_class]['modified']['time']
-        data_m = data[sid][data_type][data_class]['modified']['data']
-        #import pdb; pdb.set_trace()
-        time_m, data_m = subset(time_m, data_m, start, stop)
-        legend = info[sid]['data'][data_type][data_class]['legend']
-        ylabel = '[nT]'
-        title = f"{title} with mean removed"
+    plot(time_m, data_m, title, ylabel, legend, None, None)
+    savefig(sid, f'{base_name}-modified', data_dir=data_dir)
 
-        plot(time_m, data_m, title, ylabel, legend, None, None)
-        savefig(sid, f'{data_type}-{data_class}-zero_mean', data_dir=data_dir)
-
-info, data = read(data_dir)
+info, data_all = read(data_dir)
 
 if sids is None:
   sids = info.keys()
@@ -255,12 +268,25 @@ for sid in sids: # site ids
   if sid not in info.keys():
     raise ValueError(f"Site '{sid}' not found in info.json")
 
-  mag_types = info[sid]['data']['mag'].keys()
-  if 'measured' in mag_types and 'calculated-swmf' in mag_types:
-    compare_dB(info, data, sid)
+  # Plot original and modified data
+  for data_type in info[sid]['data'].keys(): # e.g., gic, mag
+    for data_class in info[sid]['data'][data_type].keys(): # e.g., measured, calculated
+      data = data_all[sid][data_type][data_class]
+      if isinstance(data, list):
+        data_subclasses = info[sid]['data'][data_type][data_class]
+        for idx, data_subclass in enumerate(data_subclasses):
+          model = data_subclass["model"]
+          print(f"Plotting '{sid}/{data_type}/{data_class}/{model}'")
+          plot_original(info, data[idx], sid, data_type, data_class, model)
+      else:
+        print(f"Plotting '{sid}/{data_type}/{data_class}'")
+        plot_original(info, data, sid, data_type, data_class, None)
 
-  plot_original(info, data, sid)
+  # Special comparisons
+  mag_types = info[sid]['data']['mag'].keys()
+  if 'measured' in mag_types and 'calculated' in mag_types:
+    compare_dB(info, data_all, sid)
 
   gic_types = info[sid]['data']['gic'].keys()
   if 'measured' and 'calculated' in gic_types:
-    compare_gic(info, data, sid)
+    compare_gic(info, data_all, sid)

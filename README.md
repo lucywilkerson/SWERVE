@@ -12,3 +12,5 @@ python map.py
 python read.py
 python plot.py
 ```
+
+Note that data from MAGE is preliminary because don't have all the information needed to determine coordinate system of dB. See comment in `read.py`

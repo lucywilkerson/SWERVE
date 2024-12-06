@@ -9,7 +9,7 @@ install_requires = [
     ]
 
 setup(
-    name='gannon-data',
+    name='2024-AGU',
     version='0.0.1',
     author='Lucy Wilkerson, Bob Weigel',
     author_email='rweigel@gmu.edu',
