@@ -11,6 +11,7 @@ projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
 state = True # Show political boundaries
+patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
 
 def savefig(fname):
   print(f"Saving {fname}.png")
@@ -30,46 +31,53 @@ def add_features(ax, state):
     if state == True:
         ax.add_feature(cfeature.STATES, linewidth=0.5)
 
-def add_symbols(ax, coords, val, source, transform, markersize):
+def add_symbols(ax, coords, data_type, data_class, data_source, transform, markersize):
 
     for i in range(len(coords)):
-        coord=coords[i]
-        if source[i] == 'TVA':
-            mark='.'
-            if val[i] == 'GIC, predicted':
-                mark='^'
-        elif source[i] == 'NERC':
-            mark='+'
+        if data_source[i] == 'TVA':
+            marker = '.'
+            if data_type[i] == 'GIC' and data_class[i] == 'calculated':
+                marker = '^'
+        elif data_source[i] == 'NERC':
+            marker = '+'
         else:
             continue
-        if val[i] == 'GIC, measured':
-            col='b'
-            face='none'
-        elif val[i] == 'GIC, predicted':
-            col='c'
-            face='none'
-        elif val[i] == 'B, measured':
-            col='r'
-            face=col
-        else:
-            continue
-        ax.plot(coord[1], coord[0], mfc=face, marker=mark, color=col, markersize=markersize, transform=transform)
 
-name=[]
-coords=[]
-val=[]
-source=[]
-fname = os.path.join(data_dir, 'Data_Sources.csv')
+        if data_type[i] == 'GIC' and data_class[i] == 'measured':
+            color = 'b'
+            face = 'none'
+        elif data_type[i] == 'GIC' and data_class[i] == 'calculated':
+            color = 'c'
+            face = 'none'
+        elif data_type[i] == 'B' and data_class[i] == 'measured':
+            color = 'r'
+            face = color
+        else:
+            continue
+
+        ax.plot(coords[i][1], coords[i][0],
+                mfc=face, marker=marker, color=color,
+                markersize=markersize,
+                transform=transform)
+
+name = []
+coords = []
+data_type = []
+data_class  = []
+data_source = []
+
+fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 with open(fname, 'r') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     header = next(plots)
     #print(header)
     for row in plots:
-        name.append(row[0]) #adding to name array
-        coords.append((float(row[1]),float(row[2]))) #adding to coordinate array
-        val.append(row[3]) #adding to value type array
-        source.append(row[4]) #adding to data source array
+        name.append(row[0])
+        coords.append((float(row[1]), float(row[2])))
+        data_type.append(row[3])
+        data_class.append(row[4])
+        data_source.append(row[5])
         #print(', '.join(row))
 
 # Create a figure and axes with a specific projection
@@ -80,10 +88,10 @@ add_features(ax, state)
 # Set the extent of the map (USA)
 ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
 
-add_symbols(ax, coords, val, source, transform, 5)
+add_symbols(ax, coords, data_type, data_class, data_source, transform, 5)
 
 # TVA region
-ax.add_patch(patches.Rectangle([-91, 33], 9, 5, fc='lightyellow', ec='g', transform=transform))
+ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
 fname = os.path.join(data_dir, 'map', 'map')
 savefig(fname)
 
@@ -93,9 +101,9 @@ fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
 # Set the extent of the map (TVA)
 ax.set_extent([-91, -82, 33, 38], crs=crs)
 
-add_symbols(ax, coords, val, source, transform, 13)
+add_symbols(ax, coords, data_type, data_class, data_source, transform, 13)
 
-ax.add_patch(patches.Rectangle([-91, 33], 9, 5, fc='lightyellow', ec='g', transform=transform))
+ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
 add_features(ax, state)
 
 fname = os.path.join(data_dir, 'map', 'map_zoom_tva')

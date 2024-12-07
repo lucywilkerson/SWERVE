@@ -8,6 +8,7 @@ git clone https://github.com/lucywilkerson/2024-AGU
 cd 2024-AGU
 pip install -e .
 
+python info.py # Creates info/info_data.json and info/info_locations.json
 python map.py
 python read.py
 python plot.py

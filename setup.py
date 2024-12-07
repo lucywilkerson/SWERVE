@@ -14,7 +14,7 @@ setup(
     author='Lucy Wilkerson, Bob Weigel',
     author_email='rweigel@gmu.edu',
     packages=find_packages(),
-    description='Data for the May, 2024 geomagnetic storm',
+    description='Process data for the May, 2024 geomagnetic storm',
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     install_requires=install_requires,

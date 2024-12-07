@@ -10,81 +10,81 @@ data_dir = os.path.join('..', '2024-AGU-data')
 
 def read(info, sid, data_type, data_class, data_subclass, data_dir):
 
-  data_info = info[sid]['data'][data_type][data_class]
+  if data_type == 'GIC' and data_class == 'measured':
+    data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-measured')
+    sid = sid.lower().replace(' ','')
+    if sid == 'widowscreek':
+      sid = f'{sid}2'
+    fname = f'gic-{sid}_20240510.csv'
+    file = os.path.join(data_dir, fname)
+    data = []
+    time = []
+    print(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
+    with open(file,'r') as csvfile:
+      rows = csv.reader(csvfile, delimiter = ',')
+      for row in rows:
+          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+          data.append(float(row[1]))
 
-  if data_subclass is None:
-    data_dir = os.path.join(data_dir, data_info['dir'])
-  else:
-    for idx, subclass in enumerate(data_info):
-      # Loop through array of objects.
-      if subclass['model'] == data_subclass:
-        data_info = data_info[idx]
-        break
-    data_dir = os.path.join(data_dir, data_info['dir'])
+    return numpy.array(time), numpy.array(data)
 
-  if data_type == 'gic' and data_class == 'measured':
-    files = data_info['files']
-    if files[0].endswith('.csv'):
-      data = []
-      time = []
-      for file in files:
-        file = os.path.join(data_dir, file)
-        print(f"    Reading {file}")
-        if not os.path.exists(file):
-          raise FileNotFoundError(f"File not found: {file}")
-        with open(file,'r') as csvfile:
-          rows = csv.reader(csvfile, delimiter = ',')
-          for row in rows:
-              time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-              data.append(float(row[1]))
+  if data_type == 'GIC' and data_class == 'calculated':
+    data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-calculated')
+    sid = sid.replace(' ','')
+    if sid == 'BullRun':
+      sid = 'BullRunXfrm' # BullRun file Xfrm appended to name in file name.
+    if sid == 'WidowsCreek':
+      sid = f'{sid}2'
 
-      return numpy.array(time), numpy.array(data)
-
-  if data_type == 'gic' and data_class == 'calculated':
-    files = data_info['files']
-    starts = data_info['start']
+    dates = ['20240510', '20240511', '20240512']
     time = []
     data = []
-    for idx, file in enumerate(files):
-      start = starts[idx]
-      dto = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
+    for date in dates:
+      file = f'{date}_{sid}GIC.dat'
       file = os.path.join(data_dir, file)
       print(f"    Reading {file}")
       if not os.path.exists(file):
         raise FileNotFoundError(f"File not found: {file}")
       d, times = numpy.loadtxt(file, unpack=True, skiprows=1, delimiter=',')
       data.append(d)
+      dto = datetime.datetime.strptime(date, '%Y%m%d')
       for t in times:
         time.append(dto + datetime.timedelta(seconds=t))
 
     return numpy.array(time).flatten(), numpy.array(data).flatten()
 
-  if data_type == 'mag' and data_class == 'measured':
+  if data_type == 'B' and data_class == 'measured':
+    data_dir = os.path.join(data_dir, 'tva', 'mag')
+    sid = sid.lower().replace(' ','')
 
-      b  = []
-      time = []
+    b  = []
+    time = []
 
-      file = data_info['files'][0]
-      file = os.path.join(data_dir, file)
-      print(f"    Reading {file}")
-      if not os.path.exists(file):
-        raise FileNotFoundError(f"File not found: {file}")
+    file = os.path.join(data_dir, f'{sid}_mag_20240509.csv')
+    print(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
 
-      with open(file,'r') as csvfile:
-        rows = csv.reader(csvfile, delimiter = ',')
-        next(rows)  # Skip header row.
-        for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-          b.append([float(row[1]), float(row[2]), float(row[3])])
+    with open(file,'r') as csvfile:
+      rows = csv.reader(csvfile, delimiter = ',')
+      next(rows)  # Skip header row.
+      for row in rows:
+        time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+        b.append([float(row[1]), float(row[2]), float(row[3])])
 
-      return numpy.array(time), numpy.array(b)
+    return numpy.array(time), numpy.array(b)
 
-  if data_type == 'mag' and data_class == 'calculated':
+  if data_type == 'B' and data_class == 'calculated':
 
-    if data_subclass == 'swmf':
+    if data_subclass == 'SWMF':
+      sid = sid.replace(' ','')
+      data_dir = os.path.join(data_dir, 'swmf', sid.lower())
+
       df = {}
       for region in ["gap", "iono", "msph"]:
-        file = os.path.join(data_dir, data_info['files'][region])
+        file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
         print(f"    Reading {file}")
         if not os.path.exists(file):
           raise FileNotFoundError(f"File not found: {file}")
@@ -100,11 +100,11 @@ def read(info, sid, data_type, data_class, data_subclass, data_dir):
 
       return time, b.T
 
-    if data_subclass == 'mage':
+    if data_subclass == 'MAGE':
       # TODO: A single file has data from all sites. Here we read full
       # file and extract data for the requested site. Modify this code
       # so sites dict is cached and used if found.
-      file = os.path.join(data_dir, data_info['files'][0])
+      file = os.path.join(data_dir, 'mage', 'TVAinterpdf.csv')
       print(f"    Reading {file}")
       if not os.path.exists(file):
         raise FileNotFoundError(f"File not found: {file}")
@@ -121,13 +121,20 @@ def read(info, sid, data_type, data_class, data_subclass, data_dir):
           # TODO: Determine the coordinate system of the data.
           #       Header is
           #          site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
+          # From Mike Wiltberger:
+          # As a reminder I will point you to our documentation for the kaipy package which includes information on the structure of SuperMAGE interpolated dataframe  Here's the summary from that documentation.
+          # - dBn: Interpolated northward deflection (dot product of dB and minus the theta unit vector)
+          # - dBt: Interpolated magnetic theta component.
+          # - dBp: Interpolated magnetic phi component.
+          # - dBr: Interpolated magnetic radial component
+          # It doesn't help that we didn't use a consistent naming convention with the SuperMAG data.
+          # Here's the relevant mapping BNm - dBt, BEm - dBp, and BZm - dBr. I've attached a reference plot as an example to this message.
           sites[site]["data"].append([float(row[2]), float(row[3]), float(row[4])])
 
-      site_requested = info[sid]['name']
-      if site_requested not in sites:
-        raise ValueError(f"Requested site name = '{site_requested}' associated with site id = '{sid}' not found in {file}")
+      if sid not in sites:
+        raise ValueError(f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}")
 
-      return numpy.array(sites[site_requested]["time"]), numpy.array(sites[site_requested]["data"])
+      return numpy.array(sites[sid]["time"]), numpy.array(sites[sid]["data"])
 
 def resample(time, data, start, stop, freq, ave=None):
 
@@ -162,7 +169,7 @@ def resample(time, data, start, stop, freq, ave=None):
   return df.index.to_pydatetime(), data
 
 
-fname = os.path.join(data_dir, 'info.json')
+fname = os.path.join('info', 'info_data.json')
 with open(fname, 'r') as f:
   print(f"Reading {fname}\n")
   info = json.load(f)
@@ -171,25 +178,28 @@ start = datetime.datetime(2024, 5, 10, 0, 0)
 stop = datetime.datetime(2024, 5, 13, 0, 0)
 
 data = {}
-for sid in info.keys(): # site ids
+sids = info.keys()
+sids = ['Union', 'Montgomery', 'Widows Creek', 'Bull Run']
+
+for sid in sids: # site ids
   data[sid] = {}
+
   print(f"Reading '{sid}' data")
-  data_types = info[sid]['data'].keys()
+  data_types = info[sid].keys()
 
   for data_type in data_types: # e.g., gic, mag
 
     data[sid][data_type] = {}
-    data_classes = info[sid]['data'][data_type].keys()
+    data_classes = info[sid][data_type].keys()
 
     for data_class in data_classes: # e.g., measured, calculated
 
-      if isinstance(info[sid]['data'][data_type][data_class], list):
-        data_subclasses = info[sid]['data'][data_type][data_class]
+      if isinstance(info[sid][data_type][data_class], list):
+        data_subclasses = info[sid][data_type][data_class]
         data[sid][data_type][data_class] = []
         for data_subclass in data_subclasses:
-          model = data_subclass["model"]
-          print(f"  Reading '{data_type}/{data_class}/{model}' data")
-          time, data_ = read(info, sid, data_type, data_class, model, data_dir)
+          print(f"  Reading '{data_type}/{data_class}/{data_subclass}' data")
+          time, data_ = read(info, sid, data_type, data_class, data_subclass, data_dir)
           print(f"    data.shape = {data_.shape}")
           original = {'original': {'time': time, 'data': data_}}
           data[sid][data_type][data_class].append(original)
@@ -200,7 +210,7 @@ for sid in info.keys(): # site ids
         original = {'original': {'time': time, 'data': data_}}
         data[sid][data_type][data_class] = original
 
-      if data_type == 'gic' and data_class == 'measured':
+      if data_type == 'GIC' and data_class == 'measured':
         # Resample to 1-min average.
         print("    Averaging timeseries to 1-min bins")
         time, data_ = resample(time, data_, start, stop, 's', ave=60)
@@ -208,7 +218,7 @@ for sid in info.keys(): # site ids
         modified = {'time': time, 'data': data_, 'modification': '1-min average'}
         data[sid][data_type][data_class]['modified'] = modified
 
-      if data_type == 'mag' and data_class == 'measured':
+      if data_type == 'B' and data_class == 'measured':
         # Remove mean
         print("    Creating timeseries with mean removed")
         data_m = numpy.full(data_.shape, numpy.nan)
