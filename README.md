@@ -1,7 +1,7 @@
 # 2024-AGU
 
 ```
-# Send request to lucywilkerson for access 2024-AGU-data repo
+# Send request to Lucy Wilkerson <lwilker@gmu.edu> for access 2024-AGU-data repo
 # (it contains NERC data, which is not open)
 git clone https://github.com/lucywilkerson/2024-AGU-data
 git clone https://github.com/lucywilkerson/2024-AGU
