@@ -42,7 +42,10 @@ with open(os.path.join('info','info.csv'), 'r') as f:
   locations = {}
   head = next(rows)
   for row in rows:
-    site, geo_lat, geo_lon, parameter, method, source, error = row
+    # data_type = GIC, B
+    # data_class = measured, calculated
+    # data_source = TVA, MAGE, SWMF
+    site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
     if error != "":
       print(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")
       continue
@@ -51,15 +54,12 @@ with open(os.path.join('info','info.csv'), 'r') as f:
 
     if site not in sites:
       sites[site] = {}
-    if parameter not in sites[site]:
-      sites[site][parameter] = {}
-    if method not in sites[site][parameter]:
-      sites[site][parameter][method] = source
+    if data_type not in sites[site]: # e.g., GIC, B
+      sites[site][data_type] = {}
+    if data_class not in sites[site][data_type]:
+      sites[site][data_type][data_class] = [data_source]
     else:
-      if isinstance(sites[site][parameter][method], list):
-        sites[site][parameter][method].append(source)
-      else:
-        sites[site][parameter][method] = [sites[site][parameter][method], source]
+      sites[site][data_type][data_class].append(data_source)
 
 print("Writing info/info_data.json")
 with open(os.path.join('info','info_data.json'), 'w') as f:

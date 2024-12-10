@@ -1,2076 +1,2908 @@
 {
   "10052": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10064": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10065": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10066": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10067": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10068": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10069": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10071": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10072": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10073": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10074": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10075": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10076": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10094": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10095": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10096": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10097": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10098": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10099": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10100": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10103": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10222": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10223": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10224": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10229": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10232": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10233": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10237": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10238": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10239": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10253": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10254": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10255": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10265": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10266": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10297": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10298": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10299": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10300": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10301": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10302": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10303": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10304": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10306": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10307": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10308": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10309": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10310": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10311": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10312": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10313": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10314": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10315": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10316": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10317": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10318": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10321": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10322": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10336": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10338": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10339": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10340": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10341": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10342": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10343": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10344": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10345": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10347": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10348": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10349": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10350": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10351": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10352": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10353": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10354": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10355": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10356": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10357": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10358": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10389": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10397": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10398": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10586": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10587": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10591": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10592": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10603": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10605": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10606": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10607": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10608": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10609": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10611": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10612": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10613": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10614": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10615": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10616": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10617": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10618": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10619": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10620": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10621": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10622": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10623": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10642": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10643": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10644": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10664": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10665": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10701": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10707": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10708": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10051": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10063": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10077": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10078": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10079": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10080": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10082": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10083": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10084": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10085": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10102": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10107": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10111": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10112": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10113": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10114": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10115": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10116": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10117": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10118": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10119": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10120": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10121": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10230": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10231": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10234": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10235": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10236": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10240": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10257": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10258": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10259": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10260": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10261": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10262": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10263": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10264": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10291": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10292": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10293": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10294": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10295": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10296": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10333": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10334": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10335": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10346": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10359": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10360": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10361": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10362": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10363": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10364": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10399": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10400": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10401": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10402": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10403": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10404": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10405": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10406": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10407": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10409": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10410": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10411": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10412": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10413": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10414": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10415": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10416": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10418": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10420": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10421": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10425": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10426": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10427": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10428": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10429": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10438": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10441": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10442": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10445": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10446": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10447": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10448": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10449": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10584": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10585": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10588": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10589": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10593": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10628": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10635": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10636": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10637": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10648": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10649": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10658": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10659": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10674": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10675": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10676": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10677": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10678": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10694": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10702": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10646": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10647": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10660": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10661": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10691": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10692": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10693": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10696": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10697": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10698": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10699": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10700": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10086": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10087": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10088": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10089": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10090": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10091": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10180": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10181": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10182": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10184": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10185": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10186": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10187": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10191": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10193": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10194": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10195": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10196": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10197": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10199": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10200": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10201": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10202": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10203": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10204": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10205": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10207": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10208": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10209": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10211": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10212": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10219": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10220": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10248": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10249": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10250": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10251": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10252": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10287": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10290": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10325": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10367": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10368": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10369": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10372": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10373": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10374": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10376": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10377": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10378": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10379": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10380": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10381": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10382": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10383": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10385": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10386": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10387": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10388": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10430": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10431": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10432": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10433": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10434": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10435": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10436": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10450": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10453": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10454": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10455": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10456": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10458": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10460": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10461": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10462": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10463": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10464": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10467": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10468": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10469": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10470": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10471": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10473": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10474": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10475": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10476": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10477": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10478": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10480": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10481": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10482": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10483": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10484": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10485": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10487": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10489": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10490": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10492": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10493": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10494": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10495": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10496": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10497": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10498": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10499": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10500": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10502": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10503": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10504": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10506": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10507": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10509": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10511": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10512": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10513": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10515": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10516": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10517": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10518": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10519": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10520": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10521": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10524": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10525": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10527": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10528": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10529": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10530": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10531": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10532": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10534": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10537": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10538": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10539": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10541": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10542": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10545": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10546": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10547": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10548": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10549": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10550": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10551": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10552": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10554": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10557": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10558": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10559": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10560": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10561": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10563": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10564": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10565": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10567": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10568": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10569": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10570": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10572": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10573": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10574": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10575": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10576": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10577": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10578": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "10581": {
     "GIC": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50100": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50127": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50112": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50131": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50132": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50103": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50104": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50109": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50115": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50116": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50117": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50118": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50119": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50120": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "50122": {
     "B": {
-      "measured": "NERC"
+      "measured": [
+        "NERC"
+      ]
     }
   },
   "Ackerman": {
     "B": {
-      "measured": ""
+      "measured": [
+        ""
+      ]
     }
   },
   "Bradley": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Bull Run": {
     "GIC": {
-      "calculated": "TVA",
-      "measured": "TVA"
+      "calculated": [
+        "TVA"
+      ],
+      "measured": [
+        "TVA"
+      ]
     },
     "B": {
-      "measured": "TVA",
+      "measured": [
+        "TVA"
+      ],
       "calculated": [
         "SWMF",
         "MAGE"
@@ -2079,28 +2911,40 @@
   },
   "East Point": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Gleason": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Johnsonville": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Lagoon Creek": {
     "B": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Montgomery": {
     "GIC": {
-      "measured": "TVA",
-      "calculated": "TVA"
+      "measured": [
+        "TVA"
+      ],
+      "calculated": [
+        "TVA"
+      ]
     },
     "B": {
       "calculated": [
@@ -2111,59 +2955,85 @@
   },
   "Paradise 2": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Paradise 3": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Paradise": {
     "B": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Pinhook": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Raccoon Mountain": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     },
     "B": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Rutherford": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Shelby": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Southaven": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Sullivan": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Union": {
     "GIC": {
-      "measured": "TVA",
-      "calculated": "TVA"
+      "measured": [
+        "TVA"
+      ],
+      "calculated": [
+        "TVA"
+      ]
     },
     "B": {
-      "measured": "TVA",
+      "measured": [
+        "TVA"
+      ],
       "calculated": [
         "SWMF",
         "MAGE"
@@ -2172,18 +3042,26 @@
   },
   "Watts Bar": {
     "B": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Weakley": {
     "GIC": {
-      "measured": "TVA"
+      "measured": [
+        "TVA"
+      ]
     }
   },
   "Widows Creek": {
     "GIC": {
-      "measured": "TVA",
-      "calculated": "TVA"
+      "measured": [
+        "TVA"
+      ],
+      "calculated": [
+        "TVA"
+      ]
     },
     "B": {
       "calculated": [

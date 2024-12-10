@@ -8,29 +8,74 @@ import datetime
 
 data_dir = os.path.join('..', '2024-AGU-data')
 
-def read(info, sid, data_type, data_class, data_subclass, data_dir):
+def read_nerc(data_dir, fname):
+  data = []
+  time = []
 
-  if data_type == 'GIC' and data_class == 'measured':
+  file = os.path.join(data_dir, fname)
+  print(f"    Reading {file}")
+  if not os.path.exists(file):
+    raise FileNotFoundError(f"File not found: {file}")
+  with open(file, 'r') as csvfile:
+    rows = csv.reader(csvfile, delimiter=',')
+    next(rows)  # Skip header row.
+    device_id_last = None
+    for row in rows:
+      device_id = row[0]
+      if device_id != device_id_last:
+        if device_id_last is not None:
+          raise ValueError(f"Multiple device ids found in {file}")
+        device_id_last = device_id
+      time_p = datetime.datetime.strptime(row[1], '%m/%d/%Y %I:%M:%S %p')
+      time.append(time_p)
+      cols = []
+      for i in range(2, len(row)):
+        cols.append(float(row[i]))
+      data.append(cols)
+
+  # Print duplicate times
+  time = numpy.array(time)
+  # e.g., 2024E04_10233.csv, which looks like it is 10-second cadence data
+  # but time stamps have the same second value.
+  if len(time) != len(numpy.unique(time)):
+    print("    Error: duplicate time stamps found")
+    return None
+    #print(time[numpy.where(numpy.diff(time) == datetime.timedelta(0))])
+
+  data = numpy.array(data)
+  if data.shape[1] == 1:
+    data = data.flatten()
+
+  return {"time": numpy.array(time).flatten(), "data": data}
+
+def read(info, sid, data_type, data_class, data_source, data_dir):
+
+  data = []
+  time = []
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-measured')
     sid = sid.lower().replace(' ','')
     if sid == 'widowscreek':
       sid = f'{sid}2'
     fname = f'gic-{sid}_20240510.csv'
     file = os.path.join(data_dir, fname)
-    data = []
-    time = []
     print(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
-    with open(file,'r') as csvfile:
-      rows = csv.reader(csvfile, delimiter = ',')
+    with open(file, 'r') as csvfile:
+      rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
           time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
           data.append(float(row[1]))
 
-    return numpy.array(time), numpy.array(data)
+    return {"time": numpy.array(time).flatten(), "data": numpy.array(data).flatten()}
 
-  if data_type == 'GIC' and data_class == 'calculated':
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'NERC':
+    fname = f'2024E04_{sid}.csv'
+    data_dir = os.path.join(data_dir, 'nerc', 'gic')
+    return read_nerc(data_dir, fname)
+
+  if data_type == 'GIC' and data_class == 'calculated' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-calculated')
     sid = sid.replace(' ','')
     if sid == 'BullRun':
@@ -53,13 +98,13 @@ def read(info, sid, data_type, data_class, data_subclass, data_dir):
       for t in times:
         time.append(dto + datetime.timedelta(seconds=t))
 
-    return numpy.array(time).flatten(), numpy.array(data).flatten()
+    return {"time": numpy.array(time).flatten(), "data": numpy.array(data).flatten()}
 
-  if data_type == 'B' and data_class == 'measured':
+  if data_type == 'B' and data_class == 'measured' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'mag')
     sid = sid.lower().replace(' ','')
 
-    b  = []
+    data  = []
     time = []
 
     file = os.path.join(data_dir, f'{sid}_mag_20240509.csv')
@@ -72,69 +117,80 @@ def read(info, sid, data_type, data_class, data_subclass, data_dir):
       next(rows)  # Skip header row.
       for row in rows:
         time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-        b.append([float(row[1]), float(row[2]), float(row[3])])
+        data.append([float(row[1]), float(row[2]), float(row[3])])
 
-    return numpy.array(time), numpy.array(b)
+    data = numpy.array(data)
+    time = numpy.array(time)
+    return {"time": time, "data": data}
 
-  if data_type == 'B' and data_class == 'calculated':
+  if data_type == 'B' and data_class == 'measured' and data_source == 'NERC':
+    fname = f'2024E04_{sid}.csv'
+    data_dir = os.path.join(data_dir, 'nerc', 'mag')
+    return read_nerc(data_dir, fname)
 
-    if data_subclass == 'SWMF':
-      sid = sid.replace(' ','')
-      data_dir = os.path.join(data_dir, 'swmf', sid.lower())
+  if data_type == 'B' and data_class == 'calculated' and data_source == 'SWMF':
 
-      df = {}
-      for region in ["gap", "iono", "msph"]:
-        file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
-        print(f"    Reading {file}")
-        if not os.path.exists(file):
-          raise FileNotFoundError(f"File not found: {file}")
-        df[region]  = pandas.read_pickle(file)
+    sid = sid.replace(' ','')
+    data_dir = os.path.join(data_dir, 'swmf', sid.lower())
 
-      bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
-      by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
-      bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
-
-      b = numpy.vstack([bx.to_numpy(), by.to_numpy(), bz.to_numpy()])
-      time = bx.keys() # Will be the same for all
-      time = time.to_pydatetime()
-
-      return time, b.T
-
-    if data_subclass == 'MAGE':
-      # TODO: A single file has data from all sites. Here we read full
-      # file and extract data for the requested site. Modify this code
-      # so sites dict is cached and used if found.
-      file = os.path.join(data_dir, 'mage', 'TVAinterpdf.csv')
+    df = {}
+    for region in ["gap", "iono", "msph"]:
+      file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
       print(f"    Reading {file}")
       if not os.path.exists(file):
         raise FileNotFoundError(f"File not found: {file}")
+      df[region]  = pandas.read_pickle(file)
 
-      sites = {}
-      with open(file,'r') as csvfile:
-        rows = csv.reader(csvfile, delimiter = ',')
-        next(rows)  # Skip header row.
-        for row in rows:
-          site = row[0]
-          if site not in sites:
-            sites[site] = {"time": [], "data": []}
-          sites[site]["time"].append(datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S'))
-          # TODO: Determine the coordinate system of the data.
-          #       Header is
-          #          site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
-          # From Mike Wiltberger:
-          # As a reminder I will point you to our documentation for the kaipy package which includes information on the structure of SuperMAGE interpolated dataframe  Here's the summary from that documentation.
-          # - dBn: Interpolated northward deflection (dot product of dB and minus the theta unit vector)
-          # - dBt: Interpolated magnetic theta component.
-          # - dBp: Interpolated magnetic phi component.
-          # - dBr: Interpolated magnetic radial component
-          # It doesn't help that we didn't use a consistent naming convention with the SuperMAG data.
-          # Here's the relevant mapping BNm - dBt, BEm - dBp, and BZm - dBr. I've attached a reference plot as an example to this message.
-          sites[site]["data"].append([float(row[2]), float(row[3]), float(row[4])])
+    bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
+    by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
+    bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
 
-      if sid not in sites:
-        raise ValueError(f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}")
 
-      return numpy.array(sites[sid]["time"]), numpy.array(sites[sid]["data"])
+    data = numpy.vstack([bx.to_numpy(), by.to_numpy(), bz.to_numpy()])
+    time = bx.keys() # Will be the same for all
+    time = time.to_pydatetime()
+
+    return {"time": time, "data": data.T}
+
+  if data_type == 'B' and data_class == 'calculated' and data_source == 'MAGE':
+    # TODO: A single file has data from all sites. Here we read full
+    # file and extract data for the requested site. Modify this code
+    # so sites dict is cached and used if found.
+    file = os.path.join(data_dir, 'mage', 'TVAinterpdf.csv')
+    print(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
+
+    sites = {}
+    with open(file,'r') as csvfile:
+      rows = csv.reader(csvfile, delimiter = ',')
+      next(rows)  # Skip header row.
+      for row in rows:
+        site = row[0]
+        if site not in sites:
+          sites[site] = {"time": [], "data": []}
+        sites[site]["time"].append(datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S'))
+        # Header is
+        # site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
+        # From Mike Wiltberger:
+        # As a reminder I will point you to our documentation for the kaipy package which
+        # includes information on the structure of SuperMAGE interpolated dataframe.
+        # Here's the summary from that documentation.
+        # - dBn: Interpolated northward deflection (dot product of dB and minus the theta unit vector)
+        # - dBt: Interpolated magnetic theta component.
+        # - dBp: Interpolated magnetic phi component.
+        # - dBr: Interpolated magnetic radial component
+        # It doesn't help that we didn't use a consistent naming convention with the SuperMAG data.
+        # Here's the relevant mapping BNm - dBt, BEm - dBp, and BZm - dBr.
+        # I've attached a reference plot as an example to this message.
+        sites[site]["data"].append([float(row[2]), float(row[3]), float(row[4]), float(row[5])])
+
+    if sid not in sites:
+      raise ValueError(f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}")
+
+    time = numpy.array(sites[sid]["time"])
+    data = numpy.array(sites[sid]["data"])
+    return {"time": time, "data": data}
 
 def resample(time, data, start, stop, freq, ave=None):
 
@@ -166,7 +222,7 @@ def resample(time, data, start, stop, freq, ave=None):
   # If data.shape is (n, m), return a 2D array.
   if nd == 1: # (n, ) case
     data = data.flatten()
-  return df.index.to_pydatetime(), data
+  return {"time": df.index.to_pydatetime(), "data": data}
 
 
 fname = os.path.join('info', 'info_data.json')
@@ -179,7 +235,10 @@ stop = datetime.datetime(2024, 5, 13, 0, 0)
 
 data = {}
 sids = info.keys()
-sids = ['Union', 'Montgomery', 'Widows Creek', 'Bull Run']
+#sids = ['Union', 'Montgomery', 'Widows Creek', 'Bull Run']
+#sids = ['10052']
+#sids = ['Bull Run', '10052', '50100']
+#sids = ['10233']
 
 for sid in sids: # site ids
   data[sid] = {}
@@ -187,48 +246,56 @@ for sid in sids: # site ids
   print(f"Reading '{sid}' data")
   data_types = info[sid].keys()
 
-  for data_type in data_types: # e.g., gic, mag
+  for data_type in data_types: # e.g., GIC, B
 
     data[sid][data_type] = {}
     data_classes = info[sid][data_type].keys()
 
     for data_class in data_classes: # e.g., measured, calculated
 
-      if isinstance(info[sid][data_type][data_class], list):
-        data_subclasses = info[sid][data_type][data_class]
-        data[sid][data_type][data_class] = []
-        for data_subclass in data_subclasses:
-          print(f"  Reading '{data_type}/{data_class}/{data_subclass}' data")
-          time, data_ = read(info, sid, data_type, data_class, data_subclass, data_dir)
-          print(f"    data.shape = {data_.shape}")
-          original = {'original': {'time': time, 'data': data_}}
-          data[sid][data_type][data_class].append(original)
-      else:
-        print(f"  Reading '{data_type}/{data_class}' data")
-        time, data_ = read(info, sid, data_type, data_class, None, data_dir)
-        print(f"    data.shape = {data_.shape}")
-        original = {'original': {'time': time, 'data': data_}}
-        data[sid][data_type][data_class] = original
+      data_sources = info[sid][data_type][data_class]
+      data[sid][data_type][data_class] = []
+      for data_source in data_sources:
+        print(f"  Reading '{data_type}/{data_class}/{data_source}' data")
+        d = read(info, sid, data_type, data_class, data_source, data_dir)
+        if d is None:
+          print("    Skipping")
+          data[sid][data_type][data_class].append(None)
+          continue
+        print(f"    data.shape = {d["data"].shape}")
+        original = {'original': d}
+        data[sid][data_type][data_class].append(original)
 
-      if data_type == 'GIC' and data_class == 'measured':
-        # Resample to 1-min average.
-        print("    Averaging timeseries to 1-min bins")
-        time, data_ = resample(time, data_, start, stop, 's', ave=60)
-        print(f"    data.shape = {data_.shape}")
-        modified = {'time': time, 'data': data_, 'modification': '1-min average'}
-        data[sid][data_type][data_class]['modified'] = modified
+        if data_type == 'GIC' and data_class == 'measured':
+          # Resample to 1-min average.
+          print("    Averaging timeseries to 1-min bins")
+          d = resample(d["time"], d["data"], start, stop, 's', ave=60)
+          print(f"    data.shape = {d["data"].shape}")
+          modified = {**d, 'modification': '1-min average'}
+          # Assumes only one data source.
+          data[sid][data_type][data_class][0]['modified'] = modified
 
-      if data_type == 'B' and data_class == 'measured':
-        # Remove mean
-        print("    Creating timeseries with mean removed")
-        data_m = numpy.full(data_.shape, numpy.nan)
-        for i in range(3):
-          #numpy.nanmean(data_[:,i])
-          # TODO: Get IGRF value 
-          data_m[:,i] = data_[:,i] - data_[0,i]
-        print(f"    data.shape = {data_.shape}")
-        modified = {'time': time, 'data': data_m, 'modification': 'mean removed'}
-        data[sid][data_type][data_class]['modified'] = modified
+        if data_type == 'B' and data_class == 'measured':
+          # Remove mean
+          print("    Creating timeseries with mean removed")
+          data_m = numpy.full(d["data"].shape, numpy.nan)
+          for i in range(3):
+            # TODO: Get IGRF value
+            data_m[:,i] = d["data"][:,i] - d["data"][0,i]
+          print(f"    data.shape = {d["data"].shape}")
+          modified = {'time': d["time"], 'data': data_m, 'modification': 'mean removed'}
+          # Assumes only one data source.
+          data[sid][data_type][data_class][0]['modified'] = modified
+
+        sidx = sid.lower().replace(' ', '')
+        fname = f'{data_type}_{data_class}_{data_source}.pkl'
+        fname = os.path.join(data_dir, 'processed', sidx, fname)
+        if not os.path.exists(os.path.dirname(fname)):
+          os.makedirs(os.path.dirname(fname))
+
+        with open(fname, 'wb') as f:
+          print(f"    Writing {fname}")
+          pickle.dump(data[sid][data_type][data_class], f)
 
 fname = os.path.join(data_dir, 'data.pkl')
 print(f"\nWriting {fname}")

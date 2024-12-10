@@ -14,18 +14,14 @@ plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-AGU-data')
 sids = None # If none, plot all sites
-sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
-
-#%config InlineBackend.figure_formats = ['png']
-#try:
-  #%config InlineBackend.figure_formats = ['svg']
-#except:
-#  pass
+#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
+#sids = ['Bull Run']
+#sids = ['50100']
+#sids = ['Bull Run', '10052', '50100']
+#sids = ['10233']
 
 start = datetime.datetime(2024, 5, 10, 12, 0)
 stop = datetime.datetime(2024, 5, 13, 0, 0)
-#start = datetime.datetime(2024, 5, 10, 17, 0)
-#stop = datetime.datetime(2024, 5, 10, 17, 2)
 
 def read(data_dir, sid=None):
   fname = os.path.join('info', 'info_data.json')
@@ -33,12 +29,17 @@ def read(data_dir, sid=None):
     print(f"Reading {fname}")
     info = json.load(f)
 
+  fname = os.path.join('info', 'plot.json')
+  with open(fname, 'r') as f:
+    print(f"Reading {fname}")
+    plot_cfg = json.load(f)
+
   fname = os.path.join(data_dir, 'data.pkl')
   print(f"Reading {fname}")
   with open(fname, 'rb') as f:
     data = pickle.load(f)
 
-  return info, data
+  return info, data, plot_cfg
 
 def subset(time, data, start, stop):
   idx = numpy.logical_and(time >= start, time <= stop)
@@ -46,22 +47,22 @@ def subset(time, data, start, stop):
     return time[idx], data[idx]
   return time[idx], data[idx,:]
 
-def savefig(sid, fname, data_dir=".", fmts=['png']):
-  fdir = os.path.join(data_dir, 'processed', sid.lower().replace(' ', ''))
+def savefig(sid, fname, sub_dir="", fmts=['png']):
+  fdir = os.path.join(data_dir, 'processed', sid.lower().replace(' ', ''), sub_dir)
   if not os.path.exists(fdir):
     os.makedirs(fdir)
   fname = os.path.join(fdir, fname)
 
   for fmt in fmts:
-    print(f"Saving {fname}.{fmt}")
+    print(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def compare_gic(info, data, sid):
 
-  time_meas = data[sid]['GIC']['measured']['modified']['time']
-  data_meas = data[sid]['GIC']['measured']['modified']['data']
-  time_calc = data[sid]['GIC']['calculated']['original']['time']
-  data_calc = data[sid]['GIC']['calculated']['original']['data']
+  time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
+  data_meas = data[sid]['GIC']['measured'][0]['modified']['data']
+  time_calc = data[sid]['GIC']['calculated'][0]['original']['time']
+  data_calc = data[sid]['GIC']['calculated'][0]['original']['data']
 
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
   time_calc, data_calc = subset(time_calc, data_calc, start, stop)
@@ -101,7 +102,7 @@ def compare_gic(info, data, sid):
   for line in leg.get_lines():
       line.set_linewidth(1.5)
 
-  savefig(sid, 'GIC-compare-timeseries', data_dir=data_dir)
+  savefig(sid, 'GIC_compare_timeseries')
 
   plt.figure()
   cc = numpy.corrcoef(data_meas, data_calc)
@@ -125,7 +126,7 @@ def compare_gic(info, data, sid):
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
-  savefig(sid, 'GIC-compare-correlation', data_dir=data_dir)
+  savefig(sid, 'GIC_compare_correlation')
 
   plt.figure()
   #plt.title(name)
@@ -142,11 +143,12 @@ def compare_gic(info, data, sid):
   plt.yticks(fontsize=18)
   plt.ylabel('Probability', fontsize=18)
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
-  savefig(sid, 'GIC-histogram-meas-calc', data_dir=data_dir)
+  savefig(sid, 'GIC_histogram_meas_calc')
 
 def compare_dB(info, data, sid):
-  time_meas = data[sid]['B']['measured']['modified']['time']
-  data_meas = data[sid]['B']['measured']['modified']['data']
+
+  time_meas = data[sid]['B']['measured'][0]['modified']['time']
+  data_meas = data[sid]['B']['measured'][0]['modified']['data']
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
   data_meas = numpy.linalg.norm(data_meas, axis=1)
 
@@ -155,8 +157,8 @@ def compare_dB(info, data, sid):
   data_calcs = []
   model_colors = ['b', 'g']
   model_names = []
-  for idx, data_subclass in enumerate(info[sid]['B']['calculated']):
-    model_names.append(data_subclass)
+  for idx, data_source in enumerate(info[sid]['B']['calculated']):
+    model_names.append(data_source)
     time_calc = data[sid]['B']['calculated'][idx]['original']['time']
     data_calc = data[sid]['B']['calculated'][idx]['original']['data']
     time_calc, data_calc = subset(time_calc, data_calc, start, stop)
@@ -181,9 +183,9 @@ def compare_dB(info, data, sid):
   ybottom, ytop = ax.get_ylim()
   ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
 
-  savefig(sid, 'B-compare-timeseries', data_dir=data_dir)
+  savefig(sid, 'B_compare_timeseries')
 
-def plot_original(info, data, sid, data_type, data_class, model):
+def plot_original(plot_info, data, sid, data_type, data_class, data_source):
 
   # Plot original data on separate figures
 
@@ -204,13 +206,10 @@ def plot_original(info, data, sid, data_type, data_class, model):
     datetick()
     plt.grid()
 
-  #print(f"  {sid}/{data_type}/{data_class}")
+  #print(f"  {sid}/{data_type}/{data_class}/{data_source}")
   title = f"{sid}/{data_type}/{data_class}"
-  mag_legend = ["$\\Delta B_x$", "$\\Delta B_y$", "$\\Delta B_z$"]
-  base_name = f'{data_type}-{data_class}'
-  if model is not None:
-    title = f"{title}/{model}"
-    base_name = f'{base_name}-{model}'
+  mag_legend = plot_info[data_source][data_type]
+  base_name = f'{data_type}_{data_class}_{data_source}'
 
   # Extract time and data arrays. "o" for original.
   time_o = data['original']['time']
@@ -220,17 +219,17 @@ def plot_original(info, data, sid, data_type, data_class, model):
   time_o, data_o = subset(time_o, data_o, start, stop)
 
   ylabel = None
-  if data_type == 'gic':
+  if data_type == 'GIC':
     ylabel = 'GIC [A]'
 
   legend = None
-  if data_type == 'mag':
+  if data_type == 'B':
     legend = mag_legend
     ylabel = '[nT]'
 
   time_m, data_m = None, None
 
-  if data_type == 'gic' and data_class == 'measured':
+  if data_type == 'GIC' and data_class == 'measured':
     time_m = data['modified']['time']
     data_m = data['modified']['data']
     time_m, data_m = subset(time_m, data_m, start, stop)
@@ -238,7 +237,7 @@ def plot_original(info, data, sid, data_type, data_class, model):
 
   plt.figure()
   plot(time_o, data_o, title, ylabel, legend, time_m, data_m)
-  savefig(sid, f'{base_name}', data_dir=data_dir)
+  savefig(sid, f'{base_name}', sub_dir='data')
 
   if data_type == 'mag' and data_class == 'measured':
 
@@ -251,10 +250,11 @@ def plot_original(info, data, sid, data_type, data_class, model):
     title = f"{title} with mean removed"
 
     plot(time_m, data_m, title, ylabel, legend, None, None)
-    savefig(sid, f'{base_name}-modified', data_dir=data_dir)
+    savefig(sid, f'{base_name}_modified', sub_dir='data')
 
-info, data_all = read(data_dir)
+  plt.close()
 
+info, data_all, plot_info = read(data_dir)
 if sids is None:
   sids = info.keys()
 
@@ -262,28 +262,27 @@ for sid in sids: # site ids
   if sid not in info.keys():
     raise ValueError(f"Site '{sid}' not found in info.json")
 
-  gic_types = info[sid]['GIC'].keys()
-  if 'measured' and 'calculated' in gic_types:
-    compare_gic(info, data_all, sid)
-
   # Plot original and modified data
   for data_type in info[sid].keys(): # e.g., GIC, B
     for data_class in info[sid][data_type].keys(): # e.g., measured, calculated
       data = data_all[sid][data_type][data_class]
-      if isinstance(data, list):
-        data_subclasses = info[sid][data_type][data_class]
-        for idx, data_subclass in enumerate(data_subclasses):
-          print(f"Plotting '{sid}/{data_type}/{data_class}/{data_subclass}'")
-          plot_original(info, data[idx], sid, data_type, data_class, data_subclass)
-      else:
-        print(f"Plotting '{sid}/{data_type}/{data_class}'")
-        plot_original(info, data, sid, data_type, data_class, None)
+      data_sources = info[sid][data_type][data_class]
+      for idx, data_source in enumerate(data_sources):
+        if data[idx] is not None:
+          print(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}'")
+          plot_original(plot_info, data[idx], sid, data_type, data_class, data_source)
+        else:
+          print(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
-  # Special comparisons
-  mag_types = info[sid]['B'].keys()
-  if 'measured' in mag_types and 'calculated' in mag_types:
-    compare_dB(info, data_all, sid)
+  print("  Creating analysis and comparison plots")
+  if 'B' in info[sid].keys():
+    mag_types = info[sid]['B'].keys()
+    if 'measured' in mag_types and 'calculated' in mag_types:
+      compare_dB(info, data_all, sid)
 
-  gic_types = info[sid]['GIC'].keys()
-  if 'measured' and 'calculated' in gic_types:
-    compare_gic(info, data_all, sid)
+  if 'GIC' in info[sid].keys():
+    gic_types = info[sid]['GIC'].keys()
+    if 'measured' and 'calculated' in gic_types:
+      compare_gic(info, data_all, sid)
+
+  print(" ")
