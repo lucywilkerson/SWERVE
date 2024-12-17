@@ -209,9 +209,10 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source):
   #print(f"  {sid}/{data_type}/{data_class}/{data_source}")
   title = f"{sid}/{data_type}/{data_class}"
   mag_legend = plot_info[data_source][data_type]
-  base_name = f'{data_type}_{data_class}_{data_source}'
+  sidx = sid.lower().replace(' ', '')
+  base_name = f'{data_type}_{sidx}_{data_class}_{data_source}'
 
-  # Extract time and data arrays. "o" for original.
+  # "o" for original.
   time_o = data['original']['time']
   data_o = data['original']['data']
 
