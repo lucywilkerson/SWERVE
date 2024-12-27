@@ -26,8 +26,8 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10229,43.6,-92.7,GIC,measured,NERC,"all positive, not smooth"
 10232,45,-92.8,GIC,measured,NERC,"a few large spikes"
 10233,47.6,-122.3,GIC,measured,NERC,"no data available"
-10237,33.7,-84.9,GIC,measured,NERC,
-10238,31.5,-83.5,GIC,measured,NERC,
+10237,33.7,-84.9,GIC,measured,NERC,"noisy"
+10238,31.5,-83.5,GIC,measured,NERC,"not centered on zero, otherwise fine"
 10239,31.3,-81.7,GIC,measured,NERC,
 10253,47.5,-116.2,GIC,measured,NERC,
 10254,42.8,-82.5,GIC,measured,NERC,
