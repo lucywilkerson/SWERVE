@@ -4,7 +4,7 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10065,41.8,-87.8,GIC,measured,NERC,periods of missing data otherwise fine
 10066,41.6,-87.9,GIC,measured,NERC,not centered on zero and noisy
 10067,42.1,-87.9,GIC,measured,NERC,all negative
-10068,42,-88.2,GIC,measured,NERC,periods of missing data and low values
+10068,42,-88.2,GIC,measured,NERC,periods of missing data
 10069,41.9,-87.7,GIC,measured,NERC,very noisy
 10071,42.2,-88.9,GIC,measured,NERC,very noisy
 10072,42.2,-88.9,GIC,measured,NERC,periods of missing data otherwise fine
@@ -17,10 +17,10 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10096,41.8,-72.6,GIC,measured,NERC,stays at zero
 10097,41.4,-72.1,GIC,measured,NERC,given in 1-min cadence and missing data
 10098,41.4,-72.1,GIC,measured,NERC,given in 1-min cadence and missing data
-10099,41.4,-73.4,GIC,measured,NERC,
-10100,41.6,-72.9,GIC,measured,NERC,
-10103,38.6,-121.3,GIC,measured,NERC,
-10222,40.2,-75.3,GIC,measured,NERC,
+10099,41.4,-73.4,GIC,measured,NERC,one really high peak
+10100,41.6,-72.9,GIC,measured,NERC,stays at zero
+10103,38.6,-121.3,GIC,measured,NERC,very noisy
+10222,40.2,-75.3,GIC,measured,NERC,periods of missing data otherwise fine
 10223,32.9,-115.7,GIC,measured,NERC,
 10224,40.2,-75.3,GIC,measured,NERC,
 10229,43.6,-92.7,GIC,measured,NERC,
