@@ -1,31 +1,31 @@
 site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10052,44.9,-97,GIC,measured,NERC,
-10064,41.8,-88.2,GIC,measured,NERC,stays at zero
-10065,41.8,-87.8,GIC,measured,NERC,periods of missing data otherwise fine
-10066,41.6,-87.9,GIC,measured,NERC,not centered on zero and noisy
-10067,42.1,-87.9,GIC,measured,NERC,all negative
-10068,42,-88.2,GIC,measured,NERC,periods of missing data
-10069,41.9,-87.7,GIC,measured,NERC,very noisy
-10071,42.2,-88.9,GIC,measured,NERC,very noisy
-10072,42.2,-88.9,GIC,measured,NERC,periods of missing data otherwise fine
-10073,41.6,-87.7,GIC,measured,NERC,very noisy
-10074,41.2,-87.9,GIC,measured,NERC,periods of missing data otherwise fine
-10075,41.7,-87.5,GIC,measured,NERC,given in 1-min cadence
-10076,41.8,-88,GIC,measured,NERC,not centered on zero otherwise fine
-10094,41.9,-72.5,GIC,measured,NERC,not smooth
-10095,41.7,-72.2,GIC,measured,NERC,stays at zero
-10096,41.8,-72.6,GIC,measured,NERC,stays at zero
-10097,41.4,-72.1,GIC,measured,NERC,given in 1-min cadence and missing data
-10098,41.4,-72.1,GIC,measured,NERC,given in 1-min cadence and missing data
-10099,41.4,-73.4,GIC,measured,NERC,one really high peak
-10100,41.6,-72.9,GIC,measured,NERC,stays at zero
-10103,38.6,-121.3,GIC,measured,NERC,very noisy
-10222,40.2,-75.3,GIC,measured,NERC,periods of missing data otherwise fine
-10223,32.9,-115.7,GIC,measured,NERC,
-10224,40.2,-75.3,GIC,measured,NERC,
-10229,43.6,-92.7,GIC,measured,NERC,
-10232,45,-92.8,GIC,measured,NERC,
-10233,47.6,-122.3,GIC,measured,NERC,
+10064,41.8,-88.2,GIC,measured,NERC,"stays at zero"
+10065,41.8,-87.8,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10066,41.6,-87.9,GIC,measured,NERC,"not centered on zero, noisy"
+10067,42.1,-87.9,GIC,measured,NERC,"all negative, not smooth"
+10068,42,-88.2,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10069,41.9,-87.7,GIC,measured,NERC,"very noisy"
+10071,42.2,-88.9,GIC,measured,NERC,"very noisy"
+10072,42.2,-88.9,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10073,41.6,-87.7,GIC,measured,NERC,"very noisy"
+10074,41.2,-87.9,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10075,41.7,-87.5,GIC,measured,NERC,"given in 1-min cadence"
+10076,41.8,-88,GIC,measured,NERC,"not centered on zero, otherwise fine"
+10094,41.9,-72.5,GIC,measured,NERC,"not smooth"
+10095,41.7,-72.2,GIC,measured,NERC,"stays at zero"
+10096,41.8,-72.6,GIC,measured,NERC,"stays at zero"
+10097,41.4,-72.1,GIC,measured,NERC,"given in 1-min cadence, missing periods of data"
+10098,41.4,-72.1,GIC,measured,NERC,"given in 1-min cadence, missing periods of data"
+10099,41.4,-73.4,GIC,measured,NERC,"one really high peak"
+10100,41.6,-72.9,GIC,measured,NERC,"stays at zero"
+10103,38.6,-121.3,GIC,measured,NERC,"very noisy"
+10222,40.2,-75.3,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10223,32.9,-115.7,GIC,measured,NERC,"really low values, missing periods of data"
+10224,40.2,-75.3,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10229,43.6,-92.7,GIC,measured,NERC,"all positive, not smooth"
+10232,45,-92.8,GIC,measured,NERC,"a few large spikes"
+10233,47.6,-122.3,GIC,measured,NERC,"no data available"
 10237,33.7,-84.9,GIC,measured,NERC,
 10238,31.5,-83.5,GIC,measured,NERC,
 10239,31.3,-81.7,GIC,measured,NERC,
