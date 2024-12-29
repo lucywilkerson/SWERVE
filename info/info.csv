@@ -38,25 +38,25 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10298,43.4,-88,GIC,measured,NERC,"too low, noisy"
 10299,46.6,-87.4,GIC,measured,NERC,"data cut off at zero"
 10300,46.6,-87.4,GIC,measured,NERC,"data cut off at zero"
-10301,44,-88.6,GIC,measured,NERC,
-10302,44.2,-88.1,GIC,measured,NERC,
-10303,44.8,-89.7,GIC,measured,NERC,
-10304,44.8,-89.7,GIC,measured,NERC,
-10306,44.8,-88.2,GIC,measured,NERC,
-10307,44.4,-88.4,GIC,measured,NERC,
-10308,42.5,-89.1,GIC,measured,NERC,
-10309,45.8,-88,GIC,measured,NERC,
-10310,43,-89,GIC,measured,NERC,
-10311,43,-89,GIC,measured,NERC,
-10312,43,-89,GIC,measured,NERC,
-10313,44.5,-89.6,GIC,measured,NERC,
-10314,44.5,-89.6,GIC,measured,NERC,
-10315,44.5,-89.6,GIC,measured,NERC,
-10316,43.7,-88.5,GIC,measured,NERC,
-10317,43.7,-88.5,GIC,measured,NERC,
-10318,44.4,-88.7,GIC,measured,NERC,
-10321,43.1,-88,GIC,measured,NERC,
-10322,43.3,-89.4,GIC,measured,NERC,
+10301,44,-88.6,GIC,measured,NERC,"some peaks"
+10302,44.2,-88.1,GIC,measured,NERC,"stays constant"
+10303,44.8,-89.7,GIC,measured,NERC,"too low, noisy"
+10304,44.8,-89.7,GIC,measured,NERC,"too low, noisy"
+10306,44.8,-88.2,GIC,measured,NERC,"data cut off at zero"
+10307,44.4,-88.4,GIC,measured,NERC,"not centered, noisy"
+10308,42.5,-89.1,GIC,measured,NERC,"some peaks"
+10309,45.8,-88,GIC,measured,NERC,"data cut off at zero"
+10310,43,-89,GIC,measured,NERC,"not centered on zero"
+10311,43,-89,GIC,measured,NERC,"noisy"
+10312,43,-89,GIC,measured,NERC,"noisy"
+10313,44.5,-89.6,GIC,measured,NERC,"noisy"
+10314,44.5,-89.6,GIC,measured,NERC,"stays constant"
+10315,44.5,-89.6,GIC,measured,NERC,"noisy"
+10316,43.7,-88.5,GIC,measured,NERC,"noisy"
+10317,43.7,-88.5,GIC,measured,NERC,"noisy"
+10318,44.4,-88.7,GIC,measured,NERC,"some peaks"
+10321,43.1,-88,GIC,measured,NERC,"some peaks"
+10322,43.3,-89.4,GIC,measured,NERC,"noisy"
 10336,44.8,-91.5,GIC,measured,NERC,
 10338,44.8,-91.5,GIC,measured,NERC,
 10339,43.7,-95.7,GIC,measured,NERC,
