@@ -218,26 +218,26 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10678,31.5,-87.9,GIC,measured,NERC,"values all below zero, not centered"
 10694,32,-106.2,GIC,measured,NERC,"values too low, not centered on zero, not smooth"
 10702,41.7,-85.9,GIC,measured,NERC,"not centered at zero"
-10646,41,-81.6,GIC,measured,NERC,
-10647,40.2,-74.5,GIC,measured,NERC,
+10646,41,-81.6,GIC,measured,NERC,"noisy"
+10647,40.2,-74.5,GIC,measured,NERC,"high cadence"
 10660,36.2,-88.6,GIC,measured,NERC,
-10661,36,-87.9,GIC,measured,NERC,
-10691,37.2,-86.9,GIC,measured,NERC,
-10692,37.2,-86.9,GIC,measured,NERC,
+10661,36,-87.9,GIC,measured,NERC,"noisy"
+10691,37.2,-86.9,GIC,measured,NERC,"not smooth, very noisy"
+10692,37.2,-86.9,GIC,measured,NERC,"missing some periods of data"
 10693,36,-84.1,GIC,measured,NERC,
-10696,40.4,-85.9,GIC,measured,NERC,
-10697,36.8,-80.8,GIC,measured,NERC,
-10698,26.1,-98.1,GIC,measured,NERC,
-10699,37.6,-81.6,GIC,measured,NERC,
-10700,37.6,-81.6,GIC,measured,NERC,
-10086,27.7,-82,GIC,measured,NERC,
-10087,27.9,-82.4,GIC,measured,NERC,
-10088,27.9,-82.4,GIC,measured,NERC,
-10089,27.8,-82.4,GIC,measured,NERC,
-10090,27.8,-82.1,GIC,measured,NERC,
-10091,27.7,-82.3,GIC,measured,NERC,
-10180,41.7,-73.8,GIC,measured,NERC,
-10181,41.9,-74,GIC,measured,NERC,
+10696,40.4,-85.9,GIC,measured,NERC,"not centered at zero"
+10697,36.8,-80.8,GIC,measured,NERC,"high cadence"
+10698,26.1,-98.1,GIC,measured,NERC,"not smooth, not centered at zero"
+10699,37.6,-81.6,GIC,measured,NERC,"not centered at zero"
+10700,37.6,-81.6,GIC,measured,NERC,"not smooth"
+10086,27.7,-82,GIC,measured,NERC,"no data available"
+10087,27.9,-82.4,GIC,measured,NERC,"no data available"
+10088,27.9,-82.4,GIC,measured,NERC,"no data available"
+10089,27.8,-82.4,GIC,measured,NERC,"no data available"
+10090,27.8,-82.1,GIC,measured,NERC,"no data available"
+10091,27.7,-82.3,GIC,measured,NERC,"no data available"
+10180,41.7,-73.8,GIC,measured,NERC,"not smooth"
+10181,41.9,-74,GIC,measured,NERC,"high peak"
 10182,26.6,-98.5,GIC,measured,NERC,
 10184,39,-78.2,GIC,measured,NERC,
 10185,39.3,-81.3,GIC,measured,NERC,
