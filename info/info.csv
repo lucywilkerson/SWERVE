@@ -411,7 +411,7 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 50120,34.3,-88.8,B,measured,NERC,
 50122,35.6,-89.3,B,measured,NERC,
 Ackerman,33.3749,-89.2104,B,measured,TVA,
-Allen,35.0675,-90.1602,B,measured,TVA,"In TVAmagmetadata.dat, but no file"
+Allen,35.0675,-90.1602,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
 Anderson,0,0,GIC,measured,TVA,"GIC file exists, but no lat/long in GIC_monitors.txt"
 Bradley,35.0425,-84.9587,GIC,measured,TVA,
 Bull Run,36.0193,-84.1575,GIC,calculated,TVA,
@@ -419,14 +419,14 @@ Bull Run,36.0193,-84.1575,GIC,measured,TVA,
 Bull Run,36.0252,-84.1468,B,measured,TVA,
 Bull Run,36.0193,-84.1575,B,calculated,SWMF,
 Bull Run,36.0193,-84.1575,B,calculated,MAGE,
-Colbert,34.7385,-87.8374,B,measured,TVA,"In TVAmagmetadata.dat, but no file"
+Colbert,34.7385,-87.8374,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
 East Point,34.1946,-86.7474,GIC,measured,TVA,
-Gallatin,36.3189,-86.4106,B,measured,TVA,"In TVAmagmetadata.dat, but no file"
+Gallatin,36.3189,-86.4106,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
 Gleason,36.246,-88.612,GIC,measured,TVA,
-John Sevier,36.3806,-82.9581,B,measured,TVA,"In TVAmagmetadata.dat, but no file"
+John Sevier,36.3806,-82.9581,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
 Johnsonville,36.029,-87.985,GIC,measured,TVA,
 Lagoon Creek,35.6475,-89.3907,B,measured,TVA,
-Madison,34.7964,-86.5207,GIC,measured,TVA,"In GIC_monitors.txt, but no file"
+Madison,34.7964,-86.5207,GIC,measured,TVA,"x In GIC_monitors.txt, but no file"
 Montgomery,36.5949,-87.2533,GIC,measured,TVA,
 Montgomery,36.5949,-87.2533,GIC,calculated,TVA,
 Montgomery,36.5949,-87.2533,B,calculated,SWMF,
@@ -438,7 +438,7 @@ Pinhook,36.0465,-86.6059,GIC,measured,TVA,
 Raccoon Mountain,35.0571,-85.3872,GIC,measured,TVA,
 Raccoon Mountain,35.0571,-85.3872,B,measured,TVA,
 Rutherford,35.8275,-86.5986,GIC,measured,TVA,
-Shawnee,37.1457,-88.7705,B,measured,TVA,"In TVAmagmetadata.dat, but no file"
+Shawnee,37.1457,-88.7705,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
 Shelby,35.3859,-89.8042,GIC,measured,TVA,
 Southaven,34.9939,-90.0497,GIC,measured,TVA,
 Sullivan,36.4419,-82.2791,GIC,measured,TVA,
