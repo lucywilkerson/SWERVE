@@ -238,9 +238,9 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10091,27.7,-82.3,GIC,measured,NERC,"no data available"
 10180,41.7,-73.8,GIC,measured,NERC,"not smooth"
 10181,41.9,-74,GIC,measured,NERC,"high peak"
-10182,26.6,-98.5,GIC,measured,NERC,
-10184,39,-78.2,GIC,measured,NERC,
-10185,39.3,-81.3,GIC,measured,NERC,
+10182,26.6,-98.5,GIC,measured,NERC,"low values"
+10184,39,-78.2,GIC,measured,NERC,"lots of peaks"
+10185,39.3,-81.3,GIC,measured,NERC,"one big peak"
 10186,42,-80,GIC,measured,NERC,
 10187,41,-81.6,GIC,measured,NERC,
 10191,41.3,-90.5,GIC,measured,NERC,
