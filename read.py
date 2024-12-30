@@ -7,6 +7,9 @@ import pickle
 import datetime
 
 data_dir = os.path.join('..', '2024-AGU-data')
+out_file = os.path.join(data_dir, '_all', 'data.pkl')
+if not os.path.exists(os.path.dirname(out_file)):
+  os.makedirs(os.path.dirname(out_file))
 
 def read_nerc(data_dir, fname):
   data = []
@@ -225,7 +228,7 @@ def resample(time, data, start, stop, freq, ave=None):
   return {"time": df.index.to_pydatetime(), "data": data}
 
 
-fname = os.path.join('info', 'info_data.json')
+fname = os.path.join('info', 'info_dict.json')
 with open(fname, 'r') as f:
   print(f"Reading {fname}\n")
   info = json.load(f)
@@ -236,7 +239,7 @@ stop = datetime.datetime(2024, 5, 13, 0, 0)
 data = {}
 sids = info.keys()
 #sids = ['Union', 'Montgomery', 'Widows Creek', 'Bull Run']
-#sids = ['10052']
+#sids = ['10052', '10064']
 #sids = ['Bull Run', '10052', '50100']
 #sids = ['10233']
 
@@ -297,7 +300,6 @@ for sid in sids: # site ids
           print(f"    Writing {fname}")
           pickle.dump(data[sid][data_type][data_class], f)
 
-fname = os.path.join(data_dir, 'data.pkl')
-print(f"\nWriting {fname}")
-with open(fname, 'wb') as f:
+print(f"\nWriting {out_file}")
+with open(out_file, 'wb') as f:
   pickle.dump(data, f)

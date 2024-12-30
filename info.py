@@ -1,18 +1,19 @@
 import os
 import csv
 import json
+import pandas as pd
 
 """
 Converts info/info.csv, which has the form
 
-Bull Run,36.0193,-84.1575,GIC,measured,TVA
-Bull Run,36.0193,-84.1575,GIC,calculated,TVA
-Bull Run,36.0193,-84.1575,GIC,calculated,MAGE
-Bull Run,36.0193,-84.1575,B,measured,TVA
-Bull Run,36.0193,-84.1575,B,calculated,SWMF
-Bull Run,36.0193,-84.1575,B,calculated,MAGE
+Bull Run,36.0193,-84.1575,GIC,measured,TVA,
+Bull Run,36.0193,-84.1575,GIC,calculated,TVA,"error message"
+Bull Run,36.0193,-84.1575,GIC,calculated,MAGE,
+Bull Run,36.0193,-84.1575,B,measured,TVA,
+Bull Run,36.0193,-84.1575,B,calculated,SWMF,
+Bull Run,36.0193,-84.1575,B,calculated,MAGE,
 
-to dicts of the form
+to a dict of the form
 
 {
   "Bull Run": {
@@ -26,45 +27,35 @@ to dicts of the form
   }
 }
 
-and
-
-{
-  "Bull Run": [36.0193, -84.1575]
-}
-
-and saves in info/info_data.json and info/info_locations.json
+and saves in info/info_dict.json and info/info_dataframe.json
 """
 
-with open(os.path.join('info','info.csv'), 'r') as f:
-  print("Reading info/info.csv")
-  rows = csv.reader(f, delimiter=',')
-  sites = {}
-  locations = {}
-  head = next(rows)
-  for row in rows:
-    # data_type = GIC, B
-    # data_class = measured, calculated
-    # data_source = TVA, MAGE, SWMF
-    site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
-    if error != "":
-      print(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")
-      continue
+df = pd.read_csv(os.path.join('info', 'info.csv')).set_index('site_id')
 
-    locations[site] = (float(geo_lat), float(geo_lon))
+print("Writing info/info_dataframe.pkl")
+with open(os.path.join('info','info_dataframe.pkl'), 'wb') as f:
+  df.to_pickle(f)
 
-    if site not in sites:
-      sites[site] = {}
-    if data_type not in sites[site]: # e.g., GIC, B
-      sites[site][data_type] = {}
-    if data_class not in sites[site][data_type]:
-      sites[site][data_type][data_class] = [data_source]
-    else:
-      sites[site][data_type][data_class].append(data_source)
+sites = {}
+locations = {}
 
-print("Writing info/info_data.json")
-with open(os.path.join('info','info_data.json'), 'w') as f:
-  json.dump(sites, f, indent=2)
+for index, row in df.iterrows():
+  site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
+  if isinstance(error, str) and error.startswith("x "):
+    print(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")
+    continue
 
-print("Writing info/info_locations.json")
-with open(os.path.join('info','info_locations.json'), 'w') as f:
+  locations[site] = (float(geo_lat), float(geo_lon))
+
+  if site not in sites:
+    sites[site] = {}
+  if data_type not in sites[site]:  # e.g., GIC, B
+    sites[site][data_type] = {}
+  if data_class not in sites[site][data_type]:
+    sites[site][data_type][data_class] = [data_source]
+  else:
+    sites[site][data_type][data_class].append(data_source)
+
+print("Writing info/info_dict.json")
+with open(os.path.join('info','info_dict.json'), 'w') as f:
   json.dump(sites, f, indent=2)

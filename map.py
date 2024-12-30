@@ -34,26 +34,20 @@ def add_features(ax, state):
 def add_symbols(ax, coords, data_type, data_class, data_source, transform, markersize):
 
     for i in range(len(coords)):
-        if data_source[i] == 'TVA':
-            marker = '.'
-            if data_type[i] == 'GIC' and data_class[i] == 'calculated':
-                marker = '^'
-        elif data_source[i] == 'NERC':
-            marker = '+'
-        else:
+        symbol_dict = {
+            ('TVA', 'GIC', 'calculated'): ('^', 'c', 'none'),
+            ('TVA', 'GIC', 'measured'): ('.', 'b', 'none'),
+            ('NERC', 'GIC', 'calculated'): ('+', 'c', 'none'),
+            ('NERC', 'GIC', 'measured'): ('+', 'b', 'none'),
+            ('NERC', 'B', 'measured'): ('+', 'r', 'r')
+        }
+
+        key = (data_source[i], data_type[i], data_class[i])
+        symbol = symbol_dict.get(key, None)
+        if symbol is None:
             continue
 
-        if data_type[i] == 'GIC' and data_class[i] == 'measured':
-            color = 'b'
-            face = 'none'
-        elif data_type[i] == 'GIC' and data_class[i] == 'calculated':
-            color = 'c'
-            face = 'none'
-        elif data_type[i] == 'B' and data_class[i] == 'measured':
-            color = 'r'
-            face = color
-        else:
-            continue
+        marker, color, face = symbol
 
         ax.plot(coords[i][1], coords[i][0],
                 mfc=face, marker=marker, color=color,
