@@ -27,11 +27,10 @@ to a dict of the form
   }
 }
 
-and saves in info/info_dict.json and info/info_dataframe.json
+and saves in info/info_dict.json and info/info_dataframe.pkl
 """
 
 df = pd.read_csv(os.path.join('info', 'info.csv')).set_index('site_id')
-
 print("Writing info/info_dataframe.pkl")
 with open(os.path.join('info','info_dataframe.pkl'), 'wb') as f:
   df.to_pickle(f)
@@ -39,8 +38,8 @@ with open(os.path.join('info','info_dataframe.pkl'), 'wb') as f:
 sites = {}
 locations = {}
 
-for index, row in df.iterrows():
-  site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
+for site, row in df.iterrows():
+  geo_lat, geo_lon, data_type, data_class, data_source, error = row
   if isinstance(error, str) and error.startswith("x "):
     print(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")
     continue
