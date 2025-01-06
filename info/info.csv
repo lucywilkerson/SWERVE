@@ -348,53 +348,53 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10515,26.1,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
 10516,39.6,-81.2,GIC,measured,NERC,"not centered on zero"
 10517,32,-93.2,GIC,measured,NERC,"not centered on zero"
-10518,27.6,-99.3,GIC,measured,NERC,
-10519,27.8,-97.6,GIC,measured,NERC,
-10520,27.8,-97.6,GIC,measured,NERC,
-10521,31.3,-103.1,GIC,measured,NERC,
-10524,40.2,-83,GIC,measured,NERC,
-10525,40.2,-83,GIC,measured,NERC,
-10527,40.3,-83.4,GIC,measured,NERC,
-10528,37.2,-80.2,GIC,measured,NERC,
-10529,37.2,-80.2,GIC,measured,NERC,
-10530,39,-81.9,GIC,measured,NERC,
-10531,32.5,-99.8,GIC,measured,NERC,
-10532,32.5,-99.8,GIC,measured,NERC,
-10534,36.6,-82.7,GIC,measured,NERC,
-10537,27.6,-97.7,GIC,measured,NERC,
-10538,26.3,-98.2,GIC,measured,NERC,
-10539,26.3,-98.2,GIC,measured,NERC,
-10541,41.7,-86.5,GIC,measured,NERC,
-10542,36,-95.7,GIC,measured,NERC,
-10545,37.4,-79.1,GIC,measured,NERC,
-10546,37.4,-79.1,GIC,measured,NERC,
-10547,37.4,-79.1,GIC,measured,NERC,
-10548,26.2,-98.2,GIC,measured,NERC,
-10549,26.2,-98.2,GIC,measured,NERC,
-10550,26.3,-97.6,GIC,measured,NERC,
-10551,26.3,-97.6,GIC,measured,NERC,
-10552,40,-83.1,GIC,measured,NERC,
-10554,37.9,-87,GIC,measured,NERC,
-10557,31.5,-100.3,GIC,measured,NERC,
-10558,30.9,-103.4,GIC,measured,NERC,
-10559,30.9,-103.4,GIC,measured,NERC,
-10560,41,-85.3,GIC,measured,NERC,
-10561,41,-83.3,GIC,measured,NERC,
-10563,40.7,-81.4,GIC,measured,NERC,
-10564,40.7,-84.2,GIC,measured,NERC,
-10565,26.1,-98.2,GIC,measured,NERC,
-10567,39.2,-87.5,GIC,measured,NERC,
-10568,39.2,-87.5,GIC,measured,NERC,
-10569,39.2,-87.5,GIC,measured,NERC,
-10570,40.2,-80.7,GIC,measured,NERC,
-10572,38.4,-82.5,GIC,measured,NERC,
-10573,38.4,-82.5,GIC,measured,NERC,
-10574,38.4,-82.5,GIC,measured,NERC,
-10575,41.7,-86.1,GIC,measured,NERC,
-10576,41.7,-86.1,GIC,measured,NERC,
-10577,41.4,-84.9,GIC,measured,NERC,
-10578,40.2,-82.8,GIC,measured,NERC,
-10581,32.8,-94.5,GIC,measured,NERC,
+10518,27.6,-99.3,GIC,measured,NERC,"not smooth, not centered on zero"
+10519,27.8,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10520,27.8,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10521,31.3,-103.1,GIC,measured,NERC,"not smooth, not centered on zero"
+10524,40.2,-83,GIC,measured,NERC,"not centered on zero"
+10525,40.2,-83,GIC,measured,NERC,"not centered on zero"
+10527,40.3,-83.4,GIC,measured,NERC,"not centered on zero"
+10528,37.2,-80.2,GIC,measured,NERC,"not centered on zero"
+10529,37.2,-80.2,GIC,measured,NERC,"not centered on zero"
+10530,39,-81.9,GIC,measured,NERC,"too low"
+10531,32.5,-99.8,GIC,measured,NERC,"not centered on zero"
+10532,32.5,-99.8,GIC,measured,NERC,"not centered on zero"
+10534,36.6,-82.7,GIC,measured,NERC,"not centered on zero"
+10537,27.6,-97.7,GIC,measured,NERC,"not centered on zero"
+10538,26.3,-98.2,GIC,measured,NERC,"not centered on zero"
+10539,26.3,-98.2,GIC,measured,NERC,"not centered on zero"
+10541,41.7,-86.5,GIC,measured,NERC,"not centered on zero"
+10542,36,-95.7,GIC,measured,NERC,"not centered on zero"
+10545,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero"
+10546,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero"
+10547,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero"
+10548,26.2,-98.2,GIC,measured,NERC,"not centered on zero"
+10549,26.2,-98.2,GIC,measured,NERC,"not centered on zero"
+10550,26.3,-97.6,GIC,measured,NERC,"not centered on zero"
+10551,26.3,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10552,40,-83.1,GIC,measured,NERC,"not centered on zero"
+10554,37.9,-87,GIC,measured,NERC,"not smooth"
+10557,31.5,-100.3,GIC,measured,NERC,"not centered on zero"
+10558,30.9,-103.4,GIC,measured,NERC,"not centered on zero"
+10559,30.9,-103.4,GIC,measured,NERC,"not centered on zero"
+10560,41,-85.3,GIC,measured,NERC,"low cadence"
+10561,41,-83.3,GIC,measured,NERC,"not centered on zero"
+10563,40.7,-81.4,GIC,measured,NERC,"not smooth, low values"
+10564,40.7,-84.2,GIC,measured,NERC,"low cadence"
+10565,26.1,-98.2,GIC,measured,NERC,"not smooth, low values"
+10567,39.2,-87.5,GIC,measured,NERC,"not centered on zero"
+10568,39.2,-87.5,GIC,measured,NERC,"not centered on zero"
+10569,39.2,-87.5,GIC,measured,NERC,"low cadence"
+10570,40.2,-80.7,GIC,measured,NERC,"1-min cadence"
+10572,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero"
+10573,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero"
+10574,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero"
+10575,41.7,-86.1,GIC,measured,NERC,"not smooth, low values"
+10576,41.7,-86.1,GIC,measured,NERC,"not centered on zero"
+10577,41.4,-84.9,GIC,measured,NERC,"low cadence, not centered on zero"
+10578,40.2,-82.8,GIC,measured,NERC,"not centered on zero"
+10581,32.8,-94.5,GIC,measured,NERC,"not centered on zero"
 50100,30.4,-89.6,B,measured,NERC,
 50127,37.1,-119.7,B,measured,NERC,
 50112,48.3,-117.1,B,measured,NERC,
