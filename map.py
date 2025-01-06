@@ -59,11 +59,10 @@ def add_symbols(ax, coords, data_type, data_class, data_source, transform, marke
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
-name = df['site_id'].tolist()
-coords = list(zip(df['latitude'], df['longitude']))
-data_type = df['data_type'].tolist()
-data_class = df['data_class'].tolist()
-data_source = df['data_source'].tolist()
+#coords = (zip(df['latitude'], df['longitude']))
+#data_type = df['data_type']
+#data_class = df['data_class']
+#data_source = df['data_source']
 
 # Create a figure and axes with a specific projection
 fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
