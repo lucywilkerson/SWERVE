@@ -7,7 +7,7 @@ import pickle
 import datetime
 
 data_dir = os.path.join('..', '2024-AGU-data')
-out_file = os.path.join(data_dir, '_all', 'data.pkl')
+out_file = os.path.join(data_dir, '_processed', '_all', 'data.pkl')
 if not os.path.exists(os.path.dirname(out_file)):
   os.makedirs(os.path.dirname(out_file))
 

@@ -18,7 +18,7 @@ plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-AGU-data')
 sids = None # If none, plot all sites
-sids = ['10052', '10064']
+#sids = ['10052', '10064']
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['Bull Run']
 #sids = ['50100']
@@ -44,7 +44,7 @@ def read(data_dir, sid=None):
     print(f"Reading {fname}")
     plot_cfg = json.load(f)
 
-  fname = os.path.join(data_dir, '_all', 'data.pkl')
+  fname = os.path.join(data_dir, '_processed', '_all', 'data.pkl')
   print(f"Reading {fname}")
   with open(fname, 'rb') as f:
     data = pickle.load(f)
