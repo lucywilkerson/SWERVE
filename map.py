@@ -1,5 +1,6 @@
 import os
 import csv
+import pandas as pd
 
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
@@ -54,25 +55,14 @@ def add_symbols(ax, coords, data_type, data_class, data_source, transform, marke
                 markersize=markersize,
                 transform=transform)
 
-name = []
-coords = []
-data_type = []
-data_class  = []
-data_source = []
 
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
-with open(fname, 'r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=',')
-    header = next(plots)
-    #print(header)
-    for row in plots:
-        name.append(row[0])
-        coords.append((float(row[1]), float(row[2])))
-        data_type.append(row[3])
-        data_class.append(row[4])
-        data_source.append(row[5])
-        #print(', '.join(row))
+df = pd.read_csv(fname).set_index('site_id')
+#coords = (zip(df['latitude'], df['longitude']))
+#data_type = df['data_type']
+#data_class = df['data_class']
+#data_source = df['data_source']
 
 # Create a figure and axes with a specific projection
 fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
@@ -82,7 +72,7 @@ add_features(ax, state)
 # Set the extent of the map (USA)
 ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
 
-add_symbols(ax, coords, data_type, data_class, data_source, transform, 5)
+add_symbols(ax, zip(df['latitude'], df['longitude']), df['data_type'], df['data_class'], df['data_source'], transform, 5)
 
 # TVA region
 ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
@@ -95,7 +85,7 @@ fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
 # Set the extent of the map (TVA)
 ax.set_extent([-91, -82, 33, 38], crs=crs)
 
-add_symbols(ax, coords, data_type, data_class, data_source, transform, 13)
+add_symbols(ax, zip(df['latitude'], df['longitude']), df['data_type'], df['data_class'], df['data_source'], transform, 13)
 
 ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
 add_features(ax, state)
