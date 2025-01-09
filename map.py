@@ -32,25 +32,27 @@ def add_features(ax, state):
     if state == True:
         ax.add_feature(cfeature.STATES, linewidth=0.5)
 
-def add_symbols(ax, coords, data_type, data_class, data_source, transform, markersize):
+def add_symbols(ax, df, transform, markersize):
 
-    for i in range(len(coords)):
+    for row in df.itertuples():
+        # Select the symbol
         symbol_dict = {
             ('TVA', 'GIC', 'calculated'): ('^', 'c', 'none'),
             ('TVA', 'GIC', 'measured'): ('.', 'b', 'none'),
+            ('TVA', 'B', 'measured'): ('.', 'r', 'r'),
             ('NERC', 'GIC', 'calculated'): ('+', 'c', 'none'),
             ('NERC', 'GIC', 'measured'): ('+', 'b', 'none'),
             ('NERC', 'B', 'measured'): ('+', 'r', 'r')
         }
 
-        key = (data_source[i], data_type[i], data_class[i])
+        key = (row.data_source, row.data_type, row.data_class)
         symbol = symbol_dict.get(key, None)
         if symbol is None:
             continue
 
         marker, color, face = symbol
 
-        ax.plot(coords[i][1], coords[i][0],
+        ax.plot(row.geo_lon, row.geo_lat,
                 mfc=face, marker=marker, color=color,
                 markersize=markersize,
                 transform=transform)
@@ -72,7 +74,7 @@ add_features(ax, state)
 # Set the extent of the map (USA)
 ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
 
-add_symbols(ax, zip(df['latitude'], df['longitude']), df['data_type'], df['data_class'], df['data_source'], transform, 5)
+add_symbols(ax, df, transform, 5)
 
 # TVA region
 ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
@@ -85,7 +87,8 @@ fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
 # Set the extent of the map (TVA)
 ax.set_extent([-91, -82, 33, 38], crs=crs)
 
-add_symbols(ax, zip(df['latitude'], df['longitude']), df['data_type'], df['data_class'], df['data_source'], transform, 13)
+add_symbols(ax, df, transform, 13)
+add_features(ax, state)
 
 ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
 add_features(ax, state)
