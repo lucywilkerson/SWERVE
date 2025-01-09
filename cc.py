@@ -8,10 +8,9 @@ import pandas as pd
 data_dir = os.path.join('..', '2024-AGU-data')
 sids = None # If none, plot all sites
 
-fname = os.path.join('info', 'info_dataframe.pkl')
-with open(fname, 'rb') as f:
-  print(f"Reading {fname}")
-  info_df = pickle.load(f)
+fname = os.path.join('info', 'info.csv')
+print(f"Reading {fname}")
+info_df = pd.read_csv(fname)
 
 # TODO: Filter out "bad" sites
 
