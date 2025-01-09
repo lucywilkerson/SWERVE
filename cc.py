@@ -12,7 +12,9 @@ fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
 
-# TODO: Filter out "bad" sites
+# Filter out "bad" sites
+filtered_df = info_df[~info_df['error'].str.contains('', na=False)]
+
 
 sites = info_df['site_id']
 sites = ['10052', '10064'] # For testing
