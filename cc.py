@@ -15,21 +15,35 @@ info_df = pd.read_csv(fname)
 # Filter out "bad" sites
 filtered_df = info_df[~info_df['error'].str.contains('', na=False)]
 
+print(filtered_df)
 
-sites = info_df['site_id']
-sites = ['10052', '10064'] # For testing
+sites = ['10052', '10238', '10255'] # For testing
 print("site_1\tsite_2\tcc")
+
 rows = []
 for idx_1, site_1 in enumerate(sites):
+  #reading in data for site_1
+  fname = os.path.join(data_dir, 'processed', site_1, 'GIC_measured_NERC.pkl')
+  with open(fname, 'rb') as f:
+    #print(f"Reading {fname}")
+    site_1_data = pickle.load(f)
+  site_1_df = pd.DataFrame(site_1_data)
   for idx_2, site_2 in enumerate(sites):
-    # TODO: 1/2 ccs are duplicate b/c cc(a,b) = cc(b,a). Figure out how to modify the loop to avoid this.
-    if idx_1 == idx_2:
+    if idx_1 <= idx_2:  # Avoid duplicate pairs
       continue
-    #TODO: cc = ...
-    cc = 1.0
-    print(f"{site_1}\t{site_2}\t{cc}")
-    rows.append([site_1, site_2, cc])
+    else:
+      fname = os.path.join(data_dir, 'processed', site_2, 'GIC_measured_NERC.pkl')
+      with open(fname, 'rb') as f:
+        #print(f"Reading {fname}")
+        site_2_data = pickle.load(f)
+      site_2_df = pd.DataFrame(site_2_data)
+      cc = 1.0  # for testing
+      cc = np.corrcoef(site_1_df['original'][0]['data'], site_2_df['original'][0]['data'])[0, 1]
+      #issue w cc calculation, need arrays to have same size 
+      print(f"{site_1}\t{site_2}\t{cc}")
+      rows.append([site_1, site_2, cc])
 
 
 # TODO: Print the results again in order of decreasing correlation coefficient
+
 
