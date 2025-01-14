@@ -13,17 +13,16 @@ fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
 
+
 # Filter out "bad" sites
 filtered_df = info_df[~info_df['error'].str.contains('', na=False)]
 filtered_df.reset_index(drop=True, inplace=True)
-print(filtered_df)
 
 sites = filtered_df['site_id'].tolist()
 #sites = ['10052', '10238', '10255'] # For testing
 print("site_1\tsite_2\tcc")
 
-# This is still a work in progress
-# I need to make user defined functions for some of it to make it easier to read
+
 rows = []
 for idx_1, site_1 in enumerate(sites):
   # Only comparing measured GIC for now
@@ -57,8 +56,7 @@ for idx_1, site_1 in enumerate(sites):
         #print(f"Reading {fname}")
         site_2_data = pickle.load(f)
       site_2_df = pd.DataFrame(site_2_data)
-      cc = 1.0  # for testing
-      cc = np.corrcoef(site_1_df['original'][0]['data'], site_2_df['original'][0]['data'])[0, 1]
+      cc = np.corrcoef(site_1_df['modified'][0]['data'], site_2_df['modified'][0]['data'])[0, 1]
       #issue w cc calculation, need arrays to have same size 
 
       print(f"{site_1}\t{site_2}\t{cc}")
@@ -71,9 +69,7 @@ for idx_1, site_1 in enumerate(sites):
         #print(f"Reading {fname}")
         site_2_data = pickle.load(f)
       site_2_df = pd.DataFrame(site_2_data)
-      cc = 0.5  # for testing
-      cc = np.corrcoef(site_1_df['original'][0]['data'], site_2_df['original'][0]['data'])[0, 1]
-      #issue w cc calculation, need arrays to have same size 
+      cc = np.corrcoef(site_1_df['modified'][0]['data'], site_2_df['modified'][0]['data'])[0, 1]
 
       print(f"{site_1}\t{site_2}\t{cc}")
       rows.append([site_1, site_2, cc])
