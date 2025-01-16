@@ -4,6 +4,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
+import numpy.ma as ma
 
 from geopy.distance import geodesic
 
@@ -42,7 +43,9 @@ def read_TVA_or_NERC(row):
       site_data = pickle.load(f)
 
   site_df = pd.DataFrame(site_data)
-  return site_df['modified'][0]['data']
+  mod_data = site_df['modified'][0]['data']
+  masked_data = ma.masked_invalid(mod_data)
+  return mod_data, masked_data
 
 def site_distance(df, idx_1, idx_2):
   dist = geodesic((df['geo_lat'][idx_1], df['geo_lon'][idx_1]), 
@@ -60,7 +63,7 @@ for idx_1, row in info_df.iterrows():
   if not keep(row) or site_1_id not in sites:
     continue
 
-  site_1_data = read_TVA_or_NERC(row)
+  site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
 
   for idx_2, row in info_df.iterrows():
     if idx_1 <= idx_2:  # Avoid duplicate pairs
@@ -71,15 +74,12 @@ for idx_1, row in info_df.iterrows():
     if not keep(row) or site_2_id not in sites:
       continue
 
-    site_2_data = read_TVA_or_NERC(row)
+    site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
 
-    cov = np.corrcoef(site_1_data, site_2_data)
+    cov = ma.corrcoef(msk_site_1_data, msk_site_2_data)
     cc = cov[0, 1]
     if np.isnan(cc):
       continue
-
-    # TODO: Fix issues with cc calculation, get rid of NaN values
-    #       See https://stackoverflow.com/a/55128008/1491619
 
     # Compute distance between sites in km
     distance = site_distance(info_df, idx_1, idx_2)
@@ -91,7 +91,7 @@ for idx_1, row in info_df.iterrows():
 # Print the results again in order of decreasing correlation coefficient
 rows_df = pd.DataFrame(rows, columns=columns)
 sorted_rows = rows_df.sort_values(by='cc', ascending=False)
-np.set_printoptions(threshold=sys.maxsize)
+#np.set_printoptions(threshold=sys.maxsize)
 
 output_fname = os.path.join(data_dir, '_results', 'cc.pkl')
 if not os.path.exists(os.path.dirname(output_fname)):
