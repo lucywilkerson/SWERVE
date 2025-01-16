@@ -86,6 +86,8 @@ for idx_1, row in info_df.iterrows():
     print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}")
     rows.append([site_1_id, site_2_id, cc, distance])
 
+    # TODO:add a columns in the printout of # min, # bad 1, # bad 2
+
 
 # Print the results again in order of decreasing correlation coefficient
 rows_df = pd.DataFrame(rows, columns=columns)
