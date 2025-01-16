@@ -16,9 +16,10 @@ print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
 
 # Filter out sites with error message
-# TODO: Also remove rows that don't have data_type = GIC and data_class = measured
-# so that the keep() function is not needed.
+# Also remove rows that don't have data_type = GIC and data_class = measured
 info_df = info_df[~info_df['error'].str.contains('', na=False)]
+info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
 
 sites = info_df['site_id'].tolist()
@@ -43,8 +44,8 @@ def read_TVA_or_NERC(row):
       site_data = pickle.load(f)
 
   site_df = pd.DataFrame(site_data)
-  mod_data = site_df['modified'][0]['data']
-  masked_data = ma.masked_invalid(mod_data)
+  mod_data = site_df['modified'][0]['data'] # 1-min avg data
+  masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
   return mod_data, masked_data
 
 def site_distance(df, idx_1, idx_2):
@@ -52,15 +53,13 @@ def site_distance(df, idx_1, idx_2):
                   (df['geo_lat'][idx_2], df['geo_lon'][idx_2])).km
   return dist
 
-def keep(row):
-  # Only compare GIC/measured
-  return row['data_type'] == 'GIC' and row['data_class'] == 'measured'
+
 
 rows = []
 for idx_1, row in info_df.iterrows():
 
   site_1_id = row['site_id']
-  if not keep(row) or site_1_id not in sites:
+  if site_1_id not in sites:
     continue
 
   site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
@@ -71,7 +70,7 @@ for idx_1, row in info_df.iterrows():
 
     site_2_id = row['site_id']
 
-    if not keep(row) or site_2_id not in sites:
+    if site_2_id not in sites:
       continue
 
     site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
