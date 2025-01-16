@@ -21,6 +21,7 @@ info_df = info_df[~info_df['error'].str.contains('', na=False)]
 info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
 info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
+#print(info_df)
 
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207'] # For testing
