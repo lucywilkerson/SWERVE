@@ -39,17 +39,23 @@ def add_features(ax, state):
 def add_cc_colors(cc):  
     if cc < 0.2:
         color = 'red'
+        mark = 2
     elif cc < 0.4:
         color = 'orange'
+        mark = 2.75
     elif cc < 0.6:
         color = 'yellow'
+        mark = 3.5
     elif cc < 0.8:
         color = 'lightgreen'
+        mark = 4.25
     else:
         color = 'green'
-    return color
+        mark = 5    
+    return color,mark
 
 def add_cc_width(cc):   
+
     if cc < 0.2:
         width = 1
     elif cc < 0.4:
@@ -61,6 +67,7 @@ def add_cc_width(cc):
     else:
         width = 5
     return width
+
 
 def map_cc(ax, site_id, cc_df, colors=False, lines=False):
     site_1_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
@@ -77,9 +84,9 @@ def map_cc(ax, site_id, cc_df, colors=False, lines=False):
         site_2_lat = info_df.loc[info_df['site_id'] == site_2_id, 'geo_lat'].values[0]
         site_2_lon = info_df.loc[info_df['site_id'] == site_2_id, 'geo_lon'].values[0]
         if colors == True:
-            col = add_cc_colors(cc)
+            col, marksiz= add_cc_colors(cc)
             ax.plot(site_2_lon, site_2_lat, color=col, 
-                    marker='o', markersize=5, transform=transform)
+                    marker='o', markersize=marksiz, transform=transform)
             prim_color='k'
         elif lines == True:
             width = add_cc_width(cc)
@@ -122,7 +129,7 @@ info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
 
 sites = info_df['site_id'].tolist()
-sites = ['Bull Run'] # For testing
+#sites = ['Bull Run'] # For testing
 
 # Read in cc data
 pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
