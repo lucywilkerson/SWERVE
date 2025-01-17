@@ -1,19 +1,17 @@
 import os
-import csv
 import pandas as pd
 import pickle
 
+import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-import matplotlib.patches as patches
 
 data_dir = os.path.join('..', '2024-AGU-data')
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
 state = True # Show political boundaries
-patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
 
 
 def savefig(sid, fname, sub_dir="", fmts=['png']):
@@ -64,7 +62,7 @@ def add_cc_width(cc):
         width = 5
     return width
 
-def plot_cc(ax, site_id, cc_df, colors=False, lines=False):
+def map_cc(ax, site_id, cc_df, colors=False, lines=False):
     site_1_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
     site_1_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
 
@@ -93,7 +91,23 @@ def plot_cc(ax, site_id, cc_df, colors=False, lines=False):
             prim_color='k'
         ax.plot(site_1_lon, site_1_lat, color=prim_color, marker='*', transform=transform)
             
-        
+def plot_cc(site_id, cc_df):
+    cc = []
+    dist = []
+    for idx, row in cc_df.iterrows():
+        if row['site_1'] == site_id:
+            site_2_id = row['site_2']
+        elif row['site_2'] == site_id:
+            site_2_id = row['site_1']
+        else:
+            continue
+        cc.append(row['cc'])
+        dist.append(row['dist(km)'])
+    plt.scatter(dist, np.abs(cc))
+    plt.xlabel('Distance (km)')
+    plt.ylabel('|cc|')
+    plt.title(site_id)
+    plt.grid(True)
         
 
 fname = os.path.join('info', 'info.csv')
@@ -125,18 +139,25 @@ for idx_1, row in info_df.iterrows():
 
     # Create a figure and axes with a specific projection
     fig, axs = plt.subplots(2, figsize=(10, 8), subplot_kw={'projection': projection})
-
+    # setting up map
     for ax in axs.flat:
         add_features(ax, state)
         # Set the extent of the map (USA)
         ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
-
-    plot_cc(axs[0], site_1_id, cc_df, lines=True)
-
-    plot_cc(axs[1], site_1_id, cc_df, colors=True)
-
+    # plotting map w lines
+    map_cc(axs[0], site_1_id, cc_df, lines=True)
+    # plotting map w colors
+    map_cc(axs[1], site_1_id, cc_df, colors=True)
     plt.suptitle(site_1_id)
+    #plt.show()
 
-    
+    savefig(site_1_id, 'cc_map')
+    plt.close()
 
-plt.show()
+    # plotting cc vs distance
+    fig = plot_cc(site_1_id, cc_df)
+    #plt.show()
+
+    savefig(site_1_id, 'cc_plot')
+    plt.close()
+
