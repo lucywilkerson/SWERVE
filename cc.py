@@ -26,7 +26,7 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'var_1', 'var_2']
 print('\t'.join(columns))
 
 #function to read TVA or NERC data to make below loop less complicated
@@ -65,6 +65,12 @@ for idx_1, row in info_df.iterrows():
 
   site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
 
+  # finding number of nans masked
+  bad_1 = np.sum(msk_site_1_data.mask)
+
+  # finding varaince
+  var_1 = np.var(msk_site_1_data)
+
   for idx_2, row in info_df.iterrows():
     if idx_1 <= idx_2:  # Avoid duplicate pairs
       continue
@@ -76,6 +82,12 @@ for idx_1, row in info_df.iterrows():
 
     site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
 
+    # finding number of nans masked
+    bad_2 = np.sum(msk_site_2_data.mask)
+
+    # finding varaince
+    var_2 = np.var(msk_site_2_data)
+
     cov = ma.corrcoef(msk_site_1_data, msk_site_2_data)
     cc = cov[0, 1]
     if np.isnan(cc):
@@ -84,10 +96,10 @@ for idx_1, row in info_df.iterrows():
     # Compute distance between sites in km
     distance = site_distance(info_df, idx_1, idx_2)
 
-    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}")
-    rows.append([site_1_id, site_2_id, cc, distance])
+    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t{bad_1}\t{bad_2}\t{var_1:.2f}\t{var_2:.2f}")
+    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, var_1, var_2])
 
-    # TODO:add a columns in the printout of # min, # bad 1, # bad 2
+    # TODO:add a column in the printout of # mins
 
 
 # Print the results again in order of decreasing correlation coefficient
