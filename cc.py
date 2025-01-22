@@ -26,7 +26,7 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'var_1', 'var_2']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2']
 print('\t'.join(columns))
 
 #function to read TVA or NERC data to make below loop less complicated
@@ -69,7 +69,7 @@ for idx_1, row in info_df.iterrows():
   bad_1 = np.sum(msk_site_1_data.mask)
 
   # finding varaince
-  var_1 = np.var(msk_site_1_data)
+  std_1 = np.std(msk_site_1_data)
 
   for idx_2, row in info_df.iterrows():
     if idx_1 <= idx_2:  # Avoid duplicate pairs
@@ -86,7 +86,7 @@ for idx_1, row in info_df.iterrows():
     bad_2 = np.sum(msk_site_2_data.mask)
 
     # finding varaince
-    var_2 = np.var(msk_site_2_data)
+    std_2 = np.std(msk_site_2_data)
 
     cov = ma.corrcoef(msk_site_1_data, msk_site_2_data)
     cc = cov[0, 1]
@@ -96,8 +96,8 @@ for idx_1, row in info_df.iterrows():
     # Compute distance between sites in km
     distance = site_distance(info_df, idx_1, idx_2)
 
-    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t{bad_1}\t{bad_2}\t{var_1:.2f}\t{var_2:.2f}")
-    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, var_1, var_2])
+    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}")
+    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2])
 
     # TODO:add a column in the printout of # mins
 
