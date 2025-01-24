@@ -17,3 +17,17 @@ plt.grid(True)
 
 print('Saving cc_plot.svg')
 plt.savefig('cc_plot.svg', bbox_inches='tight')
+plt.close()
+
+avg_std = []
+for idx, row in sorted_rows.iterrows():
+  avg_std.append(np.mean([row['std_1'], row['std_2']]))
+
+plt.scatter(avg_std, np.abs(sorted_rows['cc']))
+plt.xlabel('Average standard deviation')
+plt.ylabel('|cc|')
+plt.grid(True)
+#plt.show()
+
+print('Saving cc_plot_std.svg')
+plt.savefig('cc_plot_std.svg', bbox_inches='tight')
