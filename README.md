@@ -8,8 +8,17 @@ git clone https://github.com/lucywilkerson/2024-AGU
 cd 2024-AGU
 pip install -e .
 
-python info.py # Creates info/info_dict.json and info/info_dataframe.pkl
+# Creates info/info.json, which is a dict with keys of site id and values
+# containing data types available at each site.
+python info.py
+
 python map.py
-python read.py
+
+# Read all data files in ../2024-AGU-data and write pkl files with normalized
+# data for each site to ../2024-AGU-data/_processed. Write pkl file with all
+# data in ../2024-AGU-data/_all/all.pkl.
+python read.py 
+
+
 python plot.py
 ```

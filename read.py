@@ -7,9 +7,10 @@ import pickle
 import datetime
 
 data_dir = os.path.join('..', '2024-AGU-data')
-out_file = os.path.join(data_dir, '_processed', '_all', 'data.pkl')
-if not os.path.exists(os.path.dirname(out_file)):
-  os.makedirs(os.path.dirname(out_file))
+base_dir = os.path.join(data_dir, '_processed')
+all_file = os.path.join(data_dir, '_all', 'all.pkl')
+if not os.path.exists(os.path.dirname(all_file)):
+  os.makedirs(os.path.dirname(all_file))
 
 def read_nerc(data_dir, fname):
   data = []
@@ -239,6 +240,7 @@ stop = datetime.datetime(2024, 5, 13, 0, 0)
 data = {}
 sids = info.keys()
 #sids = ['Union', 'Montgomery', 'Widows Creek', 'Bull Run']
+sids = ['10052', '10064']
 #sids = ['10052', '10064']
 #sids = ['Bull Run', '10052', '50100']
 #sids = ['10233']
@@ -292,7 +294,7 @@ for sid in sids: # site ids
 
         sidx = sid.lower().replace(' ', '')
         fname = f'{data_type}_{data_class}_{data_source}.pkl'
-        fname = os.path.join(data_dir, 'processed', sidx, fname)
+        fname = os.path.join(base_dir, sidx, fname)
         if not os.path.exists(os.path.dirname(fname)):
           os.makedirs(os.path.dirname(fname))
 
@@ -300,6 +302,6 @@ for sid in sids: # site ids
           print(f"    Writing {fname}")
           pickle.dump(data[sid][data_type][data_class], f)
 
-print(f"\nWriting {out_file}")
-with open(out_file, 'wb') as f:
+print(f"\nWriting {all_file}")
+with open(all_file, 'wb') as f:
   pickle.dump(data, f)

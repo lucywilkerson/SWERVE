@@ -27,13 +27,10 @@ to a dict of the form
   }
 }
 
-and saves in info/info_dict.json and info/info_dataframe.pkl
+and saves in info/info.json
 """
 
 df = pd.read_csv(os.path.join('info', 'info.csv'))
-print("Writing info/info_dataframe.pkl")
-with open(os.path.join('info','info_dataframe.pkl'), 'wb') as f:
-  df.to_pickle(f)
 
 sites = {}
 locations = {}
@@ -55,6 +52,6 @@ for idx, row in df.iterrows():
   else:
     sites[site][data_type][data_class].append(data_source)
 
-print("Writing info/info_dict.json")
-with open(os.path.join('info','info_dict.json'), 'w') as f:
+print("Writing info/info.json")
+with open(os.path.join('info','info.json'), 'w') as f:
   json.dump(sites, f, indent=2)

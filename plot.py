@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 import numpy
 import pickle
@@ -17,8 +16,15 @@ plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-AGU-data')
+all_dir  = os.path.join(data_dir, '_all')
+all_file = os.path.join(all_dir, 'all.pkl')
+base_dir = os.path.join(data_dir, '_processed')
+
+plot_data = True    # Plot original and modified data
+plot_compare = True # Plot measured and calculated data on same axes, when both available
 sids = None # If none, plot all sites
-#sids = ['10052', '10064']
+sids = ['10052', '10064']
+
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['Bull Run']
 #sids = ['50100']
@@ -28,25 +34,21 @@ sids = None # If none, plot all sites
 start = datetime.datetime(2024, 5, 10, 12, 0)
 stop = datetime.datetime(2024, 5, 13, 0, 0)
 
-def read(data_dir, sid=None):
+def read(all_file, sid=None):
   fname = os.path.join('info', 'info_dict.json')
   with open(fname, 'r') as f:
     print(f"Reading {fname}")
     info_dict = json.load(f)
 
-  fname = os.path.join('info', 'info_dataframe.pkl')
-  with open(fname, 'rb') as f:
-    print(f"Reading {fname}")
-    info_df = pickle.load(f)
+  info_df = pd.read_csv(os.path.join('info', 'info.csv'))
 
   fname = os.path.join('info', 'plot.json')
   with open(fname, 'r') as f:
     print(f"Reading {fname}")
     plot_cfg = json.load(f)
 
-  fname = os.path.join(data_dir, '_processed', '_all', 'data.pkl')
-  print(f"Reading {fname}")
-  with open(fname, 'rb') as f:
+  print(f"Reading {all_file}")
+  with open(all_file, 'rb') as f:
     data = pickle.load(f)
 
   return info_dict, info_df, data, plot_cfg
@@ -58,7 +60,7 @@ def subset(time, data, start, stop):
   return time[idx], data[idx,:]
 
 def savefig(sid, fname, sub_dir="", fmts=['png']):
-  fdir = os.path.join(data_dir, 'processed', sid.lower().replace(' ', ''), sub_dir)
+  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''), sub_dir)
   if not os.path.exists(fdir):
     os.makedirs(fdir)
   fname = os.path.join(fdir, fname)
@@ -155,7 +157,7 @@ def compare_gic(info, data, sid):
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
   savefig(sid, 'GIC_histogram_meas_calc')
 
-def compare_dB(info, data, sid):
+def compare_db(info, data, sid):
 
   time_meas = data[sid]['B']['measured'][0]['modified']['time']
   data_meas = data[sid]['B']['measured'][0]['modified']['data']
@@ -255,8 +257,8 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
 
   if data_type == 'GIC' and data_class == 'measured':
     subdir = 'good' if data_error is None else 'bad'
-    src_file = os.path.join(data_dir, 'processed', sidx, 'data', f'{base_name}.png')
-    dest_dir = os.path.join(data_dir, '_all', 'gic', subdir)
+    src_file = os.path.join(base_dir, sidx, 'data', f'{base_name}.png')
+    dest_dir = os.path.join(all_dir, 'gic', subdir)
     if not os.path.exists(dest_dir):
       os.makedirs(dest_dir)
     dest_file = os.path.join(dest_dir, f'{base_name}.png')
@@ -278,47 +280,55 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
 
   plt.close()
 
-info_dict, info_df, data_all, plot_info = read(data_dir)
+
+info_dict, info_df, data_all, plot_info = read(all_file)
 if sids is None:
   sids = info_dict.keys()
 
-for sid in sids: # site ids
-  if sid not in info_dict.keys():
-    raise ValueError(f"Site '{sid}' not found in info_dict.json")
+if plot_data:
 
-  # Plot original and modified data
-  for data_type in info_dict[sid].keys(): # e.g., GIC, B
-    for data_class in info_dict[sid][data_type].keys(): # e.g., measured, calculated
+  for sid in sids: # site ids
+    if sid not in info_dict.keys():
+      raise ValueError(f"Site '{sid}' not found in info_dict.json")
 
-      data = data_all[sid][data_type][data_class]
-      data_sources = info_dict[sid][data_type][data_class]
-      for idx, data_source in enumerate(data_sources):
-        # Read info_df and row with site_id = sid, data_type = data_type,
-        # data_class = data_class, data_source = data_source
-        info_df_row = info_df[(info_df['site_id'] == sid) &
-                              (info_df['data_type'] == data_type) &
-                              (info_df['data_class'] == data_class) &
-                              (info_df['data_source'] == data_source)]
-        data_error = info_df_row['error'].values[0] if not info_df_row.empty else None
-        data_error = str(data_error) if not pd.isnull(data_error) else None
-        if data_error == 'nan':
-          data_error = None
+    # Plot original and modified data
+    for data_type in info_dict[sid].keys(): # e.g., GIC, B
+      for data_class in info_dict[sid][data_type].keys(): # e.g., measured, calculated
 
-        if data[idx] is not None:
-          print(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}'")
-          plot_original(plot_info, data[idx], sid, data_type, data_class, data_source, data_error)
-        else:
-          print(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
+        data = data_all[sid][data_type][data_class]
+        data_sources = info_dict[sid][data_type][data_class]
+        for idx, data_source in enumerate(data_sources):
+          # Read info_df and row with site_id = sid, data_type = data_type,
+          # data_class = data_class, data_source = data_source
+          info_df_row = info_df[(info_df['site_id'] == sid) &
+                                (info_df['data_type'] == data_type) &
+                                (info_df['data_class'] == data_class) &
+                                (info_df['data_source'] == data_source)]
+          data_error = info_df_row['error'].values[0] if not info_df_row.empty else None
+          data_error = str(data_error) if not pd.isnull(data_error) else None
+          if data_error == 'nan':
+            data_error = None
 
-  print("  Creating analysis and comparison plots")
+          if data[idx] is not None:
+            print(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}'")
+            plot_original(plot_info, data[idx], sid, data_type, data_class, data_source, data_error)
+          else:
+            print(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
+
+    print(" ")
+
+if plot_compare:
+
   if 'B' in info_dict[sid].keys():
     mag_types = info_dict[sid]['B'].keys()
     if 'measured' in mag_types and 'calculated' in mag_types:
-      compare_dB(info_dict, data_all, sid)
+      print("  Plotting B measured and calculated")
+      compare_db(info_dict, data_all, sid)
 
   if 'GIC' in info_dict[sid].keys():
     gic_types = info_dict[sid]['GIC'].keys()
     if 'measured' and 'calculated' in gic_types:
+      print("  Plotting GIC measured and calculated")
       compare_gic(info_dict, data_all, sid)
 
   print(" ")
