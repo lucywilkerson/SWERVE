@@ -23,19 +23,14 @@ base_dir = os.path.join(data_dir, '_processed')
 plot_data = True    # Plot original and modified data
 plot_compare = True # Plot measured and calculated data on same axes, when both available
 sids = None # If none, plot all sites
-sids = ['10052', '10064']
-
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
-#sids = ['Bull Run']
-#sids = ['50100']
-#sids = ['Bull Run', '10052', '50100']
-#sids = ['10233']
+#sids = ['10052', '10064']
 
 start = datetime.datetime(2024, 5, 10, 12, 0)
 stop = datetime.datetime(2024, 5, 13, 0, 0)
 
 def read(all_file, sid=None):
-  fname = os.path.join('info', 'info_dict.json')
+  fname = os.path.join('info', 'info.json')
   with open(fname, 'r') as f:
     print(f"Reading {fname}")
     info_dict = json.load(f)
@@ -225,7 +220,7 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
 
   mag_legend = plot_info[data_source][data_type]
   sidx = sid.lower().replace(' ', '')
-  base_name = f'{data_type}_{sidx}_{data_class}_{data_source}'
+  base_name = f'{data_type}_{data_class}_{data_source}'
 
   # "o" for original.
   time_o = data['original']['time']
@@ -253,11 +248,11 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
 
   plt.figure()
   plot(time_o, data_o, title, ylabel, legend, time_m, data_m)
-  savefig(sid, f'{base_name}', sub_dir='data')
+  savefig(sid, f'{base_name}')
 
   if data_type == 'GIC' and data_class == 'measured':
     subdir = 'good' if data_error is None else 'bad'
-    src_file = os.path.join(base_dir, sidx, 'data', f'{base_name}.png')
+    src_file = os.path.join(base_dir, sidx, f'{base_name}.png')
     dest_dir = os.path.join(all_dir, 'gic', subdir)
     if not os.path.exists(dest_dir):
       os.makedirs(dest_dir)
@@ -276,7 +271,7 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
     title = f"{title} with mean removed"
 
     plot(time_m, data_m, title, ylabel, legend, None, None)
-    savefig(sid, f'{base_name}_modified', sub_dir='data')
+    savefig(sid, f'{base_name}_modified')
 
   plt.close()
 
@@ -330,5 +325,3 @@ if plot_compare:
     if 'measured' and 'calculated' in gic_types:
       print("  Plotting GIC measured and calculated")
       compare_gic(info_dict, data_all, sid)
-
-  print(" ")

@@ -2,32 +2,34 @@ import os
 import pickle
 import numpy as np
 
-data_dir = os.path.join('..', '2024-AGU-data')
-pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
-with open(pkl_file, 'rb') as file:
-  sorted_rows = pickle.load(file)
-
 import matplotlib.pyplot as plt
 
-plt.scatter(sorted_rows['dist(km)'], np.abs(sorted_rows['cc']))
+data_dir = os.path.join('..', '2024-AGU-data')
+results_dir = os.path.join('..', '2024-AGU-data', '_results')
+
+pkl_file = os.path.join(results_dir, 'cc.pkl')
+print(f"Reading {pkl_file}")
+with open(pkl_file, 'rb') as file:
+  df = pickle.load(file)
+
+def savefig(fname):
+  if not os.path.exists(os.path.dirname(fname)):
+    os.makedirs(os.path.dirname(fname))
+
+  print(f"Writing {fname}.png")
+  plt.savefig(f'{fname}.png', dpi=600, bbox_inches="tight")
+
+plt.scatter(df['dist(km)'], np.abs(df['cc']))
 plt.xlabel('Distance (km)')
 plt.ylabel('|cc|')
 plt.grid(True)
-#plt.show()
-
-print('Saving cc_plot.svg')
-plt.savefig('cc_plot.svg', bbox_inches='tight')
+savefig(os.path.join(results_dir, 'cc_vs_dist_scatter'))
 plt.close()
 
-avg_std = []
-for idx, row in sorted_rows.iterrows():
-  avg_std.append(np.mean([row['std_1'], row['std_2']]))
-
-plt.scatter(avg_std, np.abs(sorted_rows['cc']))
-plt.xlabel('Average standard deviation')
+avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
+plt.scatter(avg_std, np.abs(df['cc']))
+plt.xlabel('Average standard deviation (A)')
 plt.ylabel('|cc|')
 plt.grid(True)
-#plt.show()
-
-print('Saving cc_plot_std.svg')
-plt.savefig('cc_plot_std.svg', bbox_inches='tight')
+savefig(os.path.join(results_dir, 'cc_vs_ave_std_scatter'))
+plt.close()

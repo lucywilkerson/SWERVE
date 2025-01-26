@@ -229,7 +229,7 @@ def resample(time, data, start, stop, freq, ave=None):
   return {"time": df.index.to_pydatetime(), "data": data}
 
 
-fname = os.path.join('info', 'info_dict.json')
+fname = os.path.join('info', 'info.json')
 with open(fname, 'r') as f:
   print(f"Reading {fname}\n")
   info = json.load(f)
@@ -240,7 +240,7 @@ stop = datetime.datetime(2024, 5, 13, 0, 0)
 data = {}
 sids = info.keys()
 #sids = ['Union', 'Montgomery', 'Widows Creek', 'Bull Run']
-sids = ['10052', '10064']
+#sids = ['10052', '10064']
 #sids = ['10052', '10064']
 #sids = ['Bull Run', '10052', '50100']
 #sids = ['10233']

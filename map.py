@@ -7,7 +7,7 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import matplotlib.patches as patches
 
-data_dir = '../2024-AGU-data'
+out_dir = os.path.join('..', '2024-AGU-data', '_map')
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
@@ -15,6 +15,9 @@ state = True # Show political boundaries
 patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
 
 def savefig(fname):
+  if not os.path.exists(os.path.dirname(fname)):
+    os.makedirs(os.path.dirname(fname))
+
   print(f"Saving {fname}.png")
   plt.savefig(f'{fname}.png', dpi=600, bbox_inches="tight")
   #plt.savefig(f'{fname}.pdf')
@@ -74,7 +77,7 @@ add_symbols(ax, df, transform, 5)
 
 # TVA region
 ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
-fname = os.path.join(data_dir, 'map', 'map')
+fname = os.path.join(out_dir, 'map')
 savefig(fname)
 
 # Create a figure for just TVA
@@ -89,5 +92,5 @@ add_features(ax, state)
 ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
 add_features(ax, state)
 
-fname = os.path.join(data_dir, 'map', 'map_zoom_tva')
+fname = os.path.join(out_dir, 'map_zoom_tva')
 savefig(fname)
