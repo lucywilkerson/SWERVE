@@ -271,6 +271,7 @@ def site_plots(info_df, cc_df):
         plt.close()
 
 ## Function to add transmission lines to the map ##
+# TODO: incorporate into other plotting code as switch
 def add_trans_lines(ax):
     # US Transmission lines
     data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
