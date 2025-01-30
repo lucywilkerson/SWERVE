@@ -29,6 +29,9 @@ cc_df = pd.DataFrame(cc_rows)
 cc_df.reset_index(drop=True, inplace=True)
 
 ## Function to add transmission lines to the map ##
+#this is really the only new stuff here, it's already been copied over to cc_map.py
+#but keeping this original file for now in case we need to refer back to it
+#otherwise, this can be deleted
 def add_trans_lines(ax):
     # US Transmission lines
     data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
