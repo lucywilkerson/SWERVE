@@ -103,11 +103,12 @@ std_map(info_df, cc_df)
 # Set the Title
 ax.set_title('US Transmission Lines w GIC Standard Deviation', fontsize=15)
  
-plt.show()
+
 output_fname = os.path.join(data_dir, '_results', 'std_map_wtrans.png')
 if not os.path.exists(os.path.dirname(output_fname)):
     os.makedirs(os.path.dirname(output_fname))
 print(f"Saving {output_fname}")
 plt.savefig(output_fname, bbox_inches='tight')
+plt.show()
 plt.close()
 
