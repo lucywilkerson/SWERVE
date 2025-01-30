@@ -137,18 +137,27 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     sid = sid.replace(' ','')
     data_dir = os.path.join(data_dir, 'swmf', sid.lower())
 
-    df = {}
-    for region in ["gap", "iono", "msph"]:
-      file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
-      print(f"    Reading {file}")
-      if not os.path.exists(file):
-        raise FileNotFoundError(f"File not found: {file}")
-      df[region]  = pandas.read_pickle(file)
+    # df = {}
+    # for region in ["gap", "iono", "msph"]:
+    #   file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
+    #   print(f"    Reading {file}")
+    #   if not os.path.exists(file):
+    #     raise FileNotFoundError(f"File not found: {file}")
+    #   df[region]  = pandas.read_pickle(file)
 
-    bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
-    by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
-    bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
+    # bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
+    # by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
+    # bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
 
+    file = os.path.join(data_dir, f'dB_{sid}.pkl')
+    print(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
+    df  = pandas.read_pickle(file)
+
+    bx = df['Bn_msph'] + df['Bn_gap'] + df['Bnh_iono'] + df['Bnp_iono']
+    by = df['Be_msph'] + df['Be_gap'] + df['Beh_iono'] + df['Bep_iono']
+    bz = df['Bd_msph'] + df['Bd_gap'] + df['Bdh_iono'] + df['Bdp_iono']
 
     data = numpy.vstack([bx.to_numpy(), by.to_numpy(), bz.to_numpy()])
     time = bx.keys() # Will be the same for all
@@ -255,9 +264,7 @@ for sid in sids: # site ids
 
     data[sid][data_type] = {}
     data_classes = info[sid][data_type].keys()
-
     for data_class in data_classes: # e.g., measured, calculated
-
       data_sources = info[sid][data_type][data_class]
       data[sid][data_type][data_class] = []
       for data_source in data_sources:
@@ -267,7 +274,7 @@ for sid in sids: # site ids
           print("    Skipping")
           data[sid][data_type][data_class].append(None)
           continue
-        print(f"    data.shape = {d["data"].shape}")
+        print(f"    data.shape = {d['data'].shape}")
         original = {'original': d}
         data[sid][data_type][data_class].append(original)
 
@@ -275,7 +282,7 @@ for sid in sids: # site ids
           # Resample to 1-min average.
           print("    Averaging timeseries to 1-min bins")
           d = resample(d["time"], d["data"], start, stop, 's', ave=60)
-          print(f"    data.shape = {d["data"].shape}")
+          print(f"    data.shape = {d['data'].shape}")
           modified = {**d, 'modification': '1-min average'}
           # Assumes only one data source.
           data[sid][data_type][data_class][0]['modified'] = modified
@@ -287,7 +294,7 @@ for sid in sids: # site ids
           for i in range(3):
             # TODO: Get IGRF value
             data_m[:,i] = d["data"][:,i] - d["data"][0,i]
-          print(f"    data.shape = {d["data"].shape}")
+          print(f"    data.shape = {d['data'].shape}")
           modified = {'time': d["time"], 'data': data_m, 'modification': 'mean removed'}
           # Assumes only one data source.
           data[sid][data_type][data_class][0]['modified'] = modified
