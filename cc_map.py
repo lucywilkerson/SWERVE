@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
+import geopandas as gpd
 
 data_dir = os.path.join('..', '2024-AGU-data')
 
@@ -269,6 +270,29 @@ def site_plots(info_df, cc_df):
         savefig(site_1_id, 'cc_vs_std_scatter')
         plt.close()
 
+## Function to add transmission lines to the map ##
+def add_trans_lines(ax):
+    # US Transmission lines
+    data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
+    data_name = 'Electric__Power_Transmission_Lines.shp'
+    print(f"Reading {data_name}")
+    trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
+    trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
+    # Retain initial crs
+    trans_lines_crs = trans_lines_gdf.crs
+    trans_lines_gdf = trans_lines_gdf.to_crs("EPSG:4326")
+    # Translate MultiLineString to LineString geometries, taking only the first LineString
+    trans_lines_gdf.loc[
+    trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+    ] = trans_lines_gdf.loc[
+    trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+    ].apply(lambda x: list(x.geoms)[0])
+    # Get rid of erroneous 1MV and low power line voltages
+    trans_lines_gdf = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] >= 200)]
+    # Plot the lines
+    for idx, row in trans_lines_gdf.iterrows():
+        x, y = row['geometry'].xy
+        ax.plot(x, y, color='black', linewidth=1,transform=transform)
 
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
