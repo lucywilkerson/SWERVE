@@ -70,13 +70,8 @@ ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
 
 add_trans_lines(ax)
 
-# adding points for the sites to geodataframe
-site_gdf = gpd.GeoDataFrame(
-    info_df, geometry=gpd.points_from_xy(info_df['geo_lon'], info_df['geo_lat']))
-site_gdf.crs = "EPSG:4326"
-
 # plotting the sites
-ax.plot(site_gdf['geometry'].x,site_gdf['geometry'].y, 'ro', markersize=3,transform=transform)
+ax.plot(info_df['geo_lon'], info_df['geo_lat'], 'ro', markersize=3,transform=transform)
  
 # Set the Title
 ax.set_title('Transmission Lines within the Contigous US', fontsize=15)
