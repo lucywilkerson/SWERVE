@@ -314,14 +314,18 @@ if plot_data:
 
 if plot_compare:
 
-  if 'B' in info_dict[sid].keys():
-    mag_types = info_dict[sid]['B'].keys()
-    if 'measured' in mag_types and 'calculated' in mag_types:
-      print("  Plotting B measured and calculated")
-      compare_db(info_dict, data_all, sid)
+  for sid in sids: # site ids
+    if sid not in info_dict.keys():
+      raise ValueError(f"Site '{sid}' not found in info_dict.json")
+      
+    if 'B' in info_dict[sid].keys():
+      mag_types = info_dict[sid]['B'].keys()
+      if 'measured' in mag_types and 'calculated' in mag_types:
+        print("  Plotting B measured and calculated")
+        compare_db(info_dict, data_all, sid)
 
-  if 'GIC' in info_dict[sid].keys():
-    gic_types = info_dict[sid]['GIC'].keys()
-    if 'measured' and 'calculated' in gic_types:
-      print("  Plotting GIC measured and calculated")
-      compare_gic(info_dict, data_all, sid)
+    if 'GIC' in info_dict[sid].keys():
+      gic_types = info_dict[sid]['GIC'].keys()
+      if 'measured' and 'calculated' in gic_types:
+        print("  Plotting GIC measured and calculated")
+        compare_gic(info_dict, data_all, sid)
