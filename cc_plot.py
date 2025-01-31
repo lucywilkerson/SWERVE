@@ -33,3 +33,7 @@ plt.ylabel('|cc|')
 plt.grid(True)
 savefig(os.path.join(results_dir, 'cc_vs_ave_std_scatter'))
 plt.close()
+
+# plot_maps
+# plot_scatter
+# plot_timeseries

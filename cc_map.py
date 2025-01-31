@@ -323,4 +323,10 @@ cc_df.reset_index(drop=True, inplace=True)
 cc_vs_dist_map(cc_df)
 std_map(info_df, cc_df)
 site_plots(info_df, cc_df)
+#transmission_map() # Content of transmission_map.py
+#location_map() # Content of map.py
+
+# then rename this file to plot_maps.py and delete transmission_map.py and cc_map.py
+
+
 
