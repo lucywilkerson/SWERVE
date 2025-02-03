@@ -106,13 +106,13 @@ for voltage in voltages:
     trans_lines_plot = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] == voltage)]
     # Plot the lines
     if voltage == 765:
-        color = 'c'
+        color = 'r'
     elif voltage == 500:
-        color = 'm'
+        color = 'g'
     elif voltage == 345:
-        color = 'y'
+        color = 'b'
     #elif voltage == 230:
-        #color = 'b'
+        #color = 'y'
     else:
         continue
     legend_switch = True
@@ -123,7 +123,7 @@ for voltage in voltages:
             legend_switch = False
         else:
             label = None
-        ax.plot(x, y, color=color, linewidth=1,transform=transform, label=label) 
+        ax.plot(x, y, color=color, linewidth=2,transform=transform, label=label) 
 
 
 #adding locations!!
@@ -240,7 +240,7 @@ for idx_1, row in info_df.iterrows():
     out_dir = os.path.join('..', '2024-AGU-data', '_results')
     fname = os.path.join(out_dir, fname)
     plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
-    plt.show()
+    #plt.show()
     plt.close()
 
 
