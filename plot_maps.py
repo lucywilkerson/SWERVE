@@ -7,7 +7,7 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import matplotlib.patches as patches
 
-out_dir = os.path.join('..', '2024-AGU-data', '_map')
+out_dir = os.path.join('..', '2024-AGU-data', 'map')
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
@@ -64,7 +64,7 @@ def add_symbols(ax, df, transform, markersize):
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
-
+"""
 # Create a figure and axes with a specific projection
 fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
 
@@ -94,3 +94,25 @@ add_features(ax, state)
 
 fname = os.path.join(out_dir, 'map_zoom_tva')
 savefig(fname)
+"""
+
+def location_map(extent, symbol_size, out_dir, out_name, patch=False):
+  # Create a figure and axes with a specific projection
+  fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
+  # Adding map features and symbols for locations
+  add_features(ax, state)
+  if patch == True:
+    ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
+  add_symbols(ax, df, transform, symbol_size)
+  # Set the extent of the map
+  ax.set_extent(extent, crs=crs)
+  # Save map
+  fname = os.path.join(out_dir, out_name)
+  savefig(fname)
+  plt.show()
+
+USA_extent = [-125, -67, 25.5, 49.5]
+TVA_extent = [-91, -82, 33, 38]
+
+location_map(USA_extent, 5, out_dir, 'map', patch=True)
+location_map(TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
