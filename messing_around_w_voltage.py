@@ -183,7 +183,6 @@ def read_TVA_or_NERC(row):
       fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
 
   with open(fname, 'rb') as f:
-      #print(f"Reading {fname}")
       site_data = pickle.load(f)
 
   site_df = pd.DataFrame(site_data)
