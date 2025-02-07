@@ -20,8 +20,6 @@ def savefig(fname):
 
   print(f"Saving {fname}.png")
   plt.savefig(f'{fname}.png', dpi=600, bbox_inches="tight")
-  #plt.savefig(f'{fname}.pdf')
-  #plt.savefig(f'{fname}.svg')
 
 def add_features(ax, state):
     # Add coastlines and other features
@@ -64,46 +62,15 @@ def add_symbols(ax, df, transform, markersize):
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
-"""
-# Create a figure and axes with a specific projection
-fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
 
-add_features(ax, state)
-
-# Set the extent of the map (USA)
-ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
-
-add_symbols(ax, df, transform, 5)
-
-# TVA region
-ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
-fname = os.path.join(out_dir, 'map')
-savefig(fname)
-
-# Create a figure for just TVA
-fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
-
-# Set the extent of the map (TVA)
-ax.set_extent([-91, -82, 33, 38], crs=crs)
-
-add_symbols(ax, df, transform, 13)
-add_features(ax, state)
-
-ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
-add_features(ax, state)
-
-fname = os.path.join(out_dir, 'map_zoom_tva')
-savefig(fname)
-"""
-
-def location_map(extent, symbol_size, out_dir, out_name, patch=False):
+def location_map(extent, markersize, out_dir, out_name, patch=False):
   # Create a figure and axes with a specific projection
   fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
   # Adding map features and symbols for locations
   add_features(ax, state)
   if patch == True:
     ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
-  add_symbols(ax, df, transform, symbol_size)
+  add_symbols(ax, df, transform, markersize)
   # Set the extent of the map
   ax.set_extent(extent, crs=crs)
   # Save map
