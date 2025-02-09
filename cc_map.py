@@ -4,6 +4,7 @@ import pickle
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import geopandas as gpd

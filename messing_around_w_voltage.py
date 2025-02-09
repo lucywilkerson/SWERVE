@@ -51,7 +51,7 @@ voltages = trans_lines_gdf["VOLTAGE"].unique()
 #order voltages from lowest to highest
 voltages = sorted(voltages)
 
-"""
+
 voltage_counts = []
 plot_volts = []
 # counting number of lines for each voltage
@@ -64,16 +64,21 @@ for voltage in voltages:
     print(f"Voltage: {voltage} kV, Number of Lines: {length}")
     voltage_counts.append(length)
 
-
-plt.scatter(plot_volts, voltage_counts, color='c')
-plt.bar(plot_volts, voltage_counts, color = 'c', width=3)
+plt.figure(figsize=(12, 6))
+plt.scatter(plot_volts, voltage_counts, color='k', zorder=2)
+for voltage, count in zip(plot_volts, voltage_counts):
+    plt.vlines(voltage, 0, count, color='k')
 plt.xlabel('Voltage [kV]')
 plt.ylabel('Number of Lines')
-plt.title('Number of Transmission Lines by Voltage')
+plt.title(f'US Transmission Lines from HIFLD: {len(trans_lines_gdf)}')
 plt.yscale('log')
-plt.grid()
+plt.xscale('log')
+plt.grid(True, zorder=1)
+out_dir = os.path.join('..', '2024-AGU-data', '_results')
+fname = os.path.join(out_dir, 'trans_lines_count')
+plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 plt.show()
-"""
+
 
 # base map
 state = True # Show political boundaries

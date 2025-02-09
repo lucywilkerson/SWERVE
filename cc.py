@@ -87,7 +87,7 @@ for idx_1, row in info_df.iterrows():
   # finding number of nans masked
   bad_1 = np.sum(msk_site_1_data.mask)
 
-  # finding varaince
+  # finding variance
   std_1 = np.std(msk_site_1_data)
 
   for idx_2, row in info_df.iterrows():
