@@ -4,6 +4,7 @@ import numpy
 import pickle
 import shutil
 import datetime
+import time
 
 import numpy as np
 import pandas as pd
@@ -23,7 +24,7 @@ base_dir = os.path.join(data_dir, '_processed')
 plot_data = True    # Plot original and modified data
 plot_compare = True # Plot measured and calculated data on same axes, when both available
 sids = None # If none, plot all sites
-#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
+# sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
 
 start = datetime.datetime(2024, 5, 10, 12, 0)
@@ -113,7 +114,11 @@ def compare_gic(info, data, sid):
 
   plt.figure()
   cc = numpy.corrcoef(data_meas, data_calc)
-  pe = 1-numpy.var(data_meas-data_calc)/numpy.var(data_meas)
+  # Fixed calculation of pe
+  numer = np.sum((data_meas-data_calc)**2)
+  denom = np.sum((data_meas-data_meas.mean())**2)
+  pe = ( 1-numer/denom )
+
   text = f"cc = {cc[0,1]:.2f} | pe = {pe:.2f}"
   text_kwargs = {
     'horizontalalignment': 'center',
@@ -163,9 +168,10 @@ def compare_db(info, data, sid):
   time_calcs = []
   data_calcs = []
   model_colors = ['b', 'g']
+  model_points = ['b.', 'g.']
   model_names = []
   for idx, data_source in enumerate(info[sid]['B']['calculated']):
-    model_names.append(data_source)
+    model_names.append(data_source.upper())
     time_calc = data[sid]['B']['calculated'][idx]['original']['time']
     data_calc = data[sid]['B']['calculated'][idx]['original']['data']
     time_calc, data_calc = subset(time_calc, data_calc, start, stop)
@@ -177,7 +183,7 @@ def compare_db(info, data, sid):
   plt.title(sid)
   plt.plot(time_meas, data_meas, 'k', linewidth=1, label='Measured')
   for idx in range(len(model_names)):
-    label = model_names[idx].upper()
+    label = model_names[idx]
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
   plt.ylabel(r'$\Delta B_H$ [nT]')
   datetick()
@@ -191,6 +197,99 @@ def compare_db(info, data, sid):
   ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
 
   savefig(sid, 'B_compare_timeseries')
+  
+  # Plots to examine how well measured matched calculated values
+  
+  # Storage for correlation coefficient, prediction effeciency, and 
+  # interpolated measured data
+  cc = []
+  pe = []
+  data_interp = []
+
+  # Plot illustrating correlation between measured and calculated
+  plt.figure()
+  plt.title(sid)
+  
+  # We have many more measured values than calculated values.
+  # So we interpolate the measured to match up with the calculated values
+  # To do so, we need to convert datetimes to timestamps so we can do interpolation
+  time_meas_ts = [time.mktime(t.timetuple()) for t in time_meas]
+  
+  # Loop thru modeled (measured) results
+  for idx in range(len(model_names)):
+    time_calcs_ts = np.array( [time.mktime(t.timetuple()) for t in time_calcs[idx]] )
+    
+    # Get rid of the NaNs for cc and pe calculations
+    time_calcs_ts = time_calcs_ts[~np.isnan(data_calcs[idx])]
+    data_calcs[idx] = data_calcs[idx][~np.isnan(data_calcs[idx])]
+    
+    # Interpolate measured data
+    data_interp.append( np.interp( time_calcs_ts, time_meas_ts, data_meas ) )
+    
+    # Add plot for each model
+    label = model_names[idx].upper()
+    plt.plot(data_interp[idx], data_calcs[idx], model_points[idx], markersize=1, label=label)
+    
+    cc.append( (np.corrcoef(data_interp[idx], data_calcs[idx]))[0,1] )
+       
+    numer = np.sum((data_interp[idx]-data_calcs[idx])**2)
+    denom = np.sum((data_interp[idx]-data_interp[idx].mean())**2)
+    pe.append( 1-numer/denom )
+
+  # Write cc and pe on plot
+  # TODO: Compute limits based on data
+  text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+  text_kwargs = {
+   'horizontalalignment': 'center',
+   'verticalalignment': 'center',
+   'bbox': {
+     "boxstyle": "round,pad=0.3",
+     "edgecolor": "black",
+     "facecolor": "white",
+     "linewidth": 0.5
+     }
+   }
+
+  ylims = plt.gca().get_ylim()
+  plt.plot([0, ylims[1]], [0, ylims[1]], color=3*[0.6], linewidth=0.5)
+
+  plt.text(0.75*ylims[1], 100, text, **text_kwargs)
+  plt.xlabel(r'Measured $\Delta B_H$ [nT]')
+  plt.ylabel(r'Calculated $\Delta B_H$ [nT]')
+  plt.grid()
+  plt.xlim(ylims)
+  plt.legend(loc='upper right')
+  savefig(sid, 'B_compare_correlation')
+
+  # Histograms showing delta between measured and calculated values
+  plt.figure()
+  
+  # TODO: Compute binwidth from data
+  # Setup bins
+  bl = -1000
+  bu = 1000
+  bw = 50
+  bins_c = numpy.arange(bl, bu+1, bw)
+  bins_e = numpy.arange(bl-bw/2, bu+bw, bw)
+
+  # Loop thru models and create data for histograms
+  for idx in range(len(model_names)): 
+    n_e, _ = numpy.histogram(data_interp[idx]-data_calcs[idx], bins=bins_e)
+    plt.step(bins_c, n_e/sum(n_e), color=model_colors[idx], label=model_names[idx])
+    
+  # Add titles, legend, etc.
+  plt.title(sid)
+  # plt.xticks(bins_c[0::2])
+  plt.xticks(fontsize=18)
+  plt.xlabel(r'(Measured - Calculated) $\Delta B_H$ [nt]', fontsize=18)
+  plt.xlim(bl-0.5, bu+0.5)
+  plt.yticks(fontsize=18)
+  plt.ylabel('Probability', fontsize=18)
+  plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
+  plt.legend(loc='upper right')
+  
+  savefig(sid, 'B_histogram_meas_calc')
+
 
 def plot_original(plot_info, data, sid, data_type, data_class, data_source, data_error):
 
