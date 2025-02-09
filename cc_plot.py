@@ -31,5 +31,9 @@ plt.scatter(avg_std, np.abs(df['cc']))
 plt.xlabel('Average standard deviation (A)')
 plt.ylabel('|cc|')
 plt.grid(True)
-savefig(os.path.join(results_dir, 'cc_vs_ave_std_scatter'))
+savefig(os.path.join(results_dir, 'cc_vs_std_scatter'))
 plt.close()
+
+# plot_maps
+# plot_scatter
+# plot_timeseries

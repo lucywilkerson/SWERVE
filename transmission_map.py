@@ -20,7 +20,18 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['Bull Run'] # For testing
 
+# Read in cc data
+pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
+with open(pkl_file, 'rb') as file:
+  print(f"Reading {pkl_file}")
+  cc_rows = pickle.load(file)
+cc_df = pd.DataFrame(cc_rows)
+cc_df.reset_index(drop=True, inplace=True)
+
 ## Function to add transmission lines to the map ##
+#this is really the only new stuff here, it's already been copied over to cc_map.py
+#but keeping this original file for now in case we need to refer back to it
+#otherwise, this can be deleted
 def add_trans_lines(ax):
     # US Transmission lines
     data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
@@ -62,6 +73,23 @@ def add_features(ax, state):
     if state == True:
         ax.add_feature(cfeature.STATES, linewidth=0.5)
 
+def std_map(info_df, cc_df):
+    # plotting standard deviation
+    # plotting map w lines
+    for idx_1, row_1 in info_df.iterrows():
+        site_id = row_1['site_id']
+        if site_id not in sites:
+            continue
+        site_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
+        site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
+        for idx_2, row_2 in cc_df.iterrows():
+            if row_2['site_1'] == site_id:
+                std = row_2['std_1']
+            else:
+                continue
+            ax.plot(site_lon, site_lat, color='r', marker='o', markersize=std, transform=transform)
+
+
 # Setting up map
 fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
 add_features(ax, state)
@@ -71,11 +99,19 @@ ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
 add_trans_lines(ax)
 
 # plotting the sites
-ax.plot(info_df['geo_lon'], info_df['geo_lat'], 'ro', markersize=3,transform=transform)
+#ax.plot(info_df['geo_lon'], info_df['geo_lat'], 'ro', markersize=3,transform=transform)
+# plotting standard deviation
+std_map(info_df, cc_df)
  
 # Set the Title
-ax.set_title('Transmission Lines within the Contigous US', fontsize=15)
+ax.set_title('US Transmission Lines w GIC Standard Deviation', fontsize=15)
  
+
+output_fname = os.path.join(data_dir, '_results', 'std_map_wtrans.png')
+if not os.path.exists(os.path.dirname(output_fname)):
+    os.makedirs(os.path.dirname(output_fname))
+print(f"Saving {output_fname}")
+plt.savefig(output_fname, bbox_inches='tight')
 plt.show()
 plt.close()
 
