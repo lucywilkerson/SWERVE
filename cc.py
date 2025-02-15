@@ -26,7 +26,7 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff']
 print('\t'.join(columns))
 
 def write_table(rows, out_dir):
@@ -115,8 +115,11 @@ for idx_1, row in info_df.iterrows():
     # Compute distance between sites in km
     distance = site_distance(info_df, idx_1, idx_2)
 
-    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}")
-    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2])
+    # Compute difference in beta
+    dbeta = info_df['interpolated_beta'][idx_1] - info_df['interpolated_beta'][idx_2]
+
+    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}")
+    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta])
 
     # TODO:add a column in the printout of # mins
 
