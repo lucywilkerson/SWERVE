@@ -20,7 +20,6 @@ info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
 info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
-#sites = ['Bull Run'] # For testing
 
 # Read in cc data
 pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
@@ -64,17 +63,56 @@ for voltage in voltages:
     print(f"Voltage: {voltage} kV, Number of Lines: {length}")
     voltage_counts.append(length)
 
-
-plt.scatter(plot_volts, voltage_counts, color='c')
-plt.bar(plot_volts, voltage_counts, color = 'c', width=3)
+plt.figure(figsize=(12, 6))
+plt.scatter(plot_volts, voltage_counts, color='k', zorder=2)
+for voltage, count in zip(plot_volts, voltage_counts):
+    plt.vlines(voltage, 0, count, color='k')
 plt.xlabel('Voltage [kV]')
 plt.ylabel('Number of Lines')
-plt.title('Number of Transmission Lines by Voltage')
+plt.title(f'US Transmission Lines from HIFLD: {len(trans_lines_gdf)}')
 plt.yscale('log')
-plt.grid()
+plt.xscale('log')
+plt.grid(True, zorder=1)
+out_dir = os.path.join('..', '2024-AGU-data', '_results')
+fname = os.path.join(out_dir, 'trans_lines_count')
+plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 plt.show()
+plt.close()
 """
+# Finding line lengths in km
+trans_lines_gdf['length_km'] = trans_lines_gdf['geometry'].length * (111.32)
 
+# Plotting length of line as a function of line voltage
+voltage_lengths = []
+plot_volts = []
+
+for voltage in voltages:
+    if voltage < 0:
+        continue
+    plot_volts.append(voltage)
+    voltage_gdf = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] == voltage)]
+    total_length = voltage_gdf['length_km'].sum()
+    print(f"Voltage: {voltage} kV, Total Length: {total_length:.2f} km")
+    voltage_lengths.append(total_length)
+
+plt.figure(figsize=(12, 6))
+plt.scatter(plot_volts, voltage_lengths, color='k', zorder=2)
+for voltage, length in zip(plot_volts, voltage_lengths):
+    plt.vlines(voltage, 0, length, color='k')
+plt.xlabel('Voltage [kV]')
+plt.ylabel('Total Length [km]')
+plt.title('Length of US Transmission Lines by Voltage')
+plt.yscale('log')
+plt.xscale('log')
+plt.grid(True, zorder=1)
+out_dir = os.path.join('..', '2024-AGU-data', '_results')
+fname = os.path.join(out_dir, 'trans_lines_length')
+plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
+plt.show()
+plt.close()
+
+
+"""
 # base map
 state = True # Show political boundaries
 transform = ccrs.PlateCarree()
@@ -183,7 +221,6 @@ def read_TVA_or_NERC(row):
       fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
 
   with open(fname, 'rb') as f:
-      #print(f"Reading {fname}")
       site_data = pickle.load(f)
 
   site_df = pd.DataFrame(site_data)
@@ -244,3 +281,4 @@ for idx_1, row in info_df.iterrows():
     plt.close()
 
 
+"""

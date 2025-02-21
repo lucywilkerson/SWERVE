@@ -1,4 +1,5 @@
 import os
+import csv
 import pandas as pd
 import pickle
 
@@ -6,25 +7,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
+import matplotlib.patches as patches
 import geopandas as gpd
 
 data_dir = os.path.join('..', '2024-AGU-data')
-
-state = True # Show political boundaries
-
-transform = ccrs.PlateCarree()
+out_dir = os.path.join('..', '2024-AGU-data', '_map')
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
+transform = ccrs.PlateCarree()
+state = True # Show political boundaries
 
-def savefig(sid, fname, sub_dir="", fmts=['png']):
-  fdir = os.path.join(data_dir, '_processed', sid.lower().replace(' ', ''), sub_dir)
-  if not os.path.exists(fdir):
-    os.makedirs(fdir)
-  fname = os.path.join(fdir, fname)
+def savefig(fdir, fname, fmts=['png']):
+    if not os.path.exists(fdir):
+        os.makedirs(fdir)
+    fname = os.path.join(fdir, fname)
 
-  for fmt in fmts:
-    print(f"    Saving {fname}.{fmt}")
-    plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+    for fmt in fmts:
+        print(f"    Saving {fname}.{fmt}")
+        if fmt == 'png':
+            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
+        else:
+            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def add_features(ax, state):
     # Add coastlines and other features
@@ -37,6 +40,67 @@ def add_features(ax, state):
     ax.add_feature(cfeature.BORDERS, linewidth=0.5)
     if state == True:
         ax.add_feature(cfeature.STATES, linewidth=0.5)
+
+def add_symbols(ax, df, transform, markersize):
+
+    for row in df.itertuples():
+        # Select the symbol
+        symbol_dict = {
+            ('TVA', 'GIC', 'calculated'): ('^', 'c', 'none'),
+            ('TVA', 'GIC', 'measured'): ('.', 'b', 'none'),
+            ('TVA', 'B', 'measured'): ('.', 'r', 'r'),
+            ('NERC', 'GIC', 'calculated'): ('+', 'c', 'none'),
+            ('NERC', 'GIC', 'measured'): ('+', 'b', 'none'),
+            ('NERC', 'B', 'measured'): ('+', 'r', 'r')
+        }
+
+        key = (row.data_source, row.data_type, row.data_class)
+        symbol = symbol_dict.get(key, None)
+        if symbol is None:
+            continue
+
+        marker, color, face = symbol
+
+        ax.plot(row.geo_lon, row.geo_lat,
+                mfc=face, marker=marker, color=color,
+                markersize=markersize,
+                transform=transform)
+
+#reading in info.csv
+fname = os.path.join('info', 'info.csv')
+print(f"Reading {fname}")
+df = pd.read_csv(fname).set_index('site_id')
+info_df = pd.read_csv(fname)
+
+# Filter out sites with error message
+info_df = info_df[~info_df['error'].str.contains('', na=False)]
+# TODO: Print number of GIC sites removed due to error and how many kept.
+# Remove rows that don't have data_type = GIC and data_class = measured
+info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+info_df.reset_index(drop=True, inplace=True)
+
+sites = info_df['site_id'].tolist()
+
+def location_map(extent, markersize, out_dir, out_name, patch=False):
+  # Create a figure and axes with a specific projection
+  fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
+  # Adding map features and symbols for locations
+  add_features(ax, state)
+  if patch == True:
+    patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
+    ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
+  add_symbols(ax, df, transform, markersize)
+  # Set the extent of the map
+  ax.set_extent(extent, crs=crs)
+  # Save map
+  savefig(out_dir, out_name)
+
+USA_extent = [-125, -67, 25.5, 49.5]
+TVA_extent = [-91, -82, 33, 38]
+
+location_map(USA_extent, 5, out_dir, 'map', patch=True)
+location_map(TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
 
 def cc_vs_dist_map(cc_df):
 
@@ -107,12 +171,7 @@ def cc_vs_dist_map(cc_df):
     for ax, label in zip(axs.flat, labels):
         ax.text(0.5, -0.1, label, ha="center", transform=ax.transAxes, fontsize=8)
     plt.tight_layout()
-    #plt.show()
-    output_fname = os.path.join(data_dir, '_results', 'cc_vs_dist_map.png')
-    if not os.path.exists(os.path.dirname(output_fname)):
-        os.makedirs(os.path.dirname(output_fname))
-    print(f"Saving {output_fname}")
-    plt.savefig(output_fname, bbox_inches='tight')
+    savefig(os.path.join(data_dir, '_results'), 'cc_vs_dist_map')
     plt.close()
 
 def std_map(info_df, cc_df):
@@ -137,15 +196,10 @@ def std_map(info_df, cc_df):
             else:
                 continue
             ax.plot(site_lon, site_lat, color='k', marker='o', markersize=std, transform=transform)
-    #plt.show()
-    output_fname = os.path.join(data_dir, '_results', 'std_map.png')
-    if not os.path.exists(os.path.dirname(output_fname)):
-        os.makedirs(os.path.dirname(output_fname))
-    print(f"Saving {output_fname}")
-    plt.savefig(output_fname, bbox_inches='tight')
+    savefig(os.path.join(data_dir, '_results'), 'std_map')
     plt.close()
 
-def site_plots(info_df, cc_df):
+def site_maps(info_df, cc_df):
 
     def map_cc(ax, site_id, cc_df, colors=False, lines=False):
 
@@ -209,32 +263,6 @@ def site_plots(info_df, cc_df):
                 prim_color='k'
             ax.plot(site_1_lon, site_1_lat, color=prim_color, marker='*', transform=transform)
 
-    def plot_cc(site_id, cc_df, distance=True):
-        cc = []
-        dist = []
-        avg_std = []
-        for idx, row in cc_df.iterrows():
-            if row['site_1'] == site_id:
-                site_2_id = row['site_2']
-            elif row['site_2'] == site_id:
-                site_2_id = row['site_1']
-            else:
-                continue
-            cc.append(row['cc'])
-            dist.append(row['dist(km)'])
-            avg_std.append(np.mean([row['std_1'], row['std_2']]))
-        if distance == True:
-            plt.scatter(dist, np.abs(cc))
-            plt.xlabel('Distance (km)')
-        else:
-            plt.scatter(avg_std, np.abs(cc))
-            plt.xlabel('Average standard deviation (A)')
-        plt.ylabel('|cc|')
-        plt.ylim(0, 1)
-        plt.title(site_id)
-        plt.grid(True)
-
-
     # Plotting maps and cc plots for each site
     for idx_1, row in info_df.iterrows():
         site_1_id = row['site_id']
@@ -254,62 +282,72 @@ def site_plots(info_df, cc_df):
         # plotting map w colors
         map_cc(axs[1], site_1_id, cc_df, colors=True)
         plt.suptitle(site_1_id)
-        #plt.show()
-        savefig(site_1_id, 'cc_vs_dist_map')
+        # saving figure
+        sid = site_1_id
+        sub_dir=""
+        fdir = os.path.join(data_dir, '_processed', sid.lower().replace(' ', ''), sub_dir)
+        savefig(fdir, 'cc_vs_dist_map')
         plt.close()
 
-        # plotting cc vs distance
-        plot_cc(site_1_id, cc_df)
-        #plt.show()
-        savefig(site_1_id, 'cc_vs_dist_scatter')
-        plt.close()
+ 
+# US Transmission lines
+data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
+data_name = 'Electric__Power_Transmission_Lines.shp'
+print(f"Reading {data_name}")
+trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
+trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
 
-        # plotting cc vs standard deviation
-        plot_cc(site_1_id, cc_df, distance=False)
-        #plt.show()
-        savefig(site_1_id, 'cc_vs_std_scatter')
-        plt.close()
+def transmission_map(info_df, gdf, cc_df, std=False):
 
-## Function to add transmission lines to the map ##
-# TODO: incorporate into other plotting code as switch
-def add_trans_lines(ax):
-    # US Transmission lines
-    data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
-    data_name = 'Electric__Power_Transmission_Lines.shp'
-    print(f"Reading {data_name}")
-    trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
-    trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
-    # Retain initial crs
-    trans_lines_crs = trans_lines_gdf.crs
-    trans_lines_gdf = trans_lines_gdf.to_crs("EPSG:4326")
-    # Translate MultiLineString to LineString geometries, taking only the first LineString
-    trans_lines_gdf.loc[
-    trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
-    ] = trans_lines_gdf.loc[
-    trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
-    ].apply(lambda x: list(x.geoms)[0])
-    # Get rid of erroneous 1MV and low power line voltages
-    trans_lines_gdf = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] >= 200)]
-    # Plot the lines
-    for idx, row in trans_lines_gdf.iterrows():
-        x, y = row['geometry'].xy
-        ax.plot(x, y, color='black', linewidth=1,transform=transform)
+    def add_trans_lines(ax, gdf):
+        gdf = gdf.to_crs("EPSG:4326")
+        # Translate MultiLineString to LineString geometries, taking only the first LineString
+        gdf.loc[
+        gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+        ] = gdf.loc[
+        gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+        ].apply(lambda x: list(x.geoms)[0])
+        # Get rid of erroneous 1MV and low power line voltages
+        gdf = gdf[(trans_lines_gdf["VOLTAGE"] >= 200)]
+        # Plot the lines
+        for idx, row in gdf.iterrows():
+            x, y = row['geometry'].xy
+            ax.plot(x, y, color='black', linewidth=1,transform=transform)
 
-fname = os.path.join('info', 'info.csv')
-print(f"Reading {fname}")
-info_df = pd.read_csv(fname)
+    def add_loc(ax, info_df, cc_df, stdev=False):
+        # plotting standard deviation
+        for idx_1, row_1 in info_df.iterrows():
+            site_id = row_1['site_id']
+            if site_id not in sites:
+                continue
+            site_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
+            site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
+            if stdev == True:
+                for idx_2, row_2 in cc_df.iterrows():
+                    if row_2['site_1'] == site_id:
+                        std = row_2['std_1']
+                    else:
+                        continue
+                    ax.plot(site_lon, site_lat, color='r', marker='o', markersize=std, transform=transform)
+            else:
+                ax.plot(site_lon, site_lat, color='r', marker='o', markersize=5, transform=transform)
 
-# Filter out sites with error message
-info_df = info_df[~info_df['error'].str.contains('', na=False)]
-# TODO: Print number of GIC sites removed due to error and how many kept.
+    # Setting up map
+    fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
+    add_features(ax, state)
+    # Set the extent of the map (USA)
+    ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
+    # Add transmission lines
+    add_trans_lines(ax, gdf)
+    # Add GIC sites
+    add_loc(ax, info_df, cc_df, stdev=std)
+    if std == False:
+        ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
+        savefig(os.path.join(data_dir, '_results'), 'transmission_map')
+    elif std == True:
+        ax.set_title(r'US Transmission Lines $\geq$ 200kV w GIC Standard Deviation', fontsize=15)
+        savefig(os.path.join(data_dir, '_results'), 'transmission_std_map')
 
-# Remove rows that don't have data_type = GIC and data_class = measured
-info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
-info_df.reset_index(drop=True, inplace=True)
-
-sites = info_df['site_id'].tolist()
-#sites = ['Bull Run'] # For testing
 
 # Read in cc data
 pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
@@ -322,11 +360,6 @@ cc_df.reset_index(drop=True, inplace=True)
 
 cc_vs_dist_map(cc_df)
 std_map(info_df, cc_df)
-site_plots(info_df, cc_df)
-#transmission_map() # Content of transmission_map.py
-#location_map() # Content of map.py
-
-# then rename this file to plot_maps.py and delete transmission_map.py and cc_map.py
-
-
-
+site_maps(info_df, cc_df)
+transmission_map(info_df, trans_lines_gdf, cc_df)
+transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
