@@ -3,10 +3,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
-import numpy.ma as ma
-import numpy as np
+
 
 # getting data as in cc_map.py
 data_dir = os.path.join('..', '2024-AGU-data')
@@ -29,7 +26,19 @@ with open(pkl_file, 'rb') as file:
 cc_df = pd.DataFrame(cc_rows)
 cc_df.reset_index(drop=True, inplace=True)
 
- # US Transmission lines
+def savefig(fdir, fname, fmts=['png']):
+    if not os.path.exists(fdir):
+        os.makedirs(fdir)
+    fname = os.path.join(fdir, fname)
+
+    for fmt in fmts:
+        print(f"    Saving {fname}.{fmt}")
+        if fmt == 'png':
+            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
+        else:
+            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+# US Transmission lines
 data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
 data_name = 'Electric__Power_Transmission_Lines.shp'
 print(f"Reading {data_name}")
@@ -50,7 +59,7 @@ voltages = trans_lines_gdf["VOLTAGE"].unique()
 #order voltages from lowest to highest
 voltages = sorted(voltages)
 
-"""
+
 voltage_counts = []
 plot_volts = []
 # counting number of lines for each voltage
@@ -78,7 +87,7 @@ fname = os.path.join(out_dir, 'trans_lines_count')
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 plt.show()
 plt.close()
-"""
+
 # Finding line lengths in km
 trans_lines_gdf['length_km'] = trans_lines_gdf['geometry'].length * (111.32)
 
@@ -112,173 +121,5 @@ plt.show()
 plt.close()
 
 
-"""
-# base map
-state = True # Show political boundaries
-transform = ccrs.PlateCarree()
-projection = ccrs.Miller()
-crs = ccrs.PlateCarree()
-
-def add_features(ax, state):
-    # Add coastlines and other features
-    ax.add_feature(cfeature.OCEAN)
-    ax.add_feature(cfeature.COASTLINE, linewidth=0.5)
-    lakes = cfeature.NaturalEarthFeature('physical', 'lakes', '50m',
-                                         edgecolor='face',
-                                         facecolor='lightblue')
-    ax.add_feature(lakes)
-    ax.add_feature(cfeature.BORDERS, linewidth=0.5)
-    if state == True:
-        ax.add_feature(cfeature.STATES, linewidth=0.5)
-
-# Setting up map
-fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
-add_features(ax, state)
-# Set the extent of the map (TVA)
-ax.set_extent([-91, -82, 33, 38], crs=crs)
 
 
-for voltage in voltages:
-    if voltage < 200 or voltage > 765:
-        continue
-    trans_lines_plot = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] == voltage)]
-    # Plot the lines
-    if voltage == 765:
-        color = 'r'
-    elif voltage == 500:
-        color = 'g'
-    elif voltage == 345:
-        color = 'b'
-    #elif voltage == 230:
-        #color = 'y'
-    else:
-        continue
-    legend_switch = True
-    for idx, row in trans_lines_plot.iterrows():
-        x, y = row['geometry'].xy
-        if legend_switch:
-            label = f"{voltage} kV"
-            legend_switch = False
-        else:
-            label = None
-        ax.plot(x, y, color=color, linewidth=2,transform=transform, label=label) 
-
-
-#adding locations!!
-def add_symbols(ax, df, transform, markersize):
-
-    for row in df.itertuples():
-        # Select the symbol
-        symbol_dict = {
-            ('TVA', 'GIC', 'calculated'): ('^', 'c', 'none'),
-            ('TVA', 'GIC', 'measured'): ('.', 'b', 'none'),
-            ('TVA', 'B', 'measured'): ('.', 'r', 'r'),
-            ('NERC', 'GIC', 'calculated'): ('+', 'c', 'none'),
-            ('NERC', 'GIC', 'measured'): ('+', 'b', 'none'),
-            ('NERC', 'B', 'measured'): ('+', 'r', 'r')
-        }
-
-        key = (row.data_source, row.data_type, row.data_class)
-        symbol = symbol_dict.get(key, None)
-        if symbol is None:
-            continue
-
-        marker, color, face = symbol
-
-        ax.plot(row.geo_lon, row.geo_lat,
-                mfc=face, marker=marker, color=color,
-                markersize=markersize,
-                transform=transform)
-
-TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek'] # For testing
-df = info_df[info_df['site_id'].isin(TVA_sites)]
-
-add_symbols(ax, df, transform, 13)
-
-ax.legend(loc='upper left')
-
-fname = 'trans_lines_TVA'
-out_dir = os.path.join('..', '2024-AGU-data', '_results')
-fname = os.path.join(out_dir, fname)
-plt.savefig(f'{fname}.png', bbox_inches='tight')
-
-plt.show() 
-plt.close()
-
-###############################################################################################################
-
-# comparison plots!
-
-def read_TVA_or_NERC(row):
-  site_id = row['site_id']
-  data_dir = os.path.join('..', '2024-AGU-data', 'processed')
-  if row['data_source'] == 'NERC':
-      #reading in data for site if NERC
-      fname = os.path.join(data_dir, site_id, 'GIC_measured_NERC.pkl')
-  elif row['data_source'] == 'TVA':
-      #reading in data for site if TVA
-      site_id = "".join(site_id.split()) #removing space from name to match file name
-      fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
-
-  with open(fname, 'rb') as f:
-      site_data = pickle.load(f)
-
-  site_df = pd.DataFrame(site_data)
-  time = site_df['modified'][0]['time']
-  mod_data = site_df['modified'][0]['data'] # 1-min avg data
-  masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
-  return time, mod_data, masked_data
-
-
-rows = []
-for idx_1, row in info_df.iterrows():
-
-  site_1_id = row['site_id']
-  if site_1_id not in TVA_sites:
-    continue
-
-  site_1_time, site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
-
-  for idx_2, row in info_df.iterrows():
-    if idx_1 <= idx_2:  # Avoid duplicate pairs
-      continue
-
-    site_2_id = row['site_id']
-
-    if site_2_id not in TVA_sites:
-      continue
-
-    site_2_time, site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
-
-    #plotting!!
-    plt.figure()
-    error_shift = 70
-    yticks = np.arange(-120, 30, 10)
-    labels = []
-    for ytick in yticks:
-        if ytick < -30:
-            labels.append(str(ytick+error_shift))
-        else:
-            labels.append(str(ytick))
-    kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
-    plt.axhline(y=-35, **kwargs)
-    plt.axhline(y=-120, **kwargs)
-    plt.title(f'{site_1_id} vs {site_2_id} GIC Comparison')
-    plt.grid()
-    plt.plot()
-    plt.plot(site_1_time, site_1_data, label=site_1_id, linewidth=0.5)
-    plt.plot(site_2_time, site_2_data, label=site_2_id, linewidth=0.5)
-    plt.plot(site_1_time, site_1_data-site_2_data-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
-    plt.legend()
-    plt.ylabel('[A]', rotation=0, labelpad=10)
-    plt.ylim(-120, 30)
-    plt.yticks(yticks, labels=labels)
-    fname = f'{site_1_id}_{site_2_id}_GIC_compare_timeseries'
-    out_dir = os.path.join('..', '2024-AGU-data', '_results')
-    fname = os.path.join(out_dir, fname)
-    plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
-    #plt.show()
-    plt.close()
-
-
-"""

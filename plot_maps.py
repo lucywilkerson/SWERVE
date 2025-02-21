@@ -363,3 +363,61 @@ std_map(info_df, cc_df)
 site_maps(info_df, cc_df)
 transmission_map(info_df, trans_lines_gdf, cc_df)
 transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
+
+
+
+##################################################################
+# stuff from messing w voltage (ie just TVA)
+
+# Setting up map
+fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
+add_features(ax, state)
+# Set the extent of the map (TVA)
+ax.set_extent(TVA_extent, crs=crs)
+
+voltages = trans_lines_gdf["VOLTAGE"].unique()
+#order voltages from lowest to highest
+voltages = sorted(voltages)
+
+for voltage in voltages:
+    if voltage < 200 or voltage > 765:
+        continue
+    trans_lines_plot = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] == voltage)]
+    # Plot the lines
+    if voltage == 765:
+        color = 'r'
+    elif voltage == 500:
+        color = 'g'
+    elif voltage == 345:
+        color = 'b'
+    #elif voltage == 230:
+        #color = 'y'
+    else:
+        continue
+    legend_switch = True
+    for idx, row in trans_lines_plot.iterrows():
+        x, y = row['geometry'].xy
+        if legend_switch:
+            label = f"{voltage} kV"
+            legend_switch = False
+        else:
+            label = None
+        ax.plot(x, y, color=color, linewidth=2,transform=transform, label=label) 
+
+
+#adding locations!!
+
+TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek'] # For testing
+TVA_df = info_df[info_df['site_id'].isin(TVA_sites)]
+
+add_symbols(ax, TVA_df, transform, 13)
+
+ax.legend(loc='upper left')
+
+fname = 'trans_lines_TVA'
+out_dir = os.path.join('..', '2024-AGU-data', '_results')
+fname = os.path.join(out_dir, fname)
+plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
+
+plt.show() 
+plt.close()
