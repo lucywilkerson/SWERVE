@@ -24,8 +24,7 @@ info_df.reset_index(drop=True, inplace=True)
 #print(info_df)
 
 sites = info_df['site_id'].tolist()
-sites = ['10052', '10207'] # For testing
-#sites = ['Widows Creek', 'Bull Run'] # For testing
+#sites = ['10052', '10207', 'Bull Run'] # For testing
 
 columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff']
 print('\t'.join(columns))
@@ -127,10 +126,10 @@ for idx_1, row in info_df.iterrows():
     cc = f'{cc:.3f}'
     cc = f'[{cc}](../../../tree/main/_results/pairs/{site_1_id}_{site_2_id}.png)'
 
-    site_1_id = f'[{site_1_id}](../../../tree/main/_processed/{site_1_id})'
-    site_2_id = f'[{site_2_id}](../../../tree/main/_processed/{site_2_id})'
+    site_1_id_link = f'[{site_1_id}](../../../tree/main/_processed/{site_1_id})'
+    site_2_id_link = f'[{site_2_id}](../../../tree/main/_processed/{site_2_id})'
 
-    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta])
+    rows.append([site_1_id_link, site_2_id_link, cc, distance, bad_1, bad_2, std_1, std_2, dbeta])
 
     # TODO:add a column in the printout of # mins
 
