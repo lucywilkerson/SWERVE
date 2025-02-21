@@ -7,6 +7,7 @@ import datetime
 
 import numpy as np
 import pandas as pd
+import numpy.ma as ma
 
 from datetick import datetick
 
@@ -329,3 +330,93 @@ if plot_compare:
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid)
+
+###############################################################################################################
+
+# comparison plots!
+
+def savefig(fdir, fname, fmts=['png']):
+    if not os.path.exists(fdir):
+        os.makedirs(fdir)
+    fname = os.path.join(fdir, fname)
+
+    for fmt in fmts:
+        print(f"    Saving {fname}.{fmt}")
+        if fmt == 'png':
+            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
+        else:
+            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+def read_TVA_or_NERC(row):
+  site_id = row['site_id']
+  data_dir = os.path.join('..', '2024-AGU-data', 'processed')
+  if row['data_source'] == 'NERC':
+      #reading in data for site if NERC
+      fname = os.path.join(data_dir, site_id, 'GIC_measured_NERC.pkl')
+  elif row['data_source'] == 'TVA':
+      #reading in data for site if TVA
+      site_id = "".join(site_id.split()) #removing space from name to match file name
+      fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
+
+  with open(fname, 'rb') as f:
+      site_data = pickle.load(f)
+
+  site_df = pd.DataFrame(site_data)
+  time = site_df['modified'][0]['time']
+  mod_data = site_df['modified'][0]['data'] # 1-min avg data
+  masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
+  return time, mod_data, masked_data
+
+sites = info_df['site_id'].tolist()
+
+def compare_gic_site(sites):
+  for idx_1, row in info_df.iterrows():
+
+    site_1_id = row['site_id']
+    if site_1_id not in sites:
+      continue
+
+    site_1_time, site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
+
+    for idx_2, row in info_df.iterrows():
+      if idx_1 <= idx_2:  # Avoid duplicate pairs
+        continue
+
+      site_2_id = row['site_id']
+
+      if site_2_id not in sites:
+        continue
+
+      site_2_time, site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
+
+      #plotting!!
+      plt.figure()
+      error_shift = 70
+      yticks = np.arange(-120, 30, 10)
+      labels = []
+      for ytick in yticks:
+          if ytick < -30:
+              labels.append(str(ytick+error_shift))
+          else:
+              labels.append(str(ytick))
+      kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
+      plt.axhline(y=-35, **kwargs)
+      plt.axhline(y=-120, **kwargs)
+      plt.title(f'{site_1_id} vs {site_2_id} GIC Comparison')
+      plt.grid()
+      plt.plot()
+      plt.plot(site_1_time, site_1_data, label=site_1_id, linewidth=0.5)
+      plt.plot(site_2_time, site_2_data, label=site_2_id, linewidth=0.5)
+      plt.plot(site_1_time, site_1_data-site_2_data-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
+      plt.legend()
+      plt.ylabel('[A]', rotation=0, labelpad=10)
+      plt.ylim(-120, 30)
+      plt.yticks(yticks, labels=labels)
+      site_1_id =site_1_id.lower().replace(' ', '')
+      site_2_id =site_2_id.lower().replace(' ', '')
+      fname = f'{site_1_id}_{site_2_id}'
+      out_dir = os.path.join('..', '2024-AGU-data', '_results', 'pairs')
+      savefig(out_dir, fname)
+      plt.close()
+
+compare_gic_site(sites)
