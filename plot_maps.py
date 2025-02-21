@@ -11,7 +11,7 @@ import matplotlib.patches as patches
 import geopandas as gpd
 
 data_dir = os.path.join('..', '2024-AGU-data')
-out_dir = os.path.join('..', '2024-AGU-data', 'map')
+out_dir = os.path.join('..', '2024-AGU-data', '_map')
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
@@ -285,7 +285,7 @@ def site_maps(info_df, cc_df):
         # saving figure
         sid = site_1_id
         sub_dir=""
-        fdir = os.path.join(data_dir, 'processed', sid.lower().replace(' ', ''), sub_dir)
+        fdir = os.path.join(data_dir, '_processed', sid.lower().replace(' ', ''), sub_dir)
         savefig(fdir, 'cc_vs_dist_map')
         plt.close()
 
@@ -314,7 +314,7 @@ def transmission_map(info_df, gdf, cc_df, std=False):
             x, y = row['geometry'].xy
             ax.plot(x, y, color='black', linewidth=1,transform=transform)
 
-    def add_std(info_df, cc_df):
+    def add_loc(ax, info_df, cc_df, stdev=False):
         # plotting standard deviation
         for idx_1, row_1 in info_df.iterrows():
             site_id = row_1['site_id']
@@ -322,12 +322,15 @@ def transmission_map(info_df, gdf, cc_df, std=False):
                 continue
             site_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
             site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
-            for idx_2, row_2 in cc_df.iterrows():
-                if row_2['site_1'] == site_id:
-                    std = row_2['std_1']
-                else:
-                    continue
-                ax.plot(site_lon, site_lat, color='r', marker='o', markersize=std, transform=transform)
+            if stdev == True:
+                for idx_2, row_2 in cc_df.iterrows():
+                    if row_2['site_1'] == site_id:
+                        std = row_2['std_1']
+                    else:
+                        continue
+                    ax.plot(site_lon, site_lat, color='r', marker='o', markersize=std, transform=transform)
+            else:
+                ax.plot(site_lon, site_lat, color='r', marker='o', markersize=5, transform=transform)
 
     # Setting up map
     fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
@@ -336,12 +339,12 @@ def transmission_map(info_df, gdf, cc_df, std=False):
     ax.set_extent([-125, -67, 25.5, 49.5], crs=crs)
     # Add transmission lines
     add_trans_lines(ax, gdf)
+    # Add GIC sites
+    add_loc(ax, info_df, cc_df, stdev=std)
     if std == False:
-        # Set the Title
-        ax.set_title(r'US Transmission Lines $\geq$ 200kV', fontsize=15)
+        ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
         savefig(os.path.join(data_dir, '_results'), 'transmission_map')
     elif std == True:
-        add_std(info_df, cc_df)
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w GIC Standard Deviation', fontsize=15)
         savefig(os.path.join(data_dir, '_results'), 'transmission_std_map')
 
