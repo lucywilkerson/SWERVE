@@ -8,6 +8,7 @@ import time
 
 import numpy as np
 import pandas as pd
+import numpy.ma as ma
 
 from datetick import datetick
 
@@ -291,6 +292,98 @@ def compare_db(info, data, sid):
   savefig(sid, 'B_histogram_meas_calc')
 
 
+  # Plots to examine how well measured matched calculated values
+  
+  # Storage for correlation coefficient, prediction efficiency, and 
+  # interpolated measured data
+  cc = []
+  pe = []
+  data_interp = []
+
+  # Plot illustrating correlation between measured and calculated
+  plt.figure()
+  plt.title(sid)
+  
+  # We have many more measured values than calculated values.
+  # So we interpolate the measured to match up with the calculated values
+  # To do so, we need to convert datetimes to timestamps so we can do interpolation
+  time_meas_ts = [time.mktime(t.timetuple()) for t in time_meas]
+  
+  # Loop thru modeled (measured) results
+  for idx in range(len(model_names)):
+    time_calcs_ts = np.array( [time.mktime(t.timetuple()) for t in time_calcs[idx]] )
+    
+    # Get rid of the NaNs for cc and pe calculations
+    time_calcs_ts = time_calcs_ts[~np.isnan(data_calcs[idx])]
+    data_calcs[idx] = data_calcs[idx][~np.isnan(data_calcs[idx])]
+    
+    # Interpolate measured data
+    data_interp.append( np.interp( time_calcs_ts, time_meas_ts, data_meas ) )
+    
+    # Add plot for each model
+    label = model_names[idx].upper()
+    plt.plot(data_interp[idx], data_calcs[idx], model_points[idx], markersize=1, label=label)
+    
+    cc.append( (np.corrcoef(data_interp[idx], data_calcs[idx]))[0,1] )
+       
+    numer = np.sum((data_interp[idx]-data_calcs[idx])**2)
+    denom = np.sum((data_interp[idx]-data_interp[idx].mean())**2)
+    pe.append( 1-numer/denom )
+
+  # Write cc and pe on plot
+  # TODO: Compute limits based on data
+  text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+  text_kwargs = {
+   'horizontalalignment': 'center',
+   'verticalalignment': 'center',
+   'bbox': {
+     "boxstyle": "round,pad=0.3",
+     "edgecolor": "black",
+     "facecolor": "white",
+     "linewidth": 0.5
+     }
+   }
+
+  ylims = plt.gca().get_ylim()
+  plt.plot([0, ylims[1]], [0, ylims[1]], color=3*[0.6], linewidth=0.5)
+
+  plt.text(0.75*ylims[1], 100, text, **text_kwargs)
+  plt.xlabel(r'Measured $\Delta B_H$ [nT]')
+  plt.ylabel(r'Calculated $\Delta B_H$ [nT]')
+  plt.grid()
+  plt.xlim(ylims)
+  plt.legend(loc='upper right')
+  savefig(sid, 'B_compare_correlation')
+
+  # Histograms showing delta between measured and calculated values
+  plt.figure()
+  
+  # TODO: Compute binwidth from data
+  # Setup bins
+  bl = -1000
+  bu = 1000
+  bw = 50
+  bins_c = numpy.arange(bl, bu+1, bw)
+  bins_e = numpy.arange(bl-bw/2, bu+bw, bw)
+
+  # Loop thru models and create data for histograms
+  for idx in range(len(model_names)): 
+    n_e, _ = numpy.histogram(data_interp[idx]-data_calcs[idx], bins=bins_e)
+    plt.step(bins_c, n_e/sum(n_e), color=model_colors[idx], label=model_names[idx])
+    
+  # Add titles, legend, etc.
+  plt.title(sid)
+  # plt.xticks(bins_c[0::2])
+  plt.xticks(fontsize=18)
+  plt.xlabel(r'(Measured - Calculated) $\Delta B_H$ [nt]', fontsize=18)
+  plt.xlim(bl-0.5, bu+0.5)
+  plt.yticks(fontsize=18)
+  plt.ylabel('Probability', fontsize=18)
+  plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
+  plt.legend(loc='upper right')
+  
+  savefig(sid, 'B_histogram_meas_calc')
+
 def plot_original(plot_info, data, sid, data_type, data_class, data_source, data_error):
 
   # Plot original data on separate figures
@@ -428,3 +521,93 @@ if plot_compare:
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid)
+
+###############################################################################################################
+
+# comparison plots!
+
+def savefig(fdir, fname, fmts=['png']):
+    if not os.path.exists(fdir):
+        os.makedirs(fdir)
+    fname = os.path.join(fdir, fname)
+
+    for fmt in fmts:
+        print(f"    Saving {fname}.{fmt}")
+        if fmt == 'png':
+            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
+        else:
+            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+def read_TVA_or_NERC(row):
+  site_id = row['site_id']
+  data_dir = os.path.join('..', '2024-AGU-data', 'processed')
+  if row['data_source'] == 'NERC':
+      #reading in data for site if NERC
+      fname = os.path.join(data_dir, site_id, 'GIC_measured_NERC.pkl')
+  elif row['data_source'] == 'TVA':
+      #reading in data for site if TVA
+      site_id = "".join(site_id.split()) #removing space from name to match file name
+      fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
+
+  with open(fname, 'rb') as f:
+      site_data = pickle.load(f)
+
+  site_df = pd.DataFrame(site_data)
+  time = site_df['modified'][0]['time']
+  mod_data = site_df['modified'][0]['data'] # 1-min avg data
+  masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
+  return time, mod_data, masked_data
+
+sites = info_df['site_id'].tolist()
+
+def compare_gic_site(sites):
+  for idx_1, row in info_df.iterrows():
+
+    site_1_id = row['site_id']
+    if site_1_id not in sites:
+      continue
+
+    site_1_time, site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
+
+    for idx_2, row in info_df.iterrows():
+      if idx_1 <= idx_2:  # Avoid duplicate pairs
+        continue
+
+      site_2_id = row['site_id']
+
+      if site_2_id not in sites:
+        continue
+
+      site_2_time, site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
+
+      #plotting!!
+      plt.figure()
+      error_shift = 70
+      yticks = np.arange(-120, 30, 10)
+      labels = []
+      for ytick in yticks:
+          if ytick < -30:
+              labels.append(str(ytick+error_shift))
+          else:
+              labels.append(str(ytick))
+      kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
+      plt.axhline(y=-35, **kwargs)
+      plt.axhline(y=-120, **kwargs)
+      plt.title(f'{site_1_id} vs {site_2_id} GIC Comparison')
+      plt.grid()
+      plt.plot()
+      plt.plot(site_1_time, site_1_data, label=site_1_id, linewidth=0.5)
+      plt.plot(site_2_time, site_2_data, label=site_2_id, linewidth=0.5)
+      plt.plot(site_1_time, site_1_data-site_2_data-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
+      plt.legend()
+      plt.ylabel('[A]', rotation=0, labelpad=10)
+      plt.ylim(-120, 30)
+      plt.yticks(yticks, labels=labels)
+      site_1_save =site_1_id.lower().replace(' ', '')
+      site_2_save =site_2_id.lower().replace(' ', '')
+      fname = f'{site_1_save}_{site_2_save}'
+      out_dir = os.path.join('..', '2024-AGU-data', '_results', 'pairs')
+      savefig(out_dir, fname)
+      plt.close()
+
+compare_gic_site(sites)
