@@ -66,7 +66,7 @@ def add_symbols(ax, df, transform, markersize):
                 markersize=markersize,
                 transform=transform)
 
-#reading in info.csv
+#reading in info.extended.csv
 fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
