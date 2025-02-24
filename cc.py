@@ -29,25 +29,27 @@ sites = info_df['site_id'].tolist()
 columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff']
 print('\t'.join(columns))
 
-def write_table(rows, out_dir, md=False):
+def write_table(rows, rows_md, out_dir):
   # Print the results again in order of decreasing correlation coefficient
   df = pd.DataFrame(rows, columns=columns)
   df = df.sort_values(by='cc', ascending=False)
-  if md == False:
-    output_fname = os.path.join(out_dir, 'cc.pkl')
-    if not os.path.exists(os.path.dirname(output_fname)):
-      os.makedirs(os.path.dirname(output_fname))
+  output_fname = os.path.join(out_dir, 'cc.pkl')
+  if not os.path.exists(os.path.dirname(output_fname)):
+    os.makedirs(os.path.dirname(output_fname))
 
-    print(f"Writing {output_fname}")
-    with open(output_fname, 'wb') as f:
-      pickle.dump(df, f)
-  else:
-    # Write the DataFrame to a markdown file
-    output_fname = os.path.join(out_dir, 'cc.md')
-    print(f"Writing {output_fname}")
-    with open(output_fname, 'w') as f:
-      f.write("See https://github.com/lucywilkerson/2024-AGU/blob/main/info/ for additional site information.\n\n")
-      f.write(df.to_markdown(index=False))
+  print(f"Writing {output_fname}")
+  with open(output_fname, 'wb') as f:
+    pickle.dump(df, f)
+
+
+  df = pd.DataFrame(rows_md, columns=columns)
+  df = df.sort_values(by='cc', ascending=False)
+  # Write the DataFrame to a markdown file
+  output_fname = os.path.join(out_dir, 'cc.md')
+  print(f"Writing {output_fname}")
+  with open(output_fname, 'w') as f:
+    f.write("See https://github.com/lucywilkerson/2024-AGU/blob/main/info/ for additional site information.\n\n")
+    f.write(df.to_markdown(index=False))
 
 
 def read_TVA_or_NERC(row):
@@ -77,7 +79,7 @@ def site_distance(df, idx_1, idx_2):
 
 
 rows = []
-rows_link = []
+rows_md = []
 for idx_1, row in info_df.iterrows():
 
   site_1_id = row['site_id']
@@ -121,19 +123,19 @@ for idx_1, row in info_df.iterrows():
     dbeta = info_df['interpolated_beta'][idx_1] - info_df['interpolated_beta'][idx_2]
 
     print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}")
-
-    site_1_id = site_1_id.lower().replace(' ','')
-    site_2_id = site_2_id.lower().replace(' ','')
-
-    cc_link = f'[{cc:.3f}](../../../tree/main/_results/pairs/{site_1_id}_{site_2_id}.png)'
-
-    site_1_id_link = f'[{site_1_id}](../../../tree/main/_processed/{site_1_id})'
-    site_2_id_link = f'[{site_2_id}](../../../tree/main/_processed/{site_2_id})'
-
     rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta])
-    rows_link.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta])
+
+    # Format rows as Markdown
+    site_1_id_x = site_1_id.lower().replace(' ','')
+    site_2_id_x = site_2_id.lower().replace(' ','')
+
+    cc_link = f'[{cc:.3f}](../../../tree/main/_results/pairs/{site_1_id_x}_{site_2_id_x}.png)'
+
+    site_1_id_link = f'[{site_1_id_x}](../../../tree/main/_processed/{site_1_id_x})'
+    site_2_id_link = f'[{site_2_id_x}](../../../tree/main/_processed/{site_2_id_x})'
+
+    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta])
 
     # TODO:add a column in the printout of # mins
 
-write_table(rows, out_dir)
-write_table(rows_link, out_dir, md=True)
+write_table(rows, rows_md, out_dir)

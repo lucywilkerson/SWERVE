@@ -383,7 +383,6 @@ with open(pkl_file, 'rb') as file:
 cc_df = pd.DataFrame(cc_rows)
 cc_df.reset_index(drop=True, inplace=True)
 
-
 cc_vs_dist_map(cc_df)
 std_map(info_df, cc_df)
 site_maps(info_df, cc_df)
