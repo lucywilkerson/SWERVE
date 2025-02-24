@@ -49,6 +49,38 @@ plt.grid(True)
 savefig(results_dir, 'cc_vs_beta_scatter')
 plt.close()
 
+
+# Scatter plots with colorbars!
+
+# Define 10 discrete color bins for beta
+bins = np.linspace(np.abs(df['beta_diff']).min(), np.abs(df['beta_diff']).max(), 10)
+norm = plt.Normalize(bins.min(), bins.max())
+cmap = plt.cm.get_cmap('viridis', len(bins) - 1)
+sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+sm.set_array([])
+colors = np.digitize(np.abs(df['beta_diff']), bins)
+
+# Plotting cc vs dist w beta colorbar
+fig, ax = plt.subplots(figsize=(12, 5))
+sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=colors, cmap=cmap, norm=norm)
+ax.set_xlabel('Distance (km)')
+ax.set_ylabel('|cc|')
+ax.grid(True)
+# Set up colorbar
+cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])  # Position for the colorbar
+cbar = plt.colorbar(sm, cax=cax, ticks=bins, label=r'|$\Delta \log_{10} (\beta)$|')
+# Add dots to the colorbar
+cbar.ax.clear()
+for i, b in enumerate(bins[:-1]):
+    cax.plot([0.5], [b], 'o', color=cmap(i), markersize=5, transform=cax.get_yaxis_transform(), clip_on=False)
+cbar.set_ticks(bins)
+cbar.set_ticklabels([f'{b:.2f}' for b in bins])
+cbar.ax.yaxis.set_label_position('right')
+cbar.set_label(r'|$\Delta \log_{10} (\beta)$|')
+cbar.ax.xaxis.set_visible(False)  
+savefig(results_dir, 'cc_vs_dist_vs_beta_scatter')
+plt.close()
+
 ####################################################################
 # Site scatter
 
