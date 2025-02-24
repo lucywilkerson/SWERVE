@@ -6,6 +6,7 @@ install_requires = [
     "matplotlib",
     "cartopy",
     "geopy",
+    "geopandas",
     "datetick @ git+https://github.com/rweigel/datetick@main#egg=hapiplot"
     ]
 

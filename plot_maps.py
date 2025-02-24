@@ -67,7 +67,7 @@ def add_symbols(ax, df, transform, markersize):
                 transform=transform)
 
 #reading in info.csv
-fname = os.path.join('info', 'info.csv')
+fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
 info_df = pd.read_csv(fname)
@@ -289,7 +289,33 @@ def site_maps(info_df, cc_df):
         savefig(fdir, 'cc_vs_dist_map')
         plt.close()
 
- 
+def beta_maps():
+    """
+
+    # Plot the interpolated data on a map
+    fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
+    ax.set_extent([df['lon'].min(), df['lon'].max(), df['lat'].min(), df['lat'].max()], crs=ccrs.PlateCarree())
+
+    # Add features to the map
+    ax.add_feature(cfeature.COASTLINE)
+    ax.add_feature(cfeature.BORDERS, linestyle=':')
+    ax.add_feature(cfeature.LAND, edgecolor='black')
+    ax.add_feature(cfeature.LAKES, alpha=0.5)
+    ax.add_feature(cfeature.RIVERS)
+
+    # Plot the interpolated beta values
+    contour = ax.contourf(lon_grid, lat_grid, beta_grid, transform=ccrs.PlateCarree(), cmap='viridis')
+
+    # Add a colorbar
+    cbar = plt.colorbar(contour, ax=ax, orientation='vertical', pad=0.05, aspect=50)
+    cbar.set_label('Interpolated Beta')
+
+    # Add a title
+    ax.set_title('Interpolated Beta Values')
+
+    # Show the plot
+    plt.show()"""
+
 # US Transmission lines
 data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
 data_name = 'Electric__Power_Transmission_Lines.shp'
@@ -324,7 +350,7 @@ def transmission_map(info_df, gdf, cc_df, std=False):
             site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
             if stdev == True:
                 for idx_2, row_2 in cc_df.iterrows():
-                    if row_2['site_1'] == site_id:
+                    if row_2['site_1'] == site_id: #TODO: with new cc.pkl format, this doesn't work
                         std = row_2['std_1']
                     else:
                         continue
@@ -363,3 +389,68 @@ std_map(info_df, cc_df)
 site_maps(info_df, cc_df)
 transmission_map(info_df, trans_lines_gdf, cc_df)
 transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
+
+
+
+##################################################################
+# stuff from messing w voltage (ie just TVA)
+
+# Translating geometries
+trans_lines_gdf = trans_lines_gdf.to_crs("EPSG:4326")
+# Translate MultiLineString to LineString geometries, taking only the first LineString
+trans_lines_gdf.loc[
+trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+] = trans_lines_gdf.loc[
+trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+].apply(lambda x: list(x.geoms)[0])
+
+# Setting up map
+fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
+add_features(ax, state)
+# Set the extent of the map (TVA)
+ax.set_extent(TVA_extent, crs=crs)
+
+voltages = trans_lines_gdf["VOLTAGE"].unique()
+#order voltages from lowest to highest
+voltages = sorted(voltages)
+
+for voltage in voltages:
+    if voltage < 200 or voltage > 765:
+        continue
+    trans_lines_plot = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] == voltage)]
+    # Plot the lines
+    if voltage == 765:
+        color = 'r'
+    elif voltage == 500:
+        color = 'g'
+    elif voltage == 345:
+        color = 'b'
+    #elif voltage == 230:
+        #color = 'y'
+    else:
+        continue
+    legend_switch = True
+    for idx, row in trans_lines_plot.iterrows():
+        x, y = row['geometry'].xy
+        if legend_switch:
+            label = f"{voltage} kV"
+            legend_switch = False
+        else:
+            label = None
+        ax.plot(x, y, color=color, linewidth=2,transform=transform, label=label) 
+
+
+#adding locations!!
+
+TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek'] # For testing
+TVA_df = info_df[info_df['site_id'].isin(TVA_sites)]
+
+add_symbols(ax, TVA_df, transform, 13)
+
+ax.legend(loc='upper left')
+
+fname = 'trans_lines_TVA'
+out_dir = os.path.join('..', '2024-AGU-data', '_results')
+fname = os.path.join(out_dir, fname)
+plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight') 
+plt.close()

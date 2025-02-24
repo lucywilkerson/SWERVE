@@ -1,14 +1,7 @@
 import os
-import csv
 import pandas as pd
-import pickle
 
 import numpy as np
-import matplotlib.pyplot as plt
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
-import matplotlib.patches as patches
-import geopandas as gpd
 from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
 
@@ -54,6 +47,6 @@ info_df = pd.read_csv(fname)
 info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
 
 # Save the updated DataFrame 
-out_fname = os.path.join('info', 'info.csv')
+out_fname = os.path.join('info', 'info.extended.csv')
 info_df.to_csv(out_fname, index=False)
 print(f"Saving updated {out_fname}")
