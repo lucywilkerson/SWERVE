@@ -36,6 +36,7 @@ sites = {}
 locations = {}
 
 for idx, row in df.iterrows():
+  print(row)
   site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
   if isinstance(error, str) and error.startswith("x "):
     print(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")

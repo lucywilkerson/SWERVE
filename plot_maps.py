@@ -67,7 +67,7 @@ def add_symbols(ax, df, transform, markersize):
                 transform=transform)
 
 #reading in info.csv
-fname = os.path.join('info', 'info.csv')
+fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
 info_df = pd.read_csv(fname)
@@ -289,7 +289,33 @@ def site_maps(info_df, cc_df):
         savefig(fdir, 'cc_vs_dist_map')
         plt.close()
 
- 
+def beta_maps():
+    """
+
+    # Plot the interpolated data on a map
+    fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
+    ax.set_extent([df['lon'].min(), df['lon'].max(), df['lat'].min(), df['lat'].max()], crs=ccrs.PlateCarree())
+
+    # Add features to the map
+    ax.add_feature(cfeature.COASTLINE)
+    ax.add_feature(cfeature.BORDERS, linestyle=':')
+    ax.add_feature(cfeature.LAND, edgecolor='black')
+    ax.add_feature(cfeature.LAKES, alpha=0.5)
+    ax.add_feature(cfeature.RIVERS)
+
+    # Plot the interpolated beta values
+    contour = ax.contourf(lon_grid, lat_grid, beta_grid, transform=ccrs.PlateCarree(), cmap='viridis')
+
+    # Add a colorbar
+    cbar = plt.colorbar(contour, ax=ax, orientation='vertical', pad=0.05, aspect=50)
+    cbar.set_label('Interpolated Beta')
+
+    # Add a title
+    ax.set_title('Interpolated Beta Values')
+
+    # Show the plot
+    plt.show()"""
+
 # US Transmission lines
 data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
 data_name = 'Electric__Power_Transmission_Lines.shp'

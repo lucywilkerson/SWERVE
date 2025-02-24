@@ -1,14 +1,7 @@
 import os
-import csv
 import pandas as pd
-import pickle
 
 import numpy as np
-import matplotlib.pyplot as plt
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
-import matplotlib.patches as patches
-import geopandas as gpd
 from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
 
@@ -54,32 +47,6 @@ info_df = pd.read_csv(fname)
 info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
 
 # Save the updated DataFrame 
-out_fname = os.path.join('info', 'info.csv')
+out_fname = os.path.join('info', 'info.extended.csv')
 info_df.to_csv(out_fname, index=False)
 print(f"Saving updated {out_fname}")
-
-"""
-
-# Plot the interpolated data on a map
-fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
-ax.set_extent([df['lon'].min(), df['lon'].max(), df['lat'].min(), df['lat'].max()], crs=ccrs.PlateCarree())
-
-# Add features to the map
-ax.add_feature(cfeature.COASTLINE)
-ax.add_feature(cfeature.BORDERS, linestyle=':')
-ax.add_feature(cfeature.LAND, edgecolor='black')
-ax.add_feature(cfeature.LAKES, alpha=0.5)
-ax.add_feature(cfeature.RIVERS)
-
-# Plot the interpolated beta values
-contour = ax.contourf(lon_grid, lat_grid, beta_grid, transform=ccrs.PlateCarree(), cmap='viridis')
-
-# Add a colorbar
-cbar = plt.colorbar(contour, ax=ax, orientation='vertical', pad=0.05, aspect=50)
-cbar.set_label('Interpolated Beta')
-
-# Add a title
-ax.set_title('Interpolated Beta Values')
-
-# Show the plot
-plt.show()"""

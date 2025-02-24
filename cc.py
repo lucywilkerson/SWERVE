@@ -11,7 +11,7 @@ from geopy.distance import geodesic
 data_dir = os.path.join('..', '2024-AGU-data', '_processed')
 out_dir = os.path.join('..', '2024-AGU-data', '_results')
 
-fname = os.path.join('info', 'info.csv')
+fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
 
