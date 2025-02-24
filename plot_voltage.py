@@ -85,7 +85,7 @@ plt.grid(True, zorder=1)
 out_dir = os.path.join('..', '2024-AGU-data', '_results')
 fname = os.path.join(out_dir, 'trans_lines_count')
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
-plt.show()
+#plt.show()
 plt.close()
 
 # Finding line lengths in km
@@ -117,7 +117,7 @@ plt.grid(True, zorder=1)
 out_dir = os.path.join('..', '2024-AGU-data', '_results')
 fname = os.path.join(out_dir, 'trans_lines_length')
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
-plt.show()
+#plt.show()
 plt.close()
 
 
