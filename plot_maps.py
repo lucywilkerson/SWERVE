@@ -324,7 +324,7 @@ def transmission_map(info_df, gdf, cc_df, std=False):
             site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
             if stdev == True:
                 for idx_2, row_2 in cc_df.iterrows():
-                    if row_2['site_1'] == site_id:
+                    if row_2['site_1'] == site_id: #TODO: with new cc.pkl format, this doesn't work
                         std = row_2['std_1']
                     else:
                         continue
@@ -368,6 +368,15 @@ transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
 
 ##################################################################
 # stuff from messing w voltage (ie just TVA)
+
+# Translating geometries
+trans_lines_gdf = trans_lines_gdf.to_crs("EPSG:4326")
+# Translate MultiLineString to LineString geometries, taking only the first LineString
+trans_lines_gdf.loc[
+trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+] = trans_lines_gdf.loc[
+trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+].apply(lambda x: list(x.geoms)[0])
 
 # Setting up map
 fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
@@ -417,7 +426,5 @@ ax.legend(loc='upper left')
 fname = 'trans_lines_TVA'
 out_dir = os.path.join('..', '2024-AGU-data', '_results')
 fname = os.path.join(out_dir, fname)
-plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
-
-plt.show() 
+plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight') 
 plt.close()
