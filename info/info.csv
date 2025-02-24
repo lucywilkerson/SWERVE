@@ -1,485 +1,485 @@
-site_id,geo_lat,geo_lon,data_type,data_class,data_source,error,interpolated_beta
-10052,44.9,-97.0,GIC,measured,NERC,,1.4613600380655098
-10064,41.8,-88.2,GIC,measured,NERC,stays at zero,0.9992471574670887
-10065,41.8,-87.8,GIC,measured,NERC,"periods of missing data, otherwise fine",0.909356959861706
-10066,41.6,-87.9,GIC,measured,NERC,"not centered on zero, noisy",0.8800135763626162
-10067,42.1,-87.9,GIC,measured,NERC,"all negative, not smooth",1.1739638468547255
-10068,42.0,-88.2,GIC,measured,NERC,"periods of missing data, otherwise fine",1.1501378826302473
-10069,41.9,-87.7,GIC,measured,NERC,very noisy,0.9673350159942893
-10071,42.2,-88.9,GIC,measured,NERC,very noisy,1.5978375054340321
-10072,42.2,-88.9,GIC,measured,NERC,"periods of missing data, otherwise fine",1.5978375054340321
-10073,41.6,-87.7,GIC,measured,NERC,very noisy,0.8350684775599249
-10074,41.2,-87.9,GIC,measured,NERC,"periods of missing data, otherwise fine",0.7763817105617404
-10075,41.7,-87.5,GIC,measured,NERC,1-min cadence,0.8160313452074529
-10076,41.8,-88.0,GIC,measured,NERC,,0.9543020586643974
-10094,41.9,-72.5,GIC,measured,NERC,not smooth,2.929623783371682
-10095,41.7,-72.2,GIC,measured,NERC,stays at zero,2.5428320075460182
-10096,41.8,-72.6,GIC,measured,NERC,stays at zero,3.171537678413347
-10097,41.4,-72.1,GIC,measured,NERC,"1-min cadence, missing periods of data",2.324064908774785
-10098,41.4,-72.1,GIC,measured,NERC,"1-min cadence, missing periods of data",2.324064908774785
-10099,41.4,-73.4,GIC,measured,NERC,,2.7748233392986035
-10100,41.6,-72.9,GIC,measured,NERC,stays at zero,3.187275795663601
-10103,38.6,-121.3,GIC,measured,NERC,very noisy,0.5766122104959627
-10222,40.2,-75.3,GIC,measured,NERC,"periods of missing data, otherwise fine",2.691713307197934
-10223,32.9,-115.7,GIC,measured,NERC,"really low values, missing periods of data",1.0780617886924158
-10224,40.2,-75.3,GIC,measured,NERC,"periods of missing data, otherwise fine",2.691713307197934
-10229,43.6,-92.7,GIC,measured,NERC,"all positive, not smooth",1.1145399400687936
-10232,45.0,-92.8,GIC,measured,NERC,a few large spikes,0.8432142123234811
-10233,47.6,-122.3,GIC,measured,NERC,no data available,0.7863563266877992
-10237,33.7,-84.9,GIC,measured,NERC,noisy,1.4445260600745655
-10238,31.5,-83.5,GIC,measured,NERC,,0.9257162349465203
-10239,31.3,-81.7,GIC,measured,NERC,too smooth,1.1620205240966242
-10253,47.5,-116.2,GIC,measured,NERC,a little noisy,0.4344943757814788
-10254,42.8,-82.5,GIC,measured,NERC,"too high, noisy",0.6150394477268439
-10255,45.7,-94.7,GIC,measured,NERC,,2.069921759555765
-10265,43.6,-116.3,GIC,measured,NERC,not centered on zero,0.14858720260843974
-10266,42.8,-114.4,GIC,measured,NERC,some peaks,0.23608423038489718
-10297,46.8,-92.3,GIC,measured,NERC,some peaks,1.8714973966240973
-10298,43.4,-88.0,GIC,measured,NERC,"too low, noisy",1.5289654735567622
-10299,46.6,-87.4,GIC,measured,NERC,data cut off at zero,1.2584233259576691
-10300,46.6,-87.4,GIC,measured,NERC,data cut off at zero,1.2584233259576691
-10301,44.0,-88.6,GIC,measured,NERC,some peaks,1.6600117205555995
-10302,44.2,-88.1,GIC,measured,NERC,stays constant,1.326821049844309
-10303,44.8,-89.7,GIC,measured,NERC,"too low, noisy",1.0464862727242994
-10304,44.8,-89.7,GIC,measured,NERC,"too low, noisy",1.0464862727242994
-10306,44.8,-88.2,GIC,measured,NERC,data cut off at zero,1.2345599369449158
-10307,44.4,-88.4,GIC,measured,NERC,"not centered, noisy",1.24281518276483
-10308,42.5,-89.1,GIC,measured,NERC,some peaks,1.9542158803012366
-10309,45.8,-88.0,GIC,measured,NERC,data cut off at zero,1.0855066860857323
-10310,43.0,-89.0,GIC,measured,NERC,not centered on zero,1.8850193207072117
-10311,43.0,-89.0,GIC,measured,NERC,noisy,1.8850193207072117
-10312,43.0,-89.0,GIC,measured,NERC,noisy,1.8850193207072117
-10313,44.5,-89.6,GIC,measured,NERC,noisy,1.212655004665201
-10314,44.5,-89.6,GIC,measured,NERC,stays constant,1.212655004665201
-10315,44.5,-89.6,GIC,measured,NERC,noisy,1.212655004665201
-10316,43.7,-88.5,GIC,measured,NERC,noisy,1.763343750849685
-10317,43.7,-88.5,GIC,measured,NERC,noisy,1.763343750849685
-10318,44.4,-88.7,GIC,measured,NERC,some peaks,1.2746208789783278
-10321,43.1,-88.0,GIC,measured,NERC,some peaks,1.572139297661632
-10322,43.3,-89.4,GIC,measured,NERC,noisy,2.0578805688626756
-10336,44.8,-91.5,GIC,measured,NERC,1-min cadence,1.0779706740382997
-10338,44.8,-91.5,GIC,measured,NERC,high cadence,1.0779706740382997
-10339,43.7,-95.7,GIC,measured,NERC,noisy,1.2680504229953962
-10340,43.7,-95.7,GIC,measured,NERC,noisy,1.2680504229953962
-10341,45.0,-93.5,GIC,measured,NERC,high cadence,0.830843512382833
-10342,45.0,-93.5,GIC,measured,NERC,"high cadence, missing periods of data",0.830843512382833
-10343,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data",1.973718919571009
-10344,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data",1.973718919571009
-10345,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data",1.973718919571009
-10347,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data",1.973718919571009
-10348,45.5,-94.3,GIC,measured,NERC,high cadence,1.557177655525663
-10349,44.8,-93.6,GIC,measured,NERC,"high cadence, missing periods of data",0.9811921599604532
-10350,44.8,-93.6,GIC,measured,NERC,"high cadence, missing periods of data",0.9811921599604532
-10351,44.8,-93.6,GIC,measured,NERC,"noisy, missing periods of data",0.9811921599604532
-10352,44.8,-93.6,GIC,measured,NERC,"noisy, missing periods of data",0.9811921599604532
-10353,45.4,-93.9,GIC,measured,NERC,high cadence,1.0959693941101911
-10354,45.9,-91.5,GIC,measured,NERC,"high cadence, missing periods of data",1.077550657076097
-10355,44.2,-94.0,GIC,measured,NERC,"high cadence, noisy",1.3178553957476833
-10356,44.2,-94.0,GIC,measured,NERC,"high cadence, noisy",1.3178553957476833
-10357,47.7,-117.5,GIC,measured,NERC,very noisy,0.6980376656756322
-10358,38.7,-121.2,GIC,measured,NERC,"not smooth, missing periods of data",0.5169217895347824
-10389,38.3,-87.4,GIC,measured,NERC,"not smooth, missing periods of data",0.5245947440295479
-10397,39.1,-78.3,GIC,measured,NERC,some peaks,2.0731811017327963
-10398,41.1,-74.2,GIC,measured,NERC,noisy,2.4943337505101617
-10586,34.0,-118.5,GIC,measured,NERC,no data availible,1.299364227218366
-10587,46.4,-117.0,GIC,measured,NERC,,0.7112390905451829
-10591,35.8,-106.1,GIC,measured,NERC,no data availible,0.42741141774154867
-10592,43.2,-84.5,GIC,measured,NERC,missing periods of data,0.5365818570603087
-10603,42.6,-83.0,GIC,measured,NERC,missing periods of data,0.6489573220437774
-10605,45.3,-122.6,GIC,measured,NERC,"not smooth, all positive",0.8880410561791788
-10606,41.3,-72.9,GIC,measured,NERC,high cadence,2.519333459417882
-10607,41.3,-72.9,GIC,measured,NERC,high cadence,2.519333459417882
-10608,41.2,-73.2,GIC,measured,NERC,no data available,2.359721585037499
-10609,41.2,-73.2,GIC,measured,NERC,no data available,2.359721585037499
-10611,39.6,-92.6,GIC,measured,NERC,noisy,1.2699476826377936
-10612,30.5,-87.2,GIC,measured,NERC,stays at zero,0.12732636454494772
-10613,29.6,-81.6,GIC,measured,NERC,stays at zero,1.0875366213723825
-10614,29.6,-81.6,GIC,measured,NERC,stays at zero,1.0875366213723825
-10615,29.6,-81.6,GIC,measured,NERC,not smooth,1.0875366213723825
-10616,29.6,-81.6,GIC,measured,NERC,stays at zero,1.0875366213723825
-10617,28.8,-81.3,GIC,measured,NERC,not smooth,0.7144146924449852
-10618,38.3,-86.2,GIC,measured,NERC,,0.5330126156362351
-10619,38.3,-86.2,GIC,measured,NERC,,0.5330126156362351
-10620,39.1,-87.5,GIC,measured,NERC,missing periods of data,0.4657602038935467
-10621,39.1,-87.5,GIC,measured,NERC,missing periods of data,0.4657602038935467
-10622,39.3,-86.5,GIC,measured,NERC,,0.5118813171556331
-10623,39.3,-86.5,GIC,measured,NERC,missing periods of data,0.5118813171556331
-10642,42.2,-86.3,GIC,measured,NERC,high cadence,0.5461142418775051
-10643,40.5,-85.9,GIC,measured,NERC,high cadence,0.6847150592020781
-10644,37.7,-81.7,GIC,measured,NERC,not centered at zero,0.7270994843128518
-10664,36.3,-115.3,GIC,measured,NERC,not smooth,0.28457260940127715
-10665,31.0,-86.0,GIC,measured,NERC,too low,0.19302078594746425
-10701,41.8,-83.3,GIC,measured,NERC,not smooth,0.713233725338786
-10707,38.3,-82.7,GIC,measured,NERC,high cadence,0.5806159156987967
-10708,38.3,-82.7,GIC,measured,NERC,high cadence,0.5806159156987967
-10051,44.4,-96.5,GIC,measured,NERC,lots of peaks,1.4244053758465474
-10063,33.4,-112.5,GIC,measured,NERC,,0.5072943140435764
-10077,42.3,-87.9,GIC,measured,NERC,,1.3255865352890053
-10078,42.1,-87.8,GIC,measured,NERC,missing periods of data,1.1540917340532886
-10079,41.5,-87.6,GIC,measured,NERC,,0.7866879617083581
-10080,42.0,-87.9,GIC,measured,NERC,noisy,1.0905215442259428
-10082,41.6,-87.7,GIC,measured,NERC,empty plot,0.8350684775599249
-10083,40.8,-88.6,GIC,measured,NERC,missing periods of data,0.7003540656265397
-10084,41.2,-87.9,GIC,measured,NERC,empty plot,0.7763817105617404
-10085,41.2,-87.9,GIC,measured,NERC,empty plot,0.7763817105617404
-10102,42.9,-71.3,GIC,measured,NERC,no data available,2.880981184607718
-10107,34.5,-118.1,GIC,measured,NERC,,0.9647671847862697
-10111,43.4,-123.0,GIC,measured,NERC,very noisy,0.5699654737361433
-10112,47.7,-117.4,GIC,measured,NERC,,0.6947322760129329
-10113,45.6,-121.1,GIC,measured,NERC,,0.6593937188565016
-10114,46.5,-116.9,GIC,measured,NERC,,0.7795147586163345
-10115,47.6,-114.6,GIC,measured,NERC,,0.28910620589509867
-10116,47.9,-121.9,GIC,measured,NERC,one really large peak,0.9013327943924132
-10117,45.3,-122.8,GIC,measured,NERC,"not centered on zero, values too low",0.8455076590755253
-10118,45.7,-122.6,GIC,measured,NERC,missing periods of data,1.0349144259528797
-10119,47.5,-120.3,GIC,measured,NERC,noisy,0.3611132137327444
-10120,47.8,-122.2,GIC,measured,NERC,"not smooth, values too low",0.8667019498089719
-10121,46.9,-119.9,GIC,measured,NERC,noisy,0.34635923339588626
-10230,43.6,-92.7,GIC,measured,NERC,not smooth,1.1145399400687936
-10231,45.0,-92.8,GIC,measured,NERC,high cadence,0.8432142123234811
-10234,30.8,-88.1,GIC,measured,NERC,"not smooth, values too low",0.12489505311667115
-10235,33.3,-87.4,GIC,measured,NERC,no values below zero,0.6705732866081765
-10236,33.7,-86.6,GIC,measured,NERC,high cadence,1.3276050516602194
-10240,40.8,-73.6,GIC,measured,NERC,not centered on zero,2.2671631544570605
-10257,47.4,-101.2,GIC,measured,NERC,not centered on zero,0.24746824742487
-10258,47.4,-101.2,GIC,measured,NERC,mostly low values,0.24746824742487
-10259,47.4,-101.2,GIC,measured,NERC,"not centered on zero, values too low",0.24746824742487
-10260,47.4,-101.2,GIC,measured,NERC,not centered on zero,0.24746824742487
-10261,45.1,-93.8,GIC,measured,NERC,not centered on zero,0.9661853461548524
-10262,45.1,-93.8,GIC,measured,NERC,a few peaks,0.9661853461548524
-10263,45.1,-93.8,GIC,measured,NERC,not centered on zero,0.9661853461548524
-10264,45.1,-93.8,GIC,measured,NERC,not centered on zero,0.9661853461548524
-10291,43.4,-72.7,GIC,measured,NERC,not smooth,1.336512172970902
-10292,44.1,-72.5,GIC,measured,NERC,"no values below zero, only peaks",1.4669498915554624
-10293,43.0,-72.7,GIC,measured,NERC,"not smooth, missing periods of data",1.855730884607322
-10294,44.1,-73.2,GIC,measured,NERC,missing periods of data,1.2176979111964337
-10295,42.8,-72.5,GIC,measured,NERC,"not centered on zero, cutoff around zero",2.0310841315751156
-10296,43.6,-73.1,GIC,measured,NERC,missing periods of data,1.0984825737037112
-10333,44.4,-96.5,GIC,measured,NERC,"noisy, not centered on zero",1.4244053758465474
-10334,44.4,-96.5,GIC,measured,NERC,not smooth,1.4244053758465474
-10335,45.1,-93.5,GIC,measured,NERC,empty plot,0.8098156397016619
-10346,47.9,-97.1,GIC,measured,NERC,missing periods of data,1.973718919571009
-10359,33.7,-111.9,GIC,measured,NERC,low values,0.7318294816873394
-10360,40.2,-75.3,GIC,measured,NERC,not smooth,2.691713307197934
-10361,40.2,-75.3,GIC,measured,NERC,missing periods of data,2.691713307197934
-10362,39.8,-76.3,GIC,measured,NERC,missing periods of data,2.44308449385514
-10363,40.2,-75.6,GIC,measured,NERC,not smooth,2.343391466974178
-10364,40.2,-75.6,GIC,measured,NERC,not smooth,2.343391466974178
-10399,39.1,-78.3,GIC,measured,NERC,high cadence,2.0731811017327963
-10400,39.1,-78.3,GIC,measured,NERC,high cadence,2.0731811017327963
-10401,39.1,-78.3,GIC,measured,NERC,high cadence,2.0731811017327963
-10402,39.5,-78.9,GIC,measured,NERC,,1.100117757927958
-10403,39.5,-78.9,GIC,measured,NERC,noisy,1.100117757927958
-10404,39.5,-77.9,GIC,measured,NERC,high cadence,2.975750740745741
-10405,39.5,-77.9,GIC,measured,NERC,high cadence,2.975750740745741
-10406,39.5,-77.9,GIC,measured,NERC,high cadence,2.975750740745741
-10407,39.5,-77.9,GIC,measured,NERC,high cadence,2.975750740745741
-10409,39.3,-77.5,GIC,measured,NERC,high cadence,3.214361482606811
-10410,39.3,-77.5,GIC,measured,NERC,empty plot,3.214361482606811
-10411,39.3,-77.5,GIC,measured,NERC,high cadence,3.214361482606811
-10412,39.3,-77.5,GIC,measured,NERC,high cadence,3.214361482606811
-10413,39.3,-77.5,GIC,measured,NERC,empty plot,3.214361482606811
-10414,39.4,-77.4,GIC,measured,NERC,"low values, not smooth",3.647067586236612
-10415,44.1,-103.2,GIC,measured,NERC,"not smooth, missing periods of data",0.3562053270327211
-10416,44.1,-103.2,GIC,measured,NERC,"not smooth, missing periods of data",0.3562053270327211
-10418,39.4,-115.2,GIC,measured,NERC,high cadence,0.46122943568785396
-10420,39.5,-75.5,GIC,measured,NERC,no values below zero,2.175188946991257
-10421,39.5,-75.5,GIC,measured,NERC,no values below zero,2.175188946991257
-10425,36.8,-78.7,GIC,measured,NERC,"no values below zero, noisy",2.1019543813075523
-10426,38.1,-78.8,GIC,measured,NERC,high cadence,2.24051517483117
-10427,39.0,-77.5,GIC,measured,NERC,"high cadence, a bit noisy",2.793857275758007
-10428,36.7,-76.5,GIC,measured,NERC,,1.305214367144753
-10429,36.7,-76.3,GIC,measured,NERC,no values below zero,0.7578720845612434
-10438,43.2,-75.2,GIC,measured,NERC,,0.5913986068916508
-10441,34.2,-81.6,GIC,measured,NERC,not centered at zero,1.7050957343971544
-10442,33.8,-78.9,GIC,measured,NERC,not centered at zero,0.9210879549517226
-10445,41.1,-74.2,GIC,measured,NERC,no data available,2.4943337505101617
-10446,37.0,-121.0,GIC,measured,NERC,not smooth,0.698922467190616
-10447,37.0,-121.0,GIC,measured,NERC,not smooth,0.698922467190616
-10448,37.0,-120.0,GIC,measured,NERC,not smooth,0.5721220770222946
-10449,37.0,-120.0,GIC,measured,NERC,not smooth,0.5721220770222946
-10584,40.0,-104.0,GIC,measured,NERC,not centered at zero,0.35942169770074617
-10585,33.1,-80.1,GIC,measured,NERC,"not smooth, not centered at zero",0.9033677981808719
-10588,36.9,-81.7,GIC,measured,NERC,high cadence,1.344938411660415
-10589,36.9,-81.7,GIC,measured,NERC,high cadence,1.344938411660415
-10593,37.0,-84.5,GIC,measured,NERC,"not centered at zero, missing periods of data",0.4758607201486001
-10628,48.0,-66.4,GIC,measured,NERC,no values below zero,1.3344079242092903
-10635,43.7,-87.7,GIC,measured,NERC,one weird peak,1.3986159376354528
-10636,43.7,-87.7,GIC,measured,NERC,one weird peak,1.3986159376354528
-10637,40.1,-104.8,GIC,measured,NERC,"not smooth, values too low",1.2382724793697353
-10648,32.8,-115.5,GIC,measured,NERC,no data available,1.0896628213431034
-10649,42.8,-74.0,GIC,measured,NERC,"noisy, not centered on zero",1.7507451747730551
-10658,43.1,-78.7,GIC,measured,NERC,values too high,0.7601303754311045
-10659,42.5,-87.9,GIC,measured,NERC,,1.4085185528992998
-10674,41.7,-72.6,GIC,measured,NERC,no data available,3.2596497933952056
-10675,47.9,-65.9,GIC,measured,NERC,noisy,1.358741267118803
-10676,46.1,-66.8,GIC,measured,NERC,a few peaks,1.7878719113419785
-10677,45.2,-66.2,GIC,measured,NERC,noisy,2.3574003177808254
-10678,31.5,-87.9,GIC,measured,NERC,"values all below zero, not centered",0.18382950009395854
-10694,32.0,-106.2,GIC,measured,NERC,"values too low, not centered on zero, not smooth",0.36553624670588364
-10702,41.7,-85.9,GIC,measured,NERC,not centered at zero,0.6046347552238722
-10646,41.0,-81.6,GIC,measured,NERC,noisy,0.6117421374360327
-10647,40.2,-74.5,GIC,measured,NERC,high cadence,2.9734133513883285
-10660,36.2,-88.6,GIC,measured,NERC,,0.9314245148534188
-10661,36.0,-87.9,GIC,measured,NERC,noisy,1.0497657761486834
-10691,37.2,-86.9,GIC,measured,NERC,"not smooth, very noisy",0.6880772749551748
-10692,37.2,-86.9,GIC,measured,NERC,missing some periods of data,0.6880772749551748
-10693,36.0,-84.1,GIC,measured,NERC,,0.5592615251552008
-10696,40.4,-85.9,GIC,measured,NERC,not centered at zero,0.6860433507730741
-10697,36.8,-80.8,GIC,measured,NERC,high cadence,1.5739338390000077
-10698,26.1,-98.1,GIC,measured,NERC,"not smooth, not centered at zero",
-10699,37.6,-81.6,GIC,measured,NERC,not centered at zero,0.8329471584712761
-10700,37.6,-81.6,GIC,measured,NERC,not smooth,0.8329471584712761
-10086,27.7,-82.0,GIC,measured,NERC,no data available,0.36515534337448374
-10087,27.9,-82.4,GIC,measured,NERC,no data available,0.505614521871141
-10088,27.9,-82.4,GIC,measured,NERC,no data available,0.505614521871141
-10089,27.8,-82.4,GIC,measured,NERC,no data available,0.48501232953634094
-10090,27.8,-82.1,GIC,measured,NERC,no data available,0.3727310104831341
-10091,27.7,-82.3,GIC,measured,NERC,no data available,0.42322835965435546
-10180,41.7,-73.8,GIC,measured,NERC,not smooth,3.145835293715519
-10181,41.9,-74.0,GIC,measured,NERC,,2.89686190112345
-10182,26.6,-98.5,GIC,measured,NERC,,0.07711529345426348
-10184,39.0,-78.2,GIC,measured,NERC,,2.0985156906484956
-10185,39.3,-81.3,GIC,measured,NERC,,0.458449579058219
-10186,42.0,-80.0,GIC,measured,NERC,,0.5616616324596242
-10187,41.0,-81.6,GIC,measured,NERC,,0.6117421374360327
-10191,41.3,-90.5,GIC,measured,NERC,noisy,1.4474025826441173
-10193,41.6,-71.4,GIC,measured,NERC,low cadence,1.895916683083308
-10194,42.6,-73.9,GIC,measured,NERC,low cadence,2.1945295536401264
-10195,39.7,-74.9,GIC,measured,NERC,,2.354882212141629
-10196,33.3,-111.9,GIC,measured,NERC,"noisy, low values",0.59432779565099
-10197,36.4,-82.2,GIC,measured,NERC,,1.4198283724986611
-10199,35.0,-84.9,GIC,measured,NERC,noisy,1.1069538243316335
-10200,34.1,-86.7,GIC,measured,NERC,,1.2489859812121804
-10201,36.5,-87.2,GIC,measured,NERC,,1.049994166488022
-10202,34.9,-90.0,GIC,measured,NERC,noisy,0.6097493392599633
-10203,35.0,-85.3,GIC,measured,NERC,,0.9965265442323361
-10204,35.3,-89.8,GIC,measured,NERC,,0.6301141833833783
-10205,36.2,-88.8,GIC,measured,NERC,"noisy, missing periods of data",0.8956529666713062
-10207,36.0,-84.1,GIC,measured,NERC,,0.5592615251552008
-10208,35.8,-86.5,GIC,measured,NERC,,0.7257450701500456
-10209,34.8,-85.7,GIC,measured,NERC,"one big peak, otherwise fine",0.8374007929076037
-10211,34.3,-88.8,GIC,measured,NERC,low cadence,0.6415197941404186
-10212,36.0,-86.6,GIC,measured,NERC,,0.7824508982511382
-10219,36.1,-81.0,GIC,measured,NERC,"noisy, low values",2.7564328346317017
-10220,39.4,-87.4,GIC,measured,NERC,,0.4903456338448295
-10248,32.8,-80.6,GIC,measured,NERC,"not smooth, low values",0.9010947785231341
-10249,33.3,-81.0,GIC,measured,NERC,,1.238758315244013
-10250,34.1,-80.9,GIC,measured,NERC,,1.9961869176524898
-10251,35.9,-82.3,GIC,measured,NERC,"noisy, low values",1.72529499839907
-10252,36.4,-79.0,GIC,measured,NERC,"not smooth, low values",2.6171669225579013
-10287,41.9,-91.7,GIC,measured,NERC,missing periods of data,1.5868828748541342
-10290,39.5,-97.5,GIC,measured,NERC,low cadence,0.5704253439037746
-10325,29.8,-95.2,GIC,measured,NERC,"noisy, low values",0.06687295847063161
-10367,42.4,-71.8,GIC,measured,NERC,not centered on zero,2.3406874307614425
-10368,42.4,-71.8,GIC,measured,NERC,not centered on zero,2.3406874307614425
-10369,42.4,-71.8,GIC,measured,NERC,not centered on zero,2.3406874307614425
-10372,42.4,-71.8,GIC,measured,NERC,not centered on zero,2.3406874307614425
-10373,42.6,-73.9,GIC,measured,NERC,not centered on zero,2.1945295536401264
-10374,42.6,-71.5,GIC,measured,NERC,no data available,2.6652790154959165
-10376,40.9,-73.9,GIC,measured,NERC,very noisy,2.403237240915885
-10377,40.7,-74.0,GIC,measured,NERC,very noisy,2.5535429490860757
-10378,40.7,-74.0,GIC,measured,NERC,not centered on zero,2.5535429490860757
-10379,40.7,-74.0,GIC,measured,NERC,not centered on zero,2.5535429490860757
-10380,41.1,-73.8,GIC,measured,NERC,very noisy,2.2529315327456834
-10381,40.7,-74.0,GIC,measured,NERC,not centered on zero,2.5535429490860757
-10382,40.6,-74.2,GIC,measured,NERC,not centered on zero,2.719221634832854
-10383,40.6,-74.2,GIC,measured,NERC,low cadence,2.719221634832854
-10385,41.2,-73.8,GIC,measured,NERC,very noisy,2.3933698036478432
-10386,40.8,-73.9,GIC,measured,NERC,very noisy,2.448214817780424
-10387,41.0,-73.9,GIC,measured,NERC,very noisy,2.358259664051346
-10388,41.0,-73.9,GIC,measured,NERC,very noisy,2.358259664051346
-10430,39.6,-75.6,GIC,measured,NERC,"low cadence, missing periods of data",2.2656142528262535
-10431,39.6,-75.7,GIC,measured,NERC,"not centered on zero, missing periods of data",2.3091290131355544
-10432,38.5,-76.6,GIC,measured,NERC,low cadence,0.9920645909046397
-10433,38.5,-76.6,GIC,measured,NERC,not centered on zero,0.9920645909046397
-10434,39.5,-75.1,GIC,measured,NERC,low cadence,2.1973806720954783
-10435,39.4,-74.6,GIC,measured,NERC,not centered on zero,1.5563786944062044
-10436,39.4,-74.6,GIC,measured,NERC,"not smooth, low values",1.5563786944062044
-10450,41.0,-85.0,GIC,measured,NERC,low values,0.732541440595982
-10453,38.5,-81.8,GIC,measured,NERC,not centered on zero,0.4794559077539824
-10454,36.6,-79.7,GIC,measured,NERC,not centered on zero,1.9686181942317031
-10455,40.1,-82.7,GIC,measured,NERC,not centered on zero,0.789302714347613
-10456,38.2,-82.6,GIC,measured,NERC,not centered on zero,0.5445291676771482
-10458,42.2,-86.3,GIC,measured,NERC,not centered on zero,0.5461142418775051
-10460,28.9,-96.2,GIC,measured,NERC,low values,0.06268588541894278
-10461,32.2,-100.0,GIC,measured,NERC,not centered on zero,0.41248016340367993
-10462,32.2,-100.0,GIC,measured,NERC,not centered on zero,0.41248016340367993
-10463,35.4,-99.7,GIC,measured,NERC,not centered on zero,0.3709370469559069
-10464,35.4,-99.7,GIC,measured,NERC,low values,0.3709370469559069
-10467,37.4,-79.9,GIC,measured,NERC,low cadence,1.5019975681211808
-10468,37.4,-79.9,GIC,measured,NERC,not centered on zero,1.5019975681211808
-10469,37.4,-79.9,GIC,measured,NERC,not centered on zero,1.5019975681211808
-10470,37.4,-79.9,GIC,measured,NERC,low values,1.5019975681211808
-10471,37.4,-79.9,GIC,measured,NERC,"noisy, not centered on zero",1.5019975681211808
-10473,28.7,-97.2,GIC,measured,NERC,not centered on zero,0.09156659253444709
-10474,28.7,-97.2,GIC,measured,NERC,low values,0.09156659253444709
-10475,40.2,-81.9,GIC,measured,NERC,one big spike,0.6044645604758745
-10476,40.1,-82.8,GIC,measured,NERC,not centered on zero,0.8056019555572088
-10477,31.4,-95.4,GIC,measured,NERC,not centered on zero,0.15003012499331286
-10478,42.0,-86.6,GIC,measured,NERC,not centered on zero,0.6317656392031411
-10480,42.0,-86.6,GIC,measured,NERC,not centered on zero,0.6317656392031411
-10481,40.2,-85.3,GIC,measured,NERC,not centered on zero,0.725399273789205
-10482,40.2,-85.3,GIC,measured,NERC,low values,0.725399273789205
-10483,39.0,-83.0,GIC,measured,NERC,low cadence,0.8505385171694224
-10484,39.0,-83.0,GIC,measured,NERC,not centered on zero,0.8505385171694224
-10485,39.0,-83.0,GIC,measured,NERC,not centered on zero,0.8505385171694224
-10487,41.5,-86.4,GIC,measured,NERC,not centered on zero,0.638281251821335
-10489,36.6,-79.3,GIC,measured,NERC,low cadence,2.1642369169569338
-10490,41.7,-85.9,GIC,measured,NERC,not centered on zero,0.6046347552238722
-10492,40.8,-84.0,GIC,measured,NERC,not centered on zero,0.7665596415364551
-10493,36.7,-79.9,GIC,measured,NERC,"not smooth, low values",1.838743370592181
-10494,36.7,-79.9,GIC,measured,NERC,"not smooth, low values",1.838743370592181
-10495,36.7,-79.9,GIC,measured,NERC,not centered on zero,1.838743370592181
-10496,36.3,-94.5,GIC,measured,NERC,not centered on zero,1.3046803267356712
-10497,40.5,-84.1,GIC,measured,NERC,not centered on zero,0.8526834604335003
-10498,40.2,-83.1,GIC,measured,NERC,not centered on zero,0.8540103698566057
-10499,40.2,-83.1,GIC,measured,NERC,not centered on zero,0.8540103698566057
-10500,41.6,-86.3,GIC,measured,NERC,not centered on zero,0.624466135894625
-10502,36.9,-80.8,GIC,measured,NERC,not centered on zero,1.5265457569238223
-10503,36.9,-80.8,GIC,measured,NERC,"not smooth, low values",1.5265457569238223
-10504,36.9,-80.8,GIC,measured,NERC,low cadence,1.5265457569238223
-10506,38.7,-85.4,GIC,measured,NERC,low cadence,0.6278369474216446
-10507,40.1,-82.7,GIC,measured,NERC,"not smooth, low values",0.789302714347613
-10509,39.8,-80.8,GIC,measured,NERC,not centered on zero,0.4269383218552357
-10511,41.9,-86.2,GIC,measured,NERC,low values,0.5966081956720358
-10512,40.0,-82.6,GIC,measured,NERC,not centered on zero,0.7716446476070943
-10513,26.1,-97.6,GIC,measured,NERC,"not smooth, not centered on zero",
-10515,26.1,-97.6,GIC,measured,NERC,"not smooth, not centered on zero",
-10516,39.6,-81.2,GIC,measured,NERC,not centered on zero,0.4866894207269788
-10517,32.0,-93.2,GIC,measured,NERC,not centered on zero,0.1775494900377329
-10518,27.6,-99.3,GIC,measured,NERC,"not smooth, not centered on zero",0.16047495674055348
-10519,27.8,-97.6,GIC,measured,NERC,"not smooth, not centered on zero",0.07137229868948519
-10520,27.8,-97.6,GIC,measured,NERC,"not smooth, not centered on zero",0.07137229868948519
-10521,31.3,-103.1,GIC,measured,NERC,"not smooth, not centered on zero",0.5321830949419017
-10524,40.2,-83.0,GIC,measured,NERC,not centered on zero,0.83771112864701
-10525,40.2,-83.0,GIC,measured,NERC,not centered on zero,0.83771112864701
-10527,40.3,-83.4,GIC,measured,NERC,not centered on zero,0.8314207776245441
-10528,37.2,-80.2,GIC,measured,NERC,not centered on zero,1.2684313918881838
-10529,37.2,-80.2,GIC,measured,NERC,not centered on zero,1.2684313918881838
-10530,39.0,-81.9,GIC,measured,NERC,too low,0.5146240652046337
-10531,32.5,-99.8,GIC,measured,NERC,not centered on zero,0.4425380146204536
-10532,32.5,-99.8,GIC,measured,NERC,not centered on zero,0.4425380146204536
-10534,36.6,-82.7,GIC,measured,NERC,not centered on zero,0.8686256164587953
-10537,27.6,-97.7,GIC,measured,NERC,not centered on zero,0.07063713777951554
-10538,26.3,-98.2,GIC,measured,NERC,not centered on zero,
-10539,26.3,-98.2,GIC,measured,NERC,not centered on zero,
-10541,41.7,-86.5,GIC,measured,NERC,not centered on zero,0.6234138921661652
-10542,36.0,-95.7,GIC,measured,NERC,not centered on zero,0.9354586046984892
-10545,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero",1.71663255208625
-10546,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero",1.71663255208625
-10547,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero",1.71663255208625
-10548,26.2,-98.2,GIC,measured,NERC,not centered on zero,
-10549,26.2,-98.2,GIC,measured,NERC,not centered on zero,
-10550,26.3,-97.6,GIC,measured,NERC,not centered on zero,0.07250566622867011
-10551,26.3,-97.6,GIC,measured,NERC,"not smooth, not centered on zero",0.07250566622867011
-10552,40.0,-83.1,GIC,measured,NERC,not centered on zero,0.8541780627588123
-10554,37.9,-87.0,GIC,measured,NERC,not smooth,0.5439242717363038
-10557,31.5,-100.3,GIC,measured,NERC,not centered on zero,0.5541085061651425
-10558,30.9,-103.4,GIC,measured,NERC,not centered on zero,0.48308347025347553
-10559,30.9,-103.4,GIC,measured,NERC,not centered on zero,0.48308347025347553
-10560,41.0,-85.3,GIC,measured,NERC,low cadence,0.7176193661309468
-10561,41.0,-83.3,GIC,measured,NERC,not centered on zero,0.760887461840249
-10563,40.7,-81.4,GIC,measured,NERC,"not smooth, low values",0.5531077842915348
-10564,40.7,-84.2,GIC,measured,NERC,low cadence,0.7994264663558704
-10565,26.1,-98.2,GIC,measured,NERC,"not smooth, low values",
-10567,39.2,-87.5,GIC,measured,NERC,not centered on zero,0.4723830744533478
-10568,39.2,-87.5,GIC,measured,NERC,not centered on zero,0.4723830744533478
-10569,39.2,-87.5,GIC,measured,NERC,low cadence,0.4723830744533478
-10570,40.2,-80.7,GIC,measured,NERC,1-min cadence,0.44896385131036187
-10572,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero",0.614144348980766
-10573,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero",0.614144348980766
-10574,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero",0.614144348980766
-10575,41.7,-86.1,GIC,measured,NERC,"not smooth, low values",0.6083122404911356
-10576,41.7,-86.1,GIC,measured,NERC,not centered on zero,0.6083122404911356
-10577,41.4,-84.9,GIC,measured,NERC,"low cadence, not centered on zero",0.7188458081390685
-10578,40.2,-82.8,GIC,measured,NERC,not centered on zero,0.8051126462278162
-10581,32.8,-94.5,GIC,measured,NERC,not centered on zero,0.18551972240492356
-50100,30.4,-89.6,B,measured,NERC,,0.09955043502535955
-50100,30.4,-89.6,B,calculated,SWMF,,0.09955043502535955
-50100,30.4,-89.6,B,calculated,MAGE,,0.09955043502535955
-50127,37.1,-119.7,B,measured,NERC,,0.6691525698113988
-50127,37.1,-119.7,B,calculated,SWMF,,0.6691525698113988
-50127,37.1,-119.7,B,calculated,MAGE,,0.6691525698113988
-50112,48.3,-117.1,B,measured,NERC,,0.41459568853474743
-50112,48.3,-117.1,B,calculated,SWMF,,0.41459568853474743
-50112,48.3,-117.1,B,calculated,MAGE,,0.41459568853474743
-50131,37.8,-84.7,B,measured,NERC,,0.6012161899336259
-50131,37.8,-84.7,B,calculated,SWMF,,0.6012161899336259
-50131,37.8,-84.7,B,calculated,MAGE,,0.6012161899336259
-50132,38.0,-84.8,B,measured,NERC,,0.6526523734307923
-50132,38.0,-84.8,B,calculated,SWMF,,0.6526523734307923
-50132,38.0,-84.8,B,calculated,MAGE,,0.6526523734307923
-50103,33.3,-89.2,B,measured,NERC,,0.33901322106753
-50103,33.3,-89.2,B,calculated,SWMF,,0.33901322106753
-50103,33.3,-89.2,B,calculated,MAGE,,0.33901322106753
-50104,36.0,-84.1,B,measured,NERC,,0.5592615251552008
-50104,36.0,-84.1,B,calculated,SWMF,,0.5592615251552008
-50104,36.0,-84.1,B,calculated,MAGE,,0.5592615251552008
-50109,35.6,-84.7,B,measured,NERC,,0.8873089882136032
-50109,35.6,-84.7,B,calculated,SWMF,,0.8873089882136032
-50109,35.6,-84.7,B,calculated,MAGE,,0.8873089882136032
-50115,41.3,-90.5,B,measured,NERC,,1.4474025826441173
-50115,41.3,-90.5,B,calculated,SWMF,,1.4474025826441173
-50115,41.3,-90.5,B,calculated,MAGE,,1.4474025826441173
-50116,37.2,-86.9,B,measured,NERC,,0.6880772749551748
-50116,37.2,-86.9,B,calculated,SWMF,,0.6880772749551748
-50116,37.2,-86.9,B,calculated,MAGE,,0.6880772749551748
-50117,36.1,-81.0,B,measured,NERC,,2.7564328346317017
-50117,36.1,-81.0,B,calculated,SWMF,,2.7564328346317017
-50117,36.1,-81.0,B,calculated,MAGE,,2.7564328346317017
-50118,39.4,-87.4,B,measured,NERC,,0.4903456338448295
-50118,39.4,-87.4,B,calculated,SWMF,,0.4903456338448295
-50118,39.4,-87.4,B,calculated,MAGE,,0.4903456338448295
-50119,35.0,-85.3,B,measured,NERC,,0.9965265442323361
-50119,35.0,-85.3,B,calculated,SWMF,,0.9965265442323361
-50119,35.0,-85.3,B,calculated,MAGE,,0.9965265442323361
-50120,34.3,-88.8,B,measured,NERC,,0.6415197941404186
-50120,34.3,-88.8,B,calculated,SWMF,,0.6415197941404186
-50120,34.3,-88.8,B,calculated,MAGE,,0.6415197941404186
-50122,35.6,-89.3,B,measured,NERC,,0.7105385487306504
-50122,35.6,-89.3,B,calculated,SWMF,,0.7105385487306504
-50122,35.6,-89.3,B,calculated,MAGE,,0.7105385487306504
-Ackerman,33.3749,-89.2104,B,measured,TVA,,0.35089899218663945
-Allen,35.0675,-90.1602,B,measured,TVA,"x In TVAmagmetadata.dat, but no file",0.6194250535069582
-Anderson,0.0,0.0,GIC,measured,TVA,"GIC file exists, but no lat/long in GIC_monitors.txt",
-Bradley,35.0425,-84.9587,GIC,measured,TVA,,1.0815509992037882
-Bull Run,36.0193,-84.1575,GIC,calculated,TVA,,0.5554131998087664
-Bull Run,36.0193,-84.1575,GIC,measured,TVA,,0.5554131998087664
-Bull Run,36.0252,-84.1468,B,measured,TVA,,0.5547525505882388
-Bull Run,36.0193,-84.1575,B,calculated,SWMF,,0.5554131998087664
-Bull Run,36.0193,-84.1575,B,calculated,MAGE,,0.5554131998087664
-Colbert,34.7385,-87.8374,B,measured,TVA,"x In TVAmagmetadata.dat, but no file",0.8555080971287431
-East Point,34.1946,-86.7474,GIC,measured,TVA,,1.1659938399411667
-Gallatin,36.3189,-86.4106,B,measured,TVA,"x In TVAmagmetadata.dat, but no file",0.73188952101273
-Gleason,36.246,-88.612,GIC,measured,TVA,,0.9440160013915433
-John Sevier,36.3806,-82.9581,B,measured,TVA,"x In TVAmagmetadata.dat, but no file",0.7718010720160107
-Johnsonville,36.029,-87.985,GIC,measured,TVA,,1.039608708631705
-Lagoon Creek,35.6475,-89.3907,B,measured,TVA,,0.7051250220372007
-Madison,34.7964,-86.5207,GIC,measured,TVA,"x In GIC_monitors.txt, but no file",0.6029211695736985
-Montgomery,36.5949,-87.2533,GIC,measured,TVA,,1.0349744841285202
-Montgomery,36.5949,-87.2533,GIC,calculated,TVA,,1.0349744841285202
-Montgomery,36.5949,-87.2533,B,calculated,SWMF,,1.0349744841285202
-Montgomery,36.5949,-87.2533,B,calculated,MAGE,,1.0349744841285202
-Paradise 2,37.2587,-86.9781,GIC,measured,TVA,low vlaues,0.6772767922631994
-Paradise 3,37.2587,-86.9781,GIC,measured,TVA,,0.6772767922631994
-Paradise,37.2561,-86.9986,B,measured,TVA,,0.6847104353831177
-Pinhook,36.0465,-86.6059,GIC,measured,TVA,,0.7895845317566931
-Raccoon Mountain,35.0571,-85.3872,GIC,measured,TVA,,0.9440325305561166
-Raccoon Mountain,35.0571,-85.3872,B,measured,TVA,,0.9440325305561166
-Rutherford,35.8275,-86.5986,GIC,measured,TVA,,0.7616738866511537
-Shawnee,37.1457,-88.7705,B,measured,TVA,"x In TVAmagmetadata.dat, but no file",1.0868298132950276
-Shelby,35.3859,-89.8042,GIC,measured,TVA,,0.6428864352302863
-Southaven,34.9939,-90.0497,GIC,measured,TVA,,0.6304573135603162
-Sullivan,36.4419,-82.2791,GIC,measured,TVA,,1.3050919687734381
-Union,34.378,-88.8578,GIC,measured,TVA,,0.6530342400019656
-Union,34.378,-88.8578,GIC,calculated,TVA,,0.6530342400019656
-Union,34.375,-88.8567,B,measured,TVA,,0.65263229354328
-Union,34.378,-88.8578,B,calculated,SWMF,,0.6530342400019656
-Union,34.378,-88.8578,B,calculated,MAGE,,0.6530342400019656
-Watts Bar,35.6091,-84.7831,B,measured,TVA,,0.8951166757313451
-Weakley,36.2752,-88.8347,GIC,measured,TVA,missing periods of data,0.9126381392221878
-Widows Creek,34.8859,-85.7554,GIC,measured,TVA,,0.7869561046938021
-Widows Creek,34.8859,-85.7554,GIC,calculated,TVA,,0.7869561046938021
-Widows Creek,34.8859,-85.7554,B,calculated,SWMF,,0.7869561046938021
-Widows Creek,34.8859,-85.7554,B,calculated,MAGE,,0.7869561046938021
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
+10052,44.9,-97,GIC,measured,NERC,
+10064,41.8,-88.2,GIC,measured,NERC,"stays at zero"
+10065,41.8,-87.8,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10066,41.6,-87.9,GIC,measured,NERC,"not centered on zero, noisy"
+10067,42.1,-87.9,GIC,measured,NERC,"all negative, not smooth"
+10068,42,-88.2,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10069,41.9,-87.7,GIC,measured,NERC,"very noisy"
+10071,42.2,-88.9,GIC,measured,NERC,"very noisy"
+10072,42.2,-88.9,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10073,41.6,-87.7,GIC,measured,NERC,"very noisy"
+10074,41.2,-87.9,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10075,41.7,-87.5,GIC,measured,NERC,"1-min cadence"
+10076,41.8,-88,GIC,measured,NERC,
+10094,41.9,-72.5,GIC,measured,NERC,"not smooth"
+10095,41.7,-72.2,GIC,measured,NERC,"stays at zero"
+10096,41.8,-72.6,GIC,measured,NERC,"stays at zero"
+10097,41.4,-72.1,GIC,measured,NERC,"1-min cadence, missing periods of data"
+10098,41.4,-72.1,GIC,measured,NERC,"1-min cadence, missing periods of data"
+10099,41.4,-73.4,GIC,measured,NERC,
+10100,41.6,-72.9,GIC,measured,NERC,"stays at zero"
+10103,38.6,-121.3,GIC,measured,NERC,"very noisy"
+10222,40.2,-75.3,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10223,32.9,-115.7,GIC,measured,NERC,"really low values, missing periods of data"
+10224,40.2,-75.3,GIC,measured,NERC,"periods of missing data, otherwise fine"
+10229,43.6,-92.7,GIC,measured,NERC,"all positive, not smooth"
+10232,45,-92.8,GIC,measured,NERC,"a few large spikes"
+10233,47.6,-122.3,GIC,measured,NERC,"no data available"
+10237,33.7,-84.9,GIC,measured,NERC,"noisy"
+10238,31.5,-83.5,GIC,measured,NERC,
+10239,31.3,-81.7,GIC,measured,NERC,"too smooth"
+10253,47.5,-116.2,GIC,measured,NERC,"a little noisy"
+10254,42.8,-82.5,GIC,measured,NERC,"too high, noisy"
+10255,45.7,-94.7,GIC,measured,NERC,
+10265,43.6,-116.3,GIC,measured,NERC,"not centered on zero"
+10266,42.8,-114.4,GIC,measured,NERC,"some peaks"
+10297,46.8,-92.3,GIC,measured,NERC,"some peaks"
+10298,43.4,-88,GIC,measured,NERC,"too low, noisy"
+10299,46.6,-87.4,GIC,measured,NERC,"data cut off at zero"
+10300,46.6,-87.4,GIC,measured,NERC,"data cut off at zero"
+10301,44,-88.6,GIC,measured,NERC,"some peaks"
+10302,44.2,-88.1,GIC,measured,NERC,"stays constant"
+10303,44.8,-89.7,GIC,measured,NERC,"too low, noisy"
+10304,44.8,-89.7,GIC,measured,NERC,"too low, noisy"
+10306,44.8,-88.2,GIC,measured,NERC,"data cut off at zero"
+10307,44.4,-88.4,GIC,measured,NERC,"not centered, noisy"
+10308,42.5,-89.1,GIC,measured,NERC,"some peaks"
+10309,45.8,-88,GIC,measured,NERC,"data cut off at zero"
+10310,43,-89,GIC,measured,NERC,"not centered on zero"
+10311,43,-89,GIC,measured,NERC,"noisy"
+10312,43,-89,GIC,measured,NERC,"noisy"
+10313,44.5,-89.6,GIC,measured,NERC,"noisy"
+10314,44.5,-89.6,GIC,measured,NERC,"stays constant"
+10315,44.5,-89.6,GIC,measured,NERC,"noisy"
+10316,43.7,-88.5,GIC,measured,NERC,"noisy"
+10317,43.7,-88.5,GIC,measured,NERC,"noisy"
+10318,44.4,-88.7,GIC,measured,NERC,"some peaks"
+10321,43.1,-88,GIC,measured,NERC,"some peaks"
+10322,43.3,-89.4,GIC,measured,NERC,"noisy"
+10336,44.8,-91.5,GIC,measured,NERC,"1-min cadence"
+10338,44.8,-91.5,GIC,measured,NERC,"high cadence"
+10339,43.7,-95.7,GIC,measured,NERC,"noisy"
+10340,43.7,-95.7,GIC,measured,NERC,"noisy"
+10341,45,-93.5,GIC,measured,NERC,"high cadence"
+10342,45,-93.5,GIC,measured,NERC,"high cadence, missing periods of data"
+10343,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data"
+10344,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data"
+10345,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data"
+10347,47.9,-97.1,GIC,measured,NERC,"high cadence, missing periods of data"
+10348,45.5,-94.3,GIC,measured,NERC,"high cadence"
+10349,44.8,-93.6,GIC,measured,NERC,"high cadence, missing periods of data"
+10350,44.8,-93.6,GIC,measured,NERC,"high cadence, missing periods of data"
+10351,44.8,-93.6,GIC,measured,NERC,"noisy, missing periods of data"
+10352,44.8,-93.6,GIC,measured,NERC,"noisy, missing periods of data"
+10353,45.4,-93.9,GIC,measured,NERC,"high cadence"
+10354,45.9,-91.5,GIC,measured,NERC,"high cadence, missing periods of data"
+10355,44.2,-94,GIC,measured,NERC,"high cadence, noisy"
+10356,44.2,-94,GIC,measured,NERC,"high cadence, noisy"
+10357,47.7,-117.5,GIC,measured,NERC,"very noisy"
+10358,38.7,-121.2,GIC,measured,NERC,"not smooth, missing periods of data"
+10389,38.3,-87.4,GIC,measured,NERC,"not smooth, missing periods of data"
+10397,39.1,-78.3,GIC,measured,NERC,"some peaks"
+10398,41.1,-74.2,GIC,measured,NERC,"noisy"
+10586,34,-118.5,GIC,measured,NERC,"no data availible"
+10587,46.4,-117,GIC,measured,NERC,
+10591,35.8,-106.1,GIC,measured,NERC,"no data availible"
+10592,43.2,-84.5,GIC,measured,NERC,"missing periods of data"
+10603,42.6,-83,GIC,measured,NERC,"missing periods of data"
+10605,45.3,-122.6,GIC,measured,NERC,"not smooth, all positive"
+10606,41.3,-72.9,GIC,measured,NERC,"high cadence"
+10607,41.3,-72.9,GIC,measured,NERC,"high cadence"
+10608,41.2,-73.2,GIC,measured,NERC,"no data available"
+10609,41.2,-73.2,GIC,measured,NERC,"no data available"
+10611,39.6,-92.6,GIC,measured,NERC,"noisy"
+10612,30.5,-87.2,GIC,measured,NERC,"stays at zero"
+10613,29.6,-81.6,GIC,measured,NERC,"stays at zero"
+10614,29.6,-81.6,GIC,measured,NERC,"stays at zero"
+10615,29.6,-81.6,GIC,measured,NERC,"not smooth"
+10616,29.6,-81.6,GIC,measured,NERC,"stays at zero"
+10617,28.8,-81.3,GIC,measured,NERC,"not smooth"
+10618,38.3,-86.2,GIC,measured,NERC,
+10619,38.3,-86.2,GIC,measured,NERC,
+10620,39.1,-87.5,GIC,measured,NERC,"missing periods of data"
+10621,39.1,-87.5,GIC,measured,NERC,"missing periods of data"
+10622,39.3,-86.5,GIC,measured,NERC,
+10623,39.3,-86.5,GIC,measured,NERC,"missing periods of data"
+10642,42.2,-86.3,GIC,measured,NERC,"high cadence"
+10643,40.5,-85.9,GIC,measured,NERC,"high cadence"
+10644,37.7,-81.7,GIC,measured,NERC,"not centered at zero"
+10664,36.3,-115.3,GIC,measured,NERC,"not smooth"
+10665,31,-86,GIC,measured,NERC,"too low"
+10701,41.8,-83.3,GIC,measured,NERC,"not smooth"
+10707,38.3,-82.7,GIC,measured,NERC,"high cadence"
+10708,38.3,-82.7,GIC,measured,NERC,"high cadence"
+10051,44.4,-96.5,GIC,measured,NERC,"lots of peaks"
+10063,33.4,-112.5,GIC,measured,NERC,
+10077,42.3,-87.9,GIC,measured,NERC,
+10078,42.1,-87.8,GIC,measured,NERC,"missing periods of data"
+10079,41.5,-87.6,GIC,measured,NERC,
+10080,42,-87.9,GIC,measured,NERC,"noisy"
+10082,41.6,-87.7,GIC,measured,NERC,"empty plot"
+10083,40.8,-88.6,GIC,measured,NERC,"missing periods of data"
+10084,41.2,-87.9,GIC,measured,NERC,"empty plot"
+10085,41.2,-87.9,GIC,measured,NERC,"empty plot"
+10102,42.9,-71.3,GIC,measured,NERC,"no data available"
+10107,34.5,-118.1,GIC,measured,NERC,
+10111,43.4,-123,GIC,measured,NERC,"very noisy"
+10112,47.7,-117.4,GIC,measured,NERC,
+10113,45.6,-121.1,GIC,measured,NERC,
+10114,46.5,-116.9,GIC,measured,NERC,
+10115,47.6,-114.6,GIC,measured,NERC,
+10116,47.9,-121.9,GIC,measured,NERC,"one really large peak"
+10117,45.3,-122.8,GIC,measured,NERC,"not centered on zero, values too low"
+10118,45.7,-122.6,GIC,measured,NERC,"missing periods of data"
+10119,47.5,-120.3,GIC,measured,NERC,"noisy"
+10120,47.8,-122.2,GIC,measured,NERC,"not smooth, values too low"
+10121,46.9,-119.9,GIC,measured,NERC,"noisy"
+10230,43.6,-92.7,GIC,measured,NERC,"not smooth"
+10231,45,-92.8,GIC,measured,NERC,"high cadence"
+10234,30.8,-88.1,GIC,measured,NERC,"not smooth, values too low"
+10235,33.3,-87.4,GIC,measured,NERC,"no values below zero"
+10236,33.7,-86.6,GIC,measured,NERC,"high cadence"
+10240,40.8,-73.6,GIC,measured,NERC,"not centered on zero"
+10257,47.4,-101.2,GIC,measured,NERC,"not centered on zero"
+10258,47.4,-101.2,GIC,measured,NERC,"mostly low values"
+10259,47.4,-101.2,GIC,measured,NERC,"not centered on zero, values too low"
+10260,47.4,-101.2,GIC,measured,NERC,"not centered on zero"
+10261,45.1,-93.8,GIC,measured,NERC,"not centered on zero"
+10262,45.1,-93.8,GIC,measured,NERC,"a few peaks"
+10263,45.1,-93.8,GIC,measured,NERC,"not centered on zero"
+10264,45.1,-93.8,GIC,measured,NERC,"not centered on zero"
+10291,43.4,-72.7,GIC,measured,NERC,"not smooth"
+10292,44.1,-72.5,GIC,measured,NERC,"no values below zero, only peaks"
+10293,43,-72.7,GIC,measured,NERC,"not smooth, missing periods of data"
+10294,44.1,-73.2,GIC,measured,NERC,"missing periods of data"
+10295,42.8,-72.5,GIC,measured,NERC,"not centered on zero, cutoff around zero"
+10296,43.6,-73.1,GIC,measured,NERC,"missing periods of data"
+10333,44.4,-96.5,GIC,measured,NERC,"noisy, not centered on zero"
+10334,44.4,-96.5,GIC,measured,NERC,"not smooth"
+10335,45.1,-93.5,GIC,measured,NERC,"empty plot"
+10346,47.9,-97.1,GIC,measured,NERC,"missing periods of data"
+10359,33.7,-111.9,GIC,measured,NERC,"low values"
+10360,40.2,-75.3,GIC,measured,NERC,"not smooth"
+10361,40.2,-75.3,GIC,measured,NERC,"missing periods of data"
+10362,39.8,-76.3,GIC,measured,NERC,"missing periods of data"
+10363,40.2,-75.6,GIC,measured,NERC,"not smooth"
+10364,40.2,-75.6,GIC,measured,NERC,"not smooth"
+10399,39.1,-78.3,GIC,measured,NERC,"high cadence"
+10400,39.1,-78.3,GIC,measured,NERC,"high cadence"
+10401,39.1,-78.3,GIC,measured,NERC,"high cadence"
+10402,39.5,-78.9,GIC,measured,NERC,
+10403,39.5,-78.9,GIC,measured,NERC,"noisy"
+10404,39.5,-77.9,GIC,measured,NERC,"high cadence"
+10405,39.5,-77.9,GIC,measured,NERC,"high cadence"
+10406,39.5,-77.9,GIC,measured,NERC,"high cadence"
+10407,39.5,-77.9,GIC,measured,NERC,"high cadence"
+10409,39.3,-77.5,GIC,measured,NERC,"high cadence"
+10410,39.3,-77.5,GIC,measured,NERC,"empty plot"
+10411,39.3,-77.5,GIC,measured,NERC,"high cadence"
+10412,39.3,-77.5,GIC,measured,NERC,"high cadence"
+10413,39.3,-77.5,GIC,measured,NERC,"empty plot"
+10414,39.4,-77.4,GIC,measured,NERC,"low values, not smooth"
+10415,44.1,-103.2,GIC,measured,NERC,"not smooth, missing periods of data"
+10416,44.1,-103.2,GIC,measured,NERC,"not smooth, missing periods of data"
+10418,39.4,-115.2,GIC,measured,NERC,"high cadence"
+10420,39.5,-75.5,GIC,measured,NERC,"no values below zero"
+10421,39.5,-75.5,GIC,measured,NERC,"no values below zero"
+10425,36.8,-78.7,GIC,measured,NERC,"no values below zero, noisy"
+10426,38.1,-78.8,GIC,measured,NERC,"high cadence"
+10427,39,-77.5,GIC,measured,NERC,"high cadence, a bit noisy"
+10428,36.7,-76.5,GIC,measured,NERC,
+10429,36.7,-76.3,GIC,measured,NERC,"no values below zero"
+10438,43.2,-75.2,GIC,measured,NERC,
+10441,34.2,-81.6,GIC,measured,NERC,"not centered at zero"
+10442,33.8,-78.9,GIC,measured,NERC,"not centered at zero"
+10445,41.1,-74.2,GIC,measured,NERC,"no data available"
+10446,37,-121,GIC,measured,NERC,"not smooth"
+10447,37,-121,GIC,measured,NERC,"not smooth"
+10448,37,-120,GIC,measured,NERC,"not smooth"
+10449,37,-120,GIC,measured,NERC,"not smooth"
+10584,40,-104,GIC,measured,NERC,"not centered at zero"
+10585,33.1,-80.1,GIC,measured,NERC,"not smooth, not centered at zero"
+10588,36.9,-81.7,GIC,measured,NERC,"high cadence"
+10589,36.9,-81.7,GIC,measured,NERC,"high cadence"
+10593,37,-84.5,GIC,measured,NERC,"not centered at zero, missing periods of data"
+10628,48,-66.4,GIC,measured,NERC,"no values below zero"
+10635,43.7,-87.7,GIC,measured,NERC,"one weird peak"
+10636,43.7,-87.7,GIC,measured,NERC,"one weird peak"
+10637,40.1,-104.8,GIC,measured,NERC,"not smooth, values too low"
+10648,32.8,-115.5,GIC,measured,NERC,"no data available"
+10649,42.8,-74,GIC,measured,NERC,"noisy, not centered on zero"
+10658,43.1,-78.7,GIC,measured,NERC,"values too high"
+10659,42.5,-87.9,GIC,measured,NERC,
+10674,41.7,-72.6,GIC,measured,NERC,"no data available"
+10675,47.9,-65.9,GIC,measured,NERC,"noisy"
+10676,46.1,-66.8,GIC,measured,NERC,"a few peaks"
+10677,45.2,-66.2,GIC,measured,NERC,"noisy"
+10678,31.5,-87.9,GIC,measured,NERC,"values all below zero, not centered"
+10694,32,-106.2,GIC,measured,NERC,"values too low, not centered on zero, not smooth"
+10702,41.7,-85.9,GIC,measured,NERC,"not centered at zero"
+10646,41,-81.6,GIC,measured,NERC,"noisy"
+10647,40.2,-74.5,GIC,measured,NERC,"high cadence"
+10660,36.2,-88.6,GIC,measured,NERC,
+10661,36,-87.9,GIC,measured,NERC,"noisy"
+10691,37.2,-86.9,GIC,measured,NERC,"not smooth, very noisy"
+10692,37.2,-86.9,GIC,measured,NERC,"missing some periods of data"
+10693,36,-84.1,GIC,measured,NERC,
+10696,40.4,-85.9,GIC,measured,NERC,"not centered at zero"
+10697,36.8,-80.8,GIC,measured,NERC,"high cadence"
+10698,26.1,-98.1,GIC,measured,NERC,"not smooth, not centered at zero"
+10699,37.6,-81.6,GIC,measured,NERC,"not centered at zero"
+10700,37.6,-81.6,GIC,measured,NERC,"not smooth"
+10086,27.7,-82,GIC,measured,NERC,"no data available"
+10087,27.9,-82.4,GIC,measured,NERC,"no data available"
+10088,27.9,-82.4,GIC,measured,NERC,"no data available"
+10089,27.8,-82.4,GIC,measured,NERC,"no data available"
+10090,27.8,-82.1,GIC,measured,NERC,"no data available"
+10091,27.7,-82.3,GIC,measured,NERC,"no data available"
+10180,41.7,-73.8,GIC,measured,NERC,"not smooth"
+10181,41.9,-74,GIC,measured,NERC,
+10182,26.6,-98.5,GIC,measured,NERC,
+10184,39,-78.2,GIC,measured,NERC,
+10185,39.3,-81.3,GIC,measured,NERC,
+10186,42,-80,GIC,measured,NERC,
+10187,41,-81.6,GIC,measured,NERC,
+10191,41.3,-90.5,GIC,measured,NERC,"noisy"
+10193,41.6,-71.4,GIC,measured,NERC,"low cadence"
+10194,42.6,-73.9,GIC,measured,NERC,"low cadence"
+10195,39.7,-74.9,GIC,measured,NERC,
+10196,33.3,-111.9,GIC,measured,NERC,"noisy, low values"
+10197,36.4,-82.2,GIC,measured,NERC,
+10199,35,-84.9,GIC,measured,NERC,"noisy"
+10200,34.1,-86.7,GIC,measured,NERC,
+10201,36.5,-87.2,GIC,measured,NERC,
+10202,34.9,-90,GIC,measured,NERC,"noisy"
+10203,35,-85.3,GIC,measured,NERC,
+10204,35.3,-89.8,GIC,measured,NERC,
+10205,36.2,-88.8,GIC,measured,NERC,"noisy, missing periods of data"
+10207,36,-84.1,GIC,measured,NERC,
+10208,35.8,-86.5,GIC,measured,NERC,
+10209,34.8,-85.7,GIC,measured,NERC,"one big peak, otherwise fine"
+10211,34.3,-88.8,GIC,measured,NERC,"low cadence"
+10212,36,-86.6,GIC,measured,NERC,
+10219,36.1,-81,GIC,measured,NERC,"noisy, low values"
+10220,39.4,-87.4,GIC,measured,NERC,
+10248,32.8,-80.6,GIC,measured,NERC,"not smooth, low values"
+10249,33.3,-81,GIC,measured,NERC,
+10250,34.1,-80.9,GIC,measured,NERC,
+10251,35.9,-82.3,GIC,measured,NERC,"noisy, low values"
+10252,36.4,-79,GIC,measured,NERC,"not smooth, low values"
+10287,41.9,-91.7,GIC,measured,NERC,"missing periods of data"
+10290,39.5,-97.5,GIC,measured,NERC,"low cadence"
+10325,29.8,-95.2,GIC,measured,NERC,"noisy, low values"
+10367,42.4,-71.8,GIC,measured,NERC,"not centered on zero"
+10368,42.4,-71.8,GIC,measured,NERC,"not centered on zero"
+10369,42.4,-71.8,GIC,measured,NERC,"not centered on zero"
+10372,42.4,-71.8,GIC,measured,NERC,"not centered on zero"
+10373,42.6,-73.9,GIC,measured,NERC,"not centered on zero"
+10374,42.6,-71.5,GIC,measured,NERC,"no data available"
+10376,40.9,-73.9,GIC,measured,NERC,"very noisy"
+10377,40.7,-74,GIC,measured,NERC,"very noisy"
+10378,40.7,-74,GIC,measured,NERC,"not centered on zero"
+10379,40.7,-74,GIC,measured,NERC,"not centered on zero"
+10380,41.1,-73.8,GIC,measured,NERC,"very noisy"
+10381,40.7,-74,GIC,measured,NERC,"not centered on zero"
+10382,40.6,-74.2,GIC,measured,NERC,"not centered on zero"
+10383,40.6,-74.2,GIC,measured,NERC,"low cadence"
+10385,41.2,-73.8,GIC,measured,NERC,"very noisy"
+10386,40.8,-73.9,GIC,measured,NERC,"very noisy"
+10387,41,-73.9,GIC,measured,NERC,"very noisy"
+10388,41,-73.9,GIC,measured,NERC,"very noisy"
+10430,39.6,-75.6,GIC,measured,NERC,"low cadence, missing periods of data"
+10431,39.6,-75.7,GIC,measured,NERC,"not centered on zero, missing periods of data"
+10432,38.5,-76.6,GIC,measured,NERC,"low cadence"
+10433,38.5,-76.6,GIC,measured,NERC,"not centered on zero"
+10434,39.5,-75.1,GIC,measured,NERC,"low cadence"
+10435,39.4,-74.6,GIC,measured,NERC,"not centered on zero"
+10436,39.4,-74.6,GIC,measured,NERC,"not smooth, low values"
+10450,41,-85,GIC,measured,NERC,"low values"
+10453,38.5,-81.8,GIC,measured,NERC,"not centered on zero"
+10454,36.6,-79.7,GIC,measured,NERC,"not centered on zero"
+10455,40.1,-82.7,GIC,measured,NERC,"not centered on zero"
+10456,38.2,-82.6,GIC,measured,NERC,"not centered on zero"
+10458,42.2,-86.3,GIC,measured,NERC,"not centered on zero"
+10460,28.9,-96.2,GIC,measured,NERC,"low values"
+10461,32.2,-100,GIC,measured,NERC,"not centered on zero"
+10462,32.2,-100,GIC,measured,NERC,"not centered on zero"
+10463,35.4,-99.7,GIC,measured,NERC,"not centered on zero"
+10464,35.4,-99.7,GIC,measured,NERC,"low values"
+10467,37.4,-79.9,GIC,measured,NERC,"low cadence"
+10468,37.4,-79.9,GIC,measured,NERC,"not centered on zero"
+10469,37.4,-79.9,GIC,measured,NERC,"not centered on zero"
+10470,37.4,-79.9,GIC,measured,NERC,"low values"
+10471,37.4,-79.9,GIC,measured,NERC,"noisy, not centered on zero"
+10473,28.7,-97.2,GIC,measured,NERC,"not centered on zero"
+10474,28.7,-97.2,GIC,measured,NERC,"low values"
+10475,40.2,-81.9,GIC,measured,NERC,"one big spike"
+10476,40.1,-82.8,GIC,measured,NERC,"not centered on zero"
+10477,31.4,-95.4,GIC,measured,NERC,"not centered on zero"
+10478,42,-86.6,GIC,measured,NERC,"not centered on zero"
+10480,42,-86.6,GIC,measured,NERC,"not centered on zero"
+10481,40.2,-85.3,GIC,measured,NERC,"not centered on zero"
+10482,40.2,-85.3,GIC,measured,NERC,"low values"
+10483,39,-83,GIC,measured,NERC,"low cadence"
+10484,39,-83,GIC,measured,NERC,"not centered on zero"
+10485,39,-83,GIC,measured,NERC,"not centered on zero"
+10487,41.5,-86.4,GIC,measured,NERC,"not centered on zero"
+10489,36.6,-79.3,GIC,measured,NERC,"low cadence"
+10490,41.7,-85.9,GIC,measured,NERC,"not centered on zero"
+10492,40.8,-84,GIC,measured,NERC,"not centered on zero"
+10493,36.7,-79.9,GIC,measured,NERC,"not smooth, low values"
+10494,36.7,-79.9,GIC,measured,NERC,"not smooth, low values"
+10495,36.7,-79.9,GIC,measured,NERC,"not centered on zero"
+10496,36.3,-94.5,GIC,measured,NERC,"not centered on zero"
+10497,40.5,-84.1,GIC,measured,NERC,"not centered on zero"
+10498,40.2,-83.1,GIC,measured,NERC,"not centered on zero"
+10499,40.2,-83.1,GIC,measured,NERC,"not centered on zero"
+10500,41.6,-86.3,GIC,measured,NERC,"not centered on zero"
+10502,36.9,-80.8,GIC,measured,NERC,"not centered on zero"
+10503,36.9,-80.8,GIC,measured,NERC,"not smooth, low values"
+10504,36.9,-80.8,GIC,measured,NERC,"low cadence"
+10506,38.7,-85.4,GIC,measured,NERC,"low cadence"
+10507,40.1,-82.7,GIC,measured,NERC,"not smooth, low values"
+10509,39.8,-80.8,GIC,measured,NERC,"not centered on zero"
+10511,41.9,-86.2,GIC,measured,NERC,"low values"
+10512,40,-82.6,GIC,measured,NERC,"not centered on zero"
+10513,26.1,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10515,26.1,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10516,39.6,-81.2,GIC,measured,NERC,"not centered on zero"
+10517,32,-93.2,GIC,measured,NERC,"not centered on zero"
+10518,27.6,-99.3,GIC,measured,NERC,"not smooth, not centered on zero"
+10519,27.8,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10520,27.8,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10521,31.3,-103.1,GIC,measured,NERC,"not smooth, not centered on zero"
+10524,40.2,-83,GIC,measured,NERC,"not centered on zero"
+10525,40.2,-83,GIC,measured,NERC,"not centered on zero"
+10527,40.3,-83.4,GIC,measured,NERC,"not centered on zero"
+10528,37.2,-80.2,GIC,measured,NERC,"not centered on zero"
+10529,37.2,-80.2,GIC,measured,NERC,"not centered on zero"
+10530,39,-81.9,GIC,measured,NERC,"too low"
+10531,32.5,-99.8,GIC,measured,NERC,"not centered on zero"
+10532,32.5,-99.8,GIC,measured,NERC,"not centered on zero"
+10534,36.6,-82.7,GIC,measured,NERC,"not centered on zero"
+10537,27.6,-97.7,GIC,measured,NERC,"not centered on zero"
+10538,26.3,-98.2,GIC,measured,NERC,"not centered on zero"
+10539,26.3,-98.2,GIC,measured,NERC,"not centered on zero"
+10541,41.7,-86.5,GIC,measured,NERC,"not centered on zero"
+10542,36,-95.7,GIC,measured,NERC,"not centered on zero"
+10545,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero"
+10546,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero"
+10547,37.4,-79.1,GIC,measured,NERC,"low values, not centered on zero"
+10548,26.2,-98.2,GIC,measured,NERC,"not centered on zero"
+10549,26.2,-98.2,GIC,measured,NERC,"not centered on zero"
+10550,26.3,-97.6,GIC,measured,NERC,"not centered on zero"
+10551,26.3,-97.6,GIC,measured,NERC,"not smooth, not centered on zero"
+10552,40,-83.1,GIC,measured,NERC,"not centered on zero"
+10554,37.9,-87,GIC,measured,NERC,"not smooth"
+10557,31.5,-100.3,GIC,measured,NERC,"not centered on zero"
+10558,30.9,-103.4,GIC,measured,NERC,"not centered on zero"
+10559,30.9,-103.4,GIC,measured,NERC,"not centered on zero"
+10560,41,-85.3,GIC,measured,NERC,"low cadence"
+10561,41,-83.3,GIC,measured,NERC,"not centered on zero"
+10563,40.7,-81.4,GIC,measured,NERC,"not smooth, low values"
+10564,40.7,-84.2,GIC,measured,NERC,"low cadence"
+10565,26.1,-98.2,GIC,measured,NERC,"not smooth, low values"
+10567,39.2,-87.5,GIC,measured,NERC,"not centered on zero"
+10568,39.2,-87.5,GIC,measured,NERC,"not centered on zero"
+10569,39.2,-87.5,GIC,measured,NERC,"low cadence"
+10570,40.2,-80.7,GIC,measured,NERC,"1-min cadence"
+10572,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero"
+10573,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero"
+10574,38.4,-82.5,GIC,measured,NERC,"not smooth, not centered on zero"
+10575,41.7,-86.1,GIC,measured,NERC,"not smooth, low values"
+10576,41.7,-86.1,GIC,measured,NERC,"not centered on zero"
+10577,41.4,-84.9,GIC,measured,NERC,"low cadence, not centered on zero"
+10578,40.2,-82.8,GIC,measured,NERC,"not centered on zero"
+10581,32.8,-94.5,GIC,measured,NERC,"not centered on zero"
+50100,30.4,-89.6,B,measured,NERC,
+50100,30.4,-89.6,B,calculated,SWMF,
+50100,30.4,-89.6,B,calculated,MAGE,
+50127,37.1,-119.7,B,measured,NERC,
+50127,37.1,-119.7,B,calculated,SWMF,
+50127,37.1,-119.7,B,calculated,MAGE,
+50112,48.3,-117.1,B,measured,NERC,
+50112,48.3,-117.1,B,calculated,SWMF,
+50112,48.3,-117.1,B,calculated,MAGE,
+50131,37.8,-84.7,B,measured,NERC,
+50131,37.8,-84.7,B,calculated,SWMF,
+50131,37.8,-84.7,B,calculated,MAGE,
+50132,38,-84.8,B,measured,NERC,
+50132,38,-84.8,B,calculated,SWMF,
+50132,38,-84.8,B,calculated,MAGE,
+50103,33.3,-89.2,B,measured,NERC,
+50103,33.3,-89.2,B,calculated,SWMF,
+50103,33.3,-89.2,B,calculated,MAGE,
+50104,36,-84.1,B,measured,NERC,
+50104,36,-84.1,B,calculated,SWMF,
+50104,36,-84.1,B,calculated,MAGE,
+50109,35.6,-84.7,B,measured,NERC,
+50109,35.6,-84.7,B,calculated,SWMF,
+50109,35.6,-84.7,B,calculated,MAGE,
+50115,41.3,-90.5,B,measured,NERC,
+50115,41.3,-90.5,B,calculated,SWMF,
+50115,41.3,-90.5,B,calculated,MAGE,
+50116,37.2,-86.9,B,measured,NERC,
+50116,37.2,-86.9,B,calculated,SWMF,
+50116,37.2,-86.9,B,calculated,MAGE,
+50117,36.1,-81,B,measured,NERC,
+50117,36.1,-81,B,calculated,SWMF,
+50117,36.1,-81,B,calculated,MAGE,
+50118,39.4,-87.4,B,measured,NERC,
+50118,39.4,-87.4,B,calculated,SWMF,
+50118,39.4,-87.4,B,calculated,MAGE,
+50119,35,-85.3,B,measured,NERC,
+50119,35,-85.3,B,calculated,SWMF,
+50119,35,-85.3,B,calculated,MAGE,
+50120,34.3,-88.8,B,measured,NERC,
+50120,34.3,-88.8,B,calculated,SWMF,
+50120,34.3,-88.8,B,calculated,MAGE,
+50122,35.6,-89.3,B,measured,NERC,
+50122,35.6,-89.3,B,calculated,SWMF,
+50122,35.6,-89.3,B,calculated,MAGE,
+Ackerman,33.3749,-89.2104,B,measured,TVA,
+Allen,35.0675,-90.1602,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
+Anderson,0,0,GIC,measured,TVA,"GIC file exists, but no lat/long in GIC_monitors.txt"
+Bradley,35.0425,-84.9587,GIC,measured,TVA,
+Bull Run,36.0193,-84.1575,GIC,calculated,TVA,
+Bull Run,36.0193,-84.1575,GIC,measured,TVA,
+Bull Run,36.0252,-84.1468,B,measured,TVA,
+Bull Run,36.0193,-84.1575,B,calculated,SWMF,
+Bull Run,36.0193,-84.1575,B,calculated,MAGE,
+Colbert,34.7385,-87.8374,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
+East Point,34.1946,-86.7474,GIC,measured,TVA,
+Gallatin,36.3189,-86.4106,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
+Gleason,36.246,-88.612,GIC,measured,TVA,
+John Sevier,36.3806,-82.9581,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
+Johnsonville,36.029,-87.985,GIC,measured,TVA,
+Lagoon Creek,35.6475,-89.3907,B,measured,TVA,
+Madison,34.7964,-86.5207,GIC,measured,TVA,"x In GIC_monitors.txt, but no file"
+Montgomery,36.5949,-87.2533,GIC,measured,TVA,
+Montgomery,36.5949,-87.2533,GIC,calculated,TVA,
+Montgomery,36.5949,-87.2533,B,calculated,SWMF,
+Montgomery,36.5949,-87.2533,B,calculated,MAGE,
+Paradise 2,37.2587,-86.9781,GIC,measured,TVA,"low vlaues"
+Paradise 3,37.2587,-86.9781,GIC,measured,TVA,
+Paradise,  37.2561,-86.9986,B,measured,TVA,
+Pinhook,36.0465,-86.6059,GIC,measured,TVA,
+Raccoon Mountain,35.0571,-85.3872,GIC,measured,TVA,
+Raccoon Mountain,35.0571,-85.3872,B,measured,TVA,
+Rutherford,35.8275,-86.5986,GIC,measured,TVA,
+Shawnee,37.1457,-88.7705,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
+Shelby,35.3859,-89.8042,GIC,measured,TVA,
+Southaven,34.9939,-90.0497,GIC,measured,TVA,
+Sullivan,36.4419,-82.2791,GIC,measured,TVA,
+Union,34.378,-88.8578,GIC,measured,TVA,
+Union,34.378,-88.8578,GIC,calculated,TVA,
+Union,34.375,-88.8567,B,measured,TVA,
+Union,34.378,-88.8578,B,calculated,SWMF,
+Union,34.378,-88.8578,B,calculated,MAGE,
+Watts Bar,35.6091,-84.7831,B,measured,TVA,
+Weakley,36.2752,-88.8347,GIC,measured,TVA,"missing periods of data"
+Widows Creek,34.8859,-85.7554,GIC,measured,TVA,
+Widows Creek,34.8859,-85.7554,GIC,calculated,TVA,
+Widows Creek,34.8859,-85.7554,B,calculated,SWMF,
+Widows Creek,34.8859,-85.7554,B,calculated,MAGE,

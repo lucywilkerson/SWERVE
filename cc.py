@@ -46,6 +46,7 @@ def write_table(rows, out_dir):
   output_fname = os.path.join(out_dir, 'cc.md')
   print(f"Writing {output_fname}")
   with open(output_fname, 'w') as f:
+    f.write("See https://github.com/lucywilkerson/2024-AGU/blob/main/info/ for additional site information.\n\n")
     f.write(df.to_markdown(index=False))
 
 
