@@ -57,15 +57,39 @@ def filter_transmission_lines(gdf, extent):
     return gdf[mask]
 
 
-def load_devices(tv_loc, crs="EPSG:4326"):
+def load_devices(device_loc, crs="EPSG:4326", device="tva"):
     """
     Load device data from a CSV and convert to a GeoDataFrame.
     """
-    tva_df = pd.read_csv(tv_loc, names=["device", "latitude", "longitude"])
-    tva_gdf = gpd.GeoDataFrame(
-        tva_df, geometry=gpd.points_from_xy(tva_df.longitude, tva_df.latitude), crs=crs
+    if device == "tva":
+        device_df = pd.read_csv(device_loc, names=["device", "latitude", "longitude"])
+
+    elif device == "nerc":
+        device_df = pd.read_csv(device_loc)
+        device_df.rename(
+            columns={
+                "Device ID": "device",
+                " Latitude": "latitude",
+                " Longitude": "longitude",
+                " Orientation": "orientation",
+            },
+            inplace=True,
+        )
+        # Filter out only geographic coordinates
+        device_df = device_df[device_df["orientation"] == "1 - Geographic"].copy()
+
+        # Since in US, longitude is negative, we need to adjust
+        device_df["longitude"] = device_df["longitude"].apply(
+            lambda x: -x if x > 0 and x > 60 else x
+        )
+
+    gdf = gpd.GeoDataFrame(
+        device_df,
+        geometry=gpd.points_from_xy(device_df.longitude, device_df.latitude),
+        crs=crs,
     )
-    return tva_gdf
+
+    return gdf
 
 
 def build_connection_dicts(tl_gdf_subset):
@@ -118,7 +142,7 @@ def build_connection_dicts(tl_gdf_subset):
     )
 
 
-def process_data(data_dir: Path, buffer_distance: float = 1000):
+def process_data(data_dir: Path, buffer_distance: float = 1000, device="tva"):
     """
     Process transmission lines and device data.
 
@@ -140,6 +164,11 @@ def process_data(data_dir: Path, buffer_distance: float = 1000):
     )
     tv_loc = data_dir / "tva" / "mag" / "TVAmagmetadata.dat"
 
+    # Nerc
+    nerc_loc = nerc_mag_folder = data_dir / "nerc" / "mag" / "magnetometers.csv"
+
+    device_loc = tv_loc if device == "tva" else nerc_loc
+
     # Load transmission lines and filter by US extent
     trans_lines_gdf = load_transmission_lines(tl_loc, crs_target="EPSG:4326")
     us_extent = {"minx": -125.0, "maxx": -66.9, "miny": 24.4, "maxy": 49.4}
@@ -150,16 +179,16 @@ def process_data(data_dir: Path, buffer_distance: float = 1000):
     trans_lines_gdf["length"] = trans_lines_gdf.geometry.apply(lambda x: x.length)
 
     # Load devices
-    tva_gdf = load_devices(tv_loc, crs="EPSG:4326")
+    device_gdf = load_devices(device_loc, crs="EPSG:4326", device=device)
 
     # Reproject both GeoDataFrames to a projected CRS (NAD83)
     projected_crs = "EPSG:5070"
-    tva_gdf = tva_gdf.to_crs(projected_crs)
+    device_gdf = device_gdf.to_crs(projected_crs)
     trans_lines_gdf = trans_lines_gdf.to_crs(projected_crs)
 
     # Buffer devices and create a buffered GeoDataFrame
-    tva_gdf["buffered"] = tva_gdf.geometry.buffer(buffer_distance)
-    buffered_gdf = gpd.GeoDataFrame(tva_gdf, geometry="buffered")
+    device_gdf["buffered"] = device_gdf.geometry.buffer(buffer_distance)
+    buffered_gdf = gpd.GeoDataFrame(device_gdf, geometry="buffered")
 
     # Spatial join: Find transmission lines intersecting device buffers
     intersection_gdf = gpd.sjoin(
@@ -207,6 +236,7 @@ def process_data(data_dir: Path, buffer_distance: float = 1000):
 
     return tl_gdf_subset, device_gdf, connection_dicts
 
+
 # Haversine distance bwetween to locs
 def haversine_dist(lat1, lon1, lat2, lon2):
     R = 6371
@@ -240,6 +270,7 @@ def setup_map(ax, spatial_extent=[-125, -66.5, 24, 50]):
 
     return ax
 
+
 # Plot the data and the filtered transmission lines using LineCollection
 # Scatter the devices
 def plot(tl, device_gdf, device_to_lines, extent=[-125, -66.5, 24, 50]):
@@ -269,22 +300,34 @@ def plot(tl, device_gdf, device_to_lines, extent=[-125, -66.5, 24, 50]):
     ax = setup_map(ax, spatial_extent=[min_x, max_x, min_y, max_y])
 
     # Add transmission lines using LineCollection
-    line_collection = LineCollection(lines, colors="blue", linewidths=1, transform=ccrs.PlateCarree())
+    line_collection = LineCollection(
+        lines, colors="blue", linewidths=1, transform=ccrs.PlateCarree()
+    )
     ax.add_collection(line_collection)
 
     # Scatter device locations
-    ax.scatter(device_subset.geometry.x, device_subset.geometry.y, 
-            color="red", marker="o", s=10, transform=ccrs.PlateCarree(), zorder=3)
+    ax.scatter(
+        device_subset.geometry.x,
+        device_subset.geometry.y,
+        color="red",
+        marker="o",
+        s=10,
+        transform=ccrs.PlateCarree(),
+        zorder=3,
+    )
 
     ax.set_title("Transmission Lines and Device Locations")
     plt.show()
 
+
 # %%
 if __name__ == "__main__":
     data_dir = Path("2024-AGU-data")
-    buffer_distance = 1000  # specify the dist
+    buffer_distance = 500  # specify the dist in m
+    data = "tva"  # Specify whether tva or nerc
+
     tl_gdf_subset, device_gdf, connection_dicts = process_data(
-        data_dir, buffer_distance
+        data_dir, buffer_distance, device=data
     )
 
     (
@@ -303,7 +346,9 @@ if __name__ == "__main__":
     lat1, lon1 = device_1.y, device_1.x
     lat2, lon2 = device_2.y, device_2.x
     dist = haversine_dist(lat1, lon1, lat2, lon2)
-    print(f"Distance between devices: {device_gdf.iloc[0].device} and {device_gdf.iloc[10].device}: {dist} km")  
+    print(
+        f"Distance between devices: {device_gdf.iloc[0].device} and {device_gdf.iloc[10].device}: {dist} km"
+    )
 
     # Display the resulting dictionaries
     print("Device to Lines:")
