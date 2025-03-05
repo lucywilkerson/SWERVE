@@ -91,7 +91,7 @@ cbar.set_label(r'|$\Delta \log_{10} (\beta)$|')
 cbar.ax.xaxis.set_visible(False)  
 savefig(results_dir, 'cc_vs_dist_vs_beta_scatter')
 plt.close()
-exit()
+
 ####################################################################
 # Site scatter
 
