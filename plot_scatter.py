@@ -5,6 +5,8 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
+plt.rcParams['font.family'] = 'Times New Roman'
+
 data_dir = os.path.join('..', '2024-AGU-data')
 results_dir = os.path.join('..', '2024-AGU-data', '_results')
 
@@ -28,7 +30,7 @@ def savefig(fdir, fname, fmts=['png']):
 # Scatter plots for all sites
 
 plt.scatter(df['dist(km)'], np.abs(df['cc']))
-plt.xlabel('Distance (km)')
+plt.xlabel('Distance [km]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_dist_scatter')
@@ -36,7 +38,7 @@ plt.close()
 
 avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
 plt.scatter(avg_std, np.abs(df['cc']))
-plt.xlabel('Average standard deviation (A)')
+plt.xlabel('Average standard deviation [A]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_std_scatter')
@@ -47,6 +49,15 @@ plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_beta_scatter')
+plt.close()
+
+plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']))
+nan_volt_diff = df['volt_diff(kV)'].isna().sum()
+plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
+plt.xlabel(r'|$\Delta$V| [kV]')
+plt.ylabel('|cc|')
+plt.grid(True)
+savefig(results_dir, 'cc_vs_volt_scatter')
 plt.close()
 
 
@@ -80,7 +91,7 @@ cbar.set_label(r'|$\Delta \log_{10} (\beta)$|')
 cbar.ax.xaxis.set_visible(False)  
 savefig(results_dir, 'cc_vs_dist_vs_beta_scatter')
 plt.close()
-
+exit()
 ####################################################################
 # Site scatter
 
