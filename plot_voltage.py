@@ -124,7 +124,9 @@ plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 plt.close()
 
 ####################################################################################################
-
+# this was my code to find the nearest line, will be using Dennies' code (voltage_geography.py) instead
+####################################################################################################
+"""
 # Function to find the nearest line voltage for a given point
 def find_nearest_line(point, lines_gdf):
     # Calculate the distance from the point to each line
@@ -159,5 +161,5 @@ for i in range(len(info_gdf)):
     info_df.at[i, 'nearest_length_km'] = nearest_length
     info_df.at[i, 'nearest_orientation'] = nearest_orientation
 
-# TODO: save this to info.csv, then find differences in site pairs and plot scatter plots
+# TODO: save this to info.csv, then find differences in site pairs and plot scatter plots"""
 
