@@ -26,7 +26,7 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207', 'Bull Run'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'volt_diff(kV)','power_pool','region']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'volt_diff(kV)','power_pool_1','power_pool_2','region_1','region_2']
 print('\t'.join(columns))
 
 def write_table(rows, rows_md, out_dir):
@@ -149,8 +149,8 @@ for idx_1, row in info_df.iterrows():
     # finding power pool/region comparison
     pool, reg = power_pool_filt(pool_1, pool_2, reg_1, reg_2)
 
-    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}\t{dvolt:.2f}\t{pool}\t{reg}")
-    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, pool, reg])
+    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}\t{dvolt:.2f}\t{pool_1}\t{pool_2}\t{reg_1}\t{reg_2}")
+    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, pool_1, pool_2, reg_1, reg_2])
 
     # Format rows as Markdown
     site_1_id_x = site_1_id.lower().replace(' ','')
@@ -161,7 +161,7 @@ for idx_1, row in info_df.iterrows():
     site_1_id_link = f'[{site_1_id_x}](../../../tree/main/_processed/{site_1_id_x})'
     site_2_id_link = f'[{site_2_id_x}](../../../tree/main/_processed/{site_2_id_x})'
 
-    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, pool, reg])
+    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, pool_1, pool_2, reg_1, reg_2])
 
     # TODO:add a column in the printout of # mins
 
