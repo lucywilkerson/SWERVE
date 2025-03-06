@@ -96,104 +96,173 @@ plt.close()"""
 ###################################################################
 # Scatters with grid coding :P
 
-regions = df['region'].unique()
-colors = {'East': 'blue', 'West': 'green', 'Central': 'red', 'ERCOT': 'purple', 'different': 'gray'}
+regions = df['region_1'].unique()
+colors = {'East': 'blue', 'West': 'green', 'Central': 'red', 'ERCOT': 'purple'}
 
-pools = df['power_pool'].unique()
-shapes = {pool: shape for pool, shape in zip(pools, ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h'])}
+pools = df['power_pool_2'].unique()
+shapes = {pool: shape for pool, shape in zip(pools, ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X'])}
 
-# Scatter plot for distance vs |cc| with region colors and pool shapes
-fig, ax = plt.subplots()
-for region in regions:
-    subset = df[df['region'] == region]
-    for pool in pools:
-        pool_subset = subset[subset['power_pool'] == pool]
-        ax.scatter(pool_subset['dist(km)'], np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
-plt.xlabel('Distance [km]')
-plt.ylabel('|cc|')
+def filter_region(region_name, row):
+    if row['region_1'] != region_name and row['region_2'] != region_name:
+        return None
+    elif row['region_1'] == region_name and row['region_2'] != region_name:
+        return row['region_2']
+    elif row['region_1'] != region_name and row['region_2'] == region_name:
+        return row['region_1']
+    else:
+        return region_name
+
+# Four panel plot for distance vs |cc| with region colors and pool shapes
+fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+region_names = ['East', 'West', 'Central', 'ERCOT']
+axs = axs.flatten()
+
+for ax, region in zip(axs, region_names):
+    for idx, row in df.iterrows():
+        reg_b = filter_region(region, row)
+        if reg_b is None:
+            continue
+        pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
+        ax.scatter(row['dist(km)'], np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
+    num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
+    ax.set_title(f"{region} ({num_points} site pairs)")
+    if ax in axs[-2:]:
+        ax.set_xlabel('Distance [km]')
+    if ax.get_subplotspec().is_first_col():
+        ax.set_ylabel('|cc|')
+    ax.grid(True)
+
+# Set the same limits for all axes
+for ax in axs:
+    ax.set_xlim(df['dist(km)'].min(), df['dist(km)'].max())
+    ax.set_ylim(0, 1)
+
 # Create separate legends
-handles, labels = ax.get_legend_handles_labels()
+handles, labels = axs[0].get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
-ax.add_artist(first_legend)
-plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
-plt.grid(True)
+fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+
+plt.tight_layout()
 savefig(results_dir, 'cc_vs_dist_grid_scatter')
 plt.close()
 
-# Scatter plot for average standard deviation vs |cc| with region colors and pool shapes
-fig, ax = plt.subplots()
-avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
-for region in regions:
-    subset = df[df['region'] == region]
-    for pool in pools:
-        pool_subset = subset[subset['power_pool'] == pool]
-        ax.scatter(np.mean(pool_subset[['std_1', 'std_2']], axis=1), np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
-plt.xlabel('Average standard deviation [A]')
-plt.ylabel('|cc|')
+# Four panel plot for average standard deviation vs |cc| with region colors and pool shapes
+fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+axs = axs.flatten()
+
+for ax, region in zip(axs, region_names):
+    for idx, row in df.iterrows():
+        reg_b = filter_region(region, row)
+        if reg_b is None:
+            continue
+        pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
+        avg_std = np.mean([row['std_1'], row['std_2']])
+        ax.scatter(avg_std, np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
+    num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
+    ax.set_title(f"{region} ({num_points} site pairs)")
+    if ax in axs[-2:]:
+        ax.set_xlabel('Average standard deviation [A]')
+    if ax.get_subplotspec().is_first_col():
+        ax.set_ylabel('|cc|')
+    ax.grid(True)
+
+# Set the same limits for all axes
+for ax in axs:
+    ax.set_xlim(df[['std_1', 'std_2']].min().min(), df[['std_1', 'std_2']].max().max())
+    ax.set_ylim(0, 1)
+
 # Create separate legends
-handles, labels = ax.get_legend_handles_labels()
+handles, labels = axs[0].get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
-ax.add_artist(first_legend)
-plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
-plt.grid(True)
+fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+
+plt.tight_layout()
 savefig(results_dir, 'cc_vs_std_grid_scatter')
 plt.close()
 
-# Scatter plot for |beta_diff| vs |cc| with region colors and pool shapes
-fig, ax = plt.subplots()
-for region in regions:
-    subset = df[df['region'] == region]
-    for pool in pools:
-        pool_subset = subset[subset['power_pool'] == pool]
-        ax.scatter(np.abs(pool_subset['beta_diff']), np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
-plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
-plt.ylabel('|cc|')
+# Four panel plot for |beta_diff| vs |cc| with region colors and pool shapes
+fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+axs = axs.flatten()
+
+for ax, region in zip(axs, region_names):
+    for idx, row in df.iterrows():
+        reg_b = filter_region(region, row)
+        if reg_b is None:
+            continue
+        pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
+        ax.scatter(np.abs(row['beta_diff']), np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
+    num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
+    ax.set_title(f"{region} ({num_points} site pairs)")
+    if ax in axs[-2:]:
+        ax.set_xlabel(r'|$\Delta \log_{10} (\beta)$|')
+    if ax.get_subplotspec().is_first_col():
+        ax.set_ylabel('|cc|')
+    ax.grid(True)
+
+# Set the same limits for all axes
+for ax in axs:
+    ax.set_xlim(np.abs(df['beta_diff']).min(), np.abs(df['beta_diff']).max())
+    ax.set_ylim(0, 1)
+
 # Create separate legends
-handles, labels = ax.get_legend_handles_labels()
+handles, labels = axs[0].get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
-ax.add_artist(first_legend)
-plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
-plt.grid(True)
+fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+
+plt.tight_layout()
 savefig(results_dir, 'cc_vs_beta_grid_scatter')
 plt.close()
 
-# Scatter plot for |volt_diff(kV)| vs |cc| with region colors and pool shapes
-fig, ax = plt.subplots()
-for region in regions:
-    subset = df[df['region'] == region]
-    for pool in pools:
-        pool_subset = subset[subset['power_pool'] == pool]
-        ax.scatter(np.abs(pool_subset['volt_diff(kV)']), np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
-nan_volt_diff = df['volt_diff(kV)'].isna().sum()
-plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
-plt.xlabel(r'|$\Delta$V| [kV]')
-plt.ylabel('|cc|')
+# Four panel plot for |volt_diff(kV)| vs |cc| with region colors and pool shapes
+fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+axs = axs.flatten()
+
+for ax, region in zip(axs, region_names):
+    for idx, row in df.iterrows():
+        reg_b = filter_region(region, row)
+        if reg_b is None:
+            continue
+        pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
+        ax.scatter(np.abs(row['volt_diff(kV)']), np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
+    num_points = sum(df.apply(lambda row: filter_region(region, row) is not None and not pd.isna(row['volt_diff(kV)']), axis=1))
+    ax.set_title(f"{region} ({num_points} site pairs)")
+    if ax in axs[-2:]:
+        ax.set_xlabel(r'|$\Delta$V| [kV]')
+    if ax.get_subplotspec().is_first_col():
+        ax.set_ylabel('|cc|')
+    ax.grid(True)
+
+# Set the same limits for all axes
+for ax in axs:
+    ax.set_xlim(np.abs(df['volt_diff(kV)']).min(), np.abs(df['volt_diff(kV)']).max())
+    ax.set_ylim(0, 1)
+
 # Create separate legends
-handles, labels = ax.get_legend_handles_labels()
+handles, labels = axs[0].get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
 region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
-ax.add_artist(first_legend)
-plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
-plt.grid(True)
+fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+
+plt.tight_layout()
 savefig(results_dir, 'cc_vs_volt_grid_scatter')
 plt.close()
 
