@@ -9,11 +9,13 @@ import time
 import numpy as np
 import pandas as pd
 import numpy.ma as ma
+ 
 
-from datetick import datetick
+from datetick import datetick 
+
 
 import matplotlib.pyplot as plt
-plt.rcParams['font.family'] = 'Times'
+plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
 
@@ -558,7 +560,25 @@ def read_TVA_or_NERC(row):
   masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
   return time, mod_data, masked_data
 
+#reading in info.extended.csv
+fname = os.path.join('info', 'info.extended.csv')
+print(f"Reading {fname}")
+df = pd.read_csv(fname).set_index('site_id')
+info_df = pd.read_csv(fname)
+
+# Filter out sites with error message
+info_df = info_df[~info_df['error'].str.contains('', na=False)]
+# TODO: Print number of GIC sites removed due to error and how many kept.
+# Remove rows that don't have data_type = GIC and data_class = measured
+info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
+
+pkl_file = os.path.join('..', '2024-AGU-data', '_results', 'cc.pkl')
+print(f"Reading {pkl_file}")
+with open(pkl_file, 'rb') as file:
+  cc_df = pickle.load(file)
 
 def compare_gic_site(sites):
   for idx_1, row in info_df.iterrows():
@@ -580,6 +600,11 @@ def compare_gic_site(sites):
 
       site_2_time, site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
 
+      cc_row = cc_df[((cc_df['site_1'] == site_1_id) & (cc_df['site_2'] == site_2_id)) | 
+          ((cc_df['site_2'] == site_1_id) & (cc_df['site_1'] == site_2_id))].iloc[0]
+      cc = np.abs(cc_row['cc'])
+      dist = cc_row['dist(km)']
+
       #plotting!!
       plt.figure()
       error_shift = 70
@@ -593,21 +618,24 @@ def compare_gic_site(sites):
       kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
       plt.axhline(y=-35, **kwargs)
       plt.axhline(y=-120, **kwargs)
-      plt.title(f'{site_1_id} vs {site_2_id} GIC Comparison')
+      plt.title(f'{site_1_id} vs {site_2_id}\n|cc| = {cc:.2f}, distance = {dist:4.2f} km')
       plt.grid()
       plt.plot()
       plt.plot(site_1_time, site_1_data, label=site_1_id, linewidth=0.5)
       plt.plot(site_2_time, site_2_data, label=site_2_id, linewidth=0.5)
       plt.plot(site_1_time, site_1_data-site_2_data-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
-      plt.legend()
-      plt.ylabel('[A]', rotation=0, labelpad=10)
+      plt.legend(loc='lower left')
+      plt.ylabel('GIC [A]')
       plt.ylim(-120, 30)
       plt.yticks(yticks, labels=labels)
+      datetick()
       site_1_save =site_1_id.lower().replace(' ', '')
       site_2_save =site_2_id.lower().replace(' ', '')
       fname = f'{site_1_save}_{site_2_save}'
       out_dir = os.path.join('..', '2024-AGU-data', '_results', 'pairs')
       savefig(out_dir, fname)
+      if site_1_save == 'bullrun' or site_2_save == 'bullrun':
+        plt.show()
       plt.close()
 
 compare_gic_site(sites)
