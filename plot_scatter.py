@@ -27,7 +27,7 @@ def savefig(fdir, fname, fmts=['png']):
         else:
             plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
-# Scatter plots for all sites
+"""# Scatter plots for all sites
 
 plt.scatter(df['dist(km)'], np.abs(df['cc']))
 plt.xlabel('Distance [km]')
@@ -90,7 +90,114 @@ cbar.ax.yaxis.set_label_position('right')
 cbar.set_label(r'|$\Delta \log_{10} (\beta)$|')
 cbar.ax.xaxis.set_visible(False)  
 savefig(results_dir, 'cc_vs_dist_vs_beta_scatter')
+plt.close()"""
+
+
+###################################################################
+# Scatters with grid coding :P
+
+regions = df['region'].unique()
+colors = {'East': 'blue', 'West': 'green', 'Central': 'red', 'ERCOT': 'purple', 'different': 'gray'}
+
+pools = df['power_pool'].unique()
+shapes = {pool: shape for pool, shape in zip(pools, ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h'])}
+
+# Scatter plot for distance vs |cc| with region colors and pool shapes
+fig, ax = plt.subplots()
+for region in regions:
+    subset = df[df['region'] == region]
+    for pool in pools:
+        pool_subset = subset[subset['power_pool'] == pool]
+        ax.scatter(pool_subset['dist(km)'], np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
+plt.xlabel('Distance [km]')
+plt.ylabel('|cc|')
+# Create separate legends
+handles, labels = ax.get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
+pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
+region_labels = regions
+pool_labels = pools
+first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.add_artist(first_legend)
+plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
+plt.grid(True)
+savefig(results_dir, 'cc_vs_dist_grid_scatter')
 plt.close()
+
+# Scatter plot for average standard deviation vs |cc| with region colors and pool shapes
+fig, ax = plt.subplots()
+avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
+for region in regions:
+    subset = df[df['region'] == region]
+    for pool in pools:
+        pool_subset = subset[subset['power_pool'] == pool]
+        ax.scatter(np.mean(pool_subset[['std_1', 'std_2']], axis=1), np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
+plt.xlabel('Average standard deviation [A]')
+plt.ylabel('|cc|')
+# Create separate legends
+handles, labels = ax.get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
+pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
+region_labels = regions
+pool_labels = pools
+first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.add_artist(first_legend)
+plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
+plt.grid(True)
+savefig(results_dir, 'cc_vs_std_grid_scatter')
+plt.close()
+
+# Scatter plot for |beta_diff| vs |cc| with region colors and pool shapes
+fig, ax = plt.subplots()
+for region in regions:
+    subset = df[df['region'] == region]
+    for pool in pools:
+        pool_subset = subset[subset['power_pool'] == pool]
+        ax.scatter(np.abs(pool_subset['beta_diff']), np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
+plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
+plt.ylabel('|cc|')
+# Create separate legends
+handles, labels = ax.get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
+pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
+region_labels = regions
+pool_labels = pools
+first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.add_artist(first_legend)
+plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
+plt.grid(True)
+savefig(results_dir, 'cc_vs_beta_grid_scatter')
+plt.close()
+
+# Scatter plot for |volt_diff(kV)| vs |cc| with region colors and pool shapes
+fig, ax = plt.subplots()
+for region in regions:
+    subset = df[df['region'] == region]
+    for pool in pools:
+        pool_subset = subset[subset['power_pool'] == pool]
+        ax.scatter(np.abs(pool_subset['volt_diff(kV)']), np.abs(pool_subset['cc']), label=f"{region} - {pool}", color=colors.get(region), marker=shapes.get(pool))
+nan_volt_diff = df['volt_diff(kV)'].isna().sum()
+plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
+plt.xlabel(r'|$\Delta$V| [kV]')
+plt.ylabel('|cc|')
+# Create separate legends
+handles, labels = ax.get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
+pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
+region_labels = regions
+pool_labels = pools
+first_legend = plt.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.add_artist(first_legend)
+plt.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.05, 0.3), loc='center left')
+plt.grid(True)
+savefig(results_dir, 'cc_vs_volt_grid_scatter')
+plt.close()
+
+exit()
 
 ####################################################################
 # Site scatter
