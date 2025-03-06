@@ -26,7 +26,7 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207', 'Bull Run'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'volt_diff(kV)']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'volt_diff(kV)','power_pool','region']
 print('\t'.join(columns))
 
 def write_table(rows, rows_md, out_dir):
@@ -77,6 +77,19 @@ def site_distance(df, idx_1, idx_2):
                   (df['geo_lat'][idx_2], df['geo_lon'][idx_2])).km
   return dist
 
+def power_pool_filt(pool_1,pool_2,reg_1,reg_2):
+  if pool_1 == pool_2:
+    pool = pool_1
+  else:
+    pool = 'different'
+  
+  if reg_1 == reg_2:
+    reg = reg_1
+  else:
+    reg = 'different'
+
+  return pool, reg
+
 
 rows = []
 rows_md = []
@@ -93,6 +106,10 @@ for idx_1, row in info_df.iterrows():
 
   # finding variance
   std_1 = np.std(msk_site_1_data)
+
+  # finding power pool/region
+  pool_1 = row['power_pool']
+  reg_1 = row['US_region']
 
   for idx_2, row in info_df.iterrows():
     if idx_1 <= idx_2:  # Avoid duplicate or identical pairs
@@ -111,6 +128,10 @@ for idx_1, row in info_df.iterrows():
     # finding variance
     std_2 = np.std(msk_site_2_data)
 
+    # finding power pool/region
+    pool_2 = row['power_pool']
+    reg_2 = row['US_region']
+
     cov = ma.corrcoef(msk_site_1_data, msk_site_2_data)
     cc = cov[0, 1]
     if np.isnan(cc):
@@ -125,8 +146,11 @@ for idx_1, row in info_df.iterrows():
     # Compute difference in voltage
     dvolt = info_df['nearest_volt'][idx_1] - info_df['nearest_volt'][idx_2]
 
-    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}\t{dvolt:.2f}")
-    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt])
+    # finding power pool/region comparison
+    pool, reg = power_pool_filt(pool_1, pool_2, reg_1, reg_2)
+
+    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}\t{dvolt:.2f}\t{pool}\t{reg}")
+    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, pool, reg])
 
     # Format rows as Markdown
     site_1_id_x = site_1_id.lower().replace(' ','')
@@ -137,7 +161,7 @@ for idx_1, row in info_df.iterrows():
     site_1_id_link = f'[{site_1_id_x}](../../../tree/main/_processed/{site_1_id_x})'
     site_2_id_link = f'[{site_2_id_x}](../../../tree/main/_processed/{site_2_id_x})'
 
-    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt])
+    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, pool, reg])
 
     # TODO:add a column in the printout of # mins
 
