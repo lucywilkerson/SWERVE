@@ -15,7 +15,8 @@ print(f"Reading {pkl_file}")
 with open(pkl_file, 'rb') as file:
   df = pickle.load(file)
 
-def savefig(fdir, fname, fmts=['png']):
+fmts = ['png', 'pdf']
+def savefig(fdir, fname, fmts=fmts):
     if not os.path.exists(fdir):
         os.makedirs(fdir)
     fname = os.path.join(fdir, fname)
@@ -27,7 +28,7 @@ def savefig(fdir, fname, fmts=['png']):
         else:
             plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
-"""# Scatter plots for all sites
+# Scatter plots for all sites
 
 plt.scatter(df['dist(km)'], np.abs(df['cc']))
 plt.xlabel('Distance [km]')
@@ -60,37 +61,46 @@ plt.grid(True)
 savefig(results_dir, 'cc_vs_volt_scatter')
 plt.close()
 
-
+#########################################################################################
 # Scatter plots with colorbars!
 
-# Define 10 discrete color bins for beta
-bins = np.linspace(np.abs(df['beta_diff']).min(), np.abs(df['beta_diff']).max(), 10)
-norm = plt.Normalize(bins.min(), bins.max())
-cmap = plt.cm.get_cmap('viridis', len(bins) - 1)
-sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-sm.set_array([])
-colors = np.digitize(np.abs(df['beta_diff']), bins)
+def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
+    # Define 10 discrete color bins for the color column
+    bins = np.linspace(np.abs(df[color_col]).min(), np.abs(df[color_col]).max(), 10)
+    norm = plt.Normalize(bins.min(), bins.max())
+    cmap = plt.cm.get_cmap('viridis', len(bins) - 1)
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+    sm.set_array([])
+    colors = np.digitize(np.abs(df[color_col]), bins)
 
-# Plotting cc vs dist w beta colorbar
-fig, ax = plt.subplots(figsize=(12, 5))
-sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=colors, cmap=cmap, norm=norm)
-ax.set_xlabel('Distance (km)')
-ax.set_ylabel('|cc|')
-ax.grid(True)
-# Set up colorbar
-cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])  # Position for the colorbar
-cbar = plt.colorbar(sm, cax=cax, ticks=bins, label=r'|$\Delta \log_{10} (\beta)$|')
-# Add dots to the colorbar
-cbar.ax.clear()
-for i, b in enumerate(bins[:-1]):
-    cax.plot([0.5], [b], 'o', color=cmap(i), markersize=5, transform=cax.get_yaxis_transform(), clip_on=False)
-cbar.set_ticks(bins)
-cbar.set_ticklabels([f'{b:.2f}' for b in bins])
-cbar.ax.yaxis.set_label_position('right')
-cbar.set_label(r'|$\Delta \log_{10} (\beta)$|')
-cbar.ax.xaxis.set_visible(False)  
-savefig(results_dir, 'cc_vs_dist_vs_beta_scatter')
-plt.close()"""
+    # Plotting scatter with colorbar
+    fig, ax = plt.subplots(figsize=(12, 5))
+    sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=colors, cmap=cmap, norm=norm)
+    ax.set_xlabel('Distance (km)')
+    ax.set_ylabel('|cc|')
+    ax.set_title(plot_title)
+    ax.grid(True)
+    
+    # Set up colorbar
+    cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])  # Position for the colorbar
+    cbar = plt.colorbar(sm, cax=cax, ticks=bins, label=cbar_label)
+    
+    # Add dots to the colorbar
+    cbar.ax.clear()
+    for i, b in enumerate(bins[:-1]):
+        cax.plot([0.5], [b], 'o', color=cmap(i), markersize=5, transform=cax.get_yaxis_transform(), clip_on=False)
+    cbar.set_ticks(bins)
+    cbar.set_ticklabels([f'{b:.2f}' for b in bins])
+    cbar.ax.yaxis.set_label_position('right')
+    cbar.set_label(cbar_label)
+    cbar.ax.xaxis.set_visible(False)
+    savefig(results_dir, file_name)
+    plt.close()
+
+# Example usage
+scatter_with_colorbar(df, 'beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
+scatter_with_colorbar(df, 'volt_diff', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
+scatter_with_colorbar(df, 'lat_diff', r'$\Delta$ Latitude [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
 
 
 ###################################################################
@@ -125,7 +135,7 @@ for ax, region in zip(axs, region_names):
         pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
         ax.scatter(row['dist(km)'], np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
     num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
-    ax.set_title(f"{region} ({num_points} site pairs)")
+    ax.set_title(f"1st Region {region} ({num_points} site pairs)")
     if ax in axs[-2:]:
         ax.set_xlabel('Distance [km]')
     if ax.get_subplotspec().is_first_col():
@@ -144,8 +154,8 @@ region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=co
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
-fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+fig.legend(region_handles, region_labels, title='2nd Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='1st Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
 
 plt.tight_layout()
 savefig(results_dir, 'cc_vs_dist_grid_scatter')
@@ -164,7 +174,7 @@ for ax, region in zip(axs, region_names):
         avg_std = np.mean([row['std_1'], row['std_2']])
         ax.scatter(avg_std, np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
     num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
-    ax.set_title(f"{region} ({num_points} site pairs)")
+    ax.set_title(f"1st Region {region} ({num_points} site pairs)")
     if ax in axs[-2:]:
         ax.set_xlabel('Average standard deviation [A]')
     if ax.get_subplotspec().is_first_col():
@@ -183,8 +193,8 @@ region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=co
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
-fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+fig.legend(region_handles, region_labels, title='2nd Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='1st Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
 
 plt.tight_layout()
 savefig(results_dir, 'cc_vs_std_grid_scatter')
@@ -202,7 +212,7 @@ for ax, region in zip(axs, region_names):
         pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
         ax.scatter(np.abs(row['beta_diff']), np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
     num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
-    ax.set_title(f"{region} ({num_points} site pairs)")
+    ax.set_title(f"1st Region {region} ({num_points} site pairs)")
     if ax in axs[-2:]:
         ax.set_xlabel(r'|$\Delta \log_{10} (\beta)$|')
     if ax.get_subplotspec().is_first_col():
@@ -221,8 +231,8 @@ region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=co
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
-fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+fig.legend(region_handles, region_labels, title='2nd Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='1st Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
 
 plt.tight_layout()
 savefig(results_dir, 'cc_vs_beta_grid_scatter')
@@ -240,7 +250,7 @@ for ax, region in zip(axs, region_names):
         pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
         ax.scatter(np.abs(row['volt_diff(kV)']), np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
     num_points = sum(df.apply(lambda row: filter_region(region, row) is not None and not pd.isna(row['volt_diff(kV)']), axis=1))
-    ax.set_title(f"{region} ({num_points} site pairs)")
+    ax.set_title(f"1st Region {region} ({num_points} site pairs)")
     if ax in axs[-2:]:
         ax.set_xlabel(r'|$\Delta$V| [kV]')
     if ax.get_subplotspec().is_first_col():
@@ -259,8 +269,8 @@ region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=co
 pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
 region_labels = regions
 pool_labels = pools
-fig.legend(region_handles, region_labels, title='Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
-fig.legend(pool_handles, pool_labels, title='Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+fig.legend(region_handles, region_labels, title='2nd Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='1st Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
 
 plt.tight_layout()
 savefig(results_dir, 'cc_vs_volt_grid_scatter')
