@@ -99,7 +99,7 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
 
 # Example usage
 scatter_with_colorbar(df, 'beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
-scatter_with_colorbar(df, 'volt_diff', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
+scatter_with_colorbar(df, 'volt_diff(kV)', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
 scatter_with_colorbar(df, 'lat_diff', r'$\Delta$ Latitude [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
 
 
