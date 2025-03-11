@@ -62,12 +62,12 @@ savefig(results_dir, 'cc_vs_volt_scatter')
 plt.close()
 
 plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']))
-plt.xlabel('Difference in Latitude [deg]')
+plt.xlabel(r'$\Delta$ Latitude [deg]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_lat_scatter')
 plt.close()
-exit()
+
 
 #########################################################################################
 # Scatter plots with colorbars!
@@ -84,7 +84,7 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     # Plotting scatter with colorbar
     fig, ax = plt.subplots(figsize=(12, 5))
     sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=colors, cmap=cmap, norm=norm)
-    ax.set_xlabel('Distance (km)')
+    ax.set_xlabel('Distance [km]')
     ax.set_ylabel('|cc|')
     ax.set_title(plot_title)
     ax.grid(True)
@@ -283,6 +283,45 @@ fig.legend(pool_handles, pool_labels, title='1st Power Pool', bbox_to_anchor=(1.
 plt.tight_layout()
 savefig(results_dir, 'cc_vs_volt_grid_scatter')
 plt.close()
+
+# Four panel plot for |lat_diff| vs |cc| with region colors and pool shapes
+fig, axs = plt.subplots(2, 2, figsize=(15, 10))
+axs = axs.flatten()
+
+for ax, region in zip(axs, region_names):
+    for idx, row in df.iterrows():
+        reg_b = filter_region(region, row)
+        if reg_b is None:
+            continue
+        pool = row['power_pool_1'] if row['region_1'] == region else row['power_pool_2']
+        ax.scatter(np.abs(row['lat_diff']), np.abs(row['cc']), label=f"{region} - {pool}", color=colors.get(reg_b), marker=shapes.get(pool))
+    num_points = sum(df.apply(lambda row: filter_region(region, row) is not None, axis=1))
+    ax.set_title(f"1st Region {region} ({num_points} site pairs)")
+    if ax in axs[-2:]:
+        ax.set_xlabel(r'$\Delta$ Latitude [deg]')
+    if ax.get_subplotspec().is_first_col():
+        ax.set_ylabel('|cc|')
+    ax.grid(True)
+
+# Set the same limits for all axes
+for ax in axs:
+    ax.set_xlim(np.abs(df['lat_diff']).min(), np.abs(df['lat_diff']).max())
+    ax.set_ylim(0, 1)
+
+# Create separate legends
+handles, labels = axs[0].get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+region_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[region], markersize=10) for region in regions]
+pool_handles = [plt.Line2D([0], [0], marker=shapes[pool], color='w', markerfacecolor='k', markersize=10) for pool in pools]
+region_labels = regions
+pool_labels = pools
+fig.legend(region_handles, region_labels, title='2nd Region', bbox_to_anchor=(1.03, 0.7), loc='upper left')
+fig.legend(pool_handles, pool_labels, title='1st Power Pool', bbox_to_anchor=(1.01, 0.3), loc='center left')
+
+plt.tight_layout()
+savefig(results_dir, 'cc_vs_lat_grid_scatter')
+plt.close()
+
 
 exit()
 
