@@ -61,6 +61,14 @@ plt.grid(True)
 savefig(results_dir, 'cc_vs_volt_scatter')
 plt.close()
 
+plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']))
+plt.xlabel('Difference in Latitude [deg]')
+plt.ylabel('|cc|')
+plt.grid(True)
+savefig(results_dir, 'cc_vs_lat_scatter')
+plt.close()
+exit()
+
 #########################################################################################
 # Scatter plots with colorbars!
 
