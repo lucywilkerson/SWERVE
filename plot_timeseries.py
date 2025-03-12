@@ -528,7 +528,7 @@ if plot_compare:
 
 # comparison plots!
 
-def savefig(fdir, fname, fmts=['png']):
+def savefig(fdir, fname, fmts=['png', 'pdf']):
     if not os.path.exists(fdir):
         os.makedirs(fdir)
     fname = os.path.join(fdir, fname)
@@ -579,6 +579,7 @@ pkl_file = os.path.join('..', '2024-AGU-data', '_results', 'cc.pkl')
 print(f"Reading {pkl_file}")
 with open(pkl_file, 'rb') as file:
   cc_df = pickle.load(file)
+
 
 def compare_gic_site(sites):
   for idx_1, row in info_df.iterrows():
@@ -634,8 +635,6 @@ def compare_gic_site(sites):
       fname = f'{site_1_save}_{site_2_save}'
       out_dir = os.path.join('..', '2024-AGU-data', '_results', 'pairs')
       savefig(out_dir, fname)
-      if site_1_save == 'bullrun' or site_2_save == 'bullrun':
-        plt.show()
       plt.close()
 
 compare_gic_site(sites)
