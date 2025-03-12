@@ -79,11 +79,10 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     cmap = plt.cm.get_cmap('viridis', len(bins) - 1)
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
-    colors = np.digitize(np.abs(df[color_col]), bins)
 
     # Plotting scatter with colorbar
     fig, ax = plt.subplots(figsize=(12, 5))
-    sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=colors, cmap=cmap, norm=norm)
+    sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=np.abs(df[color_col]), cmap=cmap, norm=norm)
     ax.set_xlabel('Distance [km]')
     ax.set_ylabel('|cc|')
     ax.set_title(plot_title)
