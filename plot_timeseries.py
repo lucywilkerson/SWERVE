@@ -58,7 +58,7 @@ def subset(time, data, start, stop):
     return time[idx], data[idx]
   return time[idx], data[idx,:]
 
-def savefig(sid, fname, sub_dir="", fmts=['png']):
+def savefig(sid, fname, sub_dir="", fmts=['png','pdf']):
   fdir = os.path.join(base_dir, sid.lower().replace(' ', ''), sub_dir)
   if not os.path.exists(fdir):
     os.makedirs(fdir)
@@ -474,7 +474,7 @@ info_dict, info_df, data_all, plot_info = read(all_file)
 if sids is None:
   sids = info_dict.keys()
 
-if plot_data:
+"""if plot_data:
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
@@ -504,7 +504,7 @@ if plot_data:
           else:
             print(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
-    print(" ")
+    print(" ")"""
 
 if plot_compare:
 
@@ -523,7 +523,7 @@ if plot_compare:
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid)
-
+exit()
 ###############################################################################################################
 
 # comparison plots!
