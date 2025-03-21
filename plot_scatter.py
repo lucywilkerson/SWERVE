@@ -118,6 +118,22 @@ savefig(results_dir, 'cc_vs_lat_scatter')
 plt.close()
 
 
+plt.scatter(np.abs(df['beta_diff']), avg_std)
+plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
+plt.ylabel('Average standard deviation [A]')
+plt.grid(True)
+savefig(results_dir, 'std_vs_beta_scatter')
+plt.close()
+
+
+plt.scatter(np.abs(df['lat_diff']), avg_std)
+plt.xlabel(r'$\Delta$ Latitude [deg]')
+plt.ylabel('Average standard deviation [A]')
+plt.grid(True)
+savefig(results_dir, 'std_vs_lat_scatter')
+plt.close()
+
+
 #########################################################################################
 # Scatter plots with colorbars!
 
@@ -134,7 +150,7 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=np.abs(df[color_col]), cmap=cmap, norm=norm)
     ax.set_xlabel('Distance [km]')
     ax.set_ylabel('|cc|')
-    ax.set_title(plot_title)
+    #ax.set_title(plot_title)
     ax.grid(True)
     
     # Set up colorbar
