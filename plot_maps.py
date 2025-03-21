@@ -17,7 +17,9 @@ crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
 state = True # Show political boundaries
 
-def savefig(fdir, fname, fmts=['png']):
+
+fmts=['png', 'pdf']
+def savefig(fdir, fname, fmts=fmts):
     if not os.path.exists(fdir):
         os.makedirs(fdir)
     fname = os.path.join(fdir, fname)
