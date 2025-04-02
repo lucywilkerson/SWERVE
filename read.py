@@ -103,6 +103,28 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
         time.append(dto + datetime.timedelta(seconds=t))
 
     return {"time": numpy.array(time).flatten(), "data": numpy.array(data).flatten()}
+  
+  if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
+    fname = os.path.join(data_dir, 'dennies_gic_comparison', 'tva', f'site_{sid}.csv')
+    if not os.path.exists(fname):
+      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'nerc', f'site_{sid}.csv')
+    print(f"    Reading {fname}")
+    if not os.path.exists(fname):
+      raise FileNotFoundError(f"File not found: {fname}")
+
+    data = []
+    time = []
+
+    with open(file,'r') as csvfile:
+      rows = csv.reader(csvfile, delimiter = ',')
+      next(rows)  # Skip header row.
+      for row in rows:
+        time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+        data.append([float(row[2]), float(row[3]), float(row[4])])
+    
+    data = numpy.array(data)
+    time = numpy.array(time)
+    return {"time": time, "data": data}
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'mag')
@@ -278,7 +300,7 @@ for sid in sids: # site ids
         original = {'original': d}
         data[sid][data_type][data_class].append(original)
 
-        if data_type == 'GIC' and data_class == 'measured':
+        if data_type == 'GIC' and data_class == 'measured' and data_source == 'TVA':
           # Resample to 1-min average.
           print("    Averaging timeseries to 1-min bins")
           d = resample(d["time"], d["data"], start, stop, 's', ave=60)
