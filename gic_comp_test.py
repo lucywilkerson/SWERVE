@@ -34,7 +34,7 @@ for site in site_df['site_id'].tolist():
     if not os.path.exists(fname):
         fname = os.path.join(data_dir, 'nerc', f'site_{site}.csv')
     if not os.path.exists(fname):
-        info_df.loc[info_df['site_id'] == site, 'error'] = "no GIC comparison file"
+        info_df.loc[info_df['site_id'] == site, 'error'] = "x no GIC comparison file"
         continue
     print(f"Reading {fname}")
     df = pd.read_csv(fname)
