@@ -474,7 +474,7 @@ info_dict, info_df, data_all, plot_info = read(all_file)
 if sids is None:
   sids = info_dict.keys()
 
-"""if plot_data:
+if plot_data:
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
@@ -504,7 +504,7 @@ if sids is None:
           else:
             print(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
-    print(" ")"""
+    print(" ")
 
 if plot_compare:
 
@@ -523,7 +523,7 @@ if plot_compare:
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid)
-exit()
+
 ###############################################################################################################
 
 # comparison plots!
@@ -622,6 +622,9 @@ def compare_gic_site(sites):
       plt.title(f'{site_1_id} vs {site_2_id}\n|cc| = {cc:.2f}, distance = {dist:4.2f} km')
       plt.grid()
       plt.plot()
+      if cc_row['cc'] < 0:
+        site_1_data = -site_1_data
+        plt.text(site_1_time[1500], -117, f'time series for {site_1_id} plotted inverse due to negative correlation', fontsize=8)
       plt.plot(site_1_time, site_1_data, label=site_1_id, linewidth=0.5)
       plt.plot(site_2_time, site_2_data, label=site_2_id, linewidth=0.5)
       plt.plot(site_1_time, site_1_data-site_2_data-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
