@@ -8,6 +8,7 @@ base_dir = os.path.join(data_dir, '_processed')
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
+info_df = info_df[info_df['data_source'] != 'GMU']
 meas_df = info_df[info_df['data_class'] == 'measured']
 
 data_dir = os.path.join('..', '2024-AGU-data', 'dennies_gic_comparison')
@@ -29,6 +30,8 @@ for site in site_df['sub_id'].unique():
     tva_site = tva_df['site_1_device'][0]
     if tva_site == 'Widows Creek 2':
       tva_site = 'Widows Creek'
+    if tva_site == 'Paradise':
+      tva_site = 'Paradise 3'
   
   nerc_fname = os.path.join(data_dir, 'nerc', f'site_{site}.csv')
   if os.path.exists(nerc_fname):

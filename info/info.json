@@ -3225,6 +3225,12 @@
     "GIC": {
       "measured": [
         "TVA"
+      ],
+      "calculated": [
+        "GMU",
+        {
+          "nearest_sim_site": "157842592"
+        }
       ]
     }
   },
@@ -3232,14 +3238,6 @@
     "B": {
       "measured": [
         "TVA"
-      ]
-    },
-    "GIC": {
-      "calculated": [
-        "GMU",
-        {
-          "nearest_sim_site": "157842592"
-        }
       ]
     }
   },
