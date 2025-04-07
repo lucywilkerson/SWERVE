@@ -105,9 +105,18 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     return {"time": numpy.array(time).flatten(), "data": numpy.array(data).flatten()}
   
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
-    fname = os.path.join(data_dir, 'dennies_gic_comparison', 'tva', f'site_{sid}.csv')
-    if not os.path.exists(fname):
-      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'nerc', f'site_{sid}.csv')
+    for source in info[sid][data_type][data_class]:
+      if isinstance(source, dict) and "nearest_sim_site" in source:
+        sim_site = source["nearest_sim_site"]
+    print(f"    Nearest simulation site: {sim_site}")
+
+    measured_sources = [source for source in info[sid]['GIC']['measured'] if isinstance(source, str)]
+    if 'NERC' in measured_sources:
+      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'nerc', f'site_{sim_site}.csv')
+    elif 'TVA' in measured_sources:
+      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'tva', f'site_{sim_site}.csv')
+    else:
+      raise ValueError(f"No corresponding measured data source found for site {sid}")
     print(f"    Reading {fname}")
     if not os.path.exists(fname):
       raise FileNotFoundError(f"File not found: {fname}")
@@ -115,7 +124,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     data = []
     time = []
 
-    with open(file,'r') as csvfile:
+    with open(fname,'r') as csvfile:
       rows = csv.reader(csvfile, delimiter = ',')
       next(rows)  # Skip header row.
       for row in rows:
