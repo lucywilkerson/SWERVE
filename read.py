@@ -309,7 +309,7 @@ for sid in sids: # site ids
         original = {'original': d}
         data[sid][data_type][data_class].append(original)
 
-        if data_type == 'GIC' and data_class == 'measured' and data_source == 'TVA':
+        if data_type == 'GIC' and data_class == 'measured':
           # Resample to 1-min average.
           print("    Averaging timeseries to 1-min bins")
           d = resample(d["time"], d["data"], start, stop, 's', ave=60)
