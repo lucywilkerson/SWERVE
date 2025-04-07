@@ -9,6 +9,7 @@ Converts info/info.csv, which has the form
 Bull Run,36.0193,-84.1575,GIC,measured,TVA,
 Bull Run,36.0193,-84.1575,GIC,calculated,TVA,"error message"
 Bull Run,36.0193,-84.1575,GIC,calculated,MAGE,
+Bull Run,36.0193,-84.1575,GIC,calculated,GMU,
 Bull Run,36.0193,-84.1575,B,measured,TVA,
 Bull Run,36.0193,-84.1575,B,calculated,SWMF,
 Bull Run,36.0193,-84.1575,B,calculated,MAGE,
@@ -19,7 +20,7 @@ to a dict of the form
   "Bull Run": {
     "GIC": {
       "measured": "TVA",
-      "calculated": ["TVA", "MAGE"]
+      "calculated": ["TVA", "GMU, "MAGE"]
     },
     "B": {
       "calculated": ["SWMF", "MAGE"]
@@ -31,6 +32,8 @@ and saves in info/info.json
 """
 
 df = pd.read_csv(os.path.join('info', 'info.csv'))
+
+extended_df = pd.read_csv(os.path.join('info', 'info.extended.csv'))
 
 sites = {}
 locations = {}
@@ -52,6 +55,15 @@ for idx, row in df.iterrows():
     sites[site][data_type][data_class] = [data_source]
   else:
     sites[site][data_type][data_class].append(data_source)
+
+  # additional logic for GMU sim
+  if data_source == 'GMU':
+    nearest_sim_site = extended_df.loc[
+      (extended_df['site_id'] == site) & (extended_df['data_source'] == 'GMU'),
+      'nearest_sim_site'
+    ].values[0]
+    if 'nearest_sim_site' not in sites[site][data_type][data_class]:
+      sites[site][data_type][data_class].append({'nearest_sim_site': f'{int(nearest_sim_site)}'})
 
 print("Writing info/info.json")
 with open(os.path.join('info','info.json'), 'w') as f:
