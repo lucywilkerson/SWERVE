@@ -11,7 +11,7 @@ install_requires = [
     ]
 
 setup(
-    name='2024-AGU',
+    name='2024-May-Storm',
     version='0.0.1',
     author='Lucy Wilkerson, Bob Weigel',
     author_email='rweigel@gmu.edu',

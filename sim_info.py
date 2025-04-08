@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 
-data_dir = os.path.join('..', '2024-AGU-data')
+data_dir = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(data_dir, '_processed')
 
 fname = os.path.join('info', 'info.csv')
@@ -11,7 +11,7 @@ info_df = pd.read_csv(fname)
 info_df = info_df[info_df['data_source'] != 'GMU']
 meas_df = info_df[info_df['data_class'] == 'measured']
 
-data_dir = os.path.join('..', '2024-AGU-data', 'dennies_gic_comparison')
+data_dir = os.path.join(data_dir, 'dennies_gic_comparison')
 fname = os.path.join(data_dir, 'gic_mean_df_1.csv')
 print(f"Reading {fname}")
 site_df = pd.read_csv(fname)

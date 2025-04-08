@@ -19,7 +19,7 @@ plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
 
-data_dir = os.path.join('..', '2024-AGU-data')
+data_dir = os.path.join('..', '2024-May-Storm-data')
 all_dir  = os.path.join(data_dir, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
@@ -664,7 +664,7 @@ def savefig(fdir, fname, fmts=['png', 'pdf']):
 
 def read_TVA_or_NERC(row):
   site_id = row['site_id']
-  data_dir = os.path.join('..', '2024-AGU-data', 'processed')
+  data_dir = os.path.join('..', '2024-May-Storm-data', 'processed')
   if row['data_source'] == 'NERC':
       #reading in data for site if NERC
       fname = os.path.join(data_dir, site_id, 'GIC_measured_NERC.pkl')
@@ -697,7 +697,7 @@ info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 
-pkl_file = os.path.join('..', '2024-AGU-data', '_results', 'cc.pkl')
+pkl_file = os.path.join('..', '2024-May-Storm-data', '_results', 'cc.pkl')
 print(f"Reading {pkl_file}")
 with open(pkl_file, 'rb') as file:
   cc_df = pickle.load(file)
@@ -758,7 +758,7 @@ def compare_gic_site(sites):
       site_1_save =site_1_id.lower().replace(' ', '')
       site_2_save =site_2_id.lower().replace(' ', '')
       fname = f'{site_1_save}_{site_2_save}'
-      out_dir = os.path.join('..', '2024-AGU-data', '_results', 'pairs')
+      out_dir = os.path.join('..', '2024-May-Storm-data', '_results', 'pairs')
       savefig(out_dir, fname)
       plt.close()
 

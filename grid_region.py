@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.family'] = 'Times New Roman'
 
 # Read the GeoJSON file
-geojson_file = os.path.join('..', '2024-AGU-data', 'nerc', 'nerc_gdf.geojson')
+geojson_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf.geojson')
 print(f"Reading {geojson_file}")
 gdf = gpd.read_file(geojson_file)
 
@@ -42,7 +42,7 @@ plt.title('US Regions Map')
 plt.close()
 
 # Save the updated GeoDataFrame to a CSV file
-csv_file = os.path.join('..', '2024-AGU-data', 'nerc', 'nerc_gdf_mapped.csv')
+csv_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf_mapped.csv')
 print(f"Saving {csv_file}")
 gdf.to_csv(csv_file, index=False)
 

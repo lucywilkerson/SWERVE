@@ -82,8 +82,8 @@ def read_TVA_or_NERC(row): #can read anything!
     return data, masked_data
 
 
-data_dir = os.path.join('..', '2024-AGU-data', '_processed')
-out_dir = os.path.join('..', '2024-AGU-data', '_results')
+data_dir = os.path.join('..', '2024-May-Storm-data', '_processed')
+out_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 
 fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")

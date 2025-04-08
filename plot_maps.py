@@ -10,8 +10,8 @@ import cartopy.feature as cfeature
 import matplotlib.patches as patches
 import geopandas as gpd
 
-data_dir = os.path.join('..', '2024-AGU-data')
-out_dir = os.path.join('..', '2024-AGU-data', '_map')
+data_dir = os.path.join('..', '2024-May-Storm-data')
+out_dir = os.path.join('..', '2024-May-Storm-data', '_map')
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
@@ -319,7 +319,7 @@ def beta_maps():
     plt.show()"""
 
 # US Transmission lines
-data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
+data_path = os.path.join(data_dir, 'Electric__Power_Transmission_Lines')
 data_name = 'Electric__Power_Transmission_Lines.shp'
 print(f"Reading {data_name}")
 trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
@@ -451,7 +451,7 @@ add_symbols(ax, TVA_df, transform, 13)
 ax.legend(loc='upper left')
 
 fname = 'trans_lines_TVA'
-out_dir = os.path.join('..', '2024-AGU-data', '_results')
+out_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 fname = os.path.join(out_dir, fname)
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight') 
 plt.close()

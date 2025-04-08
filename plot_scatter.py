@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 
 plt.rcParams['font.family'] = 'Times New Roman'
 
-data_dir = os.path.join('..', '2024-AGU-data')
-results_dir = os.path.join('..', '2024-AGU-data', '_results')
+data_dir = os.path.join('..', '2024-May-Storm-data')
+results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 
 pkl_file = os.path.join(results_dir, 'cc.pkl')
 print(f"Reading {pkl_file}")

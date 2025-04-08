@@ -320,8 +320,8 @@ info_df['nearest_volt'] = np.nan
 
 # Running over all TVA and NERC GIC monitors
 if __name__ == "__main__":
-    data_dir = os.path.join('..', '2024-AGU-data')
-    info_dir = os.path.join('..', '2024-AGU')
+    data_dir = os.path.join('..', '2024-May-Storm-data')
+    info_dir = os.path.join('..', '2024-May-Storm')
     buffer_distance = 500  # specify the dist in m
     tl_gdf_subset, device_gdf, connection_dicts = process_data(
         data_dir, info_dir, buffer_distance

@@ -6,7 +6,7 @@ import pandas
 import pickle
 import datetime
 
-data_dir = os.path.join('..', '2024-AGU-data')
+data_dir = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(data_dir, '_processed')
 all_file = os.path.join(data_dir, '_all', 'all.pkl')
 if not os.path.exists(os.path.dirname(all_file)):

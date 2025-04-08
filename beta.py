@@ -5,7 +5,7 @@ import numpy as np
 from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
 
-data_dir = os.path.join('..', '2024-AGU-data')
+data_dir = os.path.join('..', '2024-May-Storm-data')
 # Load a MATLAB file
 fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
 data = loadmat(fname)

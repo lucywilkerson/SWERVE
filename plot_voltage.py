@@ -9,7 +9,7 @@ import numpy as np
 
 
 # getting data as in cc_map.py
-data_dir = os.path.join('..', '2024-AGU-data')
+data_dir = os.path.join('..', '2024-May-Storm-data')
 fname = os.path.join('info', 'info.csv')
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
@@ -42,7 +42,7 @@ def savefig(fdir, fname, fmts=['png']):
             plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 # US Transmission lines
-data_path = os.path.join('..', '2024-AGU-data', 'Electric__Power_Transmission_Lines')
+data_path = os.path.join(data_dir, 'Electric__Power_Transmission_Lines')
 data_name = 'Electric__Power_Transmission_Lines.shp'
 print(f"Reading {data_name}")
 trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
@@ -85,7 +85,7 @@ plt.title(f'US Transmission Lines from HIFLD: {len(trans_lines_gdf)}')
 plt.yscale('log')
 plt.xscale('log')
 plt.grid(True, zorder=1)
-out_dir = os.path.join('..', '2024-AGU-data', '_results')
+out_dir = os.path.join(data_dir, '_results')
 fname = os.path.join(out_dir, 'trans_lines_count')
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 #plt.show()
@@ -117,7 +117,7 @@ plt.title('Length of US Transmission Lines by Voltage')
 plt.yscale('log')
 plt.xscale('log')
 plt.grid(True, zorder=1)
-out_dir = os.path.join('..', '2024-AGU-data', '_results')
+out_dir = os.path.join(data_dir, '_results')
 fname = os.path.join(out_dir, 'trans_lines_length')
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 #plt.show()

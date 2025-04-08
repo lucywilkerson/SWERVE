@@ -8,8 +8,8 @@ import numpy.ma as ma
 
 from geopy.distance import geodesic
 
-data_dir = os.path.join('..', '2024-AGU-data', '_processed')
-out_dir = os.path.join('..', '2024-AGU-data', '_results')
+data_dir = os.path.join('..', '2024-May-Storm-data', '_processed')
+out_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 
 fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
@@ -48,7 +48,7 @@ def write_table(rows, rows_md, out_dir):
   output_fname = os.path.join(out_dir, 'cc.md')
   print(f"Writing {output_fname}")
   with open(output_fname, 'w') as f:
-    f.write("See https://github.com/lucywilkerson/2024-AGU/blob/main/info/ for additional site information.\n\n")
+    f.write("See https://github.com/lucywilkerson/2024-May-Storm/blob/main/info/ for additional site information.\n\n")
     f.write(df.to_markdown(index=False))
 
 

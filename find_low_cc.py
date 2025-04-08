@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-data_dir = os.path.join('..', '2024-AGU-data')
-out_dir = os.path.join('..', '2024-AGU-data', '_map')
+data_dir = os.path.join('..', '2024-May-Storm-data')
+out_dir = os.path.join('..', '2024-May-Storm-data', '_map')
 
 #reading in info.extended.csv
 fname = os.path.join('info', 'info.extended.csv')
@@ -82,7 +82,7 @@ for idx, row in cc_df.iterrows():
     cc_df.loc[idx, 'min_avg_cc'] = min(avg_cc_1, avg_cc_2)
 
 # Making scatter plot! (code from plot_scatter.py)
-results_dir = os.path.join('..', '2024-AGU-data', '_results')
+results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 fmts = ['png', 'pdf']
 def savefig(fdir, fname, fmts=fmts):
     if not os.path.exists(fdir):
