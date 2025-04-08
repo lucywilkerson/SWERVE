@@ -79,6 +79,9 @@ def compare_gic(info, data, sid):
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
 
   model_names = []
+  model_labels = []
+  time_crops = []
+  data_crops = []
   time_calcs = []
   data_calcs = []
   model_colors = ['b', 'g']
@@ -94,14 +97,27 @@ def compare_gic(info, data, sid):
       time_calc, data_calc = subset(time_calc, data_calc, start, stop)
       # TODO: Document why this is necessary
       data_calc = -data_calc
+      time_crop, data_crop = subset(time_meas, data_meas, start, stop)
+      model_labels.append(data_source.upper())
     if data_source == 'GMU':
       time_calc = data[sid]['GIC']['calculated'][idx]['original']['time']
       time_calc = np.array(time_calc).flatten()
       data_calc = data[sid]['GIC']['calculated'][idx]['original']['data'][:, 0:1]
       data_calc = np.array(data_calc).flatten()
       time_calc, data_calc = subset(time_calc, data_calc, start, stop)
+
+      gmu_stop = time_calc[-1] + datetime.timedelta(minutes=1)
+      time_crop, data_crop = subset(time_meas, data_meas, start, gmu_stop)
+      cc = np.corrcoef(data_crop, data_calc)
+      if cc[0,1] < 0:
+        data_calc = -data_calc
+        model_labels.append(f'-{data_source.upper()}')
+      else:
+        model_labels.append(data_source.upper())
     time_calcs.append(time_calc)
     data_calcs.append(data_calc)
+    time_crops.append(time_crop)
+    data_crops.append(data_crop)
 
 
   plt.figure()
@@ -110,17 +126,8 @@ def compare_gic(info, data, sid):
   plt.plot()
   plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
   for idx in range(len(model_names)):
-    label = model_names[idx]
-    if label == 'GMU':
-      gmu_stop = time_calcs[idx][-1] + datetime.timedelta(minutes=1)
-      time_new, data_new = subset(time_meas, data_meas, start, gmu_stop)
-      cc = np.corrcoef(data_new, data_calcs[idx])
-    else:
-      cc = np.corrcoef(data_meas, data_calcs[idx])
-    if cc[0,1] < 0:
-      plt.plot(time_calcs[idx], -data_calcs[idx], model_colors[idx], linewidth=0.4, label=f'-{label}')
-    else:
-      plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
+    label = model_labels[idx]
+    plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
 
   plt.legend()
   plt.ylabel('[A]', rotation=0, labelpad=10)
@@ -160,18 +167,10 @@ def compare_gic(info, data, sid):
     plt.grid()
     plt.plot()
 
-    if model_names[idx] == 'GMU':
-      gmu_stop = time_calcs[idx][-1] + datetime.timedelta(minutes=1)
-      time_meas, data_meas = subset(time_meas, data_meas, start, gmu_stop)
     plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
-    label = model_names[idx]
-    cc = np.corrcoef(data_meas, data_calcs[idx])
-    if cc[0,1] < 0:
-      plt.plot(time_calcs[idx], -data_calcs[idx], model_colors[idx], linewidth=0.4, label=f'-{label}')
-      plt.plot(time_calcs[idx], data_meas+data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
-    else:
-      plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
-      plt.plot(time_calcs[idx], data_meas-data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
+    label = model_labels[idx]
+    plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
+    plt.plot(time_calcs[idx], data_crops[idx]-data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
 
     plt.legend()
     plt.ylabel('[A]', rotation=0, labelpad=10)
@@ -195,34 +194,49 @@ def compare_gic(info, data, sid):
       md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries_{model_names[idx]}.png)\n")
     plt.close()
 
-  """
+  
   plt.figure()
-  cc = numpy.corrcoef(data_meas, data_calc)
-  # Fixed calculation of pe
-  numer = np.sum((data_meas-data_calc)**2)
-  denom = np.sum((data_meas-data_meas.mean())**2)
-  pe = ( 1-numer/denom )
+  cc = []
+  pe = []
+  for idx in range(len(model_names)):
+    cc.append(numpy.corrcoef(data_crops[idx], data_calcs[idx])[0,1])
+    # Fixed calculation of pe
+    numer = np.sum((data_crops[idx]-data_calcs[idx])**2)
+    denom = np.sum((data_crops[idx]-data_crops[idx].mean())**2)
+    pe.append( 1-numer/denom )
 
-  text = f"cc = {cc[0,1]:.2f} | pe = {pe:.2f}"
+    plt.plot(data_crops[idx], data_calcs[idx], model_points[idx], markersize=1)
+
+  if len(model_names) == 1:
+    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
+  elif len(model_names) == 2:
+    text = f"{model_labels[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_labels[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
   text_kwargs = {
-    'horizontalalignment': 'center',
-    'verticalalignment': 'center',
-    'bbox': {
-      "boxstyle": "round,pad=0.3",
-      "edgecolor": "black",
-      "facecolor": "white",
-      "linewidth": 0.5
-    }
-  }
+   'horizontalalignment': 'center',
+   'verticalalignment': 'center',
+   'bbox': {
+     "boxstyle": "round,pad=0.3",
+     "edgecolor": "black",
+     "facecolor": "white",
+     "linewidth": 0.5
+     }
+   }
   plt.title(sid)
   plt.plot([-40, 40], [-40, 40], color=3*[0.6], linewidth=0.5)
-  plt.plot(data_meas, data_calc, 'k.', markersize=1)
   # TODO: Compute limits based on data
   plt.text(-30, 40, text, **text_kwargs)
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
   savefig(sid, 'GIC_compare_correlation')
+  plt.close()
+
+  # Add the generated plot to the markdown file
+  md_name = f"GIC_compare_timeseries.md"
+  md_path = os.path.join(data_dir, md_name)
+  with open(md_path, "a") as md_file:
+    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_correlation.png)\n")
+  plt.close()
 
   plt.figure()
   #plt.title(name)
@@ -230,8 +244,9 @@ def compare_gic(info, data, sid):
   bu = 10
   bins_c = numpy.arange(bl, bu+1, 1)
   bins_e = numpy.arange(bl-0.5, bu+1, 1)
-  n_e, _ = numpy.histogram(data_meas-data_calc, bins=bins_e)
-  plt.bar(bins_c, n_e/sum(n_e), width=0.98, color='k')
+  for idx in range(len(model_names)): 
+    n_e, _ = numpy.histogram(data_crops[idx]-data_calcs[idx], bins=bins_e)
+    plt.step(bins_c, n_e/sum(n_e), color=model_colors[idx], label=model_labels[idx])
   plt.xticks(bins_c[0::2])
   plt.xticks(fontsize=18)
   plt.xlabel('(Measured - Calculated) GIC [A]', fontsize=18)
@@ -239,8 +254,17 @@ def compare_gic(info, data, sid):
   plt.yticks(fontsize=18)
   plt.ylabel('Probability', fontsize=18)
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
+  plt.legend(loc='upper right')
   savefig(sid, 'GIC_histogram_meas_calc')
-  """
+  plt.close()
+
+  # Add the generated plot to the markdown file
+  md_name = f"GIC_compare_timeseries.md"
+  md_path = os.path.join(data_dir, md_name)
+  with open(md_path, "a") as md_file:
+    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_histogram_meas_calc.png)\n")
+  plt.close()
+
 
 def compare_db(info, data, sid):
 
