@@ -24,7 +24,7 @@ all_dir  = os.path.join(data_dir, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
-plot_data = True    # Plot original and modified data
+plot_data = False    # Plot original and modified data
 plot_compare = True # Plot measured and calculated data on same axes, when both available
 sids = None # If none, plot all sites
 # sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
@@ -70,41 +70,62 @@ def savefig(sid, fname, sub_dir="", fmts=['png','pdf']):
 
 def compare_gic(info, data, sid):
 
-  time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
-  data_meas = data[sid]['GIC']['measured'][0]['modified']['data']
-  time_calc = data[sid]['GIC']['calculated'][0]['original']['time']
-  data_calc = data[sid]['GIC']['calculated'][0]['original']['data']
-
+  if 'modified' in data[sid]['GIC']['measured'][0]:
+      time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
+      data_meas = data[sid]['GIC']['measured'][0]['modified']['data']
+  else:
+      time_meas = data[sid]['GIC']['measured'][0]['original']['time']
+      data_meas = data[sid]['GIC']['measured'][0]['original']['data']
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-  time_calc, data_calc = subset(time_calc, data_calc, start, stop)
 
-  # TODO: Document why this is necessary
-  data_calc = -data_calc
+  model_names = []
+  time_calcs = []
+  data_calcs = []
+  model_colors = ['b', 'g']
+  model_points = ['b.', 'g.']
+  model_names = []
+  for idx, data_source in enumerate(info[sid]['GIC']['calculated']):
+    if 'nearest_sim_site' in data_source: #skip data_source dict
+      continue
+    model_names.append(data_source.upper())
+    if data_source == 'TVA':
+      time_calc = data[sid]['GIC']['calculated'][idx]['original']['time']
+      data_calc = data[sid]['GIC']['calculated'][idx]['original']['data']
+      time_calc, data_calc = subset(time_calc, data_calc, start, stop)
+      # TODO: Document why this is necessary
+      data_calc = -data_calc
+    if data_source == 'GMU':
+      time_calc = data[sid]['GIC']['calculated'][idx]['original']['time']
+      time_calc = np.array(time_calc).flatten()
+      data_calc = data[sid]['GIC']['calculated'][idx]['original']['data'][:, 0:1]
+      data_calc = np.array(data_calc).flatten()
+      time_calc, data_calc = subset(time_calc, data_calc, start, stop)
+    time_calcs.append(time_calc)
+    data_calcs.append(data_calc)
+
 
   plt.figure()
-  error_shift = 50
-  yticks = numpy.arange(-80, 30, 10)
-  labels = []
-  for ytick in yticks:
-    if ytick < -30:
-      labels.append(str(ytick+error_shift))
-    else:
-      labels.append(str(ytick))
-
-  kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
-  plt.axhline(y=-35, **kwargs)
-  plt.axhline(y=-80, **kwargs)
   plt.title(sid)
   plt.grid()
   plt.plot()
   plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
-  plt.plot(time_calc, data_calc, 'b', label='GIC Calculated', linewidth=0.4)
+  for idx in range(len(model_names)):
+    label = model_names[idx]
+    if label == 'GMU':
+      gmu_stop = time_calcs[idx][-1] + datetime.timedelta(minutes=1)
+      time_new, data_new = subset(time_meas, data_meas, start, gmu_stop)
+      cc = np.corrcoef(data_new, data_calcs[idx])
+    else:
+      cc = np.corrcoef(data_meas, data_calcs[idx])
+    if cc[0,1] < 0:
+      plt.plot(time_calcs[idx], -data_calcs[idx], model_colors[idx], linewidth=0.4, label=f'-{label}')
+    else:
+      plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
 
-  plt.plot(time_calc, data_meas-data_calc-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
   plt.legend()
   plt.ylabel('[A]', rotation=0, labelpad=10)
-  plt.yticks(yticks, labels=labels)
-  plt.ylim(-80, 30)
+  plt.ylim(-50, 50)
+  
   datetick()
   # get the legend object
   leg = plt.gca().legend()
@@ -115,6 +136,66 @@ def compare_gic(info, data, sid):
 
   savefig(sid, 'GIC_compare_timeseries')
 
+  # Add the generated plot to the markdown file
+  md_name = f"GIC_compare_timeseries.md"
+  md_path = os.path.join(data_dir, md_name)
+  with open(md_path, "a") as md_file:
+    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries.png)\n")
+  plt.close()
+
+  for idx in range(len(model_names)):
+    plt.figure()
+    error_shift = 50
+    yticks = numpy.arange(-80, 30, 10)
+    labels = []
+    for ytick in yticks:
+      if ytick < -30:
+        labels.append(str(ytick+error_shift))
+      else:
+        labels.append(str(ytick))
+    kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
+    plt.axhline(y=-35, **kwargs)
+    plt.axhline(y=-80, **kwargs)
+    plt.title(sid)
+    plt.grid()
+    plt.plot()
+
+    if model_names[idx] == 'GMU':
+      gmu_stop = time_calcs[idx][-1] + datetime.timedelta(minutes=1)
+      time_meas, data_meas = subset(time_meas, data_meas, start, gmu_stop)
+    plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
+    label = model_names[idx]
+    cc = np.corrcoef(data_meas, data_calcs[idx])
+    if cc[0,1] < 0:
+      plt.plot(time_calcs[idx], -data_calcs[idx], model_colors[idx], linewidth=0.4, label=f'-{label}')
+      plt.plot(time_calcs[idx], data_meas+data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
+    else:
+      plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
+      plt.plot(time_calcs[idx], data_meas-data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
+
+    plt.legend()
+    plt.ylabel('[A]', rotation=0, labelpad=10)
+    plt.yticks(yticks, labels=labels)
+    plt.ylim(-80, 30)
+    datetick()
+
+    # get the legend object
+    leg = plt.gca().legend()
+
+    # change the line width for the legend
+    for line in leg.get_lines():
+        line.set_linewidth(1.5)
+
+    savefig(sid, f'GIC_compare_timeseries_{model_names[idx]}')
+
+    # Add the generated plot to the markdown file
+    md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "a") as md_file:
+      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries_{model_names[idx]}.png)\n")
+    plt.close()
+
+  """
   plt.figure()
   cc = numpy.corrcoef(data_meas, data_calc)
   # Fixed calculation of pe
@@ -159,6 +240,7 @@ def compare_gic(info, data, sid):
   plt.ylabel('Probability', fontsize=18)
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
   savefig(sid, 'GIC_histogram_meas_calc')
+  """
 
 def compare_db(info, data, sid):
 
@@ -507,25 +589,41 @@ if plot_data:
     print(" ")
 
 if plot_compare:
+  # create markdown files to hold plots
+  markdown_files = [
+          ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
+          ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
+          ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation")
+      ]
+
+  for md_name, md_content in markdown_files:
+    markdown_content = f"""
+      # {md_content}
+      """
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "w") as md_file:
+      md_file.write(markdown_content)
+    print(f"Markdown file '{md_name}' created.")
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
       raise ValueError(f"Site '{sid}' not found in info_dict.json")
-      
+    """      
     if 'B' in info_dict[sid].keys():
       mag_types = info_dict[sid]['B'].keys()
       if 'measured' in mag_types and 'calculated' in mag_types:
         print("  Plotting B measured and calculated")
         compare_db(info_dict, data_all, sid)
-
+    """
     if 'GIC' in info_dict[sid].keys():
+
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid)
 
 ###############################################################################################################
-
+exit()
 # comparison plots!
 
 def savefig(fdir, fname, fmts=['png', 'pdf']):
