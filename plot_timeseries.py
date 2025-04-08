@@ -68,7 +68,7 @@ def savefig(sid, fname, sub_dir="", fmts=['png','pdf']):
     print(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
-def compare_gic(info, data, sid):
+def compare_gic(info, data, sid, save_hist=True):
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
       time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
@@ -258,11 +258,12 @@ def compare_gic(info, data, sid):
   savefig(sid, 'GIC_histogram_meas_calc')
   plt.close()
 
-  # Add the generated plot to the markdown file
-  md_name = f"GIC_compare_timeseries.md"
-  md_path = os.path.join(data_dir, md_name)
-  with open(md_path, "a") as md_file:
-    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_histogram_meas_calc.png)\n")
+  if save_hist == True:
+    # Add the generated plot to the markdown file
+    md_name = f"GIC_compare_timeseries.md"
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "a") as md_file:
+      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_histogram_meas_calc.png)\n")
   plt.close()
 
 
