@@ -109,11 +109,13 @@ def compare_gic(info, data, sid, save_hist=True):
       gmu_stop = time_calc[-1] + datetime.timedelta(minutes=1)
       time_crop, data_crop = subset(time_meas, data_meas, start, gmu_stop)
       cc = np.corrcoef(data_crop, data_calc)
+      sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
+
       if cc[0,1] < 0:
         data_calc = -data_calc
-        model_labels.append(f'-{data_source.upper()}')
+        model_labels.append(f'-{data_source.upper()}\n@ {sim_site}')
       else:
-        model_labels.append(data_source.upper())
+        model_labels.append(f'{data_source.upper()}\n@ {sim_site}')
     time_calcs.append(time_calc)
     data_calcs.append(data_calc)
     time_crops.append(time_crop)
@@ -645,7 +647,38 @@ if plot_compare:
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
-        compare_gic(info_dict, data_all, sid)
+        compare_gic(info_dict, data_all, sid, save_hist=False)
+
+#########################################################################################################
+def plot_tva_gic(sids, info, data_all, start, stop, offset=30):
+
+    plt.figure(figsize=(8.5, 11))
+    for i, sid in enumerate(sids):
+        if 'GIC' in data_all[sid].keys() and 'TVA' in info[sid]['GIC']['measured']:
+            time = data_all[sid]['GIC']['measured'][0]['original']['time']
+            data = data_all[sid]['GIC']['measured'][0]['original']['data']
+            
+            # Subset to desired time range
+            time, data = subset(time, data, start, stop)
+            
+            # Add offset for each site
+            data_with_offset = data + i * offset
+            
+            # Plot the timeseries
+            plt.plot(time, data_with_offset, label=sid, linewidth=1)
+            plt.text(time[194400], data_with_offset[0]+5, sid, fontsize=8, verticalalignment='bottom')
+    
+    plt.grid()
+    #plt.legend(loc='upper right')
+    plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
+    datetick()
+    
+    # Save the figure
+    savefig('tva', 'gic_tva')
+    plt.close()
+
+# Call the function
+plot_tva_gic(sids, info_dict, data_all, start, stop)
 
 ###############################################################################################################
 exit()
