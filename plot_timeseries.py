@@ -30,8 +30,8 @@ sids = None # If none, plot all sites
 # sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
 
-start = datetime.datetime(2024, 5, 10, 12, 0)
-stop = datetime.datetime(2024, 5, 13, 0, 0)
+start = datetime.datetime(2024, 5, 10, 15, 0)
+stop = datetime.datetime(2024, 5, 12, 6, 0)
 
 def read(all_file, sid=None):
   fname = os.path.join('info', 'info.json')
