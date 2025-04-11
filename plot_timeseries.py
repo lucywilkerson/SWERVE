@@ -134,7 +134,32 @@ def compare_gic(info, data, sid, save_hist=True):
   plt.legend()
   plt.ylabel('[A]', rotation=0, labelpad=10)
   plt.ylim(-50, 50)
-  
+
+  # add cc and pe to timeseries
+  cc = []
+  pe = []
+  for idx in range(len(model_names)):
+    cc.append(numpy.corrcoef(data_crops[idx], data_calcs[idx])[0,1])
+    # Fixed calculation of pe
+    numer = np.sum((data_crops[idx]-data_calcs[idx])**2)
+    denom = np.sum((data_crops[idx]-data_crops[idx].mean())**2)
+    pe.append( 1-numer/denom )
+
+  if len(model_names) == 1:
+    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
+  elif len(model_names) == 2:
+    text = f"{model_labels[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_labels[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+  text_kwargs = {
+   'horizontalalignment': 'center',
+   'verticalalignment': 'center',
+   'bbox': {
+     "boxstyle": "round,pad=0.3",
+     "edgecolor": "black",
+     "facecolor": "white",
+     "linewidth": 0.5
+     }
+   }
+  plt.text(time_calcs[0][0], 30, text, **text_kwargs)
   datetick()
   # get the legend object
   leg = plt.gca().legend()
@@ -224,14 +249,22 @@ def compare_gic(info, data, sid, save_hist=True):
      }
    }
   plt.title(sid)
-  plt.plot([-40, 40], [-40, 40], color=3*[0.6], linewidth=0.5)
-  # TODO: Compute limits based on data
-  plt.text(-30, 40, text, **text_kwargs)
+  # Set the aspect ratio to make the plot square and ensure xlim and ylim are the same
+  ax = plt.gca()
+  #ax.set_aspect('equal', adjustable='box')
+  limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
+  ax.set_xlim(limits)
+  ax.set_ylim(limits)
+  plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
+  plt.text(limits[0], limits[1], text, **text_kwargs)
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
   savefig(sid, 'GIC_compare_correlation')
   plt.close()
+
+  # Reset the aspect ratio to normal
+  ax.set_aspect('auto')
 
   # Add the generated plot to the markdown file
   md_name = f"GIC_compare_timeseries.md"
@@ -674,7 +707,7 @@ def plot_tva_gic(sids, info, data_all, start, stop, offset=30):
     datetick()
     
     # Save the figure
-    savefig('tva', 'gic_tva')
+    savefig('_tva', 'gic_tva')
     plt.close()
 
 # Call the function
