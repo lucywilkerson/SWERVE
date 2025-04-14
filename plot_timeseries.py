@@ -68,6 +68,16 @@ def savefig(sid, fname, sub_dir="", fmts=['png','pdf']):
     print(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
+def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
+  fdir = os.path.join('..','2024-May-Storm-paper', sub_dir)
+  if not os.path.exists(fdir):
+    os.makedirs(fdir)
+  fname = os.path.join(fdir, fname)
+
+  for fmt in fmts:
+    print(f"    Saving {fname}.{fmt}")
+    plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
 def compare_gic(info, data, sid, save_hist=True):
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
