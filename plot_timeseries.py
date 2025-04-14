@@ -27,8 +27,13 @@ base_dir = os.path.join(data_dir, '_processed')
 plot_data = False    # Plot original and modified data
 plot_compare = True # Plot measured and calculated data on same axes, when both available
 sids = None # If none, plot all sites
-# sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
+#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
+
+# sids used to make plots for paper
+paper_GIC_sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
+paper_B_sids = ['Bull Run', '50116']
+#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
 start = datetime.datetime(2024, 5, 10, 15, 0)
 stop = datetime.datetime(2024, 5, 12, 6, 0)
@@ -90,8 +95,6 @@ def compare_gic(info, data, sid, save_hist=True):
 
   model_names = []
   model_labels = []
-  time_crops = []
-  data_crops = []
   time_calcs = []
   data_calcs = []
   model_colors = ['b', 'g']
@@ -107,7 +110,6 @@ def compare_gic(info, data, sid, save_hist=True):
       time_calc, data_calc = subset(time_calc, data_calc, start, time_meas[-1])
       # TODO: Document why this is necessary
       data_calc = -data_calc
-      time_crop, data_crop = subset(time_meas, data_meas, start, stop)
       model_labels.append(data_source.upper())
 
     if data_source == 'GMU':
@@ -115,12 +117,9 @@ def compare_gic(info, data, sid, save_hist=True):
       time_calc = np.array(time_calc).flatten()
       data_calc = data[sid]['GIC']['calculated'][idx]['original']['data'][:, 0:1]
       data_calc = np.array(data_calc).flatten()
-      gmu_stop = time_meas[-1]
-      time_calc, data_calc = subset(time_calc, data_calc, start, gmu_stop)
+      time_calc, data_calc = subset(time_calc, data_calc, start, time_meas[-1])
 
-      time_crop, data_crop = subset(time_meas, data_meas, start, stop)
-
-      cc = np.corrcoef(data_crop, data_calc)
+      cc = np.corrcoef(data_meas, data_calc)
       sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
 
       if cc[0,1] < 0:
@@ -130,9 +129,6 @@ def compare_gic(info, data, sid, save_hist=True):
         model_labels.append(f'{data_source.upper()}\n@ {sim_site}')
     time_calcs.append(time_calc)
     data_calcs.append(data_calc)
-    time_crops.append(time_crop)
-    data_crops.append(data_crop)
-
 
   plt.figure()
   plt.title(sid)
@@ -151,10 +147,10 @@ def compare_gic(info, data, sid, save_hist=True):
   cc = []
   pe = []
   for idx in range(len(model_names)):
-    cc.append(numpy.corrcoef(data_crops[idx], data_calcs[idx])[0,1])
+    cc.append(numpy.corrcoef(data_meas, data_calcs[idx])[0,1])
     # Fixed calculation of pe
-    numer = np.sum((data_crops[idx]-data_calcs[idx])**2)
-    denom = np.sum((data_crops[idx]-data_crops[idx].mean())**2)
+    numer = np.sum((data_meas-data_calcs)**2)
+    denom = np.sum((data_meas-data_meas.mean())**2)
     pe.append( 1-numer/denom )
 
   if len(model_names) == 1:
@@ -181,6 +177,9 @@ def compare_gic(info, data, sid, save_hist=True):
       line.set_linewidth(1.5)
 
   savefig(sid, 'GIC_compare_timeseries')
+
+  if sid in paper_GIC_sids:
+    savefig_paper('GIC_compare_timeseries_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
   md_name = f"GIC_compare_timeseries.md"
@@ -209,7 +208,7 @@ def compare_gic(info, data, sid, save_hist=True):
     plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
     label = model_labels[idx]
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
-    plt.plot(time_calcs[idx], data_crops[idx]-data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
+    plt.plot(time_calcs[idx], data_meas-data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
 
     plt.legend()
     plt.ylabel('[A]', rotation=0, labelpad=10)
@@ -226,6 +225,9 @@ def compare_gic(info, data, sid, save_hist=True):
 
     savefig(sid, f'GIC_compare_timeseries_{model_names[idx]}')
 
+    if sid in paper_GIC_sids:
+      savefig_paper(f'GIC_compare_timeseries_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
+
     # Add the generated plot to the markdown file
     md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
     md_path = os.path.join(data_dir, md_name)
@@ -238,13 +240,13 @@ def compare_gic(info, data, sid, save_hist=True):
   cc = []
   pe = []
   for idx in range(len(model_names)):
-    cc.append(numpy.corrcoef(data_crops[idx], data_calcs[idx])[0,1])
+    cc.append(numpy.corrcoef(data_meas, data_calcs[idx])[0,1])
     # Fixed calculation of pe
-    numer = np.sum((data_crops[idx]-data_calcs[idx])**2)
-    denom = np.sum((data_crops[idx]-data_crops[idx].mean())**2)
+    numer = np.sum((data_meas-data_calcs[idx])**2)
+    denom = np.sum((data_meas-data_meas.mean())**2)
     pe.append( 1-numer/denom )
 
-    plt.plot(data_crops[idx], data_calcs[idx], model_points[idx], markersize=1)
+    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1)
 
   if len(model_names) == 1:
     text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
@@ -273,6 +275,8 @@ def compare_gic(info, data, sid, save_hist=True):
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
   savefig(sid, 'GIC_compare_correlation')
+  if sid in paper_GIC_sids:
+      savefig_paper(f'GIC_compare_correlation_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
   plt.close()
 
   # Reset the aspect ratio to normal
@@ -292,7 +296,7 @@ def compare_gic(info, data, sid, save_hist=True):
   bins_c = numpy.arange(bl, bu+1, 1)
   bins_e = numpy.arange(bl-0.5, bu+1, 1)
   for idx in range(len(model_names)): 
-    n_e, _ = numpy.histogram(data_crops[idx]-data_calcs[idx], bins=bins_e)
+    n_e, _ = numpy.histogram(data_meas-data_calcs[idx], bins=bins_e)
     plt.step(bins_c, n_e/sum(n_e), color=model_colors[idx], label=model_labels[idx])
   plt.xticks(bins_c[0::2])
   plt.xticks(fontsize=18)
