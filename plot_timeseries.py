@@ -94,20 +94,22 @@ def compare_gic(info, data, sid, save_hist=True):
     if data_source == 'TVA':
       time_calc = data[sid]['GIC']['calculated'][idx]['original']['time']
       data_calc = data[sid]['GIC']['calculated'][idx]['original']['data']
-      time_calc, data_calc = subset(time_calc, data_calc, start, stop)
+      time_calc, data_calc = subset(time_calc, data_calc, start, time_meas[-1])
       # TODO: Document why this is necessary
       data_calc = -data_calc
       time_crop, data_crop = subset(time_meas, data_meas, start, stop)
       model_labels.append(data_source.upper())
+
     if data_source == 'GMU':
       time_calc = data[sid]['GIC']['calculated'][idx]['original']['time']
       time_calc = np.array(time_calc).flatten()
       data_calc = data[sid]['GIC']['calculated'][idx]['original']['data'][:, 0:1]
       data_calc = np.array(data_calc).flatten()
-      time_calc, data_calc = subset(time_calc, data_calc, start, stop)
+      gmu_stop = time_meas[-1]
+      time_calc, data_calc = subset(time_calc, data_calc, start, gmu_stop)
 
-      gmu_stop = time_calc[-1] + datetime.timedelta(minutes=1)
-      time_crop, data_crop = subset(time_meas, data_meas, start, gmu_stop)
+      time_crop, data_crop = subset(time_meas, data_meas, start, stop)
+
       cc = np.corrcoef(data_crop, data_calc)
       sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
 
@@ -293,7 +295,7 @@ def compare_gic(info, data, sid, save_hist=True):
   savefig(sid, 'GIC_histogram_meas_calc')
   plt.close()
 
-  if save_hist == True:
+  if save_hist:
     # Add the generated plot to the markdown file
     md_name = f"GIC_compare_timeseries.md"
     md_path = os.path.join(data_dir, md_name)
@@ -683,35 +685,83 @@ if plot_compare:
         compare_gic(info_dict, data_all, sid, save_hist=False)
 
 #########################################################################################################
-def plot_tva_gic(sids, info, data_all, start, stop, offset=30):
+def plot_all_gic(sids, info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=30):
+    for source in data_source:
+      print(f"Plotting {source} sites")
+      source_sites = {'sites': [], 'lat': [], 'lon': []}
+      for sid in sids:
+          if 'GIC' in data_all[sid] and source in info[sid]['GIC']['measured']:
+              site_info = info_df[
+                  (info_df['site_id'] == sid) & 
+                  (info_df['data_type'] == 'GIC') & 
+                  (info_df['data_class'] == 'measured')
+              ]
+              if site_info['error'].isna().all():
+                  source_sites['sites'].append(sid)
+                  source_sites['lat'].append(site_info['geo_lat'].values[0])
+                  source_sites['lon'].append(site_info['geo_lon'].values[0])
+      # Sort sites by latitude
+      sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
+      source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
+      if len(sorted_sites) <= 20:
+        fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+        subplots = False
+      else:
+        fig, axes = plt.subplots(1, 2, figsize=(15, 11))
+        subplots = True
+      for i, sid in enumerate(source_sites['sites']):
+          if 'GIC' in data_all[sid].keys() and source in info[sid]['GIC']['measured']:
+              time = data_all[sid]['GIC']['measured'][0]['original']['time']
+              data = data_all[sid]['GIC']['measured'][0]['original']['data']
+              
+              # Subset to desired time range
+              time, data = subset(time, data, start, stop)
 
-    plt.figure(figsize=(8.5, 11))
-    for i, sid in enumerate(sids):
-        if 'GIC' in data_all[sid].keys() and 'TVA' in info[sid]['GIC']['measured']:
-            time = data_all[sid]['GIC']['measured'][0]['original']['time']
-            data = data_all[sid]['GIC']['measured'][0]['original']['data']
-            
-            # Subset to desired time range
-            time, data = subset(time, data, start, stop)
-            
-            # Add offset for each site
-            data_with_offset = data + i * offset
-            
-            # Plot the timeseries
-            plt.plot(time, data_with_offset, label=sid, linewidth=1)
-            plt.text(time[194400], data_with_offset[0]+5, sid, fontsize=8, verticalalignment='bottom')
-    
-    plt.grid()
-    #plt.legend(loc='upper right')
-    plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-    datetick()
-    
-    # Save the figure
-    savefig('_tva', 'gic_tva')
-    plt.close()
+              if i < 20:
+                ax_idx = 0
+                # Add offset for each site
+                data_with_offset = data + i * offset
+              else:
+                ax_idx = 1
+                data_with_offset = data + (i-20) * offset
+
+              
+              # Plot the timeseries
+              if subplots:
+                  axes[ax_idx].plot(time, data_with_offset, linewidth=1)
+              else:
+                  axes.plot(time, data_with_offset, linewidth=1)
+              # Add text to the plot to label waveform
+              sid_lat = source_sites['lat'][i]
+              sid_lon = source_sites['lon'][i]
+              text = f'{sid} ({sid_lat:.1f},{sid_lon:.1f})'
+              if subplots:
+                axes[ax_idx].text(stop, data_with_offset[0]+5, text, fontsize=8, verticalalignment='bottom', horizontalalignment='right')
+              else:
+                 axes.text(stop, data_with_offset[0]+5, text, fontsize=8, verticalalignment='bottom', horizontalalignment='right')
+      if subplots:
+        for ax in axes:
+            ax.grid()
+            ax.yaxis.set_major_locator(plt.MultipleLocator(30))
+            #ax.legend(loc='upper right')
+            ax.yaxis.set_ticklabels([])  # Remove y-tick labels
+            ax.set_ylim(max(axes[0].get_ylim(),axes[1].get_ylim()))
+            datetick('x', axes=ax)
+        fig.tight_layout()
+      else:
+        plt.grid()
+        plt.gca().yaxis.set_major_locator(plt.MultipleLocator(30))
+        #plt.legend(loc='upper right')
+        plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
+        datetick()
+      
+      # Save the figure
+      savefig(f'_{source.lower()}', f'gic_{source.lower()}')
+      savefig_paper(f'gic_{source.lower()}')
+      plt.close()
 
 # Call the function
-plot_tva_gic(sids, info_dict, data_all, start, stop)
+plot_all_gic(sids, info_dict, info_df, data_all, start, stop)
 
 ###############################################################################################################
 exit()
