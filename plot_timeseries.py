@@ -358,6 +358,9 @@ def compare_db(info, data, sid):
   ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
 
   savefig(sid, 'B_compare_timeseries')
+  if sid in paper_B_sids:
+    savefig_paper(f'B_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
+  plt.close()
   
   # Plots to examine how well measured matched calculated values
   
@@ -421,6 +424,8 @@ def compare_db(info, data, sid):
   plt.xlim(ylims)
   plt.legend(loc='upper right')
   savefig(sid, 'B_compare_correlation')
+  if sid in paper_B_sids:
+      savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Histograms showing delta between measured and calculated values
   plt.figure()
