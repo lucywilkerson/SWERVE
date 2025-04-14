@@ -699,7 +699,10 @@ if plot_compare:
         compare_gic(info_dict, data_all, sid, save_hist=False)
 
 #########################################################################################################
-def plot_all_gic(sids, info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=30):
+stack_plot = False #make true to make stack plots :)
+
+def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=30):
+    sids = info.keys()
     for source in data_source:
       print(f"Plotting {source} sites")
       source_sites = {'sites': [], 'lat': [], 'lon': []}
@@ -775,7 +778,8 @@ def plot_all_gic(sids, info, info_df, data_all,  start, stop, data_source=['TVA'
       plt.close()
 
 # Call the function
-plot_all_gic(sids, info_dict, info_df, data_all, start, stop)
+if stack_plot:
+  plot_all_gic(info_dict, info_df, data_all, start, stop)
 
 ###############################################################################################################
 exit()
