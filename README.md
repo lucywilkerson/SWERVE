@@ -5,7 +5,7 @@
 # (it contains NERC data, which is not open)
 git clone https://github.com/lucywilkerson/2024-May-Storm
 git clone https://github.com/lucywilkerson/2024-May-Storm
-cd 2024-AGU
+cd 2024-May-Storm
 pip install -e .
 ```
 
