@@ -33,7 +33,7 @@ sids = None # If none, plot all sites
 # sids used to make plots for paper
 paper_GIC_sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 paper_B_sids = ['Bull Run', '50116']
-sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
+#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
 start = datetime.datetime(2024, 5, 10, 15, 0)
 stop = datetime.datetime(2024, 5, 12, 6, 0)
@@ -360,6 +360,12 @@ def compare_db(info, data, sid):
   savefig(sid, 'B_compare_timeseries')
   if sid in paper_B_sids:
     savefig_paper(f'B_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
+
+  # Add the generated plot to the markdown file
+  md_name = f"B_compare_timeseries.md"
+  md_path = os.path.join(data_dir, md_name)
+  with open(md_path, "a") as md_file:
+    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_timeseries.png)\n")
   plt.close()
   
   # Plots to examine how well measured matched calculated values
@@ -425,7 +431,13 @@ def compare_db(info, data, sid):
   plt.legend(loc='upper right')
   savefig(sid, 'B_compare_correlation')
   if sid in paper_B_sids:
-      savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
+    savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
+  
+  # Add the generated plot to the markdown file
+  md_name = f"B_compare_timeseries.md"
+  md_path = os.path.join(data_dir, md_name)
+  with open(md_path, "a") as md_file:
+    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_correlation.png)\n")
 
   # Histograms showing delta between measured and calculated values
   plt.figure()
@@ -583,7 +595,8 @@ if plot_compare:
     markdown_files = [
             ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
             ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
-            ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation")
+            ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation"),
+            ("B_compare_timeseries.md", "B Compare Timeseries")
         ]
 
     for md_name, md_content in markdown_files:
