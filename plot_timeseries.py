@@ -33,7 +33,7 @@ sids = None # If none, plot all sites
 # sids used to make plots for paper
 paper_GIC_sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 paper_B_sids = ['Bull Run', '50116']
-#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
+sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
 start = datetime.datetime(2024, 5, 10, 15, 0)
 stop = datetime.datetime(2024, 5, 12, 6, 0)
@@ -674,9 +674,7 @@ if plot_compare:
         ]
 
     for md_name, md_content in markdown_files:
-      markdown_content = f"""
-        # {md_content}
-        """
+      markdown_content = f"""# {md_content}"""
       md_path = os.path.join(data_dir, md_name)
       with open(md_path, "w") as md_file:
         md_file.write(markdown_content)
@@ -685,15 +683,12 @@ if plot_compare:
   for sid in sids: # site ids
     if sid not in info_dict.keys():
       raise ValueError(f"Site '{sid}' not found in info_dict.json")
-    """      
     if 'B' in info_dict[sid].keys():
       mag_types = info_dict[sid]['B'].keys()
       if 'measured' in mag_types and 'calculated' in mag_types:
         print("  Plotting B measured and calculated")
         compare_db(info_dict, data_all, sid)
-    """
     if 'GIC' in info_dict[sid].keys():
-
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
