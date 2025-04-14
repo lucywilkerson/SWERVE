@@ -666,20 +666,21 @@ if plot_data:
 
 if plot_compare:
   # create markdown files to hold plots
-  markdown_files = [
-          ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
-          ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
-          ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation")
-      ]
+  if sids == info_dict.keys():
+    markdown_files = [
+            ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
+            ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
+            ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation")
+        ]
 
-  for md_name, md_content in markdown_files:
-    markdown_content = f"""
-      # {md_content}
-      """
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "w") as md_file:
-      md_file.write(markdown_content)
-    print(f"Markdown file '{md_name}' created.")
+    for md_name, md_content in markdown_files:
+      markdown_content = f"""
+        # {md_content}
+        """
+      md_path = os.path.join(data_dir, md_name)
+      with open(md_path, "w") as md_file:
+        md_file.write(markdown_content)
+      print(f"Markdown file '{md_name}' created.")
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
