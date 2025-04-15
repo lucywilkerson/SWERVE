@@ -1,6 +1,7 @@
 import os
 import sys
 import pickle
+import datetime
 
 import numpy as np
 import pandas as pd
@@ -67,10 +68,21 @@ def read_TVA_or_NERC(row):
       site_data = pickle.load(f)
 
   site_df = pd.DataFrame(site_data)
+  mod_time = site_df['modified'][0]['time'] # timestamps of 1-min avg data
   mod_data = site_df['modified'][0]['data'] # 1-min avg data
+  # Crop data using subset()
+  mod_time, mod_data = subset(mod_time, mod_data, start, stop)
   masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
   return mod_data, masked_data
 
+def subset(time, data, start, stop):
+  idx = np.logical_and(time >= start, time <= stop)
+  if data.ndim == 1:
+    return time[idx], data[idx]
+  return time[idx], data[idx,:]
+
+start = datetime.datetime(2024, 5, 10, 15, 0)
+stop = datetime.datetime(2024, 5, 12, 6, 0)
 
 def site_distance(df, idx_1, idx_2):
   dist = geodesic((df['geo_lat'][idx_1], df['geo_lon'][idx_1]), 
