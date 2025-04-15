@@ -348,7 +348,6 @@ if __name__ == "__main__":
     )
 
     print(device_gdf['device'])
-    exit()
 
     # Display the resulting dictionaries
     print("Device to Lines:")
