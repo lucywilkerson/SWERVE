@@ -110,7 +110,7 @@ new_info_df = add_info(info_df, output_df)
 #new_info_df.to_csv(output_fname, index=False)
 #print(f"Saved updated info table to {output_fname}")
 
-#####  RUN BETA.PY AND GRID_REGION.PY BEFORE CONTINUING!!  #####
+#####  RUN BETA.PY, GRID_REGION.PY, AND VOLTAGE.PY BEFORE CONTINUING!!  #####
 
 fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
