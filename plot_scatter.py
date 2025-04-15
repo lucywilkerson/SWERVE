@@ -7,6 +7,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 plt.rcParams['font.family'] = 'Times New Roman'
+plt.rcParams['figure.dpi'] = 100
+plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-May-Storm-data')
 results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
@@ -24,10 +26,19 @@ def savefig(fdir, fname, fmts=fmts):
 
     for fmt in fmts:
         print(f"    Saving {fname}.{fmt}")
-        if fmt == 'png':
-            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
-        else:
-            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+        plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
+  fdir = os.path.join('..','2024-May-Storm-paper', sub_dir)
+  if not os.path.exists(fdir):
+    os.makedirs(fdir)
+  fname = os.path.join(fdir, fname)
+
+  for fmt in fmts:
+    print(f"    Saving {fname}.{fmt}")
+    plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+Poster = False # set to be true to generate poster figs
 
 # Scatter plots for all sites
 
@@ -36,33 +47,7 @@ plt.xlabel('Distance [km]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_dist_scatter')
-plt.close()
-
-# for poster 
-fig, ax = plt.subplots(figsize=(12, 5))
-plt.scatter(df['dist(km)'], np.abs(df['cc']))
-plt.xlabel('Distance [km]')
-plt.ylabel('|cc|')
-plt.grid(True)
-# outlining points
-for idx, row in df.iterrows():
-    if row['site_1'] == '10181' and row['site_2'] == '10099':
-        plt.scatter(row['dist(km)'], np.abs(row['cc']), facecolor='none', edgecolor='k')
-    elif row['site_1'] == 'Widows Creek' and row['site_2'] == 'Bradley':
-        plt.scatter(row['dist(km)'], np.abs(row['cc']), facecolor='none', edgecolor='k')
-# empty colorbar
-cmap = mpl.cm.viridis  
-norm = mpl.colors.Normalize(vmin=0, vmax=1)  
-sm = mpl.cm.ScalarMappable(cmap=cmap, norm=norm)
-sm.set_array([])  
-cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])
-cbar = plt.colorbar(sm, cax=cax)
-cbar.ax.clear()
-cbar.ax.tick_params(size=0)
-cbar.ax.set_xticks([])
-cbar.ax.set_yticks([])
-cbar.outline.set_visible(False)
-savefig(results_dir, 'cc_vs_dist_scatter_poster')
+savefig_paper('cc_vs_dist_scatter','scatter')
 plt.close()
 
 avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
@@ -71,6 +56,7 @@ plt.xlabel('Average standard deviation [A]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_std_scatter')
+savefig_paper('cc_vs_std_scatter','scatter')
 plt.close()
 
 plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']))
@@ -78,27 +64,7 @@ plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_beta_scatter')
-plt.close()
-
-# for poster 
-fig, ax = plt.subplots(figsize=(12, 5))
-plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']))
-plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
-plt.ylabel('|cc|')
-plt.grid(True)
-# empty colorbar
-cmap = mpl.cm.viridis  
-norm = mpl.colors.Normalize(vmin=0, vmax=1)  
-sm = mpl.cm.ScalarMappable(cmap=cmap, norm=norm)
-sm.set_array([])  
-cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])
-cbar = plt.colorbar(sm, cax=cax)
-cbar.ax.clear()
-cbar.ax.tick_params(size=0)
-cbar.ax.set_xticks([])
-cbar.ax.set_yticks([])
-cbar.outline.set_visible(False)
-savefig(results_dir, 'cc_vs_beta_scatter_poster')
+savefig_paper('cc_vs_beta_scatter','scatter')
 plt.close()
 
 plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']))
@@ -108,6 +74,7 @@ plt.xlabel(r'|$\Delta$V| [kV]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_volt_scatter')
+savefig_paper('cc_vs_volt_scatter','scatter')
 plt.close()
 
 plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']))
@@ -115,8 +82,8 @@ plt.xlabel(r'$\Delta$ Latitude [deg]')
 plt.ylabel('|cc|')
 plt.grid(True)
 savefig(results_dir, 'cc_vs_lat_scatter')
+savefig_paper('cc_vs_lat_scatter','scatter')
 plt.close()
-
 
 plt.scatter(np.abs(df['beta_diff']), avg_std)
 plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
@@ -125,7 +92,6 @@ plt.grid(True)
 savefig(results_dir, 'std_vs_beta_scatter')
 plt.close()
 
-
 plt.scatter(np.abs(df['lat_diff']), avg_std)
 plt.xlabel(r'$\Delta$ Latitude [deg]')
 plt.ylabel('Average standard deviation [A]')
@@ -133,6 +99,54 @@ plt.grid(True)
 savefig(results_dir, 'std_vs_lat_scatter')
 plt.close()
 
+
+# for poster
+if Poster: 
+    fig, ax = plt.subplots(figsize=(12, 5))
+    plt.scatter(df['dist(km)'], np.abs(df['cc']))
+    plt.xlabel('Distance [km]')
+    plt.ylabel('|cc|')
+    plt.grid(True)
+    # outlining points
+    for idx, row in df.iterrows():
+        if row['site_1'] == '10181' and row['site_2'] == '10099':
+            plt.scatter(row['dist(km)'], np.abs(row['cc']), facecolor='none', edgecolor='k')
+        elif row['site_1'] == 'Widows Creek' and row['site_2'] == 'Bradley':
+            plt.scatter(row['dist(km)'], np.abs(row['cc']), facecolor='none', edgecolor='k')
+    # empty colorbar
+    cmap = mpl.cm.viridis  
+    norm = mpl.colors.Normalize(vmin=0, vmax=1)  
+    sm = mpl.cm.ScalarMappable(cmap=cmap, norm=norm)
+    sm.set_array([])  
+    cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])
+    cbar = plt.colorbar(sm, cax=cax)
+    cbar.ax.clear()
+    cbar.ax.tick_params(size=0)
+    cbar.ax.set_xticks([])
+    cbar.ax.set_yticks([])
+    cbar.outline.set_visible(False)
+    savefig(results_dir, 'cc_vs_dist_scatter_poster')
+    plt.close()
+
+    fig, ax = plt.subplots(figsize=(12, 5))
+    plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']))
+    plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
+    plt.ylabel('|cc|')
+    plt.grid(True)
+    # empty colorbar
+    cmap = mpl.cm.viridis  
+    norm = mpl.colors.Normalize(vmin=0, vmax=1)  
+    sm = mpl.cm.ScalarMappable(cmap=cmap, norm=norm)
+    sm.set_array([])  
+    cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])
+    cbar = plt.colorbar(sm, cax=cax)
+    cbar.ax.clear()
+    cbar.ax.tick_params(size=0)
+    cbar.ax.set_xticks([])
+    cbar.ax.set_yticks([])
+    cbar.outline.set_visible(False)
+    savefig(results_dir, 'cc_vs_beta_scatter_poster')
+    plt.close()
 
 #########################################################################################
 # Scatter plots with colorbars!
@@ -167,9 +181,10 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     cbar.set_label(cbar_label)
     cbar.ax.xaxis.set_visible(False)
     savefig(results_dir, file_name)
+    savefig_paper(file_name,'scatter')
     plt.close()
 
-# Example usage
+# Generating plots
 scatter_with_colorbar(df, 'beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
 scatter_with_colorbar(df, 'volt_diff(kV)', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
 scatter_with_colorbar(df, 'lat_diff', r'$\Delta$ Latitude [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
