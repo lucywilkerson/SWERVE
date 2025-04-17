@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import h5py
 from datetime import datetime, timedelta
 
@@ -57,13 +58,26 @@ time = [datetime(1858, 11, 17) + timedelta(days=day) for day in mjd]
 fig, axes = plt.subplots(5,1,figsize=(8.5, 11))
 
 # Plotting al and ae
+for i in range(al.size):
+  if time[i] <= datetime(2024, 5, 10, 0, 0):
+    al[i] = np.nan
+    ae[i] = np.nan
+
 axes[0].plot(time,al, label='AL')
 axes[0].plot(time,ae, label='AE')
-axes[0].set_ylabel('AL, AE [nT]')
+axes[0].set_ylabel('[nT]')
 axes[0].legend()
 
 # Plotting Kp
-axes[1].plot(time,Kp)
+kp_times = []
+kp_values = []
+# Extract Kp values at 3-hour increments (midnight, 3am, 6am, etc.)
+for i, t in enumerate(time):
+  if t.hour % 3 == 0 and t.minute == 0:
+    kp_times.append(t + timedelta(hours=1.5))  # Center bars at 1:30am, 4:30am, etc.
+    kp_values.append(Kp[i])
+
+axes[1].step(kp_times, kp_values, where='mid')
 axes[1].set_ylabel(r'K$_p$')
 
 # Plotting symh
@@ -75,18 +89,20 @@ axes[3].plot(time,Vx/1000) # divide by 1000 to get in km/s
 axes[3].set_ylabel(r'V$_x$ [km/s]')
 
 # Plotting Bx, By, Bz IMF
-axes[4].plot(time,Bx, label=r'B$_x^{IMF}$')
-axes[4].plot(time,By, label=r'B$_y^{IMF}$')
-axes[4].plot(time,Bz, label=r'B$_z^{IMF}$')
-axes[4].set_ylabel(r'B$^{IMF}$ [nT]')
+#axes[4].plot(time, Bx, label=r'B$_x^\text{IMF}$', linewidth=0.5)
+axes[4].plot(time, By, label=r'B$_y^\text{IMF}$', linewidth=0.5)
+axes[4].plot(time, Bz, label=r'B$_z^\text{IMF}$', linewidth=0.5)
+axes[4].set_ylabel('[nT]')
 axes[4].legend(loc='lower left')
 
 # Remove x-axis labels for all subplots except the bottom one
 for ax in axes[:-1]:
     ax.set_xticklabels([])
 
+xlims = [time[0], time[-1]]
 for ax in axes:
-    ax.grid(True)
+  ax.set_xlim(xlims)
+  ax.grid(True)
 datetick()
 
 savefig('_imf','imf_mage')
