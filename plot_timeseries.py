@@ -26,8 +26,8 @@ base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
 plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = False # make true to make stack plots :)
-plot_pairs = True # Plot and compare measured GIC across all "good" pairs
+stack_plot = True # Plot GIC stack plots
+plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = True # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
@@ -650,7 +650,11 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       else:
         fig, axes = plt.subplots(1, 2, figsize=(15, 11))
         subplots = True
+      offset_fix = 0
       for i, sid in enumerate(source_sites['sites']):
+          if sid in ['10197','10204','10208','10203','10212','10201','10660','10200','10207']:
+            offset_fix +=1
+            continue # skipping NERC sites that are TVA duplicates
           if 'GIC' in data_all[sid].keys() and source in info[sid]['GIC']['measured']:
               time = data_all[sid]['GIC']['measured'][0]['original']['time']
               data = data_all[sid]['GIC']['measured'][0]['original']['data']
@@ -658,10 +662,12 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
               # Subset to desired time range
               time, data = subset(time, data, start, stop)
 
-              if i < 20:
+              if i-offset_fix < 16:
                 ax_idx = 0
                 # Add offset for each site
-                data_with_offset = data + i * offset
+                data_with_offset = data + (i * offset) - (offset_fix * offset)
+                if source == 'NERC':
+                  data_with_offset += 150 #not sure why this is necessary
               else:
                 ax_idx = 1
                 data_with_offset = data + (i-20) * offset
