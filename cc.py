@@ -171,7 +171,7 @@ for idx_1, row in info_df.iterrows():
     site_1_id_x = site_1_id.lower().replace(' ','')
     site_2_id_x = site_2_id.lower().replace(' ','')
 
-    cc_link = f'[{cc:.3f}](../../../tree/main/_results/pairs/{site_1_id_x}_{site_2_id_x}.png)'
+    cc_link = f'[{cc:.3f}](../../../tree/main/_results/pairs/{site_2_id_x}_{site_1_id_x}.png)'
 
     site_1_id_link = f'[{site_1_id_x}](../../../tree/main/_processed/{site_1_id_x})'
     site_2_id_link = f'[{site_2_id_x}](../../../tree/main/_processed/{site_2_id_x})'
