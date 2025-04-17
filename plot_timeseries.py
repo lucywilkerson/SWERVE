@@ -25,7 +25,10 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = True # Plot measured and calculated data on same axes, when both available
+plot_compare = False # Plot measured and calculated data on same axes, when both available
+stack_plot = False # make true to make stack plots :)
+plot_pairs = True # Plot and compare measured GIC across all "good" pairs
+create_md = True # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
@@ -621,7 +624,6 @@ if plot_compare:
         compare_gic(info_dict, data_all, sid, save_hist=False)
 
 #########################################################################################################
-stack_plot = False #make true to make stack plots :)
 
 def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=30):
     sids = info.keys()
@@ -704,7 +706,7 @@ if stack_plot:
   plot_all_gic(info_dict, info_df, data_all, start, stop)
 
 ###############################################################################################################
-exit()
+
 # comparison plots!
 
 def savefig(fdir, fname, fmts=['png', 'pdf']):
@@ -718,6 +720,132 @@ def savefig(fdir, fname, fmts=['png', 'pdf']):
             plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
         else:
             plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+#reading in info.extended.csv
+fname = os.path.join('info', 'info.extended.csv')
+print(f"Reading {fname}")
+df = pd.read_csv(fname).set_index('site_id')
+info_df = pd.read_csv(fname)
+
+# Filter out sites with error message
+info_df = info_df[~info_df['error'].str.contains('', na=False)]
+# TODO: Print number of GIC sites removed due to error and how many kept.
+# Remove rows that don't have data_type = GIC and data_class = measured
+info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+info_df.reset_index(drop=True, inplace=True)
+good_sites = info_df['site_id'].tolist()
+
+pkl_file = os.path.join('..', '2024-May-Storm-data', '_results', 'cc.pkl')
+print(f"Reading {pkl_file}")
+with open(pkl_file, 'rb') as file:
+  cc_df = pickle.load(file)
+
+def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
+  time_meas_1 = data[sid_1]['GIC']['measured'][0]['modified']['time']
+  data_meas_1 = data[sid_1]['GIC']['measured'][0]['modified']['data']
+  time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
+  time_meas_2 = data[sid_2]['GIC']['measured'][0]['modified']['time']
+  data_meas_2 = data[sid_2]['GIC']['measured'][0]['modified']['data']
+  time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
+
+  cc_row = cc_df[((cc_df['site_1'] == sid_1) & (cc_df['site_2'] == sid_2)) | 
+          ((cc_df['site_2'] == sid_1) & (cc_df['site_1'] == sid_2))].iloc[0]
+  cc = cc_row['cc']
+  dist = cc_row['dist(km)']
+
+  #plotting time series comparison
+  plt.figure()
+
+  error_shift = 70
+  yticks = np.arange(-120, 30, 10)
+  labels = []
+  for ytick in yticks:
+    if ytick < -30:
+      labels.append(str(ytick+error_shift))
+    else:
+      labels.append(str(ytick))
+  kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
+  plt.axhline(y=-35, **kwargs)
+  plt.axhline(y=-120, **kwargs)
+  plt.title(f'{sid_1} vs {sid_2}\n|cc| = {np.abs(cc):.2f}, distance = {dist:4.2f} km')
+  plt.grid()
+  plt.plot()
+  if cc < 0:
+    data_meas_1 = -data_meas_1
+    plt.text(stop, -117, f'time series for {sid_1} plotted inverse due to negative correlation', fontsize=8, 
+         verticalalignment='bottom', horizontalalignment='right')
+  plt.plot(time_meas_1, data_meas_1, 'b', label=sid_1, linewidth=0.5)
+  plt.plot(time_meas_2, data_meas_2, 'r', label=sid_2, linewidth=0.5)
+  plt.plot(time_meas_1, data_meas_1-data_meas_2-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
+  plt.legend(loc='lower left')
+  plt.ylabel('GIC [A]')
+  plt.ylim(-120, 30)
+  plt.yticks(yticks, labels=labels)
+  datetick()
+
+  site_1_save =sid_1.lower().replace(' ', '')
+  site_2_save =sid_2.lower().replace(' ', '')
+  fname = f'{site_1_save}_{site_2_save}'
+  out_dir = os.path.join('..', '2024-May-Storm-data', '_results', 'pairs')
+  savefig(out_dir, fname)
+  plt.close()
+
+
+  #plotting cross and auto correlation
+  plt.figure()
+
+  cross_corr = [np.corrcoef(data_meas_1, np.roll(data_meas_2, lag))[0, 1] for lag in lags]
+  auto_corr_1 = [np.corrcoef(data_meas_1, np.roll(data_meas_1, lag))[0, 1] for lag in lags]
+  auto_corr_2 = [np.corrcoef(data_meas_2, np.roll(data_meas_2, lag))[0, 1] for lag in lags]
+
+  plt.plot(lags, cross_corr, 'k', label='Cross Corr')
+  plt.plot(lags, auto_corr_1, 'b--', label=f'Auto Corr {sid_1}')
+  plt.plot(lags, auto_corr_2, 'r--', label=f'Auto Corr {sid_2}')
+  plt.xlabel('Lag [min]')
+  plt.ylabel('Correlation')
+  plt.title(f'{sid_1} vs {sid_2}')
+  plt.legend(loc='upper left')
+  plt.grid()
+
+  fname = f'{site_1_save}_{site_2_save}_correlation'
+  savefig(out_dir, fname)
+  plt.close()
+
+
+if plot_pairs:
+  sids = good_sites
+  lag = range(-60, 61, 1)
+  for i, site_1 in enumerate(sids):
+    for site_2 in sids[i+1:]:
+      gic_pairs(info_dict, data_all, cc_df, site_1, site_2, lag)
+
+  # make md
+  markdown_files = [("GIC_compare_pairs.md", "GIC Compare Pairs")
+          ]
+  for md_name, md_content in markdown_files:
+    markdown_content = f"""# {md_content}"""
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "w") as md_file:
+      md_file.write(markdown_content)
+    print(f"Writing markdown file: '{md_name}'.")
+  for i, site_1 in enumerate(sids):
+    for site_2 in sids[i+1:]:
+      site_1_save =site_1.lower().replace(' ', '')
+      site_2_save =site_2.lower().replace(' ', '')
+      # Add the generated plot to the markdown file
+      md_name = f"GIC_compare_pairs.md"
+      md_path = os.path.join(data_dir, md_name)
+      with open(md_path, "a") as md_file:
+        md_file.write(f"\n![](_results/pairs/{site_1_save}_{site_2_save}.png)\n")
+        md_file.write(f"\n![](_results/pairs/{site_1_save}_{site_2_save}_correlation.png)\n")
+  
+
+
+
+
+"""
+## this is old code for pairings, saved for posterity ##
 
 def read_TVA_or_NERC(row):
   site_id = row['site_id']
@@ -738,27 +866,6 @@ def read_TVA_or_NERC(row):
   mod_data = site_df['modified'][0]['data'] # 1-min avg data
   masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
   return time, mod_data, masked_data
-
-#reading in info.extended.csv
-fname = os.path.join('info', 'info.extended.csv')
-print(f"Reading {fname}")
-df = pd.read_csv(fname).set_index('site_id')
-info_df = pd.read_csv(fname)
-
-# Filter out sites with error message
-info_df = info_df[~info_df['error'].str.contains('', na=False)]
-# TODO: Print number of GIC sites removed due to error and how many kept.
-# Remove rows that don't have data_type = GIC and data_class = measured
-info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
-info_df.reset_index(drop=True, inplace=True)
-sites = info_df['site_id'].tolist()
-
-pkl_file = os.path.join('..', '2024-May-Storm-data', '_results', 'cc.pkl')
-print(f"Reading {pkl_file}")
-with open(pkl_file, 'rb') as file:
-  cc_df = pickle.load(file)
-
 
 def compare_gic_site(sites):
   for idx_1, row in info_df.iterrows():
@@ -820,3 +927,4 @@ def compare_gic_site(sites):
       plt.close()
 
 compare_gic_site(sites)
+"""
