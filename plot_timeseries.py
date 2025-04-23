@@ -25,10 +25,10 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True # Plot GIC stack plots
+plot_compare = True # Plot measured and calculated data on same axes, when both available
+stack_plot = False # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
-create_md = True # TODO: write md code that just updates md files without replotting everything
+create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
@@ -36,7 +36,7 @@ sids = None # If none, plot all sites
 # sids used to make plots for paper
 paper_GIC_sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 paper_B_sids = ['Bull Run', '50116']
-#sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
+sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
 start = datetime.datetime(2024, 5, 10, 15, 0)
 stop = datetime.datetime(2024, 5, 12, 6, 0)
@@ -86,7 +86,7 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
     print(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
-def compare_gic(info, data, sid, save_hist=True):
+def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
       time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
@@ -127,9 +127,15 @@ def compare_gic(info, data, sid, save_hist=True):
 
       if cc[0,1] < 0:
         data_calc = -data_calc
-        model_labels.append(f'-{data_source.upper()}\n@ {sim_site}')
+        if show_sim_site:
+          model_labels.append(f'-{data_source.upper()}\n@ {sim_site}')
+        else:
+          model_labels.append(f'-{data_source.upper()}')
       else:
-        model_labels.append(f'{data_source.upper()}\n@ {sim_site}')
+        if show_sim_site:
+          model_labels.append(f'{data_source.upper()}\n@ {sim_site}')
+        else:
+          model_labels.append(f'{data_source.upper()}')
     time_calcs.append(time_calc)
     data_calcs.append(data_calc)
 
@@ -142,9 +148,9 @@ def compare_gic(info, data, sid, save_hist=True):
     label = model_labels[idx]
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
 
-  plt.legend()
+  plt.legend(loc='upper right')
   plt.ylabel('[A]', rotation=0, labelpad=10)
-  plt.ylim(-50, 50)
+  #plt.ylim(-50, 50)
 
   # add cc and pe to timeseries
   cc = []
@@ -152,17 +158,17 @@ def compare_gic(info, data, sid, save_hist=True):
   for idx in range(len(model_names)):
     cc.append(numpy.corrcoef(data_meas, data_calcs[idx])[0,1])
     # Fixed calculation of pe
-    numer = np.sum((data_meas-data_calcs)**2)
+    numer = np.sum((data_meas-data_calcs[idx])**2)
     denom = np.sum((data_meas-data_meas.mean())**2)
     pe.append( 1-numer/denom )
 
   if len(model_names) == 1:
     text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
   elif len(model_names) == 2:
-    text = f"{model_labels[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_labels[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
   text_kwargs = {
-   'horizontalalignment': 'center',
-   'verticalalignment': 'center',
+   'horizontalalignment': 'right',
+   'verticalalignment': 'bottom',
    'bbox': {
      "boxstyle": "round,pad=0.3",
      "edgecolor": "black",
@@ -170,7 +176,7 @@ def compare_gic(info, data, sid, save_hist=True):
      "linewidth": 0.5
      }
    }
-  plt.text(time_calcs[0][0], 30, text, **text_kwargs)
+  plt.text(time_calcs[0][-1], min(min(data_meas),np.min(data_calcs)), text, **text_kwargs)
   datetick()
   # get the legend object
   leg = plt.gca().legend()
@@ -185,10 +191,11 @@ def compare_gic(info, data, sid, save_hist=True):
     savefig_paper('GIC_compare_timeseries_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
-  md_name = f"GIC_compare_timeseries.md"
-  md_path = os.path.join(data_dir, md_name)
-  with open(md_path, "a") as md_file:
-    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries.png)\n")
+  if create_md:
+    md_name = f"GIC_compare_timeseries.md"
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "a") as md_file:
+      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries.png)\n")
   plt.close()
 
   for idx in range(len(model_names)):
@@ -213,14 +220,14 @@ def compare_gic(info, data, sid, save_hist=True):
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
     plt.plot(time_calcs[idx], data_meas-data_calcs[idx]-error_shift, color=3*[0.3], label='Error', linewidth=0.5)
 
-    plt.legend()
+    #plt.legend(loc='upper right')
     plt.ylabel('[A]', rotation=0, labelpad=10)
     plt.yticks(yticks, labels=labels)
     plt.ylim(-80, 30)
     datetick()
 
     # get the legend object
-    leg = plt.gca().legend()
+    leg = plt.gca().legend(loc='upper right')
 
     # change the line width for the legend
     for line in leg.get_lines():
@@ -232,10 +239,11 @@ def compare_gic(info, data, sid, save_hist=True):
       savefig_paper(f'GIC_compare_timeseries_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
 
     # Add the generated plot to the markdown file
-    md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "a") as md_file:
-      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries_{model_names[idx]}.png)\n")
+    if create_md:
+      md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
+      md_path = os.path.join(data_dir, md_name)
+      with open(md_path, "a") as md_file:
+        md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries_{model_names[idx]}.png)\n")
     plt.close()
 
   
@@ -254,10 +262,10 @@ def compare_gic(info, data, sid, save_hist=True):
   if len(model_names) == 1:
     text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
   elif len(model_names) == 2:
-    text = f"{model_labels[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_labels[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
   text_kwargs = {
-   'horizontalalignment': 'center',
-   'verticalalignment': 'center',
+   'horizontalalignment': 'left',
+   'verticalalignment': 'top',
    'bbox': {
      "boxstyle": "round,pad=0.3",
      "edgecolor": "black",
@@ -268,12 +276,11 @@ def compare_gic(info, data, sid, save_hist=True):
   plt.title(sid)
   # Set the aspect ratio to make the plot square and ensure xlim and ylim are the same
   ax = plt.gca()
-  #ax.set_aspect('equal', adjustable='box')
   limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
   ax.set_xlim(limits)
   ax.set_ylim(limits)
   plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
-  plt.text(limits[0], limits[1], text, **text_kwargs)
+  plt.text(min(min(data_meas),np.min(data_calcs)), max(max(data_meas),np.max(data_calcs)), text, **text_kwargs)
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
@@ -282,14 +289,45 @@ def compare_gic(info, data, sid, save_hist=True):
       savefig_paper(f'GIC_compare_correlation_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
   plt.close()
 
+  for idx in range(len(model_names)):
+    plt.figure()
+    plt.title(sid)
+    text = f"cc = {cc[idx]:.2f} | pe = {pe[idx]:.2f}"
+    plt.text(min(min(data_meas),np.min(data_calcs[idx])), max(max(data_meas),np.max(data_calcs[idx])), text, **text_kwargs)
+    plt.plot(data_meas, data_calcs[idx], 'k.', markersize=1)
+
+    ax = plt.gca()
+    limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
+    ax.set_xlim(limits)
+    ax.set_ylim(limits)
+    plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
+    #plt.legend(loc='upper right')
+    plt.xlabel('Measured GIC [A]')
+    plt.ylabel('Calculated GIC [A]')
+    plt.grid()
+
+    savefig(sid, f'GIC_compare_correlation_{model_names[idx]}')
+
+    if sid in paper_GIC_sids:
+      savefig_paper(f'GIC_compare_correlation_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
+
+    # Add the generated plot to the markdown file
+    if create_md:
+      md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
+      md_path = os.path.join(data_dir, md_name)
+      with open(md_path, "a") as md_file:
+        md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_correlation_{model_names[idx]}.png)\n")
+    plt.close()
+
   # Reset the aspect ratio to normal
   ax.set_aspect('auto')
 
   # Add the generated plot to the markdown file
-  md_name = f"GIC_compare_timeseries.md"
-  md_path = os.path.join(data_dir, md_name)
-  with open(md_path, "a") as md_file:
-    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_correlation.png)\n")
+  if create_md:
+    md_name = f"GIC_compare_timeseries.md"
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "a") as md_file:
+      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_correlation.png)\n")
   plt.close()
 
   plt.figure()
@@ -353,27 +391,29 @@ def compare_db(info, data, sid):
   datetick()
   plt.legend()
   plt.grid()
-
+  """
   ax = plt.gca()
   aspect_ratio = 0.5
   xleft, xright = ax.get_xlim()
   ybottom, ytop = ax.get_ylim()
   ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
+  """
 
   savefig(sid, 'B_compare_timeseries')
   if sid in paper_B_sids:
     savefig_paper(f'B_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
-  md_name = f"B_compare_timeseries.md"
-  md_path = os.path.join(data_dir, md_name)
-  with open(md_path, "a") as md_file:
-    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_timeseries.png)\n")
+  if create_md:
+    md_name = f"B_compare_timeseries.md"
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "a") as md_file:
+      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_timeseries.png)\n")
   plt.close()
   
   # Plots to examine how well measured matched calculated values
   
-  # Storage for correlation coefficient, prediction effeciency, and 
+  # Storage for correlation coefficient, prediction efficiency, and 
   # interpolated measured data
   cc = []
   pe = []
@@ -437,10 +477,12 @@ def compare_db(info, data, sid):
     savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
   
   # Add the generated plot to the markdown file
-  md_name = f"B_compare_timeseries.md"
-  md_path = os.path.join(data_dir, md_name)
-  with open(md_path, "a") as md_file:
-    md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_correlation.png)\n")
+  if create_md:
+    md_name = f"B_compare_timeseries.md"
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "a") as md_file:
+      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_correlation.png)\n")
+  plt.close()
 
   # Histograms showing delta between measured and calculated values
   plt.figure()
@@ -594,7 +636,7 @@ if plot_data:
 
 if plot_compare:
   # create markdown files to hold plots
-  if sids == info_dict.keys():
+  if create_md:
     markdown_files = [
             ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
             ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
