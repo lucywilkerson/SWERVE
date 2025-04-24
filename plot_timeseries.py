@@ -25,8 +25,8 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = True # Plot measured and calculated data on same axes, when both available
-stack_plot = False # Plot GIC stack plots
+plot_compare = False # Plot measured and calculated data on same axes, when both available
+stack_plot = True # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
@@ -667,7 +667,7 @@ if plot_compare:
 
 #########################################################################################################
 
-def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=30):
+def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=40):
     sids = info.keys()
     for source in data_source:
       print(f"Plotting {source} sites")
@@ -686,12 +686,9 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       # Sort sites by latitude
       sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
       source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
-      if len(sorted_sites) <= 20:
-        fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
-        subplots = False
-      else:
-        fig, axes = plt.subplots(1, 2, figsize=(15, 11))
-        subplots = True
+
+      fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+
       offset_fix = 0
       for i, sid in enumerate(source_sites['sites']):
           if sid in ['10197','10204','10208','10203','10212','10201','10660','10200','10207']:
@@ -704,45 +701,29 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
               # Subset to desired time range
               time, data = subset(time, data, start, stop)
 
-              if i-offset_fix < 16:
-                ax_idx = 0
-                # Add offset for each site
-                data_with_offset = data + (i * offset) - (offset_fix * offset)
-                if source == 'NERC':
-                  data_with_offset += 150 #not sure why this is necessary
-              else:
-                ax_idx = 1
-                data_with_offset = data + (i-20) * offset
-
+              # Add offset for each site
+              data_with_offset = data + (i * offset) - (offset_fix * offset)
               
               # Plot the timeseries
-              if subplots:
-                  axes[ax_idx].plot(time, data_with_offset, linewidth=1)
-              else:
-                  axes.plot(time, data_with_offset, linewidth=1)
+              axes.plot(time, data_with_offset, linewidth=1)
               # Add text to the plot to label waveform
               sid_lat = source_sites['lat'][i]
               sid_lon = source_sites['lon'][i]
-              text = f'{sid} ({sid_lat:.1f},{sid_lon:.1f})'
-              if subplots:
-                axes[ax_idx].text(stop, data_with_offset[0]+5, text, fontsize=8, verticalalignment='bottom', horizontalalignment='right')
-              else:
-                 axes.text(stop, data_with_offset[0]+5, text, fontsize=8, verticalalignment='bottom', horizontalalignment='right')
-      if subplots:
-        for ax in axes:
-            ax.grid()
-            ax.yaxis.set_major_locator(plt.MultipleLocator(30))
-            #ax.legend(loc='upper right')
-            ax.yaxis.set_ticklabels([])  # Remove y-tick labels
-            ax.set_ylim(max(axes[0].get_ylim(),axes[1].get_ylim()))
-            datetick('x', axes=ax)
-        fig.tight_layout()
-      else:
-        plt.grid()
-        plt.gca().yaxis.set_major_locator(plt.MultipleLocator(30))
-        #plt.legend(loc='upper right')
-        plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-        datetick()
+              text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
+              axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=8, verticalalignment='center', horizontalalignment='left')
+      plt.grid()
+      plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
+      #plt.legend(loc='upper right')
+      plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
+      plt.gca().set_xlim(datetime.datetime(2024, 5, 10, 11, 0), stop)
+      plt.gca().set_ylim(-offset, max(data_with_offset)+10)
+      
+      axes.spines['top'].set_visible(False)
+      axes.spines['right'].set_visible(False)
+      axes.spines['left'].set_visible(False)
+      #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
+      axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
+      datetick()
       
       # Save the figure
       savefig(f'_{source.lower()}', f'gic_{source.lower()}')
