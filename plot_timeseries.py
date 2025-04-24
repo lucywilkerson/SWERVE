@@ -25,8 +25,8 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True # Plot GIC stack plots
+plot_compare = True # Plot measured and calculated data on same axes, when both available
+stack_plot = False # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
@@ -188,6 +188,13 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
   savefig(sid, 'GIC_compare_timeseries')
 
   if sid in paper_GIC_sids:
+    text = {
+      'Bull Run': 'a)',
+      'Montgomery': 'c)',
+      'Union': 'e)',
+      'Widows Creek': 'g)'
+    }.get(sid, None)
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
     savefig_paper('GIC_compare_timeseries_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
@@ -236,6 +243,13 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
     savefig(sid, f'GIC_compare_timeseries_{model_names[idx]}')
 
     if sid in paper_GIC_sids:
+      text = {
+        'Bull Run': 'a)',
+        'Montgomery': 'c)',
+        'Union': 'e)',
+        'Widows Creek': 'g)'
+      }.get(sid, None)
+      plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
       savefig_paper(f'GIC_compare_timeseries_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
 
     # Add the generated plot to the markdown file
@@ -264,8 +278,8 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
   elif len(model_names) == 2:
     text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
   text_kwargs = {
-   'horizontalalignment': 'left',
-   'verticalalignment': 'top',
+   'horizontalalignment': 'right',
+   'verticalalignment': 'bottom',
    'bbox': {
      "boxstyle": "round,pad=0.3",
      "edgecolor": "black",
@@ -280,20 +294,27 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
   ax.set_xlim(limits)
   ax.set_ylim(limits)
   plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
-  plt.text(min(min(data_meas),np.min(data_calcs)), max(max(data_meas),np.max(data_calcs)), text, **text_kwargs)
+  plt.text(max(max(data_meas),np.max(data_calcs)), min(min(data_meas),np.min(data_calcs)), text, **text_kwargs)
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
   savefig(sid, 'GIC_compare_correlation')
   if sid in paper_GIC_sids:
-      savefig_paper(f'GIC_compare_correlation_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
+    text = {
+      'Bull Run': 'b)',
+      'Montgomery': 'd)',
+      'Union': 'f)',
+      'Widows Creek': 'h)'
+    }.get(sid, None)
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+    savefig_paper(f'GIC_compare_correlation_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
   plt.close()
 
   for idx in range(len(model_names)):
     plt.figure()
     plt.title(sid)
     text = f"cc = {cc[idx]:.2f} | pe = {pe[idx]:.2f}"
-    plt.text(min(min(data_meas),np.min(data_calcs[idx])), max(max(data_meas),np.max(data_calcs[idx])), text, **text_kwargs)
+    plt.text(max(max(data_meas),np.max(data_calcs[idx])), min(min(data_meas),np.min(data_calcs[idx])), text, **text_kwargs)
     plt.plot(data_meas, data_calcs[idx], 'k.', markersize=1)
 
     ax = plt.gca()
@@ -309,6 +330,13 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
     savefig(sid, f'GIC_compare_correlation_{model_names[idx]}')
 
     if sid in paper_GIC_sids:
+      text = {
+        'Bull Run': 'b)',
+        'Montgomery': 'd)',
+        'Union': 'f)',
+        'Widows Creek': 'h)'
+      }.get(sid, None)
+      plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
       savefig_paper(f'GIC_compare_correlation_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
 
     # Add the generated plot to the markdown file
@@ -401,6 +429,11 @@ def compare_db(info, data, sid):
 
   savefig(sid, 'B_compare_timeseries')
   if sid in paper_B_sids:
+    text = {
+      'Bull Run': 'a)',
+      '50116': 'c)',
+    }.get(sid, None)
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
     savefig_paper(f'B_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
@@ -474,6 +507,11 @@ def compare_db(info, data, sid):
   plt.legend(loc='upper right')
   savefig(sid, 'B_compare_correlation')
   if sid in paper_B_sids:
+    text = {
+      'Bull Run': 'b)',
+      '50116': 'd)',
+    }.get(sid, None)
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
     savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
   
   # Add the generated plot to the markdown file
