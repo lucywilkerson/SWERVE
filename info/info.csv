@@ -220,7 +220,7 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10702,41.7,-85.9,GIC,measured,NERC,"not centered at zero"
 10646,41,-81.6,GIC,measured,NERC,"noisy"
 10647,40.2,-74.5,GIC,measured,NERC,"high cadence"
-10660,36.2,-88.6,GIC,measured,NERC,
+10660,36.2,-88.6,GIC,measured,NERC,"duplicate of TVA Gleason"
 10661,36,-87.9,GIC,measured,NERC,"noisy"
 10691,37.2,-86.9,GIC,measured,NERC,"not smooth, very noisy"
 10692,37.2,-86.9,GIC,measured,NERC,"missing some periods of data"
@@ -248,19 +248,19 @@ site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
 10194,42.6,-73.9,GIC,measured,NERC,"low cadence"
 10195,39.7,-74.9,GIC,measured,NERC,
 10196,33.3,-111.9,GIC,measured,NERC,"noisy, low values"
-10197,36.4,-82.2,GIC,measured,NERC,
+10197,36.4,-82.2,GIC,measured,NERC,"duplicate of TVA Sullivan"
 10199,35,-84.9,GIC,measured,NERC,"noisy"
-10200,34.1,-86.7,GIC,measured,NERC,
-10201,36.5,-87.2,GIC,measured,NERC,
+10200,34.1,-86.7,GIC,measured,NERC,"duplicate of TVA East Point"
+10201,36.5,-87.2,GIC,measured,NERC,"duplicate of TVA Montgomery"
 10202,34.9,-90,GIC,measured,NERC,"noisy"
-10203,35,-85.3,GIC,measured,NERC,
-10204,35.3,-89.8,GIC,measured,NERC,
+10203,35,-85.3,GIC,measured,NERC,"duplicate of TVA Raccoon Mountain"
+10204,35.3,-89.8,GIC,measured,NERC,"duplicate of TVA Shelby"
 10205,36.2,-88.8,GIC,measured,NERC,"noisy, missing periods of data"
-10207,36,-84.1,GIC,measured,NERC,
-10208,35.8,-86.5,GIC,measured,NERC,
+10207,36,-84.1,GIC,measured,NERC,"duplicate of TVA Bull Run"
+10208,35.8,-86.5,GIC,measured,NERC,"duplicate of TVA Rutherford"
 10209,34.8,-85.7,GIC,measured,NERC,"one big peak, otherwise fine"
 10211,34.3,-88.8,GIC,measured,NERC,"low cadence"
-10212,36,-86.6,GIC,measured,NERC,
+10212,36,-86.6,GIC,measured,NERC,"duplicate of TVA Pinhook"
 10219,36.1,-81,GIC,measured,NERC,"noisy, low values"
 10220,39.4,-87.4,GIC,measured,NERC,
 10248,32.8,-80.6,GIC,measured,NERC,"not smooth, low values"
