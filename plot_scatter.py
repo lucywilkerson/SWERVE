@@ -18,7 +18,7 @@ print(f"Reading {pkl_file}")
 with open(pkl_file, 'rb') as file:
   df = pickle.load(file)
 
-fmts = ['png', 'pdf']
+fmts = ['png']
 def savefig(fdir, fname, fmts=fmts):
     if not os.path.exists(fdir):
         os.makedirs(fdir)
@@ -43,7 +43,7 @@ paper = True # set true to generate paper figs
 
 # Scatter plots for all sites
 
-def plot_avg_line(x, y, bins=10, **kwargs):
+def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins', **kwargs):
     """
     Plots a line of average y values over binned x values.
 
@@ -51,78 +51,87 @@ def plot_avg_line(x, y, bins=10, **kwargs):
     - x: array-like, x-axis data
     - y: array-like, y-axis data
     - bins: int, number of bins to divide x-axis data
+    - color: str, color of the line
+    - marker: str, marker style for the line
+    - label: str, label for the line
     - kwargs: additional keyword arguments for the plot function
     """
     # Bin data and calculate averages
-    bin_edges = np.linspace(np.min(x), np.max(x), bins + 1)
-    bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
-    avg_y = [np.mean(y[(x >= bin_edges[i]) & (x < bin_edges[i + 1])]) for i in range(bins)]
+    points_per_bin = int(len(x)/bins)
+    sorted_x, sorted_y = zip(*sorted(zip(x, y)))
+    sorted_x = np.array(sorted_x)
+    sorted_y = np.array(sorted_y)
+
+    bin_edges = [sorted_x[i * points_per_bin] for i in range(bins)] + [sorted_x[-1]]
+    bin_centers = [(bin_edges[i] + bin_edges[i + 1]) / 2 for i in range(bins)]
+    avg_y = [np.mean(sorted_y[(sorted_x >= bin_edges[i]) & (sorted_x < bin_edges[i + 1])]) for i in range(bins)]
 
     # Plot average line
-    plt.plot(bin_centers, avg_y, **kwargs)
+    plt.plot(bin_centers, avg_y, color=color, marker=marker, label=label, **kwargs)
 
 
 # Scatter plot
-plt.scatter(df['dist(km)'], np.abs(df['cc']), color='k', label='Data')
-plot_avg_line(df['dist(km)'], np.abs(df['cc']), bins=10, color='m', marker='o', label='Average in bins')
+scatter_kwargs = {'color': 'gray', 'alpha': 0.9, 'label': 'Data'}
+
+plt.scatter(df['dist(km)'], np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(df['dist(km)'], np.abs(df['cc']))
 plt.xlabel('Distance [km]')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_dist_scatter')
 if paper:
     plt.text(-0.05, 0.95, 'a)', transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
-    savefig_paper('cc_vs_dist_scatter','scatter')
+    savefig_paper('cc_vs_dist_scatter', 'scatter')
 plt.close()
 
 avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
-plt.scatter(avg_std, np.abs(df['cc']), color='k', label='Data')
-plot_avg_line(avg_std, np.abs(df['cc']), bins=10, color='m', marker='o', label='Average in bins')
+plt.scatter(avg_std, np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(avg_std, np.abs(df['cc']))
 plt.xlabel('Average standard deviation [A]')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_std_scatter')
 if paper:
-    savefig_paper('cc_vs_std_scatter','scatter')
+    savefig_paper('cc_vs_std_scatter', 'scatter')
 plt.close()
 
-plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']), color='k', label='Data')
-plot_avg_line(np.abs(df['beta_diff']), np.abs(df['cc']), bins=10, color='m', marker='o', label='Average in bins')
+plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(np.abs(df['beta_diff']), np.abs(df['cc']))
 plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_beta_scatter')
 if paper:
     plt.text(-0.05, 0.95, 'b)', transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
-    savefig_paper('cc_vs_beta_scatter','scatter')
+    savefig_paper('cc_vs_beta_scatter', 'scatter')
 plt.close()
 
-plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), color='k', label='Data')
-plot_avg_line(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), bins=10, color='m', marker='o', label='Average in bins')
+plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), **scatter_kwargs)
 nan_volt_diff = df['volt_diff(kV)'].isna().sum()
 plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
 plt.xlabel(r'|$\Delta$V| [kV]')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_volt_scatter')
 if paper:
     plt.text(-0.05, 0.95, 'c)', transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
-    savefig_paper('cc_vs_volt_scatter','scatter')
+    savefig_paper('cc_vs_volt_scatter', 'scatter')
 plt.close()
 
-plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']), color='k', label='Data')
-plot_avg_line(np.abs(df['lat_diff']), np.abs(df['cc']), bins=10, color='m', marker='o', label='Average in bins')
+plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(np.abs(df['lat_diff']), np.abs(df['cc']))
 plt.xlabel(r'$\Delta$ Latitude [deg]')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_lat_scatter')
 if paper:
     plt.text(-0.05, 0.95, 'd)', transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
-    savefig_paper('cc_vs_lat_scatter','scatter')
+    savefig_paper('cc_vs_lat_scatter', 'scatter')
 plt.close()
 exit()
 plt.scatter(np.abs(df['beta_diff']), avg_std)
