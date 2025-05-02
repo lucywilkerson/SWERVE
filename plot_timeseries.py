@@ -882,7 +882,7 @@ def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
   savefig(out_dir, fname)
   plt.close()
   # Find the maximum absolute cross-correlation and corresponding lag
-  max_xcorr = max(cross_corr, key=abs)
+  max_xcorr = max(cross_corr)
   max_lag = lags[cross_corr.index(max_xcorr)]
   return max_xcorr, max_lag
 
