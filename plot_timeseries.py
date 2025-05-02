@@ -25,9 +25,9 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = True # Plot measured and calculated data on same axes, when both available
+plot_compare = False # Plot measured and calculated data on same axes, when both available
 stack_plot = False # Plot GIC stack plots
-plot_pairs = False # Plot and compare measured GIC across all "good" pairs
+plot_pairs = True # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
@@ -862,9 +862,12 @@ def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
   #plotting cross and auto correlation
   plt.figure()
 
-  cross_corr = [np.corrcoef(data_meas_1, np.roll(data_meas_2, lag))[0, 1] for lag in lags]
-  auto_corr_1 = [np.corrcoef(data_meas_1, np.roll(data_meas_1, lag))[0, 1] for lag in lags]
-  auto_corr_2 = [np.corrcoef(data_meas_2, np.roll(data_meas_2, lag))[0, 1] for lag in lags]
+  cross_corr = [np.corrcoef(data_meas_1[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_2, lag))], 
+                            np.roll(data_meas_2, lag)[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_2, lag))])[0, 1] for lag in lags]
+  auto_corr_1 = [np.corrcoef(data_meas_1[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_1, lag))], 
+                             np.roll(data_meas_1, lag)[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
+  auto_corr_2 = [np.corrcoef(data_meas_2[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_2, lag))], 
+                             np.roll(data_meas_2, lag)[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_2, lag))])[0, 1] for lag in lags]
 
   plt.plot(lags, cross_corr, 'k', label='Cross Corr')
   plt.plot(lags, auto_corr_1, 'b--', label=f'Auto Corr {sid_1}')
@@ -878,14 +881,32 @@ def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
   fname = f'{site_1_save}_{site_2_save}_correlation'
   savefig(out_dir, fname)
   plt.close()
+  # Find the maximum absolute cross-correlation and corresponding lag
+  max_xcorr = max(cross_corr, key=abs)
+  max_lag = lags[cross_corr.index(max_xcorr)]
+  return max_xcorr, max_lag
 
 
 if plot_pairs:
   sids = good_sites
+  xcorrs = []
+  lags = []
   lag = range(-60, 61, 1)
   for i, site_1 in enumerate(sids):
     for site_2 in sids[i+1:]:
-      gic_pairs(info_dict, data_all, cc_df, site_1, site_2, lag)
+      peak_xcorr, peak_lag = gic_pairs(info_dict, data_all, cc_df, site_1, site_2, lag)
+      xcorrs.append(peak_xcorr)
+      lags.append(peak_lag)
+  
+  # make xcorr scatter plot
+  plt.figure()
+  plt.scatter(lags, xcorrs, c='k')
+  plt.xlabel('Lag [min]')
+  plt.ylabel('Peak Cross Correlation')
+  plt.grid()
+  out_dir = os.path.join('..', '2024-May-Storm-data', '_results', 'pairs')
+  savefig(out_dir, 'xcorr_scatter')
+  plt.close()
 
   # make md
   markdown_files = [("GIC_compare_pairs.md", "GIC Compare Pairs")
@@ -895,14 +916,13 @@ if plot_pairs:
     md_path = os.path.join(data_dir, md_name)
     with open(md_path, "w") as md_file:
       md_file.write(markdown_content)
+      md_file.write(f"\n![](_results/pairs/xcorr_scatter.png)\n")
     print(f"Writing markdown file: '{md_name}'.")
   for i, site_1 in enumerate(sids):
     for site_2 in sids[i+1:]:
       site_1_save =site_1.lower().replace(' ', '')
       site_2_save =site_2.lower().replace(' ', '')
       # Add the generated plot to the markdown file
-      md_name = f"GIC_compare_pairs.md"
-      md_path = os.path.join(data_dir, md_name)
       with open(md_path, "a") as md_file:
         md_file.write(f"\n![](_results/pairs/{site_1_save}_{site_2_save}.png)\n")
         md_file.write(f"\n![](_results/pairs/{site_1_save}_{site_2_save}_correlation.png)\n")
