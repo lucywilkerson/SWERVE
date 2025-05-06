@@ -16,6 +16,11 @@ from datetick import datetick
 
 import matplotlib.pyplot as plt
 plt.rcParams['font.family'] = 'Times New Roman'
+plt.rcParams['mathtext.fontset'] = 'cm'
+plt.rcParams['axes.titlesize'] = 18
+plt.rcParams['xtick.labelsize'] = 14
+plt.rcParams['ytick.labelsize'] = 14
+plt.rcParams['axes.labelsize'] = 16
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
 
@@ -25,9 +30,9 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = False # Plot measured and calculated data on same axes, when both available
+plot_compare = True # Plot measured and calculated data on same axes, when both available
 stack_plot = False # Plot GIC stack plots
-plot_pairs = True # Plot and compare measured GIC across all "good" pairs
+plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
@@ -87,6 +92,8 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
+  def add_subplot_label(ax, label, loc=(-0.15, 1)):
+    ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
       time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
@@ -194,7 +201,7 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
       'Union': 'e)',
       'Widows Creek': 'g)'
     }.get(sid, None)
-    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+    add_subplot_label(plt.gca(), text)
     savefig_paper('GIC_compare_timeseries_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
@@ -249,7 +256,7 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
         'Union': 'e)',
         'Widows Creek': 'g)'
       }.get(sid, None)
-      plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+      add_subplot_label(plt.gca(), text)
       savefig_paper(f'GIC_compare_timeseries_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
 
     # Add the generated plot to the markdown file
@@ -271,7 +278,7 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
     denom = np.sum((data_meas-data_meas.mean())**2)
     pe.append( 1-numer/denom )
 
-    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1)
+    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=model_names[idx])
 
   if len(model_names) == 1:
     text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
@@ -298,6 +305,12 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
+  plt.legend(loc='upper right')
+  # get the legend object
+  leg = plt.gca().legend(loc='upper right')
+  # change the marker size for the legend
+  for line in leg.get_lines():
+      line.set_markersize(6)
   savefig(sid, 'GIC_compare_correlation')
   if sid in paper_GIC_sids:
     text = {
@@ -306,7 +319,7 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
       'Union': 'f)',
       'Widows Creek': 'h)'
     }.get(sid, None)
-    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+    add_subplot_label(plt.gca(), text)
     savefig_paper(f'GIC_compare_correlation_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
   plt.close()
 
@@ -336,7 +349,7 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
         'Union': 'f)',
         'Widows Creek': 'h)'
       }.get(sid, None)
-      plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+      add_subplot_label(plt.gca(), text)
       savefig_paper(f'GIC_compare_correlation_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
 
     # Add the generated plot to the markdown file
@@ -388,7 +401,9 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
 
 
 def compare_db(info, data, sid):
-
+  def add_subplot_label(ax, label, loc=(-0.15, 1)):
+    ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+  
   time_meas = data[sid]['B']['measured'][0]['modified']['time']
   data_meas = data[sid]['B']['measured'][0]['modified']['data']
   time_meas, data_meas = subset(time_meas, data_meas, start, stop)
@@ -426,6 +441,12 @@ def compare_db(info, data, sid):
   ybottom, ytop = ax.get_ylim()
   ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
   """
+  # get the legend object
+  leg = plt.gca().legend()
+
+  # change the line width for the legend
+  for line in leg.get_lines():
+      line.set_linewidth(1.5)
 
   savefig(sid, 'B_compare_timeseries')
   if sid in paper_B_sids:
@@ -433,7 +454,7 @@ def compare_db(info, data, sid):
       'Bull Run': 'a)',
       '50116': 'c)',
     }.get(sid, None)
-    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+    add_subplot_label(plt.gca(), text)
     savefig_paper(f'B_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
 
   # Add the generated plot to the markdown file
@@ -505,13 +526,18 @@ def compare_db(info, data, sid):
   plt.grid()
   plt.xlim(ylims)
   plt.legend(loc='upper right')
+  # get the legend object
+  leg = plt.gca().legend(loc='upper right')
+  # change the marker size for the legend
+  for line in leg.get_lines():
+      line.set_markersize(6)
   savefig(sid, 'B_compare_correlation')
   if sid in paper_B_sids:
     text = {
       'Bull Run': 'b)',
       '50116': 'd)',
     }.get(sid, None)
-    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+    add_subplot_label(plt.gca(), text)
     savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
   
   # Add the generated plot to the markdown file
