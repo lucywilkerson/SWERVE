@@ -3,10 +3,14 @@ import pickle
 import matplotlib as mpl
 import pandas as pd
 import numpy as np
-
+from matplotlib.ticker import AutoMinorLocator
 import matplotlib.pyplot as plt
 
 plt.rcParams['font.family'] = 'Times New Roman'
+plt.rcParams['mathtext.fontset'] = 'cm'
+plt.rcParams['xtick.labelsize'] = 14
+plt.rcParams['ytick.labelsize'] = 14
+plt.rcParams['axes.labelsize'] = 16
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
 
@@ -18,7 +22,7 @@ print(f"Reading {pkl_file}")
 with open(pkl_file, 'rb') as file:
   df = pickle.load(file)
 
-fmts = ['png']
+fmts = ['png','pdf']
 def savefig(fdir, fname, fmts=fmts):
     if not os.path.exists(fdir):
         os.makedirs(fdir)
@@ -78,6 +82,8 @@ plot_avg_line(df['dist(km)'], np.abs(df['cc']))
 plt.xlabel('Distance [km]')
 plt.ylabel('|cc|')
 plt.grid(True)
+plt.gca().xaxis.set_minor_locator(AutoMinorLocator(2))
+plt.gca().xaxis.grid(True, linestyle='--', which='minor')
 plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_dist_scatter')
 if paper:
@@ -115,7 +121,7 @@ plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAx
 plt.xlabel(r'|$\Delta$V| [kV]')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.legend(loc='upper right')
+#plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_volt_scatter')
 if paper:
     plt.text(-0.05, 0.95, 'c)', transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
