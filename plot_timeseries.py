@@ -30,8 +30,8 @@ all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
-plot_compare = True # Plot measured and calculated data on same axes, when both available
-stack_plot = False # Plot GIC stack plots
+plot_compare = False # Plot measured and calculated data on same axes, when both available
+stack_plot = True # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
@@ -91,9 +91,10 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
     print(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
+def add_subplot_label(ax, label, loc=(-0.15, 1)):
+  ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+
 def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
-  def add_subplot_label(ax, label, loc=(-0.15, 1)):
-    ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
       time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
@@ -401,8 +402,6 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
 
 
 def compare_db(info, data, sid):
-  def add_subplot_label(ax, label, loc=(-0.15, 1)):
-    ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
   
   time_meas = data[sid]['B']['measured'][0]['modified']['time']
   data_meas = data[sid]['B']['measured'][0]['modified']['data']
@@ -751,7 +750,10 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
       source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
 
-      fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+      if source == 'NERC':
+        fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+      elif source == 'TVA':
+        fig, axes = plt.subplots(1, 1, figsize=(8.5, 5))
 
       offset_fix = 0
       for i, sid in enumerate(source_sites['sites']):
@@ -769,12 +771,12 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
               data_with_offset = data + (i * offset) - (offset_fix * offset)
               
               # Plot the timeseries
-              axes.plot(time, data_with_offset, linewidth=1)
+              axes.plot(time, data_with_offset, linewidth=0.5)
               # Add text to the plot to label waveform
               sid_lat = source_sites['lat'][i]
               sid_lon = source_sites['lon'][i]
               text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
-              axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=8, verticalalignment='center', horizontalalignment='left')
+              axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
       plt.grid()
       plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
       #plt.legend(loc='upper right')
@@ -788,6 +790,11 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
       axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
       datetick()
+
+      # remove fisrt x gridline
+      xgridlines = axes.get_xgridlines()
+      gridline_of_interest = xgridlines[0]
+      gridline_of_interest.set_visible(False)
       
       # Save the figure
       savefig(f'_{source.lower()}', f'gic_{source.lower()}')
