@@ -53,6 +53,20 @@ def linear_regression_model(data, features=features, feature_names=feature_names
         
         predictions = model.predict(x)
         error = np.sum((y - predictions) ** 2)  # Sum of squares error
+
+        # Calculate correlation coefficient
+        cc = np.corrcoef(y, predictions)[0,1]
+        text = f"cc = {cc:.2f}"
+        text_kwargs = {
+            'horizontalalignment': 'center',
+            'verticalalignment': 'bottom',
+            'bbox': {
+                "boxstyle": "round,pad=0.3",
+                "edgecolor": "black",
+                "facecolor": "white",
+                "linewidth": 0.5
+                }
+            }
         
         print(f"Linear Regression for {feature}:")
         print("  Coefficient:", model.coef_[0])
@@ -67,6 +81,7 @@ def linear_regression_model(data, features=features, feature_names=feature_names
         # Plot actual vs predicted values
         plt.figure()
         plt.scatter(y, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
+        plt.text(0.05, 0.95, text, **text_kwargs)
         plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
         plt.xlabel('Actual |cc|')
         plt.ylabel('Predicted |cc|')
@@ -93,6 +108,20 @@ def linear_regression_all(data, features=features, feature_names=feature_names, 
     
     # Calculate least squares error
     error = np.sum((y - predictions) ** 2)  # Sum of squares error
+
+    # Calculate correlation coefficient
+    cc = np.corrcoef(y, predictions)[0,1]
+    text = f"cc = {cc:.2f}"
+    text_kwargs = {
+   'horizontalalignment': 'center',
+   'verticalalignment': 'bottom',
+   'bbox': {
+     "boxstyle": "round,pad=0.3",
+     "edgecolor": "black",
+     "facecolor": "white",
+     "linewidth": 0.5
+     }
+   }
     
     # Print model coefficients and error
     print("Linear Regression with All Features:")
@@ -105,6 +134,7 @@ def linear_regression_all(data, features=features, feature_names=feature_names, 
     # Plot actual vs predicted values
     plt.figure()
     plt.scatter(y, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
+    plt.text(0.05, 0.95, text, **text_kwargs)
     plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
     plt.xlabel('Actual |cc|')
     plt.ylabel('Predicted |cc|')
@@ -151,6 +181,20 @@ def linear_regression_with_cross_terms_aic_bic(data, features=features, target='
     # Calculate AIC and BIC
     aic = n * np.log(rss / n) + 2 * k
     bic = n * np.log(rss / n) + k * np.log(n)
+
+    # Calculate correlation coefficient
+    cc = np.corrcoef(y, predictions)[0,1]
+    text = f"cc = {cc:.2f}"
+    text_kwargs = {
+   'horizontalalignment': 'center',
+   'verticalalignment': 'bottom',
+   'bbox': {
+     "boxstyle": "round,pad=0.3",
+     "edgecolor": "black",
+     "facecolor": "white",
+     "linewidth": 0.5
+     }
+   }
     
     # Store results
     results['model'] = model
@@ -173,6 +217,7 @@ def linear_regression_with_cross_terms_aic_bic(data, features=features, target='
     # Plot actual vs predicted values
     plt.figure()
     plt.scatter(y, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
+    plt.text(0.05, 0.95, text, **text_kwargs)
     plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
     plt.xlabel('Actual |cc|')
     plt.ylabel('Predicted |cc|')
