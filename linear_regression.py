@@ -116,6 +116,74 @@ def linear_regression_all(data, features=features, feature_names=feature_names, 
     
     return model, error
 
+def linear_regression_with_cross_terms_aic_bic(data, features=features, target='cc'):
+    """Perform linear regression with cross terms and calculate AIC and BIC."""
+    results = {}
+    
+    # Generate cross terms
+    cross_terms = []
+    for i in range(len(features)):
+        for j in range(i, len(features)):
+            cross_term = f"{features[i]}*{features[j]}"
+            data[cross_term] = data[features[i]] * data[features[j]]
+            cross_terms.append(cross_term)
+    
+    all_features = features + cross_terms
+
+    # Prepare the data
+    x = data[all_features]
+    y = np.abs(data[target])
+    
+    # Fit the linear regression model
+    model = LinearRegression()
+    model.fit(x, y)
+    
+    # Make predictions
+    predictions = model.predict(x)
+    
+    # Calculate residual sum of squares
+    rss = np.sum((y - predictions) ** 2)
+    
+    # Number of observations and parameters
+    n = len(y)
+    k = len(all_features) + 1  # Number of coefficients + intercept
+    
+    # Calculate AIC and BIC
+    aic = n * np.log(rss / n) + 2 * k
+    bic = n * np.log(rss / n) + k * np.log(n)
+    
+    # Store results
+    results['model'] = model
+    results['rss'] = rss
+    results['aic'] = aic
+    results['bic'] = bic
+    results['coefficients'] = model.coef_
+    results['intercept'] = model.intercept_
+    
+    # Print results
+    print("Linear Regression with Cross Terms:")
+    for feature, coef in zip(all_features, model.coef_):
+        print(f"  Coefficient for {feature}: {coef}")
+    print("  Intercept:", model.intercept_)
+    print("  RSS:", rss)
+    print("  AIC:", aic)
+    print("  BIC:", bic)
+    print()
+    
+    # Plot actual vs predicted values
+    plt.figure()
+    plt.scatter(y, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
+    plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
+    plt.xlabel('Actual |cc|')
+    plt.ylabel('Predicted |cc|')
+    plt.title(f"Linear Regression with Cross Terms\nSum of Squares Error: {rss:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+    plt.grid()
+    savefig(results_dir, 'scatter_fit_cross')
+    plt.show()
+    plt.close()
+    
+    return results
+
 def main():
     # Load the data
     results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
@@ -125,6 +193,7 @@ def main():
     # Perform linear regression
     model, error = linear_regression_model(data)
     all_features_model, all_features_error = linear_regression_all(data)
+    models_aic_bic = linear_regression_with_cross_terms_aic_bic(data)
 
 if __name__ == "__main__":
     main()
