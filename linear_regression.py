@@ -146,7 +146,7 @@ def linear_regression_all(data, features=features, feature_names=feature_names, 
     
     return model, error
 
-def linear_regression_with_cross_terms_aic_bic(data, features=features, target='cc'):
+def linear_regression_cross(data, features=features, target='cc'):
     """Perform linear regression with cross terms and calculate AIC and BIC."""
     results = {}
     
@@ -229,16 +229,13 @@ def linear_regression_with_cross_terms_aic_bic(data, features=features, target='
     
     return results
 
-def main():
-    # Load the data
-    results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
-    file_path = os.path.join(results_dir, 'cc.pkl')
-    data = load_data(file_path)
-    
-    # Perform linear regression
-    model, error = linear_regression_model(data)
-    all_features_model, all_features_error = linear_regression_all(data)
-    models_aic_bic = linear_regression_with_cross_terms_aic_bic(data)
 
-if __name__ == "__main__":
-    main()
+# Load the data
+results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
+file_path = os.path.join(results_dir, 'cc.pkl')
+data = load_data(file_path)
+    
+# Perform linear regression
+model, error = linear_regression_model(data)
+all_features_model, all_features_error = linear_regression_all(data)
+models_aic_bic = linear_regression_cross(data)
