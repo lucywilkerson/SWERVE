@@ -9,9 +9,9 @@ import json
 import time
 
 
-
-gic_results = False #print results for gic analysis
-b_results = False #print results for b analysis
+tva_results = False #print results for TVA gic analysis
+gmu_results = True #print results for GMU gic analysis
+b_results = False #print results for B analysis
 cc_results = False #print results for cc analysis
 
 def subset(time, data, start, stop):
@@ -78,8 +78,8 @@ if cc_results:
 # Filter out sites with error message
 # Also remove rows that don't have data_type = GIC and data_class = measured
 info_df = info_df[~info_df['error'].str.contains('', na=False)]
-info_df = info_df[info_df['data_type'].str.contains('B', na=False)]
-#info_df = info_df[info_df['data_class'].str.contains('calculated', na=False)]
+info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
 #print(info_df)
 
@@ -187,6 +187,95 @@ if b_results:
     print("\nSWMF CC/PE:")
     print(f"Average cc: {np.mean(cc_swmf_mean)}")
     print(f"Average pe: {np.mean(pe_swmf_mean)}") 
+
+if tva_results:
+    sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
+
+    for sid in sites:
+        print(f'TVA {sid}:')
+        time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+        data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+        time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+        print(f'    Measured max: {np.max(data_meas)} A')
+        print(f'    Measured min: {np.min(data_meas)} A')
+        print(f'    Measured std: {np.std(data_meas)} A')
+
+        for idx, data_source in enumerate(info_dict[sid]['GIC']['calculated']):
+            if data_source == 'TVA':
+                time_calc = data_all[sid]['GIC']['calculated'][idx]['original']['time']
+                data_calc = data_all[sid]['GIC']['calculated'][idx]['original']['data']
+                time_calc, data_calc = subset(time_calc, data_calc, start, time_meas[-1])
+                # TODO: Document why this is necessary
+                data_calc = -data_calc
+        print(f'    Calculated max: {np.max(data_calc)} A')
+        print(f'    Calculated min: {np.min(data_calc)} A')
+        print(f'    Calculated std: {np.std(data_calc)} A')
+
+        data_diff = data_meas-data_calc
+        print(f'    Difference max: {np.max(data_diff)} A')
+        print(f'    Difference min: {np.min(data_diff)} A')
+        print(f'    Difference std: {np.std(data_diff)} A')
+
+
+if gmu_results:
+    TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
+    ccs = []
+    pes = []
+    number_gmu_sites = 0
+    for sid in info_dict.keys():
+        if 'GIC' in info_dict[sid].keys():
+            gic_types = info_dict[sid]['GIC'].keys()
+            if 'measured' and 'calculated' in gic_types:
+                time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+                data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+                time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+
+                for idx, data_source in enumerate(info_dict[sid]['GIC']['calculated']):
+                    if data_source == 'GMU':
+                        time_calc = data_all[sid]['GIC']['calculated'][idx]['original']['time']
+                        data_calc = data_all[sid]['GIC']['calculated'][idx]['original']['data'][:, 0:1]
+                        data_calc = np.array(data_calc).flatten()
+                        time_calc, data_calc = subset(time_calc, data_calc, start, time_meas[-1])
+
+                        cc = np.corrcoef(data_meas, data_calc)
+                        if cc[0,1] < 0:
+                            data_calc = -data_calc
+                        number_gmu_sites += 1
+                        ccs.append(np.corrcoef(data_meas, data_calc)[0,1])
+                        numer = np.sum((data_meas-data_calc)**2)
+                        denom = np.sum((data_meas-data_meas.mean())**2)
+                        pes.append(1-numer/denom)
+                if sid in TVA_sites:
+                    print(f'GMU {sid}:')
+
+                    print(f'    Measured max: {np.max(data_meas)} A')
+                    print(f'    Measured min: {np.min(data_meas)} A')
+                    print(f'    Measured std: {np.std(data_meas)} A')
+                
+                    print(f'    Calculated max: {np.max(data_calc)} A')
+                    print(f'    Calculated min: {np.min(data_calc)} A')
+                    print(f'    Calculated std: {np.std(data_calc)} A')
+
+                    data_diff = data_meas-data_calc
+                    print(f'    Difference max: {np.max(data_diff)} A')
+                    print(f'    Difference min: {np.min(data_diff)} A')
+                    print(f'    Difference std: {np.std(data_diff)} A')
+
+    print('GMU results:')
+    num_nan_ccs = sum(np.isnan(cc) for cc in ccs)
+    num_nan_pes = sum(np.isnan(pe) for pe in pes)
+    ccs = [cc for cc in ccs if not np.isnan(cc)]
+    pes = [pe for pe in pes if not np.isnan(pe)]
+
+    print(f'    Number of GMU sites: {number_gmu_sites}')
+    print(f'    cc range: {np.min(ccs)} to {np.max(ccs)}')
+    print(f'    pe range: {np.min(pes)} to {np.max(pes)}')
+    print(f'    Number of NaN cc values: {num_nan_ccs}')
+    print(f'    Number of NaN pe values: {num_nan_pes}')
+
+
+
+
 
 
 
