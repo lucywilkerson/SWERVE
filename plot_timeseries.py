@@ -921,7 +921,6 @@ if plot_pairs:
   lag = range(-60, 61, 1)
   for i, site_1 in enumerate(sids):
     for site_2 in sids[i+1:]:
-      continue
       gic_pairs(info_dict, data_all, cc_df, site_1, site_2, lag)
   
   # make xcorr scatter plot
