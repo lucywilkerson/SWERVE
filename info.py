@@ -566,6 +566,9 @@ for site in site_df['sub_id'].unique():
 
 # output data to df
 output_df = pd.DataFrame(output_data)
+output_fname = os.path.join('info', 'info.simulation.csv')
+output_df.to_csv(output_fname, index=False)
+print(f"Saved simulation info table to {output_fname}")
 
 # adding GMU simulation sites to info.csv
 def add_info(info_df, output_df, data_source=['tva','nerc']):
