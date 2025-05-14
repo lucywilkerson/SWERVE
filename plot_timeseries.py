@@ -31,8 +31,8 @@ base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
 plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True # Plot GIC stack plots
-plot_pairs = False # Plot and compare measured GIC across all "good" pairs
+stack_plot = False # Plot GIC stack plots
+plot_pairs = True # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
@@ -914,24 +914,19 @@ def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
   fname = f'{site_1_save}_{site_2_save}_correlation'
   savefig(out_dir, fname)
   plt.close()
-  # Find the maximum absolute cross-correlation and corresponding lag
-  max_xcorr = max(cross_corr)
-  max_lag = lags[cross_corr.index(max_xcorr)]
-  return max_xcorr, max_lag
 
 
 if plot_pairs:
   sids = good_sites
-  xcorrs = []
-  lags = []
   lag = range(-60, 61, 1)
   for i, site_1 in enumerate(sids):
     for site_2 in sids[i+1:]:
-      peak_xcorr, peak_lag = gic_pairs(info_dict, data_all, cc_df, site_1, site_2, lag)
-      xcorrs.append(peak_xcorr)
-      lags.append(peak_lag)
+      continue
+      gic_pairs(info_dict, data_all, cc_df, site_1, site_2, lag)
   
   # make xcorr scatter plot
+  lags = cc_df['peak_xcorr_lag(min)']
+  xcorrs = cc_df['peak_xcorr']
   plt.figure()
   plt.scatter(lags, xcorrs, c='k')
   plt.xlabel('Lag [min]')
