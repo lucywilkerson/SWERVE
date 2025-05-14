@@ -14,7 +14,6 @@ See stdout for files read and written.
 ```
 python info.py
 python read.py
-python beta.py
 python plot_maps.py
 python plot_scatter.py
 python plot_timeseries.py
