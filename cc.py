@@ -1,16 +1,38 @@
 import os
-import sys
 import pickle
 import datetime
 
 import numpy as np
 import pandas as pd
-import numpy.ma as ma
+import json
 
 from geopy.distance import geodesic
 
 data_dir = os.path.join('..', '2024-May-Storm-data', '_processed')
 out_dir = os.path.join('..', '2024-May-Storm-data', '_results')
+all_dir  = os.path.join('..', '2024-May-Storm-data', '_all')
+all_file = os.path.join(all_dir, 'all.pkl')
+
+def read(all_file, sid=None):
+  fname = os.path.join('info', 'info.json')
+  with open(fname, 'r') as f:
+    print(f"Reading {fname}")
+    info_dict = json.load(f)
+
+  info_df = pd.read_csv(os.path.join('info', 'info.csv'))
+
+  fname = os.path.join('info', 'plot.json')
+  with open(fname, 'r') as f:
+    print(f"Reading {fname}")
+    plot_cfg = json.load(f)
+
+  print(f"Reading {all_file}")
+  with open(all_file, 'rb') as f:
+    data = pickle.load(f)
+
+  return info_dict, info_df, data, plot_cfg
+
+info_dict, info_df, data_all, plot_info = read(all_file)
 
 fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
@@ -52,29 +74,6 @@ def write_table(rows, rows_md, out_dir):
     f.write("See https://github.com/lucywilkerson/2024-May-Storm/blob/main/info/ for additional site information.\n\n")
     f.write(df.to_markdown(index=False))
 
-
-def read_TVA_or_NERC(row):
-  site_id = row['site_id']
-  if row['data_source'] == 'NERC':
-      #reading in data for site if NERC
-      fname = os.path.join(data_dir, site_id, 'GIC_measured_NERC.pkl')
-  elif row['data_source'] == 'TVA':
-      #reading in data for site if TVA
-      site_id = "".join(site_id.split()) #removing space from name to match file name
-      fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
-
-  with open(fname, 'rb') as f:
-      #print(f"Reading {fname}")
-      site_data = pickle.load(f)
-
-  site_df = pd.DataFrame(site_data)
-  mod_time = site_df['modified'][0]['time'] # timestamps of 1-min avg data
-  mod_data = site_df['modified'][0]['data'] # 1-min avg data
-  # Crop data using subset()
-  mod_time, mod_data = subset(mod_time, mod_data, start, stop)
-  masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
-  return mod_data, masked_data
-
 def subset(time, data, start, stop):
   idx = np.logical_and(time >= start, time <= stop)
   if data.ndim == 1:
@@ -111,13 +110,15 @@ for idx_1, row in info_df.iterrows():
   if site_1_id not in sites:
     continue
 
-  site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
+  time_meas_1 = data_all[site_1_id]['GIC']['measured'][0]['modified']['time']
+  data_meas_1 = data_all[site_1_id]['GIC']['measured'][0]['modified']['data']
+  time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
 
-  # finding number of nans masked
-  bad_1 = np.sum(msk_site_1_data.mask)
+  # finding number of nans
+  bad_1 = np.isnan(data_meas_1).sum()
 
   # finding variance
-  std_1 = np.std(msk_site_1_data)
+  std_1 = np.std(data_meas_1[~np.isnan(data_meas_1)])
 
   # finding power pool/region
   pool_1 = row['power_pool']
@@ -132,19 +133,22 @@ for idx_1, row in info_df.iterrows():
     if site_2_id not in sites:
       continue
 
-    site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
+    time_meas_2 = data_all[site_2_id]['GIC']['measured'][0]['modified']['time']
+    data_meas_2 = data_all[site_2_id]['GIC']['measured'][0]['modified']['data']
+    time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
 
-    # finding number of nans masked
-    bad_2 = np.sum(msk_site_2_data.mask)
+    # finding number of nans
+    bad_2 = np.isnan(data_meas_2).sum()
 
     # finding variance
-    std_2 = np.std(msk_site_2_data)
+    std_2 = np.std(data_meas_2[~np.isnan(data_meas_2)])
 
     # finding power pool/region
     pool_2 = row['power_pool']
     reg_2 = row['US_region']
 
-    cov = ma.corrcoef(msk_site_1_data, msk_site_2_data)
+    valid_mask = ~np.isnan(data_meas_1) & ~np.isnan(data_meas_2)
+    cov = np.corrcoef(data_meas_1[valid_mask], data_meas_2[valid_mask])
     cc = cov[0, 1]
     if np.isnan(cc):
       continue
@@ -166,11 +170,10 @@ for idx_1, row in info_df.iterrows():
 
     # finding peak cross correlation
     if cc < 0:
-      site_1_data = -site_1_data
+      data_meas_1 = -data_meas_1
     lags = np.arange(-60, 61, 1) 
-    cross_corr = [np.corrcoef(site_1_data[~np.isnan(site_1_data) & ~np.isnan(np.roll(site_2_data, lag))], 
-                            np.roll(site_2_data, lag)[~np.isnan(site_1_data) & ~np.isnan(np.roll(site_2_data, lag))])[0, 1] for lag in lags]
-    # Find the maximum absolute cross-correlation and corresponding lag
+    cross_corr = [np.corrcoef(data_meas_2[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_1, lag))], 
+                            np.roll(data_meas_1, lag)[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
     max_xcorr = max(cross_corr)
     max_lag = lags[cross_corr.index(max_xcorr)]
 
