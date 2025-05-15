@@ -31,8 +31,8 @@ base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
 plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = False # Plot GIC stack plots
-plot_pairs = True # Plot and compare measured GIC across all "good" pairs
+stack_plot = True # Plot GIC stack plots
+plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # TODO: write md code that just updates md files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
@@ -732,6 +732,17 @@ if plot_compare:
 
 def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=40):
     sids = info.keys()
+    # note NERC sites that are TVA duplicates
+    sid_copies = {'10197':'Sullivan',
+                  '10204':'Shelby',
+                  '10208':'Rutherford',
+                  '10203':'Raccoon Mountain',
+                  '10212':'Pinhook',
+                  '10201':'Montgomery',
+                  '10660':'Gleason',
+                  '10200':'East Point',
+                  '10207':'Bull Run'
+                  }
     for source in data_source:
       print(f"Plotting {source} sites")
       source_sites = {'sites': [], 'lat': [], 'lon': []}
@@ -757,7 +768,7 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
 
       offset_fix = 0
       for i, sid in enumerate(source_sites['sites']):
-          if sid in ['10197','10204','10208','10203','10212','10201','10660','10200','10207']:
+          if sid in sid_copies.keys():
             offset_fix +=1
             continue # skipping NERC sites that are TVA duplicates
           if 'GIC' in data_all[sid].keys() and source in info[sid]['GIC']['measured']:
@@ -776,6 +787,8 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
               sid_lat = source_sites['lat'][i]
               sid_lon = source_sites['lon'][i]
               text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
+              if sid in sid_copies.values():
+                text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
               axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
       plt.grid()
       plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
