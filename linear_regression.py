@@ -9,11 +9,13 @@ import matplotlib.pyplot as plt
 import datetime
 import json
 from itertools import combinations
+import logging
 
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'cm'
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
+
 
 def load_data(file_path):
     """Load data from a pickle or CSV file."""
@@ -46,6 +48,14 @@ def read(all_file, sid=None):
   return info_dict, info_df, data, plot_cfg
 
 results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
+
+# Configure logging
+log_file = os.path.join(results_dir, 'linear_regression.log')
+logging.basicConfig(
+    filename=log_file,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 fmts = ['png','pdf']
 def savefig(fdir, fname, fmts=fmts):
@@ -120,11 +130,11 @@ def linear_regression_model(data, features, feature_names, target, target_name):
         # Calculate correlation coefficient
         cc = np.corrcoef(y, predictions)[0,1]
         
-        print(f"Linear Regression for {feature}:")
-        print("  Coefficient:", model.coef_[0])
-        print("  Intercept:", model.intercept_)
-        print("  Sum of Squares Error:", error)
-        print()
+        logging.info(f"Linear Regression for {target} with only {feature}:")
+        logging.info(f"  Coefficient: {model.coef_[0]}")
+        logging.info(f"  Intercept: {model.intercept_}")
+        logging.info(f"  Sum of Squares Error: {error}")
+        logging.info("\n")
         
         # Store model and error
         models[feature] = model
@@ -167,12 +177,12 @@ def linear_regression_all(data, features, target, target_name):
     cc = np.corrcoef(y, predictions)[0,1]
     
     # Print model coefficients and error
-    print("Linear Regression with All Features:")
+    logging.info(f"Linear Regression with All Features for {target}:")
     for feature, coef in zip(features, model.coef_):
-        print(f"  Coefficient for {feature}: {coef}")
-    print("  Intercept:", model.intercept_)
-    print("  Sum of Squares Error:", error)
-    print()
+        logging.info(f"  Coefficient for {feature}: {coef}")
+    logging.info("  Intercept:", model.intercept_)
+    logging.info("  Sum of Squares Error:", error)
+    logging.info("\n")
 
     target_label = find_label(target_name)
 
@@ -263,16 +273,16 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
     intercept = best_model['intercept']
 
     # Print results for the best model
-    print("Best Linear Regression Model with Cross Terms (Based on AIC):")
-    print("  Coefficients:")
+    logging.info(f"Best Linear Regression Model with Cross Terms (Based on AIC) for {target}:")
+    logging.info("  Coefficients:")
     for feature, coef in zip(all_features, coefficients):
-        print(f"    Coefficient for {feature}: {coef}")
-    print("  Intercept:", intercept)
-    print("  RSS:", rss)
-    print("  AIC:", aic)
-    print("  BIC:", bic)
-    print("  Correlation Coefficient (cc):", cc)
-    print()
+        logging.info(f"    Coefficient for {feature}: {coef}")
+    logging.info("  Intercept:", intercept)
+    logging.info("  RSS:", rss)
+    logging.info("  AIC:", aic)
+    logging.info("  BIC:", bic)
+    logging.info("  Correlation Coefficient (cc):", cc)
+    logging.info("\n")
 
     target_label = find_label(target_name)
     
@@ -330,6 +340,8 @@ if cc_compare:
     model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name)
     all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name)
     models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name, remove_outlier=False)
+
+
 
 if std_compare or peak_compare:
     # Load the data
