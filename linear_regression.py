@@ -8,6 +8,7 @@ import os
 import matplotlib.pyplot as plt
 import datetime
 import json
+from itertools import combinations
 
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'cm'
@@ -93,6 +94,13 @@ def add_cc_text(cc):
     }
     text = f"cc = {cc:.2f}"
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
+
+def remove_outliers(data, target, threshold=3.5):
+    mask = target <= threshold * np.std(target)
+    num_outliers = len(target) - np.sum(mask)
+    data = data[mask]
+    target = target[mask]
+    return data, target, num_outliers
 
 def linear_regression_model(data, features, feature_names, target, target_name):
     
@@ -183,73 +191,118 @@ def linear_regression_all(data, features, target, target_name):
     
     return model, error
 
-def linear_regression_cross(data, features, target, target_name):
-    """Perform linear regression with cross terms and calculate AIC and BIC."""
-    results = {}
-    
-    # Generate cross terms
-    cross_terms = []
-    for i in range(len(features)):
-        for j in range(i, len(features)):
-            cross_term = f"{features[i]}*{features[j]}"
-            data[cross_term] = data[features[i]] * data[features[j]]
-            cross_terms.append(cross_term)
-    
-    all_features = features + cross_terms
+def linear_regression_cross(data, features, target, target_name, remove_outlier=True):
+    """Perform linear regression with all combinations of features and calculate AIC and BIC for each model."""
 
-    # Prepare the data
-    x = data[all_features]
-    y = target
-    
-    # Fit the linear regression model
-    model = LinearRegression()
-    model.fit(x, y)
-    
-    # Make predictions
-    predictions = model.predict(x)
-    
-    # Calculate residual sum of squares
-    rss = np.sum((y - predictions) ** 2)
-    
-    # Number of observations and parameters
-    n = len(y)
-    k = len(all_features) + 1  # Number of coefficients + intercept
-    
-    # Calculate AIC and BIC
-    aic = n * np.log(rss / n) + 2 * k
-    bic = n * np.log(rss / n) + k * np.log(n)
+    if remove_outlier:
+        data, target, num_outliers = remove_outliers(data, target)
+    results = []
+    # Generate all possible combinations of features, including cross terms
+    for r in range(1, len(features) + 1):
+        for combo in combinations(features, r):
+            # Prepare the data for the current combination of features
+            combo_features = list(combo)
+            cross_terms = [f"{f1}*{f2}" for i, f1 in enumerate(combo_features) for f2 in combo_features[i:]]
+            for cross_term in cross_terms:
+                f1, f2 = cross_term.split('*')
+                data.loc[:, cross_term] = data[f1] * data[f2]
+            all_features = combo_features + cross_terms
 
-    # Calculate correlation coefficient
-    cc = np.corrcoef(y, predictions)[0,1]
-    
-    # Store results
-    results['model'] = model
-    results['rss'] = rss
-    results['aic'] = aic
-    results['bic'] = bic
-    results['coefficients'] = model.coef_
-    results['intercept'] = model.intercept_
-    
-    # Print results
-    print("Linear Regression with Cross Terms:")
-    for feature, coef in zip(all_features, model.coef_):
-        print(f"  Coefficient for {feature}: {coef}")
-    print("  Intercept:", model.intercept_)
+            x = data[all_features]
+            y = target
+
+            # Fit the linear regression model
+            model = LinearRegression()
+            model.fit(x, y)
+
+            # Make predictions
+            predictions = model.predict(x)
+
+            # Calculate residual sum of squares
+            rss = np.sum((y - predictions) ** 2)
+
+            # Number of observations and parameters
+            n = len(y)
+            k = len(all_features) + 1  # Number of coefficients + intercept
+
+            # Calculate AIC and BIC
+            aic = n * np.log(rss / n) + 2 * k
+            bic = n * np.log(rss / n) + k * np.log(n)
+
+            # Calculate correlation coefficient
+            cc = np.corrcoef(y, predictions)[0, 1]
+
+            # Store results
+            results.append({
+                'model': model,
+                'features': all_features,
+                'rss': rss,
+                'aic': aic,
+                'bic': bic,
+                'cc': cc,
+                'coefficients': model.coef_,
+                'intercept': model.intercept_
+            })
+
+            # Clean up cross terms from the data
+            for cross_term in cross_terms:
+                del data[cross_term]
+
+    # Sort results by AIC (ascending)
+    results = sorted(results, key=lambda x: x['aic'])
+
+    # Extract the best model based on AIC
+    best_model = results[0]
+    model = best_model['model']
+    rss = best_model['rss']
+    aic = best_model['aic'] 
+    bic = best_model['bic']
+    cc = best_model['cc']
+    all_features = best_model['features']
+    coefficients = best_model['coefficients']
+    intercept = best_model['intercept']
+
+    # Print results for the best model
+    print("Best Linear Regression Model with Cross Terms (Based on AIC):")
+    print("  Coefficients:")
+    for feature, coef in zip(all_features, coefficients):
+        print(f"    Coefficient for {feature}: {coef}")
+    print("  Intercept:", intercept)
     print("  RSS:", rss)
     print("  AIC:", aic)
     print("  BIC:", bic)
+    print("  Correlation Coefficient (cc):", cc)
     print()
 
     target_label = find_label(target_name)
     
-    # Plot actual vs predicted values
+    # Add cross-term features to the DataFrame
+    for cross_term in all_features:
+        if '*' in cross_term:
+            f1, f2 = cross_term.split('*')
+            data[cross_term] = data[f1] * data[f2]
+    predictions = model.predict(data[all_features])
+    # Clean up cross-term features from the DataFrame
+    for cross_term in all_features:
+        if '*' in cross_term:
+            del data[cross_term]
+
+    # Plot actual vs predicted values for the best model
     plt.figure()
-    plt.scatter(y, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
+    plt.scatter(target, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
     add_cc_text(cc)
-    plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
+    if remove_outlier:
+        plt.text(0.95, 0.05, f'Number of outliers removed: {num_outliers}', transform=plt.gca().transAxes,
+                 horizontalalignment='right', verticalalignment='bottom', 
+                 bbox={"boxstyle": "round,pad=0.3",
+                    "edgecolor": "black",
+                    "facecolor": "white",
+                    "linewidth": 0.5}
+                )
+    plt.plot([target.min(), target.max()], [target.min(), target.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
     plt.xlabel(f'Actual {target_label}')
     plt.ylabel(f'Predicted {target_label}')
-    plt.title(f"Linear Regression with Cross Terms\nSum of Squares Error: {rss:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+    plt.title(f"Best Linear Regression with Cross Terms\nSum of Squares Error: {rss:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
     plt.grid()
     savefig(results_dir, f'scatter_fit_cross_{target_name}')
     plt.close()
@@ -276,7 +329,7 @@ if cc_compare:
     # Perform linear regression
     model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name)
     all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name)
-    models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
+    models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name, remove_outlier=False)
 
 if std_compare or peak_compare:
     # Load the data
