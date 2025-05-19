@@ -31,9 +31,9 @@ base_dir = os.path.join(data_dir, '_processed')
 
 plot_data = False    # Plot original and modified data
 plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True # Plot GIC stack plots
+stack_plot = False # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
-create_md = False # TODO: write md code that just updates md files without replotting everything
+create_md = False # updates md comparison files without replotting everything
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
@@ -94,7 +94,7 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
 def add_subplot_label(ax, label, loc=(-0.15, 1)):
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
-def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
+def compare_gic(info, data, sid, show_sim_site=False):
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
       time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
@@ -204,13 +204,6 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
     }.get(sid, None)
     add_subplot_label(plt.gca(), text)
     savefig_paper('GIC_compare_timeseries_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
-
-  # Add the generated plot to the markdown file
-  if create_md:
-    md_name = f"GIC_compare_timeseries.md"
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "a") as md_file:
-      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries.png)\n")
   plt.close()
 
   for idx in range(len(model_names)):
@@ -259,13 +252,6 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
       }.get(sid, None)
       add_subplot_label(plt.gca(), text)
       savefig_paper(f'GIC_compare_timeseries_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
-
-    # Add the generated plot to the markdown file
-    if create_md:
-      md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
-      md_path = os.path.join(data_dir, md_name)
-      with open(md_path, "a") as md_file:
-        md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_timeseries_{model_names[idx]}.png)\n")
     plt.close()
 
   
@@ -352,24 +338,11 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
       }.get(sid, None)
       add_subplot_label(plt.gca(), text)
       savefig_paper(f'GIC_compare_correlation_{model_names[idx]}', sub_dir=f"{sid.lower().replace(' ', '')}")
-
-    # Add the generated plot to the markdown file
-    if create_md:
-      md_name = f"GIC_compare_timeseries_{model_names[idx]}.md"
-      md_path = os.path.join(data_dir, md_name)
-      with open(md_path, "a") as md_file:
-        md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_correlation_{model_names[idx]}.png)\n")
     plt.close()
 
   # Reset the aspect ratio to normal
   ax.set_aspect('auto')
 
-  # Add the generated plot to the markdown file
-  if create_md:
-    md_name = f"GIC_compare_timeseries.md"
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "a") as md_file:
-      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_compare_correlation.png)\n")
   plt.close()
 
   plt.figure()
@@ -390,14 +363,6 @@ def compare_gic(info, data, sid, save_hist=True, show_sim_site=False):
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
   plt.legend(loc='upper right')
   savefig(sid, 'GIC_histogram_meas_calc')
-  plt.close()
-
-  if save_hist:
-    # Add the generated plot to the markdown file
-    md_name = f"GIC_compare_timeseries.md"
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "a") as md_file:
-      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/GIC_histogram_meas_calc.png)\n")
   plt.close()
 
 
@@ -433,13 +398,7 @@ def compare_db(info, data, sid):
   datetick()
   plt.legend()
   plt.grid()
-  """
-  ax = plt.gca()
-  aspect_ratio = 0.5
-  xleft, xright = ax.get_xlim()
-  ybottom, ytop = ax.get_ylim()
-  ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*aspect_ratio)
-  """
+  
   # get the legend object
   leg = plt.gca().legend()
 
@@ -455,13 +414,6 @@ def compare_db(info, data, sid):
     }.get(sid, None)
     add_subplot_label(plt.gca(), text)
     savefig_paper(f'B_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
-
-  # Add the generated plot to the markdown file
-  if create_md:
-    md_name = f"B_compare_timeseries.md"
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "a") as md_file:
-      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_timeseries.png)\n")
   plt.close()
   
   # Plots to examine how well measured matched calculated values
@@ -538,13 +490,6 @@ def compare_db(info, data, sid):
     }.get(sid, None)
     add_subplot_label(plt.gca(), text)
     savefig_paper(f'B_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
-  
-  # Add the generated plot to the markdown file
-  if create_md:
-    md_name = f"B_compare_timeseries.md"
-    md_path = os.path.join(data_dir, md_name)
-    with open(md_path, "a") as md_file:
-      md_file.write(f"\n![](_processed/{sid.lower().replace(' ', '')}/B_compare_correlation.png)\n")
   plt.close()
 
   # Histograms showing delta between measured and calculated values
@@ -698,21 +643,6 @@ if plot_data:
     print(" ")
 
 if plot_compare:
-  # create markdown files to hold plots
-  if create_md:
-    markdown_files = [
-            ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
-            ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
-            ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation"),
-            ("B_compare_timeseries.md", "B Compare Timeseries")
-        ]
-
-    for md_name, md_content in markdown_files:
-      markdown_content = f"""# {md_content}"""
-      md_path = os.path.join(data_dir, md_name)
-      with open(md_path, "w") as md_file:
-        md_file.write(markdown_content)
-      print(f"Markdown file '{md_name}' created.")
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
@@ -726,7 +656,66 @@ if plot_compare:
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
-        compare_gic(info_dict, data_all, sid, save_hist=False)
+        compare_gic(info_dict, data_all, sid)
+
+
+# create markdown files to hold plots
+if create_md:
+  markdown_files = [
+            ("GIC_compare_timeseries.md", "GIC Compare Timeseries"),
+            ("GIC_compare_timeseries_TVA.md", "GIC Compare Timeseries for TVA model"),
+            ("GIC_compare_timeseries_GMU.md", "GIC Compare Timeseries for GMU simulation"),
+            ("B_compare_timeseries.md", "B Compare Timeseries")
+        ]
+
+  for md_name, md_content in markdown_files:
+    markdown_content = f"""# {md_content}"""
+    md_path = os.path.join(data_dir, md_name)
+    with open(md_path, "w") as md_file:
+      md_file.write(markdown_content)
+    print(f"Markdown file '{md_name}' created.")
+
+  model_names = ['TVA', 'GMU']
+
+  for sid in info_dict.keys():
+    if 'B' in info_dict[sid].keys():
+      mag_types = info_dict[sid]['B'].keys()
+      if 'measured' in mag_types and 'calculated' in mag_types:
+        md_name = "B_compare_timeseries.md"
+        md_path = os.path.join(data_dir, md_name)
+        img1 = os.path.join("_processed", sid.lower().replace(' ', ''), "B_compare_timeseries.png")
+        img2 = os.path.join("_processed", sid.lower().replace(' ', ''), "B_compare_correlation.png")
+        if os.path.exists(os.path.join(data_dir, img1)):
+          with open(md_path, "a") as md_file:
+            md_file.write(f"\n![]({img1})\n")
+        if os.path.exists(os.path.join(data_dir, img2)):
+          with open(md_path, "a") as md_file:
+            md_file.write(f"\n![]({img2})\n")
+    if 'GIC' in info_dict[sid].keys():
+      gic_types = info_dict[sid]['GIC'].keys()
+      if 'measured' and 'calculated' in gic_types:
+        md_name = "GIC_compare_timeseries.md"
+        md_path = os.path.join(data_dir, md_name)
+        img1 = os.path.join("_processed", sid.lower().replace(' ', ''), "GIC_compare_timeseries.png")
+        img2 = os.path.join("_processed", sid.lower().replace(' ', ''), "GIC_compare_correlation.png")
+        if os.path.exists(os.path.join(data_dir, img1)):
+          with open(md_path, "a") as md_file:
+            md_file.write(f"\n![]({img1})\n")
+        if os.path.exists(os.path.join(data_dir, img2)):
+          with open(md_path, "a") as md_file:
+            md_file.write(f"\n![]({img2})\n")
+        for idx, model_name in enumerate(model_names):
+          md_name = f"GIC_compare_timeseries_{model_name}.md"
+          md_path = os.path.join(data_dir, md_name)
+          img1 = os.path.join("_processed", sid.lower().replace(' ', ''), f"GIC_compare_timeseries_{model_name}.png")
+          img2 = os.path.join("_processed", sid.lower().replace(' ', ''), f"GIC_compare_correlation_{model_name}.png")
+          if os.path.exists(os.path.join(data_dir, img1)):
+              with open(md_path, "a") as md_file:
+                  md_file.write(f"\n![]({img1})\n")
+          if os.path.exists(os.path.join(data_dir, img2)):
+              with open(md_path, "a") as md_file:
+                  md_file.write(f"\n![]({img2})\n")
+      
 
 #########################################################################################################
 
@@ -804,7 +793,7 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
       datetick()
 
-      # remove fisrt x gridline
+      # remove first x gridline
       xgridlines = axes.get_xgridlines()
       gridline_of_interest = xgridlines[0]
       gridline_of_interest.set_visible(False)
@@ -842,7 +831,6 @@ info_df = pd.read_csv(fname)
 
 # Filter out sites with error message
 info_df = info_df[~info_df['error'].str.contains('', na=False)]
-# TODO: Print number of GIC sites removed due to error and how many kept.
 # Remove rows that don't have data_type = GIC and data_class = measured
 info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
 info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
@@ -966,92 +954,3 @@ if plot_pairs:
       with open(md_path, "a") as md_file:
         md_file.write(f"\n![](_results/pairs/{site_1_save}_{site_2_save}.png)\n")
         md_file.write(f"\n![](_results/pairs/{site_1_save}_{site_2_save}_correlation.png)\n")
-  
-
-
-
-
-"""
-## this is old code for pairings, saved for posterity ##
-
-def read_TVA_or_NERC(row):
-  site_id = row['site_id']
-  data_dir = os.path.join('..', '2024-May-Storm-data', 'processed')
-  if row['data_source'] == 'NERC':
-      #reading in data for site if NERC
-      fname = os.path.join(data_dir, site_id, 'GIC_measured_NERC.pkl')
-  elif row['data_source'] == 'TVA':
-      #reading in data for site if TVA
-      site_id = "".join(site_id.split()) #removing space from name to match file name
-      fname = os.path.join(data_dir, site_id, 'GIC_measured_TVA.pkl')
-
-  with open(fname, 'rb') as f:
-      site_data = pickle.load(f)
-
-  site_df = pd.DataFrame(site_data)
-  time = site_df['modified'][0]['time']
-  mod_data = site_df['modified'][0]['data'] # 1-min avg data
-  masked_data = ma.masked_invalid(mod_data) # 1-min data w nan values masked
-  return time, mod_data, masked_data
-
-def compare_gic_site(sites):
-  for idx_1, row in info_df.iterrows():
-
-    site_1_id = row['site_id']
-    if site_1_id not in sites:
-      continue
-
-    site_1_time, site_1_data, msk_site_1_data = read_TVA_or_NERC(row)
-
-    for idx_2, row in info_df.iterrows():
-      if idx_1 <= idx_2:  # Avoid duplicate pairs
-        continue
-
-      site_2_id = row['site_id']
-
-      if site_2_id not in sites:
-        continue
-
-      site_2_time, site_2_data, msk_site_2_data = read_TVA_or_NERC(row)
-
-      cc_row = cc_df[((cc_df['site_1'] == site_1_id) & (cc_df['site_2'] == site_2_id)) | 
-          ((cc_df['site_2'] == site_1_id) & (cc_df['site_1'] == site_2_id))].iloc[0]
-      cc = np.abs(cc_row['cc'])
-      dist = cc_row['dist(km)']
-
-      #plotting!!
-      plt.figure()
-      error_shift = 70
-      yticks = np.arange(-120, 30, 10)
-      labels = []
-      for ytick in yticks:
-          if ytick < -30:
-              labels.append(str(ytick+error_shift))
-          else:
-              labels.append(str(ytick))
-      kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
-      plt.axhline(y=-35, **kwargs)
-      plt.axhline(y=-120, **kwargs)
-      plt.title(f'{site_1_id} vs {site_2_id}\n|cc| = {cc:.2f}, distance = {dist:4.2f} km')
-      plt.grid()
-      plt.plot()
-      if cc_row['cc'] < 0:
-        site_1_data = -site_1_data
-        plt.text(site_1_time[1500], -117, f'time series for {site_1_id} plotted inverse due to negative correlation', fontsize=8)
-      plt.plot(site_1_time, site_1_data, label=site_1_id, linewidth=0.5)
-      plt.plot(site_2_time, site_2_data, label=site_2_id, linewidth=0.5)
-      plt.plot(site_1_time, site_1_data-site_2_data-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
-      plt.legend(loc='lower left')
-      plt.ylabel('GIC [A]')
-      plt.ylim(-120, 30)
-      plt.yticks(yticks, labels=labels)
-      datetick()
-      site_1_save =site_1_id.lower().replace(' ', '')
-      site_2_save =site_2_id.lower().replace(' ', '')
-      fname = f'{site_1_save}_{site_2_save}'
-      out_dir = os.path.join('..', '2024-May-Storm-data', '_results', 'pairs')
-      savefig(out_dir, fname)
-      plt.close()
-
-compare_gic_site(sites)
-"""
