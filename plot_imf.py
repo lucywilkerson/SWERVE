@@ -86,7 +86,7 @@ for i in range(al.size):
     ae[i] = np.nan
 
 time, al = subset(time_original, al, start, stop)
-axes[0].plot(time,-al, label='-AL', color='k', linewidth=1)
+axes[0].plot(time,-al, label=r'$-$AL', color='k', linewidth=1)
 time, ae = subset(time_original, ae, start, stop)
 axes[0].plot(time,ae, label='AE', color='m', linewidth=0.5)
 axes[0].set_ylabel('[nT]')
@@ -95,10 +95,10 @@ axes[0].legend(ncol=2)
 # Plotting Kp
 kp_times = []
 kp_values = []
-# Create a 1-hour grid from start to stop
+# Creating a 1-hour grid from start to stop
 current_time = start
 while current_time <= stop:
-  # Find the index of the closest Kp value (Kp is every 3 hours, centered at :30)
+  # Finding the index of the closest Kp value (Kp is every 3 hours, centered at :30)
   # Find the previous 3-hour interval
   kp_idx = None
   for i, t in enumerate(time_original):
@@ -117,9 +117,10 @@ while current_time <= stop:
 #kp_values = np.array(kp_values)
 #kp_times, kp_values = subset(kp_times, kp_values, start, stop)
 axes[1].step(kp_times, kp_values, where='post', color='k')
+axes[1].fill_between(kp_times, kp_values, 0, step='post', color='k')
 axes[1].set_ylabel(r'K$_p$')
 axes[1].yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-#axes[1].set_ylim(5.5, 9.5)
+axes[1].set_ylim(4.5, 9.5)
 
 # Plotting symh
 time, symh = subset(time_original, symh, start, stop)
