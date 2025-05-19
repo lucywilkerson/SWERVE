@@ -52,8 +52,9 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
 file_path = os.path.join(data_dir, 'mage', 'bcwind.h5')
 print(f'Reading {file_path}')
 imf_data = h5py.File(file_path,'r')
-#data_keys = imf_data.keys()
-#print(data_keys)
+"""data_keys = imf_data.keys()
+print(data_keys)
+exit()"""
 
 # Assigning variables
 al = imf_data['al'][()]
