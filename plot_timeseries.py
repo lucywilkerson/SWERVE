@@ -670,6 +670,7 @@ if create_md:
         if os.path.exists(os.path.join(data_dir, img2)):
           with open(md_path, "a") as md_file:
             md_file.write(f"\n![]({img2})\n")
+            
     if 'GIC' in info_dict[sid].keys():
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
