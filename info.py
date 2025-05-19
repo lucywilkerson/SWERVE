@@ -14,6 +14,9 @@ from matplotlib.transforms import Bbox
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 
+from spacepy import coordinates as coord
+from spacepy.time import Ticktock
+
 """
 Write new info csv file (info/info.extended.csv) with additional columns:
 -interpolated beta
@@ -21,6 +24,7 @@ Write new info csv file (info/info.extended.csv) with additional columns:
 -power pool
 -US region
 -nearest GMU simulation site
+-geomagnetic coordinates
 """
 
 # %%Code for interpolated beta
@@ -624,6 +628,25 @@ info_ex_df = add_nearest_sim_site(info_ex_df, output_df)
 out_fname = os.path.join('info', 'info.extended.csv')
 info_ex_df.to_csv(out_fname, index=False)
 print(f"Saving updated {out_fname} with nearest GMU simulation site")
+
+# %%Code for geomag coords
+
+# set date and time
+date = Ticktock(['2024-05-11T00:00:00'], 'UTC')
+
+# getting geomagnetic coordinates
+def get_geomag_coords(row):
+    c = coord.Coords([[row['geo_lat'], row['geo_lon'], 0]], 'GEO', 'sph')
+    c.ticks = date
+    c = c.convert('MAG', 'sph')
+    return c.data[0][0], c.data[0][1]  # mag_lat, mag_lon
+
+# Applying the function to create new columns
+info_ex_df[['mag_lat', 'mag_lon']] = info_ex_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
+
+out_fname = os.path.join('info', 'info.extended.csv')
+info_ex_df.to_csv(out_fname, index=False)
+print(f"Saving updated {out_fname} with geomagnetic coordinates")
 
 ########################################################################################################
 
