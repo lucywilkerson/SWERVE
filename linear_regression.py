@@ -161,7 +161,7 @@ def plot_regression(target, predictions, cc, remove_outlier, target_label, mask)
         plt.scatter(target, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
     add_cc_text(cc)
     plt.plot([target.min(), target.max()], [target.min(), target.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
-    plt.xlabel(f'Actual {target_label}')
+    plt.xlabel(f'Measured {target_label}')
     plt.ylabel(f'Predicted {target_label}')
     plt.grid()
 
