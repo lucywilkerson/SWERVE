@@ -84,9 +84,9 @@ for i in range(al.size):
     al[i] = np.nan
     ae[i] = np.nan
 
-#time, al = subset(time_original, al, start, stop)
+time, al = subset(time_original, al, start, stop)
 axes[0].plot(time,-al, label='-AL', color='k', linewidth=1)
-#time, ae = subset(time_original, ae, start, stop)
+time, ae = subset(time_original, ae, start, stop)
 axes[0].plot(time,ae, label='AE', color='m', linewidth=0.5)
 axes[0].set_ylabel('[nT]')
 axes[0].legend(ncol=2)
@@ -94,59 +94,71 @@ axes[0].legend(ncol=2)
 # Plotting Kp
 kp_times = []
 kp_values = []
-# Extract Kp values at 3-hour increments (midnight, 3am, 6am, etc.)
-for i, t in enumerate(time_original):
-  if t.hour % 3 == 0 and t.minute == 0:
-    kp_times.append(t + timedelta(hours=1.5))  # Center bars at 1:30am, 4:30am, etc.
-    kp_values.append(Kp[i])
+# Create a 1-hour grid from start to stop
+current_time = start
+while current_time <= stop:
+  # Find the index of the closest Kp value (Kp is every 3 hours, centered at :30)
+  # Find the previous 3-hour interval
+  kp_idx = None
+  for i, t in enumerate(time_original):
+    if t.hour % 3 == 0 and t.minute == 0:
+      kp_time_center = t + timedelta(hours=1.5)
+      # If current_time falls within this 3-hour interval, use this Kp
+      if kp_time_center - timedelta(hours=1.5) <= current_time < kp_time_center + timedelta(hours=1.5):
+        kp_idx = i
+        break
+  if kp_idx is not None:
+    kp_times.append(current_time)
+    kp_values.append(Kp[kp_idx])
+  current_time += timedelta(hours=1)
 
 #kp_times = np.array(kp_times)
 #kp_values = np.array(kp_values)
 #kp_times, kp_values = subset(kp_times, kp_values, start, stop)
-axes[1].step(kp_times, kp_values, where='mid', color='k')
+axes[1].step(kp_times, kp_values, where='post', color='k')
 axes[1].set_ylabel(r'K$_p$')
 axes[1].yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-axes[1].set_ylim(5.5, 9.5)
+#axes[1].set_ylim(5.5, 9.5)
 
 # Plotting symh
-#time, symh = subset(time_original, symh, start, stop)
+time, symh = subset(time_original, symh, start, stop)
 axes[2].plot(time, symh, color='k', linewidth=0.8)
 axes[2].set_ylabel('SYM-H [nT]')
 
 # Plotting temperature
-#time, temp = subset(time_original, temp, start, stop)
-axes[3].plot(time, temp, color='k', linewidth=0.8)
-axes[3].set_ylabel(r'T [K]')
+time, temp = subset(time_original, temp, start, stop)
+axes[3].plot(time, temp / 1e6, color='k', linewidth=0.8)
+axes[3].set_ylabel(r'T [MK]')
 
 # Plotting mach
-#time, mach = subset(time_original, mac, start, stop)
+time, mach = subset(time_original, mach, start, stop)
 axes[4].plot(time, mach, color='k', linewidth=0.8)
 axes[4].set_ylabel(r'Mach')
 
 # Plotting Vx
-#time, Vx = subset(time_original, Vx, start, stop)
+time, Vx = subset(time_original, Vx, start, stop)
 axes[5].plot(time, Vx/1000, color='k', linewidth=0.8)  # divide by 1000 to get in km/s
 axes[5].set_ylabel(r'V$_x$ [km/s]')
 
 # Plotting Bx, By, Bz IMF
 #time, Bx = subset(time_original, Bx, start, stop)
 #axes[6].plot(time, Bx, label=r'B$_x^\text{IMF}$', linewidth=0.5)
-#time, By = subset(time_original, By, start, stop)
+time, By = subset(time_original, By, start, stop)
 axes[6].plot(time, By, label=r'B$_y^\text{IMF}$', color='k', linewidth=0.5)
-#time, Bz = subset(time_original, Bz, start, stop)
+time, Bz = subset(time_original, Bz, start, stop)
 axes[6].plot(time, Bz, label=r'B$_z^\text{IMF}$', color='m', linewidth=0.5)
 axes[6].set_ylabel('[nT]')
 axes[6].legend(loc='upper right', ncol=2)
 
-xlims = [start, stop]
+xlims = [datetime(2024, 5, 10, 11, 0), stop]
+#plt.gca().set_xlim(datetime.datetime(2024, 5, 10, 11, 0), stop)
 for ax in axes:
   ax.set_xlim(xlims)
   ax.grid(True)
   datetick('x', axes=ax)
   if ax != axes[1]:
     ax.minorticks_on()
-    ax.grid(which='minor', axis='x', linestyle=':', linewidth=0.5)
-    ax.grid(which='minor', axis='y', linestyle='', linewidth=0)  # no minor grid on y-axis
+    ax.grid(which='minor', axis='both', linestyle=':', linewidth=0.5)
   
   leg = ax.get_legend()
   if leg is not None:
