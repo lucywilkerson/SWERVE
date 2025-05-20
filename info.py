@@ -17,6 +17,10 @@ import cartopy.feature as cfeature
 from spacepy import coordinates as coord
 from spacepy.time import Ticktock
 
+import utilrsw
+log_dir = 'log'
+logger = utilrsw.logger(log_dir=log_dir)
+
 """
 Write new info csv file (info/info.extended.csv) with additional columns:
 -interpolated beta
@@ -33,10 +37,10 @@ beta_fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
 
 def add_beta(beta_fname, info_df, beta_site='OTT'):
 
-  print(f"Reading beta factors file: {beta_fname}")
+  logger.info(f"Reading beta factors file: {beta_fname}")
   data = loadmat(beta_fname)
   data = data['waveform'][0]
-  print("Adding interpolated OTT beta column to info_df")
+  logger.info("Adding interpolated OTT beta column to info_df")
 
   beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
   if beta_site not in beta_sites:
@@ -75,11 +79,11 @@ def add_beta(beta_fname, info_df, beta_site='OTT'):
 
 
 # Read in info.csv
-print(f"Reading {info_csv}")
+logger.info(f"Reading {info_csv}")
 info_df = pd.read_csv(info_csv)
 
 add_beta(beta_fname, info_df)
-
+utilrsw.rm_if_empty(f"{log_dir}/info.log")
 exit()
 # Save the updated DataFrame 
 out_fname = os.path.join('info', 'info.extended.csv')

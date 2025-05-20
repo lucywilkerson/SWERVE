@@ -7,12 +7,13 @@ install_requires = [
     "cartopy",
     "geopy",
     "geopandas",
-    "datetick @ git+https://github.com/rweigel/datetick@main#egg=hapiplot"
+    "datetick @ git+https://github.com/rweigel/datetick",
+    "utilrsw @ git+https://github.com/rweigel/utilrsw"
     ]
 
 setup(
     name='2024-May-Storm',
-    version='0.0.1',
+    version='0.0.2',
     author='Lucy Wilkerson, Bob Weigel',
     author_email='rweigel@gmu.edu',
     packages=find_packages(),
