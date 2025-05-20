@@ -40,7 +40,7 @@ sim_file = os.path.join(sim_dir, 'gic_mean_df_1.csv')
 
 # Code for GMU simulation sites
 def add_sim_site(sim_file, sim_dir, info_df, update_csv=False):
-  
+
   no_gmu_df = info_df[info_df['data_source'] != 'GMU']
   meas_df = no_gmu_df[no_gmu_df['data_class'] == 'measured']
 

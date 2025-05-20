@@ -13,6 +13,10 @@ FILES = {
           'mage':
             {
               'bcwind': os.path.join(DATA_DIR, 'mage', 'bcwind.h5')
+          },
+          'shape_files':
+            {
+              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp')
             }
         }
 
@@ -44,15 +48,21 @@ def plt_config():
     ]
   }
 
-def savefig(sid, fname, logger, sub_dir="", fmts=['png','pdf']):
-  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''), sub_dir)
-  if not os.path.exists(fdir):
-    os.makedirs(fdir)
-  fname = os.path.join(fdir, fname)
+def savefig(base_dir, fname, logger, sid=None, sub_dir="", fmts=['png','pdf']):
+
+  base_dir = os.path.join(DATA_DIR, base_dir)
+  if sid is not None:
+    base_dir = os.path.join(base_dir, sid.lower().replace(' ', ''), sub_dir)
+  if not os.path.exists(base_dir):
+    os.makedirs(base_dir)
+  fname = os.path.join(base_dir, fname)
 
   for fmt in fmts:
     logger.info(f"Writing {fname}.{fmt}")
-    plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+    if fmt == 'png':
+      plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
+    else:
+      plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def savefig_paper(fname, logger, sub_dir="", fmts=['png','pdf']):
   fdir = os.path.join(paper_dir, sub_dir)
