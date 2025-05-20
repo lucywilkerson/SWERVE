@@ -1,6 +1,6 @@
 import os
 
-all = ['plt_config', 'savefig', 'savefig_paper', 'subset']
+all = ['plt_config', 'savefig', 'savefig_paper', 'subset', 'FILES']
 
 import matplotlib.pyplot as plt
 
@@ -8,6 +8,13 @@ LOG_DIR = 'log'
 DATA_DIR = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(DATA_DIR, '_processed')
 paper_dir = os.path.join('..','2024-May-Storm-paper')
+
+FILES = {
+          'mage':
+            {
+              'bcwind': os.path.join(DATA_DIR, 'mage', 'bcwind.h5')
+            }
+        }
 
 def subset(time, data, start, stop):
   import numpy as np
