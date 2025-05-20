@@ -73,15 +73,15 @@ def subset(time, data, start, stop):
     return time[idx], data[idx]
   return time[idx], data[idx,:]
 
-def savefig(sid, fname, sub_dir="", fmts=['png','pdf']):
-  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''), sub_dir)
-  if not os.path.exists(fdir):
-    os.makedirs(fdir)
-  fname = os.path.join(fdir, fname)
+fmts = ['png','pdf']
+def savefig(fdir, fname, fmts=fmts):
+    if not os.path.exists(fdir):
+        os.makedirs(fdir)
+    fname = os.path.join(fdir, fname)
 
-  for fmt in fmts:
-    print(f"    Saving {fname}.{fmt}")
-    plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+    for fmt in fmts:
+        print(f"    Saving {fname}.{fmt}")
+        plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
   fdir = os.path.join(paper_dir, sub_dir)
@@ -97,6 +97,8 @@ def add_subplot_label(ax, label, loc=(-0.15, 1)):
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
 def compare_gic(info, data, sid, show_sim_site=False):
+
+  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
 
   if 'modified' in data[sid]['GIC']['measured'][0]:
     time_meas = data[sid]['GIC']['measured'][0]['modified']['time']
@@ -196,7 +198,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
   for line in leg.get_lines():
       line.set_linewidth(1.5)
 
-  savefig(sid, 'GIC_compare_timeseries')
+  savefig(fdir, 'GIC_compare_timeseries')
 
   if sid in paper_GIC_sids:
     text = {
@@ -242,7 +244,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
     for line in leg.get_lines():
         line.set_linewidth(1.5)
 
-    savefig(sid, f'GIC_compare_timeseries_{model_names[idx]}')
+    savefig(fdir, f'GIC_compare_timeseries_{model_names[idx]}')
 
     if sid in paper_GIC_sids:
       text = {
@@ -280,7 +282,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
   # change the marker size for the legend
   for line in leg.get_lines():
       line.set_markersize(6)
-  savefig(sid, 'GIC_compare_correlation')
+  savefig(fdir, 'GIC_compare_correlation')
   if sid in paper_GIC_sids:
     text = {
       'Bull Run': 'b)',
@@ -307,7 +309,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
     plt.xlabel('Measured GIC [A]')
     plt.ylabel('Calculated GIC [A]')
     plt.grid()
-    savefig(sid, f'GIC_compare_correlation_{model_names[idx]}')
+    savefig(fdir, f'GIC_compare_correlation_{model_names[idx]}')
     if sid in paper_GIC_sids:
       text = {
         'Bull Run': 'b)',
@@ -340,11 +342,13 @@ def compare_gic(info, data, sid, show_sim_site=False):
   plt.ylabel('Probability', fontsize=18)
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
   plt.legend(loc='upper right')
-  savefig(sid, 'GIC_histogram_meas_calc')
+  savefig(fdir, 'GIC_histogram_meas_calc')
   plt.close()
 
 
 def compare_db(info, data, sid):
+
+  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
   
   time_meas = data[sid]['B']['measured'][0]['modified']['time']
   data_meas = data[sid]['B']['measured'][0]['modified']['data']
@@ -384,7 +388,7 @@ def compare_db(info, data, sid):
   for line in leg.get_lines():
       line.set_linewidth(1.5)
 
-  savefig(sid, 'B_compare_timeseries')
+  savefig(fdir, 'B_compare_timeseries')
   if sid in paper_B_sids:
     text = {
       'Bull Run': 'a)',
@@ -461,7 +465,7 @@ def compare_db(info, data, sid):
   # change the marker size for the legend
   for line in leg.get_lines():
       line.set_markersize(6)
-  savefig(sid, 'B_compare_correlation')
+  savefig(fdir, 'B_compare_correlation')
   if sid in paper_B_sids:
     text = {
       'Bull Run': 'b)',
@@ -498,11 +502,12 @@ def compare_db(info, data, sid):
   plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
   plt.legend(loc='upper right')
   
-  savefig(sid, 'B_histogram_meas_calc')
+  savefig(fdir, 'B_histogram_meas_calc')
 
 
 def plot_original(plot_info, data, sid, data_type, data_class, data_source, data_error):
 
+  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
   # Plot original data on separate figures
 
   def plot(time, data, title, ylabel, legend, time_r, data_r):
@@ -557,7 +562,7 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
 
   plt.figure()
   plot(time_o, data_o, title, ylabel, legend, time_m, data_m)
-  savefig(sid, f'{base_name}')
+  savefig(fdir, f'{base_name}')
 
   if data_type == 'GIC' and data_class == 'measured':
     subdir = 'good' if data_error is None else 'bad'
@@ -580,7 +585,7 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
     title = f"{title} with mean removed"
 
     plot(time_m, data_m, title, ylabel, legend, None, None)
-    savefig(sid, f'{base_name}_modified')
+    savefig(fdir, f'{base_name}_modified')
 
   plt.close()
 
@@ -670,7 +675,7 @@ if create_md:
         if os.path.exists(os.path.join(data_dir, img2)):
           with open(md_path, "a") as md_file:
             md_file.write(f"\n![]({img2})\n")
-            
+
     if 'GIC' in info_dict[sid].keys():
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
@@ -790,18 +795,6 @@ if stack_plot:
 ###############################################################################################################
 
 # comparison plots!
-
-def savefig(fdir, fname, fmts=['png', 'pdf']):
-    if not os.path.exists(fdir):
-        os.makedirs(fdir)
-    fname = os.path.join(fdir, fname)
-
-    for fmt in fmts:
-        print(f"    Saving {fname}.{fmt}")
-        if fmt == 'png':
-            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
-        else:
-            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 #reading in info.extended.csv
 fname = os.path.join('info', 'info.extended.csv')
