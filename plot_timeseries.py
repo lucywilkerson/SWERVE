@@ -784,7 +784,8 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       gridline_of_interest.set_visible(False)
       
       # Save the figure
-      savefig(f'_{source.lower()}', f'gic_{source.lower()}')
+      fdir = os.path.join(base_dir, f'_{source.lower()}')
+      savefig(fdir, f'gic_{source.lower()}')
       savefig_paper(f'gic_{source.lower()}')
       plt.close()
 
