@@ -16,6 +16,7 @@ plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-May-Storm-data')
 results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
+paper_dir = os.path.join('..','2024-May-Storm-paper')
 
 pkl_file = os.path.join(results_dir, 'cc.pkl')
 print(f"Reading {pkl_file}")
@@ -33,7 +34,7 @@ def savefig(fdir, fname, fmts=fmts):
         plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
-  fdir = os.path.join('..','2024-May-Storm-paper', sub_dir)
+  fdir = os.path.join(paper_dir, sub_dir)
   if not os.path.exists(fdir):
     os.makedirs(fdir)
   fname = os.path.join(fdir, fname)
