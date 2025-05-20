@@ -3,10 +3,6 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
-from shapely.geometry import Point
-import numpy as np
-
-
 
 # getting data as in cc_map.py
 data_dir = os.path.join('..', '2024-May-Storm-data')
@@ -122,44 +118,3 @@ fname = os.path.join(out_dir, 'trans_lines_length')
 plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight')
 #plt.show()
 plt.close()
-
-####################################################################################################
-# this was my code to find the nearest line, will be using Dennies' code (voltage_geography.py) instead
-####################################################################################################
-"""
-# Function to find the nearest line voltage for a given point
-def find_nearest_line(point, lines_gdf):
-    # Calculate the distance from the point to each line
-    projected_lines_gdf = lines_gdf.to_crs(epsg=3857)
-    point_gdf = gpd.GeoDataFrame(geometry=[point], crs="EPSG:4326")
-    projected_point = point_gdf.to_crs(epsg=3857).geometry.iloc[0]
-    distances = projected_lines_gdf.geometry.distance(projected_point)
-    # Find nearest line
-    nearest_idx = distances.dropna().idxmin()
-    nearest_line = trans_lines_gdf.loc[nearest_idx]
-    return nearest_line
-
-# Create gdf from info_df
-info_gdf = gpd.GeoDataFrame(
-    info_df, geometry=gpd.points_from_xy(info_df['geo_lon'], info_df['geo_lat']), crs="EPSG:4326"
-)
-
-# Remove lines with negative voltage
-trans_lines_gdf = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] >= 0)]
-
-# Loop over info_gdf
-for i in range(len(info_gdf)):
-    nearest_line = find_nearest_line(info_gdf['geometry'][i], trans_lines_gdf)
-    nearest_voltage = nearest_line['VOLTAGE']
-    nearest_length = nearest_line['length_km']
-    line_coords = list(nearest_line['geometry'].coords)
-    x_diff = line_coords[-1][0] - line_coords[0][0]
-    y_diff = line_coords[-1][1] - line_coords[0][1]
-    nearest_orientation = np.degrees(np.arctan2(y_diff, x_diff)) # need to consider curvature of Earth?
-    # Updating info_df
-    info_df.at[i, 'nearest_voltage'] = nearest_voltage
-    info_df.at[i, 'nearest_length_km'] = nearest_length
-    info_df.at[i, 'nearest_orientation'] = nearest_orientation
-
-# TODO: save this to info.csv, then find differences in site pairs and plot scatter plots"""
-
