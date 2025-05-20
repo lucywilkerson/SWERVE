@@ -6,6 +6,11 @@ import pandas
 import pickle
 import datetime
 
+from storminator import LOG_DIR
+
+from utilrsw import logger
+logger = logger(log_dir=LOG_DIR)
+
 data_dir = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(data_dir, '_processed')
 all_file = os.path.join(data_dir, '_all', 'all.pkl')
@@ -17,7 +22,7 @@ def read_nerc(data_dir, fname):
   time = []
 
   file = os.path.join(data_dir, fname)
-  print(f"    Reading {file}")
+  logger.info(f"    Reading {file}")
   if not os.path.exists(file):
     raise FileNotFoundError(f"File not found: {file}")
   with open(file, 'r') as csvfile:
@@ -42,9 +47,9 @@ def read_nerc(data_dir, fname):
   # e.g., 2024E04_10233.csv, which looks like it is 10-second cadence data
   # but time stamps have the same second value.
   if len(time) != len(numpy.unique(time)):
-    print("    Error: duplicate time stamps found")
+    logger.info("    Error: duplicate time stamps found")
     return None
-    #print(time[numpy.where(numpy.diff(time) == datetime.timedelta(0))])
+    #logger.info(time[numpy.where(numpy.diff(time) == datetime.timedelta(0))])
 
   data = numpy.array(data)
   if data.shape[1] == 1:
@@ -63,7 +68,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
       sid = f'{sid}2'
     fname = f'gic-{sid}_20240510.csv'
     file = os.path.join(data_dir, fname)
-    print(f"    Reading {file}")
+    logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
     with open(file, 'r') as csvfile:
@@ -93,7 +98,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     for date in dates:
       file = f'{date}_{sid}GIC.dat'
       file = os.path.join(data_dir, file)
-      print(f"    Reading {file}")
+      logger.info(f"    Reading {file}")
       if not os.path.exists(file):
         raise FileNotFoundError(f"File not found: {file}")
       d, times = numpy.loadtxt(file, unpack=True, skiprows=1, delimiter=',')
@@ -108,7 +113,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     for source in info[sid][data_type][data_class]:
       if isinstance(source, dict) and "nearest_sim_site" in source:
         sim_site = source["nearest_sim_site"]
-    print(f"    Nearest simulation site: {sim_site}")
+    logger.info(f"    Nearest simulation site: {sim_site}")
 
     measured_sources = [source for source in info[sid]['GIC']['measured'] if isinstance(source, str)]
     if 'NERC' in measured_sources:
@@ -117,7 +122,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
       fname = os.path.join(data_dir, 'dennies_gic_comparison', 'tva', f'site_{sim_site}.csv')
     else:
       raise ValueError(f"No corresponding measured data source found for site {sid}")
-    print(f"    Reading {fname}")
+    logger.info(f"    Reading {fname}")
     if not os.path.exists(fname):
       raise FileNotFoundError(f"File not found: {fname}")
 
@@ -143,7 +148,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     time = []
 
     file = os.path.join(data_dir, f'{sid}_mag_20240509.csv')
-    print(f"    Reading {file}")
+    logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
 
@@ -171,7 +176,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     # df = {}
     # for region in ["gap", "iono", "msph"]:
     #   file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
-    #   print(f"    Reading {file}")
+    #   logger.info(f"    Reading {file}")
     #   if not os.path.exists(file):
     #     raise FileNotFoundError(f"File not found: {file}")
     #   df[region]  = pandas.read_pickle(file)
@@ -181,7 +186,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     # bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
 
     file = os.path.join(data_dir, f'dB_{sid}.pkl')
-    print(f"    Reading {file}")
+    logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
     df  = pandas.read_pickle(file)
@@ -201,7 +206,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     # file and extract data for the requested site. Modify this code
     # so sites dict is cached and used if found.
     file = os.path.join(data_dir, 'mage', 'TVAinterpdf.csv')
-    print(f"    Reading {file}")
+    logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
 
@@ -271,7 +276,7 @@ def resample(time, data, start, stop, freq, ave=None):
 
 fname = os.path.join('info', 'info.json')
 with open(fname, 'r') as f:
-  print(f"Reading {fname}\n")
+  logger.info(f"Reading {fname}\n")
   info = json.load(f)
 
 start = datetime.datetime(2024, 5, 10, 0, 0)
@@ -288,7 +293,7 @@ sids = info.keys()
 for sid in sids: # site ids
   data[sid] = {}
 
-  print(f"Reading '{sid}' data")
+  logger.info(f"Reading '{sid}' data")
   data_types = info[sid].keys()
 
   for data_type in data_types: # e.g., GIC, B
@@ -299,33 +304,33 @@ for sid in sids: # site ids
       data_sources = info[sid][data_type][data_class]
       data[sid][data_type][data_class] = []
       for data_source in data_sources:
-        print(f"  Reading '{data_type}/{data_class}/{data_source}' data")
+        logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
         d = read(info, sid, data_type, data_class, data_source, data_dir)
         if d is None:
-          print("    Skipping")
+          logger.info("    Skipping")
           data[sid][data_type][data_class].append(None)
           continue
-        print(f"    data.shape = {d['data'].shape}")
+        logger.info(f"    data.shape = {d['data'].shape}")
         original = {'original': d}
         data[sid][data_type][data_class].append(original)
 
         if data_type == 'GIC' and data_class == 'measured':
           # Resample to 1-min average.
-          print("    Averaging timeseries to 1-min bins")
+          logger.info("    Averaging timeseries to 1-min bins")
           d = resample(d["time"], d["data"], start, stop, 's', ave=60)
-          print(f"    data.shape = {d['data'].shape}")
+          logger.info(f"    data.shape = {d['data'].shape}")
           modified = {**d, 'modification': '1-min average'}
           # Assumes only one data source.
           data[sid][data_type][data_class][0]['modified'] = modified
 
         if data_type == 'B' and data_class == 'measured':
           # Remove mean
-          print("    Creating timeseries with mean removed")
+          logger.info("    Creating timeseries with mean removed")
           data_m = numpy.full(d["data"].shape, numpy.nan)
           for i in range(3):
             # TODO: Get IGRF value
             data_m[:,i] = d["data"][:,i] - d["data"][0,i]
-          print(f"    data.shape = {d['data'].shape}")
+          logger.info(f"    data.shape = {d['data'].shape}")
           modified = {'time': d["time"], 'data': data_m, 'modification': 'mean removed'}
           # Assumes only one data source.
           data[sid][data_type][data_class][0]['modified'] = modified
@@ -337,9 +342,9 @@ for sid in sids: # site ids
           os.makedirs(os.path.dirname(fname))
 
         with open(fname, 'wb') as f:
-          print(f"    Writing {fname}")
+          logger.info(f"    Writing {fname}")
           pickle.dump(data[sid][data_type][data_class], f)
 
-print(f"\nWriting {all_file}")
+logger.info(f"\nWriting {all_file}")
 with open(all_file, 'wb') as f:
   pickle.dump(data, f)
