@@ -106,7 +106,7 @@ axes[3].set_ylabel(r'T [MK]')
 
 # Plotting mach
 axes[4].plot(data['time'], data['Magnetosonic Mach'], color='k', linewidth=0.8)
-axes[4].set_ylabel(r'Magnetosonic Mach')
+axes[4].set_ylabel("Magnetosonic\nMach")
 
 # Plotting Vx
 axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8)  # divide by 1000 to get in km/s
