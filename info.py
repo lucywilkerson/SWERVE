@@ -17,6 +17,10 @@ import cartopy.feature as cfeature
 from spacepy import coordinates as coord
 from spacepy.time import Ticktock
 
+import utilrsw
+log_dir = 'log'
+logger = utilrsw.logger(log_dir=log_dir)
+
 """
 Write new info csv file (info/info.extended.csv) with additional columns:
 -interpolated beta
@@ -34,10 +38,10 @@ geojson_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf.geojs
 
 def add_beta(beta_fname, info_df, beta_site='OTT'):
 
-  print(f"Reading beta factors file: {beta_fname}")
+  logger.info(f"Reading beta factors file: {beta_fname}")
   data = loadmat(beta_fname)
   data = data['waveform'][0]
-  print("Adding interpolated OTT beta column to info_df")
+  logger.info("Adding interpolated OTT beta column to info_df")
 
   beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
   if beta_site not in beta_sites:
@@ -76,10 +80,11 @@ def add_beta(beta_fname, info_df, beta_site='OTT'):
 
 
 # Read in info.csv
-print(f"Reading {info_csv}")
+logger.info(f"Reading {info_csv}")
 info_df = pd.read_csv(info_csv)
 
 add_beta(beta_fname, info_df)
+<<<<<<< HEAD
 
 def add_power_pool(geojson_file, info_df):
   # Code for power pool and US region
@@ -143,6 +148,9 @@ info_df = add_power_pool(geojson_file, info_df)
 out_fname = os.path.join('info', 'info.extended.csv')
 print(f"Saving updated {out_fname} with interpolated beta and power pools")
 info_df.to_csv(out_fname, index=False)
+=======
+utilrsw.rm_if_empty(f"{log_dir}/info.log")
+>>>>>>> 6d1b8569f9475622519302ea49f31dafb70c0252
 exit()
 
 # Code for nearest voltage
