@@ -16,7 +16,6 @@ import cartopy.feature as cfeature
 
 from spacepy import coordinates as coord
 from spacepy.time import Ticktock
-
 import utilrsw
 log_dir = 'log'
 logger = utilrsw.logger(log_dir=log_dir)
@@ -84,11 +83,11 @@ logger.info(f"Reading {info_csv}")
 info_df = pd.read_csv(info_csv)
 
 add_beta(beta_fname, info_df)
-<<<<<<< HEAD
+utilrsw.rm_if_empty(f"{log_dir}/info.log")
 
 def add_power_pool(geojson_file, info_df):
   # Code for power pool and US region
-  print(f"Reading {geojson_file}")
+  print(f"Reading power pool geography file: {geojson_file}")
   gdf = gpd.read_file(geojson_file)
 
   # Plot the GeoDataFrame with colors for each region
@@ -148,9 +147,6 @@ info_df = add_power_pool(geojson_file, info_df)
 out_fname = os.path.join('info', 'info.extended.csv')
 print(f"Saving updated {out_fname} with interpolated beta and power pools")
 info_df.to_csv(out_fname, index=False)
-=======
-utilrsw.rm_if_empty(f"{log_dir}/info.log")
->>>>>>> 6d1b8569f9475622519302ea49f31dafb70c0252
 exit()
 
 # Code for nearest voltage
