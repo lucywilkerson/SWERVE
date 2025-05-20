@@ -208,7 +208,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
       'Widows Creek': 'g)'
     }.get(sid, None)
     add_subplot_label(plt.gca(), text)
-    savefig_paper('GIC_compare_timeseries_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
+    savefig_paper('GIC_compare_timeseries', sub_dir=f"{sid.lower().replace(' ', '')}")
   plt.close()
 
   for idx in range(len(model_names)):
@@ -291,7 +291,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
       'Widows Creek': 'h)'
     }.get(sid, None)
     add_subplot_label(plt.gca(), text)
-    savefig_paper(f'GIC_compare_correlation_NEW', sub_dir=f"{sid.lower().replace(' ', '')}")
+    savefig_paper(f'GIC_compare_correlation', sub_dir=f"{sid.lower().replace(' ', '')}")
   plt.close()
 
   for idx in range(len(model_names)):
