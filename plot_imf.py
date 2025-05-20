@@ -17,6 +17,7 @@ plt.rcParams['savefig.dpi'] = 600
 
 data_dir = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(data_dir, '_processed')
+paper_dir = os.path.join('..','2024-May-Storm-paper')
 
 def subset(time, data, start, stop):
   idx = np.logical_and(time >= start, time <= stop)
@@ -38,7 +39,7 @@ def savefig(sid, fname, sub_dir="", fmts=['png','pdf']):
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
-  fdir = os.path.join('..','2024-May-Storm-paper', sub_dir)
+  fdir = os.path.join(paper_dir, sub_dir)
   if not os.path.exists(fdir):
     os.makedirs(fdir)
   fname = os.path.join(fdir, fname)
