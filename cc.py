@@ -240,7 +240,7 @@ with open(output_fname, 'wb') as f:
 
 ############################################################################################################
 # finding sites with no paring beyond a given cc limit
-find_lowest_cc = True
+find_lowest_cc = False
 
 def site_filt(info_df, cc_df, cc_lim):
     print(f'Sites with no pairing |cc| > {cc_lim}:')
