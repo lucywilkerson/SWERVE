@@ -32,8 +32,8 @@ base_dir = os.path.join(data_dir, '_processed')
 paper_dir = os.path.join('..','2024-May-Storm-paper')
 
 plot_data = False    # Plot original and modified data
-plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True # Plot GIC stack plots
+plot_compare = True # Plot measured and calculated data on same axes, when both available
+stack_plot = False # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # updates md comparison files without replotting everything
 sids = None # If none, plot all sites
@@ -667,8 +667,8 @@ if create_md:
       if 'measured' in mag_types and 'calculated' in mag_types:
         md_name = "B_compare_timeseries.md"
         md_path = os.path.join(data_dir, md_name)
-        img1 = os.path.join("_processed", sid.lower().replace(' ', ''), "B_compare_timeseries.png")
-        img2 = os.path.join("_processed", sid.lower().replace(' ', ''), "B_compare_correlation.png")
+        img1 = os.path.join("_processed", sid.lower().replace(' ', ''), "B_compare_timeseries.png").replace("\\", "/")
+        img2 = os.path.join("_processed", sid.lower().replace(' ', ''), "B_compare_correlation.png").replace("\\", "/")
         if os.path.exists(os.path.join(data_dir, img1)):
           with open(md_path, "a") as md_file:
             md_file.write(f"\n![]({img1})\n")
@@ -681,8 +681,8 @@ if create_md:
       if 'measured' and 'calculated' in gic_types:
         md_name = "GIC_compare_timeseries.md"
         md_path = os.path.join(data_dir, md_name)
-        img1 = os.path.join("_processed", sid.lower().replace(' ', ''), "GIC_compare_timeseries.png")
-        img2 = os.path.join("_processed", sid.lower().replace(' ', ''), "GIC_compare_correlation.png")
+        img1 = os.path.join("_processed", sid.lower().replace(' ', ''), "GIC_compare_timeseries.png").replace("\\", "/")
+        img2 = os.path.join("_processed", sid.lower().replace(' ', ''), "GIC_compare_correlation.png").replace("\\", "/")
         if os.path.exists(os.path.join(data_dir, img1)):
           with open(md_path, "a") as md_file:
             md_file.write(f"\n![]({img1})\n")
@@ -692,8 +692,8 @@ if create_md:
         for idx, model_name in enumerate(model_names):
           md_name = f"GIC_compare_timeseries_{model_name}.md"
           md_path = os.path.join(data_dir, md_name)
-          img1 = os.path.join("_processed", sid.lower().replace(' ', ''), f"GIC_compare_timeseries_{model_name}.png")
-          img2 = os.path.join("_processed", sid.lower().replace(' ', ''), f"GIC_compare_correlation_{model_name}.png")
+          img1 = os.path.join("_processed", sid.lower().replace(' ', ''), f"GIC_compare_timeseries_{model_name}.png").replace("\\", "/")
+          img2 = os.path.join("_processed", sid.lower().replace(' ', ''), f"GIC_compare_correlation_{model_name}.png").replace("\\", "/")
           if os.path.exists(os.path.join(data_dir, img1)):
               with open(md_path, "a") as md_file:
                   md_file.write(f"\n![]({img1})\n")
