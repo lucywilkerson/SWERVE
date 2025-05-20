@@ -142,11 +142,12 @@ def plot_regression(target, predictions, cc, remove_outlier, target_label, mask)
         text_kwargs = {
             'horizontalalignment': 'left',
             'verticalalignment': 'top',
+            'fontsize': plt.rcParams['xtick.labelsize'],
             'bbox': {
-                "boxstyle": "round,pad=0.3",
-                "edgecolor": "black",
-                "facecolor": "white",
-                "linewidth": 0.5
+            "boxstyle": "round,pad=0.3",
+            "edgecolor": "black",
+            "facecolor": "white",
+            "linewidth": 0.5
             }
         }
         text = f"cc = {cc:.2f}"
