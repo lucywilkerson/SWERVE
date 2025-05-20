@@ -32,8 +32,8 @@ base_dir = os.path.join(data_dir, '_processed')
 paper_dir = os.path.join('..','2024-May-Storm-paper')
 
 plot_data = False    # Plot original and modified data
-plot_compare = True # Plot measured and calculated data on same axes, when both available
-stack_plot = False # Plot GIC stack plots
+plot_compare = False # Plot measured and calculated data on same axes, when both available
+stack_plot = True # Plot GIC stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # updates md comparison files without replotting everything
 sids = None # If none, plot all sites
@@ -729,8 +729,8 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
               ]
               if site_info['error'].isna().all():
                   source_sites['sites'].append(sid)
-                  source_sites['lat'].append(site_info['geo_lat'].values[0])
-                  source_sites['lon'].append(site_info['geo_lon'].values[0])
+                  source_sites['lat'].append(site_info['mag_lat'].values[0])
+                  source_sites['lon'].append(site_info['mag_lon'].values[0])
       # Sort sites by latitude
       sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
       source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
@@ -789,6 +789,12 @@ def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NER
       savefig_paper(f'gic_{source.lower()}')
       plt.close()
 
+#reading in info.extended.csv
+fname = os.path.join('info', 'info.extended.csv')
+print(f"Reading {fname}")
+df = pd.read_csv(fname).set_index('site_id')
+info_df = pd.read_csv(fname)
+
 # Call the function
 if stack_plot:
   plot_all_gic(info_dict, info_df, data_all, start, stop)
@@ -796,12 +802,6 @@ if stack_plot:
 ###############################################################################################################
 
 # comparison plots!
-
-#reading in info.extended.csv
-fname = os.path.join('info', 'info.extended.csv')
-print(f"Reading {fname}")
-df = pd.read_csv(fname).set_index('site_id')
-info_df = pd.read_csv(fname)
 
 # Filter out sites with error message
 info_df = info_df[~info_df['error'].str.contains('', na=False)]
