@@ -700,4 +700,5 @@ logger.info("Writing info/info.json")
 with open(os.path.join('info','info.json'), 'w') as f:
   json.dump(sites, f, indent=2)
 
+utilrsw.rm_if_empty('log/info.errors.log')
 ####################################################################################################

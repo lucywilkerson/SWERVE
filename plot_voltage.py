@@ -73,3 +73,4 @@ for voltage in voltages:
 
 plot_counts()
 plot_lengths()
+utilrsw.rm_if_empty('log/plot_voltage.errors.log')

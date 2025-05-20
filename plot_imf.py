@@ -122,3 +122,4 @@ plt_adjust(limits)
 
 savefig('_imf', 'imf_mage', logger)
 savefig_paper('imf_mage', logger)
+utilrsw.rm_if_empty('log/plot_imf.errors.log')
