@@ -22,56 +22,67 @@ Write new info csv file (info/info.extended.csv) with additional columns:
 -US region
 -nearest GMU simulation site
 """
-
-# %%Code for interpolated beta
+# Code for interpolated beta
 data_dir = os.path.join('..', '2024-May-Storm-data')
-fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
-data = loadmat(fname)
-data = data['waveform'][0]
+info_csv = os.path.join('info', 'info.csv')
+beta_fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
 
-# Convert the MATLAB data to a pandas DataFrame
-raw_df = pd.DataFrame(data)
-#mea_dat = raw_df[0][0][0][0][1][0]
-ott_dat = raw_df[0][1][0][0][1][0]
-#mmb_dat = raw_df[0][2][0][0][1][0]
-#nur_dat = raw_df[0][3][0][0][1][0]
+def add_beta(beta_fname, info_df, beta_site='OTT'):
 
-# Convert ott_dat to a pandas DataFrame
-rows = []
-for i in range(len(ott_dat)):
-    beta = ott_dat[i][0][0][1][0][0]
-    lat = ott_dat[i][0][0][2][0][0]
-    lon = ott_dat[i][0][0][3][0][0]
-    rows.append([beta, lat, lon])
-df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
+  print(f"Reading beta factors file: {beta_fname}")
+  data = loadmat(beta_fname)
+  data = data['waveform'][0]
+  print("Adding interpolated OTT beta column to info_df")
 
-# Create the interpolator
-interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
+  beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
+  if beta_site not in beta_sites:
+    raise ValueError(f"Invalid beta site. Choose from {beta_sites}")
 
-# Define a grid for interpolation
-lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
-lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
-lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
+  # Convert the MATLAB data to a pandas DataFrame
+  raw_df = pd.DataFrame(data)
+  if beta_site == 'MEA':
+    betas = raw_df[0][0][0][0][1][0]
+  if beta_site == 'OTT':
+    betas = raw_df[0][1][0][0][1][0]
+  if beta_site == 'MMB':
+    betas = raw_df[0][2][0][0][1][0]
+  if beta_site == 'NUR':
+    betas = raw_df[0][3][0][0][1][0]
 
-# Interpolate the data
-beta_grid = interpolator(lat_grid, lon_grid)
+  # Convert betas list to a Pandas DataFrame
+  rows = []
+  for i in range(len(betas)):
+      beta = betas[i][0][0][1][0][0]
+      lat = betas[i][0][0][2][0][0]
+      lon = betas[i][0][0][3][0][0]
+      rows.append([beta, lat, lon])
+  df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
 
-# Reading in info.csv
-fname = os.path.join('info', 'info.csv')
-print(f"Reading {fname}")
-info_df = pd.read_csv(fname)
+  # Create the interpolator
+  interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
 
-# Add a new column to info_df based on the interpolated beta values
-info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
+  # Define a grid for interpolation
+  lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
+  lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
+  lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
 
+  # Add a new column to info_df based on the interpolated beta values
+  info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
+
+
+# Read in info.csv
+print(f"Reading {info_csv}")
+info_df = pd.read_csv(info_csv)
+
+add_beta(beta_fname, info_df)
+
+exit()
 # Save the updated DataFrame 
 out_fname = os.path.join('info', 'info.extended.csv')
-info_df.to_csv(out_fname, index=False)
 print(f"Saving updated {out_fname} with interpolated beta")
+info_df.to_csv(out_fname, index=False)
 
-
-
-# %%Code for power pool and US region
+# Code for power pool and US region
 geojson_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf.geojson')
 print(f"Reading {geojson_file}")
 gdf = gpd.read_file(geojson_file)
@@ -134,7 +145,7 @@ info_df.to_csv(out_fname, index=False)
 print(f"Saving updated {out_fname} with power pool and US region")
 
 
-# %%Code for nearest voltage
+# Code for nearest voltage
 def explode_with_unique_line_id(gdf):
     """
     Explode a GeoDataFrame so that each part gets a unique line_id.
@@ -489,7 +500,7 @@ out_fname = os.path.join('info', 'info.extended.csv')
 info_df.to_csv(out_fname, index=False)
 print(f"Saving updated {out_fname} with nearest voltage")
 
-# %%Code for nearest GMU simulation site
+# Code for nearest GMU simulation site
 data_dir = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(data_dir, '_processed')
 fname = os.path.join('info', 'info.csv')
@@ -662,8 +673,8 @@ extended_df = pd.read_csv(os.path.join('info', 'info.extended.csv'))
 sites = {}
 locations = {}
 
+print("Preparing info.json")
 for idx, row in df.iterrows():
-  print(row)
   site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
   if isinstance(error, str) and error.startswith("x "):
     print(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")
