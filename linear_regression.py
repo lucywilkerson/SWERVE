@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from statsmodels.regression.linear_model import OLS
 from sklearn.metrics import mean_squared_error
 import pickle
 
@@ -101,33 +102,42 @@ def subset(time, data, start, stop):
 start = datetime.datetime(2024, 5, 10, 15, 0)
 stop = datetime.datetime(2024, 5, 12, 6, 0)
 
-def find_label(target_name):
+def find_target(target_name):
     if target_name == 'cc':
         target_label = '|cc|'
+        target_symbol = r'|cc|'
     elif target_name =='std':
         target_label = 'Standard Deviation [A]'
+        target_symbol = r'$\sigma$'
     elif target_name == 'gic_max':
         target_label = 'Peak GIC [A]'
+        target_symbol = r'|GIC$_\text{max}$|'
     else:
         target_label = target_name
-    return target_label
+        target_symbol = 'y'
+    return target_label, target_symbol
     
 
 def analyze_fit(target, predictions, features):
     # Calculate error
-    rss = np.sum((target - predictions) ** 2)  # Sum of squares error
+    rss = np.sum((target-predictions)**2)  # Sum of squares error
     n = len(target)
     rms = np.sqrt(rss/n)
 
     # Calculate correlation coefficient
     cc = np.corrcoef(target, predictions)[0,1]
+    cc_unc = np.sqrt((1-cc**2)/(n-2))
+
+    # Calculate log likelihood
+    n2 = 0.5*n
+    llf = -n2*np.log(2*np.pi) - n2*np.log(rss/n) - n2
 
     # Calculate AIC and BIC
     k = len(features) + 1  # Number of coefficients + intercept
-    aic = n * np.log(rss / n) + 2 * k
-    bic = n * np.log(rss / n) + k * np.log(n)
+    aic = -2*llf + 2*k
+    bic = -2*llf + k*np.log(n)
 
-    return rss, rms, cc, aic, bic
+    return rss, rms, cc, cc_unc, aic, bic
 
 def remove_outliers(data, target, features, threshold=3.5):
     mask = target <= threshold * np.std(target)
@@ -136,22 +146,7 @@ def remove_outliers(data, target, features, threshold=3.5):
     target = target[mask]
     return data[features], target, mask
 
-def plot_regression(target, predictions, cc, remove_outlier, target_label, mask):
-
-    def add_cc_text(cc):
-        text_kwargs = {
-            'horizontalalignment': 'left',
-            'verticalalignment': 'top',
-            'fontsize': plt.rcParams['xtick.labelsize'],
-            'bbox': {
-            "boxstyle": "round,pad=0.3",
-            "edgecolor": "black",
-            "facecolor": "white",
-            "linewidth": 0.5
-            }
-        }
-        text = f"cc = {cc:.2f}"
-        plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
+def plot_regression(target, predictions, remove_outlier, target_label, mask):
 
     plt.figure()
     if remove_outlier:
@@ -160,11 +155,66 @@ def plot_regression(target, predictions, cc, remove_outlier, target_label, mask)
         plt.scatter(target[~outlier_mask], predictions[~outlier_mask], facecolors='none', edgecolors='k', alpha=0.9, label='Omitted Points')
     else:
         plt.scatter(target, predictions, color='k', alpha=0.9, label='Predicted vs Actual')
-    add_cc_text(cc)
+
     plt.plot([target.min(), target.max()], [target.min(), target.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
     plt.xlabel(f'Measured {target_label}')
     plt.ylabel(f'Predicted {target_label}')
     plt.grid()
+
+text_kwargs = {
+        'horizontalalignment': 'left',
+        'verticalalignment': 'top',
+        'fontsize': plt.rcParams['xtick.labelsize'],
+        'bbox': {
+            "boxstyle": "round,pad=0.3",
+            "edgecolor": "black",
+            "facecolor": "white",
+            "linewidth": 0.5,
+            "alpha": 0.7
+        }
+    }
+
+def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bic):
+    def get_feature_symbol(feature):
+        feature_str = str(feature)
+        if feature_str == 'geo_lat':
+            return r'$\lambda$'
+        elif feature_str == 'interpolated_beta':
+            return r'$\beta$'
+        elif '*' in feature_str:
+            parts = feature_str.split('*')
+            symbols = [get_feature_symbol(part) for part in parts]
+            return '·'.join(symbols)
+        else:
+            return feature_str
+    
+    feature_symbols = []
+    for feature in features:
+        symbol = get_feature_symbol(feature)
+        feature_symbols.append(symbol)
+    # Formatting  fit eqn string for arbitrary number of features and cross terms
+    if isinstance(slope, (float, int, np.floating, np.integer)):
+        # Single feature
+        fit_eqn = f"{target_symbol} = {slope:.2f}·{', '.join(feature_symbols)} {intercept:+.2f}"
+    elif hasattr(slope, '__iter__'):
+        # Multiple features
+        terms = []
+        for coef, symbol in zip(slope, feature_symbols):
+            terms.append(f"{coef:+.2f}·{symbol}")
+        fit_eqn = f"{target_symbol} = " + " ".join(terms)
+        if isinstance(intercept, (float, int, np.floating, np.integer)):
+            fit_eqn += f" {intercept:+.2f}"
+    else:
+        fit_eqn = f"{target_symbol} = ..."
+
+    text = (
+        f"{fit_eqn}\n"
+        f"cc = {cc:.2f} ± {cc_unc:.2f}\n"
+        f"RMS = {rms:.2f} A\n"
+        f"AIC = {aic:.2f}\n"
+        f"BIC = {bic:.2f}"
+    )
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
 
 def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, plot=True):
     
@@ -183,12 +233,8 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         model.fit(pd.DataFrame(x).values.reshape(-1, 1), y)
         
         predictions = model.predict(x.values.reshape(-1, 1))
-
-        print(np.corrcoef(y, predictions)[0,1])
-        if np.corrcoef(y, predictions)[0,1] == np.nan:
-            exit()
         
-        rss, rms, cc, aic, bic = analyze_fit(y, predictions, feature)
+        rss, rms, cc, cc_unc, aic, bic = analyze_fit(y, predictions, feature)
         #cc = np.corrcoef(y, predictions)[0,1]
         
         logging.info(f"Linear Regression for {target_name} with only {feature}:")
@@ -202,13 +248,17 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         models[feature] = model
         errors[feature] = rms
 
-        target_label = find_label(target_name)
+        target_label, target_symbol = find_target(target_name)
         
         # Plot actual vs predicted values
         predictions = model.predict(data[[feature]])
-        if plot:
-            plot_regression(target, predictions, cc, remove_outlier, target_label, mask=mask)
-        plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+    
+        plot_regression(target, predictions, remove_outlier, target_label, mask=mask)
+        if target_name == 'cc':
+            plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+            plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
+        else:
+            add_text(target_symbol, [feature], model.coef_[0], model.intercept_, rms, cc, cc_unc, aic, bic)
         savefig(results_dir, 'scatter_fit_' + feature + '_' + target_name)
         if paper:
             text = None
@@ -219,6 +269,7 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
             add_subplot_label(plt.gca(), text)
             savefig_paper('scatter_fit_' + feature + '_' + target_name, sub_dir="regression_model")
         plt.close()
+
     
     return models, errors
 
@@ -239,7 +290,7 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
     # Make predictions
     predictions = model.predict(x)
     
-    rss, rms, cc, aic, bic = analyze_fit(y, predictions, features)
+    rss, rms, cc, cc_unc, aic, bic = analyze_fit(y, predictions, features)
     
     # Print model coefficients and error
     logging.info(f"Linear Regression with All Features for {target}:")
@@ -250,13 +301,16 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
     logging.info("  RMS:", rms)
     logging.info("\n")
 
-    target_label = find_label(target_name)
+    target_label, target_symbol = find_target(target_name)
 
     # Plot actual vs predicted values
     predictions = model.predict(data[features])
-    plot_regression(target, predictions, cc, remove_outlier, target_label, mask=mask)
-    plt.title(f"Linear Regression for {', '.join(features)}\nRMS Error: {float(rms):.2f}\nAIC: {float(aic):.2f}, BIC: {float(bic):.2f}")
-    #plt.legend()
+    plot_regression(target, predictions, remove_outlier, target_label, mask=mask)
+    if target_name == 'cc':
+        plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+        plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
+    else:
+        add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic)
     savefig(results_dir, f'scatter_fit_all_{target_name}')
     plt.close()
     
@@ -291,7 +345,7 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
             # Make predictions
             predictions = model.predict(x)
 
-            rss, rms, cc, aic, bic = analyze_fit(y, predictions, all_features)
+            rss, rms, cc, cc_unc, aic, bic = analyze_fit(y, predictions, all_features)
 
             result_entry = {
                 'model': model,
@@ -341,7 +395,7 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
     logging.info("  Correlation Coefficient (cc):", cc)
     logging.info("\n")
 
-    target_label = find_label(target_name)
+    target_label, target_symbol = find_target(target_name)
     
     # Add cross-term features to the DataFrame
     for cross_term in all_features:
@@ -355,8 +409,12 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
             del data[cross_term]
 
     # Plot actual vs predicted values for the best model
-    plot_regression(target, predictions, cc, remove_outlier, target_label, mask=mask)
-    plt.title(f"Best Linear Regression with {', '.join(all_features)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+    plot_regression(target, predictions, remove_outlier, target_label, mask=mask)
+    if target_name == 'cc':
+        plt.title(f"Best Linear Regression with {', '.join(all_features)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
+        plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
+    else:
+        add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic)
     savefig(results_dir, f'scatter_fit_cross_{target_name}')
     if paper:
         text = None
@@ -436,6 +494,6 @@ if std_compare or peak_compare:
                 time_meas, data_meas = subset(time_meas, data_meas, start, stop)
                 target[i] = func(data_meas[~np.isnan(data_meas)])
             model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name)
-            if not paper:
-                all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name)
+            #if not paper:
+            all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name)
             models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
