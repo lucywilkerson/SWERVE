@@ -9,6 +9,8 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import matplotlib.patches as patches
 import geopandas as gpd
+from scipy.io import loadmat
+from scipy.interpolate import LinearNDInterpolator
 
 data_dir = os.path.join('..', '2024-May-Storm-data')
 out_dir = os.path.join('..', '2024-May-Storm-data', '_map')
@@ -84,7 +86,9 @@ info_df.reset_index(drop=True, inplace=True)
 
 sites = info_df['site_id'].tolist()
 
-def location_map(extent, markersize, out_dir, out_name, patch=False):
+mag_lat_fname = os.path.join(data_dir, 'wmm_all', 'I_2024.shp')
+
+def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=False):
   # Create a figure and axes with a specific projection
   fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
   # Adding map features and symbols for locations
@@ -92,6 +96,23 @@ def location_map(extent, markersize, out_dir, out_name, patch=False):
   if patch == True:
     patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
     ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
+  
+  if mag_lat == True:
+        print(f'Reading {mag_lat_fname}')
+        mag_gdf = gpd.read_file(mag_lat_fname)
+        mag_gdf = mag_gdf.to_crs("EPSG:4326")
+        mag_gdf = mag_gdf[mag_gdf["geometry"].notnull()]
+    
+        # Plotting lines from geometry
+        mag_gdf.loc[
+        mag_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+        ] = mag_gdf.loc[
+        mag_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
+        ].apply(lambda x: list(x.geoms)[0])
+        for idx, row in mag_gdf.iterrows():
+            x, y = row['geometry'].xy
+            ax.plot(x, y, color='gray', linewidth=1, transform=transform)
+  
   add_symbols(ax, df, transform, markersize)
   # Set the extent of the map
   ax.set_extent(extent, crs=crs)
@@ -101,7 +122,7 @@ def location_map(extent, markersize, out_dir, out_name, patch=False):
 USA_extent = [-125, -67, 25.5, 49.5]
 TVA_extent = [-91, -82, 33, 38]
 
-location_map(USA_extent, 5, out_dir, 'map', patch=True)
+location_map(USA_extent, 5, out_dir, 'map', mag_lat=True, patch=True)
 location_map(TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
 
 def cc_vs_dist_map(cc_df):
@@ -292,7 +313,46 @@ def site_maps(info_df, cc_df):
         plt.close()
 
 def beta_maps():
-    """
+    beta_fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
+    beta_site='OTT'
+
+    data = loadmat(beta_fname)
+    data = data['waveform'][0]
+    
+    beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
+    if beta_site not in beta_sites:
+        raise ValueError(f"Invalid beta site. Choose from {beta_sites}")
+
+    # Convert the MATLAB data to a pandas DataFrame
+    raw_df = pd.DataFrame(data)
+    if beta_site == 'MEA':
+        betas = raw_df[0][0][0][0][1][0]
+    if beta_site == 'OTT':
+        betas = raw_df[0][1][0][0][1][0]
+    if beta_site == 'MMB':
+        betas = raw_df[0][2][0][0][1][0]
+    if beta_site == 'NUR':
+        betas = raw_df[0][3][0][0][1][0]
+
+    # Convert betas list to a Pandas DataFrame
+    rows = []
+    for i in range(len(betas)):
+      beta = betas[i][0][0][1][0][0]
+      lat = betas[i][0][0][2][0][0]
+      lon = betas[i][0][0][3][0][0]
+      rows.append([beta, lat, lon])
+    df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
+
+    # Create the interpolator
+    interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
+
+    # Define a grid for interpolation
+    lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
+    lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
+    lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
+
+    # Interpolate beta values onto the grid
+    beta_grid = interpolator(lat_grid, lon_grid)
 
     # Plot the interpolated data on a map
     fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
@@ -316,7 +376,7 @@ def beta_maps():
     ax.set_title('Interpolated Beta Values')
 
     # Show the plot
-    plt.show()"""
+    plt.show()
 
 # US Transmission lines
 data_path = os.path.join(data_dir, 'Electric__Power_Transmission_Lines')
