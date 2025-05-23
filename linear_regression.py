@@ -55,7 +55,7 @@ def read(all_file, sid=None):
 results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 
 # Configure logging
-log_file = os.path.join(results_dir, 'linear_regression.log')
+log_file = os.path.join('log', 'linear_regression.log')
 logging.basicConfig(
     filename=log_file,
     level=logging.INFO,
@@ -126,16 +126,16 @@ def analyze_fit(target, predictions, features):
 
     # Calculate correlation coefficient
     cc = np.corrcoef(target, predictions)[0,1]
-    cc_unc = np.sqrt((1-cc**2)/(n-2))
+    cc_unc = np.sqrt((1-cc**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
 
     # Calculate log likelihood
     n2 = 0.5*n
-    llf = -n2*np.log(2*np.pi) - n2*np.log(rss/n) - n2
+    llf = -n2*np.log(2*np.pi) - n2*np.log(rss/n) - n2 # see https://stackoverflow.com/a/76135206
 
     # Calculate AIC and BIC
-    k = len(features) + 1  # Number of coefficients + intercept
-    aic = -2*llf + 2*k
-    bic = -2*llf + k*np.log(n)
+    k = len(features) + 1  # number of coefficients + intercept
+    aic = -2*llf + 2*k # see https://en.wikipedia.org/wiki/Akaike_information_criterion
+    bic = -2*llf + k*np.log(n) # see https://en.wikipedia.org/wiki/Bayesian_information_criterion
 
     return rss, rms, cc, cc_unc, aic, bic
 
@@ -159,6 +159,12 @@ def plot_regression(target, predictions, remove_outlier, target_label, mask):
     plt.plot([target.min(), target.max()], [target.min(), target.max()], color=3*[0.6], linewidth=0.5, linestyle='--', label='Ideal Fit')
     plt.xlabel(f'Measured {target_label}')
     plt.ylabel(f'Predicted {target_label}')
+    limits = [min(plt.xlim()[0], plt.ylim()[0]), max(plt.xlim()[1], plt.ylim()[1])]
+    plt.xlim(limits)
+    plt.ylim(limits)
+    ticks = plt.xticks()[0]
+    plt.xticks(ticks)
+    plt.yticks(ticks)
     plt.grid()
 
 text_kwargs = {
@@ -184,7 +190,7 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
         elif '*' in feature_str:
             parts = feature_str.split('*')
             symbols = [get_feature_symbol(part) for part in parts]
-            return '·'.join(symbols)
+            return ''.join(symbols)
         else:
             return feature_str
     
@@ -195,24 +201,24 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
     # Formatting  fit eqn string for arbitrary number of features and cross terms
     if isinstance(slope, (float, int, np.floating, np.integer)):
         # Single feature
-        fit_eqn = f"{target_symbol} = {slope:.2f}·{', '.join(feature_symbols)} {intercept:+.2f}"
+        fit_eqn = f"{target_symbol} = ${slope:.2f}${', '.join(feature_symbols)} ${intercept:+.2f}$"
     elif hasattr(slope, '__iter__'):
         # Multiple features
         terms = []
         for coef, symbol in zip(slope, feature_symbols):
-            terms.append(f"{coef:+.2f}·{symbol}")
+            terms.append(f"${coef:+.2f}${symbol}")
         fit_eqn = f"{target_symbol} = " + " ".join(terms)
         if isinstance(intercept, (float, int, np.floating, np.integer)):
-            fit_eqn += f" {intercept:+.2f}"
+            fit_eqn += f" ${intercept:+.2f}$"
     else:
         fit_eqn = f"{target_symbol} = ..."
 
     text = (
         f"{fit_eqn}\n"
-        f"cc = {cc:.2f} ± {cc_unc:.2f}\n"
-        f"RMS = {rms:.2f} A\n"
-        f"AIC = {aic:.2f}\n"
-        f"BIC = {bic:.2f}"
+        f"cc = ${cc:.2f}$ ± ${cc_unc:.2f}$\n"
+        f"RMS = ${rms:.1f}$ [A]\n"
+        f"AIC = ${aic:.1f}$\n"
+        f"BIC = ${bic:.1f}$"
     )
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
 
@@ -312,6 +318,14 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
     else:
         add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic)
     savefig(results_dir, f'scatter_fit_all_{target_name}')
+    if paper:
+        text = None
+        if target_name == 'std':
+                text = 'e)'
+        elif target_name == 'gic_max':
+                text = 'f)'
+        add_subplot_label(plt.gca(), text)
+        savefig_paper(f'scatter_fit_all_{target_name}', sub_dir="regression_model")
     plt.close()
     
     return model, rms
