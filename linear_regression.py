@@ -21,6 +21,18 @@ plt.rcParams['axes.labelsize'] = 16
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
 
+results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
+cc_path = os.path.join(results_dir, 'cc.pkl')
+all_dir  = os.path.join('..', '2024-May-Storm-data', '_all')
+all_file = os.path.join(all_dir, 'all.pkl')
+
+# Configure logging
+log_file = os.path.join('log', 'linear_regression.log')
+logging.basicConfig(
+    filename=log_file,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def load_data(file_path):
     """Load data from a pickle or CSV file."""
@@ -51,16 +63,6 @@ def read(all_file, sid=None):
     data = pickle.load(f)
 
   return info_dict, info_df, data, plot_cfg
-
-results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
-
-# Configure logging
-log_file = os.path.join('log', 'linear_regression.log')
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
 
 fmts = ['png','pdf']
 def savefig(fdir, fname, fmts=fmts):
@@ -180,7 +182,7 @@ text_kwargs = {
         }
     }
 
-def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bic):
+def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bic, df=None):
     def get_feature_symbol(feature):
         feature_str = str(feature)
         if feature_str == 'geo_lat':
@@ -194,24 +196,38 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
         else:
             return feature_str
     
-    feature_symbols = []
-    for feature in features:
-        symbol = get_feature_symbol(feature)
-        feature_symbols.append(symbol)
-    # Formatting  fit eqn string for arbitrary number of features and cross terms
-    if isinstance(slope, (float, int, np.floating, np.integer)):
-        # Single feature
-        fit_eqn = f"{target_symbol} = ${slope:.2f}${', '.join(feature_symbols)} ${intercept:+.2f}$"
-    elif hasattr(slope, '__iter__'):
-        # Multiple features
-        terms = []
-        for coef, symbol in zip(slope, feature_symbols):
-            terms.append(f"${coef:+.2f}${symbol}")
-        fit_eqn = f"{target_symbol} = " + " ".join(terms)
-        if isinstance(intercept, (float, int, np.floating, np.integer)):
-            fit_eqn += f" ${intercept:+.2f}$"
-    else:
-        fit_eqn = f"{target_symbol} = ..."
+    def write_eqn(target_symbol, features, slope, intercept):
+        feature_symbols = []
+        for feature in features:
+            symbol = get_feature_symbol(feature)
+            feature_symbols.append(symbol)
+        # Formatting  fit eqn string for arbitrary number of features and cross terms
+        if isinstance(slope, (float, int, np.floating, np.integer)):
+            # Single feature
+            fit_eqn = f"{target_symbol} = ${slope:.2f}${', '.join(feature_symbols)} ${intercept:+.2f}$"
+        elif hasattr(slope, '__iter__'):
+            # Multiple features
+            terms = []
+            for coef, symbol in zip(slope, feature_symbols):
+                terms.append(f"${coef:+.2f}${symbol}")
+            fit_eqn = f"{target_symbol} = " + " ".join(terms)
+            if isinstance(intercept, (float, int, np.floating, np.integer)):
+                fit_eqn += f" ${intercept:+.2f}$"
+        else:
+            fit_eqn = f"{target_symbol} = ..."
+        return fit_eqn
+
+    fit_eqn = write_eqn(target_symbol, features, slope, intercept)
+
+    if df is not None:
+        df.loc[len(df)] = {
+            'fit_eqn': fit_eqn,
+            'cc': cc,
+            'cc_unc': cc_unc,
+            'rms': rms,
+            'aic': aic,
+            'bic': bic
+        }
 
     text = (
         f"{fit_eqn}\n"
@@ -222,7 +238,7 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
     )
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
 
-def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, plot=True):
+def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, df=None):
     
     models = {}
     errors = {}
@@ -264,7 +280,7 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
             plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
             plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
         else:
-            add_text(target_symbol, [feature], model.coef_[0], model.intercept_, rms, cc, cc_unc, aic, bic)
+            add_text(target_symbol, [feature], model.coef_[0], model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
         savefig(results_dir, 'scatter_fit_' + feature + '_' + target_name)
         if paper:
             text = None
@@ -279,7 +295,7 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
     
     return models, errors
 
-def linear_regression_all(data, features, target, target_name, remove_outlier=True):
+def linear_regression_all(data, features, target, target_name, remove_outlier=True, df=None):
     """Perform linear regression using all features."""
     
     if remove_outlier:
@@ -316,7 +332,7 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
         plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
         plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
     else:
-        add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic)
+        add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
     savefig(results_dir, f'scatter_fit_all_{target_name}')
     if paper:
         text = None
@@ -330,7 +346,7 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
     
     return model, rms
 
-def linear_regression_cross(data, features, target, target_name, remove_outlier=True):
+def linear_regression_cross(data, features, target, target_name, remove_outlier=True, df=None):
     """Perform linear regression with all combinations of features and calculate AIC and BIC for each model."""
 
     results = []
@@ -428,7 +444,7 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
         plt.title(f"Best Linear Regression with {', '.join(all_features)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
         plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
     else:
-        add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic)
+        add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic, df=df)
     savefig(results_dir, f'scatter_fit_cross_{target_name}')
     if paper:
         text = None
@@ -445,9 +461,7 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
 
 if cc_compare:
     # Load the data
-    file_dir = os.path.join('..', '2024-May-Storm-data', '_results')
-    file_path = os.path.join(file_dir, 'cc.pkl')
-    data = load_data(file_path)
+    data = load_data(cc_path)
     
     features = ['dist(km)', 'beta_diff', 'lat_diff']
     feature_names = {
@@ -489,8 +503,8 @@ if std_compare or peak_compare:
     data.reset_index(drop=True, inplace=True)
     sites = data['site_id'].tolist()
 
-    all_dir  = os.path.join('..', '2024-May-Storm-data', '_all')
-    all_file = os.path.join(all_dir, 'all.pkl')
+    scatter_fit_df = pd.DataFrame(columns=['fit_eqn', 'cc', 'cc_unc', 'rms', 'aic', 'bic'])
+
     info_dict, info_df, data_all, plot_info = read(all_file)
 
     features = ['geo_lat', 'interpolated_beta']
@@ -507,7 +521,10 @@ if std_compare or peak_compare:
                 data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
                 time_meas, data_meas = subset(time_meas, data_meas, start, stop)
                 target[i] = func(data_meas[~np.isnan(data_meas)])
-            model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name)
-            #if not paper:
-            all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name)
+            model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df)
+            all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name, df=scatter_fit_df)
             models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
+
+    #print(scatter_fit_df)
+    scatter_fit_df.to_markdown(os.path.join(results_dir, "scatter_fit_table.md"), index=False)
+    scatter_fit_df.to_latex(os.path.join(results_dir, "scatter_fit_table.tex"), index=False, escape=False)
