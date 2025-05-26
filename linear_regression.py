@@ -113,7 +113,7 @@ def find_target(target_name):
         target_symbol = r'$\sigma$'
     elif target_name == 'gic_max':
         target_label = 'Peak GIC [A]'
-        target_symbol = r'|GIC$_\text{max}$|'
+        target_symbol = r'$\vert{\text{GIC}_\text{max}}\vert$'
     else:
         target_label = target_name
         target_symbol = 'y'
@@ -503,8 +503,6 @@ if std_compare or peak_compare:
     data.reset_index(drop=True, inplace=True)
     sites = data['site_id'].tolist()
 
-    scatter_fit_df = pd.DataFrame(columns=['fit_eqn', 'cc', 'cc_unc', 'rms', 'aic', 'bic'])
-
     info_dict, info_df, data_all, plot_info = read(all_file)
 
     features = ['geo_lat', 'interpolated_beta']
@@ -521,10 +519,13 @@ if std_compare or peak_compare:
                 data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
                 time_meas, data_meas = subset(time_meas, data_meas, start, stop)
                 target[i] = func(data_meas[~np.isnan(data_meas)])
+
+            scatter_fit_df = pd.DataFrame(columns=['fit_eqn', 'cc', 'cc_unc', 'rms', 'aic', 'bic'])
+
             model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df)
             all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name, df=scatter_fit_df)
             models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
 
-    #print(scatter_fit_df)
-    scatter_fit_df.to_markdown(os.path.join(results_dir, "scatter_fit_table.md"), index=False)
-    scatter_fit_df.to_latex(os.path.join(results_dir, "scatter_fit_table.tex"), index=False, escape=False)
+            #print(scatter_fit_df)
+            scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{target_name}.md"), index=False)
+            scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{target_name}.tex"), index=False, escape=False)
