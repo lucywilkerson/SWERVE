@@ -72,7 +72,7 @@ def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins',
 
 
 # Scatter plot
-scatter_kwargs = {'color': 'gray', 'alpha': 0.9, 'label': 'Data'}
+scatter_kwargs = {'color': 'gray', 'alpha': 0.9}
 
 plt.scatter(df['dist(km)'], np.abs(df['cc']), **scatter_kwargs)
 plot_avg_line(df['dist(km)'], np.abs(df['cc']))
@@ -108,20 +108,20 @@ plt.grid(True)
 plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_beta_scatter')
 if paper:
-    add_subplot_label(plt.gca(), 'b)')
+    add_subplot_label(plt.gca(), 'c)')
     savefig_paper('cc_vs_beta_scatter', 'scatter')
 plt.close()
 
 plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), **scatter_kwargs)
 nan_volt_diff = df['volt_diff(kV)'].isna().sum()
-plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
+#plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
 plt.xlabel(r'|$\Delta$V| [kV]')
 plt.ylabel('|cc|')
 plt.grid(True)
 #plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_volt_scatter')
 if paper:
-    add_subplot_label(plt.gca(), 'c)')
+    add_subplot_label(plt.gca(), 'd)')
     savefig_paper('cc_vs_volt_scatter', 'scatter')
 plt.close()
 
@@ -133,7 +133,7 @@ plt.grid(True)
 plt.legend(loc='upper right')
 savefig(results_dir, 'cc_vs_lat_scatter')
 if paper:
-    add_subplot_label(plt.gca(), 'd)')
+    add_subplot_label(plt.gca(), 'b)')
     savefig_paper('cc_vs_lat_scatter', 'scatter')
 plt.close()
 
