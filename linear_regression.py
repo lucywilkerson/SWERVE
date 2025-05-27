@@ -463,10 +463,10 @@ if cc_compare:
     # Load the data
     data = load_data(cc_path)
     
-    features = ['dist(km)', 'beta_diff', 'lat_diff']
+    features = ['dist(km)', 'log_beta_diff', 'lat_diff']
     feature_names = {
             'dist(km)': 'Distance [km]',
-            'beta_diff': r'|$\Delta \log_{10} (\beta)$|',
+            'log_beta_diff': r'|$\Delta \log_{10} (\beta)$|',
             'lat_diff': r'$\Delta$ Latitude [deg]'
         }
     
@@ -508,7 +508,7 @@ if std_compare or peak_compare:
     features = ['geo_lat', 'interpolated_beta']
     feature_names = {
             'geo_lat': 'Latitude [deg]',
-            'interpolated_beta': r'|$\log_{10} (\beta)$|'
+            'interpolated_beta': r'|$\beta$|'
         }
     
     for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
