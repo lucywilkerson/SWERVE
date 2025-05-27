@@ -49,7 +49,7 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207', 'Bull Run'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'volt_diff(kV)', 'lat_diff', 'power_pool_1','power_pool_2','region_1','region_2','peak_xcorr','peak_xcorr_lag(min)']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'log_beta_diff', 'volt_diff(kV)', 'lat_diff', 'power_pool_1','power_pool_2','region_1','region_2','peak_xcorr','peak_xcorr_lag(min)']
 print('\t'.join(columns))
 
 def write_table(rows, rows_md, out_dir):
@@ -157,7 +157,7 @@ for idx_1, row in info_df.iterrows():
     distance = site_distance(info_df, idx_1, idx_2)
 
     # Compute difference in beta
-    dbeta = info_df['interpolated_beta'][idx_1] - info_df['interpolated_beta'][idx_2]
+    dbeta = np.log10(info_df['interpolated_beta'][idx_1]) - np.log10(info_df['interpolated_beta'][idx_2])
 
     # Compute difference in voltage
     dvolt = info_df['nearest_volt'][idx_1] - info_df['nearest_volt'][idx_2]

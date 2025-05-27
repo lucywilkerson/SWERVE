@@ -48,7 +48,7 @@ def add_subplot_label(ax, label, loc=(-0.15, 1)):
 
 Poster = False # set to be true to generate poster figs
 paper = True # set true to generate paper figs
-colorbar_scatter = False # set true to generate colorbar plots
+colorbar_scatter = True # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
 
@@ -100,8 +100,8 @@ if paper:
     savefig_paper('cc_vs_std_scatter', 'scatter')
 plt.close()
 
-plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']), **scatter_kwargs)
-plot_avg_line(np.abs(df['beta_diff']), np.abs(df['cc']))
+plt.scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(np.abs(df['log_beta_diff']), np.abs(df['cc']))
 plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
 plt.ylabel('|cc|')
 plt.grid(True)
@@ -139,7 +139,7 @@ plt.close()
 
 # scatter plots not in paper
 if not paper:
-    plt.scatter(np.abs(df['beta_diff']), avg_std)
+    plt.scatter(np.abs(df['log_beta_diff']), avg_std)
     plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
     plt.ylabel('Average standard deviation [A]')
     plt.grid(True)
@@ -183,7 +183,7 @@ if Poster:
     plt.close()
 
     fig, ax = plt.subplots(figsize=(12, 5))
-    plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']))
+    plt.scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']))
     plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
     plt.ylabel('|cc|')
     plt.grid(True)
@@ -240,7 +240,7 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
 
 # Generating plots
 if colorbar_scatter:
-    scatter_with_colorbar(df, 'beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
+    scatter_with_colorbar(df, 'log_beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
     scatter_with_colorbar(df, 'volt_diff(kV)', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
     scatter_with_colorbar(df, 'lat_diff', r'$\Delta$ Latitude [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
     scatter_with_colorbar(df, 'min_avg_cc', r'min mean |cc|', 'CC vs Distance with Min |cc| Colorbar', 'cc_vs_dist_vs_min_scatter')
@@ -326,8 +326,8 @@ if grid_scatter:
     savefig(results_dir, 'cc_vs_std_grid_scatter')
     plt.close()
 
-    # Four panel plot for |beta_diff| vs |cc| with region colors and pool shapes
-    plot_grid_scatter(np.abs(df['beta_diff']), np.abs(df['cc']), r'|$\Delta \log_{10} (\beta)$|', '|cc|')
+    # Four panel plot for |log_beta_diff| vs |cc| with region colors and pool shapes
+    plot_grid_scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), r'|$\Delta \log_{10} (\beta)$|', '|cc|')
     savefig(results_dir, 'cc_vs_beta_grid_scatter')
     plt.close()
 
@@ -362,7 +362,7 @@ if site_scatter:
                 cc.append(row['cc'])
                 dist.append(row['dist(km)'])
                 avg_std.append(np.mean([row['std_1'], row['std_2']]))
-                beta.append(row['beta_diff'])
+                beta.append(row['log_beta_diff'])
             if type == 'dist':
                 plt.scatter(dist, np.abs(cc))
                 plt.xlabel('Distance [km]')
