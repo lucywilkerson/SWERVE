@@ -19,6 +19,14 @@ crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
 state = True # Show political boundaries
 
+# Set types of maps to produce
+map_location = False
+map_cc = False
+map_std = False
+map_sites =  False
+map_beta = False
+map_transmission = False
+
 
 fmts=['png', 'pdf']
 def savefig(fdir, fname, fmts=fmts):
@@ -118,12 +126,6 @@ def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=Fal
   ax.set_extent(extent, crs=crs)
   # Save map
   savefig(out_dir, out_name)
-
-USA_extent = [-125, -67, 25.5, 49.5]
-TVA_extent = [-91, -82, 33, 38]
-
-location_map(USA_extent, 5, out_dir, 'map', mag_lat=True, patch=True)
-location_map(TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
 
 def cc_vs_dist_map(cc_df):
 
@@ -378,13 +380,6 @@ def beta_maps():
     # Show the plot
     plt.show()
 
-# US Transmission lines
-data_path = os.path.join(data_dir, 'Electric__Power_Transmission_Lines')
-data_name = 'Electric__Power_Transmission_Lines.shp'
-print(f"Reading {data_name}")
-trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
-trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
-
 def transmission_map(info_df, gdf, cc_df, std=False):
 
     def add_trans_lines(ax, gdf):
@@ -445,14 +440,33 @@ with open(pkl_file, 'rb') as file:
 cc_df = pd.DataFrame(cc_rows)
 cc_df.reset_index(drop=True, inplace=True)
 
-cc_vs_dist_map(cc_df)
-std_map(info_df, cc_df)
-site_maps(info_df, cc_df)
-transmission_map(info_df, trans_lines_gdf, cc_df)
-transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
+if map_location:
+    USA_extent = [-125, -67, 25.5, 49.5]
+    TVA_extent = [-91, -82, 33, 38]
+
+    location_map(USA_extent, 5, out_dir, 'map', mag_lat=True, patch=True)
+    location_map(TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
+if map_cc:
+    cc_vs_dist_map(cc_df)
+if map_std:
+    std_map(info_df, cc_df)
+if map_sites:
+    site_maps(info_df, cc_df)
+if map_beta:
+    beta_maps()
+if map_transmission:
+    # US Transmission lines
+    data_path = os.path.join(data_dir, 'Electric__Power_Transmission_Lines')
+    data_name = 'Electric__Power_Transmission_Lines.shp'
+    print(f"Reading {data_name}")
+    trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
+    trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
+
+    transmission_map(info_df, trans_lines_gdf, cc_df)
+    transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
 
 
-
+exit()
 ##################################################################
 # stuff from messing w voltage (ie just TVA)
 
