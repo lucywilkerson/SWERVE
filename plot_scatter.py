@@ -48,7 +48,7 @@ def add_subplot_label(ax, label, loc=(-0.15, 1)):
 
 Poster = False # set to be true to generate poster figs
 paper = True # set true to generate paper figs
-colorbar_scatter = True # set true to generate colorbar plots
+colorbar_scatter = False # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
 
@@ -69,7 +69,6 @@ def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins',
 
     # Plot average line
     plt.plot(bin_centers, avg_y, color=color, marker=marker, label=label, **kwargs)
-
 
 # Scatter plot
 scatter_kwargs = {'color': 'gray', 'alpha': 0.9}
