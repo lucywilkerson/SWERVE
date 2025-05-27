@@ -18,7 +18,7 @@ The storm provided a rare opportunity to observe rapid fluctuations in Earth's m
 ## Goals
 - Validate and compare a range of datasets and model outputs for storm-time metrics.
 - Provide accessible, structured data for the research community.
-- Support space weather infrastructure resilience efforts through better understanding of space weather impacts.
+- Support space weather infrastructure resilience efforts through a better understanding of space weather impacts.
 
 ## Funding Acknowledgment
 This work was supported by the U.S. National Science Foundation (NSF) under grant [#2434136](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2434136) as part of the ChronoStorm project. The research focuses on collecting and analyzing perishable operational data from critical infrastructure sectors during significant space weather events, aiming to enhance our understanding of infrastructure vulnerabilities and resilience. 
@@ -26,7 +26,7 @@ This work was supported by the U.S. National Science Foundation (NSF) under gran
 This grant is co-funded by the NSF GEO/AGS Space Weather Research program and the ENG/CMMI Humans, Disasters, and the Built Environment (HDBE) program.
 
 ## Data Acknowledgment
-We kindly thank the Tennessee Valley Authority (TVA) for providing data from their internal GIC estimation model, reflecting the realistic circuit configuration over the May 10-12th 2024 period. Without TVA's support, and this perishable data, we would struggle to compare predictive metrics to this more reliable baseline. 
+We kindly thank the Tennessee Valley Authority (TVA) for providing data from their internal GIC estimation model, reflecting the realistic circuit configuration over the May 10- 12, 2024, period. Without TVA's support, and this perishable data, we would struggle to compare predictive metrics to this more reliable baseline. 
 
 ## Contributors 
 - Lucy Wilkerson - Graduate Research Assistant (lwilker [ at ] gmu [ dot ] edu) 
@@ -37,14 +37,14 @@ We kindly thank the Tennessee Valley Authority (TVA) for providing data from the
 ## License
 This repository is licensed under the MIT License. See `LICENSE` for details.
 
-# 2024-May-Storm
+# Installing and Using
 
 ```
 # Send request to Lucy Wilkerson <lwilker@gmu.edu> for access to this repo
 # (it contains NERC data, which is not open)
-git clone https://github.com/lucywilkerson/2024-May-Storm
-git clone --depth 1 https://github.com/lucywilkerson/2024-May-Storm
-cd 2024-May-Storm
+git clone https://github.com/lucywilkerson/SWERVE
+git clone --depth 1 https://github.com/lucywilkerson/2024-May-Storm-data
+cd SWERVE
 pip install -e .
 ```
 
