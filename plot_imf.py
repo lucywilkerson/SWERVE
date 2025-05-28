@@ -131,7 +131,7 @@ if Both:
   # Reading Dean's data
   logger.info(f'Reading {dean_fname}')
   columns = ['year', 'month', 'day', 'hour', 'min', 'sec', 'msec', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']
-  data = pd.read_csv(fname, delim_whitespace=True, names=columns, header=0)
+  data = pd.read_csv(dean_fname, delim_whitespace=True, names=columns, header=0)
   time = np.array([
       datetime(row.year, row.month, row.day, row.hour, row.min, row.sec) +
       timedelta(seconds=round(row.msec / 1000))
