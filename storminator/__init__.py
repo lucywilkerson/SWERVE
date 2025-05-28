@@ -12,7 +12,7 @@ paper_dir = os.path.join('..','2024-May-Storm-paper')
 FILES = {
           'mage':
             {
-              'bcwind': os.path.join(DATA_DIR, 'mage', 'bcwind.h5')
+              'bcwind': os.path.join(DATA_DIR, 'imf_data', 'bcwind.h5')
           },
           'shape_files':
             {

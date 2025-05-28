@@ -8,10 +8,13 @@ from datetick import datetick
 from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subset
 
 import utilrsw
+import pandas as pd
 logger = utilrsw.logger(log_dir=LOG_DIR)
 
 import matplotlib.pyplot as plt
 
+Both = True # if true, plot both MAGE and Dean's IMF
+dean_fname = os.path.join('..', '2024-May-Storm-data', 'imf_data', 'Dean_IMF.txt')
 
 def read(mage_bcwind_h5, limits):
   logger.info(f'Reading {mage_bcwind_h5}')
@@ -101,7 +104,7 @@ axes[2].plot(data['time'], data['symh'], color='k', linewidth=0.8)
 axes[2].set_ylabel('SYM-H [nT]')
 
 # Plotting temperature
-axes[3].plot(data['time'], data['Temp'] / 1e6, color='k', linewidth=0.8)
+axes[3].plot(data['time'], data['Temp'] / 1e6, color='k', linewidth=0.8, label='T (MAGE)')
 axes[3].set_ylabel(r'T [MK]')
 
 # Plotting mach
@@ -109,7 +112,7 @@ axes[4].plot(data['time'], data['Magnetosonic Mach'], color='k', linewidth=0.8)
 axes[4].set_ylabel("Magnetosonic\nMach")
 
 # Plotting Vx
-axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8)  # divide by 1000 to get in km/s
+axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8, label=r'V$_x$ (MAGE)')  # divide by 1000 to get in km/s
 axes[5].set_ylabel(r'V$_x$ [km/s]')
 
 # Plotting Bx, By, Bz IMF
@@ -120,6 +123,52 @@ axes[6].legend(loc='upper right', ncol=2)
 
 plt_adjust(limits)
 
-savefig('_imf', 'imf_mage', logger)
-savefig_paper('imf_mage', logger)
+if not Both:
+ savefig('_imf', 'imf_mage', logger)
+ savefig_paper('imf_mage', logger)
+
+if Both:
+  # Reading Dean's data
+  logger.info(f'Reading {dean_fname}')
+  columns = ['year', 'month', 'day', 'hour', 'min', 'sec', 'msec', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']
+  data = pd.read_csv(fname, delim_whitespace=True, names=columns, header=0)
+  time = np.array([
+      datetime(row.year, row.month, row.day, row.hour, row.min, row.sec) +
+      timedelta(seconds=round(row.msec / 1000))
+      for row in data.itertuples()
+  ])
+  data['time'] = time
+  df = data[['time', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']]
+  df = df.rename(columns={
+      'Bx[nT]': 'Bx',
+      'By[nT]': 'By',
+      'Bz[nT]': 'Bz',
+      'Vx[km/s]': 'Vx',
+      'Vy[km/s]': 'Vy',
+      'Vz[km/s]': 'Vz',
+      'N[cm^(-3)]': 'N',
+      'T[Kelvin]': 'T'
+  })
+  
+  # Cropping data
+  for key in df.columns:
+    time, df[key] = subset(df['time'], df[key], limits['data'][0], limits['data'][1])
+  df['time'] = time
+
+  # Adding T to existing axes
+  axes[3].plot(df['time'], df['T']/1e6, label='T (Dean)', color='gray', linewidth=0.8)
+  axes[3].legend(loc='upper right', ncol=2)
+
+  # Adding Vx to existing axes
+  axes[5].plot(df['time'], df['Vx'], label=r'V$_x$ (Dean)', color='gray', linewidth=0.8)
+  axes[5].legend(loc='upper right', ncol=2)
+
+  # Adding By and Bz to the existing axes
+  axes[6].plot(df['time'], df['By'], label=r'B$_y^\text{Dean}$', color='gray', linewidth=0.8)
+  axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{Dean}$', color='dimgray', linewidth=0.5, linestyle='--')
+  axes[6].legend(loc='upper right', ncol=4)
+
+  savefig('_imf', 'imf_all', logger)
+  savefig_paper('imf_all', logger)
+
 utilrsw.rm_if_empty('log/plot_imf.errors.log')
