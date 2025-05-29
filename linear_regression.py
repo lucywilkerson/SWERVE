@@ -87,6 +87,7 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
 cc_compare = True #perform regression of cc
 std_compare = True #perform regression of std
 peak_compare = True #perform regression of peak GIC
+log10_beta = False #use log10 of beta instead of beta
 
 paper=True
 if paper:
@@ -146,7 +147,11 @@ def remove_outliers(data, target, features, threshold=3.5):
     #num_outliers = len(target) - np.sum(mask)
     data = data[mask]
     target = target[mask]
-    return data[features], target, mask
+    if features == 'log_beta':
+        x = np.log10(data['interpolated_beta'])
+    else:
+        x = data[features]
+    return x, target, mask
 
 def plot_regression(target, predictions, remove_outlier, target_label, mask):
 
@@ -162,11 +167,11 @@ def plot_regression(target, predictions, remove_outlier, target_label, mask):
     plt.xlabel(f'Measured {target_label}')
     plt.ylabel(f'Predicted {target_label}')
     limits = [min(plt.xlim()[0], plt.ylim()[0]), max(plt.xlim()[1], plt.ylim()[1])]
-    plt.xlim(limits)
-    plt.ylim(limits)
     ticks = plt.xticks()[0]
     plt.xticks(ticks)
     plt.yticks(ticks)
+    plt.xlim(limits)
+    plt.ylim(limits)
     plt.grid()
 
 text_kwargs = {
@@ -189,6 +194,8 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
             return r'$\lambda$'
         elif feature_str == 'interpolated_beta':
             return r'$\beta$'
+        elif feature_str == 'log_beta':
+            return r'$\log_{10} (\beta)$'
         elif '*' in feature_str:
             parts = feature_str.split('*')
             symbols = [get_feature_symbol(part) for part in parts]
@@ -204,12 +211,12 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
         # Formatting  fit eqn string for arbitrary number of features and cross terms
         if isinstance(slope, (float, int, np.floating, np.integer)):
             # Single feature
-            fit_eqn = f"{target_symbol} = ${slope:.2f}${', '.join(feature_symbols)} ${intercept:+.2f}$"
+            fit_eqn = f"{target_symbol} = ${slope:.2f}$ {', '.join(feature_symbols)} ${intercept:+.2f}$"
         elif hasattr(slope, '__iter__'):
             # Multiple features
             terms = []
             for coef, symbol in zip(slope, feature_symbols):
-                terms.append(f"${coef:+.2f}${symbol}")
+                terms.append(f"${coef:+.2f}$ {symbol}")
             fit_eqn = f"{target_symbol} = " + " ".join(terms)
             if isinstance(intercept, (float, int, np.floating, np.integer)):
                 fit_eqn += f" ${intercept:+.2f}$"
@@ -221,12 +228,11 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
 
     if df is not None:
         df.loc[len(df)] = {
-            'fit_eqn': fit_eqn,
-            'cc': cc,
-            'cc_unc': cc_unc,
-            'rms': rms,
-            'aic': aic,
-            'bic': bic
+            'Fit Equation': fit_eqn,
+            'cc ± unc': f"${cc:.2f}$ ± ${cc_unc:.2f}$",
+            'RMS [A]': f"${rms:.2f}$",
+            'AIC': f"${aic:.1f}$",
+            'BIC': f"${bic:.1f}$"
         }
 
     text = (
@@ -238,8 +244,24 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
     )
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
 
-def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, df=None):
+def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, df=None, plot_fit=False):
     
+    def plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_label):
+        plt.figure()
+        x = np.log10(data['interpolated_beta']) if feature == 'log_beta' else data[feature]
+        if remove_outlier and mask is not None:
+            plt.scatter(x[mask], target[mask], color='k', label='Data')
+            plt.scatter(x[~mask], target[~mask], facecolors='none', edgecolors='k', label='Outliers')
+        else:
+            plt.scatter(x, target, color='k', label='Target')
+        # Sort for line plot
+        sort_idx = np.argsort(x)
+        plt.plot(x.iloc[sort_idx] if hasattr(x, 'iloc') else x[sort_idx], predictions[sort_idx], color='m', linestyle='--', label='Prediction')
+        plt.xlabel(feature_label if feature_label else feature)
+        plt.ylabel(target_label if target_label else "Target")
+        plt.legend(loc='upper left')
+        plt.grid()
+
     models = {}
     errors = {}
 
@@ -247,7 +269,10 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         if remove_outlier:
             x, y, mask = remove_outliers(data, target, feature)
         else:
-            x = data[[feature]]
+            if feature == 'log_beta':
+                x = np.log10(data['interpolated_beta'])
+            else:
+                x = data[[feature]]
             y = target
             mask = None
         
@@ -273,7 +298,10 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         target_label, target_symbol = find_target(target_name)
         
         # Plot actual vs predicted values
-        predictions = model.predict(data[[feature]])
+        if feature == 'log_beta':
+            predictions = model.predict(np.log10(data['interpolated_beta']).values.reshape(-1, 1))
+        else:
+            predictions = model.predict(data[[feature]].values.reshape(-1, 1))
     
         plot_regression(target, predictions, remove_outlier, target_label, mask=mask)
         if target_name == 'cc':
@@ -288,9 +316,15 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
                 text = 'a)' if feature == 'geo_lat' else 'c)' if feature == 'interpolated_beta' else None
             elif target_name == 'gic_max':
                 text = 'b)' if feature == 'geo_lat' else 'd)' if feature == 'interpolated_beta' else None
-            add_subplot_label(plt.gca(), text)
-            savefig_paper('scatter_fit_' + feature + '_' + target_name, sub_dir="regression_model")
+            if text is not None:
+                add_subplot_label(plt.gca(), text)
+                savefig_paper('scatter_fit_' + feature + '_' + target_name, sub_dir="regression_model")
         plt.close()
+
+        if plot_fit:
+            plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_names.get(feature, feature))
+            savefig(results_dir, 'line_fit_' + feature + '_' + target_name)
+            plt.close()
 
     
     return models, errors
@@ -505,27 +539,45 @@ if std_compare or peak_compare:
 
     info_dict, info_df, data_all, plot_info = read(all_file)
 
-    features = ['geo_lat', 'interpolated_beta']
-    feature_names = {
-            'geo_lat': 'Latitude [deg]',
-            'interpolated_beta': r'|$\beta$|'
-        }
-    
-    for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
-        if compare:
-            target = np.zeros(len(sites))
-            for i, sid in enumerate(sites):
-                time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
-                data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
-                time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-                target[i] = func(data_meas[~np.isnan(data_meas)])
+    if not log10_beta:
+        features = ['geo_lat', 'interpolated_beta']
+        feature_names = {
+                'geo_lat': 'Latitude [deg]',
+                'interpolated_beta': r'|$\beta$|'
+            }
+        
+        for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
+            if compare:
+                target = np.zeros(len(sites))
+                for i, sid in enumerate(sites):
+                    time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+                    data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+                    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+                    target[i] = func(data_meas[~np.isnan(data_meas)])
 
-            scatter_fit_df = pd.DataFrame(columns=['fit_eqn', 'cc', 'cc_unc', 'rms', 'aic', 'bic'])
+                scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± unc', 'RMS [A]', 'AIC', 'BIC'])
 
-            model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df)
-            all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name, df=scatter_fit_df)
-            models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
+                model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df, plot_fit=False)
+                all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name, df=scatter_fit_df)
+                models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
 
-            #print(scatter_fit_df)
-            scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{target_name}.md"), index=False)
-            scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{target_name}.tex"), index=False, escape=False)
+                #print(scatter_fit_df)
+                scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{target_name}.md"), index=False)
+                scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{target_name}.tex"), index=False, escape=False)
+    else:
+        features = ['geo_lat', 'log_beta']
+        feature_names = {
+                'geo_lat': 'Latitude [deg]',
+                'log_beta': r'$\log_{10} (\beta)$'
+            }
+        
+        for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
+            if compare:
+                target = np.zeros(len(sites))
+                for i, sid in enumerate(sites):
+                    time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+                    data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+                    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+                    target[i] = func(data_meas[~np.isnan(data_meas)])
+
+                model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, plot_fit=True)
