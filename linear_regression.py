@@ -122,6 +122,26 @@ def find_target(target_name):
     
 
 def analyze_fit(target, predictions, features):
+    def bootstrap_cc_unc(target, predictions, n_bootstrap=1000, random_state=None):
+        """
+        Returns: 2 sigma uncertainty in cc
+        """
+        rng = np.random.default_rng(random_state)
+        n = len(target)
+        cc_samples = []
+
+        for _ in range(n_bootstrap):
+            idx = rng.integers(0, n, n)
+            target_sample = target[idx]
+            pred_sample = predictions[idx]
+            cc = np.corrcoef(target_sample, pred_sample)[0, 1]
+            cc_samples.append(cc)
+
+        cc_samples = np.array(cc_samples)
+        #cc_mean = np.mean(cc_samples)
+        cc_std = np.std(cc_samples, ddof=1)
+        return 2*cc_std
+
     # Calculate error
     rss = np.sum((target-predictions)**2)  # Sum of squares error
     n = len(target)
@@ -130,6 +150,7 @@ def analyze_fit(target, predictions, features):
     # Calculate correlation coefficient
     cc = np.corrcoef(target, predictions)[0,1]
     cc_unc = np.sqrt((1-cc**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
+    cc_unc = bootstrap_cc_unc(target, predictions) # bootstrapped uncertainty (2 sigma)
 
     # Calculate log likelihood
     n2 = 0.5*n
