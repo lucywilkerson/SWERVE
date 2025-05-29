@@ -134,7 +134,7 @@ def compare_gic(info, data, sid, show_sim_site=False):
 
       sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
       # cc will be calculated below, so just add label for now
-      model_labels.append(f'{data_source.upper()}\n@ {sim_site}' if show_sim_site else f'{data_source.upper()}')
+      model_labels.append(f'Reference\n@ {sim_site}' if show_sim_site else f'Reference')
     time_calcs.append(time_calc)
     data_calcs.append(data_calc)
 
@@ -150,9 +150,9 @@ def compare_gic(info, data, sid, show_sim_site=False):
         cc_val = np.corrcoef(data_meas, data_calcs[idx])[0, 1]
         if show_sim_site:
           sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
-          model_labels[idx] = fr'$-${model_names[idx]}\n@ {sim_site}'
+          model_labels[idx] = fr'$-${model_labels[idx]}\n@ {sim_site}'
         else:
-          model_labels[idx] = r'$-$' + model_names[idx]
+          model_labels[idx] = r'$-$' + model_labels[idx]
       cc.append(cc_val)
     else:
       cc.append(np.corrcoef(data_meas, data_calcs[idx])[0, 1])
@@ -164,20 +164,24 @@ def compare_gic(info, data, sid, show_sim_site=False):
   plt.title(sid)
   plt.grid()
   plt.plot()
-  plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
+  plt.plot(time_meas, data_meas, 'k', label='Measured', linewidth=1)
   for idx in range(len(model_names)):
     label = model_labels[idx]
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
 
   plt.legend(loc='upper right')
-  plt.ylabel('[A]', rotation=0, labelpad=10)
+  plt.ylabel('GIC [A]')
   #plt.ylim(-50, 50)
 
-  # add cc and pe to timeseries
+  # add cc^2 and pe to timeseries
   if len(model_names) == 1:
-    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
+    text = fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
   elif len(model_names) == 2:
-    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+    text = (
+      fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
+      "\n"
+      fr"{model_names[1]} cc$^2$ = {cc[1]**2:.2f} | pe = {pe[1]:.2f}"
+    )
   text_kwargs = {
     'horizontalalignment': 'right',
     'verticalalignment': 'bottom',
@@ -228,11 +232,11 @@ def compare_gic(info, data, sid, show_sim_site=False):
     plt.grid()
     plt.plot()
 
-    plt.plot(time_meas, data_meas, 'k', label='GIC Measured', linewidth=1)
+    plt.plot(time_meas, data_meas, 'k', label='Measured', linewidth=1)
     label = model_labels[idx]
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
     plt.plot(time_calcs[idx], data_meas - data_calcs[idx] - error_shift, color=3 * [0.3], label='Error', linewidth=0.5)
-    plt.ylabel('[A]', rotation=0, labelpad=10)
+    plt.ylabel('GIC [A]')
     plt.yticks(yticks, labels=labels)
     plt.ylim(-80, 30)
     datetick()
@@ -260,18 +264,25 @@ def compare_gic(info, data, sid, show_sim_site=False):
   
   plt.figure()
   for idx in range(len(model_names)):
-    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=model_names[idx])
+    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=model_labels[idx])
   if len(model_names) == 1:
-    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}"
+    text = fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
   elif len(model_names) == 2:
-    text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+    text = (
+      fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
+      "\n"
+      fr"{model_names[1]} cc$^2$ = {cc[1]**2:.2f} | pe = {pe[1]:.2f}"
+    )
   plt.title(sid)
   # Set the aspect ratio to make the plot square and ensure xlim and ylim are the same
   ax = plt.gca()
   limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
+  plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3 * [0.6], linewidth=0.5)
+  ticks = plt.xticks()[0]
+  plt.xticks(ticks)
+  plt.yticks(ticks)
   ax.set_xlim(limits)
   ax.set_ylim(limits)
-  plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3 * [0.6], linewidth=0.5)
   plt.text(max(max(data_meas), np.max(data_calcs)), min(min(data_meas), np.min(data_calcs)), text, **text_kwargs)
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
@@ -297,14 +308,17 @@ def compare_gic(info, data, sid, show_sim_site=False):
   for idx in range(len(model_names)):
     plt.figure()
     plt.title(sid)
-    text = f"cc = {cc[idx]:.2f} | pe = {pe[idx]:.2f}"
+    text = fr"cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     plt.text(max(max(data_meas), np.max(data_calcs[idx])), min(min(data_meas), np.min(data_calcs[idx])), text, **text_kwargs)
     plt.plot(data_meas, data_calcs[idx], 'k.', markersize=1)
     ax = plt.gca()
     limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
+    plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
+    ticks = plt.xticks()[0]
+    plt.xticks(ticks)
+    plt.yticks(ticks)
     ax.set_xlim(limits)
     ax.set_ylim(limits)
-    plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
     #plt.legend(loc='upper right')
     plt.xlabel('Measured GIC [A]')
     plt.ylabel('Calculated GIC [A]')
@@ -436,9 +450,13 @@ def compare_db(info, data, sid):
     denom = np.sum((data_interp[idx]-data_interp[idx].mean())**2)
     pe.append( 1-numer/denom )
 
-  # Write cc and pe on plot
+  # Write cc^2 and pe on plot
   # TODO: Compute limits based on data
-  text = f"{model_names[0]} cc = {cc[0]:.2f} | pe = {pe[0]:.2f}\n{model_names[1]} cc = {cc[1]:.2f} | pe = {pe[1]:.2f}"
+  text = (
+      fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
+      "\n"
+      fr"{model_names[1]} cc$^2$ = {cc[1]**2:.2f} | pe = {pe[1]:.2f}"
+    )
   text_kwargs = {
    'horizontalalignment': 'center',
    'verticalalignment': 'center',
@@ -458,7 +476,11 @@ def compare_db(info, data, sid):
   plt.xlabel(r'Measured $\Delta B_H$ [nT]')
   plt.ylabel(r'Calculated $\Delta B_H$ [nT]')
   plt.grid()
+  ticks = plt.xticks()[0]
+  plt.xticks(ticks)
+  plt.yticks(ticks)
   plt.xlim(ylims)
+  plt.ylim(ylims)
   plt.legend(loc='upper right')
   # get the legend object
   leg = plt.gca().legend(loc='upper right')
