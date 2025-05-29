@@ -10,8 +10,8 @@ import time
 
 
 tva_results = False #print results for TVA gic analysis
-gmu_results = True #print results for GMU gic analysis
-b_results = False #print results for B analysis
+gmu_results = False #print results for GMU gic analysis
+b_results = True #print results for B analysis
 cc_results = False #print results for cc analysis
 
 def subset(time, data, start, stop):
@@ -107,7 +107,7 @@ if b_results:
     cc_swmf_mean = []
     pe_swmf_mean = []
 
-    for idx, row in info_df.iterrows():
+    for idx, row in info_df_all.iterrows():
 
         sid = row['site_id']
         if sid not in sites:
@@ -181,10 +181,14 @@ if b_results:
     print(f"Average Std: {np.mean(swmf_std)}")
 
     print("\nMAGE CC/PE:")
+    print(f"Min cc: {np.min(cc_mage_mean)}")
+    print(f"Max cc: {np.max(cc_mage_mean)}")
     print(f"Average cc: {np.mean(cc_mage_mean)}")
     print(f"Average pe: {np.mean(pe_mage_mean)}")   
 
     print("\nSWMF CC/PE:")
+    print(f"Min cc: {np.min(cc_swmf_mean)}")
+    print(f"Max cc: {np.max(cc_swmf_mean)}")
     print(f"Average cc: {np.mean(cc_swmf_mean)}")
     print(f"Average pe: {np.mean(pe_swmf_mean)}") 
 
