@@ -155,6 +155,10 @@ if Both:
     time, df[key] = subset(df['time'], df[key], limits['data'][0], limits['data'][1])
   df['time'] = time
 
+  ## To plot Magnetosonic Mach, see:
+  ##  https://omniweb.gsfc.nasa.gov/ftpbrowser/bow_derivation.html
+  ##  https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2009JA014998
+
   # Adding T to existing axes
   axes[3].plot(df['time'], df['T']/1e6, label='T (Dean)', color='gray', linewidth=0.8)
   axes[3].legend(loc='upper right', ncol=2)
