@@ -9,11 +9,12 @@ from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subs
 
 import utilrsw
 import pandas as pd
+from matplotlib.ticker import MultipleLocator
 logger = utilrsw.logger(log_dir=LOG_DIR)
 
 import matplotlib.pyplot as plt
 
-Both = True # if true, plot both MAGE and Dean's IMF
+Both = False # if true, plot both MAGE and Dean's IMF
 dean_fname = os.path.join('..', '2024-May-Storm-data', 'imf_data', 'Dean_IMF.txt')
 
 def read(mage_bcwind_h5, limits):
@@ -96,8 +97,9 @@ while current_time <= limits['data'][1]:
 axes[1].step(kp_times, kp_values, where='post', color='k')
 axes[1].fill_between(kp_times, kp_values, 0, step='post', color='k')
 axes[1].set_ylabel(r'K$_p$')
-axes[1].yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-axes[1].set_ylim(4.5, 9.5)
+axes[1].yaxis.set_major_locator(MultipleLocator(3))
+axes[1].set_ylim(0, 9.5)
+#axes[1].set_ylim(4.5, 9.5)
 
 # Plotting symh
 axes[2].plot(data['time'], data['symh'], color='k', linewidth=0.8)
@@ -173,6 +175,5 @@ if Both:
   axes[6].legend(loc='upper right', ncol=4)
 
   savefig('_imf', 'imf_all', logger)
-  savefig_paper('imf_all', logger)
 
 utilrsw.rm_if_empty('log/plot_imf.errors.log')
