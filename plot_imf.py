@@ -14,7 +14,7 @@ logger = utilrsw.logger(log_dir=LOG_DIR)
 
 import matplotlib.pyplot as plt
 
-Both = False # if true, plot both MAGE and Dean's IMF
+Both = True # if true, plot both MAGE and Dean's IMF
 dean_fname = os.path.join('..', '2024-May-Storm-data', 'imf_data', 'Dean_IMF.txt')
 
 def read(mage_bcwind_h5, limits):
@@ -173,6 +173,14 @@ if Both:
   axes[6].plot(df['time'], df['By'], label=r'B$_y^\text{Dean}$', color='gray', linewidth=0.8)
   axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{Dean}$', color='dimgray', linewidth=0.5, linestyle='--')
   axes[6].legend(loc='upper right', ncol=4)
+
+  for i,t in enumerate(df['time']):
+    if i == 0:
+      t_prev = t
+      continue
+    if t <= t_prev:
+      print(t, '<', t_prev)
+    t_prev = t
 
   savefig('_imf', 'imf_all', logger)
 
