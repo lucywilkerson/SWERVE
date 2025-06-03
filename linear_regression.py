@@ -265,10 +265,11 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
         f"BIC = ${bic:.1f}$"
     )
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
+    return fit_eqn
 
 def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, df=None, plot_fit=False):
     
-    def plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_label):
+    def plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_label, fit_eqn):
         plt.figure()
         x = np.log10(data['interpolated_beta']) if feature == 'log_beta' else data[feature]
         if remove_outlier and mask is not None:
@@ -278,7 +279,10 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
             plt.scatter(x, target, color='k', label='Target')
         # Sort for line plot
         sort_idx = np.argsort(x)
-        plt.plot(x.iloc[sort_idx] if hasattr(x, 'iloc') else x[sort_idx], predictions[sort_idx], color='m', linestyle='--', label='Prediction')
+        if fit_eqn is not None:
+            plt.plot(x.iloc[sort_idx] if hasattr(x, 'iloc') else x[sort_idx], predictions[sort_idx], color='m', linestyle='--', label=fit_eqn)
+        else:
+            plt.plot(x.iloc[sort_idx] if hasattr(x, 'iloc') else x[sort_idx], predictions[sort_idx], color='m', linestyle='--', label='Prediction')
         plt.xlabel(feature_label if feature_label else feature)
         plt.ylabel(target_label if target_label else "Target")
         plt.legend(loc='upper left')
@@ -329,8 +333,9 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         if target_name == 'cc':
             plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
             plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
+            fit_eqn = None
         else:
-            add_text(target_symbol, [feature], model.coef_[0], model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
+            fit_eqn = add_text(target_symbol, [feature], model.coef_[0], model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
         savefig(results_dir, 'scatter_fit_' + feature + '_' + target_name)
         if paper:
             text = None
@@ -344,7 +349,7 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         plt.close()
 
         if plot_fit:
-            plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_names.get(feature, feature))
+            plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_names.get(feature, feature), fit_eqn)
             savefig(results_dir, 'line_fit_' + feature + '_' + target_name)
             plt.close()
 
@@ -388,7 +393,7 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
         plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
         plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
     else:
-        add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
+        _ = add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
     savefig(results_dir, f'scatter_fit_all_{target_name}')
     if paper:
         text = None
@@ -500,7 +505,7 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
         plt.title(f"Best Linear Regression with {', '.join(all_features)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
         plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
     else:
-        add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic, df=df)
+        _ = add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic, df=df)
     savefig(results_dir, f'scatter_fit_cross_{target_name}')
     if paper:
         text = None
@@ -579,7 +584,7 @@ if std_compare or peak_compare:
 
                 scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMS [A]', 'AIC', 'BIC'])
 
-                model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df, plot_fit=False)
+                model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df, plot_fit=True)
                 all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name, df=scatter_fit_df)
                 models_aic_bic = linear_regression_cross(data, features=features, target=target, target_name=target_name)
 
