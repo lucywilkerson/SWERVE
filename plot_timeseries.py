@@ -30,10 +30,12 @@ all_dir  = os.path.join(data_dir, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
 base_dir = os.path.join(data_dir, '_processed')
 paper_dir = os.path.join('..','2024-May-Storm-paper')
+info_fname = os.path.join('info', 'info.extended.csv')
+pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
 
 plot_data = False    # Plot original and modified data
-plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True # Plot GIC and dB_H stack plots
+plot_compare = True # Plot measured and calculated data on same axes, when both available
+stack_plot = False # Plot GIC and dB_H stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # updates md comparison files without replotting everything
 sids = None # If none, plot all sites
@@ -612,6 +614,282 @@ def plot_original(plot_info, data, sid, data_type, data_class, data_source, data
   plt.close()
 
 
+def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=40):
+    sids = info.keys()
+    # note NERC sites that are TVA duplicates
+    sid_copies = {'10197':'Sullivan',
+                  '10204':'Shelby',
+                  '10208':'Rutherford',
+                  '10203':'Raccoon Mountain',
+                  '10212':'Pinhook',
+                  '10201':'Montgomery',
+                  '10660':'Gleason',
+                  '10200':'East Point',
+                  '10207':'Bull Run'
+                  }
+    for source in data_source:
+      print(f"Plotting {source} GIC sites")
+      source_sites = {'sites': [], 'lat': [], 'lon': []}
+      for sid in sids:
+          if 'GIC' in data_all[sid] and source in info[sid]['GIC']['measured']:
+              site_info = info_df[
+                  (info_df['site_id'] == sid) & 
+                  (info_df['data_type'] == 'GIC') & 
+                  (info_df['data_class'] == 'measured')
+              ]
+              if site_info['error'].isna().all():
+                  source_sites['sites'].append(sid)
+                  source_sites['lat'].append(site_info['mag_lat'].values[0])
+                  source_sites['lon'].append(site_info['mag_lon'].values[0])
+      # Sort sites by latitude
+      sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
+      source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
+
+      if source == 'NERC':
+        fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+      elif source == 'TVA':
+        fig, axes = plt.subplots(1, 1, figsize=(8.5, 5))
+
+      offset_fix = 0
+      for i, sid in enumerate(source_sites['sites']):
+          if sid in sid_copies.keys():
+            offset_fix +=1
+            continue # skipping NERC sites that are TVA duplicates
+          if 'GIC' in data_all[sid].keys() and source in info[sid]['GIC']['measured']:
+              time = data_all[sid]['GIC']['measured'][0]['original']['time']
+              data = data_all[sid]['GIC']['measured'][0]['original']['data']
+              
+              # Subset to desired time range
+              time, data = subset(time, data, start, stop)
+
+              # Add offset for each site
+              data_with_offset = data + (i * offset) - (offset_fix * offset)
+              
+              # Plot the timeseries
+              axes.plot(time, data_with_offset, linewidth=0.5)
+              # Add text to the plot to label waveform
+              sid_lat = source_sites['lat'][i]
+              sid_lon = source_sites['lon'][i]
+              text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
+              if sid in sid_copies.values():
+                text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
+              axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
+      plt.grid()
+      plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
+      #plt.legend(loc='upper right')
+      plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
+      plt.gca().set_xlim(datetime.datetime(2024, 5, 10, 11, 0), stop)
+      plt.gca().set_ylim(-offset, max(data_with_offset)+10)
+      
+      axes.spines['top'].set_visible(False)
+      axes.spines['right'].set_visible(False)
+      axes.spines['left'].set_visible(False)
+      #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
+      axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
+      datetick()
+
+      # remove first x gridline
+      xgridlines = axes.get_xgridlines()
+      gridline_of_interest = xgridlines[0]
+      gridline_of_interest.set_visible(False)
+      
+      # Save the figure
+      fdir = os.path.join(base_dir, f'_{source.lower()}')
+      savefig(fdir, f'gic_{source.lower()}')
+      savefig_paper(f'gic_{source.lower()}')
+      plt.close()
+
+def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
+  sids = info.keys()
+  # note NERC sites that are TVA duplicates
+  sid_copies = {
+                  }
+  
+  print(f"Plotting all dB sites")
+  source_sites = {'sites': [], 'lat': [], 'lon': []}
+  for sid in sids:
+    if 'B' in data_all[sid] and 'measured' in info[sid]['B']:
+      site_info = info_df[
+            (info_df['site_id'] == sid) & 
+            (info_df['data_type'] == 'B') & 
+            (info_df['data_class'] == 'measured')
+        ]
+      if site_info['error'].isna().all():
+        source_sites['sites'].append(sid)
+        source_sites['lat'].append(site_info['mag_lat'].values[0])
+        source_sites['lon'].append(site_info['mag_lon'].values[0])
+  # Sort sites by latitude
+  sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
+  source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
+  """
+  # Loop over all pairs of sites and show sites w high correlation to determine duplicates
+  for i, sid_1 in enumerate(source_sites['sites']):
+    for sid_2 in source_sites['sites'][i+1:]:
+      if 'B' in data_all[sid_1].keys() and 'B' in data_all[sid_2].keys():
+        # Get data for both sites
+        time1 = data_all[sid_1]['B']['measured'][0]['modified']['time']
+        data1 = data_all[sid_1]['B']['measured'][0]['modified']['data']
+        time1, data1 = subset(time1, data1, start, stop)
+        data1 = numpy.linalg.norm(data1, axis=1)
+
+        time2 = data_all[sid_2]['B']['measured'][0]['modified']['time']
+        data2 = data_all[sid_2]['B']['measured'][0]['modified']['data']
+        time2, data2 = subset(time2, data2, start, stop)
+        data2 = numpy.linalg.norm(data2, axis=1)
+
+        # Interpolate to common time base if needed
+        if len(time1) != len(time2) or not np.all(time1 == time2):
+          # Convert datetimes to timestamps for interpolation
+          t1 = np.array([time.mktime(dt.timetuple()) for dt in time1])
+          t2 = np.array([time.mktime(dt.timetuple()) for dt in time2])
+          # Interpolate data2 to t1
+          data2_interp = np.interp(t1, t2, data2)
+          cc = np.corrcoef(data1, data2_interp)[0, 1]
+        else:
+          cc = np.corrcoef(data1, data2)[0, 1]
+
+        if cc >= 0.995:
+          text = f"cc={cc:.4f} between sites: {sid_1} and {sid_2}"
+        else:
+          text = None
+        if text is not None:
+          fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+          plt.plot(time1, data1, 'k', linewidth=0.5, label=sid_1)
+          plt.plot(time2, data2, 'r', linewidth=0.5, label=sid_2)
+          plt.legend()
+          plt.text(datetime.datetime(2024, 5, 10, 11, 0), max(data1.max(), data2.max()), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
+          plt.show()
+          plt.close()"""
+
+  fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+
+  offset_fix = 0
+
+  for i, sid in enumerate(source_sites['sites']):
+    if sid in sid_copies.keys():
+      offset_fix +=1
+      continue # skipping NERC sites that are TVA duplicates
+    if 'B' in data_all[sid].keys():
+      time_b = data_all[sid]['B']['measured'][0]['modified']['time']
+      data = data_all[sid]['B']['measured'][0]['modified']['data']
+              
+      # Subset to desired time range
+      time_b, data = subset(time_b, data, start, stop)
+      data = numpy.linalg.norm(data, axis=1)
+
+      # Add offset for each site
+      data_with_offset = data + (i*offset) - (offset_fix*offset)
+              
+      # Plot the timeseries
+      axes.plot(time_b, data_with_offset, linewidth=0.5)
+      # Add text to the plot to label waveform
+      sid_lat = source_sites['lat'][i]
+      sid_lon = source_sites['lon'][i]
+      text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
+      if sid in sid_copies.values():
+        text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
+      axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
+  plt.grid()
+  plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
+  #plt.legend(loc='upper right')
+  plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
+  plt.gca().set_xlim(datetime.datetime(2024, 5, 10, 11, 0), stop)
+  plt.gca().set_ylim(-offset, max(data_with_offset)+10)
+      
+  axes.spines['top'].set_visible(False)
+  axes.spines['right'].set_visible(False)
+  axes.spines['left'].set_visible(False)
+  #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
+  axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
+  datetick()
+
+  # remove first x gridline
+  xgridlines = axes.get_xgridlines()
+  gridline_of_interest = xgridlines[0]
+  gridline_of_interest.set_visible(False)
+      
+  # Save the figure
+  fdir = os.path.join(base_dir, f'_db')
+  savefig(fdir, f'db_all')
+  savefig_paper(f'db_all')
+  plt.close()
+
+
+def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
+  time_meas_1 = data[sid_1]['GIC']['measured'][0]['modified']['time']
+  data_meas_1 = data[sid_1]['GIC']['measured'][0]['modified']['data']
+  time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
+  time_meas_2 = data[sid_2]['GIC']['measured'][0]['modified']['time']
+  data_meas_2 = data[sid_2]['GIC']['measured'][0]['modified']['data']
+  time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
+
+  cc_row = cc_df[((cc_df['site_1'] == sid_1) & (cc_df['site_2'] == sid_2)) | 
+          ((cc_df['site_2'] == sid_1) & (cc_df['site_1'] == sid_2))].iloc[0]
+  cc = cc_row['cc']
+  dist = cc_row['dist(km)']
+
+  #plotting time series comparison
+  plt.figure()
+
+  error_shift = 70
+  yticks = np.arange(-120, 30, 10)
+  labels = []
+  for ytick in yticks:
+    if ytick < -30:
+      labels.append(str(ytick+error_shift))
+    else:
+      labels.append(str(ytick))
+  kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
+  plt.axhline(y=-35, **kwargs)
+  plt.axhline(y=-120, **kwargs)
+  plt.title(f'{sid_1} vs {sid_2}\n|cc| = {np.abs(cc):.2f}, distance = {dist:4.2f} km')
+  plt.grid()
+  plt.plot()
+  if cc < 0:
+    data_meas_1 = -data_meas_1
+    plt.text(stop, -117, f'time series for {sid_1} plotted inverse due to negative correlation', fontsize=8, 
+         verticalalignment='bottom', horizontalalignment='right')
+  plt.plot(time_meas_1, data_meas_1, 'b', label=sid_1, linewidth=0.5)
+  plt.plot(time_meas_2, data_meas_2, 'r', label=sid_2, linewidth=0.5)
+  plt.plot(time_meas_1, data_meas_1-data_meas_2-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
+  plt.legend(loc='lower left')
+  plt.ylabel('GIC [A]')
+  plt.ylim(-120, 30)
+  plt.yticks(yticks, labels=labels)
+  datetick()
+
+  site_1_save =sid_1.lower().replace(' ', '')
+  site_2_save =sid_2.lower().replace(' ', '')
+  fname = f'{site_1_save}_{site_2_save}'
+  out_dir = os.path.join('..', '2024-May-Storm-data', '_results', 'pairs')
+  savefig(out_dir, fname)
+  plt.close()
+
+
+  #plotting cross and auto correlation
+  plt.figure()
+
+  cross_corr = [np.corrcoef(data_meas_1[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_2, lag))], 
+                            np.roll(data_meas_2, lag)[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_2, lag))])[0, 1] for lag in lags]
+  auto_corr_1 = [np.corrcoef(data_meas_1[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_1, lag))], 
+                             np.roll(data_meas_1, lag)[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
+  auto_corr_2 = [np.corrcoef(data_meas_2[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_2, lag))], 
+                             np.roll(data_meas_2, lag)[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_2, lag))])[0, 1] for lag in lags]
+
+  plt.plot(lags, cross_corr, 'k', label='Cross Corr')
+  plt.plot(lags, auto_corr_1, 'b--', label=f'Auto Corr {sid_1}')
+  plt.plot(lags, auto_corr_2, 'r--', label=f'Auto Corr {sid_2}')
+  plt.xlabel('Lag [min]')
+  plt.ylabel('Correlation')
+  plt.title(f'{sid_1} vs {sid_2}')
+  plt.legend(loc='upper left')
+  plt.grid()
+
+  fname = f'{site_1_save}_{site_2_save}_correlation'
+  savefig(out_dir, fname)
+  plt.close()
+
+
 info_dict, info_df, data_all, plot_info = read(all_file)
 if sids is None:
   sids = info_dict.keys()
@@ -724,281 +1002,33 @@ if create_md:
                   md_file.write(f"\n![]({img2})\n")
       
 
-#########################################################################################################
-
-def plot_all_gic(info, info_df, data_all,  start, stop, data_source=['TVA', 'NERC'], offset=40):
-    sids = info.keys()
-    # note NERC sites that are TVA duplicates
-    sid_copies = {'10197':'Sullivan',
-                  '10204':'Shelby',
-                  '10208':'Rutherford',
-                  '10203':'Raccoon Mountain',
-                  '10212':'Pinhook',
-                  '10201':'Montgomery',
-                  '10660':'Gleason',
-                  '10200':'East Point',
-                  '10207':'Bull Run'
-                  }
-    for source in data_source:
-      print(f"Plotting {source} GIC sites")
-      source_sites = {'sites': [], 'lat': [], 'lon': []}
-      for sid in sids:
-          if 'GIC' in data_all[sid] and source in info[sid]['GIC']['measured']:
-              site_info = info_df[
-                  (info_df['site_id'] == sid) & 
-                  (info_df['data_type'] == 'GIC') & 
-                  (info_df['data_class'] == 'measured')
-              ]
-              if site_info['error'].isna().all():
-                  source_sites['sites'].append(sid)
-                  source_sites['lat'].append(site_info['mag_lat'].values[0])
-                  source_sites['lon'].append(site_info['mag_lon'].values[0])
-      # Sort sites by latitude
-      sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
-      source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
-
-      if source == 'NERC':
-        fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
-      elif source == 'TVA':
-        fig, axes = plt.subplots(1, 1, figsize=(8.5, 5))
-
-      offset_fix = 0
-      for i, sid in enumerate(source_sites['sites']):
-          if sid in sid_copies.keys():
-            offset_fix +=1
-            continue # skipping NERC sites that are TVA duplicates
-          if 'GIC' in data_all[sid].keys() and source in info[sid]['GIC']['measured']:
-              time = data_all[sid]['GIC']['measured'][0]['original']['time']
-              data = data_all[sid]['GIC']['measured'][0]['original']['data']
-              
-              # Subset to desired time range
-              time, data = subset(time, data, start, stop)
-
-              # Add offset for each site
-              data_with_offset = data + (i * offset) - (offset_fix * offset)
-              
-              # Plot the timeseries
-              axes.plot(time, data_with_offset, linewidth=0.5)
-              # Add text to the plot to label waveform
-              sid_lat = source_sites['lat'][i]
-              sid_lon = source_sites['lon'][i]
-              text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
-              if sid in sid_copies.values():
-                text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
-              axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
-      plt.grid()
-      plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
-      #plt.legend(loc='upper right')
-      plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-      plt.gca().set_xlim(datetime.datetime(2024, 5, 10, 11, 0), stop)
-      plt.gca().set_ylim(-offset, max(data_with_offset)+10)
-      
-      axes.spines['top'].set_visible(False)
-      axes.spines['right'].set_visible(False)
-      axes.spines['left'].set_visible(False)
-      #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
-      axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
-      datetick()
-
-      # remove first x gridline
-      xgridlines = axes.get_xgridlines()
-      gridline_of_interest = xgridlines[0]
-      gridline_of_interest.set_visible(False)
-      
-      # Save the figure
-      fdir = os.path.join(base_dir, f'_{source.lower()}')
-      savefig(fdir, f'gic_{source.lower()}')
-      savefig_paper(f'gic_{source.lower()}')
-      plt.close()
-
-def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
-  sids = info.keys()
-  # note NERC sites that are TVA duplicates
-  """sid_copies = {'10197':'Sullivan',
-                  '10204':'Shelby',
-                  '10208':'Rutherford',
-                  '10203':'Raccoon Mountain',
-                  '10212':'Pinhook',
-                  '10201':'Montgomery',
-                  '10660':'Gleason',
-                  '10200':'East Point',
-                  '10207':'Bull Run'
-                  }"""
-  
-  print(f"Plotting all dB sites")
-  source_sites = {'sites': [], 'lat': [], 'lon': []}
-  for sid in sids:
-    if 'B' in data_all[sid] and 'measured' in info[sid]['B']:
-      site_info = info_df[
-            (info_df['site_id'] == sid) & 
-            (info_df['data_type'] == 'B') & 
-            (info_df['data_class'] == 'measured')
-        ]
-      if site_info['error'].isna().all():
-        source_sites['sites'].append(sid)
-        source_sites['lat'].append(site_info['mag_lat'].values[0])
-        source_sites['lon'].append(site_info['mag_lon'].values[0])
-  # Sort sites by latitude
-  sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
-  source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
-
-  fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
-
-  offset_fix = 0
-
-  for i, sid in enumerate(source_sites['sites']):
-    #if sid in sid_copies.keys():
-      #offset_fix +=1
-      #continue # skipping NERC sites that are TVA duplicates
-    if 'B' in data_all[sid].keys():
-      time = data_all[sid]['B']['measured'][0]['modified']['time']
-      data = data_all[sid]['B']['measured'][0]['modified']['data']
-              
-      # Subset to desired time range
-      time, data = subset(time, data, start, stop)
-      data = numpy.linalg.norm(data, axis=1)
-
-      # Add offset for each site
-      data_with_offset = data + (i*offset)
-              
-      # Plot the timeseries
-      axes.plot(time, data_with_offset, linewidth=0.5)
-      # Add text to the plot to label waveform
-      sid_lat = source_sites['lat'][i]
-      sid_lon = source_sites['lon'][i]
-      text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
-      #if sid in sid_copies.values():
-        #text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
-      axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
-  plt.grid()
-  plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
-  #plt.legend(loc='upper right')
-  plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-  plt.gca().set_xlim(datetime.datetime(2024, 5, 10, 11, 0), stop)
-  plt.gca().set_ylim(-offset, max(data_with_offset)+10)
-      
-  axes.spines['top'].set_visible(False)
-  axes.spines['right'].set_visible(False)
-  axes.spines['left'].set_visible(False)
-  #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
-  axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
-  datetick()
-
-  # remove first x gridline
-  xgridlines = axes.get_xgridlines()
-  gridline_of_interest = xgridlines[0]
-  gridline_of_interest.set_visible(False)
-      
-  # Save the figure
-  fdir = os.path.join(base_dir, f'_db')
-  savefig(fdir, f'db_all')
-  savefig_paper(f'db_all')
-  plt.close()
-
-#reading in info.extended.csv
-fname = os.path.join('info', 'info.extended.csv')
-print(f"Reading {fname}")
-df = pd.read_csv(fname).set_index('site_id')
-info_df = pd.read_csv(fname)
-
 # plotting stack plots for GIC and dB_H
 if stack_plot:
-  plot_all_gic(info_dict, info_df, data_all, start, stop)
+  #reading in info.extended.csv
+  print(f"Reading {info_fname}")
+  info_df = pd.read_csv(info_fname)
+
+  #plot_all_gic(info_dict, info_df, data_all, start, stop)
   plot_all_db(info_dict, info_df, data_all, start, stop)
 
-###############################################################################################################
 
 # comparison plots!
-
-# Filter out sites with error message
-info_df = info_df[~info_df['error'].str.contains('', na=False)]
-# Remove rows that don't have data_type = GIC and data_class = measured
-info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
-info_df.reset_index(drop=True, inplace=True)
-good_sites = info_df['site_id'].tolist()
-
-pkl_file = os.path.join('..', '2024-May-Storm-data', '_results', 'cc.pkl')
-print(f"Reading {pkl_file}")
-with open(pkl_file, 'rb') as file:
-  cc_df = pickle.load(file)
-
-def gic_pairs (info, data, cc_df, sid_1, sid_2, lags):
-  time_meas_1 = data[sid_1]['GIC']['measured'][0]['modified']['time']
-  data_meas_1 = data[sid_1]['GIC']['measured'][0]['modified']['data']
-  time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
-  time_meas_2 = data[sid_2]['GIC']['measured'][0]['modified']['time']
-  data_meas_2 = data[sid_2]['GIC']['measured'][0]['modified']['data']
-  time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
-
-  cc_row = cc_df[((cc_df['site_1'] == sid_1) & (cc_df['site_2'] == sid_2)) | 
-          ((cc_df['site_2'] == sid_1) & (cc_df['site_1'] == sid_2))].iloc[0]
-  cc = cc_row['cc']
-  dist = cc_row['dist(km)']
-
-  #plotting time series comparison
-  plt.figure()
-
-  error_shift = 70
-  yticks = np.arange(-120, 30, 10)
-  labels = []
-  for ytick in yticks:
-    if ytick < -30:
-      labels.append(str(ytick+error_shift))
-    else:
-      labels.append(str(ytick))
-  kwargs = {"color": 'w', "linestyle": '-', "linewidth": 10, "xmin": 0, "xmax": 1}
-  plt.axhline(y=-35, **kwargs)
-  plt.axhline(y=-120, **kwargs)
-  plt.title(f'{sid_1} vs {sid_2}\n|cc| = {np.abs(cc):.2f}, distance = {dist:4.2f} km')
-  plt.grid()
-  plt.plot()
-  if cc < 0:
-    data_meas_1 = -data_meas_1
-    plt.text(stop, -117, f'time series for {sid_1} plotted inverse due to negative correlation', fontsize=8, 
-         verticalalignment='bottom', horizontalalignment='right')
-  plt.plot(time_meas_1, data_meas_1, 'b', label=sid_1, linewidth=0.5)
-  plt.plot(time_meas_2, data_meas_2, 'r', label=sid_2, linewidth=0.5)
-  plt.plot(time_meas_1, data_meas_1-data_meas_2-error_shift, color=3*[0.3], label='difference', linewidth=0.5)
-  plt.legend(loc='lower left')
-  plt.ylabel('GIC [A]')
-  plt.ylim(-120, 30)
-  plt.yticks(yticks, labels=labels)
-  datetick()
-
-  site_1_save =sid_1.lower().replace(' ', '')
-  site_2_save =sid_2.lower().replace(' ', '')
-  fname = f'{site_1_save}_{site_2_save}'
-  out_dir = os.path.join('..', '2024-May-Storm-data', '_results', 'pairs')
-  savefig(out_dir, fname)
-  plt.close()
-
-
-  #plotting cross and auto correlation
-  plt.figure()
-
-  cross_corr = [np.corrcoef(data_meas_1[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_2, lag))], 
-                            np.roll(data_meas_2, lag)[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_2, lag))])[0, 1] for lag in lags]
-  auto_corr_1 = [np.corrcoef(data_meas_1[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_1, lag))], 
-                             np.roll(data_meas_1, lag)[~np.isnan(data_meas_1) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
-  auto_corr_2 = [np.corrcoef(data_meas_2[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_2, lag))], 
-                             np.roll(data_meas_2, lag)[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_2, lag))])[0, 1] for lag in lags]
-
-  plt.plot(lags, cross_corr, 'k', label='Cross Corr')
-  plt.plot(lags, auto_corr_1, 'b--', label=f'Auto Corr {sid_1}')
-  plt.plot(lags, auto_corr_2, 'r--', label=f'Auto Corr {sid_2}')
-  plt.xlabel('Lag [min]')
-  plt.ylabel('Correlation')
-  plt.title(f'{sid_1} vs {sid_2}')
-  plt.legend(loc='upper left')
-  plt.grid()
-
-  fname = f'{site_1_save}_{site_2_save}_correlation'
-  savefig(out_dir, fname)
-  plt.close()
-
-
 if plot_pairs:
+  #reading in info.extended.csv
+  print(f"Reading {info_fname}")
+  info_df = pd.read_csv(info_fname)
+  # Filter out sites with error message
+  info_df = info_df[~info_df['error'].str.contains('', na=False)]
+  # Remove rows that don't have data_type = GIC and data_class = measured
+  info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+  info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+  info_df.reset_index(drop=True, inplace=True)
+  good_sites = info_df['site_id'].tolist()
+
+  print(f"Reading {pkl_file}")
+  with open(pkl_file, 'rb') as file:
+    cc_df = pickle.load(file)
+    
   sids = good_sites
   lag = range(-60, 61, 1)
   for i, site_1 in enumerate(sids):
