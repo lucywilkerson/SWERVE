@@ -17,6 +17,7 @@ plt.rcParams['mathtext.fontset'] = 'cm'
 plt.rcParams['axes.titlesize'] = 18
 plt.rcParams['xtick.labelsize'] = 14
 plt.rcParams['ytick.labelsize'] = 14
+plt.rcParams['legend.fontsize'] = 14
 plt.rcParams['axes.labelsize'] = 16
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 600
@@ -250,7 +251,7 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
     if df is not None:
         df.loc[len(df)] = {
             'Fit Equation': fit_eqn,
-            'cc ± unc': f"${cc:.2f}$ ± ${cc_unc:.2f}$",
+            'cc ± 2SE': f"${cc:.2f}$ ± ${cc_unc:.2f}$",
             'RMS [A]': f"${rms:.2f}$",
             'AIC': f"${aic:.1f}$",
             'BIC': f"${bic:.1f}$"
@@ -272,7 +273,7 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         x = np.log10(data['interpolated_beta']) if feature == 'log_beta' else data[feature]
         if remove_outlier and mask is not None:
             plt.scatter(x[mask], target[mask], color='k', label='Data')
-            plt.scatter(x[~mask], target[~mask], facecolors='none', edgecolors='k', label='Outliers')
+            plt.scatter(x[~mask], target[~mask], facecolors='none', edgecolors='k', label='Outlier')
         else:
             plt.scatter(x, target, color='k', label='Target')
         # Sort for line plot
@@ -564,7 +565,7 @@ if std_compare or peak_compare:
         features = ['geo_lat', 'interpolated_beta']
         feature_names = {
                 'geo_lat': 'Latitude [deg]',
-                'interpolated_beta': r'|$\beta$|'
+                'interpolated_beta': r'$\beta$'
             }
         
         for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
@@ -576,7 +577,7 @@ if std_compare or peak_compare:
                     time_meas, data_meas = subset(time_meas, data_meas, start, stop)
                     target[i] = func(data_meas[~np.isnan(data_meas)])
 
-                scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± unc', 'RMS [A]', 'AIC', 'BIC'])
+                scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMS [A]', 'AIC', 'BIC'])
 
                 model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, df=scatter_fit_df, plot_fit=False)
                 all_features_model, all_features_error = linear_regression_all(data, features=features, target=target, target_name=target_name, df=scatter_fit_df)
