@@ -6,6 +6,8 @@ import shutil
 import datetime
 import time
 
+from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subset
+
 import numpy as np
 import pandas as pd
 import numpy.ma as ma
@@ -38,6 +40,7 @@ plot_compare = True # Plot measured and calculated data on same axes, when both 
 stack_plot = False # Plot GIC and dB_H stack plots
 plot_pairs = False # Plot and compare measured GIC across all "good" pairs
 create_md = False # updates md comparison files without replotting everything
+paper = True # only plots paper sites if true
 sids = None # If none, plot all sites
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
@@ -45,10 +48,14 @@ sids = None # If none, plot all sites
 # sids used to make plots for paper
 paper_GIC_sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 paper_B_sids = ['Bull Run', '50116']
-sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
+if paper:
+  sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
 start = datetime.datetime(2024, 5, 10, 15, 0)
 stop = datetime.datetime(2024, 5, 12, 6, 0)
+limits = plt_config()
+print(limits)
+#exit()
 
 def read(all_file, sid=None):
   fname = os.path.join('info', 'info.json')
@@ -98,7 +105,7 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
 def add_subplot_label(ax, label, loc=(-0.15, 1)):
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
-def compare_gic(info, data, sid, show_sim_site=False):
+def compare_gic(info, data, sid, show_sim_site=False, df=None):
 
   fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
 
@@ -361,6 +368,17 @@ def compare_gic(info, data, sid, show_sim_site=False):
   savefig(fdir, 'GIC_histogram_meas_calc')
   plt.close()
 
+  if df is not None:
+        df.loc[len(df)] = {
+            'Site ID': sid,
+            r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
+            r'$\sigma_\text{TVA}$': f"{np.std(data_calcs[0]):.2f}",
+            r'$\sigma_\text{Ref}$': f"{np.std(data_calcs[1]):.2f}",
+            r'$\text{cc}^2_\text{TVA}$': f"{cc[0]**2:.2f}",
+            r'$\text{cc}^2_\text{Ref}$': f"{cc[1]**2:.2f}",
+            r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
+            r'$\text{pe}_\text{Ref}$': f"{pe[1]:.2f}"
+        }
 
 def compare_db(info, data, sid):
 
@@ -927,7 +945,13 @@ if plot_data:
     print(" ")
 
 if plot_compare:
-
+  if not paper:
+    gic_df = None
+  else:
+    gic_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{TVA}$', r'$\sigma_\text{Ref}$', 
+                                   r'$\text{cc}^2_\text{TVA}$', r'$\text{cc}^2_\text{Ref}$',
+                                   r'$\text{pe}_\text{TVA}$', r'$\text{pe}_\text{Ref}$'])
+    
   for sid in sids: # site ids
     if sid not in info_dict.keys():
       raise ValueError(f"Site '{sid}' not found in info_dict.json")
@@ -940,7 +964,11 @@ if plot_compare:
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
         print("  Plotting GIC measured and calculated")
-        compare_gic(info_dict, data_all, sid)
+        compare_gic(info_dict, data_all, sid, df=gic_df)
+  if gic_df is not None:
+    print("  Writing GIC comparison tables")
+    gic_df.to_markdown(os.path.join(data_dir, "_results", "gic_table.md"), index=False, floatfmt=".2f")
+    gic_df.to_latex(os.path.join(data_dir, "_results", "gic_table.tex"), index=False, escape=False)
 
 
 # create markdown files to hold plots
