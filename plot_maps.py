@@ -11,6 +11,7 @@ import matplotlib.patches as patches
 import geopandas as gpd
 from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
+from shapely.geometry import LineString, box
 
 data_dir = os.path.join('..', '2024-May-Storm-data')
 out_dir = os.path.join('..', '2024-May-Storm-data', '_map')
@@ -20,7 +21,7 @@ transform = ccrs.PlateCarree()
 state = True # Show political boundaries
 
 # Set types of maps to produce
-map_location = False
+map_location = True
 map_cc = False
 map_std = False
 map_sites =  False
@@ -82,9 +83,10 @@ def add_symbols(ax, df, transform, markersize):
 fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
 df = pd.read_csv(fname).set_index('site_id')
-info_df = pd.read_csv(fname)
+df = df[~df['error'].str.contains('', na=False)] #remove sites w error
 
 # Filter out sites with error message
+info_df = pd.read_csv(fname)
 info_df = info_df[~info_df['error'].str.contains('', na=False)]
 # TODO: Print number of GIC sites removed due to error and how many kept.
 # Remove rows that don't have data_type = GIC and data_class = measured
@@ -119,7 +121,32 @@ def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=Fal
         ].apply(lambda x: list(x.geoms)[0])
         for idx, row in mag_gdf.iterrows():
             x, y = row['geometry'].xy
-            ax.plot(x, y, color='gray', linewidth=1, transform=transform)
+            ax.plot(x, y, color='gray', linewidth=.5, transform=transform)
+            text = row['Contour']
+            if text <=70 and text >= 52:
+                line = row['geometry']
+                map_box = box(extent[0], extent[2], extent[1], extent[3])
+                intersection = line.intersection(map_box)
+
+                # If intersection is a LineString or MultiLineString, get the endpoint on the east (right) extent
+                if intersection.is_empty:
+                    continue
+                if intersection.geom_type == "MultiLineString":
+                    # Take the first line
+                    intersection = list(intersection.geoms)[0]
+                if intersection.geom_type == "LineString":
+                    coords = list(intersection.coords)
+                    # Find the point(s) with longitude == east extent
+                    east_x = extent[1]
+                    east_points = [pt for pt in coords if np.isclose(pt[0], east_x, atol=0.05)]
+                    if east_points:
+                        endpoint = east_points[0]
+                    else:
+                        # fallback: picks the endpoint with max longitude
+                        endpoint = max(coords, key=lambda pt: pt[0])
+                    ax.text(endpoint[0], endpoint[1], text, fontsize=8, transform=transform, ha='right', va='center')
+                elif intersection.geom_type == "Point":
+                    ax.text(intersection.x, intersection.y, text, fontsize=8, transform=transform, ha='right', va='center')
   
   add_symbols(ax, df, transform, markersize)
   # Set the extent of the map
