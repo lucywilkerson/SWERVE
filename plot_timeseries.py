@@ -51,11 +51,9 @@ paper_B_sids = ['Bull Run', '50116']
 if paper:
   sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
-start = datetime.datetime(2024, 5, 10, 15, 0)
-stop = datetime.datetime(2024, 5, 12, 6, 0)
 limits = plt_config()
-print(limits)
-#exit()
+start = limits['data'][0]
+stop = limits['data'][1]
 
 def read(all_file, sid=None):
   fname = os.path.join('info', 'info.json')
@@ -105,7 +103,17 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
 def add_subplot_label(ax, label, loc=(-0.15, 1)):
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
-def compare_gic(info, data, sid, show_sim_site=False, df=None):
+def format_cc_scatter(ax):
+  # Sets the aspect ratio to make the plot square and ensure xlim and ylim are the same
+  limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
+  plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3 * [0.6], linewidth=0.5)
+  ticks = plt.xticks()[0]
+  plt.xticks(ticks)
+  plt.yticks(ticks)
+  ax.set_xlim(limits)
+  ax.set_ylim(limits)
+
+def compare_gic(info, data, sid, show_sim_site=False, df=None, limits=limits):
 
   fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
 
@@ -178,9 +186,8 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
     label = model_labels[idx]
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
 
-  plt.legend(loc='upper right')
   plt.ylabel('GIC [A]')
-  #plt.ylim(-50, 50)
+  plt.xlim(limits['xlims'][0], limits['xlims'][1])
 
   # add cc^2 and pe to timeseries
   if len(model_names) == 1:
@@ -202,10 +209,12 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
       "linewidth": 0.5
     }
   }
-  plt.text(time_calcs[0][-1], min(min(data_meas), np.min(data_calcs)), text, **text_kwargs)
+  # Subtract 1 hour from the x position for the text annotation
+  x_text = limits['xlims'][1] - datetime.timedelta(hours=1)
+  plt.text(x_text, min(min(data_meas), np.min(data_calcs)), text, **text_kwargs)
   datetick()
   # get the legend object
-  leg = plt.gca().legend()
+  leg = plt.gca().legend(loc='upper right')
 
   # change the line width for the legend
   for line in leg.get_lines():
@@ -273,7 +282,11 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
   
   plt.figure()
   for idx in range(len(model_names)):
-    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=model_labels[idx])
+    if model_names[idx] == 'GMU':
+      label = 'Reference'
+    else:
+      label = model_labels[idx]
+    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=label)
   if len(model_names) == 1:
     text = fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
   elif len(model_names) == 2:
@@ -283,22 +296,15 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
       fr"{model_names[1]} cc$^2$ = {cc[1]**2:.2f} | pe = {pe[1]:.2f}"
     )
   plt.title(sid)
-  # Set the aspect ratio to make the plot square and ensure xlim and ylim are the same
+  
   ax = plt.gca()
-  limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
-  plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3 * [0.6], linewidth=0.5)
-  ticks = plt.xticks()[0]
-  plt.xticks(ticks)
-  plt.yticks(ticks)
-  ax.set_xlim(limits)
-  ax.set_ylim(limits)
+  format_cc_scatter(ax)
   plt.text(max(max(data_meas), np.max(data_calcs)), min(min(data_meas), np.min(data_calcs)), text, **text_kwargs)
   plt.xlabel('Measured GIC [A]')
   plt.ylabel('Calculated GIC [A]')
   plt.grid()
-  plt.legend(loc='upper right')
   # get the legend object
-  leg = plt.gca().legend(loc='upper right')
+  leg = plt.gca().legend(loc='upper left')
   # change the marker size for the legend
   for line in leg.get_lines():
       line.set_markersize(6)
@@ -321,14 +327,8 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
     plt.text(max(max(data_meas), np.max(data_calcs[idx])), min(min(data_meas), np.min(data_calcs[idx])), text, **text_kwargs)
     plt.plot(data_meas, data_calcs[idx], 'k.', markersize=1)
     ax = plt.gca()
-    limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
-    plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3*[0.6], linewidth=0.5)
-    ticks = plt.xticks()[0]
-    plt.xticks(ticks)
-    plt.yticks(ticks)
-    ax.set_xlim(limits)
-    ax.set_ylim(limits)
-    #plt.legend(loc='upper right')
+    format_cc_scatter(ax)
+    #plt.legend(loc='upper left')
     plt.xlabel('Measured GIC [A]')
     plt.ylabel('Calculated GIC [A]')
     plt.grid()
@@ -380,7 +380,7 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
             r'$\text{pe}_\text{Ref}$': f"{pe[1]:.2f}"
         }
 
-def compare_db(info, data, sid):
+def compare_db(info, data, sid, limits=limits):
 
   fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
   
@@ -414,6 +414,7 @@ def compare_db(info, data, sid):
   datetick()
   plt.legend()
   plt.grid()
+  plt.xlim(limits['xlims'][0], limits['xlims'][1])
   
   # get the legend object
   leg = plt.gca().legend()
@@ -496,12 +497,8 @@ def compare_db(info, data, sid):
   plt.xlabel(r'Measured $\Delta B_H$ [nT]')
   plt.ylabel(r'Calculated $\Delta B_H$ [nT]')
   plt.grid()
-  ticks = plt.xticks()[0]
-  plt.xticks(ticks)
-  plt.yticks(ticks)
-  plt.xlim(ylims)
-  plt.ylim(ylims)
-  plt.legend(loc='upper right')
+  format_cc_scatter(plt.gca())
+
   # get the legend object
   leg = plt.gca().legend(loc='upper right')
   # change the marker size for the legend
