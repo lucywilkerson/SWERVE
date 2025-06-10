@@ -14,7 +14,7 @@ logger = utilrsw.logger(log_dir=LOG_DIR)
 
 import matplotlib.pyplot as plt
 
-Both = True # if true, plot both MAGE and Dean's IMF
+Both = False # if true, plot both MAGE and Dean's IMF
 dean_fname = os.path.join('..', '2024-May-Storm-data', 'imf_data', 'Dean_IMF.txt')
 
 def read(mage_bcwind_h5, limits):
@@ -27,7 +27,7 @@ def read(mage_bcwind_h5, limits):
     logger.info(f'  Found {key}')
     data[key] = h5file[key][()]
     if isinstance(data[key], np.ndarray) and len(data[key]) ==  len(time):
-      data['time'], data[key] = subset(time, data[key], limits['data'][0], limits['data'][1])
+      data['time'], data[key] = subset(time, data[key], limits['xlims'][0], limits['data'][1])
 
   for i in range(data['al'].size):
     if data['time'][i] <= datetime(2024, 5, 10, 0, 0):
@@ -62,7 +62,7 @@ def plt_adjust(xlims):
 limits = plt_config()
 data = read(FILES['mage']['bcwind'], limits)
 
-plt.figure(figsize=(8.5, 11))
+fig = plt.figure(figsize=(8.5, 11))
 gs = plt.gcf().add_gridspec(7, 1)
 axes = gs.subplots(sharex=True)
 
@@ -77,7 +77,7 @@ axes[0].legend(ncol=2)
 kp_times = []
 kp_values = []
 # Creating a 1-hour grid from limits['data'][0] to limits['data'][1]
-current_time = limits['data'][0]
+current_time = limits['xlims'][0]
 while current_time <= limits['data'][1]:
   # Finding the index of the closest Kp value (Kp is every 3 hours, centered at :30)
   # Find the previous 3-hour interval
@@ -111,7 +111,7 @@ axes[3].set_ylabel(r'T [MK]')
 
 # Plotting mach
 axes[4].plot(data['time'], data['Magnetosonic Mach'], color='k', linewidth=0.8)
-axes[4].set_ylabel("Magnetosonic\nMach")
+axes[4].set_ylabel("Mag Mach")
 
 # Plotting Vx
 axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8, label=r'V$_x$ (MAGE)')  # divide by 1000 to get in km/s
@@ -124,6 +124,7 @@ axes[6].set_ylabel('[nT]')
 axes[6].legend(loc='upper right', ncol=2)
 
 plt_adjust(limits)
+fig.align_ylabels(axes)
 
 if not Both:
  savefig('_imf', 'imf_mage', logger)
@@ -173,14 +174,6 @@ if Both:
   axes[6].plot(df['time'], df['By'], label=r'B$_y^\text{Dean}$', color='gray', linewidth=0.8)
   axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{Dean}$', color='dimgray', linewidth=0.5, linestyle='--')
   axes[6].legend(loc='upper right', ncol=4)
-
-  for i,t in enumerate(df['time']):
-    if i == 0:
-      t_prev = t
-      continue
-    if t <= t_prev:
-      print(t, '<', t_prev)
-    t_prev = t
 
   savefig('_imf', 'imf_all', logger)
 
