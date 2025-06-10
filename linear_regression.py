@@ -198,6 +198,28 @@ def plot_regression(target, predictions, remove_outlier, target_label, mask):
     plt.ylim(limits)
     plt.grid()
 
+def plot_residuals(target, predictions,  remove_outlier, target_label, mask, fit_eqn, n_bins=25):
+    # Plotting histogram of residuals (errors)
+    plt.figure()
+    if remove_outlier:
+        residuals_masked = predictions[mask] - target[mask]
+        residuals_outliers = predictions[~mask] - target[~mask]
+        # finding bin edges
+        all_residuals = np.concatenate([residuals_masked, residuals_outliers])
+        bins = np.histogram_bin_edges(all_residuals, bins=n_bins)
+        # setting bins to be the same
+        plt.hist(residuals_masked, bins=bins, color='gray', edgecolor='k', alpha=0.7)
+        if len(residuals_outliers) > 0:
+            plt.hist(residuals_outliers, bins=bins, color='white', edgecolor='k', label='Outlier')
+    else:
+        residuals = predictions - target
+        plt.hist(residuals, bins=20, color='gray', edgecolor='k', alpha=0.7)
+    plt.axvline(0, color='k', linestyle='--', linewidth=1, alpha=0.7)
+    plt.xlabel(f'Residual (Predicted - Measured) {target_label}')
+    plt.ylabel('Count')
+    plt.grid()
+    plt.legend(title=fit_eqn, title_fontsize=plt.rcParams['legend.fontsize'])
+
 text_kwargs = {
         'horizontalalignment': 'left',
         'verticalalignment': 'top',
@@ -269,7 +291,7 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
     return fit_eqn
 
-def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, df=None, plot_fit=False):
+def linear_regression_model(data, features, feature_names, target, target_name, remove_outlier=True, df=None, plot_fit=False, plot_rms=False):
     
     def plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_label, fit_eqn):
         plt.figure()
@@ -354,11 +376,15 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
             plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_names.get(feature, feature), fit_eqn)
             savefig(results_dir, 'line_fit_' + feature + '_' + target_name)
             plt.close()
+        if plot_rms:
+            plot_residuals(target, predictions, remove_outlier, target_label, mask, fit_eqn)
+            savefig(results_dir, 'residual_hist_' + feature + '_' + target_name)
+            plt.close()
 
     
     return models, errors
 
-def linear_regression_all(data, features, target, target_name, remove_outlier=True, df=None):
+def linear_regression_all(data, features, target, target_name, remove_outlier=True, df=None, plot_rms=False):
     """Perform linear regression using all features."""
     
     if remove_outlier:
@@ -394,8 +420,9 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
     if target_name == 'cc':
         plt.title(f"Linear Regression for {feature_names.get(feature, feature)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
         plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
+        fit_eqn = None
     else:
-        _ = add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
+        fit_eqn = add_text(target_symbol, features, model.coef_, model.intercept_, rms, cc, cc_unc, aic, bic, df=df)
     savefig(results_dir, f'scatter_fit_all_{target_name}')
     if paper:
         text = None
@@ -406,10 +433,15 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
         add_subplot_label(plt.gca(), text)
         savefig_paper(f'scatter_fit_all_{target_name}', sub_dir="regression_model")
     plt.close()
+
+    if plot_rms:
+        plot_residuals(target, predictions, remove_outlier, target_label, mask, fit_eqn)
+        savefig(results_dir, 'residual_hist_all_' + target_name)
+        plt.close()
     
     return model, rms
 
-def linear_regression_cross(data, features, target, target_name, remove_outlier=True, df=None):
+def linear_regression_cross(data, features, target, target_name, remove_outlier=True, df=None, plot_rms=False):
     """Perform linear regression with all combinations of features and calculate AIC and BIC for each model."""
 
     results = []
@@ -506,8 +538,9 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
     if target_name == 'cc':
         plt.title(f"Best Linear Regression with {', '.join(all_features)}\nRMS Error: {rms:.2f}\nAIC: {aic:.2f}, BIC: {bic:.2f}")
         plt.text(0.05, 0.95, cc, transform=plt.gca().transAxes, **text_kwargs)
+        fit_eqn = None
     else:
-        _ = add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic, df=df)
+        fit_eqn = add_text(target_symbol, all_features, coefficients, intercept, rms, cc, cc_unc, aic, bic, df=df)
     savefig(results_dir, f'scatter_fit_cross_{target_name}')
     if paper:
         text = None
@@ -518,6 +551,11 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
         add_subplot_label(plt.gca(), text)
         savefig_paper(f'scatter_fit_cross_{target_name}', sub_dir="regression_model")
     plt.close()
+
+    if plot_rms:
+        plot_residuals(target, predictions, remove_outlier, target_label, mask, fit_eqn)
+        savefig(results_dir, 'residual_hist_cross_' + target_name)
+        plt.close()
     
     return results
 
