@@ -13,8 +13,20 @@ from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
 from shapely.geometry import LineString, box
 
-data_dir = os.path.join('..', '2024-May-Storm-data')
-out_dir = os.path.join('..', '2024-May-Storm-data', '_map')
+from storminator import FILES, DATA_DIR, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
+
+import utilrsw
+logger = utilrsw.logger(log_dir=LOG_DIR)
+
+results_dir = os.path.join(DATA_DIR, '_results')
+out_dir = os.path.join(DATA_DIR, '_map')
+info_fname = FILES['info']['extended']
+mag_lat_fname = FILES['shape_files']['geo_mag']
+beta_fname = FILES['analysis']['beta']
+pkl_file = FILES['analysis']['cc']
+trans_lines_fname = FILES['shape_files']['electric_power']
+
+
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
@@ -80,13 +92,12 @@ def add_symbols(ax, df, transform, markersize):
                 transform=transform)
 
 #reading in info.extended.csv
-fname = os.path.join('info', 'info.extended.csv')
-print(f"Reading {fname}")
-df = pd.read_csv(fname).set_index('site_id')
+print(f"Reading {info_fname}")
+df = pd.read_csv(info_fname).set_index('site_id')
 df = df[~df['error'].str.contains('', na=False)] #remove sites w error
 
 # Filter out sites with error message
-info_df = pd.read_csv(fname)
+info_df = pd.read_csv(info_fname)
 info_df = info_df[~info_df['error'].str.contains('', na=False)]
 # TODO: Print number of GIC sites removed due to error and how many kept.
 # Remove rows that don't have data_type = GIC and data_class = measured
@@ -95,8 +106,6 @@ info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 info_df.reset_index(drop=True, inplace=True)
 
 sites = info_df['site_id'].tolist()
-
-mag_lat_fname = os.path.join(data_dir, 'wmm_all', 'I_2024.shp')
 
 def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=False):
   # Create a figure and axes with a specific projection
@@ -223,7 +232,7 @@ def cc_vs_dist_map(cc_df):
     for ax, label in zip(axs.flat, labels):
         ax.text(0.5, -0.1, label, ha="center", transform=ax.transAxes, fontsize=8)
     plt.tight_layout()
-    savefig(os.path.join(data_dir, '_results'), 'cc_vs_dist_map')
+    savefig(results_dir, 'cc_vs_dist_map')
     plt.close()
 
 def std_map(info_df, cc_df):
@@ -248,7 +257,7 @@ def std_map(info_df, cc_df):
             else:
                 continue
             ax.plot(site_lon, site_lat, color='k', marker='o', markersize=std, transform=transform)
-    savefig(os.path.join(data_dir, '_results'), 'std_map')
+    savefig(results_dir, 'std_map')
     plt.close()
 
 def site_maps(info_df, cc_df):
@@ -337,12 +346,12 @@ def site_maps(info_df, cc_df):
         # saving figure
         sid = site_1_id
         sub_dir=""
-        fdir = os.path.join(data_dir, '_processed', sid.lower().replace(' ', ''), sub_dir)
+        fdir = os.path.join(DATA_DIR, '_processed', sid.lower().replace(' ', ''), sub_dir)
         savefig(fdir, 'cc_vs_dist_map')
         plt.close()
 
 def beta_maps():
-    beta_fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
+    
     beta_site='OTT'
 
     data = loadmat(beta_fname)
@@ -453,14 +462,13 @@ def transmission_map(info_df, gdf, cc_df, std=False):
     add_loc(ax, info_df, cc_df, stdev=std)
     if std == False:
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
-        savefig(os.path.join(data_dir, '_results'), 'transmission_map')
+        savefig(results_dir, 'transmission_map')
     elif std == True:
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w GIC Standard Deviation', fontsize=15)
-        savefig(os.path.join(data_dir, '_results'), 'transmission_std_map')
+        savefig(results_dir, 'transmission_std_map')
 
 
 # Read in cc data
-pkl_file = os.path.join(data_dir, '_results', 'cc.pkl')
 with open(pkl_file, 'rb') as file:
   print(f"Reading {pkl_file}")
   cc_rows = pickle.load(file)
@@ -483,10 +491,8 @@ if map_beta:
     beta_maps()
 if map_transmission:
     # US Transmission lines
-    data_path = os.path.join(data_dir, 'Electric__Power_Transmission_Lines')
-    data_name = 'Electric__Power_Transmission_Lines.shp'
-    print(f"Reading {data_name}")
-    trans_lines_gdf = gpd.read_file(os.path.join(data_path, data_name))
+    print(f"Reading {trans_lines_fname}")
+    trans_lines_gdf = gpd.read_file(trans_lines_fname)
     trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
 
     transmission_map(info_df, trans_lines_gdf, cc_df)
