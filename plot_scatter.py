@@ -12,8 +12,7 @@ import utilrsw
 logger = utilrsw.logger(log_dir=LOG_DIR)
 
 results_dir = os.path.join(DATA_DIR, '_results')
-paper_dir = os.path.join('..','2024-May-Storm-paper')
-info_fname = os.path.join('info', 'info.csv')
+info_fname = FILES['info']['csv']
 pkl_file = FILES['analysis']['cc']
 
 limits = plt_config()
