@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 LOG_DIR = 'log'
 DATA_DIR = os.path.join('..', '2024-May-Storm-data')
 base_dir = os.path.join(DATA_DIR, '_processed')
+results_dir = os.path.join(DATA_DIR, '_results')
 paper_dir = os.path.join('..','2024-May-Storm-paper')
 
 FILES = {
@@ -16,8 +17,12 @@ FILES = {
           },
           'shape_files':
             {
-              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp')
-            }
+              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'geo_mag': os.path.join(DATA_DIR, 'wmm_all', 'I_2024.shp')
+            },
+          'analysis':
+            {'cc': os.path.join(results_dir, 'cc.pkl')
+             }
         }
 
 def subset(time, data, start, stop):
@@ -73,4 +78,7 @@ def savefig_paper(fname, logger, sub_dir="", fmts=['png','pdf']):
   for fmt in fmts:
     logger.info(f"Writing {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
+
+def add_subplot_label(ax, label, loc=(-0.15, 1)):
+  ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
