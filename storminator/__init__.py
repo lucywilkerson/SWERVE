@@ -22,6 +22,11 @@ FILES = {
             },
           'analysis':
             {'cc': os.path.join(results_dir, 'cc.pkl')
+             },
+          'info':
+            {'csv': os.path.join('info', 'info.csv'),
+             'json': os.path.join('info', 'info.json'),
+             'extended': os.path.join('info', 'info.extended.csv')
              }
         }
 
