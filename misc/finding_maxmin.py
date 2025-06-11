@@ -11,8 +11,9 @@ import time
 
 tva_results = False #print results for TVA gic analysis
 gmu_results = False #print results for GMU gic analysis
-b_results = True #print results for B analysis
+b_results = False #print results for B analysis
 cc_results = False #print results for cc analysis
+tva_dist = True #print distances between TVA GIC monitors and magnetometers
 
 def subset(time, data, start, stop):
   idx = np.logical_and(time >= start, time <= stop)
@@ -278,6 +279,28 @@ if gmu_results:
     print(f'    Number of NaN pe values: {num_nan_pes}')
 
 
+if tva_dist:
+    from geopy.distance import geodesic
+
+    tva_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
+    print('Distances between TVA GIC monitors and magnetometers:')
+
+    def site_distance(df, idx_1, idx_2):
+        dist = geodesic((df['geo_lat'][idx_1], df['geo_lon'][idx_1]), 
+                        (df['geo_lat'][idx_2], df['geo_lon'][idx_2])).km
+        return dist
+
+    for sid in tva_sites:
+        site_df = info_df_all[info_df_all['site_id'] == sid]
+        mag_df = site_df[(site_df['data_type'] == 'B') & (site_df['data_class'] == 'measured')]
+        gic_df = site_df[(site_df['data_type'] == 'GIC') & (site_df['data_class'] == 'measured')]
+        if mag_df.empty:
+            print(f"    No magnetometer for {sid}, no distance computed.")
+            continue
+        mag_idx = mag_df.index[0]
+        gic_idx = gic_df.index[0]
+        dist = site_distance(info_df_all, mag_idx, gic_idx)
+        print(f'    {sid} distance between GIC and B: {dist:.2f} km')
 
 
 
