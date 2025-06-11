@@ -21,7 +21,8 @@ FILES = {
               'geo_mag': os.path.join(DATA_DIR, 'wmm_all', 'I_2024.shp')
             },
           'analysis':
-            {'cc': os.path.join(results_dir, 'cc.pkl')
+            {'cc': os.path.join(results_dir, 'cc.pkl'),
+             'beta': os.path.join(DATA_DIR, 'pulkkinen', 'waveforms_All.mat')
              },
           'info':
             {'csv': os.path.join('info', 'info.csv'),
