@@ -237,9 +237,9 @@ if paper:
     savefig_paper('cc_vs_std_scatter', logger, 'scatter')
 plt.close()
 
-plt.scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), **scatter_kwargs)
-plot_avg_line(np.abs(df['log_beta_diff']), np.abs(df['cc']))
-plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
+plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(np.abs(df['beta_diff']), np.abs(df['cc']))
+plt.xlabel(r'|$\Delta \beta$ |')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
@@ -247,6 +247,18 @@ savefig(results_dir, 'cc_vs_beta_scatter')
 if paper:
     add_subplot_label(plt.gca(), 'c)')
     savefig_paper('cc_vs_beta_scatter', logger, 'scatter')
+plt.close()
+
+plt.scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), **scatter_kwargs)
+plot_avg_line(np.abs(df['log_beta_diff']), np.abs(df['cc']))
+plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
+plt.ylabel('|cc|')
+plt.grid(True)
+plt.legend(loc='upper right')
+savefig(results_dir, 'cc_vs_logbeta_scatter')
+if paper:
+    add_subplot_label(plt.gca(), 'c)')
+    savefig_paper('cc_vs_logbeta_scatter', logger, 'scatter')
 plt.close()
 
 plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), **scatter_kwargs)
