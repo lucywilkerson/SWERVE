@@ -5,16 +5,16 @@ from datetime import datetime, timedelta
 
 from datetick import datetick
 
-from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subset
+from storminator import FILES, LOG_CFG, plt_config, savefig, savefig_paper, subset
 
 import utilrsw
 import pandas as pd
 from matplotlib.ticker import MultipleLocator
-logger = utilrsw.logger(log_dir=LOG_DIR)
+logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
 
 import matplotlib.pyplot as plt
 
-Both = False # if true, plot both MAGE and Dean's IMF
+plot_both = False # if true, plot data used for MAGE and SWMF/OpenGGCM
 dean_fname = os.path.join('..', '2024-May-Storm-data', 'imf_data', 'Dean_IMF.txt')
 
 def read(mage_bcwind_h5, limits):
@@ -51,7 +51,7 @@ def plt_adjust(xlims):
     if leg is not None:
       # change the line width for the legend
       for line in leg.get_lines():
-        line.set_linewidth(1)
+        line.set_linewidth(2)
 
   # Remove x-axis labels for all subplots except the bottom one
   for ax in axes[:-1]:
@@ -63,17 +63,17 @@ limits = plt_config()
 data = read(FILES['mage']['bcwind'], limits)
 
 fig = plt.figure(figsize=(8.5, 11))
-gs = plt.gcf().add_gridspec(7, 1)
+gs = plt.gcf().add_gridspec(7, 1, hspace=0.15)
 axes = gs.subplots(sharex=True)
 
 # Plotting al and ae
 axes[0].plot(data['time'], -data['al'], label=r'$-$AL', color='k', linewidth=1)
 axes[0].plot(data['time'], data['ae'], label='AE', color='m', linewidth=0.5)
 axes[0].set_ylabel('[nT]')
-axes[0].legend(ncol=2)
+axes[0].yaxis.set_major_locator(MultipleLocator(2000))
+axes[0].legend(ncol=2, frameon=False)
 
 # Plotting Kp
-# TODO: Should be able to do this without the loop (using only plt.stairs or plt.step).
 kp_times = []
 kp_values = []
 # Creating a 1-hour grid from limits['data'][0] to limits['data'][1]
@@ -99,7 +99,6 @@ axes[1].fill_between(kp_times, kp_values, 0, step='post', color='k')
 axes[1].set_ylabel(r'K$_p$')
 axes[1].yaxis.set_major_locator(MultipleLocator(3))
 axes[1].set_ylim(0, 9.5)
-#axes[1].set_ylim(4.5, 9.5)
 
 # Plotting symh
 axes[2].plot(data['time'], data['symh'], color='k', linewidth=0.8)
@@ -108,29 +107,34 @@ axes[2].set_ylabel('SYM-H [nT]')
 # Plotting temperature
 axes[3].plot(data['time'], data['Temp'] / 1e6, color='k', linewidth=0.8, label='T (MAGE)')
 axes[3].set_ylabel(r'T [MK]')
+axes[3].yaxis.set_major_locator(MultipleLocator(2))
 
 # Plotting mach
 axes[4].plot(data['time'], data['Magnetosonic Mach'], color='k', linewidth=0.8)
 axes[4].set_ylabel("Mag Mach")
+axes[4].yaxis.set_major_locator(MultipleLocator(0.01))
+axes[4].set_ylim(0, 0.03)
 
 # Plotting Vx
-axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8, label=r'V$_x$ (MAGE)')  # divide by 1000 to get in km/s
+# divide by 1000 to get in km/s
+axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8, label=r'V$_x$ (MAGE)')
 axes[5].set_ylabel(r'V$_x$ [km/s]')
+axes[5].yaxis.set_major_locator(MultipleLocator(200))
 
 # Plotting Bx, By, Bz IMF
 axes[6].plot(data['time'], data['By'], label=r'B$_y^\text{IMF}$', color='k', linewidth=0.5)
 axes[6].plot(data['time'], data['Bz'], label=r'B$_z^\text{IMF}$', color='m', linewidth=0.5)
 axes[6].set_ylabel('[nT]')
-axes[6].legend(loc='upper right', ncol=2)
+axes[6].legend(loc='lower right', ncol=2, frameon=False)
+axes[6].yaxis.set_major_locator(MultipleLocator(50))
 
 plt_adjust(limits)
 fig.align_ylabels(axes)
 
-if not Both:
- savefig('_imf', 'imf_mage', logger)
- savefig_paper('imf_mage', logger)
+savefig('_imf', 'imf_mage', logger)
+savefig_paper('_imf', 'imf_mage', logger)
 
-if Both:
+if plot_both:
   # Reading Dean's data
   logger.info(f'Reading {dean_fname}')
   columns = ['year', 'month', 'day', 'hour', 'min', 'sec', 'msec', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']

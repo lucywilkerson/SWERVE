@@ -4,11 +4,10 @@ all = ['plt_config', 'savefig', 'savefig_paper', 'subset', 'FILES']
 
 import matplotlib.pyplot as plt
 
-LOG_DIR = 'log'
 DATA_DIR = os.path.join('..', '2024-May-Storm-data')
-base_dir = os.path.join(DATA_DIR, '_processed')
-results_dir = os.path.join(DATA_DIR, '_results')
-paper_dir = os.path.join('..','2024-May-Storm-paper')
+PAPER_DIR = os.path.join('..','2024-May-Storm-paper', 'figures')
+LOG_DIR = 'log'
+LOG_CFG = {'dir': LOG_DIR, 'kwargs': {'console_format': u'%(message)s'}}
 
 FILES = {
           'mage':
@@ -17,18 +16,8 @@ FILES = {
           },
           'shape_files':
             {
-              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
-              'geo_mag': os.path.join(DATA_DIR, 'wmm_all', 'I_2024.shp')
-            },
-          'analysis':
-            {'cc': os.path.join(results_dir, 'cc.pkl'),
-             'beta': os.path.join(DATA_DIR, 'pulkkinen', 'waveforms_All.mat')
-             },
-          'info':
-            {'csv': os.path.join('info', 'info.csv'),
-             'json': os.path.join('info', 'info.json'),
-             'extended': os.path.join('info', 'info.extended.csv')
-             }
+              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp')
+            }
         }
 
 def subset(time, data, start, stop):
@@ -42,9 +31,11 @@ def plt_config():
   import datetime
   plt.rcParams['font.family'] = 'Times New Roman'
   plt.rcParams['mathtext.fontset'] = 'cm'
+  plt.rcParams['axes.titlesize'] = 18
   plt.rcParams['xtick.labelsize'] = 14
   plt.rcParams['ytick.labelsize'] = 14
   plt.rcParams['axes.labelsize'] = 16
+  plt.rcParams['legend.fontsize'] = 14
   plt.rcParams['figure.dpi'] = 100
   plt.rcParams['savefig.dpi'] = 600
 
@@ -59,11 +50,9 @@ def plt_config():
     ]
   }
 
-def savefig(base_dir, fname, logger, sid=None, sub_dir="", fmts=['png','pdf']):
+def savefig(base_dir, fname, logger, root_dir=DATA_DIR, fmts=['png','pdf']):
 
-  base_dir = os.path.join(DATA_DIR, base_dir)
-  if sid is not None:
-    base_dir = os.path.join(base_dir, sid.lower().replace(' ', ''), sub_dir)
+  base_dir = os.path.join(root_dir, base_dir)
   if not os.path.exists(base_dir):
     os.makedirs(base_dir)
   fname = os.path.join(base_dir, fname)
@@ -75,16 +64,6 @@ def savefig(base_dir, fname, logger, sid=None, sub_dir="", fmts=['png','pdf']):
     else:
       plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
-def savefig_paper(fname, logger, sub_dir="", fmts=['png','pdf']):
-  fdir = os.path.join(paper_dir, sub_dir)
-  if not os.path.exists(fdir):
-    os.makedirs(fdir)
-  fname = os.path.join(fdir, fname)
-
-  for fmt in fmts:
-    logger.info(f"Writing {fname}.{fmt}")
-    plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
-
-def add_subplot_label(ax, label, loc=(-0.15, 1)):
-  ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+def savefig_paper(base_dir, fname, logger):
+  savefig(base_dir, fname, logger, root_dir=PAPER_DIR, fmts=['pdf'])
 
