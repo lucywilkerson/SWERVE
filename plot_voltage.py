@@ -1,7 +1,7 @@
-from storminator import LOG_DIR, FILES, savefig
+from storminator import LOG_CFG, FILES, savefig
 
 import utilrsw
-logger = utilrsw.logger(log_dir=LOG_DIR)
+logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
 
 figsize = (12, 6)
 

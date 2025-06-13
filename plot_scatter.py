@@ -6,10 +6,10 @@ import numpy as np
 from matplotlib.ticker import AutoMinorLocator
 import matplotlib.pyplot as plt
 
-from storminator import FILES, DATA_DIR, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
+from storminator import FILES, DATA_DIR, LOG_CFG, plt_config, savefig, savefig_paper, add_subplot_label
 
 import utilrsw
-logger = utilrsw.logger(log_dir=LOG_DIR)
+logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
 
 results_dir = os.path.join(DATA_DIR, '_results')
 info_fname = FILES['info']['csv']

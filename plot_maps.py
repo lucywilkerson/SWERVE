@@ -13,10 +13,10 @@ from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
 from shapely.geometry import LineString, box
 
-from storminator import FILES, DATA_DIR, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
+from storminator import FILES, DATA_DIR, LOG_CFG, savefig
 
 import utilrsw
-logger = utilrsw.logger(log_dir=LOG_DIR)
+logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
 
 results_dir = os.path.join(DATA_DIR, '_results')
 out_dir = os.path.join(DATA_DIR, '_map')
