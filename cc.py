@@ -8,9 +8,11 @@ import json
 
 from geopy.distance import geodesic
 
-data_dir = os.path.join('..', '2024-May-Storm-data', '_processed')
-out_dir = os.path.join('..', '2024-May-Storm-data', '_results')
-all_dir  = os.path.join('..', '2024-May-Storm-data', '_all')
+from storminator import FILES, DATA_DIR, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
+
+data_dir = os.path.join(DATA_DIR, '_processed')
+out_dir = os.path.join(DATA_DIR, '_results')
+all_dir  = os.path.join(DATA_DIR, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
 
 def read(all_file, sid=None):
@@ -19,7 +21,7 @@ def read(all_file, sid=None):
     print(f"Reading {fname}")
     info_dict = json.load(f)
 
-  info_df = pd.read_csv(os.path.join('info', 'info.csv'))
+  info_df = FILES['info']['csv']
 
   fname = os.path.join('info', 'plot.json')
   with open(fname, 'r') as f:
@@ -34,7 +36,7 @@ def read(all_file, sid=None):
 
 info_dict, info_df, data_all, plot_info = read(all_file)
 
-fname = os.path.join('info', 'info.extended.csv')
+fname = FILES['info']['extended']
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
 
@@ -49,14 +51,14 @@ info_df.reset_index(drop=True, inplace=True)
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207', 'Bull Run'] # For testing
 
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'log_beta_diff', 'volt_diff(kV)', 'lat_diff', 'power_pool_1','power_pool_2','region_1','region_2','peak_xcorr','peak_xcorr_lag(min)']
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'log_beta_diff', 'volt_diff(kV)', 'lat_diff', 'power_pool_1','power_pool_2','region_1','region_2','peak_xcorr','peak_xcorr_lag(min)']
 print('\t'.join(columns))
 
 def write_table(rows, rows_md, out_dir):
   # Print the results again in order of decreasing correlation coefficient
   df = pd.DataFrame(rows, columns=columns)
   df = df.sort_values(by='cc', ascending=False)
-  output_fname = os.path.join(out_dir, 'cc.pkl')
+  output_fname = FILES['analysis']['cc']
   if not os.path.exists(os.path.dirname(output_fname)):
     os.makedirs(os.path.dirname(output_fname))
 
@@ -80,8 +82,9 @@ def subset(time, data, start, stop):
     return time[idx], data[idx]
   return time[idx], data[idx,:]
 
-start = datetime.datetime(2024, 5, 10, 15, 0)
-stop = datetime.datetime(2024, 5, 12, 6, 0)
+limits = plt_config()
+start = limits['data'][0]
+stop = limits['data'][1]
 
 def site_distance(df, idx_1, idx_2):
   dist = geodesic((df['geo_lat'][idx_1], df['geo_lon'][idx_1]), 
@@ -157,7 +160,10 @@ for idx_1, row in info_df.iterrows():
     distance = site_distance(info_df, idx_1, idx_2)
 
     # Compute difference in beta
-    dbeta = np.log10(info_df['interpolated_beta'][idx_1]) - np.log10(info_df['interpolated_beta'][idx_2])
+    dbeta = info_df['interpolated_beta'][idx_1] - info_df['interpolated_beta'][idx_2]
+
+    # Compute difference in log beta
+    dlog_beta = np.log10(info_df['interpolated_beta'][idx_1]) - np.log10(info_df['interpolated_beta'][idx_2])
 
     # Compute difference in voltage
     dvolt = info_df['nearest_volt'][idx_1] - info_df['nearest_volt'][idx_2]
@@ -177,8 +183,8 @@ for idx_1, row in info_df.iterrows():
     max_xcorr = max(cross_corr)
     max_lag = lags[cross_corr.index(max_xcorr)]
 
-    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}\t{dvolt:.2f}\t{dlat:.2f}\t{pool_1}\t{pool_2}\t{reg_1}\t{reg_2}\t{max_xcorr:.2f}\t{max_lag}")
-    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, dlat, pool_1, pool_2, reg_1, reg_2, max_xcorr, max_lag])
+    print(f"{site_1_id}\t{site_2_id}\t{cc:+.2f}\t{distance:6.1f}\t\t{bad_1}\t{bad_2}\t{std_1:.2f}\t{std_2:.2f}\t{dbeta:.2f}\t{dlog_beta:.2f}\t{dvolt:.2f}\t{dlat:.2f}\t{pool_1}\t{pool_2}\t{reg_1}\t{reg_2}\t{max_xcorr:.2f}\t{max_lag}")
+    rows.append([site_1_id, site_2_id, cc, distance, bad_1, bad_2, std_1, std_2, dbeta, dlog_beta, dvolt, dlat, pool_1, pool_2, reg_1, reg_2, max_xcorr, max_lag])
 
     # Format rows as Markdown
     site_1_id_x = site_1_id.lower().replace(' ','')
@@ -189,7 +195,7 @@ for idx_1, row in info_df.iterrows():
     site_1_id_link = f'[{site_1_id_x}](../../../tree/main/_processed/{site_1_id_x})'
     site_2_id_link = f'[{site_2_id_x}](../../../tree/main/_processed/{site_2_id_x})'
 
-    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dvolt, dlat, pool_1, pool_2, reg_1, reg_2, max_xcorr, max_lag])
+    rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dlog_beta, dvolt, dlat, pool_1, pool_2, reg_1, reg_2, max_xcorr, max_lag])
 
     # TODO:add a column in the printout of # mins
 
@@ -199,7 +205,7 @@ write_table(rows, rows_md, out_dir)
 # add column for minimum mean |cc| for each site
 
 # Read in cc data
-pkl_file = os.path.join(out_dir, 'cc.pkl')
+pkl_file = FILES['analysis']['cc']
 with open(pkl_file, 'rb') as file:
   print(f"Reading {pkl_file}")
   cc_rows = pickle.load(file)
