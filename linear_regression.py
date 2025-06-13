@@ -87,10 +87,12 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
     print(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
-cc_compare = True #perform regression of cc
+cc_compare = False #perform regression of cc
 std_compare = True #perform regression of std
 peak_compare = True #perform regression of peak GIC
 log10_beta = False #use log10 of beta instead of beta
+alpha = True #use alpha instead of lat
+z_test = False #perform z-test on beta vs log10(beta)
 
 paper=True
 if paper:
@@ -173,6 +175,8 @@ def remove_outliers(data, target, features, threshold=3.5):
     target = target[mask]
     if features == 'log_beta':
         x = np.log10(data['interpolated_beta'])
+    if features == 'alpha':
+        x = .001*np.exp(.115*data['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
     else:
         x = data[features]
     return x, target, mask
@@ -242,6 +246,8 @@ def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bi
             return r'$\beta$'
         elif feature_str == 'log_beta':
             return r'$\log_{10} (\beta)$'
+        elif feature_str == 'alpha':
+            return r'$\alpha$'
         elif '*' in feature_str:
             parts = feature_str.split('*')
             symbols = [get_feature_symbol(part) for part in parts]
@@ -295,7 +301,12 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
     
     def plot_1D_fit(data, feature, target, predictions, remove_outlier, mask, target_label, feature_label, fit_eqn):
         plt.figure()
-        x = np.log10(data['interpolated_beta']) if feature == 'log_beta' else data[feature]
+        if feature == 'log_beta':
+                x = np.log10(data['interpolated_beta'])
+        if feature == 'alpha':
+            x = .001*np.exp(.115*data['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
+        else:
+            x = data[[feature]]
         if remove_outlier and mask is not None:
             plt.scatter(x[mask], target[mask], color='k', label='Data')
             plt.scatter(x[~mask], target[~mask], facecolors='none', edgecolors='k', label='Outlier')
@@ -303,10 +314,12 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
             plt.scatter(x, target, color='k', label='Target')
         # Sort for line plot
         sort_idx = np.argsort(x)
+        x1d = x.iloc[:, 0] if isinstance(x, pd.DataFrame) else x
+        sort_idx = np.argsort(x1d)
         if fit_eqn is not None:
-            plt.plot(x.iloc[sort_idx] if hasattr(x, 'iloc') else x[sort_idx], predictions[sort_idx], color='m', linestyle='--', label=fit_eqn)
+            plt.plot(x1d.iloc[sort_idx] if hasattr(x1d, 'iloc') else x1d[sort_idx], predictions[sort_idx], color='m', linestyle='--', label=fit_eqn)
         else:
-            plt.plot(x.iloc[sort_idx] if hasattr(x, 'iloc') else x[sort_idx], predictions[sort_idx], color='m', linestyle='--', label='Prediction')
+            plt.plot(x1d.iloc[sort_idx] if hasattr(x1d, 'iloc') else x1d[sort_idx], predictions[sort_idx], color='m', linestyle='--', label='Prediction')
         plt.xlabel(feature_label if feature_label else feature)
         plt.ylabel(target_label if target_label else "Target")
         plt.legend(loc='upper left')
@@ -321,6 +334,8 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         else:
             if feature == 'log_beta':
                 x = np.log10(data['interpolated_beta'])
+            if feature == 'alpha':
+                x = .001*np.exp(.115*data['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
             else:
                 x = data[[feature]]
             y = target
@@ -350,6 +365,9 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         # Plot actual vs predicted values
         if feature == 'log_beta':
             predictions = model.predict(np.log10(data['interpolated_beta']).values.reshape(-1, 1))
+        if feature == 'alpha':
+            a = .001*np.exp(.115*data['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
+            predictions = model.predict(a.values.reshape(-1, 1))
         else:
             predictions = model.predict(data[[feature]].values.reshape(-1, 1))
     
@@ -606,7 +624,7 @@ if std_compare or peak_compare:
 
     info_dict, info_df, data_all, plot_info = read(all_file)
 
-    if not log10_beta:
+    if not log10_beta and not alpha:
         features = ['geo_lat', 'interpolated_beta']
         feature_names = {
                 'geo_lat': 'Latitude [deg]',
@@ -631,7 +649,7 @@ if std_compare or peak_compare:
                 #print(scatter_fit_df)
                 scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{target_name}.md"), index=False)
                 scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{target_name}.tex"), index=False, escape=False)
-    else:
+    elif not alpha:
         features = ['geo_lat', 'log_beta']
         feature_names = {
                 'geo_lat': 'Latitude [deg]',
@@ -648,3 +666,75 @@ if std_compare or peak_compare:
                     target[i] = func(data_meas[~np.isnan(data_meas)])
 
                 model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, plot_fit=True)
+    elif not log10_beta:
+        features = ['alpha', 'interpolated_beta']
+        feature_names = {
+                'alpha': r'$\alpha$',
+                'interpolated_beta': r'$\beta$'
+            }
+        
+        for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
+            if compare:
+                target = np.zeros(len(sites))
+                for i, sid in enumerate(sites):
+                    time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+                    data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+                    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+                    target[i] = func(data_meas[~np.isnan(data_meas)])
+
+                model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, plot_fit=True)
+    
+if z_test:
+    # Load the data
+    file_dir = os.path.join('..', '2024-May-Storm', 'info')
+    file_path = os.path.join(file_dir, 'info.extended.csv')
+    data = load_data(file_path)
+    # Filter out sites with error message
+    # Also remove rows that don't have data_type = GIC and data_class = measured
+    data = data[~data['error'].str.contains('', na=False)]
+    data = data[data['data_type'].str.contains('GIC', na=False)]
+    data = data[data['data_class'].str.contains('measured', na=False)]
+    data.reset_index(drop=True, inplace=True)
+    sites = data['site_id'].tolist()
+
+    info_dict, info_df, data_all, plot_info = read(all_file)
+
+    features = ['interpolated_beta', 'log_beta']
+    feature_names = {
+                'interpolated_beta': r'$\beta$',
+                'log_beta': r'$\log_{10} (\beta)$'
+            }
+    
+    for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
+                target = np.zeros(len(sites))
+                for i, sid in enumerate(sites):
+                    time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+                    data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+                    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+                    target[i] = func(data_meas[~np.isnan(data_meas)])
+
+                models, errors = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, plot_fit=False, plot_rms=False)
+                # Save mean and std of predicted values to an array
+                predictions_beta = models[features[0]].predict(data[[features[0]]].values.reshape(-1, 1))
+                predictions_log_beta = models[features[1]].predict(np.log10(data[[features[0]]]).values.reshape(-1, 1))
+
+                pred_stats = np.array([
+                    [np.mean(predictions_beta), np.std(predictions_beta, ddof=1)],
+                    [np.mean(predictions_log_beta), np.std(predictions_log_beta, ddof=1)]
+                ])
+                print("Mean and std of predicted values (rows: beta, log10(beta)):")
+                print(pred_stats)
+
+
+                # Calculate z-scores
+                z_score = (pred_stats[0,0] - pred_stats[0,1]) / np.sqrt((pred_stats[1,0]**2 + pred_stats[1,1]**2) / np.sqrt(len(data[[features[0]]])))
+    
+                print(f"Z-score for beta vs log10(beta): {z_score}")
+
+                # Performing z-test for alpha=0.01
+                alpha = 0.01
+                critical_value = 2.576  # Two-tailed test for alpha=0.01
+                if abs(z_score) > critical_value:
+                    print(f"Reject null hypothesis: significant difference between beta and log10(beta) at alpha={alpha}")
+                else:
+                    print(f"Fail to reject null hypothesis: no significant difference between beta and log10(beta) at alpha={alpha}")
