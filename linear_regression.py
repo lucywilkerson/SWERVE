@@ -5,7 +5,7 @@ from statsmodels.regression.linear_model import OLS
 from sklearn.metrics import mean_squared_error
 import pickle
 
-from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subset
+from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
 
 import os
 import matplotlib.pyplot as plt
@@ -14,15 +14,7 @@ import json
 from itertools import combinations
 import logging
 
-plt.rcParams['font.family'] = 'Times New Roman'
-plt.rcParams['mathtext.fontset'] = 'cm'
-plt.rcParams['axes.titlesize'] = 18
-plt.rcParams['xtick.labelsize'] = 14
-plt.rcParams['ytick.labelsize'] = 14
-plt.rcParams['legend.fontsize'] = 14
-plt.rcParams['axes.labelsize'] = 16
-plt.rcParams['figure.dpi'] = 100
-plt.rcParams['savefig.dpi'] = 600
+limits = plt_config()
 
 results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 cc_path = os.path.join(results_dir, 'cc.pkl')
@@ -30,12 +22,8 @@ all_dir  = os.path.join('..', '2024-May-Storm-data', '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
 
 # Configure logging
-log_file = os.path.join('log', 'linear_regression.log')
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+import utilrsw
+logger = utilrsw.logger(log_dir=LOG_DIR)
 
 def load_data(file_path):
     """Load data from a pickle or CSV file."""
@@ -88,18 +76,15 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 cc_compare = False #perform regression of cc
-std_compare = True #perform regression of std
-peak_compare = True #perform regression of peak GIC
+std_compare = False #perform regression of std
+peak_compare = False #perform regression of peak GIC
 log10_beta = False #use log10 of beta instead of beta
-alpha = True #use alpha instead of lat
-z_test = False #perform z-test on beta vs log10(beta)
+alpha = False #use alpha instead of lat
+z_test = True #perform z-test on beta vs log10(beta)
 
 paper=True
 if paper:
     cc_compare = False # cc compare is not included in paper analysis
-
-    def add_subplot_label(ax, label, loc=(-0.15, 1)):
-        ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
 def subset(time, data, start, stop):
   idx = np.logical_and(time >= start, time <= stop)
@@ -175,7 +160,7 @@ def remove_outliers(data, target, features, threshold=3.5):
     target = target[mask]
     if features == 'log_beta':
         x = np.log10(data['interpolated_beta'])
-    if features == 'alpha':
+    elif features == 'alpha':
         x = .001*np.exp(.115*data['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
     else:
         x = data[features]
@@ -365,7 +350,7 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         # Plot actual vs predicted values
         if feature == 'log_beta':
             predictions = model.predict(np.log10(data['interpolated_beta']).values.reshape(-1, 1))
-        if feature == 'alpha':
+        elif feature == 'alpha':
             a = .001*np.exp(.115*data['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
             predictions = model.predict(a.values.reshape(-1, 1))
         else:
@@ -625,9 +610,9 @@ if std_compare or peak_compare:
     info_dict, info_df, data_all, plot_info = read(all_file)
 
     if not log10_beta and not alpha:
-        features = ['geo_lat', 'interpolated_beta']
+        features = ['mag_lat', 'interpolated_beta']
         feature_names = {
-                'geo_lat': 'Latitude [deg]',
+                'mag_lat': 'Latitude [deg]',
                 'interpolated_beta': r'$\beta$'
             }
         
@@ -650,9 +635,9 @@ if std_compare or peak_compare:
                 scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{target_name}.md"), index=False)
                 scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{target_name}.tex"), index=False, escape=False)
     elif not alpha:
-        features = ['geo_lat', 'log_beta']
+        features = ['mag_lat', 'log_beta']
         feature_names = {
-                'geo_lat': 'Latitude [deg]',
+                'mag_lat': 'Latitude [deg]',
                 'log_beta': r'$\log_{10} (\beta)$'
             }
         
@@ -732,9 +717,50 @@ if z_test:
                 print(f"Z-score for beta vs log10(beta): {z_score}")
 
                 # Performing z-test for alpha=0.01
-                alpha = 0.01
+                alpha_z = 0.01
                 critical_value = 2.576  # Two-tailed test for alpha=0.01
                 if abs(z_score) > critical_value:
-                    print(f"Reject null hypothesis: significant difference between beta and log10(beta) at alpha={alpha}")
+                    print(f"Reject null hypothesis: significant difference between beta and log10(beta) at alpha={alpha_z}")
                 else:
-                    print(f"Fail to reject null hypothesis: no significant difference between beta and log10(beta) at alpha={alpha}")
+                    print(f"Fail to reject null hypothesis: no significant difference between beta and log10(beta) at alpha={alpha_z}")
+    
+    features = ['mag_lat', 'alpha']
+    feature_names = {
+                'mag_lat': r'$\lambda$',
+                'alpha': r'$\alpha$'
+            }
+    
+    for compare, target_name, func in [(std_compare, 'std', np.std), (peak_compare, 'gic_max', lambda x: max(np.abs(x)))]:
+                target = np.zeros(len(sites))
+                for i, sid in enumerate(sites):
+                    time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
+                    data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
+                    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+                    target[i] = func(data_meas[~np.isnan(data_meas)])
+
+                models, errors = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, plot_fit=False, plot_rms=False)
+                # Save mean and std of predicted values to an array
+                predictions_lat = models[features[0]].predict(data[[features[0]]].values.reshape(-1, 1))
+                a = .001*np.exp(.115*data[[features[0]]]) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
+                predictions_alpha = models[features[1]].predict(a.values.reshape(-1, 1))
+
+                pred_stats = np.array([
+                    [np.mean(predictions_lat), np.std(predictions_lat, ddof=1)],
+                    [np.mean(predictions_alpha), np.std(predictions_alpha, ddof=1)]
+                ])
+                print("Mean and std of predicted values (rows: lambda, alpha):")
+                print(pred_stats)
+
+
+                # Calculate z-scores
+                z_score = (pred_stats[0,0] - pred_stats[0,1]) / np.sqrt((pred_stats[1,0]**2 + pred_stats[1,1]**2) / np.sqrt(len(data[[features[0]]])))
+    
+                print(f"Z-score for lambda vs alpha: {z_score}")
+
+                # Performing z-test for alpha=0.01
+                alpha_z = 0.01
+                critical_value = 2.576  # Two-tailed test for alpha=0.01
+                if abs(z_score) > critical_value:
+                    print(f"Reject null hypothesis: significant difference between lambda and alpha at alpha={alpha_z}")
+                else:
+                    print(f"Fail to reject null hypothesis: no significant difference between lambda and alpha at alpha={alpha_z}")
