@@ -16,8 +16,20 @@ FILES = {
           },
           'shape_files':
             {
-              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp')
-            }
+              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'geo_mag': os.path.join(DATA_DIR, 'wmm_all', 'I_2024.shp')
+            },
+          'analysis':
+            {
+              'cc': os.path.join(DATA_DIR, '_results', 'cc.pkl'),
+              'beta': os.path.join(DATA_DIR, 'pulkkinen', 'waveforms_All.mat')
+            },
+          'info':
+            {
+              'csv': os.path.join('info', 'info.csv'),
+              'json': os.path.join('info', 'info.json'),
+              'extended': os.path.join('info', 'info.extended.csv')
+              }
         }
 
 def subset(time, data, start, stop):
