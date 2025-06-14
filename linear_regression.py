@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 import datetime
 import json
 from itertools import combinations
-import logging
 
 limits = plt_config()
 
@@ -39,17 +38,17 @@ def load_data(file_path):
 def read(all_file, sid=None):
   fname = os.path.join('info', 'info.json')
   with open(fname, 'r') as f:
-    print(f"Reading {fname}")
+    logger.info(f"Reading {fname}")
     info_dict = json.load(f)
 
   info_df = pd.read_csv(os.path.join('info', 'info.csv'))
 
   fname = os.path.join('info', 'plot.json')
   with open(fname, 'r') as f:
-    print(f"Reading {fname}")
+    logger.info(f"Reading {fname}")
     plot_cfg = json.load(f)
 
-  print(f"Reading {all_file}")
+  logger.info(f"Reading {all_file}")
   with open(all_file, 'rb') as f:
     data = pickle.load(f)
 
@@ -62,7 +61,7 @@ def savefig(fdir, fname, fmts=fmts):
     fname = os.path.join(fdir, fname)
 
     for fmt in fmts:
-        print(f"    Saving {fname}.{fmt}")
+        logger.info(f"    Saving {fname}.{fmt}")
         plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
@@ -72,12 +71,12 @@ def savefig_paper(fname, sub_dir="", fmts=['png','pdf']):
   fname = os.path.join(fdir, fname)
 
   for fmt in fmts:
-    print(f"    Saving {fname}.{fmt}")
+    logger.info(f"    Saving {fname}.{fmt}")
     plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 cc_compare = False #perform regression of cc
-std_compare = False #perform regression of std
-peak_compare = False #perform regression of peak GIC
+std_compare = True #perform regression of std
+peak_compare = True #perform regression of peak GIC
 log10_beta = False #use log10 of beta instead of beta
 alpha = False #use alpha instead of lat
 z_test = True #perform z-test on beta vs log10(beta)
@@ -334,12 +333,12 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         rss, rms, cc, cc_unc, aic, bic = analyze_fit(y, predictions, feature)
         #cc = np.corrcoef(y, predictions)[0,1]
         
-        logging.info(f"Linear Regression for {target_name} with only {feature}:")
-        logging.info(f"  Coefficient: {model.coef_[0]}")
-        logging.info(f"  Intercept: {model.intercept_}")
-        logging.info(f"  RSS: {rss}")
-        logging.info(f"  RMS: {rms}")
-        logging.info("\n")
+        logger.info(f"Linear Regression for {target_name} with only {feature}:")
+        logger.info(f"  Coefficient: {model.coef_[0]}")
+        logger.info(f"  Intercept: {model.intercept_}")
+        logger.info(f"  RSS: {rss}")
+        logger.info(f"  RMS: {rms}")
+        logger.info("\n")
         
         # Store model and error
         models[feature] = model
@@ -407,13 +406,13 @@ def linear_regression_all(data, features, target, target_name, remove_outlier=Tr
     rss, rms, cc, cc_unc, aic, bic = analyze_fit(y, predictions, features)
     
     # Print model coefficients and error
-    logging.info(f"Linear Regression with All Features for {target}:")
+    logger.info(f"Linear Regression with All Features for {target}:")
     for feature, coef in zip(features, model.coef_):
-        logging.info(f"  Coefficient for {feature}: {coef}")
-    logging.info("  Intercept:", model.intercept_)
-    logging.info("  RSS:", rss)
-    logging.info("  RMS:", rms)
-    logging.info("\n")
+        logger.info(f"  Coefficient for {feature}: {coef}")
+    logger.info("  Intercept:", model.intercept_)
+    logger.info("  RSS:", rss)
+    logger.info("  RMS:", rms)
+    logger.info("\n")
 
     target_label, target_symbol = find_target(target_name)
 
@@ -511,17 +510,17 @@ def linear_regression_cross(data, features, target, target_name, remove_outlier=
     intercept = best_model['intercept']
 
     # Print results for the best model
-    logging.info(f"Best Linear Regression Model with Cross Terms (Based on AIC) for {target}:")
-    logging.info("  Coefficients:")
+    logger.info(f"Best Linear Regression Model with Cross Terms (Based on AIC) for {target}:")
+    logger.info("  Coefficients:")
     for feature, coef in zip(all_features, coefficients):
-        logging.info(f"    Coefficient for {feature}: {coef}")
-    logging.info("  Intercept:", intercept)
-    logging.info("  RSS:", rss)
-    logging.info("  RMS:", rms)
-    logging.info("  AIC:", aic)
-    logging.info("  BIC:", bic)
-    logging.info("  Correlation Coefficient (cc):", cc)
-    logging.info("\n")
+        logger.info(f"    Coefficient for {feature}: {coef}")
+    logger.info("  Intercept:", intercept)
+    logger.info("  RSS:", rss)
+    logger.info("  RMS:", rms)
+    logger.info("  AIC:", aic)
+    logger.info("  BIC:", bic)
+    logger.info("  Correlation Coefficient (cc):", cc)
+    logger.info("\n")
 
     target_label, target_symbol = find_target(target_name)
     
@@ -670,19 +669,20 @@ if std_compare or peak_compare:
                 model, error = linear_regression_model(data, features=features, feature_names=feature_names, target=target, target_name=target_name, plot_fit=True)
     
 if z_test:
-    # Load the data
-    file_dir = os.path.join('..', '2024-May-Storm', 'info')
-    file_path = os.path.join(file_dir, 'info.extended.csv')
-    data = load_data(file_path)
-    # Filter out sites with error message
-    # Also remove rows that don't have data_type = GIC and data_class = measured
-    data = data[~data['error'].str.contains('', na=False)]
-    data = data[data['data_type'].str.contains('GIC', na=False)]
-    data = data[data['data_class'].str.contains('measured', na=False)]
-    data.reset_index(drop=True, inplace=True)
-    sites = data['site_id'].tolist()
+    if not std_compare and not peak_compare:
+        # Load the data
+        file_dir = os.path.join('..', '2024-May-Storm', 'info')
+        file_path = os.path.join(file_dir, 'info.extended.csv')
+        data = load_data(file_path)
+        # Filter out sites with error message
+        # Also remove rows that don't have data_type = GIC and data_class = measured
+        data = data[~data['error'].str.contains('', na=False)]
+        data = data[data['data_type'].str.contains('GIC', na=False)]
+        data = data[data['data_class'].str.contains('measured', na=False)]
+        data.reset_index(drop=True, inplace=True)
+        sites = data['site_id'].tolist()
 
-    info_dict, info_df, data_all, plot_info = read(all_file)
+        info_dict, info_df, data_all, plot_info = read(all_file)
 
     features = ['interpolated_beta', 'log_beta']
     feature_names = {
@@ -707,22 +707,19 @@ if z_test:
                     [np.mean(predictions_beta), np.std(predictions_beta, ddof=1)],
                     [np.mean(predictions_log_beta), np.std(predictions_log_beta, ddof=1)]
                 ])
-                print("Mean and std of predicted values (rows: beta, log10(beta)):")
-                print(pred_stats)
-
 
                 # Calculate z-scores
                 z_score = (pred_stats[0,0] - pred_stats[0,1]) / np.sqrt((pred_stats[1,0]**2 + pred_stats[1,1]**2) / np.sqrt(len(data[[features[0]]])))
     
-                print(f"Z-score for beta vs log10(beta): {z_score}")
+                logger.info(f"Z-score for beta vs log10(beta): {z_score}")
 
                 # Performing z-test for alpha=0.01
                 alpha_z = 0.01
                 critical_value = 2.576  # Two-tailed test for alpha=0.01
                 if abs(z_score) > critical_value:
-                    print(f"Reject null hypothesis: significant difference between beta and log10(beta) at alpha={alpha_z}")
+                    logger.info(f"Reject null hypothesis: significant difference between beta and log10(beta) at alpha={alpha_z}")
                 else:
-                    print(f"Fail to reject null hypothesis: no significant difference between beta and log10(beta) at alpha={alpha_z}")
+                    logger.info(f"Fail to reject null hypothesis: no significant difference between beta and log10(beta) at alpha={alpha_z}")
     
     features = ['mag_lat', 'alpha']
     feature_names = {
@@ -748,19 +745,18 @@ if z_test:
                     [np.mean(predictions_lat), np.std(predictions_lat, ddof=1)],
                     [np.mean(predictions_alpha), np.std(predictions_alpha, ddof=1)]
                 ])
-                print("Mean and std of predicted values (rows: lambda, alpha):")
-                print(pred_stats)
-
 
                 # Calculate z-scores
                 z_score = (pred_stats[0,0] - pred_stats[0,1]) / np.sqrt((pred_stats[1,0]**2 + pred_stats[1,1]**2) / np.sqrt(len(data[[features[0]]])))
     
-                print(f"Z-score for lambda vs alpha: {z_score}")
+                logger.info(f"Z-score for lambda vs alpha: {z_score}")
 
                 # Performing z-test for alpha=0.01
                 alpha_z = 0.01
                 critical_value = 2.576  # Two-tailed test for alpha=0.01
                 if abs(z_score) > critical_value:
-                    print(f"Reject null hypothesis: significant difference between lambda and alpha at alpha={alpha_z}")
+                    logger.info(f"Reject null hypothesis: significant difference between lambda and alpha at alpha={alpha_z}")
                 else:
-                    print(f"Fail to reject null hypothesis: no significant difference between lambda and alpha at alpha={alpha_z}")
+                    logger.info(f"Fail to reject null hypothesis: no significant difference between lambda and alpha at alpha={alpha_z}")
+
+utilrsw.rm_if_empty('log/linear_regression.errors.log')
