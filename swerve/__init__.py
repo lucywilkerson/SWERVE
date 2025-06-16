@@ -56,6 +56,7 @@ def plt_config():
   plt.rcParams['axes.titlesize'] = 18
   plt.rcParams['xtick.labelsize'] = 14
   plt.rcParams['ytick.labelsize'] = 14
+  plt.rcParams['legend.fontsize'] = 14
   plt.rcParams['axes.labelsize'] = 16
   plt.rcParams['legend.fontsize'] = 14
   plt.rcParams['figure.dpi'] = 100
@@ -106,3 +107,5 @@ def savefig(base_dir, fname, logger, root_dir=DATA_DIR, fmts=['png','pdf']):
 def savefig_paper(base_dir, fname, logger):
   savefig(base_dir, fname, logger, root_dir=PAPER_DIR, fmts=['pdf'])
 
+def add_subplot_label(ax, label, loc=(-0.15, 1)):
+  ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
