@@ -1,71 +1,39 @@
 import os
 import pickle
-import datetime
 
 import numpy as np
 import pandas as pd
-import json
 
 from geopy.distance import geodesic
 
-from storminator import FILES, DATA_DIR, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
+from swerve import FILES, DATA_DIR, plt_config, subset, read_info, LOG_KWARGS, logger
 
-data_dir = os.path.join(DATA_DIR, '_processed')
+
+logger = logger(**LOG_KWARGS)
 out_dir = os.path.join(DATA_DIR, '_results')
-all_dir  = os.path.join(DATA_DIR, '_all')
-all_file = os.path.join(all_dir, 'all.pkl')
 
-def read(all_file, sid=None):
-  fname = os.path.join('info', 'info.json')
-  with open(fname, 'r') as f:
-    print(f"Reading {fname}")
-    info_dict = json.load(f)
+find_lowest_cc = False
 
-  info_df = FILES['info']['csv']
+def read():
+  info_df = read_info(extended=True)
 
-  fname = os.path.join('info', 'plot.json')
-  with open(fname, 'r') as f:
-    print(f"Reading {fname}")
-    plot_cfg = json.load(f)
-
-  print(f"Reading {all_file}")
-  with open(all_file, 'rb') as f:
+  print(f"Reading {FILES['all']}")
+  with open(FILES['all'], 'rb') as f:
     data = pickle.load(f)
 
-  return info_dict, info_df, data, plot_cfg
-
-info_dict, info_df, data_all, plot_info = read(all_file)
-
-fname = FILES['info']['extended']
-print(f"Reading {fname}")
-info_df = pd.read_csv(fname)
-
-# Filter out sites with error message
-# Also remove rows that don't have data_type = GIC and data_class = measured
-info_df = info_df[~info_df['error'].str.contains('', na=False)]
-info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
-info_df.reset_index(drop=True, inplace=True)
-#print(info_df)
-
-sites = info_df['site_id'].tolist()
-#sites = ['10052', '10207', 'Bull Run'] # For testing
-
-columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'log_beta_diff', 'volt_diff(kV)', 'lat_diff', 'power_pool_1','power_pool_2','region_1','region_2','peak_xcorr','peak_xcorr_lag(min)']
-print('\t'.join(columns))
+  return info_df, data
 
 def write_table(rows, rows_md, out_dir):
   # Print the results again in order of decreasing correlation coefficient
-  df = pd.DataFrame(rows, columns=columns)
-  df = df.sort_values(by='cc', ascending=False)
-  output_fname = FILES['analysis']['cc']
+  cc_df = pd.DataFrame(rows, columns=columns)
+  cc_df = cc_df.sort_values(by='cc', ascending=False)
+  output_fname = FILES['cc']
   if not os.path.exists(os.path.dirname(output_fname)):
     os.makedirs(os.path.dirname(output_fname))
 
   print(f"Writing {output_fname}")
   with open(output_fname, 'wb') as f:
-    pickle.dump(df, f)
-
+    pickle.dump(cc_df, f)
 
   df = pd.DataFrame(rows_md, columns=columns)
   df = df.sort_values(by='cc', ascending=False)
@@ -76,15 +44,7 @@ def write_table(rows, rows_md, out_dir):
     f.write("See https://github.com/lucywilkerson/2024-May-Storm/blob/main/info/ for additional site information.\n\n")
     f.write(df.to_markdown(index=False))
 
-def subset(time, data, start, stop):
-  idx = np.logical_and(time >= start, time <= stop)
-  if data.ndim == 1:
-    return time[idx], data[idx]
-  return time[idx], data[idx,:]
-
-limits = plt_config()
-start = limits['data'][0]
-stop = limits['data'][1]
+  return cc_df
 
 def site_distance(df, idx_1, idx_2):
   dist = geodesic((df['geo_lat'][idx_1], df['geo_lon'][idx_1]), 
@@ -104,6 +64,39 @@ def power_pool_filt(pool_1,pool_2,reg_1,reg_2):
 
   return pool, reg
 
+def site_filt(info_df, cc_df, cc_lim):
+  print(f'Sites with no pairing |cc| > {cc_lim}:')
+  def is_site_bad(site_id, cc_df):
+    n_site = 0
+    for idx, row in cc_df.iterrows():
+      if row['site_1'] == site_id:
+        site_2_id = row['site_2']
+      elif row['site_2'] == site_id:
+        site_2_id = row['site_1']
+      else:
+        continue
+      cc = np.abs(row['cc'])
+      if cc > cc_lim:
+        break
+      n_site += 1
+    if n_site == len(info_df)-1:
+      print(site_id)
+  for idx_1, row in info_df.iterrows():
+    site_1_id = row['site_id']
+    is_site_bad(site_1_id, cc_df)
+
+info_df, data_all = read()
+
+sites = info_df['site_id'].tolist()
+#sites = ['10052', '10207', 'Bull Run'] # For testing
+
+# TODO: Add avg |cc| and min(avg_cc) (see TODOs below)
+columns = ['site_1', 'site_2', 'cc', 'dist(km)', 'bad_1', 'bad_2', 'std_1', 'std_2', 'beta_diff', 'log_beta_diff', 'volt_diff(kV)', 'lat_diff', 'power_pool_1','power_pool_2','region_1','region_2','peak_xcorr','peak_xcorr_lag(min)']
+print('\t'.join(columns))
+
+limits = plt_config()
+start = limits['data'][0]
+stop = limits['data'][1]
 
 rows = []
 rows_md = []
@@ -120,7 +113,7 @@ for idx_1, row in info_df.iterrows():
   # finding number of nans
   bad_1 = np.isnan(data_meas_1).sum()
 
-  # finding variance
+  # finding std
   std_1 = np.std(data_meas_1[~np.isnan(data_meas_1)])
 
   # finding power pool/region
@@ -177,7 +170,7 @@ for idx_1, row in info_df.iterrows():
     # finding peak cross correlation
     if cc < 0:
       data_meas_1 = -data_meas_1
-    lags = np.arange(-60, 61, 1) 
+    lags = np.arange(-60, 61, 1)
     cross_corr = [np.corrcoef(data_meas_2[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_1, lag))], 
                             np.roll(data_meas_1, lag)[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
     max_xcorr = max(cross_corr)
@@ -197,46 +190,42 @@ for idx_1, row in info_df.iterrows():
 
     rows_md.append([site_1_id_link, site_2_id_link, cc_link, distance, bad_1, bad_2, std_1, std_2, dbeta, dlog_beta, dvolt, dlat, pool_1, pool_2, reg_1, reg_2, max_xcorr, max_lag])
 
-    # TODO:add a column in the printout of # mins
+    # TODO: add a column in the printout of # mins
 
-write_table(rows, rows_md, out_dir)
+cc_df = write_table(rows, rows_md, out_dir)
 
 #################################################################################################################
 # add column for minimum mean |cc| for each site
-
-# Read in cc data
-pkl_file = FILES['analysis']['cc']
-with open(pkl_file, 'rb') as file:
-  print(f"Reading {pkl_file}")
-  cc_rows = pickle.load(file)
-cc_df = pd.DataFrame(cc_rows)
 cc_df.reset_index(drop=True, inplace=True)
 
+# TODO: Put this in above loop
 # defining avg |cc| for each site
 for idx_1, row in info_df.iterrows():
-    site_1_id = row['site_id']
-    site_cc = []
-    for idx_2, row in cc_df.iterrows():
-        if row['site_1'] == site_1_id:
-            site_2_id = row['site_2']
-        elif row['site_2'] == site_1_id:
-            site_2_id = row['site_1']
-        else:
-            continue
-        cc = np.abs(row['cc'])
-        site_cc.append(cc)
-    avg_cc = np.mean(site_cc)
-    info_df.loc[info_df['site_id'] == site_1_id, 'avg_cc'] = avg_cc #adding mean cc to info_df
+  site_1_id = row['site_id']
+  site_cc = []
+  for idx_2, row in cc_df.iterrows():
+      if row['site_1'] == site_1_id:
+          site_2_id = row['site_2']
+      elif row['site_2'] == site_1_id:
+          site_2_id = row['site_1']
+      else:
+          continue
+      cc = np.abs(row['cc'])
+      site_cc.append(cc)
+  avg_cc = np.mean(site_cc)
+  info_df.loc[info_df['site_id'] == site_1_id, 'avg_cc'] = avg_cc #adding mean cc to info_df
 
+# TODO: Put this in above loop
 # adding min(avg_cc) to cc_df
 for idx, row in cc_df.iterrows():
-    site_1_id = row['site_1']
-    site_2_id = row['site_2']
-    avg_cc_1 = info_df.loc[info_df['site_id'] == site_1_id, 'avg_cc'].values[0]
-    avg_cc_2 = info_df.loc[info_df['site_id'] == site_2_id, 'avg_cc'].values[0]
-    cc_df.loc[idx, 'min_avg_cc'] = min(avg_cc_1, avg_cc_2)
+  site_1_id = row['site_1']
+  site_2_id = row['site_2']
+  avg_cc_1 = info_df.loc[info_df['site_id'] == site_1_id, 'avg_cc'].values[0]
+  avg_cc_2 = info_df.loc[info_df['site_id'] == site_2_id, 'avg_cc'].values[0]
+  cc_df.loc[idx, 'min_avg_cc'] = min(avg_cc_1, avg_cc_2)
 
 
+# TODO: Remove after moving last two loops into main loop
 output_fname = os.path.join(out_dir, 'cc.pkl')
 if not os.path.exists(os.path.dirname(output_fname)):
     os.makedirs(os.path.dirname(output_fname))
@@ -244,32 +233,10 @@ print(f"Writing {output_fname}")
 with open(output_fname, 'wb') as f:
     pickle.dump(cc_df, f)
 
-############################################################################################################
+
 # finding sites with no paring beyond a given cc limit
-find_lowest_cc = False
-
-def site_filt(info_df, cc_df, cc_lim):
-    print(f'Sites with no pairing |cc| > {cc_lim}:')
-    def is_site_bad(site_id, cc_df):
-        n_site = 0
-        for idx, row in cc_df.iterrows():
-            if row['site_1'] == site_id:
-                site_2_id = row['site_2']
-            elif row['site_2'] == site_id:
-                site_2_id = row['site_1']
-            else:
-                continue
-            cc = np.abs(row['cc'])
-            if cc > cc_lim:
-                break
-            n_site += 1
-        if n_site == len(info_df)-1:
-            print(site_id)
-    for idx_1, row in info_df.iterrows():
-        site_1_id = row['site_id']
-        is_site_bad(site_1_id, cc_df)
-
 if find_lowest_cc:
+  # TODO: Use read_info(extended=True)
   #reading in info.extended.csv
   fname = os.path.join('info', 'info.extended.csv')
   print(f"Reading {fname}")

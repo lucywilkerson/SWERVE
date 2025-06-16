@@ -1,7 +1,6 @@
-from storminator import LOG_CFG, FILES, savefig
+from swerve import FILES, savefig, LOG_KWARGS, logger
 
-import utilrsw
-logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
+logger = logger(**LOG_KWARGS)
 
 figsize = (12, 6)
 

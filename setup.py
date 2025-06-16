@@ -7,14 +7,15 @@ install_requires = [
     "cartopy",
     "geopy",
     "geopandas",
+    "statsmodels",
     "datetick @ git+https://github.com/rweigel/datetick",
     "utilrsw @ git+https://github.com/rweigel/utilrsw"
-    ]
+]
 
 setup(
-    name='2024-May-Storm',
-    version='0.0.2',
-    author='Lucy Wilkerson, Bob Weigel',
+    name='swerve',
+    version='0.0.3',
+    author='Lucy Wilkerson, Bob Weigel, Dean Thomas',
     author_email='rweigel@gmu.edu',
     packages=find_packages(),
     description='Process data for the May, 2024 geomagnetic storm',

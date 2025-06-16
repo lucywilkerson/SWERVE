@@ -1,31 +1,21 @@
 import os
-import csv
-import pandas as pd
 import pickle
 
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-import matplotlib.patches as patches
 import geopandas as gpd
-from scipy.io import loadmat
 from scipy.interpolate import LinearNDInterpolator
 from shapely.geometry import LineString, box
 
-from storminator import FILES, DATA_DIR, LOG_CFG, savefig
+from swerve import FILES, read_info, savefig, logger, LOG_KWARGS
 
-import utilrsw
-logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
+logger = logger(**LOG_KWARGS)
 
-results_dir = os.path.join(DATA_DIR, '_results')
-out_dir = os.path.join(DATA_DIR, '_map')
-info_fname = FILES['info']['extended']
-mag_lat_fname = FILES['shape_files']['geo_mag']
-beta_fname = FILES['analysis']['beta']
-pkl_file = FILES['analysis']['cc']
-trans_lines_fname = FILES['shape_files']['electric_power']
-
+out_dir = '_map'
 
 projection = ccrs.Miller()
 crs = ccrs.PlateCarree()
@@ -36,23 +26,9 @@ state = True # Show political boundaries
 map_location = True
 map_cc = False
 map_std = False
-map_sites =  False
+map_sites = False
 map_beta = False
 map_transmission = False
-
-
-fmts=['png', 'pdf']
-def savefig(fdir, fname, fmts=fmts):
-    if not os.path.exists(fdir):
-        os.makedirs(fdir)
-    fname = os.path.join(fdir, fname)
-
-    for fmt in fmts:
-        print(f"    Saving {fname}.{fmt}")
-        if fmt == 'png':
-            plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
-        else:
-            plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def add_features(ax, state):
     # Add coastlines and other features
@@ -63,7 +39,7 @@ def add_features(ax, state):
                                          facecolor='lightblue')
     ax.add_feature(lakes)
     ax.add_feature(cfeature.BORDERS, linewidth=0.5)
-    if state == True:
+    if state:
         ax.add_feature(cfeature.STATES, linewidth=0.5)
 
 def add_symbols(ax, df, transform, markersize):
@@ -91,37 +67,22 @@ def add_symbols(ax, df, transform, markersize):
                 markersize=markersize,
                 transform=transform)
 
-#reading in info.extended.csv
-print(f"Reading {info_fname}")
-df = pd.read_csv(info_fname).set_index('site_id')
-df = df[~df['error'].str.contains('', na=False)] #remove sites w error
-
-# Filter out sites with error message
-info_df = pd.read_csv(info_fname)
-info_df = info_df[~info_df['error'].str.contains('', na=False)]
-# TODO: Print number of GIC sites removed due to error and how many kept.
-# Remove rows that don't have data_type = GIC and data_class = measured
-info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
-info_df.reset_index(drop=True, inplace=True)
-
-sites = info_df['site_id'].tolist()
-
-def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=False):
+def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, patch=False):
   # Create a figure and axes with a specific projection
   fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
   # Adding map features and symbols for locations
   add_features(ax, state)
-  if patch == True:
+  if patch:
     patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
     ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
-  
-  if mag_lat == True:
+
+  if mag_lat:
+        mag_lat_fname = FILES['shape_files']['mag_lat']
         print(f'Reading {mag_lat_fname}')
         mag_gdf = gpd.read_file(mag_lat_fname)
         mag_gdf = mag_gdf.to_crs("EPSG:4326")
         mag_gdf = mag_gdf[mag_gdf["geometry"].notnull()]
-    
+
         # Plotting lines from geometry
         mag_gdf.loc[
         mag_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
@@ -132,7 +93,7 @@ def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=Fal
             x, y = row['geometry'].xy
             ax.plot(x, y, color='gray', linewidth=.5, transform=transform)
             text = row['Contour']
-            if text <=70 and text >= 52:
+            if text <= 70 and text >= 52:
                 line = row['geometry']
                 map_box = box(extent[0], extent[2], extent[1], extent[3])
                 intersection = line.intersection(map_box)
@@ -156,12 +117,12 @@ def location_map(extent, markersize, out_dir, out_name, mag_lat=False, patch=Fal
                     ax.text(endpoint[0], endpoint[1], text, fontsize=8, transform=transform, ha='right', va='center')
                 elif intersection.geom_type == "Point":
                     ax.text(intersection.x, intersection.y, text, fontsize=8, transform=transform, ha='right', va='center')
-  
-  add_symbols(ax, df, transform, markersize)
+
+  add_symbols(ax, info_df, transform, markersize)
   # Set the extent of the map
   ax.set_extent(extent, crs=crs)
   # Save map
-  savefig(out_dir, out_name)
+  savefig(out_dir, out_name, logger)
 
 def cc_vs_dist_map(cc_df):
 
@@ -232,7 +193,7 @@ def cc_vs_dist_map(cc_df):
     for ax, label in zip(axs.flat, labels):
         ax.text(0.5, -0.1, label, ha="center", transform=ax.transAxes, fontsize=8)
     plt.tight_layout()
-    savefig(results_dir, 'cc_vs_dist_map')
+    savefig(out_dir, 'cc_vs_dist_map', logger)
     plt.close()
 
 def std_map(info_df, cc_df):
@@ -257,7 +218,7 @@ def std_map(info_df, cc_df):
             else:
                 continue
             ax.plot(site_lon, site_lat, color='k', marker='o', markersize=std, transform=transform)
-    savefig(results_dir, 'std_map')
+    savefig(out_dir, 'std_map', logger)
     plt.close()
 
 def site_maps(info_df, cc_df):
@@ -345,76 +306,69 @@ def site_maps(info_df, cc_df):
         plt.suptitle(site_1_id)
         # saving figure
         sid = site_1_id
-        sub_dir=""
-        fdir = os.path.join(DATA_DIR, '_processed', sid.lower().replace(' ', ''), sub_dir)
-        savefig(fdir, 'cc_vs_dist_map')
+        fdir = os.path.join('_processed', sid.lower().replace(' ', ''))
+        savefig(fdir, 'cc_vs_dist_map', logger)
         plt.close()
 
 def beta_maps():
-    
-    beta_site='OTT'
 
-    data = loadmat(beta_fname)
+    def plot(df, beta_site):
+        # Create the interpolator
+        interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
+
+        # Define a grid for interpolation
+        lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
+        lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
+        lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
+
+        # Interpolate beta values onto the grid
+        beta_grid = interpolator(lat_grid, lon_grid)
+
+        # Plot the interpolated data on a map
+        fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
+        ax.set_extent([df['lon'].min(), df['lon'].max(), df['lat'].min(), df['lat'].max()], crs=ccrs.PlateCarree())
+
+        # Add features to the map
+        ax.add_feature(cfeature.COASTLINE)
+        ax.add_feature(cfeature.BORDERS, linestyle=':')
+        ax.add_feature(cfeature.LAND, edgecolor='black')
+        ax.add_feature(cfeature.LAKES, alpha=0.5)
+        ax.add_feature(cfeature.RIVERS)
+
+        # Plot the interpolated beta values
+        contour = ax.contourf(lon_grid, lat_grid, beta_grid, transform=ccrs.PlateCarree(), cmap='viridis')
+
+        cbar = plt.colorbar(contour, ax=ax, orientation='vertical', pad=0.05, aspect=50)
+        cbar.set_label('Interpolated Beta')
+        ax.set_title(beta_site)
+
+        savefig(out_dir, f'beta_map_{beta_site.lower()}', logger)
+        plt.close()
+
+    from scipy.io import loadmat
+
+    data = loadmat(FILES['beta'])
     data = data['waveform'][0]
-    
-    beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
-    if beta_site not in beta_sites:
-        raise ValueError(f"Invalid beta site. Choose from {beta_sites}")
 
     # Convert the MATLAB data to a pandas DataFrame
     raw_df = pd.DataFrame(data)
-    if beta_site == 'MEA':
-        betas = raw_df[0][0][0][0][1][0]
-    if beta_site == 'OTT':
-        betas = raw_df[0][1][0][0][1][0]
-    if beta_site == 'MMB':
-        betas = raw_df[0][2][0][0][1][0]
-    if beta_site == 'NUR':
-        betas = raw_df[0][3][0][0][1][0]
 
-    # Convert betas list to a Pandas DataFrame
-    rows = []
-    for i in range(len(betas)):
-      beta = betas[i][0][0][1][0][0]
-      lat = betas[i][0][0][2][0][0]
-      lon = betas[i][0][0][3][0][0]
-      rows.append([beta, lat, lon])
-    df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
+    beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
 
-    # Create the interpolator
-    interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
+    for idx, beta_site in enumerate(beta_sites):
+        betas = raw_df[0][idx][0][0][1][0]
 
-    # Define a grid for interpolation
-    lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
-    lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
-    lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
+        # Convert betas list to a Pandas DataFrame
+        rows = []
+        for i in range(len(betas)):
+            beta = betas[i][0][0][1][0][0]
+            lat = betas[i][0][0][2][0][0]
+            lon = betas[i][0][0][3][0][0]
+            rows.append([beta, lat, lon])
 
-    # Interpolate beta values onto the grid
-    beta_grid = interpolator(lat_grid, lon_grid)
+        df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
+        plot(df, beta_site)
 
-    # Plot the interpolated data on a map
-    fig, ax = plt.subplots(subplot_kw={'projection': ccrs.PlateCarree()})
-    ax.set_extent([df['lon'].min(), df['lon'].max(), df['lat'].min(), df['lat'].max()], crs=ccrs.PlateCarree())
-
-    # Add features to the map
-    ax.add_feature(cfeature.COASTLINE)
-    ax.add_feature(cfeature.BORDERS, linestyle=':')
-    ax.add_feature(cfeature.LAND, edgecolor='black')
-    ax.add_feature(cfeature.LAKES, alpha=0.5)
-    ax.add_feature(cfeature.RIVERS)
-
-    # Plot the interpolated beta values
-    contour = ax.contourf(lon_grid, lat_grid, beta_grid, transform=ccrs.PlateCarree(), cmap='viridis')
-
-    # Add a colorbar
-    cbar = plt.colorbar(contour, ax=ax, orientation='vertical', pad=0.05, aspect=50)
-    cbar.set_label('Interpolated Beta')
-
-    # Add a title
-    ax.set_title('Interpolated Beta Values')
-
-    # Show the plot
-    plt.show()
 
 def transmission_map(info_df, gdf, cc_df, std=False):
 
@@ -460,17 +414,20 @@ def transmission_map(info_df, gdf, cc_df, std=False):
     add_trans_lines(ax, gdf)
     # Add GIC sites
     add_loc(ax, info_df, cc_df, stdev=std)
-    if std == False:
-        ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
-        savefig(results_dir, 'transmission_map')
-    elif std == True:
+    if std:
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w GIC Standard Deviation', fontsize=15)
-        savefig(results_dir, 'transmission_std_map')
+        savefig(out_dir, 'transmission_std_map', logger)
+    else:
+        ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
+        savefig(out_dir, 'transmission_map', logger)
 
+info_df = read_info()
+
+sites = info_df['site_id'].tolist()
 
 # Read in cc data
-with open(pkl_file, 'rb') as file:
-  print(f"Reading {pkl_file}")
+with open(FILES['cc'], 'rb') as file:
+  print(f"Reading {FILES['cc']}")
   cc_rows = pickle.load(file)
 cc_df = pd.DataFrame(cc_rows)
 cc_df.reset_index(drop=True, inplace=True)
@@ -478,18 +435,23 @@ cc_df.reset_index(drop=True, inplace=True)
 if map_location:
     USA_extent = [-125, -67, 25.5, 49.5]
     TVA_extent = [-91, -82, 33, 38]
+    location_map(info_df, USA_extent, 5, out_dir, 'map', mag_lat=True, patch=True)
+    location_map(info_df, TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
 
-    location_map(USA_extent, 5, out_dir, 'map', mag_lat=True, patch=True)
-    location_map(TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
-if map_cc:
-    cc_vs_dist_map(cc_df)
-if map_std:
-    std_map(info_df, cc_df)
-if map_sites:
-    site_maps(info_df, cc_df)
 if map_beta:
     beta_maps()
+
+if map_cc:
+    cc_vs_dist_map(cc_df)
+
+if map_std:
+    std_map(info_df, cc_df)
+
+if map_sites:
+    site_maps(info_df, cc_df)
+
 if map_transmission:
+    trans_lines_fname = FILES['shape_files']['electric_power']
     # US Transmission lines
     print(f"Reading {trans_lines_fname}")
     trans_lines_gdf = gpd.read_file(trans_lines_fname)
@@ -499,6 +461,7 @@ if map_transmission:
     transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
 
 
+# TODO: Get this working and plot zoom of TVA with labeled high voltage lines
 exit()
 ##################################################################
 # stuff from messing w voltage (ie just TVA)
@@ -556,9 +519,5 @@ TVA_df = info_df[info_df['site_id'].isin(TVA_sites)]
 add_symbols(ax, TVA_df, transform, 13)
 
 ax.legend(loc='upper left')
-
-fname = 'trans_lines_TVA'
-out_dir = os.path.join('..', '2024-May-Storm-data', '_results')
-fname = os.path.join(out_dir, fname)
-plt.savefig(f'{fname}.png', dpi=600, bbox_inches='tight') 
+savefig(out_dir, 'trans_lines_TVA', logger)
 plt.close()

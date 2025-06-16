@@ -6,16 +6,13 @@ import pandas
 import pickle
 import datetime
 
-from storminator import LOG_DIR
+from swerve import DATA_DIR, FILES, LOG_KWARGS, logger
 
-from utilrsw import logger
-logger = logger(log_dir=LOG_DIR)
+logger = logger(**LOG_KWARGS)
 
-data_dir = os.path.join('..', '2024-May-Storm-data')
-base_dir = os.path.join(data_dir, '_processed')
-all_file = os.path.join(data_dir, '_all', 'all.pkl')
-if not os.path.exists(os.path.dirname(all_file)):
-  os.makedirs(os.path.dirname(all_file))
+base_dir = os.path.join(DATA_DIR, '_processed')
+if not os.path.exists(os.path.dirname(FILES['all'])):
+  os.makedirs(os.path.dirname(FILES['all']))
 
 def read_nerc(data_dir, fname):
   data = []
@@ -274,7 +271,7 @@ def resample(time, data, start, stop, freq, ave=None):
   return {"time": df.index.to_pydatetime(), "data": data}
 
 
-fname = os.path.join('info', 'info.json')
+fname = FILES['info'].replace('.csv', '.json')
 with open(fname, 'r') as f:
   logger.info(f"Reading {fname}\n")
   info = json.load(f)
@@ -305,7 +302,7 @@ for sid in sids: # site ids
       data[sid][data_type][data_class] = []
       for data_source in data_sources:
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
-        d = read(info, sid, data_type, data_class, data_source, data_dir)
+        d = read(info, sid, data_type, data_class, data_source, DATA_DIR)
         if d is None:
           logger.info("    Skipping")
           data[sid][data_type][data_class].append(None)
@@ -345,6 +342,6 @@ for sid in sids: # site ids
           logger.info(f"    Writing {fname}")
           pickle.dump(data[sid][data_type][data_class], f)
 
-logger.info(f"\nWriting {all_file}")
-with open(all_file, 'wb') as f:
+logger.info(f"\nWriting {FILES['all']}")
+with open(FILES['all'], 'wb') as f:
   pickle.dump(data, f)

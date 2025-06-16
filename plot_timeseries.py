@@ -6,7 +6,7 @@ import shutil
 import datetime
 import time
 
-from storminator import DATA_DIR, LOG_CFG, plt_config, savefig, savefig_paper, subset
+from swerve import DATA_DIR, plt_config, savefig, savefig_paper, subset, LOG_KWARGS, logger
 
 import numpy as np
 import pandas as pd
@@ -15,8 +15,7 @@ import matplotlib.pyplot as plt
 
 from datetick import datetick
 
-import utilrsw
-logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
+logger = logger(**LOG_KWARGS)
 
 all_dir  = os.path.join(DATA_DIR, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
@@ -165,7 +164,7 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
   leg = plt.gca().legend()
   # change the line width for the legend
   for line in leg.get_lines():
-      line.set_linewidth(1.5)
+    line.set_linewidth(1.5)
 
   savefig(fdir, 'GIC_compare_timeseries', logger)
 

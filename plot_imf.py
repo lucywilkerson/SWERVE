@@ -1,21 +1,17 @@
-import os
-import numpy as np
 import h5py
-from datetime import datetime, timedelta
-
-from datetick import datetick
-
-from storminator import FILES, LOG_CFG, plt_config, savefig, savefig_paper, subset
-
-import utilrsw
+import numpy as np
 import pandas as pd
-from matplotlib.ticker import MultipleLocator
-logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
-
 import matplotlib.pyplot as plt
 
-plot_both = False # if true, plot data used for MAGE and SWMF/OpenGGCM
-dean_fname = os.path.join('..', '2024-May-Storm-data', 'imf_data', 'Dean_IMF.txt')
+from matplotlib.ticker import MultipleLocator
+from datetime import datetime, timedelta
+from datetick import datetick
+
+from swerve import FILES, plt_config, savefig, savefig_paper, subset, logger, LOG_KWARGS
+
+logger = logger(**LOG_KWARGS)
+
+plot_both = True # if True, plot data used for MAGE and SWMF/OpenGGCM
 
 def read(mage_bcwind_h5, limits):
   logger.info(f'Reading {mage_bcwind_h5}')
@@ -136,9 +132,9 @@ savefig_paper('_imf', 'imf_mage', logger)
 
 if plot_both:
   # Reading Dean's data
-  logger.info(f'Reading {dean_fname}')
+  logger.info(f'Reading {FILES['swmf']['bcwind']}')
   columns = ['year', 'month', 'day', 'hour', 'min', 'sec', 'msec', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']
-  data = pd.read_csv(dean_fname, delim_whitespace=True, names=columns, header=0)
+  data = pd.read_csv(FILES['swmf']['bcwind'], delim_whitespace=True, names=columns, header=0)
   time = np.array([
       datetime(row.year, row.month, row.day, row.hour, row.min, row.sec) +
       timedelta(seconds=round(row.msec / 1000))
@@ -156,7 +152,7 @@ if plot_both:
       'N[cm^(-3)]': 'N',
       'T[Kelvin]': 'T'
   })
-  
+
   # Cropping data
   for key in df.columns:
     time, df[key] = subset(df['time'], df[key], limits['data'][0], limits['data'][1])

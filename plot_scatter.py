@@ -1,45 +1,23 @@
 import os
 import pickle
-import matplotlib as mpl
-import pandas as pd
 import numpy as np
-from matplotlib.ticker import AutoMinorLocator
+
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-from storminator import FILES, DATA_DIR, LOG_CFG, plt_config, savefig, savefig_paper, add_subplot_label
+from swerve import FILES, plt_config, savefig, savefig_paper, add_subplot_label, read_info, LOG_KWARGS, logger
 
-import utilrsw
-logger = utilrsw.logger(LOG_CFG['dir'], **LOG_CFG['kwargs'])
+logger = logger(**LOG_KWARGS)
 
-results_dir = os.path.join(DATA_DIR, '_results')
-info_fname = FILES['info']['csv']
-pkl_file = FILES['analysis']['cc']
-
+results_dir = '_results'
 limits = plt_config()
 
-Poster = False # set to be true to generate poster figs
-paper = True # set true to generate paper figs
+poster = False  # set to be true to generate poster figs
+paper = True    # set true to generate paper figs
 colorbar_scatter = False # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
 
-# Reading cc.pkl file
-print(f"Reading {pkl_file}")
-with open(pkl_file, 'rb') as file:
-  df = pickle.load(file)
-
-fmts = ['png','pdf']
-def savefig(fdir, fname, fmts=fmts):
-    if not os.path.exists(fdir):
-        os.makedirs(fdir)
-    fname = os.path.join(fdir, fname)
-
-    for fmt in fmts:
-        print(f"    Saving {fname}.{fmt}")
-        plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
-
-
-# Scatter plots for all sites
 
 def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins', **kwargs):
     # Plots a line of average y values over binned x values
@@ -73,11 +51,11 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     ax.set_ylabel('|cc|')
     #ax.set_title(plot_title)
     ax.grid(True)
-    
+
     # Set up colorbar
     cax = fig.add_axes([0.92, 0.1, 0.02, 0.8])  # Position for the colorbar
     cbar = plt.colorbar(sm, cax=cax, ticks=bins, label=cbar_label)
-    
+
     # Add dots to the colorbar
     #cbar.ax.clear()
     #for i, b in enumerate(bins[:-1]):
@@ -87,8 +65,8 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     cbar.ax.yaxis.set_label_position('right')
     cbar.set_label(cbar_label)
     cbar.ax.xaxis.set_visible(False)
-    savefig(results_dir, file_name)
-    savefig_paper(file_name, logger, 'scatter')
+    savefig(results_dir, file_name, logger)
+    #savefig_paper(results_dir, file_name, logger)
     plt.close()
 
 
@@ -149,64 +127,69 @@ def plot_grid_scatter(x, y, x_label, y_label, region_names=['East', 'West', 'Cen
 
     plt.tight_layout()
 
+
 def site_plots(info_df, cc_df, sites):
 
-        def plot_cc(site_id, cc_df, type='dist'):
-            cc = []
-            dist = []
-            avg_std = []
-            beta = []
-            for idx, row in cc_df.iterrows():
-                if row['site_1'] == site_id:
-                    site_2_id = row['site_2']
-                elif row['site_2'] == site_id:
-                    site_2_id = row['site_1']
-                else:
-                    continue
-                cc.append(row['cc'])
-                dist.append(row['dist(km)'])
-                avg_std.append(np.mean([row['std_1'], row['std_2']]))
-                beta.append(row['log_beta_diff'])
-            if type == 'dist':
-                plt.scatter(dist, np.abs(cc))
-                plt.xlabel('Distance [km]')
-            elif type == 'std':
-                plt.scatter(avg_std, np.abs(cc))
-                plt.xlabel('Average standard deviation [A]')
-            elif type == 'beta':
-                plt.scatter(np.abs(beta), np.abs(cc))
-                plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
-            plt.ylabel('|cc|')
-            plt.ylim(0, 1)
-            plt.title(site_id)
-            plt.grid(True)
-
-        # Plotting maps and cc plots for each site
-        for idx_1, row in info_df.iterrows():
-            site_1_id = row['site_id']
-            if site_1_id not in sites:
+    def plot_cc(site_id, cc_df, type='dist'):
+        cc = []
+        dist = []
+        avg_std = []
+        beta = []
+        for idx, row in cc_df.iterrows():
+            if row['site_1'] == site_id:
+                site_2_id = row['site_2']
+            elif row['site_2'] == site_id:
+                site_2_id = row['site_1']
+            else:
                 continue
+            cc.append(row['cc'])
+            dist.append(row['dist(km)'])
+            avg_std.append(np.mean([row['std_1'], row['std_2']]))
+            beta.append(row['log_beta_diff'])
+        if type == 'dist':
+            plt.scatter(dist, np.abs(cc))
+            plt.xlabel('Distance [km]')
+        elif type == 'std':
+            plt.scatter(avg_std, np.abs(cc))
+            plt.xlabel('Average standard deviation [A]')
+        elif type == 'beta':
+            plt.scatter(np.abs(beta), np.abs(cc))
+            plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
+        plt.ylabel('|cc|')
+        plt.ylim(0, 1)
+        plt.title(site_id)
+        plt.grid(True)
 
-            # set up directory to save
-            sid = site_1_id
-            sub_dir=""
-            fdir = os.path.join(DATA_DIR, '_processed', sid.lower().replace(' ', ''), sub_dir)
+    # Plotting maps and cc plots for each site
+    for idx_1, row in info_df.iterrows():
+        site_1_id = row['site_id']
+        if site_1_id not in sites:
+            continue
 
-            # plotting cc vs distance
-            plot_cc(site_1_id, cc_df, type='dist')
-            savefig(fdir, 'cc_vs_dist_scatter')
-            plt.close()
+        # set up directory to save
+        sid = site_1_id
+        sub_dir=""
+        fdir = os.path.join('_processed', sid.lower().replace(' ', ''), sub_dir)
 
-            # plotting cc vs standard deviation
-            plot_cc(site_1_id, cc_df, type='std')
-            savefig(fdir, 'cc_vs_std_scatter')
-            plt.close()
+        # plotting cc vs distance
+        plot_cc(site_1_id, cc_df, type='dist')
+        savefig(fdir, 'cc_vs_dist_scatter', logger)
+        plt.close()
 
-            # plotting cc vs standard deviation
-            plot_cc(site_1_id, cc_df, type='beta')
-            savefig(fdir, 'cc_vs_beta_scatter')
-            plt.close()
+        # plotting cc vs standard deviation
+        plot_cc(site_1_id, cc_df, type='std')
+        savefig(fdir, 'cc_vs_std_scatter', logger)
+        plt.close()
 
+        # plotting cc vs standard deviation
+        plot_cc(site_1_id, cc_df, type='beta')
+        savefig(fdir, 'cc_vs_beta_scatter', logger)
+        plt.close()
+
+# Reading cc.pkl file
+print(f"Reading {FILES['cc']}")
+with open(FILES['cc'], 'rb') as file:
+  df = pickle.load(file)
 
 # Scatter plot
 scatter_kwargs = {'color': 'gray', 'alpha': 0.9}
@@ -216,13 +199,13 @@ plot_avg_line(df['dist(km)'], np.abs(df['cc']))
 plt.xlabel('Distance [km]')
 plt.ylabel('|cc|')
 plt.grid(True)
-plt.gca().xaxis.set_minor_locator(AutoMinorLocator(2))
+plt.gca().xaxis.set_minor_locator(mpl.ticker.AutoMinorLocator(2))
 plt.gca().xaxis.grid(True, linestyle='--', which='minor')
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_dist_scatter')
+savefig(results_dir, 'cc_vs_dist_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'a)')
-    savefig_paper('cc_vs_dist_scatter', logger, 'scatter')
+    savefig_paper(results_dir, 'cc_vs_dist_scatter', logger)
 plt.close()
 
 avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
@@ -232,9 +215,7 @@ plt.xlabel('Average standard deviation [A]')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_std_scatter')
-if paper:
-    savefig_paper('cc_vs_std_scatter', logger, 'scatter')
+savefig(results_dir, 'cc_vs_std_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']), **scatter_kwargs)
@@ -243,10 +224,10 @@ plt.xlabel(r'|$\Delta \beta$ |')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_beta_scatter')
+savefig(results_dir, 'cc_vs_beta_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'c)')
-    savefig_paper('cc_vs_beta_scatter', logger, 'scatter')
+    savefig_paper(results_dir, 'cc_vs_beta_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), **scatter_kwargs)
@@ -255,10 +236,7 @@ plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_logbeta_scatter')
-if paper:
-    add_subplot_label(plt.gca(), 'c)')
-    savefig_paper('cc_vs_logbeta_scatter', logger, 'scatter')
+savefig(results_dir, 'cc_vs_logbeta_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), **scatter_kwargs)
@@ -268,10 +246,10 @@ plt.xlabel(r'|$\Delta$V| [kV]')
 plt.ylabel('|cc|')
 plt.grid(True)
 #plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_volt_scatter')
+savefig(results_dir, 'cc_vs_volt_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'd)')
-    savefig_paper('cc_vs_volt_scatter', logger, 'scatter')
+    savefig_paper(results_dir, 'cc_vs_volt_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']), **scatter_kwargs)
@@ -280,10 +258,10 @@ plt.xlabel(r'$\Delta$ Latitude [deg]')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_lat_scatter')
+savefig(results_dir, 'cc_vs_lat_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'b)')
-    savefig_paper('cc_vs_lat_scatter', logger, 'scatter')
+    savefig_paper(results_dir, 'cc_vs_lat_scatter', logger)
 plt.close()
 
 # scatter plots not in paper
@@ -292,19 +270,18 @@ if not paper:
     plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
     plt.ylabel('Average standard deviation [A]')
     plt.grid(True)
-    savefig(results_dir, 'std_vs_beta_scatter')
+    savefig(results_dir, 'std_vs_beta_scatter', logger)
     plt.close()
 
     plt.scatter(np.abs(df['lat_diff']), avg_std)
     plt.xlabel(r'$\Delta$ Latitude [deg]')
     plt.ylabel('Average standard deviation [A]')
     plt.grid(True)
-    savefig(results_dir, 'std_vs_lat_scatter')
+    savefig(results_dir, 'std_vs_lat_scatter', logger)
     plt.close()
 
-
 # for poster
-if Poster: 
+if poster:
     fig, ax = plt.subplots(figsize=(12, 5))
     plt.scatter(df['dist(km)'], np.abs(df['cc']))
     plt.xlabel('Distance [km]')
@@ -328,7 +305,7 @@ if Poster:
     cbar.ax.set_xticks([])
     cbar.ax.set_yticks([])
     cbar.outline.set_visible(False)
-    savefig(results_dir, 'cc_vs_dist_scatter_poster')
+    savefig(results_dir, 'cc_vs_dist_scatter_poster', logger)
     plt.close()
 
     fig, ax = plt.subplots(figsize=(12, 5))
@@ -348,22 +325,14 @@ if Poster:
     cbar.ax.set_xticks([])
     cbar.ax.set_yticks([])
     cbar.outline.set_visible(False)
-    savefig(results_dir, 'cc_vs_beta_scatter_poster')
+    savefig(results_dir, 'cc_vs_beta_scatter_poster', logger)
     plt.close()
 
-#########################################################################################
-# Scatter plots with colorbars!
-
-# Generating plots
 if colorbar_scatter:
     scatter_with_colorbar(df, 'log_beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
     scatter_with_colorbar(df, 'volt_diff(kV)', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
     scatter_with_colorbar(df, 'lat_diff', r'$\Delta$ Latitude [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
     scatter_with_colorbar(df, 'min_avg_cc', r'min mean |cc|', 'CC vs Distance with Min |cc| Colorbar', 'cc_vs_dist_vs_min_scatter')
-
-
-###################################################################
-# Scatters with grid coding :P
 
 if grid_scatter:
 
@@ -375,7 +344,7 @@ if grid_scatter:
 
     # Four panel plot for distance vs |cc| with region colors and pool shapes
     plot_grid_scatter(df['dist(km)'], np.abs(df['cc']), 'Distance [km]', '|cc|')
-    savefig(results_dir, 'cc_vs_dist_grid_scatter')
+    savefig(results_dir, 'cc_vs_dist_grid_scatter', logger)
     plt.close()
 
     # Four panel plot for average standard deviation vs |cc| with region colors and pool shapes
@@ -383,39 +352,27 @@ if grid_scatter:
     for idx, row in df.iterrows():
         avg_std[idx] = np.mean([row['std_1'], row['std_2']])
     plot_grid_scatter(avg_std, np.abs(df['cc']), 'Average standard deviation [A]', '|cc|')
-    savefig(results_dir, 'cc_vs_std_grid_scatter')
+    savefig(results_dir, 'cc_vs_std_grid_scatter', logger)
     plt.close()
 
     # Four panel plot for |log_beta_diff| vs |cc| with region colors and pool shapes
     plot_grid_scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), r'|$\Delta \log_{10} (\beta)$|', '|cc|')
-    savefig(results_dir, 'cc_vs_beta_grid_scatter')
+    savefig(results_dir, 'cc_vs_beta_grid_scatter', logger)
     plt.close()
 
     # Four panel plot for |volt_diff(kV)| vs |cc| with region colors and pool shapes
     plot_grid_scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), r'|$\Delta$V| [kV]', '|cc|')
-    savefig(results_dir, 'cc_vs_volt_grid_scatter')
+    savefig(results_dir, 'cc_vs_volt_grid_scatter', logger)
     plt.close()
 
     # Four panel plot for |lat_diff| vs |cc| with region colors and pool shapes
     plot_grid_scatter(np.abs(df['lat_diff']), np.abs(df['cc']), r'$\Delta$ Latitude [deg]', '|cc|')
-    savefig(results_dir, 'cc_vs_lat_grid_scatter')
+    savefig(results_dir, 'cc_vs_lat_grid_scatter', logger)
     plt.close()
 
-
-####################################################################
-# Site scatter
 if site_scatter:
-    #reading in info.csv
-    print(f"Reading {info_fname}")
-    info_df = pd.read_csv(info_fname)
-    # Remove rows that have errors
-    info_df = info_df[~info_df['error'].str.contains('', na=False)]
-    # Remove rows that don't have data_type = GIC and data_class = measured
-    info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-    info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
-    # List "good" GIC sites
+    info_df = read_info()
     sites = info_df['site_id'].tolist()
-
     site_plots(info_df, df, sites)
 
 utilrsw.rm_if_empty('log/plot_imf.errors.log')
