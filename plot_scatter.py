@@ -375,4 +375,4 @@ if site_scatter:
     sites = info_df['site_id'].tolist()
     site_plots(info_df, df, sites)
 
-utilrsw.rm_if_empty('log/plot_imf.errors.log')
+utilrsw.rm_if_empty('log/plot_scatter.errors.log')
