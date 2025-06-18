@@ -108,4 +108,5 @@ def savefig_paper(base_dir, fname, logger):
   savefig(base_dir, fname, logger, root_dir=PAPER_DIR, fmts=['pdf'])
 
 def add_subplot_label(ax, label, loc=(-0.15, 1)):
+  import matplotlib.pyplot as plt
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
