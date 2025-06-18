@@ -79,9 +79,10 @@ for sid in info_dict.keys():
                     # sigma_tva
                     row[2] = np.std(data_calc)
                     # cc_tva
+                    # Compute correlation even if data_meas has nans
                     valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
                     if np.sum(valid) > 1:
-                        row[4] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]
+                        row[4] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]**2
                     else:
                         row[4] = np.nan
                     # pe_tva
@@ -92,7 +93,7 @@ for sid in info_dict.keys():
                     # cc_gmu
                     valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
                     if np.sum(valid) > 1:
-                        row[5] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]
+                        row[5] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]**2
                     else:
                         row[5] = np.nan
                     # pe_gmu
