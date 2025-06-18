@@ -42,7 +42,7 @@ TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
 ccs = []
 pes = []
 number_gmu_sites = 0
-columns = ['site_id', 'model', 'sigma_data', 'sigma_model', 'cc', 'pe']
+columns = ['site_id', 'sigma_data', 'sigma_tva', 'sigma_gmu','cc_tva', 'cc_gmu', 'pe_tva', 'pe_gmu']
 rows = []
 for sid in info_dict.keys():
     if 'GIC' in info_dict[sid].keys():
@@ -51,19 +51,15 @@ for sid in info_dict.keys():
             time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
             data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
             time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-
+            row = [sid, None, None, None, None, None, None, None] #empty row to hold values
             for idx, data_source in enumerate(info_dict[sid]['GIC']['calculated']):
                 if data_source not in ['GMU', 'TVA']:
                     continue
 
                 print(f"{sid} {data_source}")
-                row = [sid, None, None, None, None, None]
-
-                # model
-                row[1] = data_source
 
                 # sigma_data
-                row[2] = np.std(data_meas)
+                row[1] = np.nanstd(data_meas)
 
                 time_calc = data_all[sid]['GIC']['calculated'][idx]['original']['time']
                 if data_source == 'GMU':
@@ -79,31 +75,46 @@ for sid in info_dict.keys():
                     data_calc = -data_calc
                 numer = np.sum((data_meas-data_calc)**2)
                 denom = np.sum((data_meas-data_meas.mean())**2)
+                if data_source == 'TVA':
+                    # sigma_tva
+                    row[2] = np.std(data_calc)
+                    # cc_tva
+                    valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
+                    if np.sum(valid) > 1:
+                        row[4] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]
+                    else:
+                        row[4] = np.nan
+                    # pe_tva
+                    row[6] = 1-numer/denom
+                elif data_source == 'GMU':
+                    # sigma_gmu
+                    row[3] = np.std(data_calc)
+                    # cc_gmu
+                    valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
+                    if np.sum(valid) > 1:
+                        row[5] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]
+                    else:
+                        row[5] = np.nan
+                    # pe_gmu
+                    row[7] = 1-numer/denom
 
-                # sigma_model
-                row[3] = np.std(data_calc)
-                # cc
-                row[4] = np.corrcoef(data_meas, data_calc)[0,1]
-                # pe
-                row[5] = 1-numer/denom
-
-                rows.append(row)
+            rows.append(row)
 
 print(rows)
 gic_df = pd.DataFrame(rows, columns=columns)
+
+gic_df = gic_df.rename(columns={'site_id':'Site ID',
+            'sigma_data':r'$\sigma$ [A]',
+            'sigma_tva':r'$\sigma_\text{TVA}$',
+            'sigma_gmu':r'$\sigma_\text{Ref}$',
+            'cc_tva':r'$\text{cc}^2_\text{TVA}$',
+            'cc_gmu':r'$\text{cc}^2_\text{Ref}$',
+            'pe_tva':r'$\text{pe}_\text{TVA}$',
+            'pe_gmu':r'$\text{pe}_\text{Ref}$'
+            }
+        )
+
 fname = os.path.join(DATA_DIR, "_results", "gic_table")
 print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
 gic_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
 gic_df.to_latex(fname + ".tex", index=False, escape=False)
-
-if False:
-        df.loc[len(df)] = {
-            'Site ID': sid,
-            r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
-            r'$\sigma_\text{TVA}$': f"{np.std(data_calcs[0]):.2f}",
-            r'$\sigma_\text{Ref}$': f"{np.std(data_calcs[1]):.2f}",
-            r'$\text{cc}^2_\text{TVA}$': f"{cc[0]**2:.2f}",
-            r'$\text{cc}^2_\text{Ref}$': f"{cc[1]**2:.2f}",
-            r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
-            r'$\text{pe}_\text{Ref}$': f"{pe[1]:.2f}"
-        }
