@@ -93,9 +93,12 @@ for sid in info_dict.keys():
                     # cc_gmu
                     valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
                     if np.sum(valid) > 1:
-                        row[5] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]**2
+                        cc_gmu = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]**2
+                        if np.isnan(cc_gmu):
+                            cc_gmu = -99999
                     else:
-                        row[5] = -99999
+                        cc_gmu = -99999
+                    row[5] = cc_gmu
                     # pe_gmu
                     pe_gmu = 1 - numer / denom
                     if np.isnan(pe_gmu):
