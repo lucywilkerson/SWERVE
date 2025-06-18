@@ -24,8 +24,8 @@ info_fname = os.path.join('info', 'info.extended.csv')
 pkl_file = os.path.join(DATA_DIR, '_results', 'cc.pkl')
 
 plot_data = False    # Plot original and modified data
-plot_compare = False # Plot measured and calculated data on same axes, when both available
-stack_plot = True    # Plot GIC and dB_H stack plots
+plot_compare = True  # Plot measured and calculated data on same axes, when both available
+stack_plot = False   # Plot GIC and dB_H stack plots
 plot_pairs = False   # Plot and compare measured GIC across all "good" pairs
 create_md = False    # updates md comparison files without replotting everything
 
@@ -406,7 +406,7 @@ def compare_db(info, data, sid):
     pe.append( 1-numer/denom )
 
     # Add plot for each model
-    label = fr"{model_names[0]} cc$^2$ = {cc[0]**2:.2f} | pe = {pe[0]:.2f}"
+    label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     plt.plot(data_interp[idx], data_calcs[idx], model_points[idx], markersize=1, label=label)
 
   ylims = plt.gca().get_ylim()
