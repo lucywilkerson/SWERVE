@@ -51,12 +51,12 @@ for sid in info_dict.keys():
             time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
             data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
             time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-            row = [sid, None, None, None, None, None, None, None] #empty row to hold values
+
+            fill = 7*[-99999]
+            row = [sid, *fill]
             for idx, data_source in enumerate(info_dict[sid]['GIC']['calculated']):
                 if data_source not in ['GMU', 'TVA']:
                     continue
-
-                print(f"{sid} {data_source}")
 
                 # sigma_data
                 row[1] = np.nanstd(data_meas)
@@ -83,7 +83,7 @@ for sid in info_dict.keys():
                     if np.sum(valid) > 1:
                         row[4] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]
                     else:
-                        row[4] = np.nan
+                        row[4] = -99999
                     # pe_tva
                     row[6] = 1-numer/denom
                 elif data_source == 'GMU':
@@ -94,14 +94,15 @@ for sid in info_dict.keys():
                     if np.sum(valid) > 1:
                         row[5] = np.corrcoef(data_meas[valid], data_calc[valid])[0,1]
                     else:
-                        row[5] = np.nan
+                        row[5] = -99999
                     # pe_gmu
                     row[7] = 1-numer/denom
 
             rows.append(row)
 
-print(rows)
 gic_df = pd.DataFrame(rows, columns=columns)
+
+logger.info(gic_df)
 
 gic_df = gic_df.rename(columns={'site_id':'Site ID',
             'sigma_data':r'$\sigma$ [A]',
@@ -114,7 +115,12 @@ gic_df = gic_df.rename(columns={'site_id':'Site ID',
             }
         )
 
+gic_df.fillna('')
 fname = os.path.join(DATA_DIR, "_results", "gic_table")
 print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
 gic_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
-gic_df.to_latex(fname + ".tex", index=False, escape=False)
+def nan_remove(s):
+    print(s)
+    return '' if s == -99999 else s
+formatters={r'$\sigma_\text{TVA}$': nan_remove}
+gic_df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False)
