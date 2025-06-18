@@ -616,13 +616,15 @@ add_voltage(transmission_fname, info_df)
 
 # Code for geomag coords
 def add_geomag(info_df, date = Ticktock(['2024-05-11T00:00:00'], 'UTC')):
-
+  import spacepy.coordinates as coord
   # getting geomagnetic coordinates
   def get_geomag_coords(row):
-      c = coord.Coords([[row['geo_lat'], row['geo_lon'], 0]], 'GEO', 'sph')
+      Re = 6371.0 #mean Earth radius in km
+      alt = 0 #altitude in km, can be set to 0 for surface
+      c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
       c.ticks = date
       c = c.convert('MAG', 'sph')
-      return c.data[0][0], c.data[0][1]  # mag_lat, mag_lon
+      return c.data[0][1], c.data[0][2]  # mag_lat, mag_lon
 
   # Applying the function to create new columns
   info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
