@@ -97,7 +97,10 @@ for sid in info_dict.keys():
                     else:
                         row[5] = -99999
                     # pe_gmu
-                    row[7] = 1-numer/denom
+                    pe_gmu = 1 - numer / denom
+                    if np.isnan(pe_gmu):
+                        pe_gmu = -99999
+                    row[7] = pe_gmu
 
             rows.append(row)
 
@@ -116,12 +119,13 @@ gic_df = gic_df.rename(columns={'site_id':'Site ID',
             }
         )
 
-gic_df.fillna('')
 fname = os.path.join(DATA_DIR, "_results", "gic_table")
-print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
-gic_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
 def nan_remove(s):
     print(s)
     return '' if s == -99999 else s
-formatters={r'$\sigma_\text{TVA}$': nan_remove}
+formatters = {col: nan_remove for col in gic_df.columns}
+print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
+# Apply nan_remove to each cell before writing to markdown
+gic_df_md = gic_df.applymap(nan_remove)
+gic_df_md.to_markdown(fname + ".md", index=False, floatfmt=".2f")
 gic_df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False)
