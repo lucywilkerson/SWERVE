@@ -54,6 +54,7 @@ fname = os.path.join('info', 'info.extended.csv')
 print(f"Reading {fname}")
 info_df = pd.read_csv(fname)
 
+# Why is this here instead of cc.py?
 if cc_results:
     results_dir = os.path.join('..', '2024-May-Storm-data', '_results')
 
@@ -234,7 +235,6 @@ if gmu_results:
                 time_meas = data_all[sid]['GIC']['measured'][0]['modified']['time']
                 data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
                 time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-
                 for idx, data_source in enumerate(info_dict[sid]['GIC']['calculated']):
                     if data_source == 'GMU':
                         time_calc = data_all[sid]['GIC']['calculated'][idx]['original']['time']
