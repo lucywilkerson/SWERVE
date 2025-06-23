@@ -449,6 +449,7 @@ Bull Run,36.0193,-84.1575,GIC,measured,TVA,
 Bull Run,36.0252,-84.1468,B,measured,TVA,
 Bull Run,36.0193,-84.1575,B,calculated,SWMF,
 Bull Run,36.0193,-84.1575,B,calculated,MAGE,
+Bull Run,36.0193,-84.1575,B,calculated,OpenGGCM,
 Colbert,34.7385,-87.8374,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"
 East Point,34.1946,-86.7474,GIC,measured,TVA,
 Gallatin,36.3189,-86.4106,B,measured,TVA,"x In TVAmagmetadata.dat, but no file"

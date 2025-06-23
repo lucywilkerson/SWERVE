@@ -237,6 +237,38 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
     return {"time": time, "data": data}
+  if data_type == 'B' and data_class == 'calculated' and data_source == 'OpenGGCM':
+
+    sid = sid.replace(' ','')
+    data_dir = os.path.join(data_dir, 'openggcm', sid.lower())
+
+    # df = {}
+    # for region in ["gap", "iono", "msph"]:
+    #   file = os.path.join(data_dir, f'dB_bs_{region}-{sid}.pkl')
+    #   logger.info(f"    Reading {file}")
+    #   if not os.path.exists(file):
+    #     raise FileNotFoundError(f"File not found: {file}")
+    #   df[region]  = pandas.read_pickle(file)
+
+    # bx = df["gap"]['Bn'] + df["iono"]['Bnh'] + df["iono"]['Bnp'] + df["msph"]['Bn']
+    # by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
+    # bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
+
+    file = os.path.join(data_dir, f'dB_{sid}.pkl')
+    logger.info(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
+    df  = pandas.read_pickle(file)
+
+    bx = df['Bn_msph'] + df['Bn_gap'] + df['Bnh_iono'] + df['Bnp_iono']
+    by = df['Be_msph'] + df['Be_gap'] + df['Beh_iono'] + df['Bep_iono']
+    bz = df['Bd_msph'] + df['Bd_gap'] + df['Bdh_iono'] + df['Bdp_iono']
+
+    data = numpy.vstack([bx.to_numpy(), by.to_numpy(), bz.to_numpy()])
+    time = bx.keys() # Will be the same for all
+    time = time.to_pydatetime()
+
+    return {"time": time, "data": data.T}
 
 def resample(time, data, start, stop, freq, ave=None):
 
