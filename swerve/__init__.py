@@ -77,6 +77,22 @@ def add_subplot_label(ax, label, loc=(-0.15, 1)):
   import matplotlib.pyplot as plt
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
+def format_df(df, float_fmt=".2f"):
+    """
+    Replace NaN with empty strings for md and tex output and format numeric
+    values to two decimal places.
+    """
+    import numpy as np
+    def format_cell(s):
+        if isinstance(s, str):
+            return s
+        if np.isnan(s):
+            return ""
+        return f"{s:{float_fmt}}"
+
+    # Apply format_cell to each cell
+    return df.map(format_cell)
+
 def read_info(extended=False):
   import pandas
   #reading in info.csv
@@ -107,6 +123,5 @@ def savefig(base_dir, fname, logger, root_dir=DATA_DIR, fmts=['png','pdf']):
 def savefig_paper(base_dir, fname, logger):
   savefig(base_dir, fname, logger, root_dir=PAPER_DIR, fmts=['pdf'])
 
-def add_subplot_label(ax, label, loc=(-0.15, 1)):
   import matplotlib.pyplot as plt
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')

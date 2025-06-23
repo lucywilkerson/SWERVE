@@ -322,13 +322,13 @@ for sid in sids: # site ids
 
         if data_type == 'B' and data_class == 'measured':
           # Remove mean
-          logger.info("    Creating timeseries with mean removed")
+          logger.info("    Creating timeseries with baseline removed")
           data_m = numpy.full(d["data"].shape, numpy.nan)
           for i in range(3):
-            # TODO: Get IGRF value
+            # TODO: Get IGRF value instead of using first value.
             data_m[:,i] = d["data"][:,i] - d["data"][0,i]
           logger.info(f"    data.shape = {d['data'].shape}")
-          modified = {'time': d["time"], 'data': data_m, 'modification': 'mean removed'}
+          modified = {'time': d["time"], 'data': data_m, 'modification': 'baseline removed'}
           # Assumes only one data source.
           data[sid][data_type][data_class][0]['modified'] = modified
 
