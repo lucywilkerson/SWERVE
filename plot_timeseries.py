@@ -2,30 +2,32 @@ import os
 import json
 import numpy
 import pickle
-import shutil
 import datetime
-import time
-
-from swerve import DATA_DIR, plt_config, savefig, savefig_paper, subset, LOG_KWARGS, logger
 
 import numpy as np
 import pandas as pd
- 
+
+from swerve import config, subset, read_info_dict, read_info_df
+from swerve import plt_config, savefig, savefig_paper, add_subplot_label
+
 import matplotlib.pyplot as plt
 
 from datetick import datetick
 
-logger = logger(**LOG_KWARGS)
+CONFIG = config()
+logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+
+DATA_DIR = CONFIG['data_dir']
+
+base_dir = '_processed'
 
 all_dir  = os.path.join(DATA_DIR, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
-base_dir = '_processed'
 info_fname = os.path.join('info', 'info.extended.csv')
 pkl_file = os.path.join(DATA_DIR, '_results', 'cc.pkl')
 
-plot_data = False    # Plot original and modified data
 plot_compare = True  # Plot measured and calculated data on same axes, when both available
-stack_plot = False   # Plot GIC and dB_H stack plots
+plot_stack = False   # Plot GIC and dB_H stack plots
 plot_pairs = False   # Plot and compare measured GIC across all "good" pairs
 create_md = False    # updates md comparison files without replotting everything
 
@@ -40,32 +42,19 @@ paper_B_sids = ['Bull Run', '50116']
 if paper:
   sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union', '50116'] # Run for only paper sites
 
-#sids = ['Bull Run']
+sids = ['Bull Run']
 
 limits = plt_config()
 
 def read(all_file, sid=None):
-  fname = os.path.join('info', 'info.json')
-  with open(fname, 'r') as f:
-    print(f"Reading {fname}")
-    info_dict = json.load(f)
-
-  info_df = pd.read_csv(os.path.join('info', 'info.csv'))
-
-  fname = os.path.join('info', 'plot.json')
-  with open(fname, 'r') as f:
-    print(f"Reading {fname}")
-    plot_cfg = json.load(f)
+  info_dict = read_info_dict()
+  info_df = read_info_df()
 
   print(f"Reading {all_file}")
   with open(all_file, 'rb') as f:
     data = pickle.load(f)
 
-  return info_dict, info_df, data, plot_cfg
-
-
-def add_subplot_label(ax, label, loc=(-0.15, 1)):
-  ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+  return info_dict, info_df, data
 
 
 def format_cc_scatter(ax):
@@ -319,233 +308,6 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
         }
 
 
-def compare_db(info, data, sid):
-
-  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
-
-  time_meas = data[sid]['B']['measured'][0]['modified']['time']
-  data_meas = data[sid]['B']['measured'][0]['modified']['data']
-  time_meas, data_meas = subset(time_meas, data_meas, limits['data'][0], limits['data'][1])
-  data_meas = numpy.linalg.norm(data_meas, axis=1)
-
-  model_names = []
-  time_calcs = []
-  data_calcs = []
-  model_colors = ['b', 'g']
-  model_points = ['b.', 'g.']
-  model_names = []
-  for idx, data_source in enumerate(info[sid]['B']['calculated']):
-    model_names.append(data_source.upper())
-    time_calc = data[sid]['B']['calculated'][idx]['original']['time']
-    data_calc = data[sid]['B']['calculated'][idx]['original']['data']
-    time_calc, data_calc = subset(time_calc, data_calc, limits['data'][0], limits['data'][1])
-    data_calc = numpy.linalg.norm(data_calc[:,0:2], axis=1)
-    time_calcs.append(time_calc)
-    data_calcs.append(data_calc)
-
-  plt.figure()
-  plt.title(sid)
-  plt.plot(time_meas, data_meas, 'k', linewidth=1, label='Measured')
-  for idx in range(len(model_names)):
-    label = model_names[idx]
-    plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
-  plt.ylabel(r'$\Delta B_H$ [nT]')
-  datetick()
-  plt.legend()
-  plt.grid()
-
-  # get the legend object
-  leg = plt.gca().legend()
-
-  # change the line width for the legend
-  for line in leg.get_lines():
-      line.set_linewidth(1.5)
-
-  savefig(fdir, 'B_compare_timeseries', logger)
-  if sid in paper_B_sids:
-    text = {
-      'Bull Run': 'a)',
-      '50116': 'c)',
-    }.get(sid, None)
-    add_subplot_label(plt.gca(), text)
-    savefig_paper(fdir, 'B_compare_timeseries', logger)
-  plt.close()
-
-  # Plots to examine how well measured matched calculated values
-
-  # Storage for correlation coefficient, prediction efficiency, and 
-  # interpolated measured data
-  cc = []
-  pe = []
-  data_interp = []
-
-  # Plot illustrating correlation between measured and calculated
-  plt.figure()
-  plt.title(sid)
-
-  # We have many more measured values than calculated values.
-  # So we interpolate the measured to match up with the calculated values
-  # To do so, we need to convert datetimes to timestamps so we can do interpolation
-  time_meas_ts = [time.mktime(t.timetuple()) for t in time_meas]
-
-  # Loop thru modeled (measured) results
-  for idx in range(len(model_names)):
-    time_calcs_ts = np.array( [time.mktime(t.timetuple()) for t in time_calcs[idx]] )
-
-    # Get rid of the NaNs for cc and pe calculations
-    time_calcs_ts = time_calcs_ts[~np.isnan(data_calcs[idx])]
-    data_calcs[idx] = data_calcs[idx][~np.isnan(data_calcs[idx])]
-
-    # Interpolate measured data
-    data_interp.append( np.interp( time_calcs_ts, time_meas_ts, data_meas ) )
-
-    cc.append( (np.corrcoef(data_interp[idx], data_calcs[idx]))[0,1] )
-
-    numer = np.sum((data_interp[idx]-data_calcs[idx])**2)
-    denom = np.sum((data_interp[idx]-data_interp[idx].mean())**2)
-    pe.append( 1-numer/denom )
-
-    # Add plot for each model
-    label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
-    plt.plot(data_interp[idx], data_calcs[idx], model_points[idx], markersize=1, label=label)
-
-  ylims = plt.gca().get_ylim()
-  plt.plot([0, ylims[1]], [0, ylims[1]], color=3*[0.6], linewidth=0.5)
-
-  plt.xlabel(r'Measured $\Delta B_H$ [nT]')
-  plt.ylabel(r'Calculated $\Delta B_H$ [nT]')
-  plt.grid()
-  format_cc_scatter(plt.gca())
-
-  # get the legend object
-  leg = plt.gca().legend(loc='upper right')
-  # change the marker size for the legend
-  for line in leg.get_lines():
-      line.set_markersize(6)
-  savefig(fdir, 'B_compare_correlation', logger)
-  if sid in paper_B_sids:
-    text = {
-      'Bull Run': 'b)',
-      '50116': 'd)',
-    }.get(sid, None)
-    add_subplot_label(plt.gca(), text)
-    savefig_paper(fdir, 'B_compare_correlation', logger)
-  plt.close()
-
-  # Histograms showing delta between measured and calculated values
-  plt.figure()
-
-  # TODO: Compute binwidth from data
-  # Setup bins
-  bl = -1000
-  bu = 1000
-  bw = 50
-  bins_c = numpy.arange(bl, bu+1, bw)
-  bins_e = numpy.arange(bl-bw/2, bu+bw, bw)
-
-  # Loop thru models and create data for histograms
-  for idx in range(len(model_names)): 
-    n_e, _ = numpy.histogram(data_interp[idx]-data_calcs[idx], bins=bins_e)
-    plt.step(bins_c, n_e/sum(n_e), color=model_colors[idx], label=model_names[idx])
-
-  # Add titles, legend, etc.
-  plt.title(sid)
-  # plt.xticks(bins_c[0::2])
-  plt.xticks(fontsize=18)
-  plt.xlabel(r'(Measured - Calculated) $\Delta B_H$ [nt]', fontsize=18)
-  plt.xlim(bl-0.5, bu+0.5)
-  plt.yticks(fontsize=18)
-  plt.ylabel('Probability', fontsize=18)
-  plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
-  plt.legend(loc='upper right')
-
-  savefig(fdir, 'B_histogram_meas_calc', logger)
-
-
-def plot_original(plot_info, data, sid, data_type, data_class, data_source, data_error):
-
-  fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
-  # Plot original data on separate figures
-
-  def plot(time, data, title, ylabel, legend, time_r, data_r):
-    plt.title(title)
-    plt.plot(time, data, linewidth=1)
-
-    if ylabel is not None:
-      plt.ylabel(ylabel)
-
-    if time_r is not None:
-      plt.plot(time_r, data_r, linewidth=0.4)
-
-    if legend is not None:
-      plt.legend(legend)
-
-    plt.xlim(limits['xlim'][0], limits['xlim'][1])
-    datetick()
-    plt.grid()
-
-  #print(f"  {sid}/{data_type}/{data_class}/{data_source}")
-  title = f"{sid}/{data_type}/{data_class}"
-  if data_error is not None:
-    title += f"\n{data_error}"
-
-  mag_legend = plot_info[data_source][data_type]
-  sidx = sid.lower().replace(' ', '')
-  base_name = f'{data_type}_{data_class}_{data_source}'
-
-  # "o" for original.
-  time_o = data['original']['time']
-  data_o = data['original']['data']
-
-  # Subset to desired time range
-  time_o, data_o = subset(time_o, data_o, limits['data'][0], limits['data'][1])
-
-  ylabel = None
-  if data_type == 'GIC':
-    ylabel = 'GIC [A]'
-
-  legend = None
-  if data_type == 'B':
-    legend = mag_legend
-    ylabel = '[nT]'
-
-  time_m, data_m = None, None
-
-  if data_type == 'GIC' and data_class == 'measured':
-    time_m = data['modified']['time']
-    data_m = data['modified']['data']
-    time_m, data_m = subset(time_m, data_m, limits['data'][0], limits['data'][1])
-    legend = ['1-sec orig', '1-min avg']
-
-  plt.figure()
-  plot(time_o, data_o, title, ylabel, legend, time_m, data_m)
-  savefig(fdir, f'{base_name}', logger)
-
-  if data_type == 'GIC' and data_class == 'measured':
-    subdir = 'good' if data_error is None else 'bad'
-    src_file = os.path.join(DATA_DIR, base_dir, sidx, f'{base_name}.png')
-    dest_dir = os.path.join(all_dir, 'gic', subdir)
-    if not os.path.exists(dest_dir):
-      os.makedirs(dest_dir)
-    dest_file = os.path.join(dest_dir, f'{base_name}.png')
-    print(f"  Copying\n    {src_file}\n    to\n    {dest_file}")
-    shutil.copyfile(src_file, dest_file)
-
-  if data_type == 'mag' and data_class == 'measured':
-
-    plt.figure()
-    time_m = data['modified']['time']
-    data_m = data['modified']['data']
-    time_m, data_m = subset(time_m, data_m, limits['data'][0], limits['data'][1])
-    legend = mag_legend
-    ylabel = '[nT]'
-    title = f"{title} with mean removed"
-
-    plot(time_m, data_m, title, ylabel, legend, None, None)
-    savefig(fdir, f'{base_name}_modified', logger)
-
-  plt.close()
-
 
 def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC'], offset=40):
     sids = info.keys()
@@ -636,8 +398,7 @@ def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC
 def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
   sids = info.keys()
   # note NERC sites that are TVA duplicates
-  sid_copies = {
-                  }
+  sid_copies = {}
 
   print("Plotting all dB sites")
   source_sites = {'sites': [], 'lat': [], 'lon': []}
@@ -655,45 +416,6 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
   # Sort sites by latitude
   sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
   source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
-  """
-  # Loop over all pairs of sites and show sites w high correlation to determine duplicates
-  for i, sid_1 in enumerate(source_sites['sites']):
-    for sid_2 in source_sites['sites'][i+1:]:
-      if 'B' in data_all[sid_1].keys() and 'B' in data_all[sid_2].keys():
-        # Get data for both sites
-        time1 = data_all[sid_1]['B']['measured'][0]['modified']['time']
-        data1 = data_all[sid_1]['B']['measured'][0]['modified']['data']
-        time1, data1 = subset(time1, data1, start, stop)
-        data1 = numpy.linalg.norm(data1, axis=1)
-
-        time2 = data_all[sid_2]['B']['measured'][0]['modified']['time']
-        data2 = data_all[sid_2]['B']['measured'][0]['modified']['data']
-        time2, data2 = subset(time2, data2, start, stop)
-        data2 = numpy.linalg.norm(data2, axis=1)
-
-        # Interpolate to common time base if needed
-        if len(time1) != len(time2) or not np.all(time1 == time2):
-          # Convert datetimes to timestamps for interpolation
-          t1 = np.array([time.mktime(dt.timetuple()) for dt in time1])
-          t2 = np.array([time.mktime(dt.timetuple()) for dt in time2])
-          # Interpolate data2 to t1
-          data2_interp = np.interp(t1, t2, data2)
-          cc = np.corrcoef(data1, data2_interp)[0, 1]
-        else:
-          cc = np.corrcoef(data1, data2)[0, 1]
-
-        if cc >= 0.995:
-          text = f"cc={cc:.4f} between sites: {sid_1} and {sid_2}"
-        else:
-          text = None
-        if text is not None:
-          fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
-          plt.plot(time1, data1, 'k', linewidth=0.5, label=sid_1)
-          plt.plot(time2, data2, 'r', linewidth=0.5, label=sid_2)
-          plt.legend()
-          plt.text(datetime.datetime(2024, 5, 10, 11, 0), max(data1.max(), data2.max()), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
-          plt.show()
-          plt.close()"""
 
   fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
 
@@ -722,7 +444,9 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
       text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
       if sid in sid_copies.values():
         text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
-      axes.text(limits['xlims'][0], (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
+      axes.text(limits['xlims'][0], (i*offset)-(offset_fix*offset), text,
+                fontsize=9, verticalalignment='center', horizontalalignment='left')
+
   plt.grid()
   plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
   #plt.legend(loc='upper right')
@@ -737,13 +461,13 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
   axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
   datetick()
 
-  # remove first x gridline
+  # remove first x grid line
   xgridlines = axes.get_xgridlines()
   gridline_of_interest = xgridlines[0]
   gridline_of_interest.set_visible(False)
 
   # Save the figure
-  fdir = os.path.join(base_dir, f'_db')
+  fdir = os.path.join(base_dir, '_db')
   savefig(fdir, 'db_all', logger)
   savefig_paper(fdir, 'db_all', logger)
   plt.close()
@@ -824,41 +548,51 @@ def gic_pairs(info, data, cc_df, sid_1, sid_2, lags):
   plt.close()
 
 
-info_dict, info_df, data_all, plot_info = read(all_file)
+def find_duplicates():
+  # Commented code moved from compare_db. Will need modification to run.
+  """
+  # Loop over all pairs of sites and show sites w high correlation to determine duplicates
+  for i, sid_1 in enumerate(source_sites['sites']):
+    for sid_2 in source_sites['sites'][i+1:]:
+      if 'B' in data_all[sid_1].keys() and 'B' in data_all[sid_2].keys():
+        # Get data for both sites
+        time1 = data_all[sid_1]['B']['measured'][0]['modified']['time']
+        data1 = data_all[sid_1]['B']['measured'][0]['modified']['data']
+        time1, data1 = subset(time1, data1, start, stop)
+        data1 = numpy.linalg.norm(data1, axis=1)
+
+        time2 = data_all[sid_2]['B']['measured'][0]['modified']['time']
+        data2 = data_all[sid_2]['B']['measured'][0]['modified']['data']
+        time2, data2 = subset(time2, data2, start, stop)
+        data2 = numpy.linalg.norm(data2, axis=1)
+
+        # Interpolate to common time base if needed
+        if len(time1) != len(time2) or not np.all(time1 == time2):
+          # Convert datetimes to timestamps for interpolation
+          t1 = np.array([time.mktime(dt.timetuple()) for dt in time1])
+          t2 = np.array([time.mktime(dt.timetuple()) for dt in time2])
+          # Interpolate data2 to t1
+          data2_interp = np.interp(t1, t2, data2)
+          cc = np.corrcoef(data1, data2_interp)[0, 1]
+        else:
+          cc = np.corrcoef(data1, data2)[0, 1]
+
+        if cc >= 0.995:
+          text = f"cc={cc:.4f} between sites: {sid_1} and {sid_2}"
+        else:
+          text = None
+        if text is not None:
+          fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
+          plt.plot(time1, data1, 'k', linewidth=0.5, label=sid_1)
+          plt.plot(time2, data2, 'r', linewidth=0.5, label=sid_2)
+          plt.legend()
+          plt.text(datetime.datetime(2024, 5, 10, 11, 0), max(data1.max(), data2.max()), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
+          plt.show()
+          plt.close()"""
+
+info_dict, info_df, data_all = read(all_file)
 if sids is None:
   sids = info_dict.keys()
-
-if plot_data:
-
-  for sid in sids: # site ids
-    if sid not in info_dict.keys():
-      raise ValueError(f"Site '{sid}' not found in info_dict.json")
-
-    # Plot original and modified data
-    for data_type in info_dict[sid].keys(): # e.g., GIC, B
-      for data_class in info_dict[sid][data_type].keys(): # e.g., measured, calculated
-
-        data = data_all[sid][data_type][data_class]
-        data_sources = info_dict[sid][data_type][data_class]
-        for idx, data_source in enumerate(data_sources):
-          # Read info_df and row with site_id = sid, data_type = data_type,
-          # data_class = data_class, data_source = data_source
-          info_df_row = info_df[(info_df['site_id'] == sid) &
-                                (info_df['data_type'] == data_type) &
-                                (info_df['data_class'] == data_class) &
-                                (info_df['data_source'] == data_source)]
-          data_error = info_df_row['error'].values[0] if not info_df_row.empty else None
-          data_error = str(data_error) if not pd.isnull(data_error) else None
-          if data_error == 'nan':
-            data_error = None
-
-          if data[idx] is not None:
-            print(f"Plotting '{sid}/{data_type}/{data_class}/{data_source}'")
-            plot_original(plot_info, data[idx], sid, data_type, data_class, data_source, data_error)
-          else:
-            print(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
-
-    print(" ")
 
 if plot_compare:
   if not paper:
@@ -881,6 +615,7 @@ if plot_compare:
       if 'measured' and 'calculated' in gic_types:
         print("Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid, df=gic_df)
+
   if gic_df is not None:
     fname = os.path.join(DATA_DIR, "_results", "gic_table")
     print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
@@ -947,7 +682,7 @@ if create_md:
                   md_file.write(f"\n![]({img2})\n")
 
 # plotting stack plots for GIC and dB_H
-if stack_plot:
+if plot_stack:
   #reading in info.extended.csv
   print(f"Reading {info_fname}")
   info_df = pd.read_csv(info_fname)

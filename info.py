@@ -666,10 +666,8 @@ and saves in info/info.json
 
 df = pd.read_csv(os.path.join('info', 'info.csv'))
 
-extended_df = pd.read_csv(os.path.join('info', 'info.extended.csv'))
 
 sites = {}
-locations = {}
 
 print("Preparing info.json")
 for idx, row in df.iterrows():
@@ -678,25 +676,25 @@ for idx, row in df.iterrows():
     logger.info(f"  Skipping site '{site}' due to error message in info.csv:\n    {error}")
     continue
 
-  locations[site] = (float(geo_lat), float(geo_lon))
-
   if site not in sites:
     sites[site] = {}
   if data_type not in sites[site]:  # e.g., GIC, B
     sites[site][data_type] = {}
-  if data_class not in sites[site][data_type]:
-    sites[site][data_type][data_class] = [data_source]
-  else:
-    sites[site][data_type][data_class].append(data_source)
 
-  # additional logic for GMU sim
-  if data_source == 'GMU':
-    nearest_sim_site = extended_df.loc[
-      (extended_df['site_id'] == site) & (extended_df['data_source'] == 'GMU'),
-      'nearest_sim_site'
-    ].values[0]
-    if 'nearest_sim_site' not in sites[site][data_type][data_class]:
-      sites[site][data_type][data_class].append({'nearest_sim_site': f'{int(nearest_sim_site)}'})
+  site_metadata = {
+    'geo_lat': geo_lat,
+    'geo_lon': geo_lon
+  }
+  if isinstance(error, str):
+    site_metadata['error'] = error
+
+  if data_class not in sites[site][data_type]:  # e.g., measured, calculated
+    sites[site][data_type][data_class] = {}
+
+  if data_source not in sites[site][data_type][data_class]:  # e.g., TVA, NERC, SWMF, OpenGGCM
+    sites[site][data_type][data_class][data_source] = {}
+
+  sites[site][data_type][data_class][data_source] = site_metadata
 
 logger.info("Writing info/info.json")
 with open(os.path.join('info','info.json'), 'w') as f:

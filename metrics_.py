@@ -130,7 +130,7 @@ stats = {}
 rows = []
 for sid in info_dict.keys():
     stats[sid] = {}
-    for data_type in ['GIC']:
+    for data_type in ['B']:
         if data_type not in info_dict[sid].keys():
             continue
         stats[sid][data_type] = {}
@@ -155,8 +155,10 @@ for sid in info_dict.keys():
             for data_source in data_sources:
                 time_calc, data_calc = extract_calc(data_all[sid][data_type]['calculated'], data_type, data_source, data_sources)
                 time_calc, data_calc = subset(time_calc, data_calc, start, time_meas[-1])
+                import pdb; pdb.set_trace()
                 if data_type == 'B':
                     data_calc = np.power(data_calc[:, 0:2], 2)
+                    data_meas = np.power(data_meas[:, 0:2], 2)
                 stats[sid][data_type]['calculated'][data_source] = stats_model(sid, data_meas, data_calc)
 
             logger.info(utilrsw.format_dict(stats[sid][data_type], indent=2))
