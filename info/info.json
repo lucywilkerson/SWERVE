@@ -1,0 +1,5195 @@
+{
+  "10052": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.9,
+          "geo_lon": -97.0
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 44.9,
+          "geo_lon": -97.0
+        }
+      }
+    }
+  },
+  "10064": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.8,
+          "geo_lon": -88.2,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10065": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.8,
+          "geo_lon": -87.8,
+          "error": "periods of missing data, otherwise fine"
+        }
+      }
+    }
+  },
+  "10066": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.6,
+          "geo_lon": -87.9,
+          "error": "not centered on zero, noisy"
+        }
+      }
+    }
+  },
+  "10067": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.1,
+          "geo_lon": -87.9,
+          "error": "all negative, not smooth"
+        }
+      }
+    }
+  },
+  "10068": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.0,
+          "geo_lon": -88.2,
+          "error": "periods of missing data, otherwise fine"
+        }
+      }
+    }
+  },
+  "10069": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.9,
+          "geo_lon": -87.7,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10071": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.2,
+          "geo_lon": -88.9,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10072": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.2,
+          "geo_lon": -88.9,
+          "error": "periods of missing data, otherwise fine"
+        }
+      }
+    }
+  },
+  "10073": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.6,
+          "geo_lon": -87.7,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10074": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.2,
+          "geo_lon": -87.9,
+          "error": "periods of missing data, otherwise fine"
+        }
+      }
+    }
+  },
+  "10075": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -87.5,
+          "error": "1-min cadence"
+        }
+      }
+    }
+  },
+  "10076": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.8,
+          "geo_lon": -88.0
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 41.8,
+          "geo_lon": -88.0
+        }
+      }
+    }
+  },
+  "10094": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.9,
+          "geo_lon": -72.5,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10095": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -72.2,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10096": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.8,
+          "geo_lon": -72.6,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10097": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.4,
+          "geo_lon": -72.1,
+          "error": "1-min cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10098": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.4,
+          "geo_lon": -72.1,
+          "error": "1-min cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10099": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.4,
+          "geo_lon": -73.4
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 41.4,
+          "geo_lon": -73.4
+        }
+      }
+    }
+  },
+  "10100": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.6,
+          "geo_lon": -72.9,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10103": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.6,
+          "geo_lon": -121.3,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10222": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -75.3,
+          "error": "periods of missing data, otherwise fine"
+        }
+      }
+    }
+  },
+  "10223": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.9,
+          "geo_lon": -115.7,
+          "error": "really low values, missing periods of data"
+        }
+      }
+    }
+  },
+  "10224": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -75.3,
+          "error": "periods of missing data, otherwise fine"
+        }
+      }
+    }
+  },
+  "10229": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.6,
+          "geo_lon": -92.7,
+          "error": "all positive, not smooth"
+        }
+      }
+    }
+  },
+  "10232": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.0,
+          "geo_lon": -92.8,
+          "error": "a few large spikes"
+        }
+      }
+    }
+  },
+  "10233": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.6,
+          "geo_lon": -122.3,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10237": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.7,
+          "geo_lon": -84.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10238": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.5,
+          "geo_lon": -83.5
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 31.5,
+          "geo_lon": -83.5
+        }
+      }
+    }
+  },
+  "10239": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.3,
+          "geo_lon": -81.7,
+          "error": "too smooth"
+        }
+      }
+    }
+  },
+  "10253": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.5,
+          "geo_lon": -116.2,
+          "error": "a little noisy"
+        }
+      }
+    }
+  },
+  "10254": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.8,
+          "geo_lon": -82.5,
+          "error": "too high, noisy"
+        }
+      }
+    }
+  },
+  "10255": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.7,
+          "geo_lon": -94.7
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 45.7,
+          "geo_lon": -94.7
+        }
+      }
+    }
+  },
+  "10265": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.6,
+          "geo_lon": -116.3,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10266": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.8,
+          "geo_lon": -114.4,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10297": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.8,
+          "geo_lon": -92.3,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10298": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.4,
+          "geo_lon": -88.0,
+          "error": "too low, noisy"
+        }
+      }
+    }
+  },
+  "10299": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.6,
+          "geo_lon": -87.4,
+          "error": "data cut off at zero"
+        }
+      }
+    }
+  },
+  "10300": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.6,
+          "geo_lon": -87.4,
+          "error": "data cut off at zero"
+        }
+      }
+    }
+  },
+  "10301": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.0,
+          "geo_lon": -88.6,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10302": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.2,
+          "geo_lon": -88.1,
+          "error": "stays constant"
+        }
+      }
+    }
+  },
+  "10303": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -89.7,
+          "error": "too low, noisy"
+        }
+      }
+    }
+  },
+  "10304": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -89.7,
+          "error": "too low, noisy"
+        }
+      }
+    }
+  },
+  "10306": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -88.2,
+          "error": "data cut off at zero"
+        }
+      }
+    }
+  },
+  "10307": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.4,
+          "geo_lon": -88.4,
+          "error": "not centered, noisy"
+        }
+      }
+    }
+  },
+  "10308": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.5,
+          "geo_lon": -89.1,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10309": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.8,
+          "geo_lon": -88.0,
+          "error": "data cut off at zero"
+        }
+      }
+    }
+  },
+  "10310": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.0,
+          "geo_lon": -89.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10311": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.0,
+          "geo_lon": -89.0,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10312": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.0,
+          "geo_lon": -89.0,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10313": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.5,
+          "geo_lon": -89.6,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10314": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.5,
+          "geo_lon": -89.6,
+          "error": "stays constant"
+        }
+      }
+    }
+  },
+  "10315": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.5,
+          "geo_lon": -89.6,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10316": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.7,
+          "geo_lon": -88.5,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10317": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.7,
+          "geo_lon": -88.5,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10318": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.4,
+          "geo_lon": -88.7,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10321": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.1,
+          "geo_lon": -88.0,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10322": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.3,
+          "geo_lon": -89.4,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10336": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -91.5,
+          "error": "1-min cadence"
+        }
+      }
+    }
+  },
+  "10338": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -91.5,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10339": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.7,
+          "geo_lon": -95.7,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10340": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.7,
+          "geo_lon": -95.7,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10341": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.0,
+          "geo_lon": -93.5,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10342": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.0,
+          "geo_lon": -93.5,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10343": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -97.1,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10344": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -97.1,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10345": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -97.1,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10347": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -97.1,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10348": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.5,
+          "geo_lon": -94.3,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10349": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -93.6,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10350": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -93.6,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10351": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -93.6,
+          "error": "noisy, missing periods of data"
+        }
+      }
+    }
+  },
+  "10352": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.8,
+          "geo_lon": -93.6,
+          "error": "noisy, missing periods of data"
+        }
+      }
+    }
+  },
+  "10353": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.4,
+          "geo_lon": -93.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10354": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.9,
+          "geo_lon": -91.5,
+          "error": "high cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10355": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.2,
+          "geo_lon": -94.0,
+          "error": "high cadence, noisy"
+        }
+      }
+    }
+  },
+  "10356": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.2,
+          "geo_lon": -94.0,
+          "error": "high cadence, noisy"
+        }
+      }
+    }
+  },
+  "10357": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.7,
+          "geo_lon": -117.5,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10358": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.7,
+          "geo_lon": -121.2,
+          "error": "not smooth, missing periods of data"
+        }
+      }
+    }
+  },
+  "10389": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.3,
+          "geo_lon": -87.4,
+          "error": "not smooth, missing periods of data"
+        }
+      }
+    }
+  },
+  "10397": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.1,
+          "geo_lon": -78.3,
+          "error": "some peaks"
+        }
+      }
+    }
+  },
+  "10398": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.1,
+          "geo_lon": -74.2,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10586": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.0,
+          "geo_lon": -118.5,
+          "error": "no data availible"
+        }
+      }
+    }
+  },
+  "10587": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.4,
+          "geo_lon": -117.0
+        }
+      }
+    }
+  },
+  "10591": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.8,
+          "geo_lon": -106.1,
+          "error": "no data availible"
+        }
+      }
+    }
+  },
+  "10592": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.2,
+          "geo_lon": -84.5,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10603": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.6,
+          "geo_lon": -83.0,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10605": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.3,
+          "geo_lon": -122.6,
+          "error": "not smooth, all positive"
+        }
+      }
+    }
+  },
+  "10606": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.3,
+          "geo_lon": -72.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10607": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.3,
+          "geo_lon": -72.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10608": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.2,
+          "geo_lon": -73.2,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10609": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.2,
+          "geo_lon": -73.2,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10611": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.6,
+          "geo_lon": -92.6,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10612": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 30.5,
+          "geo_lon": -87.2,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10613": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 29.6,
+          "geo_lon": -81.6,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10614": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 29.6,
+          "geo_lon": -81.6,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10615": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 29.6,
+          "geo_lon": -81.6,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10616": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 29.6,
+          "geo_lon": -81.6,
+          "error": "stays at zero"
+        }
+      }
+    }
+  },
+  "10617": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 28.8,
+          "geo_lon": -81.3,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10618": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.3,
+          "geo_lon": -86.2
+        }
+      }
+    }
+  },
+  "10619": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.3,
+          "geo_lon": -86.2
+        }
+      }
+    }
+  },
+  "10620": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.1,
+          "geo_lon": -87.5,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10621": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.1,
+          "geo_lon": -87.5,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10622": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -86.5
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 39.3,
+          "geo_lon": -86.5
+        }
+      }
+    }
+  },
+  "10623": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -86.5,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10642": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.2,
+          "geo_lon": -86.3,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10643": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.5,
+          "geo_lon": -85.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10644": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.7,
+          "geo_lon": -81.7,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10664": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.3,
+          "geo_lon": -115.3,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10665": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.0,
+          "geo_lon": -86.0,
+          "error": "too low"
+        }
+      }
+    }
+  },
+  "10701": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.8,
+          "geo_lon": -83.3,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10707": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.3,
+          "geo_lon": -82.7,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10708": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.3,
+          "geo_lon": -82.7,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10051": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.4,
+          "geo_lon": -96.5,
+          "error": "lots of peaks"
+        }
+      }
+    }
+  },
+  "10063": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.4,
+          "geo_lon": -112.5
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 33.4,
+          "geo_lon": -112.5
+        }
+      }
+    }
+  },
+  "10077": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.3,
+          "geo_lon": -87.9
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 42.3,
+          "geo_lon": -87.9
+        }
+      }
+    }
+  },
+  "10078": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.1,
+          "geo_lon": -87.8,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10079": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.5,
+          "geo_lon": -87.6
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 41.5,
+          "geo_lon": -87.6
+        }
+      }
+    }
+  },
+  "10080": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.0,
+          "geo_lon": -87.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10082": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.6,
+          "geo_lon": -87.7,
+          "error": "empty plot"
+        }
+      }
+    }
+  },
+  "10083": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.8,
+          "geo_lon": -88.6,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10084": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.2,
+          "geo_lon": -87.9,
+          "error": "empty plot"
+        }
+      }
+    }
+  },
+  "10085": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.2,
+          "geo_lon": -87.9,
+          "error": "empty plot"
+        }
+      }
+    }
+  },
+  "10102": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.9,
+          "geo_lon": -71.3,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10107": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.5,
+          "geo_lon": -118.1
+        }
+      }
+    }
+  },
+  "10111": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.4,
+          "geo_lon": -123.0,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10112": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.7,
+          "geo_lon": -117.4
+        }
+      }
+    }
+  },
+  "10113": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.6,
+          "geo_lon": -121.1
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 45.6,
+          "geo_lon": -121.1
+        }
+      }
+    }
+  },
+  "10114": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.5,
+          "geo_lon": -116.9
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 46.5,
+          "geo_lon": -116.9
+        }
+      }
+    }
+  },
+  "10115": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.6,
+          "geo_lon": -114.6
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 47.6,
+          "geo_lon": -114.6
+        }
+      }
+    }
+  },
+  "10116": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -121.9,
+          "error": "one really large peak"
+        }
+      }
+    }
+  },
+  "10117": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.3,
+          "geo_lon": -122.8,
+          "error": "not centered on zero, values too low"
+        }
+      }
+    }
+  },
+  "10118": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.7,
+          "geo_lon": -122.6,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10119": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.5,
+          "geo_lon": -120.3,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10120": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.8,
+          "geo_lon": -122.2,
+          "error": "not smooth, values too low"
+        }
+      }
+    }
+  },
+  "10121": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.9,
+          "geo_lon": -119.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10230": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.6,
+          "geo_lon": -92.7,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10231": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.0,
+          "geo_lon": -92.8,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10234": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 30.8,
+          "geo_lon": -88.1,
+          "error": "not smooth, values too low"
+        }
+      }
+    }
+  },
+  "10235": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.3,
+          "geo_lon": -87.4,
+          "error": "no values below zero"
+        }
+      }
+    }
+  },
+  "10236": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.7,
+          "geo_lon": -86.6,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10240": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.8,
+          "geo_lon": -73.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10257": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.4,
+          "geo_lon": -101.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10258": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.4,
+          "geo_lon": -101.2,
+          "error": "mostly low values"
+        }
+      }
+    }
+  },
+  "10259": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.4,
+          "geo_lon": -101.2,
+          "error": "not centered on zero, values too low"
+        }
+      }
+    }
+  },
+  "10260": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.4,
+          "geo_lon": -101.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10261": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.1,
+          "geo_lon": -93.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10262": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.1,
+          "geo_lon": -93.8,
+          "error": "a few peaks"
+        }
+      }
+    }
+  },
+  "10263": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.1,
+          "geo_lon": -93.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10264": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.1,
+          "geo_lon": -93.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10291": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.4,
+          "geo_lon": -72.7,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10292": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.1,
+          "geo_lon": -72.5,
+          "error": "no values below zero, only peaks"
+        }
+      }
+    }
+  },
+  "10293": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.0,
+          "geo_lon": -72.7,
+          "error": "not smooth, missing periods of data"
+        }
+      }
+    }
+  },
+  "10294": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.1,
+          "geo_lon": -73.2,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10295": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.8,
+          "geo_lon": -72.5,
+          "error": "not centered on zero, cutoff around zero"
+        }
+      }
+    }
+  },
+  "10296": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.6,
+          "geo_lon": -73.1,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10333": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.4,
+          "geo_lon": -96.5,
+          "error": "noisy, not centered on zero"
+        }
+      }
+    }
+  },
+  "10334": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.4,
+          "geo_lon": -96.5,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10335": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.1,
+          "geo_lon": -93.5,
+          "error": "empty plot"
+        }
+      }
+    }
+  },
+  "10346": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -97.1,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10359": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.7,
+          "geo_lon": -111.9,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10360": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -75.3,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10361": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -75.3,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10362": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.8,
+          "geo_lon": -76.3,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10363": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -75.6,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10364": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -75.6,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10399": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.1,
+          "geo_lon": -78.3,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10400": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.1,
+          "geo_lon": -78.3,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10401": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.1,
+          "geo_lon": -78.3,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10402": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -78.9
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 39.5,
+          "geo_lon": -78.9
+        }
+      }
+    }
+  },
+  "10403": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -78.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10404": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -77.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10405": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -77.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10406": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -77.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10407": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -77.9,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10409": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -77.5,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10410": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -77.5,
+          "error": "empty plot"
+        }
+      }
+    }
+  },
+  "10411": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -77.5,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10412": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -77.5,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10413": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -77.5,
+          "error": "empty plot"
+        }
+      }
+    }
+  },
+  "10414": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.4,
+          "geo_lon": -77.4,
+          "error": "low values, not smooth"
+        }
+      }
+    }
+  },
+  "10415": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.1,
+          "geo_lon": -103.2,
+          "error": "not smooth, missing periods of data"
+        }
+      }
+    }
+  },
+  "10416": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 44.1,
+          "geo_lon": -103.2,
+          "error": "not smooth, missing periods of data"
+        }
+      }
+    }
+  },
+  "10418": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.4,
+          "geo_lon": -115.2,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10420": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -75.5,
+          "error": "no values below zero"
+        }
+      }
+    }
+  },
+  "10421": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -75.5,
+          "error": "no values below zero"
+        }
+      }
+    }
+  },
+  "10425": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.8,
+          "geo_lon": -78.7,
+          "error": "no values below zero, noisy"
+        }
+      }
+    }
+  },
+  "10426": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.1,
+          "geo_lon": -78.8,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10427": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.0,
+          "geo_lon": -77.5,
+          "error": "high cadence, a bit noisy"
+        }
+      }
+    }
+  },
+  "10428": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.7,
+          "geo_lon": -76.5
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.7,
+          "geo_lon": -76.5
+        }
+      }
+    }
+  },
+  "10429": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.7,
+          "geo_lon": -76.3,
+          "error": "no values below zero"
+        }
+      }
+    }
+  },
+  "10438": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.2,
+          "geo_lon": -75.2
+        }
+      }
+    }
+  },
+  "10441": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.2,
+          "geo_lon": -81.6,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10442": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.8,
+          "geo_lon": -78.9,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10445": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.1,
+          "geo_lon": -74.2,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10446": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.0,
+          "geo_lon": -121.0,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10447": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.0,
+          "geo_lon": -121.0,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10448": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.0,
+          "geo_lon": -120.0,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10449": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.0,
+          "geo_lon": -120.0,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10584": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.0,
+          "geo_lon": -104.0,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10585": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.1,
+          "geo_lon": -80.1,
+          "error": "not smooth, not centered at zero"
+        }
+      }
+    }
+  },
+  "10588": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.9,
+          "geo_lon": -81.7,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10589": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.9,
+          "geo_lon": -81.7,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10593": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.0,
+          "geo_lon": -84.5,
+          "error": "not centered at zero, missing periods of data"
+        }
+      }
+    }
+  },
+  "10628": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 48.0,
+          "geo_lon": -66.4,
+          "error": "no values below zero"
+        }
+      }
+    }
+  },
+  "10635": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.7,
+          "geo_lon": -87.7,
+          "error": "one weird peak"
+        }
+      }
+    }
+  },
+  "10636": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.7,
+          "geo_lon": -87.7,
+          "error": "one weird peak"
+        }
+      }
+    }
+  },
+  "10637": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.1,
+          "geo_lon": -104.8,
+          "error": "not smooth, values too low"
+        }
+      }
+    }
+  },
+  "10648": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.8,
+          "geo_lon": -115.5,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10649": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.8,
+          "geo_lon": -74.0,
+          "error": "noisy, not centered on zero"
+        }
+      }
+    }
+  },
+  "10658": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 43.1,
+          "geo_lon": -78.7,
+          "error": "values too high"
+        }
+      }
+    }
+  },
+  "10659": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.5,
+          "geo_lon": -87.9
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 42.5,
+          "geo_lon": -87.9
+        }
+      }
+    }
+  },
+  "10674": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -72.6,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10675": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 47.9,
+          "geo_lon": -65.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10676": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 46.1,
+          "geo_lon": -66.8,
+          "error": "a few peaks"
+        }
+      }
+    }
+  },
+  "10677": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 45.2,
+          "geo_lon": -66.2,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10678": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.5,
+          "geo_lon": -87.9,
+          "error": "values all below zero, not centered"
+        }
+      }
+    }
+  },
+  "10694": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.0,
+          "geo_lon": -106.2,
+          "error": "values too low, not centered on zero, not smooth"
+        }
+      }
+    }
+  },
+  "10702": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -85.9,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10646": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -81.6,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10647": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -74.5,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10660": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.2,
+          "geo_lon": -88.6,
+          "error": "duplicate of TVA Gleason"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.2,
+          "geo_lon": -88.6
+        }
+      }
+    }
+  },
+  "10661": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.0,
+          "geo_lon": -87.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10691": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.2,
+          "geo_lon": -86.9,
+          "error": "not smooth, very noisy"
+        }
+      }
+    }
+  },
+  "10692": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.2,
+          "geo_lon": -86.9,
+          "error": "missing some periods of data"
+        }
+      }
+    }
+  },
+  "10693": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.0,
+          "geo_lon": -84.1
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.0,
+          "geo_lon": -84.1
+        }
+      }
+    }
+  },
+  "10696": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.4,
+          "geo_lon": -85.9,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10697": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.8,
+          "geo_lon": -80.8,
+          "error": "high cadence"
+        }
+      }
+    }
+  },
+  "10698": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.1,
+          "geo_lon": -98.1,
+          "error": "not smooth, not centered at zero"
+        }
+      }
+    }
+  },
+  "10699": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.6,
+          "geo_lon": -81.6,
+          "error": "not centered at zero"
+        }
+      }
+    }
+  },
+  "10700": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.6,
+          "geo_lon": -81.6,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10086": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.7,
+          "geo_lon": -82.0,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10087": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.9,
+          "geo_lon": -82.4,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10088": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.9,
+          "geo_lon": -82.4,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10089": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.8,
+          "geo_lon": -82.4,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10090": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.8,
+          "geo_lon": -82.1,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10091": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.7,
+          "geo_lon": -82.3,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10180": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -73.8,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10181": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.9,
+          "geo_lon": -74.0
+        }
+      }
+    }
+  },
+  "10182": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.6,
+          "geo_lon": -98.5
+        }
+      }
+    }
+  },
+  "10184": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.0,
+          "geo_lon": -78.2
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 39.0,
+          "geo_lon": -78.2
+        }
+      }
+    }
+  },
+  "10185": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.3,
+          "geo_lon": -81.3
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 39.3,
+          "geo_lon": -81.3
+        }
+      }
+    }
+  },
+  "10186": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.0,
+          "geo_lon": -80.0
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 42.0,
+          "geo_lon": -80.0
+        }
+      }
+    }
+  },
+  "10187": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -81.6
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 41.0,
+          "geo_lon": -81.6
+        }
+      }
+    }
+  },
+  "10191": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.3,
+          "geo_lon": -90.5,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10193": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.6,
+          "geo_lon": -71.4,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10194": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.6,
+          "geo_lon": -73.9,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10195": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.7,
+          "geo_lon": -74.9
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 39.7,
+          "geo_lon": -74.9
+        }
+      }
+    }
+  },
+  "10196": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.3,
+          "geo_lon": -111.9,
+          "error": "noisy, low values"
+        }
+      }
+    }
+  },
+  "10197": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.4,
+          "geo_lon": -82.2,
+          "error": "duplicate of TVA Sullivan"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.4,
+          "geo_lon": -82.2
+        }
+      }
+    }
+  },
+  "10199": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.0,
+          "geo_lon": -84.9,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10200": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.1,
+          "geo_lon": -86.7,
+          "error": "duplicate of TVA East Point"
+        }
+      }
+    }
+  },
+  "10201": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.5,
+          "geo_lon": -87.2,
+          "error": "duplicate of TVA Montgomery"
+        }
+      }
+    }
+  },
+  "10202": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.9,
+          "geo_lon": -90.0,
+          "error": "noisy"
+        }
+      }
+    }
+  },
+  "10203": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.0,
+          "geo_lon": -85.3,
+          "error": "duplicate of TVA Raccoon Mountain"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 35.0,
+          "geo_lon": -85.3
+        }
+      }
+    }
+  },
+  "10204": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.3,
+          "geo_lon": -89.8,
+          "error": "duplicate of TVA Shelby"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 35.3,
+          "geo_lon": -89.8
+        }
+      }
+    }
+  },
+  "10205": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.2,
+          "geo_lon": -88.8,
+          "error": "noisy, missing periods of data"
+        }
+      }
+    }
+  },
+  "10207": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.0,
+          "geo_lon": -84.1,
+          "error": "duplicate of TVA Bull Run"
+        }
+      }
+    }
+  },
+  "10208": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.8,
+          "geo_lon": -86.5,
+          "error": "duplicate of TVA Rutherford"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 35.8,
+          "geo_lon": -86.5
+        }
+      }
+    }
+  },
+  "10209": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.8,
+          "geo_lon": -85.7,
+          "error": "one big peak, otherwise fine"
+        }
+      }
+    }
+  },
+  "10211": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.3,
+          "geo_lon": -88.8,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10212": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.0,
+          "geo_lon": -86.6,
+          "error": "duplicate of TVA Pinhook"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.0,
+          "geo_lon": -86.6
+        }
+      }
+    }
+  },
+  "10219": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.1,
+          "geo_lon": -81.0,
+          "error": "noisy, low values"
+        }
+      }
+    }
+  },
+  "10220": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.4,
+          "geo_lon": -87.4
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 39.4,
+          "geo_lon": -87.4
+        }
+      }
+    }
+  },
+  "10248": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.8,
+          "geo_lon": -80.6,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10249": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.3,
+          "geo_lon": -81.0
+        }
+      }
+    }
+  },
+  "10250": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.1,
+          "geo_lon": -80.9
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 34.1,
+          "geo_lon": -80.9
+        }
+      }
+    }
+  },
+  "10251": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.9,
+          "geo_lon": -82.3,
+          "error": "noisy, low values"
+        }
+      }
+    }
+  },
+  "10252": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.4,
+          "geo_lon": -79.0,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10287": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.9,
+          "geo_lon": -91.7,
+          "error": "missing periods of data"
+        }
+      }
+    }
+  },
+  "10290": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -97.5,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10325": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 29.8,
+          "geo_lon": -95.2,
+          "error": "noisy, low values"
+        }
+      }
+    }
+  },
+  "10367": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.4,
+          "geo_lon": -71.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10368": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.4,
+          "geo_lon": -71.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10369": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.4,
+          "geo_lon": -71.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10372": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.4,
+          "geo_lon": -71.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10373": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.6,
+          "geo_lon": -73.9,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10374": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.6,
+          "geo_lon": -71.5,
+          "error": "no data available"
+        }
+      }
+    }
+  },
+  "10376": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.9,
+          "geo_lon": -73.9,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10377": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.7,
+          "geo_lon": -74.0,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10378": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.7,
+          "geo_lon": -74.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10379": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.7,
+          "geo_lon": -74.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10380": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.1,
+          "geo_lon": -73.8,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10381": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.7,
+          "geo_lon": -74.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10382": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.6,
+          "geo_lon": -74.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10383": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.6,
+          "geo_lon": -74.2,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10385": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.2,
+          "geo_lon": -73.8,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10386": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.8,
+          "geo_lon": -73.9,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10387": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -73.9,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10388": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -73.9,
+          "error": "very noisy"
+        }
+      }
+    }
+  },
+  "10430": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.6,
+          "geo_lon": -75.6,
+          "error": "low cadence, missing periods of data"
+        }
+      }
+    }
+  },
+  "10431": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.6,
+          "geo_lon": -75.7,
+          "error": "not centered on zero, missing periods of data"
+        }
+      }
+    }
+  },
+  "10432": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.5,
+          "geo_lon": -76.6,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10433": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.5,
+          "geo_lon": -76.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10434": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.5,
+          "geo_lon": -75.1,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10435": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.4,
+          "geo_lon": -74.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10436": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.4,
+          "geo_lon": -74.6,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10450": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -85.0,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10453": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.5,
+          "geo_lon": -81.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10454": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.6,
+          "geo_lon": -79.7,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10455": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.1,
+          "geo_lon": -82.7,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10456": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.2,
+          "geo_lon": -82.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10458": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.2,
+          "geo_lon": -86.3,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10460": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 28.9,
+          "geo_lon": -96.2,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10461": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.2,
+          "geo_lon": -100.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10462": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.2,
+          "geo_lon": -100.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10463": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.4,
+          "geo_lon": -99.7,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10464": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.4,
+          "geo_lon": -99.7,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10467": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.9,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10468": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.9,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10469": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.9,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10470": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.9,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10471": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.9,
+          "error": "noisy, not centered on zero"
+        }
+      }
+    }
+  },
+  "10473": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 28.7,
+          "geo_lon": -97.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10474": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 28.7,
+          "geo_lon": -97.2,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10475": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -81.9,
+          "error": "one big spike"
+        }
+      }
+    }
+  },
+  "10476": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.1,
+          "geo_lon": -82.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10477": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.4,
+          "geo_lon": -95.4,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10478": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.0,
+          "geo_lon": -86.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10480": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 42.0,
+          "geo_lon": -86.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10481": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -85.3,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10482": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -85.3,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10483": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.0,
+          "geo_lon": -83.0,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10484": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.0,
+          "geo_lon": -83.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10485": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.0,
+          "geo_lon": -83.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10487": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.5,
+          "geo_lon": -86.4,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10489": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.6,
+          "geo_lon": -79.3,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10490": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -85.9,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10492": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.8,
+          "geo_lon": -84.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10493": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.7,
+          "geo_lon": -79.9,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10494": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.7,
+          "geo_lon": -79.9,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10495": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.7,
+          "geo_lon": -79.9,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10496": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.3,
+          "geo_lon": -94.5,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10497": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.5,
+          "geo_lon": -84.1,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10498": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -83.1,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10499": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -83.1,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10500": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.6,
+          "geo_lon": -86.3,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10502": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.9,
+          "geo_lon": -80.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10503": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.9,
+          "geo_lon": -80.8,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10504": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.9,
+          "geo_lon": -80.8,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10506": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.7,
+          "geo_lon": -85.4,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10507": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.1,
+          "geo_lon": -82.7,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10509": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.8,
+          "geo_lon": -80.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10511": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.9,
+          "geo_lon": -86.2,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "10512": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.0,
+          "geo_lon": -82.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10513": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.1,
+          "geo_lon": -97.6,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10515": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.1,
+          "geo_lon": -97.6,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10516": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.6,
+          "geo_lon": -81.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10517": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.0,
+          "geo_lon": -93.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10518": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.6,
+          "geo_lon": -99.3,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10519": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.8,
+          "geo_lon": -97.6,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10520": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.8,
+          "geo_lon": -97.6,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10521": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.3,
+          "geo_lon": -103.1,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10524": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -83.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10525": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -83.0,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10527": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.3,
+          "geo_lon": -83.4,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10528": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.2,
+          "geo_lon": -80.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10529": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.2,
+          "geo_lon": -80.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10530": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.0,
+          "geo_lon": -81.9,
+          "error": "too low"
+        }
+      }
+    }
+  },
+  "10531": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.5,
+          "geo_lon": -99.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10532": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.5,
+          "geo_lon": -99.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10534": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.6,
+          "geo_lon": -82.7,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10537": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 27.6,
+          "geo_lon": -97.7,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10538": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.3,
+          "geo_lon": -98.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10539": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.3,
+          "geo_lon": -98.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10541": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -86.5,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10542": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.0,
+          "geo_lon": -95.7,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10545": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.1,
+          "error": "low values, not centered on zero"
+        }
+      }
+    }
+  },
+  "10546": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.1,
+          "error": "low values, not centered on zero"
+        }
+      }
+    }
+  },
+  "10547": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.4,
+          "geo_lon": -79.1,
+          "error": "low values, not centered on zero"
+        }
+      }
+    }
+  },
+  "10548": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.2,
+          "geo_lon": -98.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10549": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.2,
+          "geo_lon": -98.2,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10550": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.3,
+          "geo_lon": -97.6,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10551": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.3,
+          "geo_lon": -97.6,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10552": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.0,
+          "geo_lon": -83.1,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10554": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.9,
+          "geo_lon": -87.0,
+          "error": "not smooth"
+        }
+      }
+    }
+  },
+  "10557": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 31.5,
+          "geo_lon": -100.3,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10558": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 30.9,
+          "geo_lon": -103.4,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10559": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 30.9,
+          "geo_lon": -103.4,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10560": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -85.3,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10561": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.0,
+          "geo_lon": -83.3,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10563": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.7,
+          "geo_lon": -81.4,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10564": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.7,
+          "geo_lon": -84.2,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10565": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 26.1,
+          "geo_lon": -98.2,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10567": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.2,
+          "geo_lon": -87.5,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10568": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.2,
+          "geo_lon": -87.5,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10569": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.2,
+          "geo_lon": -87.5,
+          "error": "low cadence"
+        }
+      }
+    }
+  },
+  "10570": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -80.7,
+          "error": "1-min cadence"
+        }
+      }
+    }
+  },
+  "10572": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.4,
+          "geo_lon": -82.5,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10573": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.4,
+          "geo_lon": -82.5,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10574": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.4,
+          "geo_lon": -82.5,
+          "error": "not smooth, not centered on zero"
+        }
+      }
+    }
+  },
+  "10575": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -86.1,
+          "error": "not smooth, low values"
+        }
+      }
+    }
+  },
+  "10576": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.7,
+          "geo_lon": -86.1,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10577": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.4,
+          "geo_lon": -84.9,
+          "error": "low cadence, not centered on zero"
+        }
+      }
+    }
+  },
+  "10578": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 40.2,
+          "geo_lon": -82.8,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "10581": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 32.8,
+          "geo_lon": -94.5,
+          "error": "not centered on zero"
+        }
+      }
+    }
+  },
+  "50100": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 30.4,
+          "geo_lon": -89.6
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 30.4,
+          "geo_lon": -89.6
+        },
+        "MAGE": {
+          "geo_lat": 30.4,
+          "geo_lon": -89.6
+        }
+      }
+    }
+  },
+  "50127": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.1,
+          "geo_lon": -119.7
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 37.1,
+          "geo_lon": -119.7
+        },
+        "MAGE": {
+          "geo_lat": 37.1,
+          "geo_lon": -119.7
+        }
+      }
+    }
+  },
+  "50112": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 48.3,
+          "geo_lon": -117.1
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 48.3,
+          "geo_lon": -117.1
+        },
+        "MAGE": {
+          "geo_lat": 48.3,
+          "geo_lon": -117.1
+        }
+      }
+    }
+  },
+  "50131": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.8,
+          "geo_lon": -84.7
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 37.8,
+          "geo_lon": -84.7
+        },
+        "MAGE": {
+          "geo_lat": 37.8,
+          "geo_lon": -84.7
+        }
+      }
+    }
+  },
+  "50132": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 38.0,
+          "geo_lon": -84.8
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 38.0,
+          "geo_lon": -84.8
+        },
+        "MAGE": {
+          "geo_lat": 38.0,
+          "geo_lon": -84.8
+        }
+      }
+    }
+  },
+  "50103": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 33.3,
+          "geo_lon": -89.2
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 33.3,
+          "geo_lon": -89.2
+        },
+        "MAGE": {
+          "geo_lat": 33.3,
+          "geo_lon": -89.2
+        }
+      }
+    }
+  },
+  "50104": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.0,
+          "geo_lon": -84.1
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 36.0,
+          "geo_lon": -84.1
+        },
+        "MAGE": {
+          "geo_lat": 36.0,
+          "geo_lon": -84.1
+        }
+      }
+    }
+  },
+  "50109": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.6,
+          "geo_lon": -84.7
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 35.6,
+          "geo_lon": -84.7
+        },
+        "MAGE": {
+          "geo_lat": 35.6,
+          "geo_lon": -84.7
+        }
+      }
+    }
+  },
+  "50115": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 41.3,
+          "geo_lon": -90.5
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 41.3,
+          "geo_lon": -90.5
+        },
+        "MAGE": {
+          "geo_lat": 41.3,
+          "geo_lon": -90.5
+        }
+      }
+    }
+  },
+  "50116": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 37.2,
+          "geo_lon": -86.9
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 37.2,
+          "geo_lon": -86.9
+        },
+        "MAGE": {
+          "geo_lat": 37.2,
+          "geo_lon": -86.9
+        }
+      }
+    }
+  },
+  "50117": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 36.1,
+          "geo_lon": -81.0
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 36.1,
+          "geo_lon": -81.0
+        },
+        "MAGE": {
+          "geo_lat": 36.1,
+          "geo_lon": -81.0
+        }
+      }
+    }
+  },
+  "50118": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 39.4,
+          "geo_lon": -87.4
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 39.4,
+          "geo_lon": -87.4
+        },
+        "MAGE": {
+          "geo_lat": 39.4,
+          "geo_lon": -87.4
+        }
+      }
+    }
+  },
+  "50119": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.0,
+          "geo_lon": -85.3
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 35.0,
+          "geo_lon": -85.3
+        },
+        "MAGE": {
+          "geo_lat": 35.0,
+          "geo_lon": -85.3
+        }
+      }
+    }
+  },
+  "50120": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 34.3,
+          "geo_lon": -88.8
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 34.3,
+          "geo_lon": -88.8
+        },
+        "MAGE": {
+          "geo_lat": 34.3,
+          "geo_lon": -88.8
+        }
+      }
+    }
+  },
+  "50122": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "geo_lat": 35.6,
+          "geo_lon": -89.3
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 35.6,
+          "geo_lon": -89.3
+        },
+        "MAGE": {
+          "geo_lat": 35.6,
+          "geo_lon": -89.3
+        }
+      }
+    }
+  },
+  "Ackerman": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 33.3749,
+          "geo_lon": -89.2104
+        }
+      }
+    }
+  },
+  "Anderson": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 0.0,
+          "geo_lon": 0.0,
+          "error": "GIC file exists, but no lat/long in GIC_monitors.txt"
+        }
+      }
+    }
+  },
+  "Bradley": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.0425,
+          "geo_lon": -84.9587
+        }
+      }
+    }
+  },
+  "Bull Run": {
+    "GIC": {
+      "calculated": {
+        "TVA": {
+          "geo_lat": 36.0193,
+          "geo_lon": -84.1575
+        },
+        "GMU": {
+          "geo_lat": 36.0193,
+          "geo_lon": -84.1575
+        }
+      },
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.0193,
+          "geo_lon": -84.1575
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.0252,
+          "geo_lon": -84.1468
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 36.0193,
+          "geo_lon": -84.1575
+        },
+        "MAGE": {
+          "geo_lat": 36.0193,
+          "geo_lon": -84.1575
+        },
+        "OpenGGCM": {
+          "geo_lat": 36.0193,
+          "geo_lon": -84.1575
+        }
+      }
+    }
+  },
+  "East Point": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 34.1946,
+          "geo_lon": -86.7474
+        }
+      }
+    }
+  },
+  "Gleason": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.246,
+          "geo_lon": -88.612
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.246,
+          "geo_lon": -88.612
+        }
+      }
+    }
+  },
+  "Johnsonville": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.029,
+          "geo_lon": -87.985
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.029,
+          "geo_lon": -87.985
+        }
+      }
+    }
+  },
+  "Lagoon Creek": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.6475,
+          "geo_lon": -89.3907
+        }
+      }
+    }
+  },
+  "Montgomery": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.5949,
+          "geo_lon": -87.2533
+        }
+      },
+      "calculated": {
+        "TVA": {
+          "geo_lat": 36.5949,
+          "geo_lon": -87.2533
+        },
+        "GMU": {
+          "geo_lat": 36.5949,
+          "geo_lon": -87.2533
+        }
+      }
+    },
+    "B": {
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 36.5949,
+          "geo_lon": -87.2533
+        },
+        "MAGE": {
+          "geo_lat": 36.5949,
+          "geo_lon": -87.2533
+        }
+      }
+    }
+  },
+  "Paradise 2": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 37.2587,
+          "geo_lon": -86.9781,
+          "error": "low values"
+        }
+      }
+    }
+  },
+  "Paradise 3": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 37.2587,
+          "geo_lon": -86.9781
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 37.2587,
+          "geo_lon": -86.9781
+        }
+      }
+    }
+  },
+  "Paradise": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 37.2561,
+          "geo_lon": -86.9986
+        }
+      }
+    }
+  },
+  "Pinhook": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.0465,
+          "geo_lon": -86.6059
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.0465,
+          "geo_lon": -86.6059
+        }
+      }
+    }
+  },
+  "Raccoon Mountain": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.0571,
+          "geo_lon": -85.3872
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 35.0571,
+          "geo_lon": -85.3872
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.0571,
+          "geo_lon": -85.3872
+        }
+      }
+    }
+  },
+  "Rutherford": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.8275,
+          "geo_lon": -86.5986
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 35.8275,
+          "geo_lon": -86.5986
+        }
+      }
+    }
+  },
+  "Shelby": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.3859,
+          "geo_lon": -89.8042
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 35.3859,
+          "geo_lon": -89.8042
+        }
+      }
+    }
+  },
+  "Southaven": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 34.9939,
+          "geo_lon": -90.0497
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 34.9939,
+          "geo_lon": -90.0497
+        }
+      }
+    }
+  },
+  "Sullivan": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.4419,
+          "geo_lon": -82.2791
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.4419,
+          "geo_lon": -82.2791
+        }
+      }
+    }
+  },
+  "Union": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 34.378,
+          "geo_lon": -88.8578
+        }
+      },
+      "calculated": {
+        "TVA": {
+          "geo_lat": 34.378,
+          "geo_lon": -88.8578
+        },
+        "GMU": {
+          "geo_lat": 34.378,
+          "geo_lon": -88.8578
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 34.375,
+          "geo_lon": -88.8567
+        }
+      },
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 34.378,
+          "geo_lon": -88.8578
+        },
+        "MAGE": {
+          "geo_lat": 34.378,
+          "geo_lon": -88.8578
+        }
+      }
+    }
+  },
+  "Watts Bar": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 35.6091,
+          "geo_lon": -84.7831
+        }
+      }
+    }
+  },
+  "Weakley": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 36.2752,
+          "geo_lon": -88.8347,
+          "error": "missing periods of data"
+        }
+      },
+      "calculated": {
+        "GMU": {
+          "geo_lat": 36.2752,
+          "geo_lon": -88.8347
+        }
+      }
+    }
+  },
+  "Widows Creek": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "geo_lat": 34.8859,
+          "geo_lon": -85.7554
+        }
+      },
+      "calculated": {
+        "TVA": {
+          "geo_lat": 34.8859,
+          "geo_lon": -85.7554
+        },
+        "GMU": {
+          "geo_lat": 34.8859,
+          "geo_lon": -85.7554
+        }
+      }
+    },
+    "B": {
+      "calculated": {
+        "SWMF": {
+          "geo_lat": 34.8859,
+          "geo_lon": -85.7554
+        },
+        "MAGE": {
+          "geo_lat": 34.8859,
+          "geo_lon": -85.7554
+        }
+      }
+    }
+  }
+}

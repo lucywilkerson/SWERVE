@@ -1,6 +1,6 @@
 out_dir = '_processed'
 
-def plot_site(sid, data, data_types=None, logger=None, show_plots=False):
+def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
   from swerve import savefig
 
@@ -12,12 +12,8 @@ def plot_site(sid, data, data_types=None, logger=None, show_plots=False):
 
   for data_type in data.keys(): # e.g., GIC, B
 
-    if data_type not in data_types:
+    if data_types is not None and data_type not in data_types:
       continue
-
-    if 'measured' in data[data_type] and 'calculated' in data[data_type]:
-      logger.info(f"  Plotting comparison for '{sid}/{data_type}'")
-      _plot_compare(sid, data_type, data[data_type], logger)
 
     for data_class in data[data_type].keys(): # e.g., measured, calculated
       for data_source in data[data_type][data_class].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
@@ -29,6 +25,9 @@ def plot_site(sid, data, data_types=None, logger=None, show_plots=False):
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
+    if 'measured' in data[data_type] and 'calculated' in data[data_type]:
+      logger.info(f"  Plotting measured/calculated comparison for '{sid}/{data_type}'")
+      _plot_compare(sid, data_type, data[data_type], logger)
 
 def _plot(data, show_plots=False):
   from matplotlib import pyplot as plt
@@ -48,9 +47,6 @@ def _plot(data, show_plots=False):
   for component_label in component_labels:
     labels_orig.append(f"{component_label} [{data['original']['units']}] Original")
     labels_mod.append(f"{component_label} [{data['original']['units']}] Modified")
-  if len(labels_orig) == 1:
-    labels_orig = labels_orig[0]
-    labels_mod = labels_mod[0]
 
   errors = []
   if 'error' in data:
@@ -104,9 +100,15 @@ def _plot_compare(sid, data_type, data, logger):
   fdir = os.path.join(out_dir, sid.lower().replace(' ', ''), 'figures')
 
   m_keys = data['measured'].keys()
-  #if len(m_keys) > 1:
-  #  logger.warning(f"Multiple measured data sources for {sid}: {m_keys}. Using the first one.")
+  if len(m_keys) > 1:
+    logger.warning(f"    Multiple measured data sources for {sid}: {m_keys}. Using the first one.")
   m_key = list(m_keys)[0]
+  if 'error' in data['measured'][m_key]['modified']:
+    msg = "    Skipping comparison b/c no modified measured data for "
+    msg += f"{sid}/{data_type}/{m_key} due to error: {data['measured'][m_key]['modified']['error']}"
+    logger.warning(msg)
+    return
+
   time_meas = data['measured'][m_key]['modified']['time']
   data_meas = data['measured'][m_key]['modified']['data']
 
@@ -216,4 +218,3 @@ def _plot_compare(sid, data_type, data, logger):
   plt.legend(loc='upper right')
 
   savefig(fdir, 'B_histogram_meas_calc', logger)
-

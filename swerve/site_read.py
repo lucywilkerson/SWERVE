@@ -5,39 +5,49 @@ import pandas
 import pickle
 import datetime
 
+out_dir = '_processed'
 resample_log = False  # Set to True to log resampling information.
 
-def read_site(sid, data_types=None, logger=None, reparse=False, start=None, stop=None):
+def site_read(sid, data_types=None, logger=None, reparse=False):
+  """Read data from site
 
-  out_dir = '_processed'
+  Returns:
+      dict with keys 'time' (1D numpy array of datetimes) and 'data'
+      (2D numpy array of data).
 
+  If `data_types` is None, read all data types for the site.
+  """
   from swerve import config, read_info_dict, resample
 
   CONFIG = config()
 
-  sidx = sid.lower().replace(' ', '')
-  all_file = '_all.pkl'
-  all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
-  if os.path.exists(all_file) and not reparse:
-    logger.info(f"Reading {all_file}")
-    with open(all_file, 'rb') as f:
-      data = pickle.load(f)
-      return data
-
   if logger is None:
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-  if start is None:
-    start = CONFIG['limits']['data'][0]
-  if stop is None:
-    stop = CONFIG['limits']['data'][1]
+  resample_kwargs = {}
+  if resample_log:
+    resample_kwargs = {'logger': logger, 'logger_indent': 6}
+
+  sidx = sid.lower().replace(' ', '')
+  all_file = '_all.pkl'
+  all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
+
+  if not reparse:
+    if os.path.exists(all_file):
+      logger.info(f"Reading cached file with all data for site '{sid}': {all_file}")
+      with open(all_file, 'rb') as f:
+        data = pickle.load(f)
+        return data
+
+  start = CONFIG['limits']['data'][0]
+  stop = CONFIG['limits']['data'][1]
 
   site_info = read_info_dict(sid=sid)
   if data_types is None:
     logger.info(f"Reading all '{sid}' data")
     data_types = site_info.keys()
   else:
-    logger.info(f"Reading only '{sid}' with data_types = {data_types}")
+    logger.info(f"Reading '{sid}' data with data_types = {data_types}")
 
   for data_type in data_types: # e.g., GIC, B
     if data_type not in site_info:
@@ -53,51 +63,88 @@ def read_site(sid, data_types=None, logger=None, reparse=False, start=None, stop
       data_sources = site_info[data_type][data_class]
 
       for data_source in data_sources.keys():
+
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
-        d = _read_site_raw(site_info, sid, data_type, data_class, data_source)
-        site_info[data_type][data_class][data_source]['original'] = d
-        if 'error' in d:
-          logger.warning(f"    Error: {d['error']}")
+        orig = _site_read_orig(sid, data_type, data_class, data_source, logger)
+        site_info[data_type][data_class][data_source]['original'] = orig
+
+        # Check returned data object
+        if _output_error(orig, logger):
           continue
 
-        log_kwargs = {}
-        if resample_log:
-          log_kwargs = {'logger': logger, 'logger_indent': 6}
-
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
+        data_mod = orig['data'].copy()
         if data_type == 'B' and data_class == 'measured':
             logger.info(f'    Remove baseline then {resample_msg}')
             for i in range(3):
               # TODO: Get IGRF value instead of using first value?
-              first_valid_idx = numpy.where(~numpy.isnan(d["data"][:,i]))[0][0]
-              baseline = d["data"][first_valid_idx, i]
-              d["data"][:,i] = d["data"][:,i] - baseline
+              first_valid_idx = numpy.where(~numpy.isnan(orig["data"][:, i]))[0][0]
+              baseline = orig["data"][first_valid_idx, i]
+              data_mod[:,i] = orig["data"][:, i] - baseline
         else:
           logger.info(f"    {resample_msg}")
 
         modified = {'modification': resample_msg}
         try:
-          time_m, data_m = resample(d["time"], d["data"], start, stop, ave='60s', **log_kwargs)
+          time_m, data_m = resample(orig["time"], data_mod, start, stop, ave='60s', **resample_kwargs)
           modified['time'] = time_m
           modified['data'] = data_m
         except Exception as e:
           modified['error'] = str(e)
+          logger.error(f"    Error resampling data: {modified['error']}")
 
         site_info[data_type][data_class][data_source]['modified'] = modified
 
-        if out_dir is not None:
-          sidx = sid.lower().replace(' ', '')
-          file_class = f'{data_type}_{data_class}_{data_source}.pkl'
-          file_class = os.path.join(out_dir, sidx, 'data', file_class)
-          _write_pkl(file_class, site_info[data_type][data_class], logger)
+        file_name = f'{data_type}_{data_class}_{data_source}.pkl'
+        file_name = os.path.join(out_dir, sidx, 'data', file_name)
+        _write_pkl(file_name, site_info[data_type][data_class], logger)
 
-  if out_dir is not None:
-    sidx = sid.lower().replace(' ', '')
-    _write_pkl(all_file, site_info, logger)
+  _write_pkl(all_file, site_info, logger)
 
   return site_info
 
-def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
+def _output_error(d, logger):
+  msgo = "Not computing modified"
+  if 'error' in d:
+    logger.error(f"    {msgo} due to error: {d['error']}")
+    return True
+
+  if len(d['data'].shape) != 2:
+    logger.error(f"    {msgo} b/c data array is not 2D")
+    return True
+
+  if len(d['time'].shape) != 1:
+    logger.error(f"    {msgo} b/c time array is not 1D")
+    return True
+
+  if d['data'].shape[0] != len(d['time']):
+    msg = f"    {msgo} b/c d['data'].shape[0] = {d['data'].shape[0]} != len(d['time'])"
+    msg += f" = {len(d['time'])}"
+    logger.error(msg)
+    return True
+
+  return False
+
+  def _site_read_cache(sid, data_dir, logger):
+    sidx = sid.lower().replace(' ', '')
+    all_file = '_all.pkl'
+    all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
+    if os.path.exists(all_file):
+      logger.info(f"Reading {all_file}")
+      with open(all_file, 'rb') as f:
+        data = pickle.load(f)
+        return data
+
+    return None
+
+def _site_read_orig(sid, data_type, data_class, data_source, logger):
+
+  """Read data from site
+
+  Returns:
+      dict with keys 'time' (1D numpy array of datetimes) and 'data'
+      (2D numpy array of data).
+  """
 
   def read_nerc(data_dir, fname):
     data = []
@@ -126,8 +173,6 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
 
     time = numpy.array(time)
     data = numpy.array(data)
-    if data.shape[1] == 1:
-      data = data.flatten()
 
     ret = {"time": time, "data": data}
     if len(time) != len(numpy.unique(time)):
@@ -141,8 +186,6 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
   from swerve import config
   CONFIG = config()
   data_dir = CONFIG['data_dir']
-  if logger is None:
-    logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
   data = []
   time = []
@@ -163,9 +206,11 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
           time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
           data.append(float(row[1]))
 
+    # Reshape to 2D array with a single column
+    data = numpy.array(data).reshape(-1, 1)
     return {
       "time": numpy.array(time).flatten(),
-      "data": numpy.array(data).flatten(),
+      "data": data,
       "label": "GIC",
       "units": "A",
     }
@@ -199,17 +244,21 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
       for t in times:
         time.append(dto + datetime.timedelta(seconds=t))
 
+    # Reshape to 2D array with a single column.
+    data = numpy.array(data).reshape(-1, 1)
     return {
       "time": numpy.array(time).flatten(),
-      "data": numpy.array(data).flatten(),
+      "data": data,
       "label": "GIC",
       "units": "A"
     }
 
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
-    extended_df = pandas.read_csv(os.path.join('info', 'info.extended.csv'))
+    from swerve import read_info_df, read_info_dict
+    extended_df = read_info_df(extended=True)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
+
     if len(nearest_sim_site) == 0:
       raise ValueError(f"No nearest simulation site found for site {sid} in info.extended.csv")
     if len(nearest_sim_site) > 1:
@@ -217,6 +266,7 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
     nearest_sim_site = int(nearest_sim_site.values[0])
     logger.info(f"    Nearest simulation site: {nearest_sim_site}")
 
+    info = read_info_dict(sid)
     measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
     if 'NERC' in measured_sources:
       fname = os.path.join(data_dir, 'gmu', 'nerc', f'site_{nearest_sim_site}.csv')
@@ -313,6 +363,8 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
         sites[site]["time"].append(datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S'))
         # Header is
         # site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
+        # column #s:
+        #   0,   1,  2,  3,  4,  5,   6,   7,   8,   9
         # From Mike Wiltberger:
         # As a reminder I will point you to our documentation for the kaipy package which
         # includes information on the structure of SuperMAGE interpolated dataframe.
@@ -324,16 +376,22 @@ def _read_site_raw(info, sid, data_type, data_class, data_source, logger=None):
         # It doesn't help that we didn't use a consistent naming convention with the SuperMAG data.
         # Here's the relevant mapping BNm - dBt, BEm - dBp, and BZm - dBr.
         # I've attached a reference plot as an example to this message.
-        sites[site]["data"].append([float(row[2]), float(row[3]), float(row[4]), float(row[5])])
+        #
+        # RSW comment:
+        # The reference plot seems to equate BNm with dBn and not dBt.
+        # In the following, we use the mapping implied by the plot.
+        #                              BNm/dBn        BEm/dBp         BZm/dBr
+        sites[site]["data"].append([float(row[2]), float(row[4]), float(row[5])])
 
     if sid not in sites:
       raise ValueError(f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}")
 
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
-    return {"time": time, "data": data, "label": ["dBn", "dBt", "dBp", "dBr"], "units": "nT"}
+    return {"time": time, "data": data, "label": ["dBn", "dBp", "dBr"], "units": "nT"}
 
 def _write_pkl(fname, data, logger):
+
   import os
   from swerve import config
   CONFIG = config()

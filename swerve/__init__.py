@@ -5,6 +5,7 @@ all = [
   'plt_config',
   'savefig',
   'savefig_paper',
+  'sids',
   'subset',
   'read_info_df',
   'read_info_dict'
@@ -13,8 +14,9 @@ all = [
 from .cadence import cadence
 from .subset import subset
 from .resample import resample
-from .read_site import read_site
-from .plot_site import plot_site
+from .site_read import site_read
+from .site_plot import site_plot
+from .site_stats import site_stats
 
 def config(event='2024-May-Storm'):
   import os
@@ -24,7 +26,10 @@ def config(event='2024-May-Storm'):
   console_format = u'%(message)s'
 
   if event == '2024-May-Storm':
-    data_dir = os.path.join('..', event + '-data')
+    file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
+    data_dir = os.path.abspath(os.path.join(file_path, '..', '..', event + '-data'))
+    if not os.path.exists(data_dir):
+      raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
     limits_data = [datetime.datetime(2024, 5, 10, 0, 0), datetime.datetime(2024, 5, 13, 0, 0)]
     limits_plot = [datetime.datetime(2024, 5, 10, 11, 0), datetime.datetime(2024, 5, 12, 6, 0)]
     return {
@@ -83,6 +88,32 @@ def config(event='2024-May-Storm'):
         'plot': limits_plot  # Plot data within these limits
       }
     }
+
+def sids(sids_only=None):
+  from swerve import config, read_info_dict
+  CONFIG = config()
+
+  info = read_info_dict()
+  all_sids = list(info.keys())
+
+  if sids_only is None:
+    return all_sids
+
+  for sid in sids_only:
+    if sid != 'paper':
+      if sid not in info.keys():
+        raise ValueError(f"sid '{sid}' not found in info.json")
+    elif 'paper_sids' in CONFIG:
+      # Delete paper from sids_only
+      sids_only.remove('paper')
+      for data_type in CONFIG['paper_sids'].keys():
+        for plot_type in CONFIG['paper_sids'][data_type].keys():
+          for plot_type in CONFIG['paper_sids'][data_type].keys():
+            sids_only.extend(CONFIG['paper_sids'][data_type][plot_type].keys())
+      # Remove duplicates
+      sids_only = list(set(sids_only))
+
+  return sids_only
 
 def format_df(df, float_fmt=".2f"):
     """

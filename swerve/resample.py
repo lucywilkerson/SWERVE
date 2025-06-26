@@ -93,13 +93,8 @@ def resample(time, data, start, stop, ave=None, logger=None, logger_indent=0):
   data = df.to_numpy()
   time = df.index.to_pydatetime()
 
-  # If data.shape is (n, ), return a 1D array.
-  # If data.shape is (n, m), return a 2D array.
-  if nd == 1: # (n, ) case
-    data = data.flatten()
-
   if ave is not None:
-    print_info(time, data, "After resampling and flattening")
+    print_info(time, data, "After resampling")
 
   return time, data
 
