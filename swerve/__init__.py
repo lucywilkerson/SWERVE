@@ -39,7 +39,7 @@ def config(event='2024-May-Storm'):
         'console_format': console_format
       },
       'data_dir': data_dir,
-      'paper_dir': os.path.join('..', '2024-May-Storm-paper', 'figures'),
+      'paper_dir': os.path.abspath(os.path.join(file_path, '..', '..', event + '-paper')),
       'paper_sids': {
         'GIC': {
           'timeseries': {
