@@ -31,9 +31,9 @@ for sid in sids_only:
   data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse)
 
   # Add statistics to data in data[sid].
-  #site_stats(sid, data[sid], data_types=data_types, logger=logger)
+  site_stats(sid, data[sid], data_types=data_types, logger=logger)
 
-  #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
 
 if sids_only is None and data_types is None:

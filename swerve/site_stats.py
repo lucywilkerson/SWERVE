@@ -17,7 +17,16 @@ def site_stats(sid, data, data_types=None, logger=None):
             logger.info(f"  Stats for {data_type}/{data_class}/{data_source}:")
             logger.info(f"    {stats_summary}")
 
-def _stats_calculated(data_meas, data_calc, logger):
+def _stats_summary(data_meas, logger):
+  import numpy as np
+  return {
+          'std': np.nanstd(data_meas),
+          '|max|': np.abs(np.nanmax(data_meas)),
+          'n': len(data_meas),
+          'n_valid': np.sum(~np.isnan(data_meas))
+  }
+
+def _stats_predicted(data_meas, data_calc, logger):
   import numpy as np
   valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
   stats_nan = {
@@ -51,11 +60,3 @@ def _stats_calculated(data_meas, data_calc, logger):
           'n_valid': np.sum(valid)
   }
 
-def _stats_summary(data_meas, logger):
-  import numpy as np
-  return {
-          'std': np.nanstd(data_meas),
-          '|max|': np.abs(np.nanmax(data_meas)),
-          'n': len(data_meas),
-          'n_valid': np.sum(~np.isnan(data_meas))
-  }
