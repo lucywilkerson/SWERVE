@@ -3,17 +3,18 @@
 #   python main.py paper
 #   python main.py 'site1,site2,...'
 
+reparse    = True   # Reparse the data files, even if they already exist.
+sids_only  = None   # Read and plot data only sites in this array. None => all sites.
+show_plots = False  # Show interactive plots as generated.
+data_types = None   # Read and plot all data types. None means => data types.
+data_types = ['B']  # Read and plot these data types only.
+
 import sys
 
 from swerve import config, sids, site_read, site_plot, site_stats
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
-reparse    = True   # Reparse the data files, even if they already exist.
-sids_only  = None   # Read and plot data only sites in this array. None => all sites.
-show_plots = False  # Show interactive plots as generated.
-data_types = None   # Read and plot all data types. None means => data types.
-data_types = ['B']  # Read and plot these data types only.
 
 if sids_only is None and sys.argv is not None and len(sys.argv) > 1:
   # Use command line arguments to specify sites under these conditions.

@@ -58,7 +58,8 @@ def _plot(data, show_plots=False):
       errors.append(f"Modified Error: {data['modified']['error']}")
     if 'time' in data['modified'] and 'data' in data['modified']:
       plt.plot(data['modified']['time'], data['modified']['data'], label=labels_mod, color='orange', lw=1)
-    plt.title(f"{"\n".join(errors)}Modification = {data['modified']['modification']}")
+    errors = '\n'.join(errors)
+    plt.title(f"{errors}Modification = {data['modified']['modification']}")
   else:
     plt.title("\n".join(errors))
 

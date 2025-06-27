@@ -37,16 +37,26 @@ We kindly thank the Tennessee Valley Authority (TVA) for providing data from the
 ## License
 This repository is licensed under the MIT License. See `LICENSE` for details.
 
-# Installing and Using
+# Installing
 
 ```
-# Send request to Lucy Wilkerson <lwilker@gmu.edu> for access to this repo
-# (it contains NERC data, which is not open)
 git clone https://github.com/lucywilkerson/SWERVE
 git clone --depth 1 https://github.com/lucywilkerson/2024-May-Storm-data
 cd SWERVE
 pip install -e .
 ```
+
+If above install does not work due to error `proj executable not found.`, try
+
+```
+conda config --prepend channels conda-forge
+conda config --set channel_priority strict
+conda create -n python3.12-swerve pyproj python=3.12
+conda activate python3.12-swerve
+pip install -e .
+```
+
+# Using
 
 See stdout for files read and written.
 
