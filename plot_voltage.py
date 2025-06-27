@@ -1,6 +1,8 @@
-from swerve import FILES, savefig, LOG_KWARGS, logger
 
-logger = logger(**LOG_KWARGS)
+from swerve import config, savefig
+
+CONFIG = config()
+logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 figsize = (12, 6)
 
@@ -53,7 +55,7 @@ def plot_lengths():
     savefig('_results', 'trans_lines_length', logger)
     plt.close()
 
-voltages, gdf = read_lines(FILES['shape_files']['electric_power'])
+voltages, gdf = read_lines(CONFIG['files']['shape_files']['electric_power'])
 
 plot_volts = []
 voltage_counts = []
@@ -72,4 +74,3 @@ for voltage in voltages:
 
 plot_counts()
 plot_lengths()
-utilrsw.rm_if_empty('log/plot_voltage.errors.log')

@@ -9,9 +9,9 @@ import pandas as pd
 
 from sklearn.linear_model import LinearRegression
 
-from swerve import LOG_KWARGS, logger
+from swerve import config
 
-logger = logger(**LOG_KWARGS)
+logger = config()['logger'](**config()['logger_kwargs'])
 
 def read_info():
   file_path = os.path.join('info', 'info.extended.csv')
@@ -145,4 +145,3 @@ for output_name in output_names:
       for key in metrics:
         logger.info(f"  {key} = {metrics[key]:.4f}")
 
-utilrsw.rm_if_empty('log/regression.errors.log')
