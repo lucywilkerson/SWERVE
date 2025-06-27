@@ -3,14 +3,14 @@
 #   python main.py paper
 #   python main.py 'site1,site2,...'
 
-reparse    = True   # Reparse the data files, even if they already exist.
 sids_only  = None   # Read and plot data only sites in this array. None => all sites.
+                    # Ignored if command line arguments are provided.
+reparse    = False  # Reparse the data files, even if they already exist.
 show_plots = False  # Show interactive plots as generated.
-data_types = None   # Read and plot all data types. None means => data types.
+data_types = None   # Read and plot these data types. None => all data types.
 data_types = ['B']  # Read and plot these data types only.
 
 import sys
-
 from swerve import config, sids, site_read, site_plot, site_stats
 
 CONFIG = config()
@@ -25,6 +25,7 @@ else:
 sids_only = sids(sids_only=sids_only)
 
 data = {}
+stats = {}
 for sid in sids_only:
   data[sid] = {}
 
@@ -32,10 +33,12 @@ for sid in sids_only:
   data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse)
 
   # Add statistics to data in data[sid].
-  site_stats(sid, data[sid], data_types=data_types, logger=logger)
+  stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
 
-  site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
+import utilrsw
+logger.info("\n" + utilrsw.format_dict(stats))
 
 if sids_only is None and data_types is None:
   import utilrsw

@@ -6,16 +6,20 @@ import pickle
 import datetime
 
 out_dir = '_processed'
-resample_log = False  # Set to True to log resampling information.
+debug = False  # Set to True to log resampling information.
 
-def site_read(sid, data_types=None, logger=None, reparse=False):
-  """Read data from site
+def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
+  """Read data from one or more sites
 
-  Returns:
-      dict with keys 'time' (1D numpy array of datetimes) and 'data'
-      (2D numpy array of data).
+  Usage:
+    site_read(sid, data_types=None, reparse=False, logger=None):
 
-  If `data_types` is None, read all data types for the site.
+  If `data_types` is None, read all data types (e.g, B, GIC) for the site.
+
+  If `reparse` is True, reparse the data files even if cache file exists
+  (use if data files or code in this script that reads them has changed).
+
+  If `debug` is True, print processing details for computing resampled data.
   """
   from swerve import config, read_info_dict, resample
 
@@ -25,17 +29,17 @@ def site_read(sid, data_types=None, logger=None, reparse=False):
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
   resample_kwargs = {}
-  if resample_log:
+  if debug:
     resample_kwargs = {'logger': logger, 'logger_indent': 6}
 
   sidx = sid.lower().replace(' ', '')
-  all_file = '_all.pkl'
-  all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
+  site_all_file = '_all.pkl'
+  site_all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', site_all_file)
 
   if not reparse:
-    if os.path.exists(all_file):
-      logger.info(f"Reading cached file with all data for site '{sid}': {all_file}")
-      with open(all_file, 'rb') as f:
+    if os.path.exists(site_all_file):
+      logger.info(f"Reading cached file with all data for site '{sid}': {site_all_file}")
+      with open(site_all_file, 'rb') as f:
         data = pickle.load(f)
         return data
 
@@ -67,7 +71,6 @@ def site_read(sid, data_types=None, logger=None, reparse=False):
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
         orig = _site_read_orig(sid, data_type, data_class, data_source, logger)
         site_info[data_type][data_class][data_source]['original'] = orig
-
         # Check returned data object
         if _output_error(orig, logger):
           continue
@@ -99,51 +102,26 @@ def site_read(sid, data_types=None, logger=None, reparse=False):
         file_name = os.path.join(out_dir, sidx, 'data', file_name)
         _write_pkl(file_name, site_info[data_type][data_class], logger)
 
-  _write_pkl(all_file, site_info, logger)
+  _write_pkl(site_all_file, site_info, logger)
 
   return site_info
-
-def _output_error(d, logger):
-  msgo = "Not computing modified"
-  if 'error' in d:
-    logger.error(f"    {msgo} due to error: {d['error']}")
-    return True
-
-  if len(d['data'].shape) != 2:
-    logger.error(f"    {msgo} b/c data array is not 2D")
-    return True
-
-  if len(d['time'].shape) != 1:
-    logger.error(f"    {msgo} b/c time array is not 1D")
-    return True
-
-  if d['data'].shape[0] != len(d['time']):
-    msg = f"    {msgo} b/c d['data'].shape[0] = {d['data'].shape[0]} != len(d['time'])"
-    msg += f" = {len(d['time'])}"
-    logger.error(msg)
-    return True
-
-  return False
-
-  def _site_read_cache(sid, data_dir, logger):
-    sidx = sid.lower().replace(' ', '')
-    all_file = '_all.pkl'
-    all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
-    if os.path.exists(all_file):
-      logger.info(f"Reading {all_file}")
-      with open(all_file, 'rb') as f:
-        data = pickle.load(f)
-        return data
-
-    return None
 
 def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
   """Read data from site
 
   Returns:
-      dict with keys 'time' (1D numpy array of datetimes) and 'data'
-      (2D numpy array of data).
+      dict with keys
+        time:   1D numpy array of datetimes
+        data:   2D numpy array of data; for B or dB data, the shape is (N, 3);
+                for GIC measurements, the shape is (N, 1), where N = len(time).
+        data_t: For B or dB data only. If columns of data are not dBx, dBy, dBz
+                where x = geomagnetic north, y = geomagnetic east, z = vertical
+                down then data_t has these columns.
+        label:  For B (or dB) a 3-element list of labels used by data
+                provider.
+        unit:   String with unit used by data provider that applies to all
+                columns in data.
   """
 
   def read_nerc(data_dir, fname):
@@ -259,10 +237,12 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
 
-    if len(nearest_sim_site) == 0:
-      raise ValueError(f"No nearest simulation site found for site {sid} in info.extended.csv")
-    if len(nearest_sim_site) > 1:
-      raise ValueError(f"Multiple nearest simulation sites found for site {sid} in info.extended.csv: {nearest_sim_site}")
+    if len(nearest_sim_site) != 1:
+      msgo = f"found for site {sid} in info.extended.csv"
+      if len(nearest_sim_site) == 0:
+        raise ValueError(f"No nearest simulation site {msgo}")
+      if len(nearest_sim_site) > 1:
+        raise ValueError(f"Multiple nearest simulation sites {msgo}: {nearest_sim_site}")
     nearest_sim_site = int(nearest_sim_site.values[0])
     logger.info(f"    Nearest simulation site: {nearest_sim_site}")
 
@@ -365,6 +345,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         # site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
         # column #s:
         #   0,   1,  2,  3,  4,  5,   6,   7,   8,   9
+        #
         # From Mike Wiltberger:
         # As a reminder I will point you to our documentation for the kaipy package which
         # includes information on the structure of SuperMAGE interpolated dataframe.
@@ -377,18 +358,67 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         # Here's the relevant mapping BNm - dBt, BEm - dBp, and BZm - dBr.
         # I've attached a reference plot as an example to this message.
         #
+        # SuperMAG coordinate system description:
+        #   https://supermag.jhuapl.edu/mag/?fidelity=low&tab=description
+        #   Note that geomagnetic coordinates are routinely labeled HDZ although
+        #   the units of the D-component can be nT or an angle. Likewise, the
+        #   D-component is often found to have a significant offset. As a
+        #   consequence SuperMAG decided to denote the components: B=(BN,BE,BZ)
+        #     N-direction is local magnetic north
+        #     E-direction is local magnetic east
+        #     Z-direction is vertically down
+        #
         # RSW comment:
+        # I think "theta component" means theta_hat component. Similar for phi.
+        # The MAGE coordinate systems seems be spherical with an origin at
+        # Earth's center and the theta=0 along dipole axis.
         # The reference plot seems to equate BNm with dBn and not dBt.
         # In the following, we use the mapping implied by the plot.
         #                              BNm/dBn        BEm/dBp         BZm/dBr
+
         sites[site]["data"].append([float(row[2]), float(row[4]), float(row[5])])
 
     if sid not in sites:
-      raise ValueError(f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}")
+      msg = f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}"
+      raise ValueError(msg)
 
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
     return {"time": time, "data": data, "label": ["dBn", "dBp", "dBr"], "units": "nT"}
+
+def _output_error(d, logger):
+  msgo = "Not computing modified"
+  if 'error' in d:
+    logger.error(f"    {msgo} due to error: {d['error']}")
+    return True
+
+  if len(d['data'].shape) != 2:
+    logger.error(f"    {msgo} b/c data array is not 2D")
+    return True
+
+  if len(d['time'].shape) != 1:
+    logger.error(f"    {msgo} b/c time array is not 1D")
+    return True
+
+  if d['data'].shape[0] != len(d['time']):
+    msg = f"    {msgo} b/c d['data'].shape[0] = {d['data'].shape[0]} != len(d['time'])"
+    msg += f" = {len(d['time'])}"
+    logger.error(msg)
+    return True
+
+  return False
+
+  def _site_read_cache(sid, data_dir, logger):
+    sidx = sid.lower().replace(' ', '')
+    all_file = '_all.pkl'
+    all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
+    if os.path.exists(all_file):
+      logger.info(f"Reading {all_file}")
+      with open(all_file, 'rb') as f:
+        data = pickle.load(f)
+        return data
+
+    return None
 
 def _write_pkl(fname, data, logger):
 
