@@ -112,7 +112,7 @@ def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png'
   logger_indent = ' ' * logger_indent
 
   if root_dir is None:
-    root_dir = config()['data_dir']
+    root_dir = config()['dirs']['data']
 
   from matplotlib import pyplot as plt
 
@@ -129,7 +129,7 @@ def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png'
       plt.savefig(f'{fname}.{fmt}', bbox_inches='tight')
 
 def savefig_paper(base_dir, fname, logger, logger_indent=0):
-  conf = config()
-  if 'paper_dir' not in conf:
+  CONFIG = config()
+  if 'paper_dir' not in CONFIG['dirs']:
     return
-  savefig(base_dir, fname, logger, logger_indent=logger_indent, root_dir=conf['paper_dir'], fmts=['pdf'])
+  savefig(base_dir, fname, logger, logger_indent=logger_indent, root_dir=CONFIG['dirs']['paper'], fmts=['pdf'])

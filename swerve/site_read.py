@@ -5,7 +5,6 @@ import pandas
 import pickle
 import datetime
 
-out_dir = '_processed'
 debug = False  # Set to True to log resampling information.
 
 def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
@@ -34,7 +33,8 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
 
   sidx = sid.lower().replace(' ', '')
   site_all_file = '_all.pkl'
-  site_all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', site_all_file)
+  out_dir = CONFIG['dirs']['processed']
+  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, sidx, 'data', site_all_file)
 
   if not reparse:
     if os.path.exists(site_all_file):
@@ -99,10 +99,8 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
         site_info[data_type][data_class][data_source]['modified'] = modified
 
         file_name = f'{data_type}_{data_class}_{data_source}.pkl'
-        file_name = os.path.join(out_dir, sidx, 'data', file_name)
+        file_name = os.path.join(CONFIG['dirs']['processed'], sidx, 'data', file_name)
         _write_pkl(file_name, site_info[data_type][data_class], logger)
-
-  _write_pkl(site_all_file, site_info, logger)
 
   return site_info
 
@@ -163,7 +161,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
   from swerve import config
   CONFIG = config()
-  data_dir = CONFIG['data_dir']
+  data_dir = CONFIG['dirs']['data']
 
   data = []
   time = []
@@ -409,24 +407,12 @@ def _output_error(d, logger):
 
   return False
 
-  def _site_read_cache(sid, data_dir, logger):
-    sidx = sid.lower().replace(' ', '')
-    all_file = '_all.pkl'
-    all_file = os.path.join(CONFIG['data_dir'], out_dir, sidx, 'data', all_file)
-    if os.path.exists(all_file):
-      logger.info(f"Reading {all_file}")
-      with open(all_file, 'rb') as f:
-        data = pickle.load(f)
-        return data
-
-    return None
-
 def _write_pkl(fname, data, logger):
 
   import os
   from swerve import config
   CONFIG = config()
-  fname = os.path.join(CONFIG['data_dir'], fname)
+  fname = os.path.join(CONFIG['dirs']['data'], fname)
   if not os.path.exists(os.path.dirname(fname)):
     os.makedirs(os.path.dirname(fname))
 

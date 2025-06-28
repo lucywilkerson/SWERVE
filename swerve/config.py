@@ -27,8 +27,36 @@ def config(event='2024-May-Storm'):
         'log_dir': os.path.join(data_dir, '_log'),
         'console_format': console_format
       },
-      'data_dir': data_dir,
-      'paper_dir': os.path.abspath(os.path.join(file_path, '..', '..', event + '-paper')),
+      'limits': {
+        'data': limits_data, # Pad or trim data to these limits
+        'plot': limits_plot  # Plot data within these limits
+      },
+      'dirs': {
+        'data': data_dir,
+        'paper': os.path.abspath(os.path.join(file_path, '..', '..', event + '-paper')),
+        'processed': os.path.join(data_dir, '_processed'),
+      },
+      'files': {
+          'mage': {
+              'bcwind': os.path.join(data_dir, 'imf_data', 'bcwind.h5')
+          },
+          'swmf': {
+            'bcwind': os.path.join(data_dir, 'imf_data', 'Dean_IMF.txt')
+          },
+          'gmu': {
+            'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
+          },
+          'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
+          'all': os.path.join(data_dir, '_processed', 'all.pkl'),
+          'info': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.csv')),
+          'info_extended': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.extended.csv')),
+          'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
+          'shape': {
+              'transmission_lines': os.path.join(data_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'mag_lat': os.path.join(data_dir, 'shape', 'wmm_all', 'I_2024.shp')
+          },
+          'beta': os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat'),
+      },
       'paper_sids': {
         'GIC': {
           'timeseries': {
@@ -55,29 +83,4 @@ def config(event='2024-May-Storm'):
           }
          }
       },
-      'files': {
-          'mage': {
-              'bcwind': os.path.join(data_dir, 'imf_data', 'bcwind.h5')
-          },
-          'swmf': {
-            'bcwind': os.path.join(data_dir, 'imf_data', 'Dean_IMF.txt')
-          },
-          'gmu': {
-            'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
-          },
-          'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
-          'all': os.path.join(data_dir, '_processed', 'all.pkl'),
-          'info': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.csv')),
-          'info_extended': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.extended.csv')),
-          'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
-          'shape': {
-              'transmission_lines': os.path.join(data_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
-              'mag_lat': os.path.join(data_dir, 'shape', 'wmm_all', 'I_2024.shp')
-          },
-          'beta': os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat'),
-      },
-      'limits': {
-        'data': limits_data, # Pad or trim data to these limits
-        'plot': limits_plot  # Plot data within these limits
-      }
     }

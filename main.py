@@ -11,6 +11,8 @@ data_types = None   # Read and plot these data types. None => all data types.
 data_types = ['B']  # Read and plot these data types only.
 
 import sys
+
+import utilrsw
 from swerve import config, sids, site_read, site_plot, site_stats
 
 CONFIG = config()
@@ -26,8 +28,6 @@ sids_only = sids(sids_only=sids_only)
 
 data = {}
 stats = {}
-import utilrsw
-
 for sid in sids_only:
   data[sid] = {}
 
@@ -37,12 +37,9 @@ for sid in sids_only:
   # Add statistics to data in data[sid].
   stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
 
-  utilrsw.print_dict(data[sid])
-  #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  utilrsw.print_dict(data[sid], indent=4)
 
-import pdb; pdb.set_trace()
-#import utilrsw
-#logger.info("\n" + utilrsw.format_dict(stats))
+  site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
 if sids_only is None and data_types is None:
   import utilrsw

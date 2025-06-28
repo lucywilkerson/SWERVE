@@ -17,7 +17,7 @@ from datetick import datetick
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-DATA_DIR = CONFIG['data_dir']
+DATA_DIR = CONFIG['dirs']['data']
 
 base_dir = '_processed'
 

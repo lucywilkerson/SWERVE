@@ -1,14 +1,16 @@
-out_dir = '_processed'
 
 def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
-  from swerve import savefig
+  from swerve import config, savefig
 
   if logger is None:
     from swerve import LOG_KWARGS, logger
     logger = logger(**LOG_KWARGS)
 
   logger.info(f"Plotting '{sid}' data")
+
+  CONFIG = config()
+  out_dir = CONFIG['dirs']['processed']
 
   for data_type in data.keys(): # e.g., GIC, B
 
@@ -28,6 +30,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     if 'measured' in data[data_type] and 'calculated' in data[data_type]:
       logger.info(f"  Plotting measured/calculated comparison for '{sid}/{data_type}'")
       _plot_compare(sid, data_type, data[data_type], logger)
+
 
 def _plot(data, show_plots=False):
   from matplotlib import pyplot as plt
@@ -80,9 +83,10 @@ def _plot_compare(sid, data_type, data, logger):
 
   from swerve import config, savefig, savefig_paper, add_subplot_label
 
-  def _savefig_paper(sid, data_type, ftype, fdir, fname):
-    CONFIG = config()
+  CONFIG = config()
+  out_dir = CONFIG['dirs']['processed']
 
+  def _savefig_paper(sid, data_type, ftype, fdir, fname):
     if sid in CONFIG['paper_sids'][data_type]['correlation'].keys():
       text = CONFIG['paper_sids'][data_type]['correlation'][sid]
       add_subplot_label(plt.gca(), text)
