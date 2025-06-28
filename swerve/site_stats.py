@@ -1,5 +1,7 @@
 def site_stats(sid, data, data_types=None, logger=None):
 
+  import utilrsw
+
   if logger is None:
     from swerve import LOG_KWARGS, logger
     logger = logger(**LOG_KWARGS)
@@ -18,16 +20,22 @@ def site_stats(sid, data, data_types=None, logger=None):
           if 'error' not in data[data_type][data_class][data_source]['modified']:
             data_modified = data[data_type][data_class][data_source]['modified']['data']
             stats = _stats(data_modified, logger)
-            all_stats[f"{data_type}/{data_class}/{data_source}"]['stats'] = stats
-            data[data_type][data_class][data_source]['modified']['stats'] = stats
-            logger.info(f"  Stats for {data_type}/{data_class}/{data_source}:")
-            logger.info(f"    {stats}")
 
-    if 'calculated' and 'measured' in data[data_type].keys():
+            key = f"{data_type}/{data_class}/{data_source}"
+            all_stats[key]['stats'] = stats
+            data[data_type][data_class][data_source]['modified']['stats'] = stats
+
+            logger.info(f"  Stats for {data_type}/{data_class}/{data_source}:")
+            logger.info(f"\n{utilrsw.format_dict(stats, indent=4)}")
+
+    if set(("calculated", "measured")).issubset(data[data_type]):
+      # Both measured and calculated data are keys in data[data_type].
+      # Always use the first data source for measured data.
       data_source_measured = list(data[data_type]['measured'].keys())[0]
       if 'modified' in data[data_type]['measured'][data_source_measured]:
         if 'error' in data[data_type]['measured'][data_source_measured]['modified']:
-          logger.warning(f"  Skipping stats for {data_type} due to error in measured modified data.")
+          msg = f"  Skipping stats for {data_type} due to error in measured modified data."
+          logger.warning(msg)
           continue
         data_measured = data[data_type]['measured'][data_source_measured]['modified']['data']
 
@@ -39,10 +47,13 @@ def site_stats(sid, data, data_types=None, logger=None):
 
         data_calculated = data[data_type]['calculated'][data_source_calculated]['modified']['data']
         metrics = _metrics(data_measured, data_calculated, logger)
-        all_stats[f"{data_type}/{data_class}/{data_source_calculated}"]['metrics'] = metrics
+
+        key = f"{data_type}/{data_class}/{data_source_calculated}"
+        all_stats[key]['metrics'] = metrics
         data[data_type][data_class][data_source_calculated]['modified']['metrics'] = metrics
+
         logger.info(f"  Metrics for {data_type}/{data_class}/{data_source_calculated}:")
-        logger.info(f"    {metrics}")
+        logger.info(f"\n{utilrsw.format_dict(metrics, indent=4)}")
 
   return all_stats
 

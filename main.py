@@ -5,7 +5,7 @@
 
 sids_only  = None   # Read and plot data only sites in this array. None => all sites.
                     # Ignored if command line arguments are provided.
-reparse    = False  # Reparse the data files, even if they already exist.
+reparse    = True   # Reparse the data files, even if they already exist.
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 data_types = ['B']  # Read and plot these data types only.
@@ -26,6 +26,8 @@ sids_only = sids(sids_only=sids_only)
 
 data = {}
 stats = {}
+import utilrsw
+
 for sid in sids_only:
   data[sid] = {}
 
@@ -35,10 +37,12 @@ for sid in sids_only:
   # Add statistics to data in data[sid].
   stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
 
+  utilrsw.print_dict(data[sid])
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-import utilrsw
-logger.info("\n" + utilrsw.format_dict(stats))
+import pdb; pdb.set_trace()
+#import utilrsw
+#logger.info("\n" + utilrsw.format_dict(stats))
 
 if sids_only is None and data_types is None:
   import utilrsw

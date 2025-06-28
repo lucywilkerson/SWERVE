@@ -233,6 +233,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
     from swerve import read_info_df, read_info_dict
+
     extended_df = read_info_df(extended=True)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']

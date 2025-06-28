@@ -1,53 +1,125 @@
 import os
-import csv
 import json
 import pandas as pd
-
 import numpy as np
-from scipy.io import loadmat
-from scipy.interpolate import LinearNDInterpolator
-import geopandas as gpd
-import matplotlib.pyplot as plt
-from matplotlib.collections import LineCollection
-from matplotlib.transforms import Bbox
 
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
+from swerve import config
 
-from spacepy import coordinates as coord
-from spacepy.time import Ticktock
-import utilrsw
-log_dir = 'log'
-logger = utilrsw.logger(log_dir=log_dir)
+CONFIG = config()
+logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 """
-Write new info csv file (info/info.extended.csv) with additional columns:
--interpolated beta
--nearest voltage
--power pool
--US region
--nearest GMU simulation site
--geomagnetic coordinates
+Write info/info.extended.csv with additional columns from info/info.csv:
+  * interpolated_beta
+  * mag_lat
+  * mag_lon
+  * nearest_sim_site
+  * nearest_volt,
+  * power_pool
+  * US_region
+
+Write info/info.json, which is a dict with keys of site_id and values of
+a dict with all measured and calculated data for that site.
 """
 
-data_dir = os.path.join('..', '2024-May-Storm-data')
-info_csv = os.path.join('info', 'info.csv')
-beta_fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
-geojson_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf.geojson')
-transmission_fname = os.path.join(data_dir, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp')
-sim_dir = os.path.join(data_dir, 'dennies_gic_comparison')
-sim_file = os.path.join(sim_dir, 'gic_mean_df_1.csv')
+# Code for interpolated beta
+def add_beta(info_df, beta_fname, beta_site='OTT'):
+
+  from scipy.io import loadmat
+  from scipy.interpolate import LinearNDInterpolator
+
+  logger.info(f"Adding interpolated {beta_site} beta column to info_df")
+  logger.info(f"  Reading {beta_fname}")
+  data = loadmat(beta_fname)
+  data = data['waveform'][0]
+
+  beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
+  if beta_site not in beta_sites:
+    raise ValueError(f"  Invalid beta {beta_site}. Choose from {beta_sites}")
+
+  # Convert the MATLAB data to a pandas DataFrame
+  raw_df = pd.DataFrame(data)
+  if beta_site == 'MEA':
+    betas = raw_df[0][0][0][0][1][0]
+  if beta_site == 'OTT':
+    betas = raw_df[0][1][0][0][1][0]
+  if beta_site == 'MMB':
+    betas = raw_df[0][2][0][0][1][0]
+  if beta_site == 'NUR':
+    betas = raw_df[0][3][0][0][1][0]
+
+  # Convert betas list to a Pandas DataFrame
+  rows = []
+  for i in range(len(betas)):
+      beta = betas[i][0][0][1][0][0]
+      lat = betas[i][0][0][2][0][0]
+      lon = betas[i][0][0][3][0][0]
+      rows.append([beta, lat, lon])
+  df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
+
+  # Create the interpolator
+  interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
+
+  # Define a grid for interpolation
+  lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
+  lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
+  lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
+
+  # Add a new column to info_df based on the interpolated beta values
+  info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
+
+# Code for geomag coords
+def add_geomag(info_df, date):
+  from spacepy.time import Ticktock
+  import spacepy.coordinates as coord
+
+  def get_geomag_coords(row):
+      Re = 6371.0 #mean Earth radius in km
+      alt = 0 #altitude in km, can be set to 0 for surface
+      c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
+      c.ticks = date
+      c = c.convert('MAG', 'sph')
+      return c.data[0][1], c.data[0][2]  # mag_lat, mag_lon
+
+  logger.info(f"Adding geomagnetic coordinates to info_df using date {date}")
+
+  date = Ticktock([date], 'UTC')
+
+  # Applying the function to create new columns
+  info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
 
 # Code for GMU simulation sites
-def add_sim_site(sim_file, sim_dir, info_df, update_csv=False):
+def add_sim_site(info_df, sim_file, update_csv=False):
+
+  """
+  Assumes dirs 'tva' and 'nerc' exist in the same directory as sim_file.
+  """
+
+  # add new column based on the nearest simulation site
+  def add_nearest_sim_site(info_df, output_df, data_source=['tva', 'nerc']):
+    info_df['nearest_sim_site'] = -1
+    for site_type in data_source:
+      for site in output_df[f'{site_type}_site'].unique():
+        df = output_df[output_df[f'{site_type}_site'] == site]
+        if not df.empty and f'{site_type}_dist' in df.columns:
+          min_dist_row = df.loc[df[f'{site_type}_dist'].idxmin()]
+        else:
+          continue
+
+        mask = (info_df['data_source'] == 'GMU') & (info_df['site_id'] == min_dist_row[f'{site_type}_site'])
+        info_df.loc[mask, 'nearest_sim_site'] = int(min_dist_row['sim_site'])
+
+  logger.info("Adding GMU simulation sites to info_df")
+
+  sim_dir = os.path.dirname(sim_file)
 
   no_gmu_df = info_df[info_df['data_source'] != 'GMU']
   meas_df = no_gmu_df[no_gmu_df['data_class'] == 'measured']
 
-  logger.info(f"Reading GMU simulation: {sim_file}")
+  logger.info(f"  Reading: {sim_file}")
   site_df = pd.read_csv(sim_file)
 
-  # finding associated tva/nerc sites for all simulation sites 
+  # Find associated TVA/NERC sites for all simulation sites
   output_data = []
   for site in site_df['sub_id'].unique():
     tva_df = None
@@ -63,12 +135,12 @@ def add_sim_site(sim_file, sim_dir, info_df, update_csv=False):
         tva_site = 'Widows Creek'
       if tva_site == 'Paradise':
         tva_site = 'Paradise 3'
-    
+
     nerc_fname = os.path.join(sim_dir, 'nerc', f'site_{site}.csv')
     if os.path.exists(nerc_fname):
       nerc_df = pd.read_csv(nerc_fname)
       nerc_site = f'{nerc_df["site_1_device"][0]}'
-    
+
     if tva_df is not None or nerc_df is not None:
       sim_lat = None
       sim_lon = None
@@ -108,12 +180,9 @@ def add_sim_site(sim_file, sim_dir, info_df, update_csv=False):
         'nerc_dist': nerc_dist
       })
 
-  # output data to df
   output_df = pd.DataFrame(output_data)
-  output_fname = os.path.join('info', 'info.simulation.csv')
-  output_df.to_csv(output_fname, index=False)
-  logger.info(f"Saved simulation info table to {output_fname}")
-  if update_csv: #adding gmu sites to info.csv
+
+  if update_csv: # Add GMU sites to info.csv
     # adding GMU simulation sites to info.csv
     def add_info(info_df, output_df, data_source=['tva','nerc']):
       for site_type in data_source:
@@ -135,7 +204,6 @@ def add_sim_site(sim_file, sim_dir, info_df, update_csv=False):
           }])
           info_df = pd.concat([info_df, new_row], ignore_index=True)
       return info_df
-      
 
     new_info_df = add_info(no_gmu_df, output_df)
 
@@ -143,80 +211,19 @@ def add_sim_site(sim_file, sim_dir, info_df, update_csv=False):
     new_info_df.to_csv(output_fname, index=False)
     logger.info(f"Saved updated info table to {output_fname}")
 
-
-  # add new column based on the nearest simulation site
-  info_df['nearest_sim_site'] = np.nan  
-  def add_nearest_sim_site(info_df, output_df, data_source=['tva', 'nerc']):
-    for site_type in data_source:
-      for site in output_df[f'{site_type}_site'].unique():
-        df = output_df[output_df[f'{site_type}_site'] == site]
-        if not df.empty and f'{site_type}_dist' in df.columns:
-          min_dist_row = df.loc[df[f'{site_type}_dist'].idxmin()]
-        else:
-          continue
-
-        mask = (info_df['data_source'] == 'GMU') & (info_df['site_id'] == min_dist_row[f'{site_type}_site'])
-        info_df.loc[mask, 'nearest_sim_site'] = f'{min_dist_row['sim_site']}'
-    return info_df
-
-  info_df = add_nearest_sim_site(info_df, output_df)
-
-# Read in info.csv
-logger.info(f"Reading {info_csv}")
-info_df = pd.read_csv(info_csv)
-utilrsw.rm_if_empty(f"{log_dir}/info.log")
-
-add_sim_site(sim_file, sim_dir, info_df, update_csv=False)
-
-# Code for interpolated beta
-def add_beta(beta_fname, info_df, beta_site='OTT'):
-
-  logger.info(f"Reading beta factors file: {beta_fname}")
-  data = loadmat(beta_fname)
-  data = data['waveform'][0]
-  logger.info("Adding interpolated OTT beta column to info_df")
-
-  beta_sites = ['MEA', 'OTT', 'MMB', 'NUR']
-  if beta_site not in beta_sites:
-    raise ValueError(f"Invalid beta site. Choose from {beta_sites}")
-
-  # Convert the MATLAB data to a pandas DataFrame
-  raw_df = pd.DataFrame(data)
-  if beta_site == 'MEA':
-    betas = raw_df[0][0][0][0][1][0]
-  if beta_site == 'OTT':
-    betas = raw_df[0][1][0][0][1][0]
-  if beta_site == 'MMB':
-    betas = raw_df[0][2][0][0][1][0]
-  if beta_site == 'NUR':
-    betas = raw_df[0][3][0][0][1][0]
-
-  # Convert betas list to a Pandas DataFrame
-  rows = []
-  for i in range(len(betas)):
-      beta = betas[i][0][0][1][0][0]
-      lat = betas[i][0][0][2][0][0]
-      lon = betas[i][0][0][3][0][0]
-      rows.append([beta, lat, lon])
-  df = pd.DataFrame(rows, columns=['beta', 'lat', 'lon'])
-
-  # Create the interpolator
-  interpolator = LinearNDInterpolator(df[['lat', 'lon']], df['beta'])
-
-  # Define a grid for interpolation
-  lat_grid = np.linspace(df['lat'].min(), df['lat'].max(), 100)
-  lon_grid = np.linspace(df['lon'].min(), df['lon'].max(), 100)
-  lat_grid, lon_grid = np.meshgrid(lat_grid, lon_grid)
-
-  # Add a new column to info_df based on the interpolated beta values
-  info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
-
-add_beta(beta_fname, info_df)
+  add_nearest_sim_site(info_df, output_df)
 
 # Code for power pool and US region
-def add_power_pool(geojson_file, info_df):
+def add_power_pool(info_df, geojson_file):
+
+  import matplotlib.pyplot as plt
+  from matplotlib.collections import LineCollection
+  from matplotlib.transforms import Bbox
+
+  import geopandas as gpd
+
   # Code for power pool and US region
-  logger.info(f"Reading power pool geography file: {geojson_file}")
+  logger.info(f"  Reading {geojson_file}")
   gdf = gpd.read_file(geojson_file)
 
   # Plot the GeoDataFrame with colors for each region
@@ -250,8 +257,9 @@ def add_power_pool(geojson_file, info_df):
   plt.close()
 
   # Save the updated GeoDataFrame to a CSV file
-  csv_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf_mapped.csv')
-  logger.info(f"Saving {csv_file}")
+  base_dir = os.path.dirname(geojson_file)
+  csv_file = os.path.join(base_dir, 'nerc_gdf_mapped.csv')
+  logger.info(f"  Writing {csv_file}")
   gdf.to_csv(csv_file, index=False)
 
   # Making info_df -> gdf
@@ -270,10 +278,18 @@ def add_power_pool(geojson_file, info_df):
 
   return info_df
 
-info_df = add_power_pool(geojson_file, info_df)
-
 # Code for nearest voltage
-def add_voltage(transmission_fname, info_df):
+def add_voltage(info_df, transmission_fname):
+
+  import matplotlib.pyplot as plt
+  from matplotlib.collections import LineCollection
+  from matplotlib.transforms import Bbox
+
+  import geopandas as gpd
+
+  import cartopy.crs as ccrs
+  import cartopy.feature as cfeature
+
   # Code for nearest voltage
   def explode_with_unique_line_id(gdf):
       """
@@ -316,11 +332,11 @@ def add_voltage(transmission_fname, info_df):
       )
       return gdf[mask]
 
-  def load_devices(device_loc, crs="EPSG:4326"):
+  def load_devices(crs="EPSG:4326"):
       """
-      Load device data from a CSV and convert to a GeoDataFrame.
+      Create GeoDataFrame based on content of info_df.
       """
-      device_df = pd.read_csv(device_loc)
+      device_df = info_df.copy()
       device_df.rename(
           columns={
               "site_id": "device",
@@ -393,12 +409,11 @@ def add_voltage(transmission_fname, info_df):
           line_to_device_map,
       )
 
-  def process_data(fname, info_csv=info_csv, buffer_distance=1000):
+  def process_data(fname, buffer_distance=1000):
       """
       Process transmission lines and device data.
 
       Parameters:
-        data_dir: Path to the directory containing data.
         buffer_distance: Buffer (in meters) to apply around devices.
 
       Returns:
@@ -410,8 +425,6 @@ def add_voltage(transmission_fname, info_df):
       # Define data locations
       tl_loc = fname
 
-      device_loc = info_csv
-
       # Load transmission lines and filter by US extent
       trans_lines_gdf = load_transmission_lines(tl_loc, crs_target="EPSG:4326")
       us_extent = {"minx": -125.0, "maxx": -66.9, "miny": 24.4, "maxy": 49.4}
@@ -422,7 +435,7 @@ def add_voltage(transmission_fname, info_df):
       trans_lines_gdf["length"] = trans_lines_gdf.geometry.apply(lambda x: x.length)
 
       # Load devices
-      device_gdf = load_devices(device_loc, crs="EPSG:4326")
+      device_gdf = load_devices(crs="EPSG:4326")
 
       # Reproject both GeoDataFrames to a projected CRS (NAD83)
       projected_crs = "EPSG:5070"
@@ -561,13 +574,15 @@ def add_voltage(transmission_fname, info_df):
       ax.set_title("Transmission Lines and Device Locations")
       #plt.show()
 
+  logger.info("Adding nearset voltage")
+
   info_df['nearest_volt'] = np.nan
 
   # Running over all TVA and NERC GIC monitors
   if __name__ == "__main__":
       buffer_distance = 500  # specify the dist in m
       tl_gdf_subset, device_gdf, connection_dicts = process_data(
-          transmission_fname, info_csv, buffer_distance
+          transmission_fname, buffer_distance
       )
 
       (
@@ -612,29 +627,19 @@ def add_voltage(transmission_fname, info_df):
       # Optional plot the data for TVA and NERC on the same plot
       plot(tl_gdf_subset, device_gdf, device_to_lines, extent=[-125, -67, 25.5, 49.5])
 
-add_voltage(transmission_fname, info_df)
+# Read info.csv
+logger.info(f"Reading {CONFIG['files']['info']}")
+info_df = pd.read_csv(CONFIG['files']['info'])
 
-# Code for geomag coords
-def add_geomag(info_df, date = Ticktock(['2024-05-11T00:00:00'], 'UTC')):
-  import spacepy.coordinates as coord
-  # getting geomagnetic coordinates
-  def get_geomag_coords(row):
-      Re = 6371.0 #mean Earth radius in km
-      alt = 0 #altitude in km, can be set to 0 for surface
-      c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
-      c.ticks = date
-      c = c.convert('MAG', 'sph')
-      return c.data[0][1], c.data[0][2]  # mag_lat, mag_lon
-
-  # Applying the function to create new columns
-  info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
-
-add_geomag(info_df)
+add_beta(info_df, CONFIG['files']['beta'], beta_site='OTT')
+add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
+add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
+add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
+info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
 
 out_fname = os.path.join('info', 'info.extended.csv')
 info_df.to_csv(out_fname, index=False)
-logger.info(f"Saving updated {out_fname}")
-########################################################################################################
+logger.info(f"Wrote {out_fname}")
 
 """
 Converts info/info.csv, which has the form
@@ -664,12 +669,11 @@ to a dict of the form
 and saves in info/info.json
 """
 
-df = pd.read_csv(os.path.join('info', 'info.csv'))
-
+df = pd.read_csv(CONFIG['files']['info'])
 
 sites = {}
 
-print("Preparing info.json")
+print(f"Preparing {CONFIG['files']['info_extended']}")
 for idx, row in df.iterrows():
   site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
   if isinstance(error, str) and error.startswith("x "):
@@ -694,11 +698,8 @@ for idx, row in df.iterrows():
   if data_source not in sites[site][data_type][data_class]:  # e.g., TVA, NERC, SWMF, OpenGGCM
     sites[site][data_type][data_class][data_source] = {}
 
-  sites[site][data_type][data_class][data_source] = site_metadata
+  sites[site][data_type][data_class][data_source][site] = site_metadata
 
-logger.info("Writing info/info.json")
-with open(os.path.join('info','info.json'), 'w') as f:
+logger.info(f"Writing {CONFIG['files']['info_extended']}")
+with open(CONFIG['files']['info_extended'], 'w') as f:
   json.dump(sites, f, indent=2)
-
-utilrsw.rm_if_empty('log/info.errors.log')
-####################################################################################################

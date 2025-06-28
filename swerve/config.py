@@ -1,7 +1,8 @@
 def config(event='2024-May-Storm'):
   import os
   import datetime
-  from utilrsw import logger
+
+  import utilrsw
 
   console_format = u'%(message)s'
 
@@ -10,10 +11,18 @@ def config(event='2024-May-Storm'):
     data_dir = os.path.abspath(os.path.join(file_path, '..', '..', event + '-data'))
     if not os.path.exists(data_dir):
       raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
-    limits_data = [datetime.datetime(2024, 5, 10, 0, 0), datetime.datetime(2024, 5, 13, 0, 0)]
-    limits_plot = [datetime.datetime(2024, 5, 10, 11, 0), datetime.datetime(2024, 5, 12, 6, 0)]
+
+    limits_data = [
+      datetime.datetime(2024, 5, 10, 0, 0),
+      datetime.datetime(2024, 5, 13, 0, 0)
+    ]
+    limits_plot = [
+      datetime.datetime(2024, 5, 10, 11, 0),
+      datetime.datetime(2024, 5, 12, 6, 0)
+    ]
+
     return {
-      'logger': logger,
+      'logger': utilrsw.logger,
       'logger_kwargs': {
         'log_dir': os.path.join(data_dir, '_log'),
         'console_format': console_format
@@ -53,13 +62,17 @@ def config(event='2024-May-Storm'):
           'swmf': {
             'bcwind': os.path.join(data_dir, 'imf_data', 'Dean_IMF.txt')
           },
+          'gmu': {
+            'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
+          },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, '_processed', 'all.pkl'),
-          'info': 'info/info.csv',
-          'info_extended': 'info/info.extended.csv',
-          'shape_files': {
-              'electric_power': os.path.join(data_dir, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
-              'mag_lat': os.path.join(data_dir, 'wmm_all', 'I_2024.shp')
+          'info': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.csv')),
+          'info_extended': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.extended.csv')),
+          'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
+          'shape': {
+              'transmission_lines': os.path.join(data_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'mag_lat': os.path.join(data_dir, 'shape', 'wmm_all', 'I_2024.shp')
           },
           'beta': os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat'),
       },
