@@ -5,7 +5,7 @@ from statsmodels.regression.linear_model import OLS
 from sklearn.metrics import mean_squared_error
 import pickle
 
-from storminator import FILES, LOG_DIR, plt_config, savefig, savefig_paper, subset, add_subplot_label
+from swerve import FILES, plt_config, savefig, savefig_paper, subset, add_subplot_label
 
 import os
 import matplotlib.pyplot as plt
@@ -22,7 +22,7 @@ all_file = os.path.join(all_dir, 'all.pkl')
 
 # Configure logging
 import utilrsw
-logger = utilrsw.logger(log_dir=LOG_DIR)
+logger = utilrsw.logger(log_dir=os.path.join('log'))
 
 def load_data(file_path):
     """Load data from a pickle or CSV file."""
@@ -224,8 +224,10 @@ text_kwargs = {
 def add_text(target_symbol, features, slope, intercept, rms, cc, cc_unc, aic, bic, df=None):
     def get_feature_symbol(feature):
         feature_str = str(feature)
-        if feature_str == 'geo_lat':
+        if feature_str == 'mag_lat':
             return r'$\lambda$'
+        elif feature_str == 'geo_lat':
+            return r'$\lambda_{geo}$'
         elif feature_str == 'interpolated_beta':
             return r'$\beta$'
         elif feature_str == 'log_beta':
@@ -366,9 +368,9 @@ def linear_regression_model(data, features, feature_names, target, target_name, 
         if paper:
             text = None
             if target_name == 'std':
-                text = 'a)' if feature == 'geo_lat' else 'c)' if feature == 'interpolated_beta' else None
+                text = 'a)' if feature == 'mag_lat' else 'c)' if feature == 'interpolated_beta' else None
             elif target_name == 'gic_max':
-                text = 'b)' if feature == 'geo_lat' else 'd)' if feature == 'interpolated_beta' else None
+                text = 'b)' if feature == 'mag_lat' else 'd)' if feature == 'interpolated_beta' else None
             if text is not None:
                 add_subplot_label(plt.gca(), text)
                 savefig_paper('scatter_fit_' + feature + '_' + target_name, sub_dir="regression_model")
@@ -595,8 +597,7 @@ if cc_compare:
 
 if std_compare or peak_compare:
     # Load the data
-    file_dir = os.path.join('..', '2024-May-Storm', 'info')
-    file_path = os.path.join(file_dir, 'info.extended.csv')
+    file_path = os.path.join('info', 'info.extended.csv')
     data = load_data(file_path)
     # Filter out sites with error message
     # Also remove rows that don't have data_type = GIC and data_class = measured

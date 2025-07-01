@@ -331,8 +331,8 @@ def compare_db(info, data, sid):
   model_names = []
   time_calcs = []
   data_calcs = []
-  model_colors = ['b', 'g']
-  model_points = ['b.', 'g.']
+  model_colors = ['b', 'g', 'orange']
+  model_points = ['b.', 'g.', 'y.']
   model_names = []
   for idx, data_source in enumerate(info[sid]['B']['calculated']):
     model_names.append(data_source.upper())
@@ -407,7 +407,7 @@ def compare_db(info, data, sid):
 
     # Add plot for each model
     label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
-    plt.plot(data_interp[idx], data_calcs[idx], model_points[idx], markersize=1, label=label)
+    plt.plot(data_interp[idx], data_calcs[idx], marker='.', linestyle='None', color=model_colors[idx], markersize=1, label=label)
 
   ylims = plt.gca().get_ylim()
   plt.plot([0, ylims[1]], [0, ylims[1]], color=3*[0.6], linewidth=0.5)
