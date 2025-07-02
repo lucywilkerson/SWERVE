@@ -232,7 +232,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
     from swerve import read_info_df, read_info_dict
 
-    extended_df = read_info_df(extended=True)
+    extended_df = read_info_df(extended=True, measured=False)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
 
@@ -248,9 +248,9 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     info = read_info_dict(sid)
     measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
     if 'NERC' in measured_sources:
-      fname = os.path.join(data_dir, 'gmu', 'nerc', f'site_{nearest_sim_site}.csv')
+      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'nerc', f'site_{nearest_sim_site}.csv')
     elif 'TVA' in measured_sources:
-      fname = os.path.join(data_dir, 'gmu', 'tva', f'site_{nearest_sim_site}.csv')
+      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'tva', f'site_{nearest_sim_site}.csv')
     else:
       raise ValueError(f"No corresponding measured data source found for site {sid}")
     logger.info(f"    Reading {fname}")
