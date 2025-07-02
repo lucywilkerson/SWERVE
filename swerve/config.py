@@ -44,15 +44,16 @@ def config(event='2024-May-Storm'):
             'bcwind': os.path.join(data_dir, 'imf_data', 'Dean_IMF.txt')
           },
           'gmu': {
-            'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
+            'sim_file': os.path.join(data_dir, 'dennies_gic_comparison', 'gic_mean_df_1.csv')
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, '_processed', 'all.pkl'),
           'info': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.csv')),
           'info_extended': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.extended.csv')),
+          'info_json': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.json')),
           'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
           'shape': {
-              'transmission_lines': os.path.join(data_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'transmission_lines': os.path.join(data_dir, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
               'mag_lat': os.path.join(data_dir, 'shape', 'wmm_all', 'I_2024.shp')
           },
           'beta': os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat'),
