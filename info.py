@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import numpy as np
 
-from swerve import config
+from swerve import config, sids, site_read, site_stats, subset
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -11,24 +11,28 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 """
 Write info/info.extended.csv with additional columns from info/info.csv:
   * interpolated_beta
+  * log10_beta
   * mag_lat
   * mag_lon
+  * alpha
   * nearest_sim_site
   * nearest_volt,
   * power_pool
   * US_region
+  * gic_std
+  * gic_max
 
 Write info/info.json, which is a dict with keys of site_id and values of
 a dict with all measured and calculated data for that site.
 """
 
-# Code for interpolated beta
+# Code for interpolated beta and log10 beta
 def add_beta(info_df, beta_fname, beta_site='OTT'):
 
   from scipy.io import loadmat
   from scipy.interpolate import LinearNDInterpolator
 
-  logger.info(f"Adding interpolated {beta_site} beta column to info_df")
+  logger.info(f"Adding interpolated {beta_site} beta  and log10 beta columns to info_df")
   logger.info(f"  Reading {beta_fname}")
   data = loadmat(beta_fname)
   data = data['waveform'][0]
@@ -67,8 +71,9 @@ def add_beta(info_df, beta_fname, beta_site='OTT'):
 
   # Add a new column to info_df based on the interpolated beta values
   info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
+  info_df['log10_beta'] = np.log10(info_df['interpolated_beta'])
 
-# Code for geomag coords
+# Code for geomag coords and alpha
 def add_geomag(info_df, date):
   from spacepy.time import Ticktock
   import spacepy.coordinates as coord
@@ -81,12 +86,16 @@ def add_geomag(info_df, date):
       c = c.convert('MAG', 'sph')
       return c.data[0][1], c.data[0][2]  # mag_lat, mag_lon
 
-  logger.info(f"Adding geomagnetic coordinates to info_df using date {date}")
+  logger.info(f"Adding geomagnetic coordinates and alpha to info_df using date {date}")
 
   date = Ticktock([date], 'UTC')
 
   # Applying the function to create new columns
   info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
+
+  # Calculate alpha and add to info_df
+  alpha = .001*np.exp(.115*info_df['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
+  info_df['alpha'] = alpha
 
 # Code for GMU simulation sites
 def add_sim_site(info_df, sim_file, update_csv=False):
@@ -627,6 +636,58 @@ def add_voltage(info_df, transmission_fname):
       # Optional plot the data for TVA and NERC on the same plot
       plot(tl_gdf_subset, device_gdf, device_to_lines, extent=[-125, -67, 25.5, 49.5])
 
+# Code for std and peak of GIC
+# TODO: make less messy, right now depends on main.py running first to make all.pkl, and main.py needs info.py to run first
+def add_gic_parameters(info_df, all_file):
+  import pickle
+  from swerve import read_info_df
+
+  """
+  Adds GIC standard deviation and absolute max to info_df for all measured GIC sites.
+  Won't run if all.pkl doesn't exist (must run main.py first).
+  """
+  logger.info(f"Adding std and peak gic columns to info_df")
+
+  if not os.path.exists(all_file):
+      print(f"  {all_file} does not exist, run main.py first")
+      return
+    
+  def read(all_file, sid=None):
+    fname = os.path.join('info', 'info.json')
+    with open(fname, 'r') as f:
+      logger.info(f"Reading {fname}")
+      info_dict = json.load(f)
+
+    logger.info(f"Reading {all_file}")
+    with open(all_file, 'rb') as f:
+      data = pickle.load(f)
+
+    return info_dict, data
+
+  data = read_info_df()
+  sites = data['site_id'].tolist()
+
+  _, data_all = read(all_file)
+  start, stop = CONFIG['limits']['data']
+
+  gic_std = np.zeros(len(sites))
+  gic_max = np.zeros(len(sites))
+  for i, sid in enumerate(sites):
+    sid_source = data[data['site_id'] == sid]['data_source'].values[0]
+    if 'time' not in data_all[sid]['GIC']['measured'][sid_source]['modified'].keys():
+      logger.warning(f"  No GIC data for {sid} from {sid_source}, skipping")
+      gic_std[i] = np.nan
+      gic_max[i] = np.nan
+      continue
+    time_meas = data_all[sid]['GIC']['measured'][sid_source]['modified']['time']
+    data_meas = data_all[sid]['GIC']['measured'][sid_source]['modified']['data']
+    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
+    gic_std[i] = np.std(data_meas[~np.isnan(data_meas)])
+    gic_max[i] = np.max(np.abs(data_meas[~np.isnan(data_meas)]))
+
+    info_df.loc[info_df['site_id'] == sid, 'gic_std'] = gic_std[i]
+    info_df.loc[info_df['site_id'] == sid, 'gic_max'] = gic_max[i]
+   
 # Read info.csv
 logger.info(f"Reading {CONFIG['files']['info']}")
 info_df = pd.read_csv(CONFIG['files']['info'])
@@ -636,8 +697,9 @@ add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
 add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
+add_gic_parameters(info_df, CONFIG['files']['all'])
 
-out_fname = os.path.join('info', 'info.extended.csv')
+out_fname = CONFIG['files']['info_extended']
 info_df.to_csv(out_fname, index=False)
 logger.info(f"Wrote {out_fname}")
 
@@ -673,7 +735,7 @@ df = pd.read_csv(CONFIG['files']['info'])
 
 sites = {}
 
-print(f"Preparing {CONFIG['files']['info_extended']}")
+print(f"Preparing {CONFIG['files']['info_json']}")
 for idx, row in df.iterrows():
   site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
   if isinstance(error, str) and error.startswith("x "):
@@ -700,6 +762,6 @@ for idx, row in df.iterrows():
 
   sites[site][data_type][data_class][data_source][site] = site_metadata
 
-logger.info(f"Writing {CONFIG['files']['info_extended']}")
-with open(CONFIG['files']['info_extended'], 'w') as f:
+logger.info(f"Writing {CONFIG['files']['info_json']}")
+with open(CONFIG['files']['info_json'], 'w') as f:
   json.dump(sites, f, indent=2)
