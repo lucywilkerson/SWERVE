@@ -62,7 +62,7 @@ def read_info_dict(sid=None):
 
   return info_dict
 
-def read_info_df(extended=False):
+def read_info_df(extended=False, measured=True):
   import pandas
   from swerve import config
   CONFIG = config()
@@ -74,7 +74,8 @@ def read_info_df(extended=False):
   info_df = info_df[~info_df['error'].str.contains('', na=False)]
   # Remove rows that don't have data_type = GIC and data_class = measured
   info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-  info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+  if measured:
+    info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
   return info_df
 
 def plt_config():
