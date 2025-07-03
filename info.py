@@ -676,6 +676,7 @@ def add_gic_parameters(info_df, all_file):
     sid_source = data[data['site_id'] == sid]['data_source'].values[0]
     if 'time' not in data_all[sid]['GIC']['measured'][sid_source]['modified'].keys():
       logger.warning(f"  No GIC data for {sid} from {sid_source}, skipping")
+      #print(data_all[sid]['GIC']['measured'][sid_source]['modified']['error'])
       gic_std[i] = np.nan
       gic_max[i] = np.nan
       continue
