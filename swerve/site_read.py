@@ -248,9 +248,9 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     info = read_info_dict(sid)
     measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
     if 'NERC' in measured_sources:
-      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'nerc', f'site_{nearest_sim_site}.csv')
+      fname = os.path.join(data_dir, 'gmu', 'nerc', f'site_{nearest_sim_site}.csv')
     elif 'TVA' in measured_sources:
-      fname = os.path.join(data_dir, 'dennies_gic_comparison', 'tva', f'site_{nearest_sim_site}.csv')
+      fname = os.path.join(data_dir, 'gmu', 'tva', f'site_{nearest_sim_site}.csv')
     else:
       raise ValueError(f"No corresponding measured data source found for site {sid}")
     logger.info(f"    Reading {fname}")

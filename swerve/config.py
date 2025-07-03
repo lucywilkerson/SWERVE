@@ -44,7 +44,7 @@ def config(event='2024-May-Storm'):
             'bcwind': os.path.join(data_dir, 'imf_data', 'Dean_IMF.txt')
           },
           'gmu': {
-            'sim_file': os.path.join(data_dir, 'dennies_gic_comparison', 'gic_mean_df_1.csv')
+            'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, '_processed', 'all.pkl'),
