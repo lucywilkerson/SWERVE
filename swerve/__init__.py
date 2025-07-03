@@ -51,18 +51,18 @@ def format_df(df, float_fmt=".2f"):
 def read_info_dict(sid=None):
   import json
   CONFIG = config()
-  info_file = CONFIG['files']['info'].replace('.csv', '.json')
+  info_file = CONFIG['files']['info_extended_json']
   with open(info_file, 'r') as f:
     info_dict = json.load(f)
 
   if sid is not None:
     if sid not in info_dict:
-      raise ValueError(f"sid '{sid}' not found in info.json")
+      raise ValueError(f"sid '{sid}' not found in {info_file}")
     info_dict = info_dict[sid]
 
   return info_dict
 
-def read_info_df(extended=False, exclude_errors=False):
+def read_info_df(extended=False, exclude_errors=False, measured=True):
   import pandas
   from swerve import config
   CONFIG = config()
@@ -73,6 +73,11 @@ def read_info_df(extended=False, exclude_errors=False):
   if exclude_errors:
     # Remove rows that have errors
     info_df = info_df[~info_df['error'].str.contains('', na=False)]
+
+  # Remove rows that don't have data_type = GIC and data_class = measured
+  info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+  if measured:
+    info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
 
   return info_df
 

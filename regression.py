@@ -1,7 +1,7 @@
 # Partial rewrite of linear_regression.py, which has too much code duplication
 # and will be very difficult to maintain and generalize.
 
-# First modify info.py to put log10_beta, alpha, std, and gic_max in info.extended.csv
+# First modify info.py to put log10_beta, alpha, gic_std, and gic_max in info.extended.csv
 
 import os
 import itertools
@@ -12,6 +12,7 @@ from sklearn.linear_model import LinearRegression
 from swerve import config
 
 logger = config()['logger'](**config()['logger_kwargs'])
+results_dir = os.path.join(config()['dirs']['data'], '_results')
 
 def read_info():
   file_path = os.path.join('info', 'info.extended.csv')
@@ -95,9 +96,9 @@ def plot_scatter(x, y, inputs, output_name):
       plt.tight_layout()
       plt.show()
 
-# Use the commented out line after info.py has been modified to include gic_max and std.
-#output_names = ['gic_max', 'std']
-output_names = ['mag_lat', 'geo_lat']
+# Use the commented out line after info.py has been modified to include gic_max and gic_std.
+output_names = ['gic_max', 'gic_std']
+#output_names = ['mag_lat', 'geo_lat']
 
 labels = {
     'mag_lat': 'Magnetic Latitude [deg]',
@@ -106,7 +107,7 @@ labels = {
     'interpolated_beta': r'$\beta$',
     'log_beta': r'$\log_{10} (\beta)$',
     'alpha': r'$\alpha$',
-    'std': r'$\sigma_\text{GIC}$ [A]',
+    'gic_std': r'$\sigma_\text{GIC}$ [A]',
     'gic_max': r'$\vert{\text{GIC}_\text{max}}\vert$',
     'mag_lat*mag_lon': r'Mag. Lat. $\cdot$ Mag. Long.',
 }
@@ -121,6 +122,9 @@ input_sets = [
 info = read_info()
 
 for output_name in output_names:
+  # Table to hold metrics
+  scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMS [A]', 'AIC', 'BIC'])
+
   for input_set in input_sets:
     for inputs in input_combos(input_set):
       logger.info(f"output = {output_name}; inputs = {inputs}")
@@ -134,6 +138,11 @@ for output_name in output_names:
       x = info[inputs].values
       y = info[output_name].values
 
+      # Remove rows where y is nan
+      mask = ~pd.isna(y)
+      x = x[mask]
+      y = y[mask]
+
       #plot_scatter(x, y, inputs, output_name)
       model, metrics = regress(x, y)
 
@@ -144,4 +153,16 @@ for output_name in output_names:
       logger.info(f"  Equation: {eqn}")
       for key in metrics:
         logger.info(f"  {key} = {metrics[key]:.4f}")
+      
+      # Add metrics to table
+      scatter_fit_df.loc[len(scatter_fit_df)] = {
+            'Fit Equation': f"${eqn}$",
+            'cc ± 2SE': f"${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$",
+            'RMS [A]': f"${metrics['rms']:.2f}$",
+            'AIC': f"${metrics['aic']:.1f}$",
+            'BIC': f"${metrics['bic']:.1f}$"
+        }
+  # Save output table
+  scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=False)
+  scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
 

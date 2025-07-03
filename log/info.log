@@ -1,0 +1,21 @@
+2025-06-28T05:01:35.161957Z INFO  info.py Reading info/info.csv
+2025-06-28T05:01:35.166013Z INFO  info.py Reading GMU simulation: ../2024-May-Storm-data/dennies_gic_comparison/gic_mean_df_1.csv
+2025-06-28T05:01:36.137250Z INFO  info.py Saved simulation info table to info/info.simulation.csv
+2025-06-28T05:01:36.153587Z INFO  info.py Reading beta factors file: ../2024-May-Storm-data/pulkkinen/waveforms_All.mat
+2025-06-28T05:01:36.377233Z INFO  info.py Adding interpolated OTT beta column to info_df
+2025-06-28T05:01:36.425498Z INFO  info.py Reading power pool geography file: ../2024-May-Storm-data/nerc/nerc_gdf.geojson
+2025-06-28T05:01:36.840970Z INFO  info.py Saving ../2024-May-Storm-data/nerc/nerc_gdf_mapped.csv
+2025-06-28T05:01:40.677098Z INFO  info.py Saving updated info/info.extended.csv
+2025-06-28T05:01:40.683637Z INFO  info.py   Skipping site 'Allen' due to error message in info.csv:
+    x In TVAmagmetadata.dat, but no file
+2025-06-28T05:01:40.683819Z INFO  info.py   Skipping site 'Colbert' due to error message in info.csv:
+    x In TVAmagmetadata.dat, but no file
+2025-06-28T05:01:40.683886Z INFO  info.py   Skipping site 'Gallatin' due to error message in info.csv:
+    x In TVAmagmetadata.dat, but no file
+2025-06-28T05:01:40.683952Z INFO  info.py   Skipping site 'John Sevier' due to error message in info.csv:
+    x In TVAmagmetadata.dat, but no file
+2025-06-28T05:01:40.684030Z INFO  info.py   Skipping site 'Madison' due to error message in info.csv:
+    x In GIC_monitors.txt, but no file
+2025-06-28T05:01:40.684203Z INFO  info.py   Skipping site 'Shawnee' due to error message in info.csv:
+    x In TVAmagmetadata.dat, but no file
+2025-06-28T05:01:40.684896Z INFO  info.py Writing info/info.json
