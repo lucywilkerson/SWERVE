@@ -6,10 +6,14 @@ def site_stats(sid, data, data_types=None, logger=None):
     from swerve import LOG_KWARGS, logger
     logger = logger(**LOG_KWARGS)
 
+  logger.info(f"Computing stats for '{sid}' data")
+
   all_stats = {}
   for data_type in data.keys(): # e.g., GIC, B
 
     if data_types is not None and data_type not in data_types:
+      # Skip this data type if not in requested data_types to plot.
+      logger.info(f"  Not computing stats for '{sid}/{data_type}' data type b/c not in requested data_types = {data_types}.")
       continue
 
     for data_class in data[data_type].keys(): # e.g., measured, calculated
@@ -30,6 +34,7 @@ def site_stats(sid, data, data_types=None, logger=None):
 
     if set(("calculated", "measured")).issubset(data[data_type]):
       # Both measured and calculated data are keys in data[data_type].
+
       # Always use the first data source for measured data.
       data_source_measured = list(data[data_type]['measured'].keys())[0]
       if 'modified' in data[data_type]['measured'][data_source_measured]:
@@ -39,7 +44,7 @@ def site_stats(sid, data, data_types=None, logger=None):
           continue
         data_measured = data[data_type]['measured'][data_source_measured]['modified']['data']
 
-      for data_source_calculated in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
+      for data_source_calculated in data[data_type]['calculated'].keys(): # e.g., TVA, GMU, NERC, SWMF, OpenGGCM
         if 'modified' in data[data_type]['calculated'][data_source_calculated]:
           if 'error' in data[data_type]['calculated'][data_source_calculated]['modified']:
             logger.warning(f"  Skipping stats for {data_type} due to error in calculated modified data.")
@@ -48,11 +53,11 @@ def site_stats(sid, data, data_types=None, logger=None):
         data_calculated = data[data_type]['calculated'][data_source_calculated]['modified']['data']
         metrics = _metrics(data_measured, data_calculated, logger)
 
-        key = f"{data_type}/{data_class}/{data_source_calculated}"
+        key = f"{data_type}/calculated/{data_source_calculated}"
         all_stats[key]['metrics'] = metrics
-        data[data_type][data_class][data_source_calculated]['modified']['metrics'] = metrics
+        data[data_type]['calculated'][data_source_calculated]['modified']['metrics'] = metrics
 
-        logger.info(f"  Metrics for {data_type}/{data_class}/{data_source_calculated}:")
+        logger.info(f"  Metrics for {key}:")
         logger.info(f"\n{utilrsw.format_dict(metrics, indent=4)}")
 
   return all_stats
@@ -71,7 +76,7 @@ def _stats(data_meas, logger):
 def _metrics(data_meas, data_calc, logger):
   import numpy as np
 
-  if len(data_meas.shape) > 1 and data_meas.shape[1] > 1:
+  if len(data_meas.shape) > 1:
     # Compute metrics for each column
     metrics_combined = {}
     for j in range(data_meas.shape[1]):
@@ -91,6 +96,7 @@ def _metrics(data_meas, data_calc, logger):
 
     return metrics_combined
 
+  # Compute metrics for a single column
   valid = ~np.isnan(data_meas) & ~np.isnan(data_calc)
   stats_nan = {
           'rmse': np.nan,

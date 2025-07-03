@@ -36,9 +36,11 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
   out_dir = CONFIG['dirs']['processed']
   site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, sidx, 'data', site_all_file)
 
+  logger.info(f"Reading '{sid}' data")
+
   if not reparse:
     if os.path.exists(site_all_file):
-      logger.info(f"Reading cached file with all data for site '{sid}': {site_all_file}")
+      logger.info(f"  Reading cached file with all data for site '{sid}': {site_all_file}")
       with open(site_all_file, 'rb') as f:
         data = pickle.load(f)
         return data
@@ -47,13 +49,14 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
   stop = CONFIG['limits']['data'][1]
 
   site_info = read_info_dict(sid=sid)
-  if data_types is None:
-    logger.info(f"Reading all '{sid}' data")
-    data_types = site_info.keys()
-  else:
-    logger.info(f"Reading '{sid}' data with data_types = {data_types}")
 
-  for data_type in data_types: # e.g., GIC, B
+  for data_type in site_info.keys(): # e.g., GIC, B
+
+    if data_types is not None and data_type not in data_types:
+      # Skip this data type if not in requested data_types to plot.
+      logger.info(f"  Not reading '{sid}/{data_type}' data type data b/c not in requested data_types = {data_types}.")
+      continue
+
     if data_type not in site_info:
       # This will occur if data_types is given and site does not have a
       # data_type in data_types.
@@ -92,6 +95,8 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
           time_m, data_m = resample(orig["time"], data_mod, start, stop, ave='60s', **resample_kwargs)
           modified['time'] = time_m
           modified['data'] = data_m
+          modified['unit'] = orig['unit']
+          modified['labels'] = orig['labels']
         except Exception as e:
           modified['error'] = str(e)
           logger.error(f"    Error resampling data: {modified['error']}")
@@ -100,7 +105,12 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
 
         file_name = f'{data_type}_{data_class}_{data_source}.pkl'
         file_name = os.path.join(CONFIG['dirs']['processed'], sidx, 'data', file_name)
-        _write_pkl(file_name, site_info[data_type][data_class], logger)
+        _write_pkl(file_name, site_info[data_type][data_class], logger, indent= ' '*4)
+
+  if data_types is None:
+    _write_pkl(site_all_file, site_info, logger, indent=' '*2)
+  else:
+    logger.info(f"  Not writing {site_all_file} b/c data_types is not None.")
 
   return site_info
 
@@ -187,15 +197,15 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     return {
       "time": numpy.array(time).flatten(),
       "data": data,
-      "label": "GIC",
-      "units": "A",
+      "labels": ["GIC"],
+      "unit": "A",
     }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'NERC':
     fname = f'2024E04_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', 'gic')
     data = read_nerc(data_dir, fname)
-    return {**data, "label": "GIC", "units": "A"}
+    return {**data, "labels": ["GIC"], "unit": "A"}
 
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-calculated')
@@ -225,8 +235,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     return {
       "time": numpy.array(time).flatten(),
       "data": data,
-      "label": "GIC",
-      "units": "A"
+      "labels": ["GIC"],
+      "unit": "A"
     }
 
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
@@ -235,15 +245,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     extended_df = read_info_df(extended=True)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
-
-    if len(nearest_sim_site) != 1:
-      msgo = f"found for site {sid} in info.extended.csv"
-      if len(nearest_sim_site) == 0:
-        raise ValueError(f"No nearest simulation site {msgo}")
-      if len(nearest_sim_site) > 1:
-        raise ValueError(f"Multiple nearest simulation sites {msgo}: {nearest_sim_site}")
     nearest_sim_site = int(nearest_sim_site.values[0])
-    logger.info(f"    Nearest simulation site: {nearest_sim_site}")
+    logger.info(f"      Nearest simulation site: {nearest_sim_site}")
 
     info = read_info_dict(sid)
     measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
@@ -253,7 +256,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
       fname = os.path.join(data_dir, 'gmu', 'tva', f'site_{nearest_sim_site}.csv')
     else:
       raise ValueError(f"No corresponding measured data source found for site {sid}")
-    logger.info(f"    Reading {fname}")
+    logger.info(f"      Reading {fname}")
     if not os.path.exists(fname):
       raise FileNotFoundError(f"File not found: {fname}")
 
@@ -270,7 +273,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
     data = numpy.array(data)
     time = numpy.array(time)
-    return {"time": time, "data": data, "label": "GIC", "units": "A"}
+    return {"time": time, "data": data, "labels": ["GIC"], "unit": "A"}
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'mag')
@@ -293,13 +296,14 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
     data = numpy.array(data)
     time = numpy.array(time)
-    return {"time": time, "data": data, "label": ["Bx", "By", "Bz"], "units": "nT"}
+    return {"time": time, "data": data, "labels": ["Bx", "By", "Bz"], "unit": "nT"}
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'NERC':
+    # TODO: magnetometers.csv indicates if GEO or MAG coordinates
     fname = f'2024E04_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', 'mag')
     data = read_nerc(data_dir, fname)
-    return {**data, "label": ["B_N", "B_E", "B_v"], "units": "nT"}
+    return {**data, "labels": ["B_N", "B_E", "B_v"], "unit": "nT"}
 
   if data_type == 'B' and data_class == 'calculated' and data_source in ['SWMF', 'OpenGGCM']:
 
@@ -320,7 +324,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     time = bx.keys() # Will be the same for all
     time = time.to_pydatetime()
 
-    return {"time": time, "data": data.T, "label": ["Bx", "By", "Bz"], "units": "nT"}
+    return {"time": time, "data": data.T, "labels": ["Bx", "By", "Bz"], "unit": "nT"}
 
   if data_type == 'B' and data_class == 'calculated' and data_source == 'MAGE':
     # TODO: A single file has data from all sites. Here we read full
@@ -383,7 +387,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
-    return {"time": time, "data": data, "label": ["dBn", "dBp", "dBr"], "units": "nT"}
+    return {"time": time, "data": data, "labels": ["dBn", "dBp", "dBr"], "unit": "nT"}
 
 def _output_error(d, logger):
   msgo = "Not computing modified"
@@ -407,7 +411,7 @@ def _output_error(d, logger):
 
   return False
 
-def _write_pkl(fname, data, logger):
+def _write_pkl(fname, data, logger, indent=''):
 
   import os
   from swerve import config
@@ -417,5 +421,5 @@ def _write_pkl(fname, data, logger):
     os.makedirs(os.path.dirname(fname))
 
   with open(fname, 'wb') as f:
-    logger.info(f"    Writing {fname}")
+    logger.info(f"{indent}Writing {fname}")
     pickle.dump(data, f)

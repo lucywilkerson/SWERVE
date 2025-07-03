@@ -1,6 +1,8 @@
 
 def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
+  import os
+
   from swerve import config, savefig
 
   if logger is None:
@@ -15,211 +17,174 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
   for data_type in data.keys(): # e.g., GIC, B
 
     if data_types is not None and data_type not in data_types:
+      # Skip this data type if not in requested data_types to plot.
+      logger.info(f"  Not plotting '{sid}/{data_type}' data type b/c not in requested data_types = {data_types}.")
       continue
 
+    base_dir = f"{out_dir}/{sid.lower().replace(' ', '')}/figures"
+    dir_original = os.path.join(base_dir, 'original')
+    dir_compare = os.path.join(base_dir, 'compare')
+
+    # Plot measured vs calculated data
+    if 'measured' in data[data_type] and 'calculated' in data[data_type]:
+      for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
+        for style in ['timeseries', 'scatter']:
+          logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
+          _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
+          fname = f"{data_type}_calculated_{calculated_source}_vs_measured_{style}"
+          savefig(dir_compare, fname, logger=logger, logger_indent=4)
+
+    # Plot original vs modified data
     for data_class in data[data_type].keys(): # e.g., measured, calculated
       for data_source in data[data_type][data_class].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
         if data[data_type][data_class][data_source] is not None:
-          logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}'")
-          _plot(data[data_type][data_class][data_source], show_plots=show_plots)
-          base_dir = f"{out_dir}/{sid.lower().replace(' ', '')}/data/figures"
-          savefig(base_dir, f"{data_type}_{data_class}_{data_source}", logger=logger, logger_indent=4)
+          logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}' original vs. modified data")
+          _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+          fname = f"{data_type}_{data_class}_{data_source}"
+          savefig(dir_original, fname, logger=logger, logger_indent=4)
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
-    if 'measured' in data[data_type] and 'calculated' in data[data_type]:
-      logger.info(f"  Plotting measured/calculated comparison for '{sid}/{data_type}'")
-      _plot_compare(sid, data_type, data[data_type], logger)
+def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries', show_plots=False):
+
+  measured_source = data['measured'].keys()
+  #if len(m_keys) > 1:
+  #  logger.warning(f"    Multiple measured data sources for {sid}: {measured_source}. Using the first one.")
+  measured_source = list(measured_source)[0]
+  measured_modified = data['measured'][measured_source]['modified']
+
+  calculated = data['calculated'][calculated_source]['modified']
+  calculated_metrics = data['calculated'][calculated_source]['modified']['metrics']
+
+  unit = data['measured'][measured_source]['original']['unit']
+  component_labels1 = data['measured'][measured_source]['original']['labels'].copy()
+  for idx, label in enumerate(component_labels1):
+    if style == 'scatter':
+      component_labels1[idx] = f"{label} {measured_source} [{unit}]"
+    if style == 'timeseries':
+      component_labels1[idx] = f"{label} {measured_source}"
+
+  component_labels2 = data['calculated'][calculated_source]['original']['labels'].copy()
+  texts = None
+  if style == 'scatter':
+    texts = []
+  for idx, label in enumerate(component_labels2):
+    cc = f"{calculated_metrics['cc'][idx]:.2f}"
+    pe = f"{calculated_metrics['pe'][idx]:.2f}"
+    metrics = f"cc = ${cc}$ | pe = ${pe}$"
+    if style == 'scatter':
+      component_labels2[idx] = f"{label} {calculated_source} [{unit}]"
+      texts.append(metrics)
+    if style == 'timeseries':
+      component_labels2[idx] = f"{label} {calculated_source} {metrics}"
+
+  if style == 'scatter':
+    ylabels = None
+
+  if style == 'timeseries':
+    ylabels = 3*[f"[{unit}]"]
+
+  kwargs = {
+    'ylabels': ylabels,
+    'component_labels1': component_labels1,
+    'component_labels2': component_labels2,
+    'texts': texts,
+    'suptitle': sid,
+    'style': style,
+    'show_plots': show_plots
+  }
+
+  _plot_stack(measured_modified, calculated, **kwargs)
 
 
-def _plot(data, show_plots=False):
+def _plot_measured_original_vs_modified(data, sid, show_plots=False):
+
+  component_labels1 = data['original']['labels'].copy()
+  for idx, label in enumerate(component_labels1):
+    component_labels1[idx] = f"{label} original"
+
+  component_labels2 = data['modified']['labels'].copy()
+  for idx, label in enumerate(component_labels2):
+    component_labels2[idx] = f"{label} modified"
+
+  kwargs = {
+    'ylabels': 3*[f"[{data['original']['unit']}]"],
+    'component_labels1': component_labels1,
+    'component_labels2': component_labels2,
+    'style': 'timeseries',
+    'suptitle': sid,
+    'show_plots': show_plots
+  }
+
+  original = data['original']
+  modified = data['modified']
+
+  if 'error' in data['original']:
+    kwargs['suptitle'] = f"Original Error: {data['original']['error']}"
+    _plot_stack(None, None, 'original', 'modified', **kwargs)
+  else:
+    kwargs['suptitle'] = f"Modification = {data['modified']['modification']}"
+    _plot_stack(original, modified, **kwargs)
+
+
+def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, texts=None, suptitle=None, style='timeseries', show_plots=False):
+
   from matplotlib import pyplot as plt
   from datetick import datetick
 
-  from swerve import plt_config
+  from swerve import plt_config, format_cc_scatter
 
   plt.close()
-  plt_config()
+  if style == 'scatter':
+    plt_config(scale=0.5)
+  if style == 'timeseries':
+    plt_config(scale=0.75)
+  plt.figure()
 
-  component_labels = data['original']['label']
-  if isinstance(component_labels, str):
-    component_labels = [component_labels]
+  line1_opts = {'color': 'blue', 'lw': 2}
+  line2_opts = {'color': 'orange', 'lw': 1}
+  sharex = False
+  if style == 'timeseries':
+    sharex = True
 
-  labels_orig = []
-  labels_mod = []
-  for component_label in component_labels:
-    labels_orig.append(f"{component_label} [{data['original']['units']}] Original")
-    labels_mod.append(f"{component_label} [{data['original']['units']}] Modified")
+  n_stack = data1['data'].shape[1]
+  gs = plt.gcf().add_gridspec(n_stack)
+  axes = gs.subplots(sharex=sharex)
+  if n_stack == 1:
+    axes = [axes]
 
-  errors = []
-  if 'error' in data:
-    errors = [f"Original Error: {data['error']}"]
-
-  plt.plot(data['original']['time'], data['original']['data'], label=labels_orig, color='blue', lw=2)
-  if 'modified' in data and 'error' not in data:
-    if 'error' in data['modified']:
-      errors.append(f"Modified Error: {data['modified']['error']}")
-    if 'time' in data['modified'] and 'data' in data['modified']:
-      plt.plot(data['modified']['time'], data['modified']['data'], label=labels_mod, color='orange', lw=1)
-    errors = '\n'.join(errors)
-    plt.title(f"{errors}Modification = {data['modified']['modification']}")
-  else:
-    plt.title("\n".join(errors))
-
-  plt.legend()
-  plt.grid(True)
-  datetick('x')
-  if show_plots:
-    plt.show()
-
-
-def _plot_compare(sid, data_type, data, logger):
-
-  import os
-  import numpy
-
-  from matplotlib import pyplot as plt
-  from datetick import datetick
-
-  from swerve import config, savefig, savefig_paper, add_subplot_label
-
-  CONFIG = config()
-  out_dir = CONFIG['dirs']['processed']
-
-  def _savefig_paper(sid, data_type, ftype, fdir, fname):
-    if sid in CONFIG['paper_sids'][data_type]['correlation'].keys():
-      text = CONFIG['paper_sids'][data_type]['correlation'][sid]
-      add_subplot_label(plt.gca(), text)
-      savefig_paper(fdir, fname, logger, logger_indent=4)
-
-  def format_cc_scatter(ax):
-    # Sets the aspect ratio to make the plot square and ensure xlim and ylim are the same
-    limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
-    plt.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3 * [0.6], linewidth=0.5)
-    ticks = plt.xticks()[0]
-    plt.xticks(ticks)
-    plt.yticks(ticks)
-    ax.set_xlim(limits)
-    ax.set_ylim(limits)
-
-  fdir = os.path.join(out_dir, sid.lower().replace(' ', ''), 'figures')
-
-  m_keys = data['measured'].keys()
-  if len(m_keys) > 1:
-    logger.warning(f"    Multiple measured data sources for {sid}: {m_keys}. Using the first one.")
-  m_key = list(m_keys)[0]
-  if 'error' in data['measured'][m_key]['modified']:
-    msg = "    Skipping comparison b/c no modified measured data for "
-    msg += f"{sid}/{data_type}/{m_key} due to error: {data['measured'][m_key]['modified']['error']}"
-    logger.warning(msg)
+  if data1 is None:
     return
 
-  time_meas = data['measured'][m_key]['modified']['time']
-  data_meas = data['measured'][m_key]['modified']['data']
+  for j in range(n_stack):
+    if j == 0 and suptitle is not None:
+      # Use title() for force suptitle to be centered on axis
+      axes[j].set_title(suptitle)
 
-  if data_type == 'B':
-    # Compute dB_H (All data has had baseline removed, so data_type is dB.)
-    data_meas = numpy.linalg.norm(data_meas[:, 0:2], axis=1)
+    if ylabels is not None:
+      axes[j].set_ylabel(ylabels[j])
 
-  model_names = []
-  time_calcs = []
-  data_calcs = []
-  model_colors = ['b', 'g', 'y']
-  model_points = ['b.', 'g.', 'y.']
-  model_names = []
-  for data_source in data['calculated'].keys():
-    model_names.append(data_source)
+    if style == 'timeseries':
+      axes[j].plot(data1['time'], data1['data'][:, j], label=component_labels1[j], **line1_opts)
+      axes[j].plot(data2['time'], data2['data'][:, j], label=component_labels2[j], **line2_opts)
+      axes[j].legend(ncol=2, frameon=True, loc='upper right')
 
-    time_calc = data['calculated'][data_source]['modified']['time']
-    time_calcs.append(time_calc)
+    if style == 'scatter':
+      axes[j].scatter(data1['data'][:, j], data2['data'][:, j], label=component_labels2[j], s=1, color='black')
+      axes[j].set_xlabel(component_labels1[j])
+      axes[j].set_ylabel(component_labels2[j])
+      format_cc_scatter(axes[j])
+      bbox_props = dict(boxstyle="round,pad=0.3", edgecolor="black", facecolor="white", linewidth=0.8, alpha=0.5)
+      axes[j].text(0.02, 0.98, texts[j], transform=axes[j].transAxes,
+             fontsize=6, verticalalignment='top', horizontalalignment='left',
+             bbox=bbox_props)
 
-    data_calc = data['calculated'][data_source]['modified']['data']
-    if data_type == 'B':
-      data_calc = numpy.linalg.norm(data_calc[:, 0:2], axis=1)
-    data_calcs.append(data_calc)
+    axes[j].grid(True)
 
-  plt.figure()
-  plt.title(sid)
-  plt.plot(time_meas, data_meas, 'k', linewidth=1, label='Measured')
-  for idx in range(len(model_names)):
-    label = model_names[idx]
-    plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
-  if data_type == 'B':
-    plt.ylabel(r'$\Delta B_H$ [nT]')
-  datetick()
-  plt.legend()
-  plt.grid()
+  plt.gcf().align_ylabels(axes)
 
-  # get the legend object
-  leg = plt.gca().legend()
+  if style == 'timeseries':
+    datetick('x')
 
-  # change the line width for the legend
-  for line in leg.get_lines():
-      line.set_linewidth(1.5)
-
-  fname = f'{data_type}_compare_timeseries'
-  savefig(fdir, fname, logger, logger_indent=4)
-  _savefig_paper(sid, data_type, 'timeseries', fdir, fname)
-  plt.close()
-
-  # Correlation between measured and calculated
-  plt.figure()
-  plt.title(sid)
-
-  # Loop thru modeled (measured) results
-  for idx in range(len(model_names)):
-    #data_calcs[idx] = data_calcs[idx][~np.isnan(data_calcs[idx])]
-    # Add plot for each model
-    #label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
-    label = fr"{model_names[idx]}"
-    plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=label)
-
-  ylims = plt.gca().get_ylim()
-  plt.plot([0, ylims[1]], [0, ylims[1]], color=3*[0.6], linewidth=0.5)
-
-  if data_type == 'B':
-    plt.xlabel(r'Measured $\Delta B_H$ [nT]')
-    plt.ylabel(r'Calculated $\Delta B_H$ [nT]')
-  plt.grid()
-  format_cc_scatter(plt.gca())
-
-  # get the legend object
-  leg = plt.gca().legend(loc='upper right')
-  # change the marker size for the legend
-  for line in leg.get_lines():
-      line.set_markersize(6)
-
-  fname = f'{data_type}_compare_correlation'
-  savefig(fdir, fname, logger, logger_indent=4)
-  _savefig_paper(sid, data_type, 'correlation', fdir, fname)
-  plt.close()
-
-  return
-  # Histograms showing delta between measured and calculated values
-  plt.figure()
-
-  # TODO: Compute binwidth from data
-  # Setup bins
-  bl = -1000
-  bu = 1000
-  bw = 50
-  bins_c = numpy.arange(bl, bu+1, bw)
-  bins_e = numpy.arange(bl-bw/2, bu+bw, bw)
-
-  # Loop thru models and create data for histograms
-  for idx in range(len(model_names)): 
-    n_e, _ = numpy.histogram(data_interp[idx]-data_calcs[idx], bins=bins_e)
-    plt.step(bins_c, n_e/sum(n_e), color=model_colors[idx], label=model_names[idx])
-
-  # Add titles, legend, etc.
-  plt.title(sid)
-  # plt.xticks(bins_c[0::2])
-  plt.xticks(fontsize=18)
-  plt.xlabel(r'(Measured - Calculated) $\Delta B_H$ [nt]', fontsize=18)
-  plt.xlim(bl-0.5, bu+0.5)
-  plt.yticks(fontsize=18)
-  plt.ylabel('Probability', fontsize=18)
-  plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
-  plt.legend(loc='upper right')
-
-  savefig(fdir, 'B_histogram_meas_calc', logger)
+  if show_plots:
+    plt.show()

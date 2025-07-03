@@ -14,7 +14,7 @@ Write info/info.extended.csv with additional columns from info/info.csv:
   * mag_lat
   * mag_lon
   * nearest_sim_site
-  * nearest_volt,
+  * nearest_volt
   * power_pool
   * US_region
 
@@ -28,7 +28,7 @@ def add_beta(info_df, beta_fname, beta_site='OTT'):
   from scipy.io import loadmat
   from scipy.interpolate import LinearNDInterpolator
 
-  logger.info(f"Adding interpolated {beta_site} beta column to info_df")
+  logger.info(f"Adding interpolated {beta_site} beta column to extended info_df")
   logger.info(f"  Reading {beta_fname}")
   data = loadmat(beta_fname)
   data = data['waveform'][0]
@@ -81,7 +81,7 @@ def add_geomag(info_df, date):
       c = c.convert('MAG', 'sph')
       return c.data[0][1], c.data[0][2]  # mag_lat, mag_lon
 
-  logger.info(f"Adding geomagnetic coordinates to info_df using date {date}")
+  logger.info(f"Adding geomagnetic coordinates on date {date} to extended info_df")
 
   date = Ticktock([date], 'UTC')
 
@@ -97,7 +97,7 @@ def add_sim_site(info_df, sim_file, update_csv=False):
 
   # add new column based on the nearest simulation site
   def add_nearest_sim_site(info_df, output_df, data_source=['tva', 'nerc']):
-    info_df['nearest_sim_site'] = -1
+    #info_df['nearest_sim_site'] = -1
     for site_type in data_source:
       for site in output_df[f'{site_type}_site'].unique():
         df = output_df[output_df[f'{site_type}_site'] == site]
@@ -109,15 +109,15 @@ def add_sim_site(info_df, sim_file, update_csv=False):
         mask = (info_df['data_source'] == 'GMU') & (info_df['site_id'] == min_dist_row[f'{site_type}_site'])
         info_df.loc[mask, 'nearest_sim_site'] = int(min_dist_row['sim_site'])
 
-  logger.info("Adding GMU simulation sites to info_df")
+  logger.info("Adding GMU simulation sites to extended info_df")
 
   sim_dir = os.path.dirname(sim_file)
 
-  no_gmu_df = info_df[info_df['data_source'] != 'GMU']
-  meas_df = no_gmu_df[no_gmu_df['data_class'] == 'measured']
-
   logger.info(f"  Reading: {sim_file}")
   site_df = pd.read_csv(sim_file)
+
+  no_gmu_df = info_df[info_df['data_source'] != 'GMU']
+  meas_df = no_gmu_df[no_gmu_df['data_class'] == 'measured']
 
   # Find associated TVA/NERC sites for all simulation sites
   output_data = []
@@ -140,6 +140,7 @@ def add_sim_site(info_df, sim_file, update_csv=False):
     if os.path.exists(nerc_fname):
       nerc_df = pd.read_csv(nerc_fname)
       nerc_site = f'{nerc_df["site_1_device"][0]}'
+
 
     if tva_df is not None or nerc_df is not None:
       sim_lat = None
@@ -574,7 +575,7 @@ def add_voltage(info_df, transmission_fname):
       ax.set_title("Transmission Lines and Device Locations")
       #plt.show()
 
-  logger.info("Adding nearset voltage")
+  logger.info("Adding nearset voltage to extended info_df")
 
   info_df['nearest_volt'] = np.nan
 
@@ -673,7 +674,8 @@ df = pd.read_csv(CONFIG['files']['info'])
 
 sites = {}
 
-print(f"Preparing {CONFIG['files']['info_extended']}")
+info_json_file = CONFIG['files']['info'].replace('.csv', '.json')
+print(f"Preparing {info_json_file}")
 for idx, row in df.iterrows():
   site, geo_lat, geo_lon, data_type, data_class, data_source, error = row
   if isinstance(error, str) and error.startswith("x "):
@@ -700,6 +702,7 @@ for idx, row in df.iterrows():
 
   sites[site][data_type][data_class][data_source][site] = site_metadata
 
-logger.info(f"Writing {CONFIG['files']['info_extended']}")
-with open(CONFIG['files']['info_extended'], 'w') as f:
+logger.info(f"Writing {info_json_file}")
+
+with open(info_json_file, 'w') as f:
   json.dump(sites, f, indent=2)

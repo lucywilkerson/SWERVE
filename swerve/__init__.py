@@ -62,50 +62,81 @@ def read_info_dict(sid=None):
 
   return info_dict
 
-def read_info_df(extended=False):
+def read_info_df(extended=False, exclude_errors=False):
   import pandas
   from swerve import config
   CONFIG = config()
   file = CONFIG['files']['info_extended'] if extended else CONFIG['files']['info']
-  print(f"Reading {file}")
+  print(f"    Reading {file}")
   info_df = pandas.read_csv(file)
 
-  # Remove rows that have errors
-  info_df = info_df[~info_df['error'].str.contains('', na=False)]
-  # Remove rows that don't have data_type = GIC and data_class = measured
-  info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-  info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+  if exclude_errors:
+    # Remove rows that have errors
+    info_df = info_df[~info_df['error'].str.contains('', na=False)]
+
   return info_df
 
-def plt_config():
-  import datetime
+def plt_config(scale=1):
   import matplotlib.pyplot as plt
 
   plt.rcParams['font.family'] = 'Times New Roman'
-  plt.rcParams['mathtext.fontset'] = 'cm'
-  plt.rcParams['axes.titlesize'] = 18
-  plt.rcParams['xtick.labelsize'] = 14
-  plt.rcParams['ytick.labelsize'] = 14
-  plt.rcParams['legend.fontsize'] = 14
-  plt.rcParams['axes.labelsize'] = 16
-  plt.rcParams['legend.fontsize'] = 14
-  plt.rcParams['figure.dpi'] = 100
+  plt.rcParams['mathtext.fontset'] = 'cm' # Computer Modern
+  plt.rcParams['axes.titlesize'] = int(18*scale)
+  plt.rcParams['axes.labelsize'] = int(16*scale)
+  plt.rcParams['xtick.labelsize'] = int(14*scale)
+  plt.rcParams['ytick.labelsize'] = int(14*scale)
+  plt.rcParams['legend.fontsize'] = int(14*scale)
+  plt.rcParams['figure.dpi'] = 200
   plt.rcParams['savefig.dpi'] = 600
-
-  return {
-    'data': [
-      datetime.datetime(2024, 5, 10, 0, 0),
-      datetime.datetime(2024, 5, 13, 0, 0)
-    ],
-    'xlims': [
-      datetime.datetime(2024, 5, 10, 11, 0),
-      datetime.datetime(2024, 5, 12, 6, 0)
-    ]
-  }
+  plt.rcParams['figure.constrained_layout.use'] = True
 
 def add_subplot_label(ax, label, loc=(-0.15, 1)):
-  import matplotlib.pyplot as plt
-  ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+  ax.text(*loc, label, transform=ax.transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
+
+def format_cc_scatter(ax):
+
+  # Sets the aspect ratio to make the plot square and ensure xlim and ylim are the same
+  ax.set_aspect('equal', adjustable='box')
+
+  # Set the limits to be the same for both axes
+  max_x = max(abs(ax.get_xlim()[0]), abs(ax.get_xlim()[1]))
+  max_y = max(abs(ax.get_ylim()[0]), abs(ax.get_ylim()[1]))
+  max_xy = max(max_x, max_y)
+  limits = [-max_xy, max_xy]
+
+  # Set the limits for both axes
+  ax.set_xlim(limits)
+  ax.set_ylim(limits)
+
+  # Draw diagonal line
+  ax.plot([limits[0], limits[1]], [limits[0], limits[1]], color=3 * [0.6], linewidth=0.5)
+
+  # Draw y = 0 line
+  ax.plot([limits[0], limits[1]], [0, 0], color='black', linewidth=0.5)
+
+  # Draw x = 0 line
+  ax.plot([0, 0], [limits[0], limits[1]], color='black', linewidth=0.5)
+
+  # Force ticks to be rendered to account for new limits and aspect ratio.
+  # draw() call forces internal calculation on the tick labels, which
+  # will be adjusted to have fewer ticks.
+  fig = ax.get_figure()
+  fig.canvas.draw()
+
+  # Get the updated xticks, which should be fewer than the number of yticks
+  # to prevent overlapping labels.
+  ticks = ax.get_xticks()
+
+  # Set the same ticks for both axes
+  ax.set_xticks(ticks)
+  ax.set_yticks(ticks)
+
+  # Re-set the limits for both axes, which may have been modified by draw()
+  ax.set_xlim(limits)
+  ax.set_ylim(limits)
+
+  ax.minorticks_on()
+  ax.grid(which='minor', linestyle=':', linewidth=0.5, color='gray', alpha=0.5)
 
 def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png','pdf']):
   import os
