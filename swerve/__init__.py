@@ -10,6 +10,9 @@ def sids(sids_only=None):
   from swerve import config, read_info_dict
   CONFIG = config()
 
+  # TODO: Add keyword exclude_errors?
+
+  # TODO: Seems like this should be calling read_info_df() and getting all unique sids.
   info = read_info_dict()
   all_sids = list(info.keys())
 
@@ -25,6 +28,7 @@ def sids(sids_only=None):
       sids_only.remove('paper')
       for data_type in CONFIG['paper_sids'].keys():
         for plot_type in CONFIG['paper_sids'][data_type].keys():
+          # redundant loop?
           for plot_type in CONFIG['paper_sids'][data_type].keys():
             sids_only.extend(CONFIG['paper_sids'][data_type][plot_type].keys())
       # Remove duplicates
@@ -47,6 +51,72 @@ def format_df(df, float_fmt=".2f"):
 
     # Apply format_cell to each cell
     return df.map(format_cell)
+
+def infodf2dict(info_df, logger):
+  """
+  Converts info/info.csv, which has the form
+
+  Bull Run,36.0193,-84.1575,GIC,measured,TVA,
+  Bull Run,36.0193,-84.1575,GIC,calculated,TVA,"error message"
+  Bull Run,36.0193,-84.1575,GIC,calculated,MAGE,
+  Bull Run,36.0193,-84.1575,GIC,calculated,GMU,
+  Bull Run,36.0193,-84.1575,B,measured,TVA,
+  Bull Run,36.0193,-84.1575,B,calculated,SWMF,
+  Bull Run,36.0193,-84.1575,B,calculated,MAGE,
+
+  to a dict of the form
+
+  {
+    "Bull Run": {
+      "GIC": {
+        "measured": "TVA",
+        "calculated": ["TVA", "GMU, "MAGE"]
+      },
+      "B": {
+        "calculated": ["SWMF", "MAGE"]
+      }
+    }
+  }
+
+  and saves in info/info.json
+  """
+
+  info_dict = {}
+
+  #print(f"Preparing {CONFIG['files']['info_extended_json']}")
+  for idx, row in info_df.iterrows():
+
+    site = row['site_id']
+    error = row['error']
+
+    if isinstance(error, str) and error.startswith("x "):
+      msg = f"  Skipping site '{site}' due to error message:\n    {error}"
+      logger.info(msg)
+      continue
+
+    if site not in info_dict:
+      info_dict[site] = {}
+
+    data_type = row['data_type']
+    if data_type not in info_dict[site]:  # e.g., GIC, B
+      info_dict[site][data_type] = {}
+
+    data_class = row['data_class']
+    if data_class not in info_dict[site][data_type]:  # e.g., measured, calculated
+      info_dict[site][data_type][data_class] = {}
+
+    data_source = row['data_source']
+    if data_source not in info_dict[site][data_type][data_class]:  # e.g., TVA, NERC, SWMF, OpenGGCM
+      info_dict[site][data_type][data_class][data_source] = {}
+
+    site_metadata = row.to_dict()
+    for key in ['site_id', 'data_type', 'data_class', 'data_source']:
+      # Remove keys that are a part of dict structure (so redundant).
+      site_metadata.pop(key, None)
+
+    info_dict[site][data_type][data_class][data_source][site] = site_metadata
+
+  return info_dict
 
 def read_info_dict(sid=None):
   import json

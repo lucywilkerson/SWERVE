@@ -28,6 +28,9 @@ else:
 
 sids_only = sids(sids_only=sids_only)
 
+# TODO: If info.extended.csv does not exist, run info.py code.
+# data = read_info_dict() # Read info dictionary from info.extended.json file.
+
 data = {}
 stats = {}
 for sid in sids_only:

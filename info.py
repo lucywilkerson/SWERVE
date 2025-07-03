@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import numpy as np
 
-from swerve import config, sids, site_read, site_stats, subset
+from swerve import config, subset, infodf2dict
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -652,7 +652,7 @@ def add_gic_parameters(info_df, all_file):
   if not os.path.exists(all_file):
       print(f"  {all_file} does not exist, run main.py first")
       return
-    
+
   def read(all_file, sid=None):
     fname = os.path.join('info', 'info.json')
     with open(fname, 'r') as f:
@@ -705,71 +705,10 @@ out_fname = CONFIG['files']['info_extended']
 info_df.to_csv(out_fname, index=False)
 logger.info(f"Wrote {out_fname}")
 
-"""
-Converts info/info.csv, which has the form
-
-Bull Run,36.0193,-84.1575,GIC,measured,TVA,
-Bull Run,36.0193,-84.1575,GIC,calculated,TVA,"error message"
-Bull Run,36.0193,-84.1575,GIC,calculated,MAGE,
-Bull Run,36.0193,-84.1575,GIC,calculated,GMU,
-Bull Run,36.0193,-84.1575,B,measured,TVA,
-Bull Run,36.0193,-84.1575,B,calculated,SWMF,
-Bull Run,36.0193,-84.1575,B,calculated,MAGE,
-
-to a dict of the form
-
-{
-  "Bull Run": {
-    "GIC": {
-      "measured": "TVA",
-      "calculated": ["TVA", "GMU, "MAGE"]
-    },
-    "B": {
-      "calculated": ["SWMF", "MAGE"]
-    }
-  }
-}
-
-and saves in info/info.json
-"""
-
-sites = {}
-
 
 print(f"Preparing {CONFIG['files']['info_extended_json']}")
-columns = info_df.columns.values.tolist()
-for idx, row in info_df.iterrows():
-
-  site = row['site_id']
-  error = row['error']
-
-  if isinstance(error, str) and error.startswith("x "):
-    msg = f"  Skipping site '{site}' due to error message in {CONFIG['files']['info']}:\n    {error}"
-    logger.info(msg)
-    continue
-
-  if site not in sites:
-    sites[site] = {}
-
-  data_type = row['data_type']
-  if data_type not in sites[site]:  # e.g., GIC, B
-    sites[site][data_type] = {}
-
-  data_class = row['data_class']
-  if data_class not in sites[site][data_type]:  # e.g., measured, calculated
-    sites[site][data_type][data_class] = {}
-
-  data_source = row['data_source']
-  if data_source not in sites[site][data_type][data_class]:  # e.g., TVA, NERC, SWMF, OpenGGCM
-    sites[site][data_type][data_class][data_source] = {}
-
-  site_metadata = row.to_dict()
-  for key in ['site_id', 'data_type', 'data_class', 'data_source']:
-    # Remove keys that are a part of dict structure (so redundant).
-    site_metadata.pop(key, None)
-
-  sites[site][data_type][data_class][data_source][site] = site_metadata
+info_dict = infodf2dict(info_df, logger)
 
 logger.info(f"Writing {CONFIG['files']['info_extended_json']}")
 with open(CONFIG['files']['info_extended_json'], 'w') as f:
-  json.dump(sites, f, indent=2)
+  json.dump(info_dict, f, indent=2)
