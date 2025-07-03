@@ -50,6 +50,7 @@ def config(event='2024-May-Storm'):
           'all': os.path.join(data_dir, '_processed', 'all.pkl'),
           'info': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.csv')),
           'info_extended': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.extended.csv')),
+          'info_json': os.path.abspath(os.path.join(file_path, '..', 'info', 'info.json')),
           'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
           'shape': {
               'transmission_lines': os.path.join(data_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
