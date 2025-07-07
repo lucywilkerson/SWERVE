@@ -35,7 +35,7 @@ info_csv = os.path.join('info', 'info.csv')
 beta_fname = os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat')
 geojson_file = os.path.join('..', '2024-May-Storm-data', 'nerc', 'nerc_gdf.geojson')
 transmission_fname = os.path.join(data_dir, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp')
-sim_dir = os.path.join(data_dir, 'dennies_gic_comparison')
+sim_dir = os.path.join(data_dir, 'gmu')
 sim_file = os.path.join(sim_dir, 'gic_mean_df_1.csv')
 
 # Code for GMU simulation sites

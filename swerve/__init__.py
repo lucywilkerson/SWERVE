@@ -34,8 +34,8 @@ FILES = {
           'info': 'info/info.csv',
           'info_extended': 'info/info.extended.csv',
           'shape_files': {
-              'electric_power': os.path.join(DATA_DIR, 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
-              'mag_lat': os.path.join(DATA_DIR, 'wmm_all', 'I_2024.shp')
+              'electric_power': os.path.join(DATA_DIR, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'mag_lat': os.path.join(DATA_DIR, 'shape', 'wmm_all', 'I_2024.shp')
           },
           'beta': os.path.join(DATA_DIR, 'pulkkinen', 'waveforms_All.mat'),
         }
