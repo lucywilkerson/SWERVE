@@ -26,7 +26,7 @@ def read_info():
 
 def gic_stats(data_types=['GIC']):
   import pickle
-  temp_pkl = CONFIG['dirs']['data'] + '\_regression\gic_stats.pkl'
+  temp_pkl = os.path.join(results_dir, 'gic_stats.pkl')
 
   if os.path.exists(temp_pkl):
     # read gic_std and gic_max from it.
@@ -58,7 +58,7 @@ def gic_stats(data_types=['GIC']):
       for data_type in stat_keys:
         if data_type != 'GIC/measured/NERC' and data_type != 'GIC/measured/TVA':
           continue
-        elif not stats[sid][data_type]:
+        if not stats[sid][data_type]:
           logger.warning(f"  No stats for {sid}/{data_type}. Skipping.")
           continue
         gic_std.append(stats[sid][data_type]['stats']['std'])
