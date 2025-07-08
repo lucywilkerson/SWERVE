@@ -1,8 +1,6 @@
 # Partial rewrite of linear_regression.py, which has too much code duplication
 # and will be very difficult to maintain and generalize.
 
-# First modify info.py to put log10_beta, alpha, gic_std, and gic_max in info.extended.csv
-
 import os
 import itertools
 import pandas as pd
@@ -11,8 +9,9 @@ from sklearn.linear_model import LinearRegression
 
 from swerve import config
 
-logger = config()['logger'](**config()['logger_kwargs'])
-results_dir = os.path.join(config()['dirs']['data'], '_results')
+CONFIG = config()
+logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
 
 def read_info():
   file_path = os.path.join('info', 'info.extended.csv')
@@ -24,6 +23,56 @@ def read_info():
   info = info[info['data_class'].str.contains('measured', na=False)]
   info.reset_index(drop=True, inplace=True)
   return info
+
+def gic_stats(data_types=['GIC']):
+  import pickle
+  temp_pkl = CONFIG['dirs']['data'] + '\_regression\gic_stats.pkl'
+
+  if os.path.exists(temp_pkl):
+    # read gic_std and gic_max from it.
+    logger.info(f"  Reading gic_std and gic_maxabs from {temp_pkl}")
+    with open(temp_pkl, 'rb') as f:
+      gic_std, gic_maxabs = pickle.load(f)
+
+  else:
+    from swerve import site_read, site_stats, read_info_df
+
+    info_df = read_info_df(exclude_errors=True)
+    #info_df = read_info()
+    sites = info_df['site_id']
+
+    gic_std = []
+    gic_maxabs = []
+
+    data = {}
+    stats = {}
+    for i,sid in enumerate(sites):
+
+      data[sid] = site_read(sid, data_types=data_types, logger=logger)
+
+      # Extract gic_std and gic_maxabs from existing stats information in data[sid]
+      # (no need to add gic_max to stats b/c it can be derived from min/max)
+      stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
+
+      stat_keys = stats[sid].keys()
+      for data_type in stat_keys:
+        if data_type != 'GIC/measured/NERC' and data_type != 'GIC/measured/TVA':
+          continue
+        elif not stats[sid][data_type]:
+          logger.warning(f"  No stats for {sid}/{data_type}. Skipping.")
+          continue
+        gic_std.append(stats[sid][data_type]['stats']['std'])
+        gic_maxabs.append(max(stats[sid][data_type]['stats']['max'], abs(stats[sid][data_type]['stats']['min'])))
+
+      # Save gic_std and gic_maxabs in temp_pkl
+      # Ensure the directory exists before saving
+      os.makedirs(os.path.dirname(temp_pkl), exist_ok=True)
+      with open(temp_pkl, 'wb') as f:
+        logger.info(f"  Saving gic_std and gic_maxabs to {temp_pkl}")
+        pickle.dump((gic_std, gic_maxabs), f)
+  return gic_std, gic_maxabs 
+
+gic_std, gic_maxabs = gic_stats()
 
 def input_combos(input_set):
   combos = []
