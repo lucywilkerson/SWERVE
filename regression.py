@@ -32,7 +32,7 @@ def gic_stats(data_types=['GIC']):
     # read gic_std and gic_max from it.
     logger.info(f"  Reading gic_std and gic_maxabs from {temp_pkl}")
     with open(temp_pkl, 'rb') as f:
-      gic_std, gic_maxabs = pickle.load(f)
+      gic_site, gic_std, gic_maxabs = pickle.load(f)
 
   else:
     from swerve import site_read, site_stats, read_info_df
@@ -41,12 +41,13 @@ def gic_stats(data_types=['GIC']):
     #info_df = read_info()
     sites = info_df['site_id']
 
+    gic_site = []
     gic_std = []
     gic_maxabs = []
 
     data = {}
     stats = {}
-    for i,sid in enumerate(sites):
+    for sid in sites:
 
       data[sid] = site_read(sid, data_types=data_types, logger=logger)
 
@@ -61,18 +62,16 @@ def gic_stats(data_types=['GIC']):
         if not stats[sid][data_type]:
           logger.warning(f"  No stats for {sid}/{data_type}. Skipping.")
           continue
-        gic_std.append(stats[sid][data_type]['stats']['std'])
+        gic_site.append(sid)
+        gic_std.append(stats[sid][data_type]['stats']['std'][0])
         gic_maxabs.append(max(stats[sid][data_type]['stats']['max'], abs(stats[sid][data_type]['stats']['min'])))
-
-      # Save gic_std and gic_maxabs in temp_pkl
-      # Ensure the directory exists before saving
-      os.makedirs(os.path.dirname(temp_pkl), exist_ok=True)
-      with open(temp_pkl, 'wb') as f:
-        logger.info(f"  Saving gic_std and gic_maxabs to {temp_pkl}")
-        pickle.dump((gic_std, gic_maxabs), f)
-  return gic_std, gic_maxabs 
-
-gic_std, gic_maxabs = gic_stats()
+    # Save gic_std and gic_maxabs in temp_pkl
+    # Ensure the directory exists before saving
+    os.makedirs(os.path.dirname(temp_pkl), exist_ok=True)
+    with open(temp_pkl, 'wb') as f:
+      logger.info(f"  Saving gic_std and gic_maxabs to {temp_pkl}")
+      pickle.dump((gic_site, gic_std, gic_maxabs), f)
+  return gic_site, gic_std, gic_maxabs 
 
 def input_combos(input_set):
   combos = []
@@ -169,6 +168,10 @@ input_sets = [
 ]
 
 info = read_info()
+sites, gic_std, gic_maxabs = gic_stats()
+info = info[info['site_id'].isin(sites)].reset_index(drop=True)
+info['gic_std'] = gic_std
+info['gic_max'] = gic_maxabs
 
 for output_name in output_names:
   # Table to hold metrics
