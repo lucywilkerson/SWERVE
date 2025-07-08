@@ -13,9 +13,10 @@ logger = logger(**LOG_KWARGS)
 out_dir = os.path.join(DATA_DIR, '_results')
 
 find_lowest_cc = False
+B_cc = True #make cc for B
 
-def read():
-  info_df = read_info(extended=True)
+def read(data_type):
+  info_df = read_info(extended=True, data_type=data_type)
 
   print(f"Reading {FILES['all']}")
   with open(FILES['all'], 'rb') as f:
@@ -23,11 +24,14 @@ def read():
 
   return info_df, data
 
-def write_table(rows, rows_md, out_dir):
+def write_table(rows, data_type, rows_md, out_dir):
   # Print the results again in order of decreasing correlation coefficient
   cc_df = pd.DataFrame(rows, columns=columns)
   cc_df = cc_df.sort_values(by='cc', ascending=False)
-  output_fname = FILES['cc']
+  if data_type == 'GIC':
+    output_fname = FILES['cc']
+  if data_type == 'B':
+    output_fname = os.path.join(out_dir, 'cc_B.pkl')
   if not os.path.exists(os.path.dirname(output_fname)):
     os.makedirs(os.path.dirname(output_fname))
 
@@ -38,7 +42,10 @@ def write_table(rows, rows_md, out_dir):
   df = pd.DataFrame(rows_md, columns=columns)
   df = df.sort_values(by='cc', ascending=False)
   # Write the DataFrame to a markdown file
-  output_fname = os.path.join(out_dir, 'cc.md')
+  if data_type =='GIC':
+    output_fname = os.path.join(out_dir, 'cc.md')
+  if data_type == 'B':
+    output_fname = os.path.join(out_dir, 'cc_B.md')
   print(f"Writing {output_fname}")
   with open(output_fname, 'w') as f:
     f.write("See https://github.com/lucywilkerson/2024-May-Storm/blob/main/info/ for additional site information.\n\n")
@@ -85,7 +92,12 @@ def site_filt(info_df, cc_df, cc_lim):
     site_1_id = row['site_id']
     is_site_bad(site_1_id, cc_df)
 
-info_df, data_all = read()
+if B_cc:
+  data_type='B'
+else:
+  data_type='GIC'
+
+info_df, data_all = read(data_type=data_type)
 
 sites = info_df['site_id'].tolist()
 #sites = ['10052', '10207', 'Bull Run'] # For testing
@@ -106,9 +118,13 @@ for idx_1, row in info_df.iterrows():
   if site_1_id not in sites:
     continue
 
-  time_meas_1 = data_all[site_1_id]['GIC']['measured'][0]['modified']['time']
-  data_meas_1 = data_all[site_1_id]['GIC']['measured'][0]['modified']['data']
-  time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
+  time_meas_1 = data_all[site_1_id][data_type]['measured'][0]['modified']['time']
+  data_meas_1 = data_all[site_1_id][data_type]['measured'][0]['modified']['data']
+  if B_cc:
+      time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
+      data_meas_1 = np.linalg.norm(data_meas_1, axis=1)
+  else:
+      time_meas_1, data_meas_1 = subset(time_meas_1, data_meas_1, start, stop)
 
   # finding number of nans
   bad_1 = np.isnan(data_meas_1).sum()
@@ -129,9 +145,13 @@ for idx_1, row in info_df.iterrows():
     if site_2_id not in sites:
       continue
 
-    time_meas_2 = data_all[site_2_id]['GIC']['measured'][0]['modified']['time']
-    data_meas_2 = data_all[site_2_id]['GIC']['measured'][0]['modified']['data']
-    time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
+    time_meas_2 = data_all[site_2_id][data_type]['measured'][0]['modified']['time']
+    data_meas_2 = data_all[site_2_id][data_type]['measured'][0]['modified']['data']
+    if B_cc:
+      time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
+      data_meas_2 = np.linalg.norm(data_meas_2, axis=1)
+    else:
+      time_meas_2, data_meas_2 = subset(time_meas_2, data_meas_2, start, stop)
 
     # finding number of nans
     bad_2 = np.isnan(data_meas_2).sum()
@@ -143,8 +163,22 @@ for idx_1, row in info_df.iterrows():
     pool_2 = row['power_pool']
     reg_2 = row['US_region']
 
-    valid_mask = ~np.isnan(data_meas_1) & ~np.isnan(data_meas_2)
-    cov = np.corrcoef(data_meas_1[valid_mask], data_meas_2[valid_mask])
+    if B_cc and (len(time_meas_1) != len(time_meas_2)):
+          # Interpolate data_meas_2 onto time_meas_1
+          # Convert datetime arrays to timestamps (float seconds since epoch) for interpolation
+          time_meas_1_ts = np.array([t.timestamp() for t in time_meas_1])
+          time_meas_1_ts = time_meas_1_ts[~np.isnan(data_meas_1)]
+          
+          time_meas_2_ts = np.array([t.timestamp() for t in time_meas_2])
+          time_meas_2_ts = time_meas_2_ts[~np.isnan(data_meas_2)]
+
+          # Interpolate measured data
+          data_meas_2_interp = ( np.interp( time_meas_1_ts, time_meas_2_ts, data_meas_2 ) )
+    else:
+        data_meas_2_interp = data_meas_2
+
+    valid_mask = ~np.isnan(data_meas_1) & ~np.isnan(data_meas_2_interp)
+    cov = np.corrcoef(data_meas_1[valid_mask], data_meas_2_interp[valid_mask])
     cc = cov[0, 1]
     if np.isnan(cc):
       continue
@@ -171,8 +205,8 @@ for idx_1, row in info_df.iterrows():
     if cc < 0:
       data_meas_1 = -data_meas_1
     lags = np.arange(-60, 61, 1)
-    cross_corr = [np.corrcoef(data_meas_2[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_1, lag))], 
-                            np.roll(data_meas_1, lag)[~np.isnan(data_meas_2) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
+    cross_corr = [np.corrcoef(data_meas_2_interp[~np.isnan(data_meas_2_interp) & ~np.isnan(np.roll(data_meas_1, lag))], 
+                            np.roll(data_meas_1, lag)[~np.isnan(data_meas_2_interp) & ~np.isnan(np.roll(data_meas_1, lag))])[0, 1] for lag in lags]
     max_xcorr = max(cross_corr)
     max_lag = lags[cross_corr.index(max_xcorr)]
 
@@ -192,8 +226,10 @@ for idx_1, row in info_df.iterrows():
 
     # TODO: add a column in the printout of # mins
 
-cc_df = write_table(rows, rows_md, out_dir)
+cc_df = write_table(rows, data_type, rows_md, out_dir)
 
+if B_cc:
+  exit()
 #################################################################################################################
 # add column for minimum mean |cc| for each site
 cc_df.reset_index(drop=True, inplace=True)

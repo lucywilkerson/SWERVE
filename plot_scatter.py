@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-from swerve import FILES, plt_config, savefig, savefig_paper, add_subplot_label, read_info, LOG_KWARGS, logger
+from swerve import FILES, DATA_DIR, plt_config, savefig, savefig_paper, add_subplot_label, read_info, LOG_KWARGS, logger
 
 logger = logger(**LOG_KWARGS)
 
@@ -13,10 +13,11 @@ results_dir = '_results'
 limits = plt_config()
 
 poster = False  # set to be true to generate poster figs
-paper = True    # set true to generate paper figs
+paper = False    # set true to generate paper figs
 colorbar_scatter = False # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
+B_scatter = True # set true to generate scatter plots for B
 
 
 def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins', **kwargs):
@@ -187,8 +188,12 @@ def site_plots(info_df, cc_df, sites):
         plt.close()
 
 # Reading cc.pkl file
-print(f"Reading {FILES['cc']}")
-with open(FILES['cc'], 'rb') as file:
+if B_scatter:
+    fname = os.path.join(DATA_DIR, '_results', 'cc_B.pkl')
+else:
+    fname = FILES['cc']
+print(f"Reading {fname}")
+with open(fname, 'rb') as file:
   df = pickle.load(file)
 
 # Scatter plot
@@ -202,7 +207,10 @@ plt.grid(True)
 plt.gca().xaxis.set_minor_locator(mpl.ticker.AutoMinorLocator(2))
 plt.gca().xaxis.grid(True, linestyle='--', which='minor')
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_dist_scatter', logger)
+if B_scatter:
+    savefig(results_dir, 'cc_vs_dist_scatter_B', logger)
+else:
+    savefig(results_dir, 'cc_vs_dist_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'a)')
     savefig_paper(results_dir, 'cc_vs_dist_scatter', logger)
@@ -215,7 +223,10 @@ plt.xlabel('Average standard deviation [A]')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_std_scatter', logger)
+if B_scatter:
+    savefig(results_dir, 'cc_vs_std_scatter_B', logger)
+else:
+    savefig(results_dir, 'cc_vs_std_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['beta_diff']), np.abs(df['cc']), **scatter_kwargs)
@@ -224,7 +235,10 @@ plt.xlabel(r'|$\Delta \beta$ |')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_beta_scatter', logger)
+if B_scatter:
+    savefig(results_dir, 'cc_vs_beta_scatter_B', logger)
+else:
+    savefig(results_dir, 'cc_vs_beta_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'c)')
     savefig_paper(results_dir, 'cc_vs_beta_scatter', logger)
@@ -236,7 +250,10 @@ plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_logbeta_scatter', logger)
+if B_scatter:
+    savefig(results_dir, 'cc_vs_logbeta_scatter_B', logger)
+else:
+    savefig(results_dir, 'cc_vs_logbeta_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), **scatter_kwargs)
@@ -246,7 +263,10 @@ plt.xlabel(r'|$\Delta$V| [kV]')
 plt.ylabel('|cc|')
 plt.grid(True)
 #plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_volt_scatter', logger)
+if B_scatter:
+    savefig(results_dir, 'cc_vs_volt_scatter_B', logger)
+else:
+    savefig(results_dir, 'cc_vs_volt_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'd)')
     savefig_paper(results_dir, 'cc_vs_volt_scatter', logger)
@@ -258,11 +278,17 @@ plt.xlabel(r'$\Delta$ Latitude [deg]')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
-savefig(results_dir, 'cc_vs_lat_scatter', logger)
+if B_scatter:
+    savefig(results_dir, 'cc_vs_lat_scatter_B', logger)
+else:
+    savefig(results_dir, 'cc_vs_lat_scatter', logger)
 if paper:
     add_subplot_label(plt.gca(), 'b)')
     savefig_paper(results_dir, 'cc_vs_lat_scatter', logger)
 plt.close()
+
+if B_scatter:
+    exit()
 
 # scatter plots not in paper
 if not paper:
@@ -375,4 +401,4 @@ if site_scatter:
     sites = info_df['site_id'].tolist()
     site_plots(info_df, df, sites)
 
-utilrsw.rm_if_empty('log/plot_scatter.errors.log')
+#utilrsw.rm_if_empty('log/plot_scatter.errors.log')

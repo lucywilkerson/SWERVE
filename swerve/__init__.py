@@ -77,7 +77,7 @@ def add_subplot_label(ax, label, loc=(-0.15, 1)):
   import matplotlib.pyplot as plt
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
-def read_info(extended=False):
+def read_info(extended=False, data_type='GIC'):
   import pandas
   #reading in info.csv
   file = FILES['info_extended'] if extended else FILES['info']
@@ -86,7 +86,10 @@ def read_info(extended=False):
   # Remove rows that have errors
   info_df = info_df[~info_df['error'].str.contains('', na=False)]
   # Remove rows that don't have data_type = GIC and data_class = measured
-  info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+  if data_type == 'GIC':
+    info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
+  elif data_type == 'B':
+    info_df = info_df[info_df['data_type'].str.contains('B', na=False)]
   info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
   return info_df
 
