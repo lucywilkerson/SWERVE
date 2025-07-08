@@ -10,7 +10,7 @@ sites  = None   # Read and plot data only sites in this array. None => all sites
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
-#data_types = ['GIC']  # Read and plot these data types only.
+data_types = ['B']  # Read and plot these data types only.
 
 import sys
 
@@ -33,6 +33,7 @@ sids_only = sids(sids_only=sids_only)
 
 data = {}
 stats = {}
+rows = []
 for sid in sids_only:
   data[sid] = {}
 
@@ -45,6 +46,33 @@ for sid in sids_only:
   utilrsw.print_dict(data[sid], indent=4)
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+
+def summary_stats(stats, logger=None):
+  import pandas as pd
+
+  for sid in stats.keys():
+    for result in stats[sid].keys():
+      if result.startswith('B') and 'calculated' in result and 'metrics' in stats[sid][result]:
+        logger.info(f"  {sid}/{result} metrics: {stats[sid][result]['metrics']['pe'][0]:.3f}")
+        rows.append({
+          'site_id': sid,
+          'model': result.split('/')[2],
+          'pex': stats[sid][result]['metrics']['pe'][3],
+          'ccx': stats[sid][result]['metrics']['cc'][3],
+        })
+
+  df = pd.DataFrame(rows)
+  print(df)
+  models = df['model'].unique()
+  for model in models:
+    model_df = df[df['model'] == model]
+    mean_pex = model_df['pex'].mean()
+    mean_ccx = model_df['ccx'].mean()
+    mean_pex_se = model_df['pex'].std() / (len(model_df) ** 0.5)
+    mean_ccx_se = model_df['ccx'].std() / (len(model_df) ** 0.5)
+    logger.info(f"  Model: {model}, n = {len(model_df)}; Mean PE H: {mean_pex:.3f} +/- {mean_pex_se:0.3f}, Mean CC H: {mean_ccx:.3f} +/- {mean_ccx_se:0.3f}")
+
+summary_stats(stats, logger=logger)
 
 if sites is None and data_types is None:
   import utilrsw

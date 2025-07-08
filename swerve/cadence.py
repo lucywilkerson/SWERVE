@@ -14,4 +14,5 @@ def cadence(time, data, logger=None, logger_indent=0):
     logger.info(f"{logger_indent}  Uniq dts [ns] = {dts_uniq}")
     logger.info(f"{logger_indent}  Uniq dts [#]  = {len(dts_uniq)}")
 
+  dts_uniq.sort()
   return dts_uniq

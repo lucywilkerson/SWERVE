@@ -82,7 +82,7 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
     ylabels = None
 
   if style == 'timeseries':
-    ylabels = 3*[f"[{unit}]"]
+    ylabels = len(component_labels2)*[f"[{unit}]"]
 
   kwargs = {
     'ylabels': ylabels,
@@ -108,7 +108,7 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
     component_labels2[idx] = f"{label} modified"
 
   kwargs = {
-    'ylabels': 3*[f"[{data['original']['unit']}]"],
+    'ylabels': len(component_labels2)*[f"[{data['original']['unit']}]"],
     'component_labels1': component_labels1,
     'component_labels2': component_labels2,
     'style': 'timeseries',

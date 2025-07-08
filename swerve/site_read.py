@@ -78,6 +78,7 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
         if _output_error(orig, logger):
           continue
 
+
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
         data_mod = orig['data'].copy()
         if data_type == 'B' and data_class == 'measured':
@@ -90,13 +91,20 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
         else:
           logger.info(f"    {resample_msg}")
 
+        labels = orig['labels']
+        if data_type == 'B':
+          # Add column with horizontal magnitude
+          h = data_mod[:,0]**2 + data_mod[:,1]**2
+          data_mod = numpy.hstack((data_mod, numpy.sqrt(h).reshape(-1, 1)))
+          labels.append('B_H')
+
         modified = {'modification': resample_msg}
         try:
           time_m, data_m = resample(orig["time"], data_mod, start, stop, ave='60s', **resample_kwargs)
           modified['time'] = time_m
           modified['data'] = data_m
           modified['unit'] = orig['unit']
-          modified['labels'] = orig['labels']
+          modified['labels'] = labels
         except Exception as e:
           modified['error'] = str(e)
           logger.error(f"    Error resampling data: {modified['error']}")
