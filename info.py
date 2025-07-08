@@ -637,59 +637,6 @@ def add_voltage(info_df, transmission_fname):
       # Optional plot the data for TVA and NERC on the same plot
       plot(tl_gdf_subset, device_gdf, device_to_lines, extent=[-125, -67, 25.5, 49.5])
 
-# Code for std and peak of GIC
-# TODO: make less messy, right now depends on main.py running first to make all.pkl, and main.py needs info.py to run first
-def add_gic_parameters(info_df, all_file):
-  import pickle
-  from swerve import read_info_df
-
-  """
-  Adds GIC standard deviation and absolute max to info_df for all measured GIC sites.
-  Won't run if all.pkl doesn't exist (must run main.py first).
-  """
-  logger.info(f"Adding std and peak gic columns to info_df")
-
-  if not os.path.exists(all_file):
-      print(f"  {all_file} does not exist, run main.py first")
-      return
-
-  def read(all_file, sid=None):
-    fname = os.path.join('info', 'info.json')
-    with open(fname, 'r') as f:
-      logger.info(f"Reading {fname}")
-      info_dict = json.load(f)
-
-    logger.info(f"Reading {all_file}")
-    with open(all_file, 'rb') as f:
-      data = pickle.load(f)
-
-    return info_dict, data
-
-  data = read_info_df()
-  sites = data['site_id'].tolist()
-
-  _, data_all = read(all_file)
-  start, stop = CONFIG['limits']['data']
-
-  gic_std = np.zeros(len(sites))
-  gic_max = np.zeros(len(sites))
-  for i, sid in enumerate(sites):
-    sid_source = data[data['site_id'] == sid]['data_source'].values[0]
-    if 'time' not in data_all[sid]['GIC']['measured'][sid_source]['modified'].keys():
-      logger.warning(f"  No GIC data for {sid} from {sid_source}, skipping")
-      #print(data_all[sid]['GIC']['measured'][sid_source]['modified']['error'])
-      gic_std[i] = np.nan
-      gic_max[i] = np.nan
-      continue
-    time_meas = data_all[sid]['GIC']['measured'][sid_source]['modified']['time']
-    data_meas = data_all[sid]['GIC']['measured'][sid_source]['modified']['data']
-    time_meas, data_meas = subset(time_meas, data_meas, start, stop)
-    gic_std[i] = np.std(data_meas[~np.isnan(data_meas)])
-    gic_max[i] = np.max(np.abs(data_meas[~np.isnan(data_meas)]))
-
-    info_df.loc[info_df['site_id'] == sid, 'gic_std'] = gic_std[i]
-    info_df.loc[info_df['site_id'] == sid, 'gic_max'] = gic_max[i]
-
 # Read info.csv
 logger.info(f"Reading {CONFIG['files']['info']}")
 info_df = pd.read_csv(CONFIG['files']['info'])
@@ -699,7 +646,6 @@ add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
 add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
-#add_gic_parameters(info_df, CONFIG['files']['all'])
 
 out_fname = CONFIG['files']['info_extended']
 info_df.to_csv(out_fname, index=False)
