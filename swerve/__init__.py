@@ -132,7 +132,7 @@ def read_info_dict(sid=None):
 
   return info_dict
 
-def read_info_df(extended=False, exclude_errors=False, measured=True):
+def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False):
   import pandas
   from swerve import config
   CONFIG = config()
@@ -140,14 +140,21 @@ def read_info_df(extended=False, exclude_errors=False, measured=True):
   print(f"    Reading {file}")
   info_df = pandas.read_csv(file)
 
+  def filter_df(df, col, val):
+    if val is None:
+      return df
+    if isinstance(val, list):
+      return df[df[col].isin(val)]
+    else:
+      return df[df[col].astype(str).str.contains(str(val), na=False)]
+
   if exclude_errors:
     # Remove rows that have errors
     info_df = info_df[~info_df['error'].str.contains('', na=False)]
 
-  # Remove rows that don't have data_type = GIC and data_class = measured
-  info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
-  if measured:
-    info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+  info_df = filter_df(info_df, 'data_type', data_type)
+  info_df = filter_df(info_df, 'data_source', data_source)
+  info_df = filter_df(info_df, 'data_class', data_class)
 
   return info_df
 
