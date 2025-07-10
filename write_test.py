@@ -50,7 +50,7 @@ def write_timeseries(start_time, stop_time, value_range, data_type, data_class, 
     n = len(times)
 
     # Generate random integer values as floats to allow NaN assignment
-    # Generate values such that each next point is within +/-10 of the previous
+    # Generate values such that each next point is within +/- val_buffer of the previous
     values = np.empty(n)
     values[0] = np.random.randint(value_range[0], value_range[1] + 1)
     for i in range(1, n):
