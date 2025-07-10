@@ -9,10 +9,10 @@ CONFIG = config()
 limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
 
-def write_timeseries(start_time, stop_time, output_file, value_range, nan_interval=None, seed=None, plot=False):
+def write_timeseries(start_time, stop_time, output_file, value_range, freq='1s', nan_interval=None, seed=None, plot=False):
     """
-    Writes a timeseries with 1 second cadence from start_time to stop_time.
-    Values are integers from -30 to 30.
+    Writes a timeseries with given cadence (freq) from start_time to stop_time.
+    Values are integers withing value_range.
     Optionally inserts NaN values at every nan_interval seconds at random positions.
 
     Args:
@@ -20,6 +20,7 @@ def write_timeseries(start_time, stop_time, output_file, value_range, nan_interv
         stop_time (str): Stop time in 'YYYY-MM-DD HH:MM:SS' format.
         output_file (str): Path to output CSV file.
         value_range (list): Range of integer values to generate (e.g., [-30, 30]).
+        freq (str, optional): Frequency of the timeseries. Default is '1s'.
         nan_interval (int, optional): Interval (in seconds) to insert NaN values.
         seed (int, optional): Random seed for reproducibility.
         plot (bool, optional): If True, plots the generated timeseries.
@@ -29,7 +30,7 @@ def write_timeseries(start_time, stop_time, output_file, value_range, nan_interv
         random.seed(seed)
 
     # Generate time index
-    times = pd.date_range(start=start_time, end=stop_time, freq='1s')
+    times = pd.date_range(start=start_time, end=stop_time, freq=freq)
     n = len(times)
 
     # Generate random integer values as floats to allow NaN assignment
@@ -69,7 +70,17 @@ if __name__ == "__main__":
         start_time=limits[0],
         stop_time=limits[1],
         value_range=[-30, 30],
-        output_file=os.path.join(DATA_DIR, 'test', 'test1_GIC_timeseries.csv'),
+        output_file=os.path.join(DATA_DIR, 'test', 'test1_GIC_meas_timeseries.csv'),
+        nan_interval=10,  # Set to None to disable NaNs
+        seed=42
+    )
+
+    write_timeseries(
+        start_time=limits[0],
+        stop_time=limits[1],
+        value_range=[-30, 30],
+        output_file=os.path.join(DATA_DIR, 'test', 'test1_GIC_calc_timeseries.csv'),
+        freq='1min',
         nan_interval=10,  # Set to None to disable NaNs
         seed=42
     )
@@ -78,7 +89,17 @@ if __name__ == "__main__":
         start_time=limits[0],
         stop_time=limits[1],
         value_range=[0, 500],
-        output_file=os.path.join(DATA_DIR, 'test', 'test1_B_timeseries.csv'),
+        output_file=os.path.join(DATA_DIR, 'test', 'test1_B_meas_timeseries.csv'),
+        nan_interval=10,  # Set to None to disable NaNs
+        seed=42
+    )
+
+    write_timeseries(
+        start_time=limits[0],
+        stop_time=limits[1],
+        value_range=[0, 500],
+        freq='1min',
+        output_file=os.path.join(DATA_DIR, 'test', 'test1_B_calc_timeseries.csv'),
         nan_interval=10,  # Set to None to disable NaNs
         seed=42
     )
