@@ -11,7 +11,7 @@ reparse    = True  # Reparse the data files, even if they already exist (use if 
 include_tests = True  # Include test sites in the read and plot.
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
-data_types = ['B']  # Read and plot these data types only.
+#data_types = ['B']  # Read and plot these data types only.
 
 import sys
 
@@ -35,7 +35,7 @@ if not include_tests:
 
 # TODO: If info.extended.csv does not exist, run info.py code.
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
-
+sids_only=['test1']
 data = {}
 stats = {}
 rows = []
