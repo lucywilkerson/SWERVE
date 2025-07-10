@@ -25,7 +25,7 @@ limits = CONFIG['limits']['data']
 
 def read(all_file, sid=None):
   info_dict = read_info_dict()
-  info_df = read_info_df()
+  info_df = read_info_df(extended=True)
 
   print(f"Reading {all_file}")
   with open(all_file, 'rb') as f:

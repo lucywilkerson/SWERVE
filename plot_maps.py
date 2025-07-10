@@ -424,7 +424,7 @@ def transmission_map(info_df, gdf, cc_df, std=False):
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
         savefig(out_dir, 'transmission_map', logger)
 
-info_df = read_info_df()
+info_df = read_info_df(data_class='measured', exclude_errors=True)
 
 sites = info_df['site_id'].tolist()
 

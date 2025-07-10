@@ -37,7 +37,7 @@ def gic_stats(data_types=['GIC']):
   else:
     from swerve import site_read, site_stats, read_info_df
 
-    info_df = read_info_df(exclude_errors=True)
+    info_df = read_info_df(data_type='GIC', data_class='measured', exclude_errors=True)
     #info_df = read_info()
     sites = info_df['site_id']
 
