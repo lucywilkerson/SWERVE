@@ -8,6 +8,7 @@ sites  = None   # Read and plot data only sites in this array. None => all sites
 
 # For debugging
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
+include_tests = True  # Include test sites in the read and plot.
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 data_types = ['B']  # Read and plot these data types only.
@@ -27,6 +28,10 @@ else:
   sids_only = None # Read all sites.
 
 sids_only = sids(sids_only=sids_only)
+
+if not include_tests:
+  # Remove test sites from sids_only
+  sids_only = [sid for sid in sids_only if not sid.startswith('test')]
 
 # TODO: If info.extended.csv does not exist, run info.py code.
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
@@ -74,7 +79,7 @@ def summary_stats(stats, logger=None):
 
 summary_stats(stats, logger=logger)
 
-if sites is None and data_types is None:
+if sites is None and data_types is None and not include_tests:
   import utilrsw
   # Write data from all sites to a single file.
   utilrsw.write(CONFIG['files']['all'], data, logger=logger)
