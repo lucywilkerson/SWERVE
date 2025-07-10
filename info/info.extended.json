@@ -11092,7 +11092,7 @@
   "test1": {
     "GIC": {
       "measured": {
-        "NaN": {
+        "NA": {
           "test1": {
             "geo_lat": 0.0,
             "geo_lon": 0.0,
@@ -11110,7 +11110,7 @@
         }
       },
       "calculated": {
-        "NaN": {
+        "NA": {
           "test1": {
             "geo_lat": 0.0,
             "geo_lon": 0.0,
@@ -11130,7 +11130,7 @@
     },
     "B": {
       "measured": {
-        "NaN": {
+        "NA": {
           "test1": {
             "geo_lat": 0.0,
             "geo_lon": 0.0,
@@ -11148,7 +11148,7 @@
         }
       },
       "calculated": {
-        "NaN": {
+        "NA": {
           "test1": {
             "geo_lat": 0.0,
             "geo_lon": 0.0,
