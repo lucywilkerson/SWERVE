@@ -254,7 +254,7 @@ def read(info, sid, data_type, data_class, data_source, data_dir):
     # by = df["gap"]['Be'] + df["iono"]['Beh'] + df["iono"]['Bep'] + df["msph"]['Be']
     # bz = df["gap"]['Bd'] + df["iono"]['Bdh'] + df["iono"]['Bdp'] + df["msph"]['Bd']
 
-    file = os.path.join(data_dir, f'dB_{sid}.pkl')
+    file = os.path.join(data_dir, f'dB_{data_source}_{sid}.pkl')
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
