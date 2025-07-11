@@ -9,6 +9,9 @@ CONFIG = config()
 limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
 
+write_gic = True #Write GIC test timeseries
+write_b = False #Write B test timeseries
+
 def write_timeseries(start_time, stop_time, value_range, data_type, data_class, mode='sin', nan_interval=None, seed=None, plot=True):
     """
     Writes a timeseries (random or sine) from start_time to stop_time.
@@ -89,7 +92,7 @@ def write_timeseries(start_time, stop_time, value_range, data_type, data_class, 
     df.to_csv(output_file, index=False)
 
 # Example usage:
-if __name__ == "__main__":
+if write_gic:
     write_timeseries(
         start_time=limits[0],
         stop_time=limits[1],
@@ -110,6 +113,7 @@ if __name__ == "__main__":
         seed=42
     )
 
+if write_b:
     write_timeseries(
         start_time=limits[0],
         stop_time=limits[1],
