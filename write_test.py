@@ -8,9 +8,10 @@ CONFIG = config()
 
 limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
+logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-write_gic = True #Write GIC test timeseries
-write_b = True #Write B test timeseries
+write_tests = False #Write test timeseries
+test_cc_analysis = True #Run test cross-correlation analysis
 
 def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
     """
@@ -69,7 +70,7 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
     # Create DataFrame
     if data_type == 'GIC':
         df = pd.DataFrame({'time': times, 'value': values})
-    elif data_type == 'B':
+    elif data_type == 'B': #TODO: make B measured and B calculated better reflective of the data
         df = pd.DataFrame({
             'time': times,
             'valuex': values,
@@ -106,8 +107,35 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
         plt.legend(['Measured', 'Calculated'])
         plt.show()
 
+def test_cc(sites=['test1'], data_types=None, expected_cc=1.0):
+    import scipy.stats
+    from swerve import site_read, site_stats
+
+    if data_types is None:
+        data_types = ['GIC', 'B']
+
+    for sid in sites:
+        if 'GIC' in data_types:
+            # Read and parse data or use cached data if found and reparse is False.
+            data = site_read(sid, data_types='GIC', logger=logger, reparse=True)
+
+            # Add statistics to data in data[sid].
+            stats = site_stats(sid, data, data_types='GIC', logger=logger)
+            cc_gic = stats['GIC/calculated/NA']['metrics']['cc'][0]
+            assert cc_gic > expected_cc, f"GIC measured/calculated correlation {cc_gic} is less than expected {expected_cc}"
+
+        if 'B' in data_types:
+            # Read and parse data or use cached data if found and reparse is False.
+            data = site_read(sid, data_types='B', logger=logger, reparse=True)
+
+            # Add statistics to data in data[sid].
+            stats = site_stats(sid, data, data_types='B', logger=logger)
+
+            cc_bx = stats['B/calculated/NA']['metrics']['cc'][0]
+            assert cc_bx > expected_cc, f"B x measured/calculated correlation {cc_bx} is less than expected {expected_cc}"
+
 # Example usage:
-if write_gic:
+if write_tests:
     write_timeseries(
         start_time=limits[0],
         stop_time=limits[1],
@@ -115,11 +143,12 @@ if write_gic:
         data_type='GIC'
     )
 
-
-if write_b:
     write_timeseries(
         start_time=limits[0],
         stop_time=limits[1],
         value_range=[-250, 250],
         data_type='B'
     )
+
+if test_cc_analysis:
+    test_cc(data_types=['GIC'])
