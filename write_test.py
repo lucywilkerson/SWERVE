@@ -10,9 +10,9 @@ limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
 
 write_gic = True #Write GIC test timeseries
-write_b = False #Write B test timeseries
+write_b = True #Write B test timeseries
 
-def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=True):
+def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
     """
     Writes a timeseries (random or sine) from start_time to stop_time.
     Values are within value_range. Optionally inserts NaN values at every nan_interval seconds at random positions.
@@ -67,7 +67,15 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
         values[nan_indices] = np.nan
 
     # Create DataFrame
-    df = pd.DataFrame({'time': times, 'value': values})
+    if data_type == 'GIC':
+        df = pd.DataFrame({'time': times, 'value': values})
+    elif data_type == 'B':
+        df = pd.DataFrame({
+            'time': times,
+            'valuex': values,
+            'valuey': values,
+            'valuez': values
+        })
 
     # Write measured data to CSV
     data_class = 'measured'
@@ -77,7 +85,7 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
     # Make calculated data by averaging measured data into 1-min intervals
     df_resampled = df.copy()
     df_resampled.set_index('time', inplace=True)
-    df_resampled = df_resampled.resample('1T').mean().reset_index()
+    df_resampled = df_resampled.resample('1min').mean().reset_index()
     data_class = 'calculated'
     output_file = os.path.join(DATA_DIR, 'test', f'test1_{data_type}_{data_class}_timeseries.csv')
     df_resampled.to_csv(output_file, index=False)
@@ -85,8 +93,12 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
     if plot:
         import matplotlib.pyplot as plt
         plt.figure(figsize=(12, 4))
-        plt.plot(df['time'], df['value'], linestyle='-')
-        plt.plot(df_resampled['time'], df_resampled['value'], linestyle='-')
+        if data_type == 'GIC':
+            plt.plot(df['time'], df['value'], linestyle='-')
+            plt.plot(df_resampled['time'], df_resampled['value'], linestyle='-')
+        elif data_type == 'B':
+            plt.plot(df['time'], df['valuex'], linestyle='-')
+            plt.plot(df_resampled['time'], df_resampled['valuex'], linestyle='-')
         plt.xlabel('Time')
         plt.ylabel('Value')
         plt.tight_layout()
@@ -100,9 +112,7 @@ if write_gic:
         start_time=limits[0],
         stop_time=limits[1],
         value_range=[-30, 30],
-        data_type='GIC',
-        nan_interval=10,  # Set to None to disable NaNs
-        seed=42
+        data_type='GIC'
     )
 
 
@@ -110,19 +120,6 @@ if write_b:
     write_timeseries(
         start_time=limits[0],
         stop_time=limits[1],
-        value_range=[0, 500],
-        data_type='B',
-        data_class='measured',
-        nan_interval=10,  # Set to None to disable NaNs
-        seed=42
-    )
-
-    write_timeseries(
-        start_time=limits[0],
-        stop_time=limits[1],
-        value_range=[0, 500],
-        data_type='B',
-        data_class='calculated',
-        nan_interval=10,  # Set to None to disable NaNs
-        seed=42
+        value_range=[-250, 250],
+        data_type='B'
     )
