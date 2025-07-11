@@ -396,6 +396,62 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
     return {"time": time, "data": data, "labels": ["dBn", "dBp", "dBr"], "unit": "nT"}
+  
+  if data_type =='GIC' and data_source == 'NA':
+    fname = f'{sid}_{data_type}_{data_class}_timeseries.csv'
+    data_dir = os.path.join(data_dir, 'test')
+
+    data  = []
+    time = []
+
+    file = os.path.join(data_dir, fname)
+    logger.info(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
+    
+    with open(file, 'r') as csvfile:
+      next(csvfile)  # Skip header row
+      rows = csv.reader(csvfile, delimiter=',')
+      for row in rows:
+          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+          data.append(float(row[1]) if row[1] != '' else numpy.nan)
+
+    # Reshape to 2D array with a single column
+    data = numpy.array(data).reshape(-1, 1)
+    return {
+      "time": numpy.array(time).flatten(),
+      "data": data,
+      "labels": ["GIC"],
+      "unit": "A"
+    }
+  
+  if data_type =='B' and data_source == 'NA':
+    fname = f'{sid}_{data_type}_{data_class}_timeseries.csv'
+    data_dir = os.path.join(data_dir, 'test')
+
+    data  = []
+    time = []
+
+    file = os.path.join(data_dir, fname)
+    logger.info(f"    Reading {file}")
+    if not os.path.exists(file):
+      raise FileNotFoundError(f"File not found: {file}")
+    
+    with open(file, 'r') as csvfile:
+      next(csvfile)  # Skip header row
+      rows = csv.reader(csvfile, delimiter=',')
+      for row in rows:
+          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+          data.append([float(row[1]), float(row[2]), float(row[3])])
+
+    # Reshape to 2D array with a single column
+    data = numpy.array(data).reshape(-1, 1)
+    return {
+      "time": numpy.array(time).flatten(),
+      "data": data,
+      "labels": ["Bx", "By", "Bz"],
+      "unit": "nT"
+    }
 
 def _output_error(d, logger):
   msgo = "Not computing modified"
