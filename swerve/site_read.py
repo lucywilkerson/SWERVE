@@ -442,14 +442,14 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
       rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
           time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-          data.append(float(row[1]) if row[1] != '' else numpy.nan)
+          data.append([float(row[1]), float(row[2]), float(row[3])])
 
     # Reshape to 2D array with a single column
     data = numpy.array(data).reshape(-1, 1)
     return {
       "time": numpy.array(time).flatten(),
       "data": data,
-      "labels": ["B"],
+      "labels": ["Bx", "By", "Bz"],
       "unit": "nT"
     }
 
