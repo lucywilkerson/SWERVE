@@ -9,18 +9,18 @@ CONFIG = config()
 limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
 
-def write_timeseries(start_time, stop_time, value_range, data_type, data_class, nan_interval=None, seed=None, plot=False):
+def write_timeseries(start_time, stop_time, value_range, data_type, data_class, mode='sin', nan_interval=None, seed=None, plot=True):
     """
-    Writes a timeseries with given cadence (freq) from start_time to stop_time.
-    Values are integers withing value_range.
-    Optionally inserts NaN values at every nan_interval seconds at random positions.
+    Writes a timeseries (random or sine) from start_time to stop_time.
+    Values are within value_range. Optionally inserts NaN values at every nan_interval seconds at random positions.
 
     Args:
         start_time (str): Start time in 'YYYY-MM-DD HH:MM:SS' format.
         stop_time (str): Stop time in 'YYYY-MM-DD HH:MM:SS' format.
-        output_file (str): Path to output CSV file.
-        value_range (list): Range of integer values to generate (e.g., [-30, 30]).
-        freq (str, optional): Frequency of the timeseries. Default is '1s'.
+        value_range (list): Range of values to generate (e.g., [-30, 30]).
+        data_type (str): 'GIC' or 'B'.
+        data_class (str): 'measured' or 'calculated'.
+        mode (str): 'sin' for sine wave, 'rand' for random walk.
         nan_interval (int, optional): Interval (in seconds) to insert NaN values.
         seed (int, optional): Random seed for reproducibility.
         plot (bool, optional): If True, plots the generated timeseries.
@@ -29,7 +29,7 @@ def write_timeseries(start_time, stop_time, value_range, data_type, data_class, 
         np.random.seed(seed)
         random.seed(seed)
 
-    # Determine buffer based on data type and data class
+    # Determine buffer and frequency based on data type and data class
     if data_type == 'GIC':
         if data_class == 'measured':
             freq = '1s'
@@ -49,32 +49,38 @@ def write_timeseries(start_time, stop_time, value_range, data_type, data_class, 
     times = pd.date_range(start=start_time, end=stop_time, freq=freq)
     n = len(times)
 
-    # Generate random integer values as floats to allow NaN assignment
-    # Generate values such that each next point is within +/- val_buffer of the previous
-    values = np.empty(n)
-    values[0] = np.random.randint(value_range[0], value_range[1] + 1)
-    for i in range(1, n):
-        low = max(value_range[0], values[i-1] - val_buffer)
-        high = min(value_range[1], values[i-1] + val_buffer)
-        values[i] = np.random.randint(int(low), int(high) + 1)
-    values = values.astype(float)
+    if mode == 'sin':
+        # Sine wave: two full cycles over the time range
+        amplitude = (value_range[1] - value_range[0]) / 2
+        offset = (value_range[1] + value_range[0]) / 2
+        x = np.linspace(0, 4 * np.pi, n) 
+        values = amplitude * np.sin(x) + offset
+    elif mode == 'rand':
+        # Random walk: each next point is within +/- val_buffer of the previous
+        values = np.empty(n)
+        values[0] = np.random.randint(value_range[0], value_range[1] + 1)
+        for i in range(1, n):
+            low = max(value_range[0], values[i-1] - val_buffer)
+            high = min(value_range[1], values[i-1] + val_buffer)
+            values[i] = np.random.randint(int(low), int(high) + 1)
+        values = values.astype(float)
+    else:
+        raise ValueError("mode must be 'sin' or 'rand'")
 
     # Optionally insert NaNs
     if nan_interval is not None and nan_interval > 0:
         nan_indices = random.sample(range(n), k=n // nan_interval)
         values[nan_indices] = np.nan
 
-    # Create DataFrame and write to CSV
+    # Create DataFrame
     df = pd.DataFrame({'time': times, 'value': values})
 
     if plot:
         import matplotlib.pyplot as plt
-
         plt.figure(figsize=(12, 4))
         plt.plot(df['time'], df['value'], linestyle='-')
         plt.xlabel('Time')
         plt.ylabel('Value')
-        plt.title('Generated Timeseries')
         plt.tight_layout()
         plt.grid()
         plt.show()
