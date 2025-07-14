@@ -318,7 +318,10 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     sid = sid.replace(' ','')
     data_dir = os.path.join(data_dir, data_source.lower(), sid.lower())
 
-    file = os.path.join(data_dir, f'dB_{sid}.pkl')
+    if data_source == 'OpenGGCM':
+      file = os.path.join(data_dir, f'dB_{data_source}_{sid}.pkl')
+    else:
+      file = os.path.join(data_dir, f'dB_{sid}.pkl')
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
@@ -397,7 +400,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     data = numpy.array(sites[sid]["data"])
     return {"time": time, "data": data, "labels": ["dBn", "dBp", "dBr"], "unit": "nT"}
   
-  if data_type =='GIC' and data_source == 'NA':
+  if data_type =='GIC' and data_source == 'TEST':
     fname = f'{sid}_{data_type}_{data_class}_timeseries.csv'
     data_dir = os.path.join(data_dir, 'test')
 
@@ -425,7 +428,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
       "unit": "A"
     }
   
-  if data_type =='B' and data_source == 'NA':
+  if data_type =='B' and data_source == 'TEST':
     fname = f'{sid}_{data_type}_{data_class}_timeseries.csv'
     data_dir = os.path.join(data_dir, 'test')
 
