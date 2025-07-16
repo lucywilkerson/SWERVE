@@ -447,11 +447,9 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
           time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
           data.append([float(row[1]), float(row[2]), float(row[3])])
 
-    # Reshape to 2D array with a single column
-    data = numpy.array(data).reshape(-1, 1)
     return {
-      "time": numpy.array(time).flatten(),
-      "data": data,
+      "time": numpy.array(time),
+      "data": numpy.array(data),
       "labels": ["Bx", "By", "Bz"],
       "unit": "nT"
     }
