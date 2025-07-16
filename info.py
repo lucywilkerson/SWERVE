@@ -77,10 +77,11 @@ def add_beta(info_df, beta_fname, beta_site='OTT'):
 def add_geomag(info_df, date):
   from spacepy.time import Ticktock
   import spacepy.coordinates as coord
-
+  
   def get_geomag_coords(row):
       Re = 6371.0 #mean Earth radius in km
       alt = 0 #altitude in km, can be set to 0 for surface
+      # Geomagnetic coordnate doesn't depend much on altitude, and there is ambigutity in definition of Re
       c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
       c.ticks = date
       c = c.convert('MAG', 'sph')
@@ -90,6 +91,16 @@ def add_geomag(info_df, date):
 
   date = Ticktock([date], 'UTC')
 
+  # Test to check geomag calculation, compare values from this function to results from online calculator at one site
+  for i, row in info_df.iterrows():
+      test_stat = get_geomag_coords(row)
+      if row['site_id'] == '10052':
+        calc_stat = 53.16, -28.995 #calculated via https://geomag.bgs.ac.uk/data_service/models_compass/coord_calc.html 
+        dist = np.sqrt((test_stat[0] - calc_stat[0])**2 + (test_stat[1] - calc_stat[1])**2)
+        tolerance = .2 # In degrees 
+        assert dist <= tolerance, f"Calculated geomagnetic coordinates {test_stat} is not within tolerance of expected {calc_stat}"
+      continue
+  exit()
   # Applying the function to create new columns
   info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
 
