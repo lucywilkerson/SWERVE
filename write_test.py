@@ -11,7 +11,7 @@ DATA_DIR = CONFIG['dirs']['data']
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 write_tests = False #Write test timeseries
-test_cc_analysis = True #Run test cross-correlation analysis
+test = True #Run tests
 
 def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
     """
@@ -107,34 +107,59 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
         plt.legend(['Measured', 'Calculated'])
         plt.show()
 
-def test_cc(sites=['test1'], data_types=None, expected_cc=1.0):
-    import scipy.stats
+def test_site(site, metrics, stats, data_types=None):
+    """
+    Tests the statistics and metrics for a given site using provided expected values.
+    Args:
+        site (str): The site id to test (e.g., 'test1').
+        metrics (dict): Dictionary containing expected metric values for measured vs calculated comparison.
+        stats (dict): Dictionary containing expected statistics for data statistics comparison.
+        data_types (list, optional): List of data types to test (e.g., ['GIC', 'B']). Defaults to ['GIC', 'B'].
+    Raises:
+        AssertionError: If the calculated correlation coefficients do not match the expected values.
+    Notes:
+        - The function reads and parses data for the specified site and data types.
+        - It computes statistics and compares the calculated correlation coefficients with the expected values from the provided dictionaries.
+    """
     from swerve import site_read, site_stats
+
+    def test_data(data_stats, metrics, stats, data_type):
+        # Extract stats and metrics, check lengths, then perform tests
+        data_metrics = data_stats[f'{data_type}/calculated/TEST']['metrics']
+        for val in metrics.keys():
+            test_stat = data_metrics[val][0]
+            expected_stat = metrics[val]
+            assert test_stat == expected_stat, f"{data_type} measured/calculated {val} {test_stat} is not equal to expected {expected_stat}"
+        data_meas_stats = data_stats[f'{data_type}/measured/TEST']['stats']
+        #data_calc_stats = data_stats[f'{data_type}/calculated/TEST']['stats']
+        for val in stats.keys():
+            test_stat = data_meas_stats[val]
+            expected_stat = stats[val]
+            assert test_stat == expected_stat, f"{data_type} measured {val} {test_stat} is not equal to expected {expected_stat}"
 
     if data_types is None:
         data_types = ['GIC', 'B']
 
-    for sid in sites:
-        if 'GIC' in data_types:
-            # Read and parse data or use cached data if found and reparse is False.
-            data = site_read(sid, data_types='GIC', logger=logger, reparse=True)
+    if 'GIC' in data_types:
+        # Read and parse data or use cached data if found and reparse is False.
+        gic_data = site_read(site, data_types='GIC', logger=logger, reparse=True)
 
-            # Add statistics to data in data[sid].
-            stats = site_stats(sid, data, data_types='GIC', logger=logger)
-            cc_gic = stats['GIC/calculated/NA']['metrics']['cc'][0]
-            assert cc_gic > expected_cc, f"GIC measured/calculated correlation {cc_gic} is less than expected {expected_cc}"
+        # Add statistics to data in data[sid].
+        gic_stats = site_stats(site, gic_data, data_types='GIC', logger=logger) 
+        
+        test_data(gic_stats, metrics, stats, 'GIC')
+        
 
-        if 'B' in data_types:
-            # Read and parse data or use cached data if found and reparse is False.
-            data = site_read(sid, data_types='B', logger=logger, reparse=True)
+    if 'B' in data_types:
+        # Read and parse data or use cached data if found and reparse is False.
+        b_data = site_read(site, data_types='B', logger=logger, reparse=True)
 
-            # Add statistics to data in data[sid].
-            stats = site_stats(sid, data, data_types='B', logger=logger)
+        # Add statistics to data in data[sid].
+        b_stats = site_stats(site, b_data, data_types='B', logger=logger)
 
-            cc_bx = stats['B/calculated/NA']['metrics']['cc'][0]
-            assert cc_bx > expected_cc, f"B x measured/calculated correlation {cc_bx} is less than expected {expected_cc}"
+        test_data(b_stats, metrics, stats, 'B')
 
-# Example usage:
+
 if write_tests:
     write_timeseries(
         start_time=limits[0],
@@ -150,5 +175,5 @@ if write_tests:
         data_type='B'
     )
 
-if test_cc_analysis:
-    test_cc(data_types=['GIC'])
+if test:
+    test_site(site='test1', metrics={'cc':1.0}, stats={'max':30, 'min':-30}, data_types=['GIC'])
