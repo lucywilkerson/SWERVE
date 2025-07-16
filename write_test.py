@@ -13,7 +13,7 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 write_tests = False #Write test timeseries
 test = True #Run tests
 
-def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
+def write_timeseries(test_name, start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
     """
     Writes a timeseries (random or sine) from start_time to stop_time.
     Values are within value_range. Optionally inserts NaN values at every nan_interval seconds at random positions.
@@ -80,7 +80,8 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
 
     # Write measured data to CSV
     data_class = 'measured'
-    output_file = os.path.join(DATA_DIR, 'test', f'test1_{data_type}_{data_class}_timeseries.csv')
+    logger.info(f"  Writing {test_name}_{data_type}_{data_class}_timeseries.csv")
+    output_file = os.path.join(DATA_DIR, 'test', f'{test_name}_{data_type}_{data_class}_timeseries.csv')
     df.to_csv(output_file, index=False)
 
     # Make calculated data by averaging measured data into 1-min intervals
@@ -88,7 +89,8 @@ def write_timeseries(start_time, stop_time, value_range, data_type, mode='sin', 
     df_resampled.set_index('time', inplace=True)
     df_resampled = df_resampled.resample('1min').mean().reset_index()
     data_class = 'calculated'
-    output_file = os.path.join(DATA_DIR, 'test', f'test1_{data_type}_{data_class}_timeseries.csv')
+    logger.info(f"  Writing {test_name}_{data_type}_{data_class}_timeseries.csv")
+    output_file = os.path.join(DATA_DIR, 'test', f'{test_name}_{data_type}_{data_class}_timeseries.csv')
     df_resampled.to_csv(output_file, index=False)
 
     if plot:
@@ -163,6 +165,7 @@ def test_site(site, metrics, stats, data_types=None):
 
 if write_tests:
     write_timeseries(
+        test_name = 'test1',
         start_time=limits[0],
         stop_time=limits[1],
         value_range=[-30, 30],
@@ -170,6 +173,7 @@ if write_tests:
     )
 
     write_timeseries(
+        test_name = 'test1',
         start_time=limits[0],
         stop_time=limits[1],
         value_range=[-250, 250],
