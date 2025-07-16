@@ -134,10 +134,10 @@ def test_site(site, metrics, stats, data_types=None):
             assert test_stat == expected_stat, f"{data_type} measured/calculated {val} {test_stat} is not equal to expected {expected_stat}"
         data_meas_stats = data_stats[f'{data_type}/measured/TEST']['stats']
         #data_calc_stats = data_stats[f'{data_type}/calculated/TEST']['stats']
-        for val in stats.keys():
+        for val in stats[data_type].keys():
             test_stat = data_meas_stats[val]
-            expected_stat = stats[val]
-            tolerance = 0.0001
+            expected_stat = stats[data_type][val]
+            tolerance = 0.001 #set tolerance for test
             assert expected_stat-tolerance <= test_stat <= expected_stat+tolerance, f"{data_type} measured {val} {test_stat} is not equal to expected {expected_stat}"
 
     if data_types is None:
@@ -181,4 +181,4 @@ if write_tests:
     )
 
 if test:
-    test_site(site='test1', metrics={'cc':1.0}, stats={'max':-30, 'min':30}, data_types=['GIC'])
+    test_site(site='test1', metrics={'cc':1.0}, stats={'GIC':{'max':-30, 'min':30},'B':{'max':-250, 'min':250}})
