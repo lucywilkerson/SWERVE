@@ -75,6 +75,7 @@ def summary_stats(stats, logger=None):
 
 summary_stats(stats, logger=logger)
 
-import utilrsw
-# Write data from all sites to a single file.
-utilrsw.write(CONFIG['files']['all'], data, logger=logger)
+if sites is None and data_types is None:
+  import utilrsw
+  # Write data from all sites to a single file.
+  utilrsw.write(CONFIG['files']['all'], data, logger=logger)
