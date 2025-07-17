@@ -10,7 +10,7 @@ limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-write_tests = False #Write test timeseries
+write_tests = True #Write test timeseries
 run_tests = True #Run tests
 
 def write_timeseries(test_name, start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
@@ -85,6 +85,12 @@ def write_timeseries(test_name, start_time, stop_time, value_range, data_type, m
     df.to_csv(output_file, index=False)
 
     # Make calculated data by averaging measured data into 1-min intervals
+    if test_name == 'test2' and data_type == 'GIC':
+        df['value'] = -df['value']
+    if test_name == 'test2' and data_type == 'B':
+        df['valuex'] = -values
+        df['valuey'] = -values
+        df['valuez'] = -values
     df_resampled = df.copy()
     df_resampled.set_index('time', inplace=True)
     df_resampled = df_resampled.resample('1min').mean().reset_index()
@@ -196,7 +202,42 @@ test_dict = {'test1':{
                             'min':-250
                         }
                     }
-                    }}
+                },
+                'test2':{
+                    'GIC':{
+                        'description':{'Sin wave with max/min of +/-30. Measured is resampled from -calculated, so cc = -1.0.'},
+                        'config':{
+                            'start_time':limits[0],
+                            'stop_time':limits[1],
+                            'value_range':[-30, 30],
+                        },
+                        'metrics':{
+                            'cc':-1.0
+                        },
+                        'stats':{
+                            'max':30,
+                            'min':-30
+                        }
+                    },
+                    'B':{
+                        'description':{'Sin wave with max/min of +/-250. Measured is resampled from -calculated, so cc = -1.0.'},
+                        'config':{
+                            'start_time':limits[0],
+                            'stop_time':limits[1],
+                            'value_range':[-250, 250],
+                        },
+                        'metrics':{
+                            'cc':-1.0,
+                        },
+                        'stats':{
+                            'max':250,
+                            'min':-250
+                        }
+                    }
+                }
+                }
+
+
 
 for test in test_dict.keys():
     for data_type in test_dict[test].keys():
@@ -209,6 +250,8 @@ for test in test_dict.keys():
                 value_range = timeseries_config['value_range'],
                 data_type = data_type
             )
+        
+        # Before running tests (for new series), add test to info.csv, and run 'python info.py' and 'python main.py test'
         if run_tests:
             test_metrics = test_dict[test][data_type]['metrics']
             test_stats = test_dict[test][data_type]['stats']
