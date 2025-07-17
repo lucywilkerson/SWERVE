@@ -67,8 +67,8 @@ def _stats(data_meas, logger):
   return {
           'std': np.nanstd(data_meas, axis=0),
           'ave': np.nanmean(data_meas, axis=0),
-          'min': np.min(np.nanmax(data_meas, axis=0)),
-          'max': np.min(np.nanmin(data_meas, axis=0)),
+          'min': np.min(np.nanmin(data_meas, axis=0)),
+          'max': np.min(np.nanmax(data_meas, axis=0)),
           'n': len(data_meas),
           'n_valid': np.sum(~np.isnan(data_meas), axis=0),
   }
