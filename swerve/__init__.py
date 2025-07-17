@@ -17,22 +17,20 @@ def sids(sids_only=None):
   all_sids = list(info.keys())
 
   if sids_only is None:
+    all_sids = [sid for sid in all_sids if not sid.startswith('test')] # Remove test sids unless keyword test is passed
     return all_sids
 
+  # Handle keywords 'paper' and 'test'
+  special_keys = {'paper': 'paper_sids', 'test': 'test_sids'}
+
+  for sid in set(sids_only) & special_keys.keys():
+    new_df = read_info_df(key=special_keys[sid])
+    sids_only = list(new_df['site_id'].unique())
+
+  # Validate sids
   for sid in sids_only:
-    if sid != 'paper':
-      if sid not in info.keys():
-        raise ValueError(f"sid '{sid}' not found in info.json")
-    elif 'paper_sids' in CONFIG:
-      # Delete paper from sids_only
-      sids_only.remove('paper')
-      for data_type in CONFIG['paper_sids'].keys():
-        for plot_type in CONFIG['paper_sids'][data_type].keys():
-          # redundant loop?
-          for plot_type in CONFIG['paper_sids'][data_type].keys():
-            sids_only.extend(CONFIG['paper_sids'][data_type][plot_type].keys())
-      # Remove duplicates
-      sids_only = list(set(sids_only))
+    if sid not in info:
+      raise ValueError(f"sid '{sid}' not found in info.json")
 
   return sids_only
 
@@ -132,13 +130,17 @@ def read_info_dict(sid=None):
 
   return info_dict
 
-def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False):
+def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None):
   import pandas
   from swerve import config
   CONFIG = config()
   file = CONFIG['files']['info_extended'] if extended else CONFIG['files']['info']
   print(f"    Reading {file}")
   info_df = pandas.read_csv(file)
+
+  if key == 'paper_sids' or key == 'test_sids':
+    key_sids = list(CONFIG[key]['GIC']['timeseries'])
+    info_df = info_df[info_df['site_id'].isin(key_sids)]
 
   def filter_df(df, col, val):
     if val is None:

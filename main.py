@@ -1,6 +1,7 @@
 # Usage:
 #   python main.py
 #   python main.py paper
+#   python main.py test
 #   python main.py 'site1,site2,...'
 
 sites  = None   # Read and plot data only sites in this array. None => all sites.
@@ -10,7 +11,7 @@ sites  = None   # Read and plot data only sites in this array. None => all sites
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
-data_types = ['B']  # Read and plot these data types only.
+#data_types = ['B']  # Read and plot these data types only.
 
 import sys
 

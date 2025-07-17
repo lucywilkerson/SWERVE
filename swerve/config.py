@@ -85,4 +85,22 @@ def config(event='2024-May-Storm'):
           }
          }
       },
+      'test_sids':{
+        'GIC':{
+          'timeseries':{
+            'test1'
+          },
+          'correlation':{
+            'test1'
+          }
+        },
+        'B':{
+          'timeseries':{
+            'test1'
+          },
+          'correlation':{
+            'test1'
+          }
+        }
+      }
     }
