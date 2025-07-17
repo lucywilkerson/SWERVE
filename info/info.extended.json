@@ -11532,5 +11532,83 @@
         }
       }
     }
+  },
+  "test3": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test3": {
+            "geo_lat": 0.0,
+            "geo_lon": 0.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 2.7321127554805855,
+            "mag_lon": 72.85566750370563,
+            "alpha": 0.001369153912417044,
+            "nearest_sim_site": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      },
+      "calculated": {
+        "TEST": {
+          "test3": {
+            "geo_lat": 0.0,
+            "geo_lon": 0.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 2.7321127554805855,
+            "mag_lon": 72.85566750370563,
+            "alpha": 0.001369153912417044,
+            "nearest_sim_site": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TEST": {
+          "test3": {
+            "geo_lat": 0.0,
+            "geo_lon": 0.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 2.7321127554805855,
+            "mag_lon": 72.85566750370563,
+            "alpha": 0.001369153912417044,
+            "nearest_sim_site": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      },
+      "calculated": {
+        "TEST": {
+          "test3": {
+            "geo_lat": 0.0,
+            "geo_lon": 0.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 2.7321127554805855,
+            "mag_lon": 72.85566750370563,
+            "alpha": 0.001369153912417044,
+            "nearest_sim_site": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
   }
 }
