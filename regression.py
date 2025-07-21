@@ -15,6 +15,10 @@ CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
 
+plot_types = None # If none, create both line plots and scatter cc plots
+if plot_types is None:
+  plot_types = ['line', 'scatter']
+
 def read_info():
   file_path = os.path.join('info', 'info.extended.csv')
   info = pd.read_csv(file_path)
@@ -158,11 +162,53 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None):
         y_model = model.predict(np.column_stack([x_range if j == i else np.zeros_like(x_range) for j in range(x.shape[1])]))
         plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=eqn)
       plt.xlabel(labels.get(input_name, input_name))
-      plt.ylabel(labels.get(output_name, output_name))
+      plt.ylabel(f'{labels.get(output_name, output_name)} [A]')
       plt.grid(True)
       plt.legend(loc='upper left')
       plt.tight_layout()
 
+def plot_cc_scatter(x, y, output_name, mask, metrics, eqn):
+    from swerve import plt_config, format_cc_scatter
+    plt_config()
+    plt.figure()
+    plt.scatter(x[mask], y[mask], color='k')
+    plt.scatter(x[~mask], y[~mask], facecolors='none', edgecolors='k')
+    output_label = (labels.get(output_name, output_name))
+    plt.xlabel(f'Measured {output_label} [A]')
+    plt.ylabel(f'Predicted {output_label} [A]')
+    plt.grid(True)
+    #format_cc_scatter(plt.gca()) #TODO: incorporate this into plot_cc_scatter, right now axes are too long
+    limits = [min(plt.xlim()[0], plt.ylim()[0]), max(plt.xlim()[1], plt.ylim()[1])]
+    ticks = plt.xticks()[0]
+    plt.xticks(ticks)
+    plt.yticks(ticks)
+    plt.xlim(limits)
+    plt.ylim(limits)
+    plt.plot([x.min(), x.max()], [x.min(), x.max()], color=3*[0.6], linewidth=0.5, linestyle='--')
+    #^all above lines can be removed once format_cc_scatter is incorporated
+    plt.tight_layout()
+
+    text = (
+        f"{eqn}\n"
+        f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
+        f"RMS = ${metrics['rms']:.1f}$ [A]\n"
+        f"AIC = ${metrics['aic']:.1f}$\n"
+        f"BIC = ${metrics['bic']:.1f}$"
+    )
+    text_kwargs = {
+        'horizontalalignment': 'left',
+        'verticalalignment': 'top',
+        'fontsize': plt.rcParams['xtick.labelsize'],
+        'bbox': {
+            "boxstyle": "round,pad=0.3",
+            "edgecolor": "black",
+            "facecolor": "white",
+            "linewidth": 0.5,
+            "alpha": 0.7
+        }
+    }
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
+      
 
 # Use the commented out line after info.py has been modified to include gic_max and gic_std.
 #output_names = ['gic_max', 'gic_std']
@@ -193,9 +239,9 @@ input_sets = [
 
 ]
 
-paper_inputs = {'alpha':'a)',
-                'interpolated_beta':'c)',
-                'alpha*interpolated_beta':'e)'}
+paper_inputs = {'alpha':['a)', 'b)'],
+                'interpolated_beta':['c)', 'd)'],
+                'alpha*interpolated_beta':['e)', 'f)']}
 
 info = read_info()
 sites, gic_std, gic_maxabs = gic_stats()
@@ -245,19 +291,28 @@ for output_name in output_names:
             'BIC': f"${metrics['bic']:.1f}$"
         }
       
-      # Plot the scatter plot with regression line
+      # Creating plots
       if len(inputs) == 1:
-        plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn)
-        fname = f'line_fit_{inputs[0]}_{output_name}'
-        if '*' in inputs[0]:
-          # Create product term and add it to info df
-          input1, input2 = inputs[0].split('*')
-          fname = f'line_fit_{input1}_{input2}_{output_name}'
-        savefig(results_dir, fname, logger)
-        if inputs[0] in paper_inputs.keys():
-          add_subplot_label(plt.gca(), paper_inputs[inputs[0]], loc=(-0.15, 1))
-          savefig_paper('figures\_results', fname, logger) # TODO: make this cleaner pls
-        plt.close()
+        for plot_type in plot_types:
+          if plot_type == 'line': # Plot the scatter plot with regression line
+            plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn)
+            paper_fig_index = 0
+          elif plot_type == 'scatter': # Plot the scatter plot of correlation
+            predictions = model.predict(x)
+            plot_cc_scatter(y, predictions, output_name, mask, metrics, eqn)
+            paper_fig_index = 1
+            
+          fname = f'{plot_type}_fit_{inputs[0]}_{output_name}'
+          if '*' in inputs[0]:
+            # Create product term and add it to info df
+            input1, input2 = inputs[0].split('*')
+            fname = f'{plot_type}_fit_{input1}_{input2}_{output_name}'
+          savefig(results_dir, fname, logger)
+          if inputs[0] in paper_inputs.keys():
+            add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
+            savefig_paper('figures\_results', fname, logger) # TODO: make this cleaner pls
+          plt.close()
+
   # Save output table
   scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=False)
   scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
