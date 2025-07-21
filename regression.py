@@ -167,12 +167,12 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None):
       plt.legend(loc='upper left')
       plt.tight_layout()
 
-def plot_cc_scatter(x, y, output_name, mask, metrics, eqn):
+def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
     from swerve import plt_config, format_cc_scatter
     plt_config()
     plt.figure()
-    plt.scatter(x[mask], y[mask], color='k')
-    plt.scatter(x[~mask], y[~mask], facecolors='none', edgecolors='k')
+    plt.scatter(y[mask], predicted[mask], color='k')
+    plt.scatter(y[~mask], predicted[~mask], facecolors='none', edgecolors='k')
     output_label = (labels.get(output_name, output_name))
     plt.xlabel(f'Measured {output_label} [A]')
     plt.ylabel(f'Predicted {output_label} [A]')
@@ -184,7 +184,7 @@ def plot_cc_scatter(x, y, output_name, mask, metrics, eqn):
     plt.yticks(ticks)
     plt.xlim(limits)
     plt.ylim(limits)
-    plt.plot([x.min(), x.max()], [x.min(), x.max()], color=3*[0.6], linewidth=0.5, linestyle='--')
+    plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--')
     #^all above lines can be removed once format_cc_scatter is incorporated
     plt.tight_layout()
 
@@ -301,7 +301,7 @@ for output_name in output_names:
             predictions = model.predict(x)
             plot_cc_scatter(y, predictions, output_name, mask, metrics, eqn)
             paper_fig_index = 1
-            
+
           fname = f'{plot_type}_fit_{inputs[0]}_{output_name}'
           if '*' in inputs[0]:
             # Create product term and add it to info df
