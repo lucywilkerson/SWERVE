@@ -245,6 +245,6 @@ def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png'
 
 def savefig_paper(base_dir, fname, logger, logger_indent=0):
   CONFIG = config()
-  if 'paper_dir' not in CONFIG['dirs']:
+  if 'paper' not in CONFIG['dirs']:
     return
   savefig(base_dir, fname, logger, logger_indent=logger_indent, root_dir=CONFIG['dirs']['paper'], fmts=['pdf'])
