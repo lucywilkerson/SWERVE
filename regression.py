@@ -4,10 +4,12 @@
 import os
 import itertools
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
-from swerve import config
+from swerve import config, savefig, savefig_paper, add_subplot_label
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -126,27 +128,46 @@ def regress(x, y):
 
     return {'rms': rms, 'cc': cc, 'cc_2se': cc_2se, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
 
+  def remove_outliers(data, output, threshold=3.5):
+    mask = output <= threshold * np.std(output)
+    #num_outliers = len(output) - np.sum(mask)
+    output = output[mask]
+    x = data[mask]
+    return x, output, mask
+  
+  # Remove outliers
+  x, y, mask = remove_outliers(x, y)
+  
   model = LinearRegression()
   model.fit(x, y)
   predictions = model.predict(x)
   metrics = regress_metrics(y, predictions, x.shape[1])
-  return model, metrics
+  return model, mask, metrics
 
-def plot_scatter(x, y, inputs, output_name):
-    import matplotlib.pyplot as plt
+def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None):
+    #import matplotlib.pyplot as plt
+    from swerve import plt_config
 
+    plt_config()
     for i, input_name in enumerate(inputs):
-      plt.figure(figsize=(8, 6))
-      plt.scatter(x[:, i], y, alpha=0.7)
+      plt.figure()
+      plt.scatter(x[:, i][mask], y[mask], color='k')
+      plt.scatter(x[:, i][~mask], y[~mask], facecolors='none', edgecolors='k')
+      if model is not None:
+        x_range = np.linspace(x[:,i].min(),x[:,i].max(), 100)
+        y_model = model.predict(np.column_stack([x_range if j == i else np.zeros_like(x_range) for j in range(x.shape[1])]))
+        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=eqn)
       plt.xlabel(labels.get(input_name, input_name))
       plt.ylabel(labels.get(output_name, output_name))
       plt.grid(True)
+      plt.legend(loc='upper left')
       plt.tight_layout()
-      plt.show()
+
 
 # Use the commented out line after info.py has been modified to include gic_max and gic_std.
-output_names = ['gic_max', 'gic_std']
+#output_names = ['gic_max', 'gic_std']
 #output_names = ['mag_lat', 'geo_lat']
+output_names = ['gic_max']
 
 labels = {
     'mag_lat': 'Magnetic Latitude [deg]',
@@ -156,16 +177,25 @@ labels = {
     'log_beta': r'$\log_{10} (\beta)$',
     'alpha': r'$\alpha$',
     'gic_std': r'$\sigma_\text{GIC}$ [A]',
-    'gic_max': r'$\vert{\text{GIC}_\text{max}}\vert$',
+    'gic_max': r'$\vert{\text{GIC}\vert_\text{max}}$',
     'mag_lat*mag_lon': r'Mag. Lat. $\cdot$ Mag. Long.',
+    'alpha*interpolated_beta': r'$\alpha \cdot \beta$',
 }
 
 # Each string must appear as a key in labels.
 input_sets = [
-    ['mag_lat', 'interpolated_beta'],
-    ['mag_lat', 'mag_lon'],
-    ['mag_lat', 'mag_lon', 'mag_lat*mag_lon'],
+    #['mag_lat', 'interpolated_beta'],
+    #['mag_lat', 'mag_lon'],
+    #['mag_lat', 'mag_lon', 'mag_lat*mag_lon'],
+    ['alpha', 'interpolated_beta'],
+    ['alpha', 'interpolated_beta', 'alpha*interpolated_beta'],
+    ['alpha', 'mag_lat'],
+
 ]
+
+paper_inputs = {'alpha':'a)',
+                'interpolated_beta':'c)',
+                'alpha*interpolated_beta':'e)'}
 
 info = read_info()
 sites, gic_std, gic_maxabs = gic_stats()
@@ -195,12 +225,12 @@ for output_name in output_names:
       x = x[mask]
       y = y[mask]
 
-      #plot_scatter(x, y, inputs, output_name)
-      model, metrics = regress(x, y)
+      # Run regression
+      model, mask, metrics = regress(x, y)
 
-      eqn = f"{output_name} = "
+      eqn = f"{labels.get(output_name, output_name)} = "
       for i, input_name in enumerate(inputs):
-        eqn += f"{model.coef_[i]:+.3g}*{input_name} "
+        eqn += f"{model.coef_[i]:+.3g} {labels.get(input_name, input_name)} "
       eqn += f" {model.intercept_:+.3g}"
       logger.info(f"  Equation: {eqn}")
       for key in metrics:
@@ -214,6 +244,20 @@ for output_name in output_names:
             'AIC': f"${metrics['aic']:.1f}$",
             'BIC': f"${metrics['bic']:.1f}$"
         }
+      
+      # Plot the scatter plot with regression line
+      if len(inputs) == 1:
+        plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn)
+        fname = f'line_fit_{inputs[0]}_{output_name}'
+        if '*' in inputs[0]:
+          # Create product term and add it to info df
+          input1, input2 = inputs[0].split('*')
+          fname = f'line_fit_{input1}_{input2}_{output_name}'
+        savefig(results_dir, fname, logger)
+        if inputs[0] in paper_inputs.keys():
+          add_subplot_label(plt.gca(), paper_inputs[inputs[0]], loc=(-0.15, 1))
+          savefig_paper('figures\_results', fname, logger) # TODO: make this cleaner pls
+        plt.close()
   # Save output table
   scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=False)
   scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
