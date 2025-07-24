@@ -13,7 +13,7 @@ results_dir = '_results'
 limits = plt_config()
 
 poster = False  # set to be true to generate poster figs
-paper = False    # set true to generate paper figs
+paper = True    # set true to generate paper figs
 colorbar_scatter = False # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
@@ -209,6 +209,9 @@ plt.gca().xaxis.grid(True, linestyle='--', which='minor')
 plt.legend(loc='upper right')
 if B_scatter:
     savefig(results_dir, 'cc_vs_dist_scatter_B', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'a)')
+        savefig_paper(results_dir, 'cc_vs_dist_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_dist_scatter', logger)
 if paper:
@@ -237,6 +240,9 @@ plt.grid(True)
 plt.legend(loc='upper right')
 if B_scatter:
     savefig(results_dir, 'cc_vs_beta_scatter_B', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'c)')
+        savefig_paper(results_dir, 'cc_vs_beta_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_beta_scatter', logger)
 if paper:
@@ -265,6 +271,9 @@ plt.grid(True)
 #plt.legend(loc='upper right')
 if B_scatter:
     savefig(results_dir, 'cc_vs_volt_scatter_B', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'd)')
+        savefig_paper(results_dir, 'cc_vs_volt_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_volt_scatter', logger)
 if paper:
@@ -280,6 +289,9 @@ plt.grid(True)
 plt.legend(loc='upper right')
 if B_scatter:
     savefig(results_dir, 'cc_vs_lat_scatter_B', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'b)')
+        savefig_paper(results_dir, 'cc_vs_lat_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_lat_scatter', logger)
 if paper:
