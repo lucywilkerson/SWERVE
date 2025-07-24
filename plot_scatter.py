@@ -214,9 +214,9 @@ if B_scatter:
         savefig_paper(results_dir, 'cc_vs_dist_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_dist_scatter', logger)
-if paper:
-    add_subplot_label(plt.gca(), 'a)')
-    savefig_paper(results_dir, 'cc_vs_dist_scatter', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'a)')
+        savefig_paper(results_dir, 'cc_vs_dist_scatter', logger)
 plt.close()
 
 avg_std = np.mean(df[['std_1', 'std_2']], axis=1)
@@ -245,9 +245,9 @@ if B_scatter:
         savefig_paper(results_dir, 'cc_vs_beta_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_beta_scatter', logger)
-if paper:
-    add_subplot_label(plt.gca(), 'c)')
-    savefig_paper(results_dir, 'cc_vs_beta_scatter', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'c)')
+        savefig_paper(results_dir, 'cc_vs_beta_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['log_beta_diff']), np.abs(df['cc']), **scatter_kwargs)
@@ -276,9 +276,9 @@ if B_scatter:
         savefig_paper(results_dir, 'cc_vs_volt_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_volt_scatter', logger)
-if paper:
-    add_subplot_label(plt.gca(), 'd)')
-    savefig_paper(results_dir, 'cc_vs_volt_scatter', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'd)')
+        savefig_paper(results_dir, 'cc_vs_volt_scatter', logger)
 plt.close()
 
 plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']), **scatter_kwargs)
@@ -294,9 +294,9 @@ if B_scatter:
         savefig_paper(results_dir, 'cc_vs_lat_scatter_B', logger)
 else:
     savefig(results_dir, 'cc_vs_lat_scatter', logger)
-if paper:
-    add_subplot_label(plt.gca(), 'b)')
-    savefig_paper(results_dir, 'cc_vs_lat_scatter', logger)
+    if paper:
+        add_subplot_label(plt.gca(), 'b)')
+        savefig_paper(results_dir, 'cc_vs_lat_scatter', logger)
 plt.close()
 
 if B_scatter:
