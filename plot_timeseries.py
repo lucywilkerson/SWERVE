@@ -899,10 +899,10 @@ if plot_compare:
     gic_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{TVA}$', r'$\sigma_\text{Ref}$', 
                                    r'$\text{cc}^2_\text{TVA}$', r'$\text{cc}^2_\text{Ref}$',
                                    r'$\text{pe}_\text{TVA}$', r'$\text{pe}_\text{Ref}$'])
-    b_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{MAGE}$', r'$\sigma_\text{MAGE}$', 
-                                   r'$\text{cc}^2_\text{MAGE}$', r'$\text{cc}^2_\text{SWMF}$',
-                                   r'$\text{pe}_\text{SWMF}$', r'$\text{pe}_\text{SWMF}$', r'$\text{cc}^2_\text{OpenGGCM}$',
-                                   r'$\text{pe}_\text{OpenGGCM}$', r'$\text{pe}_\text{OpenGGCM}$'])
+    b_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{SWMF}$', r'$\sigma_\text{MAGE}$', 
+                                   r'$\sigma_\text{OpenGGCM}$', r'$\text{cc}^2_\text{SWMF}$', r'$\text{cc}^2_\text{MAGE}$',
+                                   r'$\text{cc}^2_\text{OpenGGCM}$', r'$\text{pe}_\text{SWMF}$', r'$\text{pe}_\text{MAGE}$',
+                                   r'$\text{pe}_\text{OpenGGCM}$'])
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
