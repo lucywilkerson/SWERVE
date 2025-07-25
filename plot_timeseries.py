@@ -29,8 +29,12 @@ stack_plot = False   # Plot GIC and dB_H stack plots
 plot_pairs = False   # Plot and compare measured GIC across all "good" pairs
 create_md = False    # updates md comparison files without replotting everything
 
-paper = True        # only plots paper sites if true
+paper = False        # only plots paper sites if true
 sids = None         # If none, plot all sites; ignored if paper is True
+if paper or sids is None:
+  write_stats_df = True
+else:
+  write_stats_df = False
 #sids = ['Bull Run', 'Widows Creek', 'Montgomery', 'Union']
 #sids = ['10052', '10064']
 
@@ -307,6 +311,7 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
   plt.close()
 
   if df is not None:
+    if len(data_calcs) == 2:  # TVA and Ref
         df.loc[len(df)] = {
             'Site ID': sid,
             r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
@@ -317,9 +322,20 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
             r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
             r'$\text{pe}_\text{Ref}$': f"{pe[1]:.2f}"
         }
+    else:
+        df.loc[len(df)] = {
+            'Site ID': sid,
+            r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
+            r'$\sigma_\text{TVA}$': None,
+            r'$\sigma_\text{Ref}$': f"{np.std(data_calcs[0]):.2f}",
+            r'$\text{cc}^2_\text{TVA}$': None,
+            r'$\text{cc}^2_\text{Ref}$': f"{cc[0]**2:.2f}",
+            r'$\text{pe}_\text{TVA}$': None,
+            r'$\text{pe}_\text{Ref}$': f"{pe[0]:.2f}"
+        }
 
 
-def compare_db(info, data, sid):
+def compare_db(info, data, sid, df=None):
 
   fdir = os.path.join(base_dir, sid.lower().replace(' ', ''))
 
@@ -460,6 +476,21 @@ def compare_db(info, data, sid):
   plt.legend(loc='upper right')
 
   savefig(fdir, 'B_histogram_meas_calc', logger)
+
+  if df is not None:
+        df.loc[len(df)] = {
+            'Site ID': sid,
+            r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
+            r'$\sigma_\text{SWMF}$': f"{np.std(data_calcs[0]):.2f}",
+            r'$\sigma_\text{MAGE}$': f"{np.std(data_calcs[1]):.2f}",
+            r'$\sigma_\text{OpenGGCM}$': f"{np.std(data_calcs[2]):.2f}",
+            r'$\text{cc}^2_\text{SWMF}$': f"{cc[0]**2:.2f}",
+            r'$\text{cc}^2_\text{MAGE}$': f"{cc[1]**2:.2f}",
+            r'$\text{cc}^2_\text{OpenGGCM}$': f"{cc[2]**2:.2f}",
+            r'$\text{pe}_\text{SWMF}$': f"{pe[0]:.2f}",
+            r'$\text{pe}_\text{MAGE}$': f"{pe[1]:.2f}",
+            r'$\text{pe}_\text{OpenGGCM}$': f"{pe[2]:.2f}"
+        }
 
 
 def plot_original(plot_info, data, sid, data_type, data_class, data_source, data_error):
@@ -861,12 +892,17 @@ if plot_data:
     print(" ")
 
 if plot_compare:
-  if not paper:
+  if not write_stats_df:
     gic_df = None
+    b_df = None
   else:
     gic_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{TVA}$', r'$\sigma_\text{Ref}$', 
                                    r'$\text{cc}^2_\text{TVA}$', r'$\text{cc}^2_\text{Ref}$',
                                    r'$\text{pe}_\text{TVA}$', r'$\text{pe}_\text{Ref}$'])
+    b_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{MAGE}$', r'$\sigma_\text{MAGE}$', 
+                                   r'$\text{cc}^2_\text{MAGE}$', r'$\text{cc}^2_\text{SWMF}$',
+                                   r'$\text{pe}_\text{SWMF}$', r'$\text{pe}_\text{SWMF}$', r'$\text{cc}^2_\text{OpenGGCM}$',
+                                   r'$\text{pe}_\text{OpenGGCM}$', r'$\text{pe}_\text{OpenGGCM}$'])
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
@@ -875,17 +911,28 @@ if plot_compare:
       mag_types = info_dict[sid]['B'].keys()
       if 'measured' in mag_types and 'calculated' in mag_types:
         print("Plotting B measured and calculated")
-        compare_db(info_dict, data_all, sid)
+        compare_db(info_dict, data_all, sid, df=b_df)
     if 'GIC' in info_dict[sid].keys():
       gic_types = info_dict[sid]['GIC'].keys()
       if 'measured' and 'calculated' in gic_types:
         print("Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid, df=gic_df)
   if gic_df is not None:
-    fname = os.path.join(DATA_DIR, "_results", "gic_table")
+    if paper:
+      fname = os.path.join(DATA_DIR, "_results", "gic_table_paper")
+    else:
+      fname = os.path.join(DATA_DIR, "_results", "gic_table")
     print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
     gic_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
     gic_df.to_latex(fname + ".tex", index=False, escape=False)
+  if b_df is not None:
+    if paper:
+      fname = os.path.join(DATA_DIR, "_results", "b_table_paper")
+    else:
+      fname = os.path.join(DATA_DIR, "_results", "b_table")
+    print(f"Writing B prediction comparison tables to {fname}.{{md,tex}}")
+    b_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
+    b_df.to_latex(fname + ".tex", index=False, escape=False)
 
 
 # create markdown files to hold plots
