@@ -4,14 +4,21 @@
 import os
 import itertools
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
-from swerve import config
+from swerve import config, savefig, savefig_paper, add_subplot_label
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
+paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
+
+plot_types = None # If none, create both line plots and scatter cc plots
+if plot_types is None:
+  plot_types = ['line', 'scatter']
 
 def read_info():
   file_path = os.path.join('info', 'info.extended.csv')
@@ -126,46 +133,154 @@ def regress(x, y):
 
     return {'rms': rms, 'cc': cc, 'cc_2se': cc_2se, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
 
+  def remove_outliers(data, output, threshold=3.5):
+    mask = output <= threshold * np.std(output)
+    #num_outliers = len(output) - np.sum(mask)
+    output = output[mask]
+    x = data[mask]
+    return x, output, mask
+  
+  # Remove outliers
+  x, y, mask = remove_outliers(x, y)
+  
   model = LinearRegression()
   model.fit(x, y)
   predictions = model.predict(x)
   metrics = regress_metrics(y, predictions, x.shape[1])
-  return model, metrics
+  return model, mask, metrics
 
-def plot_scatter(x, y, inputs, output_name):
-    import matplotlib.pyplot as plt
+def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, metrics=None):
+    #import matplotlib.pyplot as plt
+    from swerve import plt_config
 
+    plt_config()
     for i, input_name in enumerate(inputs):
-      plt.figure(figsize=(8, 6))
-      plt.scatter(x[:, i], y, alpha=0.7)
-      plt.xlabel(labels.get(input_name, input_name))
-      plt.ylabel(labels.get(output_name, output_name))
+      plt.figure()
+      plt.scatter(x[:, i][mask], y[mask], color='k')
+      plt.scatter(x[:, i][~mask], y[~mask], facecolors='none', edgecolors='k')
+      if metrics is not None:
+        text = (
+          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
+          f"RMS = ${metrics['rms']:.1f}$ [A]"
+        )
+        plot_label = f'${eqn}$\n{text}'
+      else:
+        plot_label = f'${eqn}$' if eqn else ''
+      if model is not None:
+        x_range = np.linspace(x[:,i].min(),x[:,i].max(), 100)
+        y_model = model.predict(np.column_stack([x_range if j == i else np.zeros_like(x_range) for j in range(x.shape[1])]))
+        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=plot_label)
+      plt.xlabel(f'${labels.get(input_name, input_name)}$')
+      plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
       plt.grid(True)
+      legend = plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
       plt.tight_layout()
-      plt.show()
+
+def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
+    from swerve import plt_config, format_cc_scatter
+    plt_config()
+    plt.figure()
+    plt.scatter(y[mask], predicted[mask], color='k')
+    plt.scatter(y[~mask], predicted[~mask], facecolors='none', edgecolors='k')
+    output_label = (labels.get(output_name, output_name))
+    plt.xlabel(f'Measured {output_label} [A]')
+    plt.ylabel(f'Predicted {output_label} [A]')
+    plt.grid(True)
+    #format_cc_scatter(plt.gca()) #TODO: incorporate this into plot_cc_scatter, right now axes are too long
+    limits = [min(plt.xlim()[0], plt.ylim()[0]), max(plt.xlim()[1], plt.ylim()[1])]
+    ticks = plt.xticks()[0]
+    plt.xticks(ticks)
+    plt.yticks(ticks)
+    plt.xlim(limits)
+    plt.ylim(limits)
+    plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--')
+    #^all above lines can be removed once format_cc_scatter is incorporated
+    plt.tight_layout()
+
+    text = (
+        f"{eqn}\n"
+        f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
+        f"RMS = ${metrics['rms']:.1f}$ [A]\n"
+        f"AIC = ${metrics['aic']:.1f}$\n"
+        f"BIC = ${metrics['bic']:.1f}$"
+    )
+    text_kwargs = {
+        'horizontalalignment': 'left',
+        'verticalalignment': 'top',
+        'fontsize': plt.rcParams['xtick.labelsize'],
+        'bbox': {
+            "boxstyle": "round,pad=0.3",
+            "edgecolor": "black",
+            "facecolor": "white",
+            "linewidth": 0.5,
+            "alpha": 0.7
+        }
+    }
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
+      
+def write_eqn_and_fname(inputs, output_name, model):
+    """
+    Create a string for the equation and a filename based on inputs, output_name, and model.
+    """
+    eqn = f"{labels.get(output_name, output_name)} = "
+    for i, input_name in enumerate(inputs):
+      eqn += f"{model.coef_[i]:+.3g} {labels.get(input_name, input_name)} "
+    eqn += f" {model.intercept_:+.3g}"
+
+    fname = f'_fit_{inputs[0]}_{output_name}'
+    if '*' in inputs[0]:
+        # Create product term and add it to info df
+        input1, input2 = inputs[0].split('*')
+        fname = f'_fit_{input1}_{input2}_{output_name}'
+    return eqn, fname
+
+def sort_output_df(scatter_fit_df):
+  # Remove any duplicate rows
+  scatter_fit_df = scatter_fit_df.drop_duplicates(subset=['inputs'])
+  # Remove rows where the input combination is ['alpha', 'alpha*interpolated_beta'] or ['interpolated_beta', 'alpha*interpolated_beta']
+  scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['alpha, alpha*interpolated_beta', 'interpolated_beta, alpha*interpolated_beta'])]
+  # Remove rows where the input combination is ['mag_lat', 'mag_lat*interpolated_beta'] or ['interpolated_beta', 'mag_lat*interpolated_beta'], or ['mag_lat*interpolated_beta']
+  scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['mag_lat, mag_lat*interpolated_beta', 'interpolated_beta, mag_lat*interpolated_beta', 'mag_lat*interpolated_beta'])]
+  # Move ['alpha, interpolated_beta'] and ['alpha, interpolated_beta, alpha*interpolated_beta'] rows to the end
+  alpha_rows = scatter_fit_df[scatter_fit_df['inputs'].isin(['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta'])]
+  scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta'])]
+  scatter_fit_df = pd.concat([scatter_fit_df, alpha_rows], ignore_index=True)
+  return scatter_fit_df
 
 # Use the commented out line after info.py has been modified to include gic_max and gic_std.
-output_names = ['gic_max', 'gic_std']
+#output_names = ['gic_max', 'gic_std']
 #output_names = ['mag_lat', 'geo_lat']
+output_names = ['gic_max']
 
 labels = {
-    'mag_lat': 'Magnetic Latitude [deg]',
+    'mag_lat': '\\lambda',
     'mag_lon': 'Magnetic Longitude [deg]',
     'geo_lat': 'Geographic Latitude [deg]',
-    'interpolated_beta': r'$\beta$',
-    'log_beta': r'$\log_{10} (\beta)$',
-    'alpha': r'$\alpha$',
-    'gic_std': r'$\sigma_\text{GIC}$ [A]',
-    'gic_max': r'$\vert{\text{GIC}_\text{max}}\vert$',
-    'mag_lat*mag_lon': r'Mag. Lat. $\cdot$ Mag. Long.',
+    'interpolated_beta': '\\beta',
+    'log_beta': '\\log_{10} (\\beta)',
+    'alpha': '\\alpha',
+    'gic_std': '\\sigma_\\text{GIC} [A]',
+    'gic_max': '\\vert{\\text{GIC}\\vert_\\text{max}}',
+    'mag_lat*mag_lon': 'Mag. Lat. \\cdot Mag. Long.',
+    'alpha*interpolated_beta': '\\alpha \\cdot \\beta',
+    'mag_lat*interpolated_beta': '\\lambda \\cdot \\beta',
 }
 
 # Each string must appear as a key in labels.
 input_sets = [
-    ['mag_lat', 'interpolated_beta'],
-    ['mag_lat', 'mag_lon'],
-    ['mag_lat', 'mag_lon', 'mag_lat*mag_lon'],
+    #['mag_lat', 'interpolated_beta'],
+    #['mag_lat', 'mag_lon'],
+    #['mag_lat', 'mag_lon', 'mag_lat*mag_lon'],
+    #['alpha', 'interpolated_beta'],
+    ['alpha', 'interpolated_beta', 'alpha*interpolated_beta'],
+    #['alpha', 'mag_lat'],
+    ['mag_lat', 'interpolated_beta', 'mag_lat*interpolated_beta'],
+
 ]
+
+paper_inputs = {'alpha':['a)', 'b)'],
+                'interpolated_beta':['b)', 'd)'],
+                'alpha*interpolated_beta':['c)', 'f)']}
 
 info = read_info()
 sites, gic_std, gic_maxabs = gic_stats()
@@ -175,7 +290,7 @@ info['gic_max'] = gic_maxabs
 
 for output_name in output_names:
   # Table to hold metrics
-  scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMS [A]', 'AIC', 'BIC'])
+  scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMS [A]', 'AIC', 'BIC', 'inputs'])
 
   for input_set in input_sets:
     for inputs in input_combos(input_set):
@@ -195,13 +310,10 @@ for output_name in output_names:
       x = x[mask]
       y = y[mask]
 
-      #plot_scatter(x, y, inputs, output_name)
-      model, metrics = regress(x, y)
+      # Run regression
+      model, mask, metrics = regress(x, y)
 
-      eqn = f"{output_name} = "
-      for i, input_name in enumerate(inputs):
-        eqn += f"{model.coef_[i]:+.3g}*{input_name} "
-      eqn += f" {model.intercept_:+.3g}"
+      eqn, base_fname = write_eqn_and_fname(inputs, output_name, model)
       logger.info(f"  Equation: {eqn}")
       for key in metrics:
         logger.info(f"  {key} = {metrics[key]:.4f}")
@@ -212,9 +324,40 @@ for output_name in output_names:
             'cc ± 2SE': f"${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$",
             'RMS [A]': f"${metrics['rms']:.2f}$",
             'AIC': f"${metrics['aic']:.1f}$",
-            'BIC': f"${metrics['bic']:.1f}$"
+            'BIC': f"${metrics['bic']:.1f}$",
+            'inputs': ', '.join(inputs)
         }
+      
+      # Creating plots
+      for plot_type in plot_types:
+        if plot_type == 'line': # Plot the scatter plot with regression line
+          if len(inputs) == 1:
+            plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn, metrics=metrics)
+            paper_fig_index = 0
+          else:
+            logger.warning(f"  Skipping line plot for {inputs} because it has more than one input.")
+        elif plot_type == 'scatter': # Plot the scatter plot of correlation
+            predictions = model.predict(x)
+            plot_cc_scatter(y, predictions, output_name, mask, metrics, eqn)
+            paper_fig_index = 1
+
+        fname = f'{plot_type}{base_fname}'
+        #savefig(results_dir, fname, logger)
+        if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
+            add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
+            savefig_paper('figures\_results', fname, logger) # TODO: make this cleaner pls
+        plt.close()
+
+  # Reorganize output table
+  scatter_fit_df = sort_output_df(scatter_fit_df)
+
+  # Remove inputs column
+  scatter_fit_df = scatter_fit_df.drop(columns=['inputs'])
+
   # Save output table
   scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=False)
   scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
+
+  # Save output to paper dir
+  #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
 
