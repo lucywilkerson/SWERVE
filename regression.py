@@ -149,7 +149,7 @@ def regress(x, y):
   metrics = regress_metrics(y, predictions, x.shape[1])
   return model, mask, metrics
 
-def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None):
+def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, metrics=None):
     #import matplotlib.pyplot as plt
     from swerve import plt_config
 
@@ -158,14 +158,22 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None):
       plt.figure()
       plt.scatter(x[:, i][mask], y[mask], color='k')
       plt.scatter(x[:, i][~mask], y[~mask], facecolors='none', edgecolors='k')
+      if metrics is not None:
+        text = (
+          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
+          f"RMS = ${metrics['rms']:.1f}$ [A]"
+        )
+        plot_label = f'${eqn}$\n{text}'
+      else:
+        plot_label = f'${eqn}$' if eqn else ''
       if model is not None:
         x_range = np.linspace(x[:,i].min(),x[:,i].max(), 100)
         y_model = model.predict(np.column_stack([x_range if j == i else np.zeros_like(x_range) for j in range(x.shape[1])]))
-        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=f'${eqn}$')
+        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=plot_label)
       plt.xlabel(f'${labels.get(input_name, input_name)}$')
       plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
       plt.grid(True)
-      plt.legend(loc='upper left', bbox_to_anchor=(0, 140), bbox_transform=plt.gca().transAxes + plt.gca().transData - plt.gca().transAxes)
+      legend = plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
       plt.tight_layout()
 
 def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
@@ -271,8 +279,8 @@ input_sets = [
 ]
 
 paper_inputs = {'alpha':['a)', 'b)'],
-                'interpolated_beta':['c)', 'd)'],
-                'alpha*interpolated_beta':['e)', 'f)']}
+                'interpolated_beta':['b)', 'd)'],
+                'alpha*interpolated_beta':['c)', 'f)']}
 
 info = read_info()
 sites, gic_std, gic_maxabs = gic_stats()
@@ -324,7 +332,7 @@ for output_name in output_names:
       for plot_type in plot_types:
         if plot_type == 'line': # Plot the scatter plot with regression line
           if len(inputs) == 1:
-            plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn)
+            plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn, metrics=metrics)
             paper_fig_index = 0
           else:
             logger.warning(f"  Skipping line plot for {inputs} because it has more than one input.")
