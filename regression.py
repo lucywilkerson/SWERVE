@@ -16,6 +16,8 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
 paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
 
+cc_hypothesis_test = True # If true, runs hypothesis test on cc of regression models and returns p-values
+
 plot_types = None # If none, create both line plots and scatter cc plots
 if plot_types is None:
   plot_types = ['line', 'scatter']
@@ -115,7 +117,7 @@ def regress(x, y):
     # Calculate error
     rss = np.sum((target-predictions)**2)  # Sum of squares error
     n = len(target)
-    rms = np.sqrt(rss/n)
+    rmse = np.sqrt(rss/n)
 
     # Calculate correlation coefficient
     cc = np.corrcoef(target, predictions)[0,1]
@@ -131,7 +133,7 @@ def regress(x, y):
     aic = -2*llf + 2*k # see https://en.wikipedia.org/wiki/Akaike_information_criterion
     bic = -2*llf + k*np.log(n) # see https://en.wikipedia.org/wiki/Bayesian_information_criterion
 
-    return {'rms': rms, 'cc': cc, 'cc_2se': cc_2se, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
+    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
 
   def remove_outliers(data, output, threshold=3.5):
     mask = output <= threshold * np.std(output)
@@ -158,22 +160,20 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, met
       plt.figure()
       plt.scatter(x[:, i][mask], y[mask], color='k')
       plt.scatter(x[:, i][~mask], y[~mask], facecolors='none', edgecolors='k')
-      if metrics is not None:
-        text = (
-          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
-          f"RMS = ${metrics['rms']:.1f}$ [A]"
-        )
-        plot_label = f'${eqn}$\n{text}'
-      else:
-        plot_label = f'${eqn}$' if eqn else ''
       if model is not None:
         x_range = np.linspace(x[:,i].min(),x[:,i].max(), 100)
         y_model = model.predict(np.column_stack([x_range if j == i else np.zeros_like(x_range) for j in range(x.shape[1])]))
-        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=plot_label)
+        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=f'${eqn}$')
+      if metrics is not None:
+        text = (
+          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$  |  "
+          f"RMSE = ${metrics['rmse']:.1f}$ [A]"
+        )
+        plt.scatter([], [], facecolors='none', edgecolors='none', label=text) # Adds metrics to legend while keeping legend marker alined w eqn
       plt.xlabel(f'${labels.get(input_name, input_name)}$')
       plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
       plt.grid(True)
-      legend = plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
+      plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
       plt.tight_layout()
 
 def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
@@ -200,7 +200,7 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
     text = (
         f"{eqn}\n"
         f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
-        f"RMS = ${metrics['rms']:.1f}$ [A]\n"
+        f"RMSE = ${metrics['rmse']:.1f}$ [A]\n"
         f"AIC = ${metrics['aic']:.1f}$\n"
         f"BIC = ${metrics['bic']:.1f}$"
     )
@@ -234,6 +234,36 @@ def write_eqn_and_fname(inputs, output_name, model):
         fname = f'_fit_{input1}_{input2}_{output_name}'
     return eqn, fname
 
+def run_cc_hypothesis_test(scatter_fit_df, compare_inputs):
+  import re
+  import scipy.stats as stats
+  logger.info(f"Running hypothesis test on cc for inputs: {compare_inputs}")
+  cc_values = []
+  se_values = []
+  for compare_input in compare_inputs:
+    input_str = ', '.join(compare_input)
+    row = scatter_fit_df[scatter_fit_df['inputs'] == input_str]
+    if not row.empty:
+      cc_se_str = row.iloc[0]['cc ± 2SE']
+      # Extract cc and 2SE from string like "$0.85$ ± $0.03$"
+      match = re.match(r"\$(.*?)\$ ± \$(.*?)\$", cc_se_str)
+      if match:
+          cc = float(match.group(1))
+          se = float(match.group(2))
+          cc_values.append(cc)
+          se_values.append(se)
+  # Run hypothesis test! (from Devore p 514)
+  V = np.log((1+cc_values[0])/(1-cc_values[0]))/2
+  z = (V - np.log((1+cc_values[1])/(1-cc_values[1]))/2) / np.sqrt(1/(len(y)-3))
+  # Performing z-test for alpha=0.01
+  alpha_z = 0.01
+  critical_value = 2.576  # Two-tailed test for alpha=0.01
+  if abs(z) > critical_value:
+      logger.info(f"  Reject null hypothesis: significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
+  else:
+      logger.info(f"  Fail to reject null hypothesis: no significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
+  logger.info(f'  p-value: {2*stats.norm.sf(abs(z)):.4f}')  # Two-tailed p-value
+
 def sort_output_df(scatter_fit_df):
   # Remove any duplicate rows
   scatter_fit_df = scatter_fit_df.drop_duplicates(subset=['inputs'])
@@ -241,6 +271,10 @@ def sort_output_df(scatter_fit_df):
   scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['alpha, alpha*interpolated_beta', 'interpolated_beta, alpha*interpolated_beta'])]
   # Remove rows where the input combination is ['mag_lat', 'mag_lat*interpolated_beta'] or ['interpolated_beta', 'mag_lat*interpolated_beta'], or ['mag_lat*interpolated_beta']
   scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['mag_lat, mag_lat*interpolated_beta', 'interpolated_beta, mag_lat*interpolated_beta', 'mag_lat*interpolated_beta'])]
+  # Move row with inputs = 'mag_lat' (lambda) to the second row
+  lambda_row = scatter_fit_df[scatter_fit_df['inputs'] == 'mag_lat']
+  scatter_fit_df = scatter_fit_df[scatter_fit_df['inputs'] != 'mag_lat']
+  scatter_fit_df = pd.concat([scatter_fit_df.iloc[:1], lambda_row, scatter_fit_df.iloc[1:]], ignore_index=True)
   # Move ['alpha, interpolated_beta'] and ['alpha, interpolated_beta, alpha*interpolated_beta'] rows to the end
   alpha_rows = scatter_fit_df[scatter_fit_df['inputs'].isin(['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta'])]
   scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta'])]
@@ -290,7 +324,7 @@ info['gic_max'] = gic_maxabs
 
 for output_name in output_names:
   # Table to hold metrics
-  scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMS [A]', 'AIC', 'BIC', 'inputs'])
+  scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMSE [A]', 'AIC', 'BIC', 'inputs'])
 
   for input_set in input_sets:
     for inputs in input_combos(input_set):
@@ -322,7 +356,7 @@ for output_name in output_names:
       scatter_fit_df.loc[len(scatter_fit_df)] = {
             'Fit Equation': f"${eqn}$",
             'cc ± 2SE': f"${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$",
-            'RMS [A]': f"${metrics['rms']:.2f}$",
+            'RMSE [A]': f"${metrics['rmse']:.1f}$",
             'AIC': f"${metrics['aic']:.1f}$",
             'BIC': f"${metrics['bic']:.1f}$",
             'inputs': ', '.join(inputs)
@@ -351,13 +385,19 @@ for output_name in output_names:
   # Reorganize output table
   scatter_fit_df = sort_output_df(scatter_fit_df)
 
-  # Remove inputs column
+  if cc_hypothesis_test:
+    for input_pair in itertools.combinations(scatter_fit_df['inputs'], 2):
+      # Run hypothesis test on cc of regression models
+      run_cc_hypothesis_test(scatter_fit_df, [[input_pair[0]], [input_pair[1]]])
+
+  # Remove inputs column and adjust indexing
   scatter_fit_df = scatter_fit_df.drop(columns=['inputs'])
+  scatter_fit_df.index = scatter_fit_df.index + 1
 
   # Save output table
-  scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=False)
-  scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
+  scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=True)
+  scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
 
   # Save output to paper dir
-  #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=False, escape=False)
+  #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
 
