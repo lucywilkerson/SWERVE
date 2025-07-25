@@ -17,7 +17,7 @@ paper = True    # set true to generate paper figs
 colorbar_scatter = False # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
-B_scatter = True # set true to generate scatter plots for B
+B_scatter = False # set true to generate scatter plots for B
 
 
 def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins', **kwargs):
@@ -283,7 +283,7 @@ plt.close()
 
 plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']), **scatter_kwargs)
 plot_avg_line(np.abs(df['lat_diff']), np.abs(df['cc']))
-plt.xlabel(r'$\Delta$ Latitude [deg]')
+plt.xlabel(r'$\Delta \lambda$ [deg]')
 plt.ylabel('|cc|')
 plt.grid(True)
 plt.legend(loc='upper right')
@@ -312,7 +312,7 @@ if not paper:
     plt.close()
 
     plt.scatter(np.abs(df['lat_diff']), avg_std)
-    plt.xlabel(r'$\Delta$ Latitude [deg]')
+    plt.xlabel(r'$\Delta \lambda$ [deg]')
     plt.ylabel('Average standard deviation [A]')
     plt.grid(True)
     savefig(results_dir, 'std_vs_lat_scatter', logger)
@@ -369,7 +369,7 @@ if poster:
 if colorbar_scatter:
     scatter_with_colorbar(df, 'log_beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
     scatter_with_colorbar(df, 'volt_diff(kV)', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
-    scatter_with_colorbar(df, 'lat_diff', r'$\Delta$ Latitude [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
+    scatter_with_colorbar(df, 'lat_diff', r'$\Delta \lambda$ [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
     scatter_with_colorbar(df, 'min_avg_cc', r'min mean |cc|', 'CC vs Distance with Min |cc| Colorbar', 'cc_vs_dist_vs_min_scatter')
 
 if grid_scatter:
@@ -404,7 +404,7 @@ if grid_scatter:
     plt.close()
 
     # Four panel plot for |lat_diff| vs |cc| with region colors and pool shapes
-    plot_grid_scatter(np.abs(df['lat_diff']), np.abs(df['cc']), r'$\Delta$ Latitude [deg]', '|cc|')
+    plot_grid_scatter(np.abs(df['lat_diff']), np.abs(df['cc']), r'$\Delta \lambda$ [deg]', '|cc|')
     savefig(results_dir, 'cc_vs_lat_grid_scatter', logger)
     plt.close()
 

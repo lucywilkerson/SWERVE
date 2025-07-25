@@ -13,7 +13,7 @@ logger = logger(**LOG_KWARGS)
 out_dir = os.path.join(DATA_DIR, '_results')
 
 find_lowest_cc = False
-B_cc = True #make cc for B
+B_cc = False #make cc for B
 
 def read(data_type):
   info_df = read_info(extended=True, data_type=data_type)
@@ -196,7 +196,7 @@ for idx_1, row in info_df.iterrows():
     dvolt = info_df['nearest_volt'][idx_1] - info_df['nearest_volt'][idx_2]
 
     # Compute difference in latitude
-    dlat = info_df['geo_lat'][idx_1] - info_df['geo_lat'][idx_2]
+    dlat = info_df['mag_lat'][idx_1] - info_df['mag_lat'][idx_2]
 
     # finding power pool/region comparison
     pool, reg = power_pool_filt(pool_1, pool_2, reg_1, reg_2)
