@@ -236,6 +236,34 @@ def write_eqn_and_fname(inputs, output_name, model):
 
 def run_cc_hypothesis_test(scatter_fit_df, compare_inputs):
   import re
+  import scipy.stats as stats
+  logger.info(f"Running hypothesis test on cc for inputs: {compare_inputs}")
+  cc_values = []
+  se_values = []
+  for compare_input in compare_inputs:
+    input_str = ', '.join(compare_input)
+    row = scatter_fit_df[scatter_fit_df['inputs'] == input_str]
+    if not row.empty:
+      cc_se_str = row.iloc[0]['cc ± 2SE']
+      # Extract cc and 2SE from string like "$0.85$ ± $0.03$"
+      match = re.match(r"\$(.*?)\$ ± \$(.*?)\$", cc_se_str)
+      if match:
+          cc = float(match.group(1))
+          se = float(match.group(2))
+          cc_values.append(cc)
+          se_values.append(se)
+  # Run hypothesis test! (from Devore p 514)
+  V = np.log((1+cc_values[0])/(1-cc_values[0]))/2
+  z = (V - np.log((1+cc_values[1])/(1-cc_values[1]))/2) / np.sqrt(1/(len(y)-3))
+  # Performing z-test for alpha=0.01
+  alpha_z = 0.01
+  critical_value = 2.576  # Two-tailed test for alpha=0.01
+  if abs(z) > critical_value:
+      logger.info(f"  Reject null hypothesis: significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
+  else:
+      logger.info(f"  Fail to reject null hypothesis: no significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
+  logger.info(f'  p-value: {2*stats.norm.sf(abs(z)):.4f}')  # Two-tailed p-value
+
 def sort_output_df(scatter_fit_df):
   # Remove any duplicate rows
   scatter_fit_df = scatter_fit_df.drop_duplicates(subset=['inputs'])
@@ -356,6 +384,11 @@ for output_name in output_names:
 
   # Reorganize output table
   scatter_fit_df = sort_output_df(scatter_fit_df)
+
+  if cc_hypothesis_test:
+    for input_pair in itertools.combinations(scatter_fit_df['inputs'], 2):
+      # Run hypothesis test on cc of regression models
+      run_cc_hypothesis_test(scatter_fit_df, [[input_pair[0]], [input_pair[1]]])
 
   # Remove inputs column and adjust indexing
   scatter_fit_df = scatter_fit_df.drop(columns=['inputs'])
