@@ -160,22 +160,20 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, met
       plt.figure()
       plt.scatter(x[:, i][mask], y[mask], color='k')
       plt.scatter(x[:, i][~mask], y[~mask], facecolors='none', edgecolors='k')
-      if metrics is not None:
-        text = (
-          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
-          f"RMSE = ${metrics['rmse']:.1f}$ [A]"
-        )
-        plot_label = f'${eqn}$\n{text}'
-      else:
-        plot_label = f'${eqn}$' if eqn else ''
       if model is not None:
         x_range = np.linspace(x[:,i].min(),x[:,i].max(), 100)
         y_model = model.predict(np.column_stack([x_range if j == i else np.zeros_like(x_range) for j in range(x.shape[1])]))
-        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=plot_label)
+        plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=f'${eqn}$')
+      if metrics is not None:
+        text = (
+          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$  |  "
+          f"RMSE = ${metrics['rmse']:.1f}$ [A]"
+        )
+        plt.scatter([], [], facecolors='none', edgecolors='none', label=text) # Adds metrics to legend while keeping legend marker alined w eqn
       plt.xlabel(f'${labels.get(input_name, input_name)}$')
       plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
       plt.grid(True)
-      legend = plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
+      plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
       plt.tight_layout()
 
 def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
@@ -366,5 +364,5 @@ for output_name in output_names:
   scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
 
   # Save output to paper dir
-  scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
+  #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
 
