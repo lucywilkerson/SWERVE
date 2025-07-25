@@ -335,7 +335,7 @@ def compare_db(info, data, sid):
   model_points = ['b.', 'g.', 'y.']
   model_names = []
   for idx, data_source in enumerate(info[sid]['B']['calculated']):
-    model_names.append(data_source.upper())
+    model_names.append(data_source)
     time_calc = data[sid]['B']['calculated'][idx]['original']['time']
     data_calc = data[sid]['B']['calculated'][idx]['original']['data']
     time_calc, data_calc = subset(time_calc, data_calc, limits['data'][0], limits['data'][1])
