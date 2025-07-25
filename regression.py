@@ -234,6 +234,8 @@ def write_eqn_and_fname(inputs, output_name, model):
         fname = f'_fit_{input1}_{input2}_{output_name}'
     return eqn, fname
 
+def run_cc_hypothesis_test(scatter_fit_df, compare_inputs):
+  import re
 def sort_output_df(scatter_fit_df):
   # Remove any duplicate rows
   scatter_fit_df = scatter_fit_df.drop_duplicates(subset=['inputs'])
