@@ -480,16 +480,16 @@ def compare_db(info, data, sid, df=None):
   if df is not None:
         df.loc[len(df)] = {
             'Site ID': sid,
-            r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
-            r'$\sigma_\text{SWMF}$': f"{np.std(data_calcs[0]):.2f}",
-            r'$\sigma_\text{MAGE}$': f"{np.std(data_calcs[1]):.2f}",
-            r'$\sigma_\text{OpenGGCM}$': f"{np.std(data_calcs[2]):.2f}",
+            r'$\sigma$ [nT]': f"{np.std(data_meas):.1f}",
+            r'$\sigma_\text{SWMF}$': f"{np.std(data_calcs[0]):.1f}",
+            r'$\sigma_\text{MAGE}$': f"{np.std(data_calcs[1]):.1f}",
+            r'$\sigma_\text{GGCM}$': f"{np.std(data_calcs[2]):.1f}",
             r'$\text{cc}^2_\text{SWMF}$': f"{cc[0]**2:.2f}",
             r'$\text{cc}^2_\text{MAGE}$': f"{cc[1]**2:.2f}",
-            r'$\text{cc}^2_\text{OpenGGCM}$': f"{cc[2]**2:.2f}",
+            r'$\text{cc}^2_\text{GGCM}$': f"{cc[2]**2:.2f}",
             r'$\text{pe}_\text{SWMF}$': f"{pe[0]:.2f}",
             r'$\text{pe}_\text{MAGE}$': f"{pe[1]:.2f}",
-            r'$\text{pe}_\text{OpenGGCM}$': f"{pe[2]:.2f}"
+            r'$\text{pe}_\text{GGCM}$': f"{pe[2]:.2f}"
         }
 
 
@@ -899,10 +899,10 @@ if plot_compare:
     gic_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{TVA}$', r'$\sigma_\text{Ref}$', 
                                    r'$\text{cc}^2_\text{TVA}$', r'$\text{cc}^2_\text{Ref}$',
                                    r'$\text{pe}_\text{TVA}$', r'$\text{pe}_\text{Ref}$'])
-    b_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [A]', r'$\sigma_\text{SWMF}$', r'$\sigma_\text{MAGE}$', 
-                                   r'$\sigma_\text{OpenGGCM}$', r'$\text{cc}^2_\text{SWMF}$', r'$\text{cc}^2_\text{MAGE}$',
-                                   r'$\text{cc}^2_\text{OpenGGCM}$', r'$\text{pe}_\text{SWMF}$', r'$\text{pe}_\text{MAGE}$',
-                                   r'$\text{pe}_\text{OpenGGCM}$'])
+    b_df = pd.DataFrame(columns=['Site ID', r'$\sigma$ [nT]', r'$\sigma_\text{SWMF}$', r'$\sigma_\text{MAGE}$', 
+                                   r'$\sigma_\text{GGCM}$', r'$\text{cc}^2_\text{SWMF}$', r'$\text{cc}^2_\text{MAGE}$',
+                                   r'$\text{cc}^2_\text{GGCM}$', r'$\text{pe}_\text{SWMF}$', r'$\text{pe}_\text{MAGE}$',
+                                   r'$\text{pe}_\text{GGCM}$'])
 
   for sid in sids: # site ids
     if sid not in info_dict.keys():
@@ -922,6 +922,16 @@ if plot_compare:
       fname = os.path.join(DATA_DIR, "_results", "gic_table_paper")
     else:
       fname = os.path.join(DATA_DIR, "_results", "gic_table")
+      gic_df.loc[len(gic_df)] = {
+            'Site ID': 'Mean',
+            r'$\sigma$ [A]': f"{pd.to_numeric(b_df[r'$\sigma$ [A]'], errors='coerce').mean():.1f}",
+            r'$\sigma_\text{TVA}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{TVA}$'], errors='coerce').mean():.1f}",
+            r'$\sigma_\text{Ref}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{Ref}$'], errors='coerce').mean():.1f}",
+            r'$\text{cc}^2_\text{TVA}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{TVA}$'], errors='coerce').mean():.2f}",
+            r'$\text{cc}^2_\text{Ref}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{Ref}$'], errors='coerce').mean():.2f}",
+            r'$\text{pe}_\text{TVA}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{TVA}$'], errors='coerce').mean():.2f}",
+            r'$\text{pe}_\text{Ref}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{Ref}$'], errors='coerce').mean():.2f}",
+        }
     print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
     gic_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
     gic_df.to_latex(fname + ".tex", index=False, escape=False)
@@ -930,6 +940,19 @@ if plot_compare:
       fname = os.path.join(DATA_DIR, "_results", "b_table_paper")
     else:
       fname = os.path.join(DATA_DIR, "_results", "b_table")
+      b_df.loc[len(b_df)] = {
+            'Site ID': 'Mean',
+            r'$\sigma$ [nT]': f"{pd.to_numeric(b_df[r'$\sigma$ [nT]'], errors='coerce').mean():.1f}",
+            r'$\sigma_\text{SWMF}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{SWMF}$'], errors='coerce').mean():.1f}",
+            r'$\sigma_\text{MAGE}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{MAGE}$'], errors='coerce').mean():.1f}",
+            r'$\sigma_\text{GGCM}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{GGCM}$'], errors='coerce').mean():.1f}",
+            r'$\text{cc}^2_\text{SWMF}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{SWMF}$'], errors='coerce').mean():.2f}",
+            r'$\text{cc}^2_\text{MAGE}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{MAGE}$'], errors='coerce').mean():.2f}",
+            r'$\text{cc}^2_\text{GGCM}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{GGCM}$'], errors='coerce').mean():.2f}",
+            r'$\text{pe}_\text{SWMF}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{SWMF}$'], errors='coerce').mean():.2f}",
+            r'$\text{pe}_\text{MAGE}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{MAGE}$'], errors='coerce').mean():.2f}",
+            r'$\text{pe}_\text{GGCM}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{GGCM}$'], errors='coerce').mean():.2f}"
+        }
     print(f"Writing B prediction comparison tables to {fname}.{{md,tex}}")
     b_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
     b_df.to_latex(fname + ".tex", index=False, escape=False)
