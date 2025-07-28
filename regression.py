@@ -244,30 +244,28 @@ def write_eqn_and_fname(inputs, output_name, model):
         fname = f'_fit_{input1}_{input2}_{output_name}'
     return eqn, fname
 
-def run_cc_hypothesis_test(scatter_fit_df, compare_inputs):
+def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
   import re
   import scipy.stats as stats
   logger.info(f"Running hypothesis test on cc for inputs: {compare_inputs}")
   cc_values = []
-  se_values = []
   for compare_input in compare_inputs:
     input_str = ', '.join(compare_input)
     row = scatter_fit_df[scatter_fit_df['inputs'] == input_str]
     if not row.empty:
       cc_se_str = row.iloc[0]['cc ± 2SE']
-      # Extract cc and 2SE from string like "$0.85$ ± $0.03$"
+      # Extract cc from string like "$0.85$ ± $0.03$"
       match = re.match(r"\$(.*?)\$ ± \$(.*?)\$", cc_se_str)
       if match:
           cc = float(match.group(1))
-          se = float(match.group(2))
           cc_values.append(cc)
-          se_values.append(se)
   # Run hypothesis test! (from Devore p 514)
   V = np.log((1+cc_values[0])/(1-cc_values[0]))/2
   z = (V - np.log((1+cc_values[1])/(1-cc_values[1]))/2) / np.sqrt(1/(len(y)-3))
-  # Performing z-test for alpha=0.01
-  alpha_z = 0.01
-  critical_value = 2.576  # Two-tailed test for alpha=0.01
+  logger.info(f"  z = {z:.4f} for inputs {compare_inputs[0]} and {compare_inputs[1]}")
+  # Performing z-test for alpha=0.05
+  alpha_z = 0.05
+  critical_value = 1.96  # Two-tailed test for alpha=0.05
   if abs(z) > critical_value:
       logger.info(f"  Reject null hypothesis: significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
   else:
@@ -398,7 +396,7 @@ for output_name in output_names:
   if cc_hypothesis_test:
     for input_pair in itertools.combinations(scatter_fit_df['inputs'], 2):
       # Run hypothesis test on cc of regression models
-      run_cc_hypothesis_test(scatter_fit_df, [[input_pair[0]], [input_pair[1]]])
+      run_cc_hypothesis_test(scatter_fit_df, y, [[input_pair[0]], [input_pair[1]]])
     # Can check with https://www.danielsoper.com/statcalc/calculator.aspx?id=104 
 
   # Remove inputs column and adjust indexing
