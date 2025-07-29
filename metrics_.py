@@ -61,7 +61,7 @@ for sid in info_dict.keys():
                     continue
 
                 # sigma_data
-                row[1] = np.nanstd(data_meas)
+                row[1] = f"{np.nanstd(data_meas):.1f}"
 
                 time_calc = data_all[sid]['GIC']['calculated'][idx]['original']['time']
                 if data_source == 'GMU':
@@ -82,24 +82,27 @@ for sid in info_dict.keys():
                 denom = np.sum((data_meas[valid]-data_meas[valid].mean())**2)
                 if data_source == 'TVA':
                     # sigma_tva
-                    row[2] = np.nanstd(data_calc)
-                    # cc_tva
+                    row[2] = f"{np.nanstd(data_calc):.1f}"
+                    # cc_tva and pe_tva
                     if np.sum(valid) > 1:
-                        row[4] = cc**2
+                        row[4] = f"{cc**2:.2f}"
+                        row[6] = f"{1-numer/denom:.2f}"
                     else:
                         row[4] = -99999
-                    # pe_tva
-                    row[6] = 1-numer/denom
+                        row[6] = -99999
+                    
                 elif data_source == 'GMU':
                     # sigma_gmu
-                    row[3] = np.nanstd(data_calc)
+                    row[3] = f"{np.nanstd(data_calc):.1f}"
                     # cc_gmu and pe_gmu
                     if np.sum(valid) > 1:
                         row[5] = cc**2
                         row[7] = 1 - numer / denom
-                        for val in [row[5], row[7]]:
-                            if np.isnan(val):
-                                val = -99999
+                        for i in [5, 7]:
+                            if np.isnan(row[i]):
+                                row[i] = -99999
+                            else:
+                                row[i] = f"{row[i]:.2f}"
                     else:
                         row[5] = -99999
                         row[7] = -99999
@@ -121,7 +124,8 @@ gic_df = gic_df.rename(columns={'site_id':'Site ID',
         )
 
 def mean_exclude_invalid(series):
-    valid = series[series != -99999]
+    value = pd.to_numeric(series)
+    valid = value[value != -99999]
     return np.mean(valid) if len(valid) > 0 else ''
 
 gic_df.loc[len(gic_df)] = {
@@ -165,7 +169,7 @@ for sid in info_dict.keys():
                     continue
 
                 # Adding std meas
-                row[1] = np.nanstd(data_meas)
+                row[1] = f"{np.nanstd(data_meas):.1f}"
 
                 time_calc = data_all[sid]['B']['calculated'][idx]['original']['time']
                 data_calc = data_all[sid]['B']['calculated'][idx]['original']['data']
@@ -183,11 +187,11 @@ for sid in info_dict.keys():
                 numer = np.sum((data_interp[valid]-data_calc[valid])**2)
                 denom = np.sum((data_interp[valid]-data_interp[valid].mean())**2)
                 # Adding std calc
-                row[2+idx] = np.nanstd(data_calc)
+                row[2+idx] = f"{np.nanstd(data_calc):.1f}"
                 # Adding cc and pe
                 if np.sum(valid) > 1:
-                    row[5+idx] = cc**2
-                    row[8+idx] = 1-numer/denom
+                    row[5+idx] = f"{cc**2:.2f}"
+                    row[8+idx] = f"{1-numer/denom:.2f}"
                 else:
                     row[5+idx] = -99999
                     row[8+idx] = -99999
@@ -232,4 +236,4 @@ print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
 # Apply nan_remove to each cell before writing to markdown
 b_df_md = b_df.applymap(nan_remove)
 b_df_md.to_markdown(fname + ".md", index=False, floatfmt=".2f")
-b_df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False)
+b_df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False, float_format="%.2f")
