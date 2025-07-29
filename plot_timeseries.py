@@ -31,7 +31,7 @@ create_md = False    # updates md comparison files without replotting everything
 
 paper = False        # only plots paper sites if true
 sids = None         # If none, plot all sites; ignored if paper is True
-if paper or sids is None:
+if paper:
   write_stats_df = True
 else:
   write_stats_df = False
@@ -322,16 +322,27 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
             r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
             r'$\text{pe}_\text{Ref}$': f"{pe[1]:.2f}"
         }
-    else:
+    elif len(data_calcs)==1 and model_names[0] == 'GMU':  # Only Ref
         df.loc[len(df)] = {
             'Site ID': sid,
             r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
-            r'$\sigma_\text{TVA}$': None,
+            r'$\sigma_\text{TVA}$': np.nan,
             r'$\sigma_\text{Ref}$': f"{np.std(data_calcs[0]):.2f}",
-            r'$\text{cc}^2_\text{TVA}$': None,
+            r'$\text{cc}^2_\text{TVA}$': np.nan,
             r'$\text{cc}^2_\text{Ref}$': f"{cc[0]**2:.2f}",
-            r'$\text{pe}_\text{TVA}$': None,
+            r'$\text{pe}_\text{TVA}$': np.nan,
             r'$\text{pe}_\text{Ref}$': f"{pe[0]:.2f}"
+        }
+    elif len(data_calcs)==1 and model_names[0] == 'TVA':  # Only TVA
+        df.loc[len(df)] = {
+            'Site ID': sid,
+            r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
+            r'$\sigma_\text{TVA}$': f"{np.std(data_calcs[0]):.2f}",
+            r'$\sigma_\text{Ref}$': np.nan,
+            r'$\text{cc}^2_\text{TVA}$': f"{cc[0]**2:.2f}",
+            r'$\text{cc}^2_\text{Ref}$': np.nan,
+            r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
+            r'$\text{pe}_\text{Ref}$': np.nan
         }
 
 
@@ -918,41 +929,12 @@ if plot_compare:
         print("Plotting GIC measured and calculated")
         compare_gic(info_dict, data_all, sid, df=gic_df)
   if gic_df is not None:
-    if paper:
-      fname = os.path.join(DATA_DIR, "_results", "gic_table_paper")
-    else:
-      fname = os.path.join(DATA_DIR, "_results", "gic_table")
-      gic_df.loc[len(gic_df)] = {
-            'Site ID': 'Mean',
-            r'$\sigma$ [A]': f"{pd.to_numeric(b_df[r'$\sigma$ [A]'], errors='coerce').mean():.1f}",
-            r'$\sigma_\text{TVA}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{TVA}$'], errors='coerce').mean():.1f}",
-            r'$\sigma_\text{Ref}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{Ref}$'], errors='coerce').mean():.1f}",
-            r'$\text{cc}^2_\text{TVA}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{TVA}$'], errors='coerce').mean():.2f}",
-            r'$\text{cc}^2_\text{Ref}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{Ref}$'], errors='coerce').mean():.2f}",
-            r'$\text{pe}_\text{TVA}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{TVA}$'], errors='coerce').mean():.2f}",
-            r'$\text{pe}_\text{Ref}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{Ref}$'], errors='coerce').mean():.2f}",
-        }
+    fname = os.path.join(DATA_DIR, "_results", "gic_table_paper")
     print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
     gic_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
     gic_df.to_latex(fname + ".tex", index=False, escape=False)
   if b_df is not None:
-    if paper:
-      fname = os.path.join(DATA_DIR, "_results", "b_table_paper")
-    else:
-      fname = os.path.join(DATA_DIR, "_results", "b_table")
-      b_df.loc[len(b_df)] = {
-            'Site ID': 'Mean',
-            r'$\sigma$ [nT]': f"{pd.to_numeric(b_df[r'$\sigma$ [nT]'], errors='coerce').mean():.1f}",
-            r'$\sigma_\text{SWMF}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{SWMF}$'], errors='coerce').mean():.1f}",
-            r'$\sigma_\text{MAGE}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{MAGE}$'], errors='coerce').mean():.1f}",
-            r'$\sigma_\text{GGCM}$': f"{pd.to_numeric(b_df[r'$\sigma_\text{GGCM}$'], errors='coerce').mean():.1f}",
-            r'$\text{cc}^2_\text{SWMF}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{SWMF}$'], errors='coerce').mean():.2f}",
-            r'$\text{cc}^2_\text{MAGE}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{MAGE}$'], errors='coerce').mean():.2f}",
-            r'$\text{cc}^2_\text{GGCM}$': f"{pd.to_numeric(b_df[r'$\text{cc}^2_\text{GGCM}$'], errors='coerce').mean():.2f}",
-            r'$\text{pe}_\text{SWMF}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{SWMF}$'], errors='coerce').mean():.2f}",
-            r'$\text{pe}_\text{MAGE}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{MAGE}$'], errors='coerce').mean():.2f}",
-            r'$\text{pe}_\text{GGCM}$': f"{pd.to_numeric(b_df[r'$\text{pe}_\text{GGCM}$'], errors='coerce').mean():.2f}"
-        }
+    fname = os.path.join(DATA_DIR, "_results", "b_table_paper")
     print(f"Writing B prediction comparison tables to {fname}.{{md,tex}}")
     b_df.to_markdown(fname + ".md", index=False, floatfmt=".2f")
     b_df.to_latex(fname + ".tex", index=False, escape=False)
