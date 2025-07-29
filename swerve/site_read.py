@@ -250,7 +250,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
     from swerve import read_info_df, read_info_dict
 
-    extended_df = read_info_df(extended=True)
+    extended_df = read_info_df(extended=True, measured=False)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
     nearest_sim_site = int(nearest_sim_site.values[0])
@@ -318,10 +318,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     sid = sid.replace(' ','')
     data_dir = os.path.join(data_dir, data_source.lower(), sid.lower())
 
-    if data_source == 'OpenGGCM':
-      file = os.path.join(data_dir, f'dB_{data_source}_{sid}.pkl')
-    else:
-      file = os.path.join(data_dir, f'dB_{sid}.pkl')
+    file = os.path.join(data_dir, f'dB_{sid}.pkl')
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
@@ -389,6 +386,18 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         # The reference plot seems to equate BNm with dBn and not dBt.
         # In the following, we use the mapping implied by the plot.
         #                              BNm/dBn        BEm/dBp         BZm/dBr
+        # 
+        # RSW: Update based on communication with Kareem via Eric Winter:
+        # dBn is the the northward deflection in geomagnetic coordinates.
+        # dBn is the component of the magnetic field in the direction of
+        # geomagnetic north (and not a deflection in the sense of an angle, which
+        # is commponly used in the magnetomter community).
+        #
+        # The r,phi,theta are in a spherical geographic coordinate system. (I
+        # thought geomagnetic initially because of the word "magnetic"
+        # in their definitions, which could be interpreted as meaning magnetic
+        # coordinate system. Also, Mike's "mapping" statement above has dBr, dBp, and dBt
+        # equated to SuperMAG's BZm, BEm, and BNm, which are in local _geomagnetic_.)
 
         sites[site]["data"].append([float(row[2]), float(row[4]), float(row[5])])
 
@@ -399,60 +408,6 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
     return {"time": time, "data": data, "labels": ["dBn", "dBp", "dBr"], "unit": "nT"}
-  
-  if data_type =='GIC' and data_source == 'TEST':
-    fname = f'{sid}_{data_type}_{data_class}_timeseries.csv'
-    data_dir = os.path.join(data_dir, 'test')
-
-    data  = []
-    time = []
-
-    file = os.path.join(data_dir, fname)
-    logger.info(f"    Reading {file}")
-    if not os.path.exists(file):
-      raise FileNotFoundError(f"File not found: {file}")
-    
-    with open(file, 'r') as csvfile:
-      next(csvfile)  # Skip header row
-      rows = csv.reader(csvfile, delimiter=',')
-      for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-          data.append(float(row[1]) if row[1] != '' else numpy.nan)
-
-    # Reshape to 2D array with a single column
-    data = numpy.array(data).reshape(-1, 1)
-    return {
-      "time": numpy.array(time).flatten(),
-      "data": data,
-      "labels": ["GIC"],
-      "unit": "A"
-    }
-  
-  if data_type =='B' and data_source == 'TEST':
-    fname = f'{sid}_{data_type}_{data_class}_timeseries.csv'
-    data_dir = os.path.join(data_dir, 'test')
-
-    data  = []
-    time = []
-
-    file = os.path.join(data_dir, fname)
-    logger.info(f"    Reading {file}")
-    if not os.path.exists(file):
-      raise FileNotFoundError(f"File not found: {file}")
-    
-    with open(file, 'r') as csvfile:
-      next(csvfile)  # Skip header row
-      rows = csv.reader(csvfile, delimiter=',')
-      for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-          data.append([float(row[1]), float(row[2]), float(row[3])])
-
-    return {
-      "time": numpy.array(time),
-      "data": numpy.array(data),
-      "labels": ["Bx", "By", "Bz"],
-      "unit": "nT"
-    }
 
 def _output_error(d, logger):
   msgo = "Not computing modified"
