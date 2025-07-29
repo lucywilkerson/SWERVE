@@ -388,10 +388,10 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         #                              BNm/dBn        BEm/dBp         BZm/dBr
         # 
         # RSW: Update based on communication with Kareem via Eric Winter:
-        # dBn is the the northward deflection in geomagnetic coordinates.
+        # dBn is the the northward deflection in _geomagnetic_ coordinates.
         # dBn is the component of the magnetic field in the direction of
         # geomagnetic north (and not a deflection in the sense of an angle, which
-        # is commponly used in the magnetomter community).
+        # is commonly used in the magnetometer community).
         #
         # The r,phi,theta are in a spherical geographic coordinate system. (I
         # thought geomagnetic initially because of the word "magnetic"
