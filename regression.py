@@ -114,6 +114,15 @@ def regress(x, y):
         cc_std = np.std(cc_samples, ddof=1)
         return 2*cc_std
 
+    def cc_95_ci (target, cc):
+       #from Devore CH 12.5 (p. 534)
+       n = len(target)
+       v = np.log((1+cc)/(1-cc))/2 # Fischer transformation
+       c1, c2 =(v-(1.96/np.sqrt(n-3)), v+(1.96/np.sqrt(n-3))) # 95% CI endpoints
+       ci_lower = (np.exp(2*c1)-1)/(np.exp(2*c1)+1)
+       ci_upper = (np.exp(2*c2)-1)/(np.exp(2*c2)+1)
+       return ci_lower, ci_upper
+
     # Calculate error
     rss = np.sum((target-predictions)**2)  # Sum of squares error
     n = len(target)
@@ -123,6 +132,7 @@ def regress(x, y):
     cc = np.corrcoef(target, predictions)[0,1]
     cc_2se = np.sqrt((1-cc**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
     cc_2se_boot = bootstrap_cc_unc(target, predictions) # bootstrapped uncertainty (2 sigma)
+    cc_ci_lower, cc_ci_upper = cc_95_ci(target, cc) # 95% CI for cc from Devore
 
     # Calculate log likelihood
     n2 = 0.5*n
@@ -133,7 +143,7 @@ def regress(x, y):
     aic = -2*llf + 2*k # see https://en.wikipedia.org/wiki/Akaike_information_criterion
     bic = -2*llf + k*np.log(n) # see https://en.wikipedia.org/wiki/Bayesian_information_criterion
 
-    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
+    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_ci_lower': cc_ci_lower, 'cc_ci_upper': cc_ci_upper, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
 
   def remove_outliers(data, output, threshold=3.5):
     mask = output <= threshold * np.std(output)
@@ -234,30 +244,28 @@ def write_eqn_and_fname(inputs, output_name, model):
         fname = f'_fit_{input1}_{input2}_{output_name}'
     return eqn, fname
 
-def run_cc_hypothesis_test(scatter_fit_df, compare_inputs):
+def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
   import re
   import scipy.stats as stats
   logger.info(f"Running hypothesis test on cc for inputs: {compare_inputs}")
   cc_values = []
-  se_values = []
   for compare_input in compare_inputs:
     input_str = ', '.join(compare_input)
     row = scatter_fit_df[scatter_fit_df['inputs'] == input_str]
     if not row.empty:
       cc_se_str = row.iloc[0]['cc ± 2SE']
-      # Extract cc and 2SE from string like "$0.85$ ± $0.03$"
+      # Extract cc from string like "$0.85$ ± $0.03$"
       match = re.match(r"\$(.*?)\$ ± \$(.*?)\$", cc_se_str)
       if match:
           cc = float(match.group(1))
-          se = float(match.group(2))
           cc_values.append(cc)
-          se_values.append(se)
   # Run hypothesis test! (from Devore p 514)
   V = np.log((1+cc_values[0])/(1-cc_values[0]))/2
   z = (V - np.log((1+cc_values[1])/(1-cc_values[1]))/2) / np.sqrt(1/(len(y)-3))
-  # Performing z-test for alpha=0.01
-  alpha_z = 0.01
-  critical_value = 2.576  # Two-tailed test for alpha=0.01
+  logger.info(f"  z = {z:.4f} for inputs {compare_inputs[0]} and {compare_inputs[1]}")
+  # Performing z-test for alpha=0.05
+  alpha_z = 0.05
+  critical_value = 1.96  # Two-tailed test for alpha=0.05
   if abs(z) > critical_value:
       logger.info(f"  Reject null hypothesis: significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
   else:
@@ -388,7 +396,8 @@ for output_name in output_names:
   if cc_hypothesis_test:
     for input_pair in itertools.combinations(scatter_fit_df['inputs'], 2):
       # Run hypothesis test on cc of regression models
-      run_cc_hypothesis_test(scatter_fit_df, [[input_pair[0]], [input_pair[1]]])
+      run_cc_hypothesis_test(scatter_fit_df, y, [[input_pair[0]], [input_pair[1]]])
+    # Can check with https://www.danielsoper.com/statcalc/calculator.aspx?id=104 
 
   # Remove inputs column and adjust indexing
   scatter_fit_df = scatter_fit_df.drop(columns=['inputs'])
