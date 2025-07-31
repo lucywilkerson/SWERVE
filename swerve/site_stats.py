@@ -108,9 +108,11 @@ def _metrics(data_meas, data_calc, logger):
       logger.warning("  Not enough valid data. Skipping.")
       return stats_nan
 
-  if np.all(data_calc == 0):
-      logger.warning("  All calculated data is zero. Skipping.")
-      return stats_nan
+  # TODO: Check if std of data_meas an data_calc is zero. If so, return NaN
+  # for cc. If data_meas std is zero return NaN for pe.
+  #if np.all(data_calc == 0):
+  #    logger.warning("  All calculated data is zero. Skipping.")
+  #    return stats_nan
 
   cc = np.corrcoef(data_meas[valid], data_calc[valid])
   if cc[0,1] < 0:
