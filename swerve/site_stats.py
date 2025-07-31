@@ -108,25 +108,28 @@ def _metrics(data_meas, data_calc, logger):
       logger.warning("  Not enough valid data. Skipping.")
       return stats_nan
 
-  # TODO: Check if std of data_meas an data_calc is zero. If so, return NaN
-  # for cc. If data_meas std is zero return NaN for pe.
-  #if np.all(data_calc == 0):
-  #    logger.warning("  All calculated data is zero. Skipping.")
-  #    return stats_nan
+  if np.std(data_meas[valid], ddof=1) == 0 or np.std(data_calc[valid], ddof=1) == 0:
+    cc = np.nan
+  else:
+    cc = np.corrcoef(data_meas[valid], data_calc[valid])
+    cc = cc[0, 1]
+    #if cc[0,1] < 0:
+    #  logger.warning("  Multiplying calculated data by -1 before computing pe.")
+    #  data_calc = -data_calc
 
-  cc = np.corrcoef(data_meas[valid], data_calc[valid])
-  if cc[0,1] < 0:
-    data_calc = -data_calc
   numer = np.sum((data_meas[valid] - data_calc[valid])**2)
   denom = np.sum((data_meas[valid] - data_meas[valid].mean())**2)
-  pe = 1-numer/denom
+  if denom == 0:
+    pe = np.nan
+  else:
+    pe = 1 - numer/denom
 
   err = data_meas[valid] - data_calc[valid]
   return {
           'err_rms': np.sqrt(np.mean((data_meas[valid] - data_calc[valid])**2)),
           'err_ave': np.mean(err),
           'err': err.flatten(),
-          'cc': cc[0,1],
+          'cc': cc,
           'pe': pe,
           'valid': valid,
           'n_valid': np.sum(valid)
