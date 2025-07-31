@@ -22,65 +22,76 @@ plot_types = None # If none, create both line plots and scatter cc plots
 if plot_types is None:
   plot_types = ['line', 'scatter']
 
-def read_info():
-  file_path = os.path.join('info', 'info.extended.csv')
-  info = pd.read_csv(file_path)
-  # Filter out sites with error message
-  # Also remove rows that don't have data_type = GIC and data_class = measured
-  info = info[~info['error'].str.contains('', na=False)]
-  info = info[info['data_type'].str.contains('GIC', na=False)]
-  info = info[info['data_class'].str.contains('measured', na=False)]
-  info.reset_index(drop=True, inplace=True)
+def df_prep():
+  # Read info file
+  def read_info():
+    file_path = os.path.join('info', 'info.extended.csv')
+    info = pd.read_csv(file_path)
+    # Filter out sites with error message
+    # Also remove rows that don't have data_type = GIC and data_class = measured
+    info = info[~info['error'].str.contains('', na=False)]
+    info = info[info['data_type'].str.contains('GIC', na=False)]
+    info = info[info['data_class'].str.contains('measured', na=False)]
+    info.reset_index(drop=True, inplace=True)
+    return info
+
+  # Read GIC stats or create file if no GIC stats file
+  def gic_stats(data_types=['GIC']):
+    import pickle
+    temp_pkl = os.path.join(results_dir, 'gic_stats.pkl')
+
+    if os.path.exists(temp_pkl):
+      # read gic_std and gic_max from it.
+      logger.info(f"  Reading gic_std and gic_maxabs from {temp_pkl}")
+      with open(temp_pkl, 'rb') as f:
+        gic_site, gic_std, gic_maxabs = pickle.load(f)
+
+    else:
+      from swerve import site_read, site_stats, read_info_df
+
+      info_df = read_info_df(data_type='GIC', data_class='measured', exclude_errors=True)
+      #info_df = read_info()
+      sites = info_df['site_id']
+
+      gic_site = []
+      gic_std = []
+      gic_maxabs = []
+
+      data = {}
+      stats = {}
+      for sid in sites:
+
+        data[sid] = site_read(sid, data_types=data_types, logger=logger)
+
+        # Extract gic_std and gic_maxabs from existing stats information in data[sid]
+        # (no need to add gic_max to stats b/c it can be derived from min/max)
+        stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
+
+        stat_keys = stats[sid].keys()
+        for data_type in stat_keys:
+          if data_type != 'GIC/measured/NERC' and data_type != 'GIC/measured/TVA':
+            continue
+          if not stats[sid][data_type]:
+            logger.warning(f"  No stats for {sid}/{data_type}. Skipping.")
+            continue
+          gic_site.append(sid)
+          gic_std.append(stats[sid][data_type]['stats']['std'][0])
+          gic_maxabs.append(max(stats[sid][data_type]['stats']['max'], abs(stats[sid][data_type]['stats']['min'])))
+      # Save gic_std and gic_maxabs in temp_pkl
+      # Ensure the directory exists before saving
+      os.makedirs(os.path.dirname(temp_pkl), exist_ok=True)
+      with open(temp_pkl, 'wb') as f:
+        logger.info(f"  Saving gic_std and gic_maxabs to {temp_pkl}")
+        pickle.dump((gic_site, gic_std, gic_maxabs), f)
+    return gic_site, gic_std, gic_maxabs 
+  
+  # Read info and add GIC stats
+  info = read_info()
+  sites, gic_std, gic_maxabs = gic_stats()
+  info = info[info['site_id'].isin(sites)].reset_index(drop=True)
+  info['gic_std'] = gic_std
+  info['gic_max'] = gic_maxabs 
   return info
-
-def gic_stats(data_types=['GIC']):
-  import pickle
-  temp_pkl = os.path.join(results_dir, 'gic_stats.pkl')
-
-  if os.path.exists(temp_pkl):
-    # read gic_std and gic_max from it.
-    logger.info(f"  Reading gic_std and gic_maxabs from {temp_pkl}")
-    with open(temp_pkl, 'rb') as f:
-      gic_site, gic_std, gic_maxabs = pickle.load(f)
-
-  else:
-    from swerve import site_read, site_stats, read_info_df
-
-    info_df = read_info_df(data_type='GIC', data_class='measured', exclude_errors=True)
-    #info_df = read_info()
-    sites = info_df['site_id']
-
-    gic_site = []
-    gic_std = []
-    gic_maxabs = []
-
-    data = {}
-    stats = {}
-    for sid in sites:
-
-      data[sid] = site_read(sid, data_types=data_types, logger=logger)
-
-      # Extract gic_std and gic_maxabs from existing stats information in data[sid]
-      # (no need to add gic_max to stats b/c it can be derived from min/max)
-      stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
-
-      stat_keys = stats[sid].keys()
-      for data_type in stat_keys:
-        if data_type != 'GIC/measured/NERC' and data_type != 'GIC/measured/TVA':
-          continue
-        if not stats[sid][data_type]:
-          logger.warning(f"  No stats for {sid}/{data_type}. Skipping.")
-          continue
-        gic_site.append(sid)
-        gic_std.append(stats[sid][data_type]['stats']['std'][0])
-        gic_maxabs.append(max(stats[sid][data_type]['stats']['max'], abs(stats[sid][data_type]['stats']['min'])))
-    # Save gic_std and gic_maxabs in temp_pkl
-    # Ensure the directory exists before saving
-    os.makedirs(os.path.dirname(temp_pkl), exist_ok=True)
-    with open(temp_pkl, 'wb') as f:
-      logger.info(f"  Saving gic_std and gic_maxabs to {temp_pkl}")
-      pickle.dump((gic_site, gic_std, gic_maxabs), f)
-  return gic_site, gic_std, gic_maxabs 
 
 def input_combos(input_set):
   combos = []
@@ -272,7 +283,7 @@ def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
       logger.info(f"  Fail to reject null hypothesis: no significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
   logger.info(f'  p-value: {2*stats.norm.sf(abs(z)):.4f}')  # Two-tailed p-value
 
-def sort_output_df(scatter_fit_df):
+def df_sort(scatter_fit_df):
   # Remove any duplicate rows
   scatter_fit_df = scatter_fit_df.drop_duplicates(subset=['inputs'])
   # Remove rows where the input combination is ['alpha', 'alpha*interpolated_beta'] or ['interpolated_beta', 'alpha*interpolated_beta']
@@ -324,11 +335,7 @@ paper_inputs = {'alpha':['a)', 'b)'],
                 'interpolated_beta':['b)', 'd)'],
                 'alpha*interpolated_beta':['c)', 'f)']}
 
-info = read_info()
-sites, gic_std, gic_maxabs = gic_stats()
-info = info[info['site_id'].isin(sites)].reset_index(drop=True)
-info['gic_std'] = gic_std
-info['gic_max'] = gic_maxabs
+info = df_prep()
 
 for output_name in output_names:
   # Table to hold metrics
@@ -391,7 +398,7 @@ for output_name in output_names:
         plt.close()
 
   # Reorganize output table
-  scatter_fit_df = sort_output_df(scatter_fit_df)
+  scatter_fit_df = df_sort(scatter_fit_df)
 
   if cc_hypothesis_test:
     for input_pair in itertools.combinations(scatter_fit_df['inputs'], 2):
