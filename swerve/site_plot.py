@@ -24,6 +24,12 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     base_dir = f"{out_dir}/{sid.lower().replace(' ', '')}/figures"
     dir_original = os.path.join(base_dir, 'original')
     dir_compare = os.path.join(base_dir, 'compare')
+    #dir_raw = os.path.join(base_dir, 'raw')
+
+    import pdb; pdb.set_trace()
+    if 'measured' in data[data_type] and 'data_raw' in data[data_type]['measured']:
+      logger.info(f"  Plotting '{sid}/{data_type}/measured/raw' data")
+      _plot_raw(data[data_type]['measured'], sid, show_plots=show_plots)
 
     # Plot measured vs calculated data
     if 'measured' in data[data_type] and 'calculated' in data[data_type]:
@@ -44,6 +50,17 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
           savefig(dir_original, fname, logger=logger, logger_indent=4)
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
+
+
+def _plot_raw(data, sid, show_plots=False):
+  import numpy as np
+  from matplotlib import pyplot as plt
+  from swerve import plt_config, savefig
+
+  data1 = {"time": data['measured']['time'], "data": data['measured']['data_raw']}
+  ylabels = data['measured']['original']['labels'].copy()
+  import pdb; pdb.set_trace()
+  #_plot_stack(data1, None, ylabels, component_labels1, None, texts=None, suptitle=None, style='timeseries', show_plots=show_plots)
 
 def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries', show_plots=False):
 

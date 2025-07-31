@@ -5,6 +5,7 @@ from .resample import resample
 from .site_read import site_read
 from .site_plot import site_plot
 from .site_stats import site_stats
+from .summary_stats import summary_stats
 
 def sids(sids_only=None):
   from swerve import config, read_info_dict

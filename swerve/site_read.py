@@ -131,13 +131,14 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         time:   1D numpy array of datetimes
         data:   2D numpy array of data; for B or dB data, the shape is (N, 3);
                 for GIC measurements, the shape is (N, 1), where N = len(time).
-        data_t: For B or dB data only. If columns of data are not dBx, dBy, dBz
-                where x = geomagnetic north, y = geomagnetic east, z = vertical
-                down then data_t has these columns.
         label:  For B (or dB) a 3-element list of labels used by data
                 provider.
         unit:   String with unit used by data provider that applies to all
                 columns in data.
+
+      and for MAGE B data only:
+        data_raw:  Original columns of data as read from file.
+        label_raw: Original column labels as read from file.
   """
 
   def read_nerc(data_dir, fname):
@@ -250,7 +251,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
     from swerve import read_info_df, read_info_dict
 
-    extended_df = read_info_df(extended=True, measured=False)
+    extended_df = read_info_df(extended=True)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'GMU')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
     nearest_sim_site = int(nearest_sim_site.values[0])
@@ -336,7 +337,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
   if data_type == 'B' and data_class == 'calculated' and data_source == 'MAGE':
     # TODO: A single file has data from all sites. Here we read full
-    # file and extract data for the requested site. Modify this code
+    # file and only keep data for the requested site. Modify this code
     # so sites dict is cached and used if found.
     file = os.path.join(data_dir, 'mage', 'TVAinterpdf.csv')
     logger.info(f"    Reading {file}")
@@ -350,7 +351,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
       for row in rows:
         site = row[0]
         if site not in sites:
-          sites[site] = {"time": [], "data": []}
+          sites[site] = {"time": [], "data": [], "data_raw": []}
         sites[site]["time"].append(datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S'))
         # Header is
         # site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
@@ -399,7 +400,12 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         # coordinate system. Also, Mike's "mapping" statement above has dBr, dBp, and dBt
         # equated to SuperMAG's BZm, BEm, and BNm, which are in local _geomagnetic_.)
 
-        sites[site]["data"].append([float(row[2]), float(row[4]), float(row[5])])
+        for i in range(2, len(row)):
+          row[i] = float(row[i])
+
+        sites[site]["data_raw"].append(row[2:])
+        sites[site]["data"].append([-float(row[3]), float(row[4]), -float(row[5])])
+
 
     if sid not in sites:
       msg = f"Requested site name = '{sid}' associated with site id = '{sid}' not found in {file}"
@@ -407,7 +413,15 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
     time = numpy.array(sites[sid]["time"])
     data = numpy.array(sites[sid]["data"])
-    return {"time": time, "data": data, "labels": ["dBn", "dBp", "dBr"], "unit": "nT"}
+    data_raw = numpy.array(sites[sid]["data_raw"])
+    return {
+      "time": time,
+      "data": data,
+      "data_raw": data_raw,
+      "labels": ["-dBt", "dBp", "-dBr"],
+      "labels-raw": ["dBn", "dBt", "dBp", "dBr", "glon", "glat", "mlon", "mlat"],
+      "unit": "nT"
+    }
 
 def _output_error(d, logger):
   msgo = "Not computing modified"
