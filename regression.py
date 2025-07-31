@@ -270,9 +270,9 @@ def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
       if match:
           cc = float(match.group(1))
           cc_values.append(cc)
-  # Run hypothesis test! (from Devore p 533) #this test matches the results in Devore but not the results from online calculators
+  # Run hypothesis test! http://vassarstats.net/rdiff.html #this test matches the results in Devore p 533 but divided by sqrt(2)
   V = 0.5*np.log((1+cc_values[0])/(1-cc_values[0]))
-  z = (V - 0.5*np.log((1+cc_values[1])/(1-cc_values[1]))) * np.sqrt(len(y)-3)
+  z = (V - 0.5*np.log((1+cc_values[1])/(1-cc_values[1]))) * np.sqrt((len(y)-3)/2)
   logger.info(f"  z = {z:.4f} for inputs {compare_inputs[0]} and {compare_inputs[1]}")
   # Performing z-test for alpha=0.05
   alpha_z = 0.05
@@ -405,8 +405,7 @@ for output_name in output_names:
       # Run hypothesis test on cc of regression models
       run_cc_hypothesis_test(scatter_fit_df, y, [[input_pair[0]], [input_pair[1]]])
     # Can check with https://www.danielsoper.com/statcalc/calculator.aspx?id=104 
-    # Note that Devore yields slightly different results
-    # TODO: build in test function using Devore example 12.18
+    # Note that Devore yields slightly different results due to no sample size in rho
 
   # Remove inputs column and adjust indexing
   scatter_fit_df = scatter_fit_df.drop(columns=['inputs'])
