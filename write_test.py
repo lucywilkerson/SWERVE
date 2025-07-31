@@ -10,8 +10,8 @@ limits = CONFIG['limits']['data']
 DATA_DIR = CONFIG['dirs']['data']
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-write_tests = False #Write test timeseries
-run_tests = True #Run tests
+write_tests = True # Write test timeseries
+run_tests = True # Run tests
 
 def write_timeseries(test_name, start_time, stop_time, value_range, data_type, mode='sin', nan_interval=None, seed=None, plot=False):
     """
@@ -145,7 +145,10 @@ def test_site(site, metrics, stats, data_types=None):
         for val in metrics.keys():
             test_stat = data_metrics[val][0]
             expected_stat = metrics[val]
-            assert test_stat == expected_stat, f"{data_type} measured/calculated {val} {test_stat} is not equal to expected {expected_stat}"
+            if np.isnan(expected_stat):
+                assert np.isnan(test_stat), f"{data_type} calculated {val} {test_stat} is not NaN as expected"
+            else:
+                assert test_stat == expected_stat, f"{data_type} measured/calculated {val} {test_stat} is not equal to expected {expected_stat}"
         data_meas_stats = data_stats[f'{data_type}/measured/TEST']['stats']
         #data_calc_stats = data_stats[f'{data_type}/calculated/TEST']['stats']
         for val in stats.keys():
@@ -245,14 +248,14 @@ test_dict = {'test1':{
                 },
                 'test3':{
                     'GIC':{
-                        'description':{'Sin wave with max/min of +/-30. Measured is flatline at 0, so cc = 0.'},
+                        'description':{'Sin wave with max/min of +/-30. Measured is flatline at 0, so cc = NaN and pe = NaN.'},
                         'config':{
                             'start_time':limits[0],
                             'stop_time':limits[1],
                             'value_range':[-30, 30],
                         },
                         'metrics':{
-                            'cc':0.0
+                            'cc': np.nan,
                         },
                         'stats':{
                             'max':30,
@@ -260,14 +263,14 @@ test_dict = {'test1':{
                         }
                     },
                     'B':{
-                        'description':{'Sin wave with max/min of +/-250. Measured is resampled from -calculated, so cc = -1.0.'},
+                        'description':{'Sin wave with max/min of +/-30. Measured is flatline at 0, so cc = NaN and pe = NaN.'},
                         'config':{
                             'start_time':limits[0],
                             'stop_time':limits[1],
                             'value_range':[-250, 250],
                         },
                         'metrics':{
-                            'cc':0.0,
+                            'cc': np.nan,
                         },
                         'stats':{
                             'max':250,
