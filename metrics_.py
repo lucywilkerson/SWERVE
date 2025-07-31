@@ -21,6 +21,7 @@ tva_dist = False #print distances between TVA GIC monitors and magnetometers
 limits = plt_config()
 start = limits['data'][0]
 stop = limits['data'][1]
+nan_fill = -99999
 
 all_dir  = os.path.join(DATA_DIR, '_all')
 all_file = os.path.join(all_dir, 'all.pkl')
@@ -41,9 +42,8 @@ def read(all_file):
 info_dict, data_all = read(all_file)
 
 TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
-ccs = []
-pes = []
-number_gmu_sites = 0
+
+
 columns = ['site_id', 'sigma_data', 'sigma_tva', 'sigma_gmu','cc_tva', 'cc_gmu', 'pe_tva', 'pe_gmu']
 rows = []
 for sid in info_dict.keys():
@@ -54,7 +54,7 @@ for sid in info_dict.keys():
             data_meas = data_all[sid]['GIC']['measured'][0]['modified']['data']
             time_meas, data_meas = subset(time_meas, data_meas, start, stop)
 
-            fill = 7*[-99999]
+            fill = 7*[nan_fill]
             row = [sid, *fill]
             for idx, data_source in enumerate(info_dict[sid]['GIC']['calculated']):
                 if data_source not in ['GMU', 'TVA']:
@@ -88,8 +88,8 @@ for sid in info_dict.keys():
                         row[4] = f"{cc**2:.2f}"
                         row[6] = f"{1-numer/denom:.2f}"
                     else:
-                        row[4] = -99999
-                        row[6] = -99999
+                        row[4] = nan_fill
+                        row[6] = nan_fill
                     
                 elif data_source == 'GMU':
                     # sigma_gmu
@@ -100,12 +100,12 @@ for sid in info_dict.keys():
                         row[7] = 1 - numer / denom
                         for i in [5, 7]:
                             if np.isnan(row[i]):
-                                row[i] = -99999
+                                row[i] = nan_fill
                             else:
                                 row[i] = f"{row[i]:.2f}"
                     else:
-                        row[5] = -99999
-                        row[7] = -99999
+                        row[5] = nan_fill
+                        row[7] = nan_fill
             rows.append(row)
 
 gic_df = pd.DataFrame(rows, columns=columns)
@@ -125,24 +125,22 @@ gic_df = gic_df.rename(columns={'site_id':'Site ID',
 
 def mean_exclude_invalid(series):
     value = pd.to_numeric(series)
-    valid = value[value != -99999]
+    valid = value[value != nan_fill]
     return np.mean(valid) if len(valid) > 0 else ''
 
-gic_df.loc[len(gic_df)] = {
-    'Site ID': 'Mean',
-    r'$\sigma$ [A]': f"{mean_exclude_invalid(gic_df[r'$\sigma$ [A]']):.1f}",
-    r'$\sigma_\text{TVA}$': f"{mean_exclude_invalid(gic_df[r'$\sigma_\text{TVA}$']):.1f}",
-    r'$\sigma_\text{Ref}$': f"{mean_exclude_invalid(gic_df[r'$\sigma_\text{Ref}$']):.1f}",
-    r'$\text{cc}^2_\text{TVA}$': f"{mean_exclude_invalid(gic_df[r'$\text{cc}^2_\text{TVA}$']):.2f}",
-    r'$\text{cc}^2_\text{Ref}$': f"{mean_exclude_invalid(gic_df[r'$\text{cc}^2_\text{Ref}$']):.2f}",
-    r'$\text{pe}_\text{TVA}$': f"{mean_exclude_invalid(gic_df[r'$\text{pe}_\text{TVA}$']):.2f}",
-    r'$\text{pe}_\text{Ref}$': f"{mean_exclude_invalid(gic_df[r'$\text{pe}_\text{Ref}$']):.2f}",
-}
+mean_row = {'Site ID': 'Mean'}
+for col in gic_df.columns:
+    if col != 'Site ID':
+        if col.startswith(r'$\sigma'):
+            mean_row[col] = f"{mean_exclude_invalid(gic_df[col]):.1f}"
+        else:
+            mean_row[col] = f"{mean_exclude_invalid(gic_df[col]):.2f}"
+gic_df.loc[len(gic_df)] = mean_row
 
 fname = os.path.join(DATA_DIR, "_results", "gic_table")
 def nan_remove(s):
     print(s)
-    return '' if s == -99999 else s
+    return '' if s == nan_fill else s
 formatters = {col: nan_remove for col in gic_df.columns}
 print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
 # Apply nan_remove to each cell before writing to markdown
@@ -162,7 +160,7 @@ for sid in info_dict.keys():
             time_meas, data_meas = subset(time_meas, data_meas, start, stop)
             data_meas = np.linalg.norm(data_meas, axis=1)
 
-            fill = 10*[-99999]
+            fill = 10*[nan_fill]
             row = [sid, *fill]
             for idx, data_source in enumerate(info_dict[sid]['B']['calculated']):
                 if data_source not in ['SWMF', 'MAGE', 'OpenGGCM']:
@@ -193,8 +191,8 @@ for sid in info_dict.keys():
                     row[5+idx] = f"{cc**2:.2f}"
                     row[8+idx] = f"{1-numer/denom:.2f}"
                 else:
-                    row[5+idx] = -99999
-                    row[8+idx] = -99999
+                    row[5+idx] = nan_fill
+                    row[8+idx] = nan_fill
 
             rows.append(row)
 
@@ -216,19 +214,14 @@ b_df = b_df.rename(columns={'site_id':'Site ID',
             }
         )
 
-b_df.loc[len(b_df)] = {
-    'Site ID': 'Mean',
-    r'$\sigma$ [nT]': f"{mean_exclude_invalid(b_df[r'$\sigma$ [nT]']):.1f}",
-    r'$\sigma_\text{SWMF}$': f"{mean_exclude_invalid(b_df[r'$\sigma_\text{SWMF}$']):.1f}",
-    r'$\sigma_\text{MAGE}$': f"{mean_exclude_invalid(b_df[r'$\sigma_\text{MAGE}$']):.1f}",
-    r'$\sigma_\text{GGCM}$': f"{mean_exclude_invalid(b_df[r'$\sigma_\text{GGCM}$']):.1f}",
-    r'$\text{cc}^2_\text{SWMF}$': f"{mean_exclude_invalid(b_df[r'$\text{cc}^2_\text{SWMF}$']):.2f}",
-    r'$\text{cc}^2_\text{MAGE}$': f"{mean_exclude_invalid(b_df[r'$\text{cc}^2_\text{MAGE}$']):.2f}",
-    r'$\text{cc}^2_\text{GGCM}$': f"{mean_exclude_invalid(b_df[r'$\text{cc}^2_\text{GGCM}$']):.2f}",
-    r'$\text{pe}_\text{SWMF}$': f"{mean_exclude_invalid(b_df[r'$\text{pe}_\text{SWMF}$']):.2f}",
-    r'$\text{pe}_\text{MAGE}$': f"{mean_exclude_invalid(b_df[r'$\text{pe}_\text{MAGE}$']):.2f}",
-    r'$\text{pe}_\text{GGCM}$': f"{mean_exclude_invalid(b_df[r'$\text{pe}_\text{GGCM}$']):.2f}",
-}
+mean_row = {'Site ID': 'Mean'}
+for col in b_df.columns:
+    if col != 'Site ID':
+        if col.startswith(r'$\sigma'):
+            mean_row[col] = f"{mean_exclude_invalid(b_df[col]):.1f}"
+        else:
+            mean_row[col] = f"{mean_exclude_invalid(b_df[col]):.2f}"
+b_df.loc[len(b_df)] = mean_row
 
 fname = os.path.join(DATA_DIR, "_results", "b_table")
 formatters = {col: nan_remove for col in b_df.columns}
@@ -236,4 +229,4 @@ print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
 # Apply nan_remove to each cell before writing to markdown
 b_df_md = b_df.applymap(nan_remove)
 b_df_md.to_markdown(fname + ".md", index=False, floatfmt=".2f")
-b_df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False, float_format="%.2f")
+b_df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False)
