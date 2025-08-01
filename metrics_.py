@@ -12,12 +12,6 @@ from swerve import DATA_DIR, subset, plt_config, LOG_KWARGS, logger
 
 logger = logger(**LOG_KWARGS)
 
-tva_results = False #print results for TVA gic analysis
-gmu_results = True #print results for GMU gic analysis
-b_results = False #print results for B analysis
-cc_results = False #print results for cc analysis
-tva_dist = False #print distances between TVA GIC monitors and magnetometers
-
 limits = plt_config()
 start = limits['data'][0]
 stop = limits['data'][1]
@@ -43,7 +37,7 @@ info_dict, data_all = read(all_file)
 
 TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
 
-def write_metrics_table(info_dict, data_all, column_names, data_type=None):
+def write_metrics_table(info_dict, data_all, column_names, data_type):
     def mean_exclude_invalid(series): #excludes nan_fill values from mean calculation
         value = pd.to_numeric(series)
         valid = value[value != nan_fill]
@@ -138,9 +132,9 @@ def write_metrics_table(info_dict, data_all, column_names, data_type=None):
     # Format and save df as .md and .tex files
     fname = os.path.join(DATA_DIR, "_results", f"{data_type.lower()}_table")
     formatters = {col: nan_remove for col in df.columns}
-    print(f"Writing GIC prediction comparison tables to {fname}.{{md,tex}}")
+    logger.info(f"Writing {data_type} prediction comparison tables to {fname}.{{md,tex}}")
     # Apply nan_remove to each cell before writing to markdown
-    df_md = gic_df.applymap(nan_remove)
+    df_md = df.applymap(nan_remove)
     df_md.to_markdown(fname + ".md", index=False, floatfmt=".2f")
     df.to_latex(fname + ".tex", formatters=formatters, index=False, escape=False)
 
