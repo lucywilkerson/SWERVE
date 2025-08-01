@@ -78,7 +78,7 @@ def df_prep():
         logger.info(f"  Saving gic_std and gic_maxabs to {temp_pkl}")
         pickle.dump((gic_site, gic_std, gic_maxabs), f)
     return gic_site, gic_std, gic_maxabs 
-  
+
   # Read info and add GIC stats
   info = read_info_df(extended=True, data_type='GIC', data_class='measured', exclude_errors=True)
   sites, gic_std, gic_maxabs = gic_stats()
@@ -87,84 +87,52 @@ def df_prep():
   info['gic_max'] = gic_maxabs 
   return info
 
+def scatter_fit_df(rows, columns):
+
+  df_raw = pd.DataFrame(rows, columns=columns)
+
+  # Create df for md and latex output
+  columns = ['Fit Equation', 'cc ± 2SE', 'RMSE [A]', 'AIC', 'BIC', 'inputs']
+  # Ideally would determine column indices from df_raw in case columns changes.
+  for i, row in enumerate(rows):
+    rows[i] = [f"${row[0]}$", f"${row[1]:.2f}$ ± ${row[2]:.2f}$", f"${row[3]:.1f}$ [A]", f"${row[4]:.1f}$", f"${row[5]:.1f}$", row[6]]
+
+  df = pd.DataFrame(rows, columns=columns)
+  # Remove any duplicate rows
+  df = df.drop_duplicates(subset=['inputs'])
+
+  # Remove rows with these input combinations
+  omits = ['alpha, alpha*interpolated_beta',
+           'interpolated_beta, alpha*interpolated_beta'
+           'mag_lat, mag_lat*interpolated_beta',
+           'interpolated_beta, mag_lat*interpolated_beta',
+           'mag_lat*interpolated_beta'
+          ]
+  df = df[~df['inputs'].isin(omits)]
+
+  # Move row with inputs = 'mag_lat' (lambda) to the second row
+  lambda_row = df[df['inputs'] == 'mag_lat']
+  df = df[df['inputs'] != 'mag_lat']
+  df = pd.concat([df.iloc[:1], lambda_row, df.iloc[1:]], ignore_index=True)
+
+  # Move rows with any alpha inputs to the end
+  alpha_inputs = ['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta']
+  alpha_rows = df[df['inputs'].isin(alpha_inputs)]
+  df = df[~df['inputs'].isin(alpha_inputs)]
+  df = pd.concat([df, alpha_rows], ignore_index=True)
+
+  # Adjust indexing
+  df = df.drop(columns=['inputs'])
+  df.index = df.index + 1
+
+  return df_raw, df
+
 def input_combos(input_set):
   combos = []
   for r in range(1, len(input_set) + 1):
       for combo in itertools.combinations(input_set, r):
         combos.append(list(combo))
   return list(combos)
-
-def regress(x, y):
-
-  def regress_metrics(target, predictions, n_inputs):
-
-    import numpy as np
-    def bootstrap_cc_unc(target, predictions, n_bootstrap=1000, random_state=None):
-        """
-        Returns: 2 sigma uncertainty in cc
-        """
-        rng = np.random.default_rng(random_state)
-        n = len(target)
-        cc_samples = []
-
-        for _ in range(n_bootstrap):
-            idx = rng.integers(0, n, n)
-            target_sample = target[idx]
-            pred_sample = predictions[idx]
-            cc = np.corrcoef(target_sample, pred_sample)[0, 1]
-            cc_samples.append(cc)
-
-        cc_samples = np.array(cc_samples)
-        #cc_mean = np.mean(cc_samples)
-        cc_std = np.std(cc_samples, ddof=1)
-        return 2*cc_std
-
-    def cc_95_ci (target, cc):
-       #from Devore CH 12.5 (p. 534)
-       n = len(target)
-       v = np.log((1+cc)/(1-cc))/2 # Fischer transformation
-       c1, c2 =(v-(1.96/np.sqrt(n-3)), v+(1.96/np.sqrt(n-3))) # 95% CI endpoints
-       ci_lower = (np.exp(2*c1)-1)/(np.exp(2*c1)+1)
-       ci_upper = (np.exp(2*c2)-1)/(np.exp(2*c2)+1)
-       return ci_lower, ci_upper
-
-    # Calculate error
-    rss = np.sum((target-predictions)**2)  # Sum of squares error
-    n = len(target)
-    rmse = np.sqrt(rss/n)
-
-    # Calculate correlation coefficient
-    cc = np.corrcoef(target, predictions)[0,1]
-    cc_2se = np.sqrt((1-cc**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
-    cc_2se_boot = bootstrap_cc_unc(target, predictions) # bootstrapped uncertainty (2 sigma)
-    cc_ci_lower, cc_ci_upper = cc_95_ci(target, cc) # 95% CI for cc from Devore
-
-    # Calculate log likelihood
-    n2 = 0.5*n
-    llf = -n2*np.log(2*np.pi) - n2*np.log(rss/n) - n2 # see https://stackoverflow.com/a/76135206
-
-    # Calculate AIC and BIC
-    k = n_inputs + 1  # number of coefficients + intercept
-    aic = -2*llf + 2*k # see https://en.wikipedia.org/wiki/Akaike_information_criterion
-    bic = -2*llf + k*np.log(n) # see https://en.wikipedia.org/wiki/Bayesian_information_criterion
-
-    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_ci_lower': cc_ci_lower, 'cc_ci_upper': cc_ci_upper, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
-
-  def remove_outliers(data, output, threshold=3.5):
-    mask = output <= threshold * np.std(output)
-    #num_outliers = len(output) - np.sum(mask)
-    output = output[mask]
-    x = data[mask]
-    return x, output, mask
-  
-  # Remove outliers
-  x, y, mask = remove_outliers(x, y)
-  
-  model = LinearRegression()
-  model.fit(x, y)
-  predictions = model.predict(x)
-  metrics = regress_metrics(y, predictions, x.shape[1])
-  return model, mask, metrics
 
 def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, metrics=None):
     #import matplotlib.pyplot as plt
@@ -258,28 +226,27 @@ def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
   import scipy.stats as stats
 
   cc_values = []
+  aic_values = []
   for compare_input in compare_inputs:
     input_str = ', '.join(compare_input)
     row = scatter_fit_df[scatter_fit_df['inputs'] == input_str]
-    if not row.empty:
-      cc_se_str = row.iloc[0]['cc ± 2SE']
-      # Extract cc from string like "$0.85$ ± $0.03$"
-      match = re.match(r"\$(.*?)\$ ± \$(.*?)\$", cc_se_str)
-      if match:
-          cc = float(match.group(1))
-          cc_values.append(cc)
+    aic_values.append(row.iloc[0]['AIC'])
+    cc_values.append(row.iloc[0]['cc'])
 
   logger.info("Running Fisher-z hyp. test on equality of ccs for models:")
-  logger.info(f"  cc = {cc_values[0]:.2f}; inputs = {compare_inputs[0]} ")
+  logger.info(f"  cc = {cc_values[0]:.2f}; AIC = {aic_values[0]}; inputs = {compare_inputs[0]} ")
   logger.info("  vs")
-  logger.info(f"  cc = {cc_values[1]:.2f}; inputs = {compare_inputs[1]} ")
+  logger.info(f"  cc = {cc_values[1]:.2f}; AIC = {aic_values[1]}; inputs = {compare_inputs[1]} ")
 
+  # Note that Devore yields slightly different results due to no sample size in rho
   # https://biostatistics.letgen.org/tag/fishers-z-transformation/
   # Run hypothesis test! Matches http://vassarstats.net/rdiff.html
+  # Can also check with https://www.danielsoper.com/statcalc/calculator.aspx?id=104 
   V = 0.5*np.log((1+cc_values[0])/(1-cc_values[0]))
   z = (V - 0.5*np.log((1+cc_values[1])/(1-cc_values[1]))) * np.sqrt((len(y)-3)/2)
   logger.info(f"  z = {z:.4f}")
   logger.info(f'  p = {2*stats.norm.sf(abs(z)):.4f} (two-tailed)')
+
   # Performing z-test for alpha=0.05
   alpha_z = 0.05
   critical_value = 1.96  # Two-tailed test for alpha=0.05
@@ -288,22 +255,78 @@ def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
   else:
       logger.info(f"  Do not reject null with alpha = {alpha_z}")
 
-def df_sort(scatter_fit_df):
-  # Remove any duplicate rows
-  scatter_fit_df = scatter_fit_df.drop_duplicates(subset=['inputs'])
-  # Remove rows where the input combination is ['alpha', 'alpha*interpolated_beta'] or ['interpolated_beta', 'alpha*interpolated_beta']
-  scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['alpha, alpha*interpolated_beta', 'interpolated_beta, alpha*interpolated_beta'])]
-  # Remove rows where the input combination is ['mag_lat', 'mag_lat*interpolated_beta'] or ['interpolated_beta', 'mag_lat*interpolated_beta'], or ['mag_lat*interpolated_beta']
-  scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['mag_lat, mag_lat*interpolated_beta', 'interpolated_beta, mag_lat*interpolated_beta', 'mag_lat*interpolated_beta'])]
-  # Move row with inputs = 'mag_lat' (lambda) to the second row
-  lambda_row = scatter_fit_df[scatter_fit_df['inputs'] == 'mag_lat']
-  scatter_fit_df = scatter_fit_df[scatter_fit_df['inputs'] != 'mag_lat']
-  scatter_fit_df = pd.concat([scatter_fit_df.iloc[:1], lambda_row, scatter_fit_df.iloc[1:]], ignore_index=True)
-  # Move ['alpha, interpolated_beta'] and ['alpha, interpolated_beta, alpha*interpolated_beta'] rows to the end
-  alpha_rows = scatter_fit_df[scatter_fit_df['inputs'].isin(['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta'])]
-  scatter_fit_df = scatter_fit_df[~scatter_fit_df['inputs'].isin(['alpha, interpolated_beta', 'alpha, interpolated_beta, alpha*interpolated_beta'])]
-  scatter_fit_df = pd.concat([scatter_fit_df, alpha_rows], ignore_index=True)
-  return scatter_fit_df
+def regress(x, y):
+
+  def regress_metrics(target, predictions, n_inputs):
+
+    import numpy as np
+    def bootstrap_cc_unc(target, predictions, n_bootstrap=1000, random_state=None):
+        """
+        Returns: 2 sigma uncertainty in cc
+        """
+        rng = np.random.default_rng(random_state)
+        n = len(target)
+        cc_samples = []
+
+        for _ in range(n_bootstrap):
+            idx = rng.integers(0, n, n)
+            target_sample = target[idx]
+            pred_sample = predictions[idx]
+            cc = np.corrcoef(target_sample, pred_sample)[0, 1]
+            cc_samples.append(cc)
+
+        cc_samples = np.array(cc_samples)
+        #cc_mean = np.mean(cc_samples)
+        cc_std = np.std(cc_samples, ddof=1)
+        return 2*cc_std
+
+    def cc_95_ci (target, cc):
+       #from Devore CH 12.5 (p. 534)
+       n = len(target)
+       v = np.log((1+cc)/(1-cc))/2 # Fischer transformation
+       c1, c2 =(v-(1.96/np.sqrt(n-3)), v+(1.96/np.sqrt(n-3))) # 95% CI endpoints
+       ci_lower = (np.exp(2*c1)-1)/(np.exp(2*c1)+1)
+       ci_upper = (np.exp(2*c2)-1)/(np.exp(2*c2)+1)
+       return ci_lower, ci_upper
+
+    # Calculate error
+    rss = np.sum((target-predictions)**2)  # Sum of squares error
+    n = len(target)
+    rmse = np.sqrt(rss/n)
+
+    # Calculate correlation coefficient
+    cc = np.corrcoef(target, predictions)[0,1]
+    cc_2se = np.sqrt((1-cc**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
+    cc_2se_boot = bootstrap_cc_unc(target, predictions) # bootstrapped uncertainty (2 sigma)
+    cc_ci_lower, cc_ci_upper = cc_95_ci(target, cc) # 95% CI for cc from Devore
+
+    # Calculate log likelihood
+    n2 = 0.5*n
+    llf = -n2*np.log(2*np.pi) - n2*np.log(rss/n) - n2 # see https://stackoverflow.com/a/76135206
+
+    # Calculate AIC and BIC
+    k = n_inputs + 1  # number of coefficients + intercept
+    aic = -2*llf + 2*k # see https://en.wikipedia.org/wiki/Akaike_information_criterion
+    bic = -2*llf + k*np.log(n) # see https://en.wikipedia.org/wiki/Bayesian_information_criterion
+
+    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_ci_lower': cc_ci_lower, 'cc_ci_upper': cc_ci_upper, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
+
+  def remove_outliers(data, output, threshold=3.5):
+    mask = output <= threshold * np.std(output)
+    #num_outliers = len(output) - np.sum(mask)
+    output = output[mask]
+    x = data[mask]
+    return x, output, mask
+  
+  # Remove outliers
+  x, y, mask = remove_outliers(x, y)
+  
+  model = LinearRegression()
+  model.fit(x, y)
+  predictions = model.predict(x)
+  metrics = regress_metrics(y, predictions, x.shape[1])
+  return model, mask, metrics
+
 
 # Use the commented out line after info.py has been modified to include gic_max and gic_std.
 #output_names = ['gic_max', 'gic_std']
@@ -342,9 +365,10 @@ paper_inputs = {'alpha':['a)', 'b)'],
 
 info = df_prep()
 
+columns = ['Fit Equation', 'cc', '2SEb', 'RMSE [A]', 'AIC', 'BIC', 'inputs']
 for output_name in output_names:
   # Table to hold metrics
-  scatter_fit_df = pd.DataFrame(columns=['Fit Equation', 'cc ± 2SE', 'RMSE [A]', 'AIC', 'BIC', 'inputs'])
+  scatter_fit_df_rows = []
 
   for input_set in input_sets:
     for inputs in input_combos(input_set):
@@ -373,15 +397,9 @@ for output_name in output_names:
       for key in metrics:
         logger.info(f"  {key} = {metrics[key]:.4f}")
 
-      # Add metrics to table
-      scatter_fit_df.loc[len(scatter_fit_df)] = {
-            'Fit Equation': f"${eqn}$",
-            'cc ± 2SE': f"${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$",
-            'RMSE [A]': f"${metrics['rmse']:.1f}$",
-            'AIC': f"${metrics['aic']:.1f}$",
-            'BIC': f"${metrics['bic']:.1f}$",
-            'inputs': ', '.join(inputs)
-        }
+      # Modify if columns above changes
+      row = [eqn, metrics['cc'], metrics['cc_2se_boot'], metrics['rmse'], metrics['aic'], metrics['bic'], ', '.join(inputs)]
+      scatter_fit_df_rows.append(row)
 
       # Creating plots
       for plot_type in plot_types:
@@ -403,23 +421,20 @@ for output_name in output_names:
             savefig_paper(paper_results_dir, fname, logger) # TODO: make this cleaner pls
         plt.close()
 
-  # Reorganize output table
-  scatter_fit_df = df_sort(scatter_fit_df)
+  # Convert to df and create df_table for markdown and latex output
+  df, df_table = scatter_fit_df(scatter_fit_df_rows, columns)
 
   if cc_hypothesis_test:
-    for input_pair in itertools.combinations(scatter_fit_df['inputs'], 2):
+    for input_pair in itertools.combinations(df['inputs'], 2):
       # Run hypothesis test on cc of regression models
-      run_cc_hypothesis_test(scatter_fit_df, y, [[input_pair[0]], [input_pair[1]]])
-    # Can check with https://www.danielsoper.com/statcalc/calculator.aspx?id=104 
-    # Note that Devore yields slightly different results due to no sample size in rho
+      run_cc_hypothesis_test(df, y, [[input_pair[0]], [input_pair[1]]])
 
-  # Remove inputs column and adjust indexing
-  scatter_fit_df = scatter_fit_df.drop(columns=['inputs'])
-  scatter_fit_df.index = scatter_fit_df.index + 1
 
   # Save output table
-  scatter_fit_df.to_markdown(os.path.join(results_dir, f"fit_table_{output_name}.md"), index=True)
-  scatter_fit_df.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
+  fname = os.path.join(results_dir, f"fit_table_{output_name}.md")
+  logger.info(f"Writing {fname}")
+  df_table.to_markdown(fname, index=True)
+  df_table.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
 
   # Save output to paper dir
   #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
