@@ -324,7 +324,6 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     else:
       file = os.path.join(data_dir, f'dB_{sid}.pkl')
 
-    file = os.path.join(data_dir, f'dB_{sid}.pkl')
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
@@ -405,10 +404,13 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
         # coordinate system. Also, Mike's "mapping" statement above has dBr, dBp, and dBt
         # equated to SuperMAG's BZm, BEm, and BNm, which are in local _geomagnetic_.)
 
-        for i in range(2, len(row)):
+        for i in range(2, 6):
           row[i] = float(row[i])
 
-        sites[site]["data_raw"].append(row[2:])
+        labels_raw = ["dBn", "dBt", "dBp", "dBr"]
+        sites[site]["data_raw"].append(row[2:6])
+
+        labels = ["-dBt", "dBp", "-dBr"]
         sites[site]["data"].append([-float(row[3]), float(row[4]), -float(row[5])])
 
 
@@ -423,8 +425,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
       "time": time,
       "data": data,
       "data_raw": data_raw,
-      "labels": ["-dBt", "dBp", "-dBr"],
-      "labels-raw": ["dBn", "dBt", "dBp", "dBr", "glon", "glat", "mlon", "mlat"],
+      "labels": labels,
+      "labels_raw": labels_raw,
       "unit": "nT"
     }
 

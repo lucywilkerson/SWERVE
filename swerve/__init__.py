@@ -9,7 +9,6 @@ from .site_stats_summary import site_stats_summary
 
 def sids(sids_only=None):
   from swerve import config, read_info_dict
-  CONFIG = config()
 
   # TODO: Add keyword exclude_errors?
 

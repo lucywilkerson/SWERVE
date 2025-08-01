@@ -8,7 +8,7 @@ sites  = None   # Read and plot data only sites in this array. None => all sites
                     # Ignored if command line arguments are provided.
 
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 data_types = ['B']  # Read and plot these data types only.
