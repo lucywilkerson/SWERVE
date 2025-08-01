@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
-from swerve import config, savefig, savefig_paper, add_subplot_label
+from swerve import config, savefig_paper, add_subplot_label
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -434,7 +434,10 @@ for output_name in output_names:
   fname = os.path.join(results_dir, f"fit_table_{output_name}.md")
   logger.info(f"Writing {fname}")
   df_table.to_markdown(fname, index=True)
-  df_table.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
+  #df_table.to_latex(os.path.join(results_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
+
+  latex_str = df_table.to_latex(index=True, escape=False)
+  print(latex_str)
 
   # Save output to paper dir
   #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
