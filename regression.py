@@ -17,6 +17,7 @@ CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
 paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
+paper_results_dir = os.path.join(paper_dir, '_results')
 
 warnings.filterwarnings("ignore", message="The figure layout has changed to tight")
 
@@ -399,7 +400,7 @@ for output_name in output_names:
         #savefig(results_dir, fname, logger)
         if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
             add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
-            savefig_paper('_results', fname, logger) # TODO: make this cleaner pls
+            savefig_paper(paper_results_dir, fname, logger) # TODO: make this cleaner pls
         plt.close()
 
   # Reorganize output table
