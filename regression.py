@@ -3,6 +3,8 @@
 
 import os
 import itertools
+import warnings
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -15,6 +17,8 @@ CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
 paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
+
+warnings.filterwarnings("ignore", message="The figure layout has changed to tight")
 
 cc_hypothesis_test = True # If true, runs hypothesis test on cc of regression models and returns p-values
 
@@ -216,6 +220,7 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
     plt.ylim(limits)
     plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--')
     #^all above lines can be removed once format_cc_scatter is incorporated
+
     plt.tight_layout()
 
     text = (
@@ -238,27 +243,30 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
         }
     }
     plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, **text_kwargs)
-      
+
 def write_eqn_and_fname(inputs, output_name, model):
     """
     Create a string for the equation and a filename based on inputs, output_name, and model.
     """
     eqn = f"{labels.get(output_name, output_name)} = "
+    eqn_txt = f"{output_name} = "
     for i, input_name in enumerate(inputs):
+      eqn_txt += f"{model.coef_[i]:+.3g} {input_name}"
       eqn += f"{model.coef_[i]:+.3g} {labels.get(input_name, input_name)} "
     eqn += f" {model.intercept_:+.3g}"
+    eqn_txt += f" {model.intercept_:+.3g}"
 
     fname = f'_fit_{inputs[0]}_{output_name}'
     if '*' in inputs[0]:
         # Create product term and add it to info df
         input1, input2 = inputs[0].split('*')
         fname = f'_fit_{input1}_{input2}_{output_name}'
-    return eqn, fname
+    return eqn, eqn_txt, fname
 
 def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
   import re
   import scipy.stats as stats
-  logger.info(f"Running hypothesis test on cc for inputs: {compare_inputs}")
+
   cc_values = []
   for compare_input in compare_inputs:
     input_str = ', '.join(compare_input)
@@ -270,18 +278,25 @@ def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
       if match:
           cc = float(match.group(1))
           cc_values.append(cc)
-  # Run hypothesis test! http://vassarstats.net/rdiff.html #this test matches the results in Devore p 533 but divided by sqrt(2)
+
+  logger.info("Running Fisher-z hyp. test on equality of ccs for models:")
+  logger.info(f"  cc = {cc_values[0]:.2f}; inputs = {compare_inputs[0]} ")
+  logger.info("  vs")
+  logger.info(f"  cc = {cc_values[1]:.2f}; inputs = {compare_inputs[1]} ")
+
+  # https://biostatistics.letgen.org/tag/fishers-z-transformation/
+  # Run hypothesis test! Matches http://vassarstats.net/rdiff.html
   V = 0.5*np.log((1+cc_values[0])/(1-cc_values[0]))
   z = (V - 0.5*np.log((1+cc_values[1])/(1-cc_values[1]))) * np.sqrt((len(y)-3)/2)
-  logger.info(f"  z = {z:.4f} for inputs {compare_inputs[0]} and {compare_inputs[1]}")
+  logger.info(f"  z = {z:.4f}")
+  logger.info(f'  p = {2*stats.norm.sf(abs(z)):.4f} (two-tailed)')
   # Performing z-test for alpha=0.05
   alpha_z = 0.05
   critical_value = 1.96  # Two-tailed test for alpha=0.05
   if abs(z) > critical_value:
-      logger.info(f"  Reject null hypothesis: significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
+      logger.info(f"  Reject null with alpha = {alpha_z})")
   else:
-      logger.info(f"  Fail to reject null hypothesis: no significant difference in cc between {compare_inputs[0]} and {compare_inputs[1]} at alpha={alpha_z}")
-  logger.info(f'  p-value: {2*stats.norm.sf(abs(z)):.4f}')  # Two-tailed p-value
+      logger.info(f"  Do not reject null with alpha = {alpha_z}")
 
 def df_sort(scatter_fit_df):
   # Remove any duplicate rows
@@ -343,7 +358,8 @@ for output_name in output_names:
 
   for input_set in input_sets:
     for inputs in input_combos(input_set):
-      logger.info(f"output = {output_name}; inputs = {inputs}")
+      logger.info(f"output = {output_name}")
+      logger.info(f"inputs = {inputs}")
 
       for input_name in inputs:
         if '*' in input_name:
@@ -362,11 +378,11 @@ for output_name in output_names:
       # Run regression
       model, mask, metrics = regress(x, y)
 
-      eqn, base_fname = write_eqn_and_fname(inputs, output_name, model)
-      logger.info(f"  Equation: {eqn}")
+      eqn, eqn_txt, base_fname = write_eqn_and_fname(inputs, output_name, model)
+      logger.info(f"  Equation: {eqn_txt}")
       for key in metrics:
         logger.info(f"  {key} = {metrics[key]:.4f}")
-      
+
       # Add metrics to table
       scatter_fit_df.loc[len(scatter_fit_df)] = {
             'Fit Equation': f"${eqn}$",
@@ -376,7 +392,7 @@ for output_name in output_names:
             'BIC': f"${metrics['bic']:.1f}$",
             'inputs': ', '.join(inputs)
         }
-      
+
       # Creating plots
       for plot_type in plot_types:
         if plot_type == 'line': # Plot the scatter plot with regression line
@@ -384,7 +400,7 @@ for output_name in output_names:
             plot_line_scatter(x, y, inputs, output_name, mask, model=model, eqn=eqn, metrics=metrics)
             paper_fig_index = 0
           else:
-            logger.warning(f"  Skipping line plot for {inputs} because it has more than one input.")
+            logger.warning("  Skipping line plot because more than one input.")
         elif plot_type == 'scatter': # Plot the scatter plot of correlation
             predictions = model.predict(x)
             plot_cc_scatter(y, predictions, output_name, mask, metrics, eqn)
@@ -394,7 +410,7 @@ for output_name in output_names:
         #savefig(results_dir, fname, logger)
         if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
             add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
-            savefig_paper('figures\_results', fname, logger) # TODO: make this cleaner pls
+            savefig_paper('_results', fname, logger) # TODO: make this cleaner pls
         plt.close()
 
   # Reorganize output table
@@ -417,4 +433,3 @@ for output_name in output_names:
 
   # Save output to paper dir
   #scatter_fit_df.to_latex(os.path.join(paper_dir, f"fit_table_{output_name}.tex"), index=True, escape=False)
-
