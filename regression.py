@@ -27,18 +27,7 @@ if plot_types is None:
   plot_types = ['line', 'scatter']
 
 def df_prep():
-  # Read info file
-  def read_info():
-    file_path = os.path.join('info', 'info.extended.csv')
-    info = pd.read_csv(file_path)
-    # Filter out sites with error message
-    # Also remove rows that don't have data_type = GIC and data_class = measured
-    info = info[~info['error'].str.contains('', na=False)]
-    info = info[info['data_type'].str.contains('GIC', na=False)]
-    info = info[info['data_class'].str.contains('measured', na=False)]
-    info.reset_index(drop=True, inplace=True)
-    return info
-
+  from swerve import read_info_df
   # Read GIC stats or create file if no GIC stats file
   def gic_stats(data_types=['GIC']):
     import pickle
@@ -51,7 +40,7 @@ def df_prep():
         gic_site, gic_std, gic_maxabs = pickle.load(f)
 
     else:
-      from swerve import site_read, site_stats, read_info_df
+      from swerve import site_read, site_stats
 
       info_df = read_info_df(data_type='GIC', data_class='measured', exclude_errors=True)
       #info_df = read_info()
@@ -90,7 +79,7 @@ def df_prep():
     return gic_site, gic_std, gic_maxabs 
   
   # Read info and add GIC stats
-  info = read_info()
+  info = read_info_df(extended=True, data_type='GIC', data_class='measured', exclude_errors=True)
   sites, gic_std, gic_maxabs = gic_stats()
   info = info[info['site_id'].isin(sites)].reset_index(drop=True)
   info['gic_std'] = gic_std
