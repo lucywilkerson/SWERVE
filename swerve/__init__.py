@@ -177,16 +177,18 @@ def plt_config(scale=1):
 def add_subplot_label(ax, label, loc=(-0.15, 1)):
   ax.text(*loc, label, transform=ax.transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
-def format_cc_scatter(ax):
-
-  # Sets the aspect ratio to make the plot square and ensure xlim and ylim are the same
-  ax.set_aspect('equal', adjustable='box')
+def format_cc_scatter(ax, regression=False):
 
   # Set the limits to be the same for both axes
-  max_x = max(abs(ax.get_xlim()[0]), abs(ax.get_xlim()[1]))
-  max_y = max(abs(ax.get_ylim()[0]), abs(ax.get_ylim()[1]))
-  max_xy = max(max_x, max_y)
-  limits = [-max_xy, max_xy]
+  if not regression:
+    max_x = max(abs(ax.get_xlim()[0]), abs(ax.get_xlim()[1]))
+    max_y = max(abs(ax.get_ylim()[0]), abs(ax.get_ylim()[1]))
+    max_xy = max(max_x, max_y)
+    limits = [-max_xy, max_xy]
+    # Sets the aspect ratio to make the plot square and ensure xlim and ylim are the same
+    ax.set_aspect('equal', adjustable='box')
+  else:
+    limits = [min(ax.get_xlim()[0], ax.get_ylim()[0]), max(ax.get_xlim()[1], ax.get_ylim()[1])]
 
   # Set the limits for both axes
   ax.set_xlim(limits)
@@ -218,9 +220,9 @@ def format_cc_scatter(ax):
   # Re-set the limits for both axes, which may have been modified by draw()
   ax.set_xlim(limits)
   ax.set_ylim(limits)
-
-  ax.minorticks_on()
-  ax.grid(which='minor', linestyle=':', linewidth=0.5, color='gray', alpha=0.5)
+  if not regression:
+    ax.minorticks_on()
+    ax.grid(which='minor', linestyle=':', linewidth=0.5, color='gray', alpha=0.5)
 
 def fix_latex(df, data_type, formatters=None, index=False):
   # Defining column format
