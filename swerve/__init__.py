@@ -222,6 +222,23 @@ def format_cc_scatter(ax):
   ax.minorticks_on()
   ax.grid(which='minor', linestyle=':', linewidth=0.5, color='gray', alpha=0.5)
 
+def fix_latex(df, data_type, formatters=None, index=False):
+  # Defining column format
+  if data_type =='B':
+    column_format = "l " + " ".join(["p{1cm}"] * (len(df.columns) - 1))
+  elif data_type == 'GIC':
+    column_format = "l " + " ".join(["c"] * (len(df.columns) - 1))
+  # Setting up string
+  latex_string = df.to_latex(index=index, formatters=formatters, column_format=column_format)
+  # Removing \toprule, \midrule, \bottomrule
+  latex_string = latex_string.replace('\\toprule\n', '')
+  latex_string = latex_string.replace('\\midrule\n','\\hline\n')
+  latex_string = latex_string.replace('\\bottomrule\n', '')
+  # Inserting \hline before the Mean row
+  if 'Site ID' in df.keys() and 'Mean' in df['Site ID'].values:
+    latex_string = latex_string.replace('Mean', '\\hline\nMean', 1)
+  return latex_string
+
 def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png','pdf']):
   import os
   logger_indent = ' ' * logger_indent
