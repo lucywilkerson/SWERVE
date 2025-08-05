@@ -166,23 +166,15 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
     plt.scatter(y[mask], predicted[mask], color='k')
     plt.scatter(y[~mask], predicted[~mask], facecolors='none', edgecolors='k')
     output_label = (labels.get(output_name, output_name))
-    plt.xlabel(f'Measured {output_label} [A]')
-    plt.ylabel(f'Predicted {output_label} [A]')
-    plt.grid(True)
-    #format_cc_scatter(plt.gca()) #TODO: incorporate this into plot_cc_scatter, right now axes are too long
-    limits = [min(plt.xlim()[0], plt.ylim()[0]), max(plt.xlim()[1], plt.ylim()[1])]
-    ticks = plt.xticks()[0]
-    plt.xticks(ticks)
-    plt.yticks(ticks)
-    plt.xlim(limits)
-    plt.ylim(limits)
-    plt.plot([y.min(), y.max()], [y.min(), y.max()], color=3*[0.6], linewidth=0.5, linestyle='--')
-    #^all above lines can be removed once format_cc_scatter is incorporated
+    plt.xlabel(f'Measured ${output_label}$ [A]')
+    plt.ylabel(f'Predicted ${output_label}$ [A]')
+    plt.grid()
+    format_cc_scatter(plt.gca(), regression=True)
 
     plt.tight_layout()
 
     text = (
-        f"{eqn}\n"
+        f"${eqn}$\n"
         f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
         f"RMSE = ${metrics['rmse']:.1f}$ [A]\n"
         f"AIC = ${metrics['aic']:.1f}$\n"
@@ -418,7 +410,7 @@ for output_name in output_names:
         #savefig(results_dir, fname, logger)
         if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
             add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
-            savefig_paper(paper_results_dir, fname, logger) # TODO: make this cleaner pls
+            savefig_paper(paper_results_dir, fname, logger) 
         plt.close()
 
   # Convert to df and create df_table for markdown and latex output
