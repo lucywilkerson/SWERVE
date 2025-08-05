@@ -113,7 +113,7 @@ def _metrics(data_meas, data_calc, logger):
   else:
     cc = np.corrcoef(data_meas[valid], data_calc[valid])
     cc = cc[0, 1]
-    #if cc[0,1] < 0:
+    #if cc < 0:
     #  logger.warning("  Multiplying calculated data by -1 before computing pe.")
     #  data_calc = -data_calc
 
