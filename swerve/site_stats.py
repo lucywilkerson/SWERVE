@@ -67,8 +67,8 @@ def _stats(data_meas, logger):
   return {
           'std': np.nanstd(data_meas, axis=0),
           'ave': np.nanmean(data_meas, axis=0),
-          'min': np.min(np.nanmin(data_meas, axis=0)),
-          'max': np.min(np.nanmax(data_meas, axis=0)),
+          'min': np.nanmin(data_meas, axis=0),
+          'max': np.nanmax(data_meas, axis=0),
           'n': len(data_meas),
           'n_valid': np.sum(~np.isnan(data_meas), axis=0),
   }
@@ -110,14 +110,17 @@ def _metrics(data_meas, data_calc, logger):
 
   if np.std(data_meas[valid], ddof=1) == 0 or np.std(data_calc[valid], ddof=1) == 0:
     cc = np.nan
+    sf = 1
   else:
     cc = np.corrcoef(data_meas[valid], data_calc[valid])
     cc = cc[0, 1]
-    #if cc < 0:
-    #  logger.warning("  Multiplying calculated data by -1 before computing pe.")
-    #  data_calc = -data_calc
+    if cc < 0:
+      sf = -1
+      logger.warning("  Multiplying measured data by -1 before computing pe.")
+    else:
+      sf = 1
 
-  numer = np.sum((data_meas[valid] - data_calc[valid])**2)
+  numer = np.sum((sf*data_meas[valid] - data_calc[valid])**2)
   denom = np.sum((data_meas[valid] - data_meas[valid].mean())**2)
   if denom == 0:
     pe = np.nan
@@ -128,7 +131,7 @@ def _metrics(data_meas, data_calc, logger):
   return {
           'err_rms': np.sqrt(np.mean((data_meas[valid] - data_calc[valid])**2)),
           'err_ave': np.mean(err),
-          'err': err.flatten(),
+          'err': err,
           'cc': cc,
           'pe': pe,
           'valid': valid,
