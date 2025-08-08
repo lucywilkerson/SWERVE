@@ -23,13 +23,15 @@ TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek']
 def write_metrics_table(info_dict, column_names, data_type):
     from swerve import fix_latex
     def mean_exclude_invalid(series): #excludes nan_fill values from mean calculation
-        value = pd.to_numeric(series)
+        value = pd.to_numeric(series.astype(str).str.replace('*', '', regex=False), errors='coerce')
         valid = value[value != nan_fill]
         return np.mean(valid) if len(valid) > 0 else ''
     
     def nan_remove(s): #removes nan_fill values
         print(s)
         return '' if s == nan_fill else s
+
+    n_neg_cc = 0 
 
     columns = list(column_names.keys()) #names of columns
     rows = []
@@ -48,7 +50,7 @@ def write_metrics_table(info_dict, column_names, data_type):
                 for data_source in info_dict[sid][data_type]['measured']:
                     if 'stats' in stats[f'{data_type}/measured/{data_source}']:
                         # Adding std meas
-                        data_std = stats[f'{data_type}/measured/{data_source}']['stats']['std'][0]
+                        data_std = stats[f'{data_type}/measured/{data_source}']['stats']['std'][-1]
                         row['sigma_data'] = f"{data_std:.1f}"
 
                 for data_source in info_dict[sid][data_type]['calculated']:
@@ -58,7 +60,7 @@ def write_metrics_table(info_dict, column_names, data_type):
                         continue
 
                     # Calculated std
-                    calc_std = stats[f'{data_type}/calculated/{data_source}']['stats']['std'][0]
+                    calc_std = stats[f'{data_type}/calculated/{data_source}']['stats']['std'][-1]
                     # Save to row
                     row[f'sigma_{data_source.lower()}'] = f"{calc_std:.1f}"
                     # Calculated cc and pe
@@ -70,7 +72,10 @@ def write_metrics_table(info_dict, column_names, data_type):
                         row[f'pe_{data_source.lower()}'] = calc_pe
                         for i in [f'cc_{data_source.lower()}', f'pe_{data_source.lower()}']:
                             if np.isnan(row[i]):
-                                row[i] = nan_fill #fill with nan_fill if cc is nan
+                                row[i] = nan_fill # fill with nan_fill if cc is nan
+                            elif i.startswith('pe') and calc_cc < 0:
+                                row[i] = f"{row[i]:.2f}*"
+                                n_neg_cc += 1
                             else:
                                 row[i] = f"{row[i]:.2f}"
                     else: #fill with nan_fill if not enough valid data
@@ -97,7 +102,12 @@ def write_metrics_table(info_dict, column_names, data_type):
     # Apply nan_remove to each cell before writing to markdown
     df_md = df.applymap(nan_remove)
     df_md.to_markdown(fname + ".md", index=False, floatfmt=".2f")
-    df_tex = fix_latex(df, data_type, formatters=formatters)
+    if n_neg_cc > 0:
+        tex_note = f'{n_neg_cc}/{len(df)-2} sites found with cc < 0.'
+        logger.info(tex_note)
+    else:
+        tex_note = None
+    df_tex = fix_latex(df, data_type, formatters=formatters, note=tex_note)
     with open(fname + ".tex", "w") as f:
         f.write(df_tex)
     fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table")
