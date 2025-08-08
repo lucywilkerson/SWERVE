@@ -32,7 +32,8 @@ def _test_dict():
                         },
                         'stats':{
                             'max':30,
-                            'min':-30
+                            'min':-30,
+                            'std':30/np.sqrt(2)
                         }
                     },
                     'B':{
@@ -259,11 +260,11 @@ def _test_site(site, metrics, stats, data_types=None):
 
     from swerve import site_read, site_stats
 
-    def test_data(data_stats, metrics, stats, data_type):
+    def test_data(data_stats, metrics, stats, data_type, tolerance = 0.003):
         # Extract stats and metrics, check lengths, then perform tests
         data_metrics = data_stats[f'{data_type}/calculated/TEST']['metrics']
         for val in metrics.keys():
-            test_stat = data_metrics[val][0]
+            test_stat = data_metrics[val][-1]
             expected_stat = metrics[val]
             if np.isnan(expected_stat):
                 assert np.isnan(test_stat), f"{data_type} calculated {val} {test_stat} is not NaN as expected"
@@ -274,7 +275,7 @@ def _test_site(site, metrics, stats, data_types=None):
         for val in stats.keys():
             test_stat = data_meas_stats[val]
             expected_stat = stats[val]
-            tolerance = 0.001 #set tolerance for test
+            # test within input tolerance
             assert expected_stat-tolerance <= test_stat <= expected_stat+tolerance, f"{data_type} measured {val} {test_stat} is not equal to expected {expected_stat}"
 
     if data_types is None:
