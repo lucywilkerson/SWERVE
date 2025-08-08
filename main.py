@@ -47,9 +47,12 @@ for sid in sids_only:
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-#site_stats_summary(stats, logger=logger)
-
 if sites is None and data_types is None:
   import utilrsw
   # Write data from all sites to a single file.
   utilrsw.write(CONFIG['files']['all'], data, logger=logger)
+
+if data_types is None:
+  data_types = ['GIC', 'B']
+for data_type in data_types:
+  site_stats_summary(stats, data_type, logger=logger)
