@@ -8,7 +8,7 @@ sites  = None   # Read and plot data only sites in this array. None => all sites
                     # Ignored if command line arguments are provided.
 
 # For debugging
-reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 
@@ -47,12 +47,9 @@ for sid in sids_only:
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
+dfs = site_stats_summary(stats, data_types=data_types, logger=logger)
+
 if sites is None and data_types is None:
   import utilrsw
   # Write data from all sites to a single file.
   utilrsw.write(CONFIG['files']['all'], data, logger=logger)
-
-if data_types is None:
-  data_types = ['GIC', 'B']
-for data_type in data_types:
-  site_stats_summary(stats, data_type, logger=logger)

@@ -108,17 +108,15 @@ def _metrics(data_meas, data_calc, logger):
       logger.warning("  Not enough valid data. Skipping.")
       return stats_nan
 
+  sf = 1
   if np.std(data_meas[valid], ddof=1) == 0 or np.std(data_calc[valid], ddof=1) == 0:
     cc = np.nan
-    sf = 1
   else:
     cc = np.corrcoef(data_meas[valid], data_calc[valid])
     cc = cc[0, 1]
     if cc < 0:
       sf = -1
       logger.warning("  Multiplying measured data by -1 before computing pe.")
-    else:
-      sf = 1
 
   numer = np.sum((sf*data_meas[valid] - data_calc[valid])**2)
   denom = np.sum((data_meas[valid] - data_meas[valid].mean())**2)
