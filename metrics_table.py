@@ -40,8 +40,7 @@ def write_metrics_table(info_dict, column_names, data_type):
             data_classes = info_dict[sid][data_type].keys()
             if 'measured' in data_classes and 'calculated' in data_classes:
                 #Reading site data
-                reparse = True #TODO: figure out why this is necessary
-                data = site_read(sid, data_types=data_type, reparse=reparse, logger=logger)
+                data = site_read(sid, data_types=data_type, logger=logger)
                 stats = site_stats(sid, data, data_types=data_type, logger=logger)
                 # Setting up row for site
                 row = {col: nan_fill for col in columns}
@@ -64,8 +63,8 @@ def write_metrics_table(info_dict, column_names, data_type):
                     row[f'sigma_{data_source.lower()}'] = f"{calc_std:.1f}"
                     # Calculated cc and pe
                     if 'metrics' in stats[f'{data_type}/calculated/{data_source}']:
-                        calc_cc = stats[f'{data_type}/calculated/{data_source}']['metrics']['cc'][0]
-                        calc_pe = stats[f'{data_type}/calculated/{data_source}']['metrics']['pe'][0]
+                        calc_cc = stats[f'{data_type}/calculated/{data_source}']['metrics']['cc'][-1]
+                        calc_pe = stats[f'{data_type}/calculated/{data_source}']['metrics']['pe'][-1]
                         # Save to row
                         row[f'cc_{data_source.lower()}'] = calc_cc**2
                         row[f'pe_{data_source.lower()}'] = calc_pe
