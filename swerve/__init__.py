@@ -224,7 +224,7 @@ def format_cc_scatter(ax, regression=False):
     ax.minorticks_on()
     ax.grid(which='minor', linestyle=':', linewidth=0.5, color='gray', alpha=0.5)
 
-def fix_latex(df, data_type, formatters=None, index=False):
+def fix_latex(df, data_type, formatters=None, index=False, note=None):
   # Defining column format
   if data_type =='B':
     column_format = "l " + " ".join(["p{1cm}"] * (len(df.columns) - 1))
@@ -235,7 +235,10 @@ def fix_latex(df, data_type, formatters=None, index=False):
   # Removing \toprule, \midrule, \bottomrule
   latex_string = latex_string.replace('\\toprule\n', '')
   latex_string = latex_string.replace('\\midrule\n','\\hline\n')
-  latex_string = latex_string.replace('\\bottomrule\n', '')
+  if note:
+    latex_string = latex_string.replace('\\bottomrule\n', f'{note}\n')
+  else:
+    latex_string = latex_string.replace('\\bottomrule\n', '')
   # Inserting \hline before the Mean row
   if 'Site ID' in df.keys() and 'Mean' in df['Site ID'].values:
     latex_string = latex_string.replace('Mean', '\\hline\nMean', 1)
