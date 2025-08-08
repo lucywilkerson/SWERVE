@@ -119,8 +119,8 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
     _write_pkl(site_all_file, site_info, logger, indent=' '*2)
   else:
     logger.warning(f"  Not writing {site_all_file} b/c data_types is not None.")
-    if reparse==True:
-      raise ValueError("Reparse requested with data_types not None, which is not supported.")
+    if reparse == True and data_types is not None and not sid.lower().startswith('test'):
+      raise ValueError("Reparse requested with data_types not None, which is not supported unless running for test data.")
 
   return site_info
 
