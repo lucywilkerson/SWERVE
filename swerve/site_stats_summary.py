@@ -21,8 +21,11 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
 
     for data_type in data_types:
         n_neg_cc = 0
+        n_sites = 0
         column_names = _column_names(data_type) #get column names
         columns = list(column_names.keys()) #names of columns
+        # Set indexing
+        idx = 0 if data_type == 'GIC' else 3
         rows = []
         for sid in stats.keys():
             if sid.startswith('test'): #skipping test sites
@@ -43,10 +46,12 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
                 path = f'{data_type}/measured/{data_source}'
                 if 'stats' in sid_stats[path]:
                     # Adding std meas
-                    data_std = stats[sid][path]['stats']['std'][-1]
+                    data_std = stats[sid][path]['stats']['std'][idx]
                     row['sigma_data'] = f"{data_std:.1f}"
 
             for data_source in info_dict[sid][data_type]['calculated']:
+                n_sites += 1
+                
                 if data_type == 'GIC' and data_source not in ['GMU', 'TVA']:
                     continue
                 if data_type == 'B' and data_source not in ['SWMF', 'MAGE', 'OpenGGCM']:
@@ -54,14 +59,14 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
 
                 # Calculated std
                 path = f'{data_type}/calculated/{data_source}'
-                calc_std = sid_stats[path]['stats']['std'][-1]
+                calc_std = sid_stats[path]['stats']['std'][idx]
                 # Save to row
                 data_source_lower = data_source.lower()
                 row[f'sigma_{data_source_lower}'] = f"{calc_std:.1f}"
                 # Calculated cc and pe
                 if 'metrics' in sid_stats[path]:
-                    calc_cc = sid_stats[path]['metrics']['cc'][-1]
-                    calc_pe = sid_stats[path]['metrics']['pe'][-1]
+                    calc_cc = sid_stats[path]['metrics']['cc'][idx]
+                    calc_pe = sid_stats[path]['metrics']['pe'][idx]
                     # Save to row
                     row[f'cc_{data_source_lower}'] = calc_cc**2
                     row[f'pe_{data_source_lower}'] = calc_pe
@@ -106,14 +111,12 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
 
         # LaTeX
         if n_neg_cc > 0:
-            tex_note = f'{n_neg_cc}/{len(df)-1} sites found with cc < 0.'
+            tex_note = f'{n_neg_cc}/{n_sites} sites found with cc < 0.'
             logger.info(tex_note)
-        else:
-            tex_note = None
 
         # TODO: Pass nan_fill to _nan_remove
         formatters = {col: _nan_remove for col in df.columns}
-        df_tex = fix_latex(df, data_type, formatters=formatters, note=tex_note)
+        df_tex = fix_latex(df, data_type, formatters=formatters)
         with open(fname + ".tex", "w") as f:
             logger.info(f"Writing {fname+".tex"}")
             f.write(df_tex)
