@@ -62,11 +62,10 @@ See stdout for files read and written.
 
 ```
 python info.py
-python read.py
-python cc.py
-python linear_regression.py
+python main.py
+python regression.py
 python plot_maps.py
-python plot_scatter.py
-python plot_timeseries.py
+python plot_imf.py
+python plot_stack.py
 python plot_voltage.py
 ```
