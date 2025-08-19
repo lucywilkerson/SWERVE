@@ -5,7 +5,8 @@ import numpy as np
 
 from swerve import config, subset, infodf2dict
 
-CONFIG = config()
+event = '2024-May-Storm' #TODO: remove need to define event here, use config instead
+CONFIG = config(event=event)
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 """
@@ -653,9 +654,10 @@ info_df = pd.read_csv(CONFIG['files']['info'])
 
 add_beta(info_df, CONFIG['files']['beta'], beta_site='OTT')
 add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
-add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
-add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
-info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
+if event == '2024-May-Storm':
+  add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
+  add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
+  info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
 
 out_fname = CONFIG['files']['info_extended']
 info_df.to_csv(out_fname, index=False)

@@ -164,7 +164,14 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-
+  # TODO: add condition to plot just orig if no modified data and display modified error
+  if 'modified' not in data.keys():
+    original = data['original']
+    suptitle = f"Modified Error: {original['error']}"
+    _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
+                suptitle=suptitle, show_plots=show_plots)
+    return
+  
   component_labels1 = data['original']['labels'].copy()
   for idx, label in enumerate(component_labels1):
     component_labels1[idx] = f"{label} original"
