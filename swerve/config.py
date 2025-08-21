@@ -13,8 +13,8 @@ def config(event='2024-October-Storm'):
       raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
 
     limits_data = [
-      datetime.datetime(2024, 5, 10, 0, 0),
-      datetime.datetime(2024, 5, 13, 0, 0)
+      datetime.datetime(2024, 5, 10, 15, 0),
+      datetime.datetime(2024, 5, 12, 6, 0)
     ]
     limits_plot = [
       datetime.datetime(2024, 5, 10, 11, 0),
@@ -112,12 +112,12 @@ def config(event='2024-October-Storm'):
       raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
 
     limits_data = [
-      datetime.datetime(2024, 10, 10, 0, 0),
-      datetime.datetime(2024, 10, 12, 0, 0)
+      datetime.datetime(2024, 10, 10, 14, 0),
+      datetime.datetime(2024, 10, 11, 14, 0)
     ]
     limits_plot = [
-      datetime.datetime(2024, 10, 10, 0, 0),
-      datetime.datetime(2024, 10, 12, 0, 0)
+      datetime.datetime(2024, 10, 10, 12, 0),
+      datetime.datetime(2024, 10, 11, 14, 0)
     ]
 
     return {
