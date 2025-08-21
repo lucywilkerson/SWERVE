@@ -36,7 +36,7 @@ def read(all_file, sid=None):
   return info_dict, info_df, data
 
 
-def plot_all_gic(info, info_df, data_all, data_source=['NERC'], offset=40):
+def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40):
     # note NERC sites that are TVA duplicates
     sid_copies = {'10197':'Sullivan',
                   '10204':'Shelby',
