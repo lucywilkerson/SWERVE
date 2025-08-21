@@ -5,7 +5,7 @@ import numpy as np
 
 from swerve import config, subset, infodf2dict
 
-event = '2024-May-Storm' #TODO: remove need to define event here, use config instead
+event = '2024-October-Storm' #TODO: remove need to define event here, use config instead
 CONFIG = config(event=event)
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
