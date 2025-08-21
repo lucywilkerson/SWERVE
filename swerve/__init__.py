@@ -152,7 +152,7 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
 
   if exclude_errors:
     # Remove rows that have errors
-    info_df = info_df[~info_df['error'].str.contains('', na=False)]
+    info_df = info_df[info_df['error'].isna()]
 
   info_df = filter_df(info_df, 'data_type', data_type)
   info_df = filter_df(info_df, 'data_source', data_source)
