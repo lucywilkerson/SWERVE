@@ -36,6 +36,7 @@ def config(event='2024-October-Storm'):
         'paper': os.path.abspath(os.path.join(file_path, '..', '..', event + '-paper')),
         'processed': os.path.join(data_dir, '_processed'),
       },
+      'nerc_prefix': '2024E04',
       'files': {
           'mage': {
               'bcwind': os.path.join(data_dir, 'imf_data', 'bcwind.h5')
@@ -135,6 +136,7 @@ def config(event='2024-October-Storm'):
         'paper': os.path.abspath(os.path.join(file_path, '..', '..', event + '-paper')),
         'processed': os.path.join(data_dir, '_processed'),
       },
+      'nerc_prefix': '2024E11',
       'files': {
           'mage': {
               'bcwind': os.path.join(data_dir, 'imf_data', 'bcwind.h5')

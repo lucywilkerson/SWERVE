@@ -7,7 +7,7 @@ import datetime
 
 debug = False  # Set to True to log resampling information.
 
-def site_read(sid, data_types=None, event='2024-May-Storm', reparse=False, logger=None, debug=False):
+def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
   """Read data from one or more sites
 
   Usage:
@@ -22,7 +22,7 @@ def site_read(sid, data_types=None, event='2024-May-Storm', reparse=False, logge
   """
   from swerve import config, read_info_dict, resample
 
-  CONFIG = config(event=event)
+  CONFIG = config()
 
   if logger is None:
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -72,7 +72,7 @@ def site_read(sid, data_types=None, event='2024-May-Storm', reparse=False, logge
       for data_source in data_sources.keys():
 
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
-        orig = _site_read_orig(sid, data_type, data_class, data_source, logger, event)
+        orig = _site_read_orig(sid, data_type, data_class, data_source, logger)
         site_info[data_type][data_class][data_source]['original'] = orig
         # Check returned data object
         if _output_error(orig, logger):
@@ -124,7 +124,7 @@ def site_read(sid, data_types=None, event='2024-May-Storm', reparse=False, logge
 
   return site_info
 
-def _site_read_orig(sid, data_type, data_class, data_source, logger, event):
+def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
   """Read data from site
 
@@ -181,7 +181,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger, event):
     return ret
 
   from swerve import config
-  CONFIG = config(event=event)
+  CONFIG = config()
   data_dir = CONFIG['dirs']['data']
 
   data = []
@@ -213,10 +213,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger, event):
     }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'NERC':
-    if event == '2024-May-Storm':
-      fname = f'2024E04_{sid}.csv'
-    elif event == '2024-October-Storm':
-      fname = f'2024E11_{sid}.csv'
+    nerc_prefix = CONFIG['nerc_prefix']
+    fname = f'{nerc_prefix}_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', 'gic')
     data = read_nerc(data_dir, fname)
     return {**data, "labels": ["GIC"], "unit": "A"}
@@ -314,7 +312,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger, event):
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'NERC':
     # TODO: magnetometers.csv indicates if GEO or MAG coordinates
-    fname = f'2024E04_{sid}.csv'
+    nerc_prefix = CONFIG['nerc_prefix']
+    fname = f'{nerc_prefix}_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', 'mag')
     data = read_nerc(data_dir, fname)
     return {**data, "labels": ["B_N", "B_E", "B_v"], "unit": "nT"}
