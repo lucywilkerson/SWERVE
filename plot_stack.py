@@ -21,11 +21,13 @@ DATA_DIR = CONFIG['dirs']['data']
 
 base_dir = '_processed'
 
-limits = CONFIG['limits']['data']
+limits = CONFIG['limits']
+
+plt_config()
 
 def read(all_file, sid=None):
   info_dict = read_info_dict()
-  info_df = read_info_df(extended=True)
+  info_df = read_info_df(exclude_errors=True, extended=True)
 
   print(f"Reading {all_file}")
   with open(all_file, 'rb') as f:
@@ -34,8 +36,7 @@ def read(all_file, sid=None):
   return info_dict, info_df, data
 
 
-def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC'], offset=40):
-    sids = info.keys()
+def plot_all_gic(info, info_df, data_all, data_source=['NERC'], offset=40):
     # note NERC sites that are TVA duplicates
     sid_copies = {'10197':'Sullivan',
                   '10204':'Shelby',
@@ -49,20 +50,27 @@ def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC
                   }
 
     for source in data_source:
-      print(f"Plotting {source} GIC sites")
+      logger.info(f"Plotting {source} GIC sites")
+      sids = info_df[(info_df['data_source']==source)]['site_id'].unique()
       source_sites = {'sites': [], 'lat': [], 'lon': []}
       for sid in sids:
-          if 'GIC' in data_all[sid] and source in info[sid]['GIC']['measured']:
+          sid_str = str(sid) # TODO: only necessary for October storm data
+          if sid_str not in data_all.keys():
+             logger.error(f"Site {sid} not found in data_all, rerun main.py to generate all.pkl")
+          elif 'GIC' in data_all[sid_str] and source in info[sid_str]['GIC']['measured']:
               site_info = info_df[
                   (info_df['site_id'] == sid) & 
                   (info_df['data_type'] == 'GIC') & 
                   (info_df['data_class'] == 'measured')
               ]
-              if site_info['error'].isna().all():
-                  source_sites['sites'].append(sid)
-                  source_sites['lat'].append(site_info['mag_lat'].values[0])
-                  source_sites['lon'].append(site_info['mag_lon'].values[0])
+
+              source_sites['sites'].append(sid_str)
+              source_sites['lat'].append(site_info['mag_lat'].values)
+              source_sites['lon'].append(site_info['mag_lon'].values)
       # Sort sites by latitude
+      if not source_sites['lat'] and not source_sites['lon']:
+          logger.warning(f"   No sites found for source {source}. Skipping.")
+          continue
       sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
       source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
 
@@ -77,8 +85,8 @@ def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC
             offset_fix +=1
             continue # skipping NERC sites that are TVA duplicates
           if 'GIC' in data_all[sid].keys() and source in info[sid]['GIC']['measured']:
-              time = data_all[sid]['GIC']['measured'][0]['original']['time']
-              data = data_all[sid]['GIC']['measured'][0]['original']['data']
+              time = data_all[sid]['GIC']['measured'][source]['original']['time']
+              data = data_all[sid]['GIC']['measured'][source]['original']['data']
 
               # Subset to desired time range
               time, data = subset(time, data, limits['data'][0], limits['data'][1])
@@ -89,17 +97,17 @@ def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC
               # Plot the timeseries
               axes.plot(time, data_with_offset, linewidth=0.5)
               # Add text to the plot to label waveform
-              sid_lat = source_sites['lat'][i]
-              sid_lon = source_sites['lon'][i]
+              sid_lat = source_sites['lat'][i].item()
+              sid_lon = source_sites['lon'][i].item()
               text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
               if sid in sid_copies.values():
                 text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
-              axes.text(datetime.datetime(2024, 5, 10, 11, 0), (i*offset)-(offset_fix*offset), text, fontsize=9, verticalalignment='center', horizontalalignment='left')
+              axes.text(limits['plot'][0], (i*offset)-(offset_fix*offset), text, fontsize=11, verticalalignment='center', horizontalalignment='left')
       plt.grid()
       plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
       #plt.legend(loc='upper right')
       plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-      plt.gca().set_xlim(limits['xlims'][0], limits['data'][1])
+      plt.gca().set_xlim(limits['plot'][0], limits['plot'][1])
       plt.gca().set_ylim(-offset, max(data_with_offset)+10)
 
       axes.spines['top'].set_visible(False)
@@ -121,24 +129,25 @@ def plot_all_gic(info, info_df, data_all, start, stop, data_source=['TVA', 'NERC
       plt.close()
 
 
-def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
-  sids = info.keys()
+def plot_all_db(info, info_df, data_all, offset=400):
+  sids = info_df[~(info_df['data_source']=='TEST')]['site_id'].unique()
   # note NERC sites that are TVA duplicates
   sid_copies = {}
 
-  print("Plotting all dB sites")
+  logger.info("Plotting all dB sites")
   source_sites = {'sites': [], 'lat': [], 'lon': []}
   for sid in sids:
-    if 'B' in data_all[sid] and 'measured' in info[sid]['B']:
+    sid_str = str(sid) # TODO: only necessary for October storm data
+    if 'B' in data_all[sid_str] and 'measured' in info[sid_str]['B']:
       site_info = info_df[
             (info_df['site_id'] == sid) & 
             (info_df['data_type'] == 'B') & 
             (info_df['data_class'] == 'measured')
         ]
-      if site_info['error'].isna().all():
-        source_sites['sites'].append(sid)
-        source_sites['lat'].append(site_info['mag_lat'].values[0])
-        source_sites['lon'].append(site_info['mag_lon'].values[0])
+      
+      source_sites['sites'].append(sid_str)
+      source_sites['lat'].append(site_info['mag_lat'].values[0])
+      source_sites['lon'].append(site_info['mag_lon'].values[0])
   # Sort sites by latitude
   sorted_sites = sorted(zip(source_sites['lat'], source_sites['sites'], source_sites['lon']))
   source_sites['lat'], source_sites['sites'], source_sites['lon'] = zip(*sorted_sites)
@@ -148,12 +157,18 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
   offset_fix = 0
 
   for i, sid in enumerate(source_sites['sites']):
+    sid_val = int(sid) # TODO: only necessary for October storm data
     if sid in sid_copies.keys():
       offset_fix +=1
       continue # skipping NERC sites that are TVA duplicates
     if 'B' in data_all[sid].keys():
-      time_b = data_all[sid]['B']['measured'][0]['modified']['time']
-      data = data_all[sid]['B']['measured'][0]['modified']['data']
+      source = info_df[
+            (info_df['site_id'] == sid_val) & 
+            (info_df['data_type'] == 'B') & 
+            (info_df['data_class'] == 'measured')
+        ]['data_source'].values[0] #TODO: find a simpler way to get data source
+      time_b = data_all[sid]['B']['measured'][source]['modified']['time']
+      data = data_all[sid]['B']['measured'][source]['modified']['data']
 
       # Subset to desired time range
       time_b, data = subset(time_b, data, limits['data'][0], limits['data'][1])
@@ -170,14 +185,14 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
       text = f'{sid}\n({sid_lat:.1f},{sid_lon:.1f})'
       if sid in sid_copies.values():
         text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
-      axes.text(limits['xlims'][0], (i*offset)-(offset_fix*offset), text,
-                fontsize=9, verticalalignment='center', horizontalalignment='left')
+      axes.text(limits['plot'][0], (i*offset)-(offset_fix*offset), text,
+                fontsize=11, verticalalignment='center', horizontalalignment='left')
 
   plt.grid()
   plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
   #plt.legend(loc='upper right')
   plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-  plt.gca().set_xlim(limits['xlims'][0], limits['data'][1])
+  plt.gca().set_xlim(limits['plot'][0], limits['plot'][1])
   plt.gca().set_ylim(-offset, max(data_with_offset)+10)
 
   axes.spines['top'].set_visible(False)
@@ -201,5 +216,5 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
 
 info_dict, info_df, data_all = read(CONFIG['files']['all'])
 
-plot_all_gic(info_dict, info_df, data_all, limits[0], limits[1])
-plot_all_db(info_dict, info_df, data_all, limits[0], limits[1])
+plot_all_gic(info_dict, info_df, data_all)
+plot_all_db(info_dict, info_df, data_all)
