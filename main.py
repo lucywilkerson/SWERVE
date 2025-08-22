@@ -48,7 +48,7 @@ for sid in sids_only:
 
 #dfs = site_stats_summary(stats, data_types=data_types, logger=logger)
 
-if sites is None and data_types is None:
+if args['sites'] is None and data_types is None:
   import utilrsw
   # Write data from all sites to a single file.
   utilrsw.write(CONFIG['files']['all'], data, logger=logger)
