@@ -5,11 +5,9 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
-
-import sys
 
 import utilrsw
 from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
@@ -22,7 +20,7 @@ if args['sites'] is None:
   # Use command line arguments to specify sites under these conditions.
   sids_only = None # Read all sites.
 else:
-  sids_only = sys.argv[1].split(',')
+  sids_only = args['sites'].split(',')
 
 # Get actual site IDs to process and validate given ones.
 sids_only = sids(sids_only=sids_only)

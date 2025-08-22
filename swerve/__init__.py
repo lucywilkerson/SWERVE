@@ -18,7 +18,8 @@ def sids(sids_only=None):
   all_sids = list(info.keys())
 
   if sids_only is None:
-    all_sids = [sid for sid in all_sids if not sid.startswith('test')] # Remove test sids unless keyword test is passed
+    # Remove test sids unless keyword test is passed
+    all_sids = [sid for sid in all_sids if not sid.startswith('test')] 
     return all_sids
 
   # Handle keywords 'paper' and 'test'
@@ -82,7 +83,6 @@ def infodf2dict(info_df, logger):
 
   info_dict = {}
 
-  #print(f"Preparing {CONFIG['files']['info_extended_json']}")
   for idx, row in info_df.iterrows():
 
     site = row['site_id']
@@ -140,6 +140,8 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
   info_df = pandas.read_csv(file)
 
   if key == 'paper_sids' or key == 'test_sids':
+    if key not in CONFIG:
+      raise ValueError(f"key '{key}' not found in config")
     key_sids = list(CONFIG[key]['GIC']['timeseries'])
     info_df = info_df[info_df['site_id'].isin(key_sids)]
 

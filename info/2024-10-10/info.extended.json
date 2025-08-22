@@ -1,0 +1,6842 @@
+{
+  "10052": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10052": {
+            "geo_lat": 44.9,
+            "geo_lon": 97.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.85512689468873,
+            "mag_lon": 170.95973726960818,
+            "alpha": 0.06176516873606036
+          }
+        }
+      }
+    }
+  },
+  "10064": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10064": {
+            "geo_lat": 41.8,
+            "geo_lon": 88.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.07408516466674,
+            "mag_lon": 163.02551297829342,
+            "alpha": 0.04485880067696145
+          }
+        }
+      }
+    }
+  },
+  "10065": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10065": {
+            "geo_lat": 41.8,
+            "geo_lon": 87.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.092894210391165,
+            "mag_lon": 162.67033338637862,
+            "alpha": 0.04495593708587367
+          }
+        }
+      }
+    }
+  },
+  "10066": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10066": {
+            "geo_lat": 41.6,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.88855791155541,
+            "mag_lon": 162.74403406624762,
+            "alpha": 0.043911847563325945
+          }
+        }
+      }
+    }
+  },
+  "10067": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10067": {
+            "geo_lat": 42.1,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.38755103959924,
+            "mag_lon": 162.78190983508247,
+            "alpha": 0.04650539696183943
+          }
+        }
+      }
+    }
+  },
+  "10068": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10068": {
+            "geo_lat": 42.0,
+            "geo_lon": 88.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.27369397290475,
+            "mag_lon": 163.04045055957175,
+            "alpha": 0.045900444764780265
+          }
+        }
+      }
+    }
+  },
+  "10069": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10069": {
+            "geo_lat": 41.9,
+            "geo_lon": 87.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.19745005792882,
+            "mag_lon": 162.58918253534577,
+            "alpha": 0.04549974659777902
+          }
+        }
+      }
+    }
+  },
+  "10071": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10071": {
+            "geo_lat": 42.2,
+            "geo_lon": 88.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.44135028632101,
+            "mag_lon": 163.6758321988345,
+            "alpha": 0.04679401372704534
+          }
+        }
+      }
+    }
+  },
+  "10072": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10072": {
+            "geo_lat": 42.2,
+            "geo_lon": 88.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.44135028632101,
+            "mag_lon": 163.6758321988345,
+            "alpha": 0.04679401372704534
+          }
+        }
+      }
+    }
+  },
+  "10073": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10073": {
+            "geo_lat": 41.6,
+            "geo_lon": 87.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.89806491179298,
+            "mag_lon": 162.5662799790861,
+            "alpha": 0.04395988286085721
+          }
+        }
+      }
+    }
+  },
+  "10074": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10074": {
+            "geo_lat": 41.2,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.489355264749584,
+            "mag_lon": 162.71403951434058,
+            "alpha": 0.04194150273596498
+          }
+        }
+      }
+    }
+  },
+  "10075": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10075": {
+            "geo_lat": 41.7,
+            "geo_lon": 87.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.00745775498529,
+            "mag_lon": 162.3962068700409,
+            "alpha": 0.044516399163946764
+          }
+        }
+      }
+    }
+  },
+  "10076": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10076": {
+            "geo_lat": 41.8,
+            "geo_lon": 88.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.083442464171654,
+            "mag_lon": 162.8479291153573,
+            "alpha": 0.04490709874065609
+          }
+        }
+      }
+    }
+  },
+  "10094": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10094": {
+            "geo_lat": 41.9,
+            "geo_lon": 72.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.18752668414206,
+            "mag_lon": 149.05158602100533,
+            "alpha": 0.05098673845805245
+          }
+        }
+      }
+    }
+  },
+  "10095": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10095": {
+            "geo_lat": 41.7,
+            "geo_lon": 72.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.01345589097692,
+            "mag_lon": 148.75647619547462,
+            "alpha": 0.04997622675517378
+          }
+        }
+      }
+    }
+  },
+  "10096": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10096": {
+            "geo_lat": 41.8,
+            "geo_lon": 72.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.07994228326104,
+            "mag_lon": 149.12774826048002,
+            "alpha": 0.050359806285539835
+          }
+        }
+      }
+    }
+  },
+  "10097": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10097": {
+            "geo_lat": 41.4,
+            "geo_lon": 72.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.7235858335811,
+            "mag_lon": 148.62689695362906,
+            "alpha": 0.04833772786005163
+          }
+        }
+      }
+    }
+  },
+  "10098": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10098": {
+            "geo_lat": 41.4,
+            "geo_lon": 72.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.7235858335811,
+            "mag_lon": 148.62689695362906,
+            "alpha": 0.04833772786005163
+          }
+        }
+      }
+    }
+  },
+  "10099": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10099": {
+            "geo_lat": 41.4,
+            "geo_lon": 73.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.61747911351773,
+            "mag_lon": 149.7916467609858,
+            "alpha": 0.04775148175934267
+          }
+        }
+      }
+    }
+  },
+  "10100": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10100": {
+            "geo_lat": 41.6,
+            "geo_lon": 72.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.85667989610034,
+            "mag_lon": 149.3698826141742,
+            "alpha": 0.04908326727643646
+          }
+        }
+      }
+    }
+  },
+  "10103": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10103": {
+            "geo_lat": 38.6,
+            "geo_lon": 121.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.666922705924485,
+            "mag_lon": -167.4839965172993,
+            "alpha": 0.030316621036640175
+          }
+        }
+      }
+    }
+  },
+  "10222": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10222": {
+            "geo_lat": 40.2,
+            "geo_lon": 75.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.27506673824493,
+            "mag_lon": 151.34831610658816,
+            "alpha": 0.040920561991558364
+          }
+        }
+      }
+    }
+  },
+  "10223": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10223": {
+            "geo_lat": 32.9,
+            "geo_lon": 115.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.81381858555504,
+            "mag_lon": -172.34797223506416,
+            "alpha": 0.01546515049376803
+          }
+        }
+      }
+    }
+  },
+  "10224": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10224": {
+            "geo_lat": 40.2,
+            "geo_lon": 75.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.27506673824493,
+            "mag_lon": 151.34831610658816,
+            "alpha": 0.040920561991558364
+          }
+        }
+      }
+    }
+  },
+  "10232": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10232": {
+            "geo_lat": 45.0,
+            "geo_lon": 92.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.08132905826468,
+            "mag_lon": 167.2958376054425,
+            "alpha": 0.06339296173901038
+          }
+        }
+      }
+    }
+  },
+  "10233": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10233": {
+            "geo_lat": 47.6,
+            "geo_lon": 122.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.69151578087657,
+            "mag_lon": -167.12890914450378,
+            "alpha": 0.0855862222184293
+          }
+        }
+      }
+    }
+  },
+  "10237": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10237": {
+            "geo_lat": 33.7,
+            "geo_lon": 84.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.16031030251905,
+            "mag_lon": 159.44421905334025,
+            "alpha": 0.018055235259270892
+          }
+        }
+      }
+    }
+  },
+  "10238": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10238": {
+            "geo_lat": 31.5,
+            "geo_lon": 83.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.046527399373915,
+            "mag_lon": 157.98964444976107,
+            "alpha": 0.01415900264242598
+          }
+        }
+      }
+    }
+  },
+  "10239": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10239": {
+            "geo_lat": 31.3,
+            "geo_lon": 81.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.958502496782714,
+            "mag_lon": 156.3091855513463,
+            "alpha": 0.014016395998744685
+          }
+        }
+      }
+    }
+  },
+  "10253": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10253": {
+            "geo_lat": 47.5,
+            "geo_lon": 116.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.41869653814298,
+            "mag_lon": -172.3831310993201,
+            "alpha": 0.08294270779203765
+          }
+        }
+      }
+    }
+  },
+  "10254": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10254": {
+            "geo_lat": 42.8,
+            "geo_lon": 82.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.37420408203505,
+            "mag_lon": 158.05649887836887,
+            "alpha": 0.05209315037745411
+          }
+        }
+      }
+    }
+  },
+  "10255": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10255": {
+            "geo_lat": 45.7,
+            "geo_lon": 94.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.71833587372194,
+            "mag_lon": 168.99347072579246,
+            "alpha": 0.06821118985275303
+          }
+        }
+      }
+    }
+  },
+  "10265": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10265": {
+            "geo_lat": 43.6,
+            "geo_lon": 116.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.522676624599356,
+            "mag_lon": -172.14731322595685,
+            "alpha": 0.05299024350679178
+          }
+        }
+      }
+    }
+  },
+  "10266": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10266": {
+            "geo_lat": 42.8,
+            "geo_lon": 114.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.68588513476592,
+            "mag_lon": -173.79353167772285,
+            "alpha": 0.04812860940880996
+          }
+        }
+      }
+    }
+  },
+  "10297": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10297": {
+            "geo_lat": 46.8,
+            "geo_lon": 92.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.896734916058094,
+            "mag_lon": 166.97579739644044,
+            "alpha": 0.07811050191495134
+          }
+        }
+      }
+    }
+  },
+  "10298": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10298": {
+            "geo_lat": 43.4,
+            "geo_lon": 88.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.68019645021319,
+            "mag_lon": 162.9706407678761,
+            "alpha": 0.05395889709234205
+          }
+        }
+      }
+    }
+  },
+  "10299": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10299": {
+            "geo_lat": 46.6,
+            "geo_lon": 87.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.901325648145836,
+            "mag_lon": 162.7098983272932,
+            "alpha": 0.07815175000669829
+          }
+        }
+      }
+    }
+  },
+  "10300": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10300": {
+            "geo_lat": 46.6,
+            "geo_lon": 87.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.901325648145836,
+            "mag_lon": 162.7098983272932,
+            "alpha": 0.07815175000669829
+          }
+        }
+      }
+    }
+  },
+  "10301": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10301": {
+            "geo_lat": 44.0,
+            "geo_lon": 88.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.25142620848364,
+            "mag_lon": 163.54540990940166,
+            "alpha": 0.0576225517189746
+          }
+        }
+      }
+    }
+  },
+  "10302": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10302": {
+            "geo_lat": 44.2,
+            "geo_lon": 88.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.47388517818436,
+            "mag_lon": 163.12162590488515,
+            "alpha": 0.05911571506977642
+          }
+        }
+      }
+    }
+  },
+  "10303": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10303": {
+            "geo_lat": 44.8,
+            "geo_lon": 89.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.00175021886622,
+            "mag_lon": 164.5707983959415,
+            "alpha": 0.06281546336995088
+          }
+        }
+      }
+    }
+  },
+  "10304": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10304": {
+            "geo_lat": 44.8,
+            "geo_lon": 89.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.00175021886622,
+            "mag_lon": 164.5707983959415,
+            "alpha": 0.06281546336995088
+          }
+        }
+      }
+    }
+  },
+  "10306": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10306": {
+            "geo_lat": 44.8,
+            "geo_lon": 88.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.068018448588305,
+            "mag_lon": 163.2571615648646,
+            "alpha": 0.0632959990877406
+          }
+        }
+      }
+    }
+  },
+  "10307": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10307": {
+            "geo_lat": 44.4,
+            "geo_lon": 88.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.659696334839744,
+            "mag_lon": 163.40080902980458,
+            "alpha": 0.06039250926790841
+          }
+        }
+      }
+    }
+  },
+  "10308": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10308": {
+            "geo_lat": 42.5,
+            "geo_lon": 89.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.731894569915525,
+            "mag_lon": 163.8746487928441,
+            "alpha": 0.048383936858109204
+          }
+        }
+      }
+    }
+  },
+  "10309": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10309": {
+            "geo_lat": 45.8,
+            "geo_lon": 88.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.075083699962605,
+            "mag_lon": 163.16391227589142,
+            "alpha": 0.07106781951039592
+          }
+        }
+      }
+    }
+  },
+  "10310": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10310": {
+            "geo_lat": 43.0,
+            "geo_lon": 89.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.23541707366081,
+            "mag_lon": 163.82267528362638,
+            "alpha": 0.05126831722703338
+          }
+        }
+      }
+    }
+  },
+  "10311": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10311": {
+            "geo_lat": 43.0,
+            "geo_lon": 89.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.23541707366081,
+            "mag_lon": 163.82267528362638,
+            "alpha": 0.05126831722703338
+          }
+        }
+      }
+    }
+  },
+  "10312": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10312": {
+            "geo_lat": 43.0,
+            "geo_lon": 89.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.23541707366081,
+            "mag_lon": 163.82267528362638,
+            "alpha": 0.05126831722703338
+          }
+        }
+      }
+    }
+  },
+  "10313": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10313": {
+            "geo_lat": 44.5,
+            "geo_lon": 89.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.70654454639694,
+            "mag_lon": 164.46103478435418,
+            "alpha": 0.06071875463028666
+          }
+        }
+      }
+    }
+  },
+  "10314": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10314": {
+            "geo_lat": 44.5,
+            "geo_lon": 89.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.70654454639694,
+            "mag_lon": 164.46103478435418,
+            "alpha": 0.06071875463028666
+          }
+        }
+      }
+    }
+  },
+  "10315": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10315": {
+            "geo_lat": 44.5,
+            "geo_lon": 89.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.70654454639694,
+            "mag_lon": 164.46103478435418,
+            "alpha": 0.06071875463028666
+          }
+        }
+      }
+    }
+  },
+  "10316": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10316": {
+            "geo_lat": 43.7,
+            "geo_lon": 88.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.95655026534529,
+            "mag_lon": 163.43439409632958,
+            "alpha": 0.055701288555392324
+          }
+        }
+      }
+    }
+  },
+  "10317": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10317": {
+            "geo_lat": 43.7,
+            "geo_lon": 88.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.95655026534529,
+            "mag_lon": 163.43439409632958,
+            "alpha": 0.055701288555392324
+          }
+        }
+      }
+    }
+  },
+  "10318": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10318": {
+            "geo_lat": 44.4,
+            "geo_lon": 88.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.64613659549459,
+            "mag_lon": 163.66406549846064,
+            "alpha": 0.06029840838735451
+          }
+        }
+      }
+    }
+  },
+  "10321": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10321": {
+            "geo_lat": 43.1,
+            "geo_lon": 88.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.3808144371672,
+            "mag_lon": 162.94727887668407,
+            "alpha": 0.052132766169081246
+          }
+        }
+      }
+    }
+  },
+  "10322": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10322": {
+            "geo_lat": 43.3,
+            "geo_lon": 89.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.51730384386768,
+            "mag_lon": 164.19749677984603,
+            "alpha": 0.052957512549250706
+          }
+        }
+      }
+    }
+  },
+  "10336": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10336": {
+            "geo_lat": 44.8,
+            "geo_lon": 91.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.92920631280931,
+            "mag_lon": 166.14628534278913,
+            "alpha": 0.06229360212972874
+          }
+        }
+      }
+    }
+  },
+  "10338": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10338": {
+            "geo_lat": 44.8,
+            "geo_lon": 91.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.92920631280931,
+            "mag_lon": 166.14628534278913,
+            "alpha": 0.06229360212972874
+          }
+        }
+      }
+    }
+  },
+  "10339": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10339": {
+            "geo_lat": 43.7,
+            "geo_lon": 95.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.69065849867485,
+            "mag_lon": 169.76612241873565,
+            "alpha": 0.05402385603028725
+          }
+        }
+      }
+    }
+  },
+  "10340": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10340": {
+            "geo_lat": 43.7,
+            "geo_lon": 95.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.69065849867485,
+            "mag_lon": 169.76612241873565,
+            "alpha": 0.05402385603028725
+          }
+        }
+      }
+    }
+  },
+  "10341": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10341": {
+            "geo_lat": 45.0,
+            "geo_lon": 93.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.057364932938356,
+            "mag_lon": 167.90747997748062,
+            "alpha": 0.06321849920665187
+          }
+        }
+      }
+    }
+  },
+  "10342": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10342": {
+            "geo_lat": 45.0,
+            "geo_lon": 93.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.057364932938356,
+            "mag_lon": 167.90747997748062,
+            "alpha": 0.06321849920665187
+          }
+        }
+      }
+    }
+  },
+  "10343": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10343": {
+            "geo_lat": 47.9,
+            "geo_lon": 97.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.850717998085564,
+            "mag_lon": 171.18196036827106,
+            "alpha": 0.08716758845406963
+          }
+        }
+      }
+    }
+  },
+  "10344": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10344": {
+            "geo_lat": 47.9,
+            "geo_lon": 97.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.850717998085564,
+            "mag_lon": 171.18196036827106,
+            "alpha": 0.08716758845406963
+          }
+        }
+      }
+    }
+  },
+  "10345": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10345": {
+            "geo_lat": 47.9,
+            "geo_lon": 97.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.850717998085564,
+            "mag_lon": 171.18196036827106,
+            "alpha": 0.08716758845406963
+          }
+        }
+      }
+    }
+  },
+  "10347": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10347": {
+            "geo_lat": 47.9,
+            "geo_lon": 97.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.850717998085564,
+            "mag_lon": 171.18196036827106,
+            "alpha": 0.08716758845406963
+          }
+        }
+      }
+    }
+  },
+  "10348": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10348": {
+            "geo_lat": 45.5,
+            "geo_lon": 94.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.53090444157046,
+            "mag_lon": 168.6340794766916,
+            "alpha": 0.06675665620799269
+          }
+        }
+      }
+    }
+  },
+  "10349": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10349": {
+            "geo_lat": 44.8,
+            "geo_lon": 93.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.85425607648585,
+            "mag_lon": 167.98327445592028,
+            "alpha": 0.06175898362894395
+          }
+        }
+      }
+    }
+  },
+  "10350": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10350": {
+            "geo_lat": 44.8,
+            "geo_lon": 93.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.85425607648585,
+            "mag_lon": 167.98327445592028,
+            "alpha": 0.06175898362894395
+          }
+        }
+      }
+    }
+  },
+  "10351": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10351": {
+            "geo_lat": 44.8,
+            "geo_lon": 93.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.85425607648585,
+            "mag_lon": 167.98327445592028,
+            "alpha": 0.06175898362894395
+          }
+        }
+      }
+    }
+  },
+  "10352": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10352": {
+            "geo_lat": 44.8,
+            "geo_lon": 93.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.85425607648585,
+            "mag_lon": 167.98327445592028,
+            "alpha": 0.06175898362894395
+          }
+        }
+      }
+    }
+  },
+  "10353": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10353": {
+            "geo_lat": 45.4,
+            "geo_lon": 93.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.44377040671764,
+            "mag_lon": 168.2797582989327,
+            "alpha": 0.06609106718302321
+          }
+        }
+      }
+    }
+  },
+  "10354": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10354": {
+            "geo_lat": 45.9,
+            "geo_lon": 91.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.02759021969641,
+            "mag_lon": 166.22041682635748,
+            "alpha": 0.07068072290556152
+          }
+        }
+      }
+    }
+  },
+  "10355": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10355": {
+            "geo_lat": 44.2,
+            "geo_lon": 94.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.24178308024778,
+            "mag_lon": 168.2996752752431,
+            "alpha": 0.05755868604736628
+          }
+        }
+      }
+    }
+  },
+  "10356": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10356": {
+            "geo_lat": 44.2,
+            "geo_lon": 94.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.24178308024778,
+            "mag_lon": 168.2996752752431,
+            "alpha": 0.05755868604736628
+          }
+        }
+      }
+    }
+  },
+  "10357": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10357": {
+            "geo_lat": 47.7,
+            "geo_lon": 117.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.64804972244543,
+            "mag_lon": -171.27175432829523,
+            "alpha": 0.08515947865684015
+          }
+        }
+      }
+    }
+  },
+  "10358": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10358": {
+            "geo_lat": 38.7,
+            "geo_lon": 121.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.763382962846478,
+            "mag_lon": -167.57890683824274,
+            "alpha": 0.030654793371058017
+          }
+        }
+      }
+    }
+  },
+  "10389": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10389": {
+            "geo_lat": 38.3,
+            "geo_lon": 87.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.619202041031194,
+            "mag_lon": 162.05367128692697,
+            "alpha": 0.030150702851285845
+          }
+        }
+      }
+    }
+  },
+  "10397": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10397": {
+            "geo_lat": 39.1,
+            "geo_lon": 78.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.960211227104637,
+            "mag_lon": 153.92546847825,
+            "alpha": 0.035178119742840734
+          }
+        }
+      }
+    }
+  },
+  "10398": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10398": {
+            "geo_lat": 41.1,
+            "geo_lon": 74.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.255630832505624,
+            "mag_lon": 150.47040431577562,
+            "alpha": 0.04580519651628356
+          }
+        }
+      }
+    }
+  },
+  "10586": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10586": {
+            "geo_lat": 34.0,
+            "geo_lon": 118.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.982535456800193,
+            "mag_lon": -169.8196209252495,
+            "alpha": 0.017689859707540518
+          }
+        }
+      }
+    }
+  },
+  "10587": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10587": {
+            "geo_lat": 46.4,
+            "geo_lon": 117.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.3369946212478,
+            "mag_lon": -171.64642180183967,
+            "alpha": 0.07324092734417842
+          }
+        }
+      }
+    }
+  },
+  "10591": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10591": {
+            "geo_lat": 35.8,
+            "geo_lon": 106.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.62712691150263,
+            "mag_lon": 178.8590507931032,
+            "alpha": 0.021372810884606058
+          }
+        }
+      }
+    }
+  },
+  "10592": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10592": {
+            "geo_lat": 43.2,
+            "geo_lon": 84.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.65849637092233,
+            "mag_lon": 159.86422979310277,
+            "alpha": 0.05382441004924176
+          }
+        }
+      }
+    }
+  },
+  "10605": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10605": {
+            "geo_lat": 45.3,
+            "geo_lon": 122.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.405495371932304,
+            "mag_lon": -166.7166215925635,
+            "alpha": 0.06580079812205449
+          }
+        }
+      }
+    }
+  },
+  "10606": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10606": {
+            "geo_lat": 41.3,
+            "geo_lon": 72.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.55844923986014,
+            "mag_lon": 149.3307732769056,
+            "alpha": 0.04742842168365781
+          }
+        }
+      }
+    }
+  },
+  "10607": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10607": {
+            "geo_lat": 41.3,
+            "geo_lon": 72.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.55844923986014,
+            "mag_lon": 149.3307732769056,
+            "alpha": 0.04742842168365781
+          }
+        }
+      }
+    }
+  },
+  "10608": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10608": {
+            "geo_lat": 41.2,
+            "geo_lon": 73.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.434724172828005,
+            "mag_lon": 149.586747116427,
+            "alpha": 0.046758370127774646
+          }
+        }
+      }
+    }
+  },
+  "10609": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10609": {
+            "geo_lat": 41.2,
+            "geo_lon": 73.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.434724172828005,
+            "mag_lon": 149.586747116427,
+            "alpha": 0.046758370127774646
+          }
+        }
+      }
+    }
+  },
+  "10611": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10611": {
+            "geo_lat": 39.6,
+            "geo_lon": 92.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.69479371372948,
+            "mag_lon": 166.80589865210067,
+            "alpha": 0.03412059896327589
+          }
+        }
+      }
+    }
+  },
+  "10612": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10612": {
+            "geo_lat": 30.5,
+            "geo_lon": 87.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 21.84363796123816,
+            "mag_lon": 161.3439159317562,
+            "alpha": 0.012329790988126
+          }
+        }
+      }
+    }
+  },
+  "10618": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10618": {
+            "geo_lat": 38.3,
+            "geo_lon": 86.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.679872276195177,
+            "mag_lon": 160.97231440658237,
+            "alpha": 0.03036180219986317
+          }
+        }
+      }
+    }
+  },
+  "10619": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10619": {
+            "geo_lat": 38.3,
+            "geo_lon": 86.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.679872276195177,
+            "mag_lon": 160.97231440658237,
+            "alpha": 0.03036180219986317
+          }
+        }
+      }
+    }
+  },
+  "10620": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10620": {
+            "geo_lat": 39.1,
+            "geo_lon": 87.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.412734410210795,
+            "mag_lon": 162.2015568797799,
+            "alpha": 0.033031592671391295
+          }
+        }
+      }
+    }
+  },
+  "10621": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10621": {
+            "geo_lat": 39.1,
+            "geo_lon": 87.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.412734410210795,
+            "mag_lon": 162.2015568797799,
+            "alpha": 0.033031592671391295
+          }
+        }
+      }
+    }
+  },
+  "10622": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10622": {
+            "geo_lat": 39.3,
+            "geo_lon": 86.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.662225637071366,
+            "mag_lon": 161.318639797147,
+            "alpha": 0.03399304511542628
+          }
+        }
+      }
+    }
+  },
+  "10623": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10623": {
+            "geo_lat": 39.3,
+            "geo_lon": 86.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.662225637071366,
+            "mag_lon": 161.318639797147,
+            "alpha": 0.03399304511542628
+          }
+        }
+      }
+    }
+  },
+  "10642": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10642": {
+            "geo_lat": 42.2,
+            "geo_lon": 86.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.565841889501705,
+            "mag_lon": 161.37082836188677,
+            "alpha": 0.04746876032429523
+          }
+        }
+      }
+    }
+  },
+  "10643": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10643": {
+            "geo_lat": 40.5,
+            "geo_lon": 85.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.890495479942516,
+            "mag_lon": 160.87585282289905,
+            "alpha": 0.03915025673701181
+          }
+        }
+      }
+    }
+  },
+  "10644": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10644": {
+            "geo_lat": 37.7,
+            "geo_lon": 81.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.33951121613596,
+            "mag_lon": 156.85852377621123,
+            "alpha": 0.02919635258079835
+          }
+        }
+      }
+    }
+  },
+  "10664": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10664": {
+            "geo_lat": 36.3,
+            "geo_lon": 115.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.204514763420427,
+            "mag_lon": -172.8069559759138,
+            "alpha": 0.02284013276943242
+          }
+        }
+      }
+    }
+  },
+  "10665": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10665": {
+            "geo_lat": 31.0,
+            "geo_lon": 86.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.40561606094407,
+            "mag_lon": 160.26565750608486,
+            "alpha": 0.013152947092452311
+          }
+        }
+      }
+    }
+  },
+  "10701": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10701": {
+            "geo_lat": 41.8,
+            "geo_lon": 83.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.33033558367434,
+            "mag_lon": 158.67100221536103,
+            "alpha": 0.04620040628619681
+          }
+        }
+      }
+    }
+  },
+  "10707": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10707": {
+            "geo_lat": 38.3,
+            "geo_lon": 82.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.87625000209325,
+            "mag_lon": 157.81591838057994,
+            "alpha": 0.031055277143182455
+          }
+        }
+      }
+    }
+  },
+  "10708": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10708": {
+            "geo_lat": 38.3,
+            "geo_lon": 82.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.87625000209325,
+            "mag_lon": 157.81591838057994,
+            "alpha": 0.031055277143182455
+          }
+        }
+      }
+    }
+  },
+  "10715": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10715": {
+            "geo_lat": 41.9,
+            "geo_lon": 72.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.16302317564126,
+            "mag_lon": 149.31985471683728,
+            "alpha": 0.05084326499256761
+          }
+        }
+      }
+    }
+  },
+  "10728": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10728": {
+            "geo_lat": 36.2,
+            "geo_lon": 86.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.573960691829328,
+            "mag_lon": 160.99710485372273,
+            "alpha": 0.02383143433392161
+          }
+        }
+      }
+    }
+  },
+  "10063": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10063": {
+            "geo_lat": 33.4,
+            "geo_lon": 112.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.258798205284393,
+            "mag_lon": -175.29205751342698,
+            "alpha": 0.016277142020673027
+          }
+        }
+      }
+    }
+  },
+  "10077": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10077": {
+            "geo_lat": 42.3,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.587145052254094,
+            "mag_lon": 162.79718184485026,
+            "alpha": 0.04758519488404873
+          }
+        }
+      }
+    }
+  },
+  "10078": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10078": {
+            "geo_lat": 42.1,
+            "geo_lon": 87.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.392282645280844,
+            "mag_lon": 162.6932254491012,
+            "alpha": 0.04653070904586227
+          }
+        }
+      }
+    }
+  },
+  "10079": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10079": {
+            "geo_lat": 41.5,
+            "geo_lon": 87.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.80305986285751,
+            "mag_lon": 162.46976075079277,
+            "alpha": 0.04348220979565193
+          }
+        }
+      }
+    }
+  },
+  "10080": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10080": {
+            "geo_lat": 42.0,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.287753333664824,
+            "mag_lon": 162.77430012063033,
+            "alpha": 0.045974717846823006
+          }
+        }
+      }
+    }
+  },
+  "10082": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10082": {
+            "geo_lat": 41.6,
+            "geo_lon": 87.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.89806491179298,
+            "mag_lon": 162.5662799790861,
+            "alpha": 0.04395988286085721
+          }
+        }
+      }
+    }
+  },
+  "10083": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10083": {
+            "geo_lat": 40.8,
+            "geo_lon": 88.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.057506322430996,
+            "mag_lon": 163.30846834258256,
+            "alpha": 0.039909453556776144
+          }
+        }
+      }
+    }
+  },
+  "10084": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10084": {
+            "geo_lat": 41.2,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.489355264749584,
+            "mag_lon": 162.71403951434058,
+            "alpha": 0.04194150273596498
+          }
+        }
+      }
+    }
+  },
+  "10085": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10085": {
+            "geo_lat": 41.2,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.489355264749584,
+            "mag_lon": 162.71403951434058,
+            "alpha": 0.04194150273596498
+          }
+        }
+      }
+    }
+  },
+  "10102": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10102": {
+            "geo_lat": 42.9,
+            "geo_lon": 71.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.28090597962284,
+            "mag_lon": 148.11712128238804,
+            "alpha": 0.057818233687756036
+          }
+        }
+      }
+    }
+  },
+  "10107": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10107": {
+            "geo_lat": 34.5,
+            "geo_lon": 118.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.471193097442608,
+            "mag_lon": -170.20340225182227,
+            "alpha": 0.018712414979203767
+          }
+        }
+      }
+    }
+  },
+  "10111": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10111": {
+            "geo_lat": 43.4,
+            "geo_lon": 123.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.52298872909914,
+            "mag_lon": -166.24430342568638,
+            "alpha": 0.05299214546767016
+          }
+        }
+      }
+    }
+  },
+  "10112": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10112": {
+            "geo_lat": 47.7,
+            "geo_lon": 117.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.64564197099032,
+            "mag_lon": -171.35787122262258,
+            "alpha": 0.08513590199233377
+          }
+        }
+      }
+    }
+  },
+  "10113": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10113": {
+            "geo_lat": 45.6,
+            "geo_lon": 121.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.65287172388735,
+            "mag_lon": -168.04308745352955,
+            "alpha": 0.06769959842705185
+          }
+        }
+      }
+    }
+  },
+  "10114": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10114": {
+            "geo_lat": 46.5,
+            "geo_lon": 116.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.43463471996143,
+            "mag_lon": -171.73729440325724,
+            "alpha": 0.07406795575327102
+          }
+        }
+      }
+    }
+  },
+  "10115": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10115": {
+            "geo_lat": 47.6,
+            "geo_lon": 114.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.487894068249524,
+            "mag_lon": -173.7651950264338,
+            "alpha": 0.08360537546538543
+          }
+        }
+      }
+    }
+  },
+  "10116": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10116": {
+            "geo_lat": 47.9,
+            "geo_lon": 121.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.977099290377325,
+            "mag_lon": -167.49376335724796,
+            "alpha": 0.08844372007725992
+          }
+        }
+      }
+    }
+  },
+  "10117": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10117": {
+            "geo_lat": 45.3,
+            "geo_lon": 122.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.412869838669174,
+            "mag_lon": -166.54206178367835,
+            "alpha": 0.06585662505776285
+          }
+        }
+      }
+    }
+  },
+  "10118": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10118": {
+            "geo_lat": 45.7,
+            "geo_lon": 122.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.80494962680046,
+            "mag_lon": -166.7426415550235,
+            "alpha": 0.06889400796297242
+          }
+        }
+      }
+    }
+  },
+  "10119": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10119": {
+            "geo_lat": 47.5,
+            "geo_lon": 120.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.525273818053655,
+            "mag_lon": -168.84797424685001,
+            "alpha": 0.0839655410494654
+          }
+        }
+      }
+    }
+  },
+  "10120": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10120": {
+            "geo_lat": 47.8,
+            "geo_lon": 122.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.887700874835275,
+            "mag_lon": -167.22862411271305,
+            "alpha": 0.08753910436912486
+          }
+        }
+      }
+    }
+  },
+  "10121": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10121": {
+            "geo_lat": 46.9,
+            "geo_lon": 119.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 37.913709520770894,
+            "mag_lon": -169.15936461480163,
+            "alpha": 0.07826312874914615
+          }
+        }
+      }
+    }
+  },
+  "10231": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10231": {
+            "geo_lat": 45.0,
+            "geo_lon": 92.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.08132905826468,
+            "mag_lon": 167.2958376054425,
+            "alpha": 0.06339296173901038
+          }
+        }
+      }
+    }
+  },
+  "10234": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10234": {
+            "geo_lat": 30.8,
+            "geo_lon": 88.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.098241596166233,
+            "mag_lon": 162.19616918369164,
+            "alpha": 0.012696137121793752
+          }
+        }
+      }
+    }
+  },
+  "10235": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10235": {
+            "geo_lat": 33.3,
+            "geo_lon": 87.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.628569233075197,
+            "mag_lon": 161.70976050181048,
+            "alpha": 0.016984233317649925
+          }
+        }
+      }
+    }
+  },
+  "10236": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10236": {
+            "geo_lat": 33.7,
+            "geo_lon": 86.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.06859932458552,
+            "mag_lon": 161.00291270580564,
+            "alpha": 0.017865811640606917
+          }
+        }
+      }
+    }
+  },
+  "10240": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10240": {
+            "geo_lat": 40.8,
+            "geo_lon": 73.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.00485821454844,
+            "mag_lon": 149.8946477611836,
+            "alpha": 0.04450309310228156
+          }
+        }
+      }
+    }
+  },
+  "10257": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10257": {
+            "geo_lat": 47.4,
+            "geo_lon": 101.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.270557807406924,
+            "mag_lon": 174.69384477051847,
+            "alpha": 0.08154166754761558
+          }
+        }
+      }
+    }
+  },
+  "10258": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10258": {
+            "geo_lat": 47.4,
+            "geo_lon": 101.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.270557807406924,
+            "mag_lon": 174.69384477051847,
+            "alpha": 0.08154166754761558
+          }
+        }
+      }
+    }
+  },
+  "10259": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10259": {
+            "geo_lat": 47.4,
+            "geo_lon": 101.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.270557807406924,
+            "mag_lon": 174.69384477051847,
+            "alpha": 0.08154166754761558
+          }
+        }
+      }
+    }
+  },
+  "10260": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10260": {
+            "geo_lat": 47.4,
+            "geo_lon": 101.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.270557807406924,
+            "mag_lon": 174.69384477051847,
+            "alpha": 0.08154166754761558
+          }
+        }
+      }
+    }
+  },
+  "10261": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10261": {
+            "geo_lat": 45.1,
+            "geo_lon": 93.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.147344012118985,
+            "mag_lon": 168.17530233750196,
+            "alpha": 0.06387605476826805
+          }
+        }
+      }
+    }
+  },
+  "10262": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10262": {
+            "geo_lat": 45.1,
+            "geo_lon": 93.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.147344012118985,
+            "mag_lon": 168.17530233750196,
+            "alpha": 0.06387605476826805
+          }
+        }
+      }
+    }
+  },
+  "10263": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10263": {
+            "geo_lat": 45.1,
+            "geo_lon": 93.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.147344012118985,
+            "mag_lon": 168.17530233750196,
+            "alpha": 0.06387605476826805
+          }
+        }
+      }
+    }
+  },
+  "10264": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10264": {
+            "geo_lat": 45.1,
+            "geo_lon": 93.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.147344012118985,
+            "mag_lon": 168.17530233750196,
+            "alpha": 0.06387605476826805
+          }
+        }
+      }
+    }
+  },
+  "10291": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10291": {
+            "geo_lat": 43.4,
+            "geo_lon": 72.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.66196931359751,
+            "mag_lon": 149.43274828839918,
+            "alpha": 0.060408297483709406
+          }
+        }
+      }
+    }
+  },
+  "10292": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10292": {
+            "geo_lat": 44.1,
+            "geo_lon": 72.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.373771047458966,
+            "mag_lon": 149.35252999909153,
+            "alpha": 0.06556117462164847
+          }
+        }
+      }
+    }
+  },
+  "10293": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10293": {
+            "geo_lat": 43.0,
+            "geo_lon": 72.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.26445574864263,
+            "mag_lon": 149.3780750240025,
+            "alpha": 0.05770895790364092
+          }
+        }
+      }
+    }
+  },
+  "10294": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10294": {
+            "geo_lat": 44.1,
+            "geo_lon": 73.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.31739627831888,
+            "mag_lon": 149.97269551400464,
+            "alpha": 0.0651375098860063
+          }
+        }
+      }
+    }
+  },
+  "10295": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10295": {
+            "geo_lat": 42.8,
+            "geo_lon": 72.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.08198907740443,
+            "mag_lon": 149.1727431745873,
+            "alpha": 0.05651062897447921
+          }
+        }
+      }
+    }
+  },
+  "10296": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10296": {
+            "geo_lat": 43.6,
+            "geo_lon": 73.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.82847871446829,
+            "mag_lon": 149.81541652097926,
+            "alpha": 0.06157617659602402
+          }
+        }
+      }
+    }
+  },
+  "10333": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10333": {
+            "geo_lat": 44.4,
+            "geo_lon": 96.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.368295155284585,
+            "mag_lon": 170.50028679628625,
+            "alpha": 0.058402222338858195
+          }
+        }
+      }
+    }
+  },
+  "10334": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10334": {
+            "geo_lat": 44.4,
+            "geo_lon": 96.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.368295155284585,
+            "mag_lon": 170.50028679628625,
+            "alpha": 0.058402222338858195
+          }
+        }
+      }
+    }
+  },
+  "10335": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10335": {
+            "geo_lat": 45.1,
+            "geo_lon": 93.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 36.15725315284303,
+            "mag_lon": 167.9133307129463,
+            "alpha": 0.06394888629180454
+          }
+        }
+      }
+    }
+  },
+  "10346": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10346": {
+            "geo_lat": 47.9,
+            "geo_lon": 97.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.850717998085564,
+            "mag_lon": 171.18196036827106,
+            "alpha": 0.08716758845406963
+          }
+        }
+      }
+    }
+  },
+  "10359": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10359": {
+            "geo_lat": 33.7,
+            "geo_lon": 111.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.551374380071167,
+            "mag_lon": -175.84597265791209,
+            "alpha": 0.016834124621196357
+          }
+        }
+      }
+    }
+  },
+  "10360": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10360": {
+            "geo_lat": 40.2,
+            "geo_lon": 75.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.27506673824493,
+            "mag_lon": 151.34831610658816,
+            "alpha": 0.040920561991558364
+          }
+        }
+      }
+    }
+  },
+  "10361": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10361": {
+            "geo_lat": 40.2,
+            "geo_lon": 75.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.27506673824493,
+            "mag_lon": 151.34831610658816,
+            "alpha": 0.040920561991558364
+          }
+        }
+      }
+    }
+  },
+  "10362": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10362": {
+            "geo_lat": 39.8,
+            "geo_lon": 76.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.801600601917315,
+            "mag_lon": 152.2011540091179,
+            "alpha": 0.03875206595013995
+          }
+        }
+      }
+    }
+  },
+  "10363": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10363": {
+            "geo_lat": 40.2,
+            "geo_lon": 75.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.25222975353155,
+            "mag_lon": 151.6179444409856,
+            "alpha": 0.04081323522827989
+          }
+        }
+      }
+    }
+  },
+  "10364": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10364": {
+            "geo_lat": 40.2,
+            "geo_lon": 75.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.25222975353155,
+            "mag_lon": 151.6179444409856,
+            "alpha": 0.04081323522827989
+          }
+        }
+      }
+    }
+  },
+  "10399": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10399": {
+            "geo_lat": 39.1,
+            "geo_lon": 78.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.960211227104637,
+            "mag_lon": 153.92546847825,
+            "alpha": 0.035178119742840734
+          }
+        }
+      }
+    }
+  },
+  "10400": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10400": {
+            "geo_lat": 39.1,
+            "geo_lon": 78.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.960211227104637,
+            "mag_lon": 153.92546847825,
+            "alpha": 0.035178119742840734
+          }
+        }
+      }
+    }
+  },
+  "10401": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10401": {
+            "geo_lat": 39.1,
+            "geo_lon": 78.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.960211227104637,
+            "mag_lon": 153.92546847825,
+            "alpha": 0.035178119742840734
+          }
+        }
+      }
+    }
+  },
+  "10402": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10402": {
+            "geo_lat": 39.5,
+            "geo_lon": 78.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.316988631018305,
+            "mag_lon": 154.5076312100018,
+            "alpha": 0.03665147571390145
+          }
+        }
+      }
+    }
+  },
+  "10403": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10403": {
+            "geo_lat": 39.5,
+            "geo_lon": 78.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.316988631018305,
+            "mag_lon": 154.5076312100018,
+            "alpha": 0.03665147571390145
+          }
+        }
+      }
+    }
+  },
+  "10404": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10404": {
+            "geo_lat": 39.5,
+            "geo_lon": 77.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.386740947363272,
+            "mag_lon": 153.60777840033936,
+            "alpha": 0.03694665845047186
+          }
+        }
+      }
+    }
+  },
+  "10405": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10405": {
+            "geo_lat": 39.5,
+            "geo_lon": 77.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.386740947363272,
+            "mag_lon": 153.60777840033936,
+            "alpha": 0.03694665845047186
+          }
+        }
+      }
+    }
+  },
+  "10406": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10406": {
+            "geo_lat": 39.5,
+            "geo_lon": 77.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.386740947363272,
+            "mag_lon": 153.60777840033936,
+            "alpha": 0.03694665845047186
+          }
+        }
+      }
+    }
+  },
+  "10407": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10407": {
+            "geo_lat": 39.5,
+            "geo_lon": 77.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.386740947363272,
+            "mag_lon": 153.60777840033936,
+            "alpha": 0.03694665845047186
+          }
+        }
+      }
+    }
+  },
+  "10409": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10409": {
+            "geo_lat": 39.3,
+            "geo_lon": 77.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.216136257548627,
+            "mag_lon": 153.22596352449239,
+            "alpha": 0.03622884662584248
+          }
+        }
+      }
+    }
+  },
+  "10410": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10410": {
+            "geo_lat": 39.3,
+            "geo_lon": 77.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.216136257548627,
+            "mag_lon": 153.22596352449239,
+            "alpha": 0.03622884662584248
+          }
+        }
+      }
+    }
+  },
+  "10411": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10411": {
+            "geo_lat": 39.3,
+            "geo_lon": 77.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.216136257548627,
+            "mag_lon": 153.22596352449239,
+            "alpha": 0.03622884662584248
+          }
+        }
+      }
+    }
+  },
+  "10412": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10412": {
+            "geo_lat": 39.3,
+            "geo_lon": 77.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.216136257548627,
+            "mag_lon": 153.22596352449239,
+            "alpha": 0.03622884662584248
+          }
+        }
+      }
+    }
+  },
+  "10413": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10413": {
+            "geo_lat": 39.3,
+            "geo_lon": 77.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.216136257548627,
+            "mag_lon": 153.22596352449239,
+            "alpha": 0.03622884662584248
+          }
+        }
+      }
+    }
+  },
+  "10414": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10414": {
+            "geo_lat": 39.4,
+            "geo_lon": 77.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.322895298357935,
+            "mag_lon": 153.14676681003274,
+            "alpha": 0.03667638029994547
+          }
+        }
+      }
+    }
+  },
+  "10415": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10415": {
+            "geo_lat": 44.1,
+            "geo_lon": 103.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.94619000084113,
+            "mag_lon": 176.35833305620156,
+            "alpha": 0.05563496386435968
+          }
+        }
+      }
+    }
+  },
+  "10416": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10416": {
+            "geo_lat": 44.1,
+            "geo_lon": 103.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.94619000084113,
+            "mag_lon": 176.35833305620156,
+            "alpha": 0.05563496386435968
+          }
+        }
+      }
+    }
+  },
+  "10418": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10418": {
+            "geo_lat": 39.4,
+            "geo_lon": 115.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.30157562388925,
+            "mag_lon": -172.98533420680866,
+            "alpha": 0.03261202863160707
+          }
+        }
+      }
+    }
+  },
+  "10420": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10420": {
+            "geo_lat": 39.5,
+            "geo_lon": 75.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.563268891131756,
+            "mag_lon": 151.4463155290156,
+            "alpha": 0.03770436696949111
+          }
+        }
+      }
+    }
+  },
+  "10421": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10421": {
+            "geo_lat": 39.5,
+            "geo_lon": 75.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.563268891131756,
+            "mag_lon": 151.4463155290156,
+            "alpha": 0.03770436696949111
+          }
+        }
+      }
+    }
+  },
+  "10425": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10425": {
+            "geo_lat": 36.8,
+            "geo_lon": 78.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.64130533614685,
+            "mag_lon": 154.05238917889756,
+            "alpha": 0.026943716431977006
+          }
+        }
+      }
+    }
+  },
+  "10426": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10426": {
+            "geo_lat": 38.1,
+            "geo_lon": 78.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.929366193557485,
+            "mag_lon": 154.27353657255964,
+            "alpha": 0.031245554568616635
+          }
+        }
+      }
+    }
+  },
+  "10427": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10427": {
+            "geo_lat": 39.0,
+            "geo_lon": 77.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.91742728352628,
+            "mag_lon": 153.19350600222108,
+            "alpha": 0.03500546309038168
+          }
+        }
+      }
+    }
+  },
+  "10428": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10428": {
+            "geo_lat": 36.7,
+            "geo_lon": 76.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.700701527850434,
+            "mag_lon": 152.04122340863378,
+            "alpha": 0.02712838714318049
+          }
+        }
+      }
+    }
+  },
+  "10429": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10429": {
+            "geo_lat": 36.7,
+            "geo_lon": 76.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.715697263263692,
+            "mag_lon": 151.85919568614634,
+            "alpha": 0.027175210668700885
+          }
+        }
+      }
+    }
+  },
+  "10438": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10438": {
+            "geo_lat": 43.2,
+            "geo_lon": 75.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.26703785581298,
+            "mag_lon": 151.62710730728477,
+            "alpha": 0.05772609668023866
+          }
+        }
+      }
+    }
+  },
+  "10441": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10441": {
+            "geo_lat": 34.2,
+            "geo_lon": 81.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.85651020962814,
+            "mag_lon": 156.4590639697142,
+            "alpha": 0.01956023490724161
+          }
+        }
+      }
+    }
+  },
+  "10442": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10442": {
+            "geo_lat": 33.8,
+            "geo_lon": 78.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.638354981034894,
+            "mag_lon": 153.94625326120644,
+            "alpha": 0.019075615095662017
+          }
+        }
+      }
+    }
+  },
+  "10445": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10445": {
+            "geo_lat": 41.1,
+            "geo_lon": 74.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.255630832505624,
+            "mag_lon": 150.47040431577562,
+            "alpha": 0.04580519651628356
+          }
+        }
+      }
+    }
+  },
+  "10446": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10446": {
+            "geo_lat": 37.0,
+            "geo_lon": 121.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.058142208500016,
+            "mag_lon": -167.67509540220158,
+            "alpha": 0.02519602777149548
+          }
+        }
+      }
+    }
+  },
+  "10447": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10447": {
+            "geo_lat": 37.0,
+            "geo_lon": 121.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.058142208500016,
+            "mag_lon": -167.67509540220158,
+            "alpha": 0.02519602777149548
+          }
+        }
+      }
+    }
+  },
+  "10448": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10448": {
+            "geo_lat": 37.0,
+            "geo_lon": 120.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.02533761545579,
+            "mag_lon": -168.5791910598662,
+            "alpha": 0.025101154115488616
+          }
+        }
+      }
+    }
+  },
+  "10449": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10449": {
+            "geo_lat": 37.0,
+            "geo_lon": 120.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.02533761545579,
+            "mag_lon": -168.5791910598662,
+            "alpha": 0.025101154115488616
+          }
+        }
+      }
+    }
+  },
+  "10584": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10584": {
+            "geo_lat": 40.0,
+            "geo_lon": 104.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.839120442620228,
+            "mag_lon": 177.00476909691324,
+            "alpha": 0.03469164399526738
+          }
+        }
+      }
+    }
+  },
+  "10585": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10585": {
+            "geo_lat": 33.1,
+            "geo_lon": 80.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.85825870341955,
+            "mag_lon": 154.9857265573047,
+            "alpha": 0.017438837356028285
+          }
+        }
+      }
+    }
+  },
+  "10589": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10589": {
+            "geo_lat": 36.9,
+            "geo_lon": 81.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.54200473683867,
+            "mag_lon": 156.78640195816152,
+            "alpha": 0.026637780955497375
+          }
+        }
+      }
+    }
+  },
+  "10593": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10593": {
+            "geo_lat": 37.0,
+            "geo_lon": 84.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.47493327598925,
+            "mag_lon": 159.33416621605815,
+            "alpha": 0.026433108301141036
+          }
+        }
+      }
+    }
+  },
+  "10628": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10628": {
+            "geo_lat": 48.0,
+            "geo_lon": 66.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 40.77302908833379,
+            "mag_lon": 144.60706927871428,
+            "alpha": 0.10873332720507745
+          }
+        }
+      }
+    }
+  },
+  "10635": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10635": {
+            "geo_lat": 43.7,
+            "geo_lon": 87.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.99366947022254,
+            "mag_lon": 162.73000121149013,
+            "alpha": 0.0559395693364793
+          }
+        }
+      }
+    }
+  },
+  "10636": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10636": {
+            "geo_lat": 43.7,
+            "geo_lon": 87.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.99366947022254,
+            "mag_lon": 162.73000121149013,
+            "alpha": 0.0559395693364793
+          }
+        }
+      }
+    }
+  },
+  "10648": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10648": {
+            "geo_lat": 32.8,
+            "geo_lon": 115.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.70965333828967,
+            "mag_lon": -172.5287670662275,
+            "alpha": 0.015280998583148677
+          }
+        }
+      }
+    }
+  },
+  "10649": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10649": {
+            "geo_lat": 42.8,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.96183059214437,
+            "mag_lon": 150.50864056039575,
+            "alpha": 0.055735122742818506
+          }
+        }
+      }
+    }
+  },
+  "10658": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10658": {
+            "geo_lat": 43.1,
+            "geo_lon": 78.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.91571048010779,
+            "mag_lon": 154.72046130551897,
+            "alpha": 0.055440296623130186
+          }
+        }
+      }
+    }
+  },
+  "10659": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10659": {
+            "geo_lat": 42.5,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.7867371802464,
+            "mag_lon": 162.81252467752964,
+            "alpha": 0.0486900538284669
+          }
+        }
+      }
+    }
+  },
+  "10674": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10674": {
+            "geo_lat": 41.7,
+            "geo_lon": 72.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.98054566558786,
+            "mag_lon": 149.11451289866656,
+            "alpha": 0.04978744040613284
+          }
+        }
+      }
+    }
+  },
+  "10675": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10675": {
+            "geo_lat": 47.9,
+            "geo_lon": 65.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 40.72042773431692,
+            "mag_lon": 144.15099934710238,
+            "alpha": 0.10807756777283763
+          }
+        }
+      }
+    }
+  },
+  "10676": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10676": {
+            "geo_lat": 46.1,
+            "geo_lon": 66.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.853629538423924,
+            "mag_lon": 144.62328144204923,
+            "alpha": 0.08719677941500778
+          }
+        }
+      }
+    }
+  },
+  "10677": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10677": {
+            "geo_lat": 45.2,
+            "geo_lon": 66.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 38.017496411726974,
+            "mag_lon": 143.9395972276687,
+            "alpha": 0.07920283450215619
+          }
+        }
+      }
+    }
+  },
+  "10678": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10678": {
+            "geo_lat": 31.5,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.80688413150176,
+            "mag_lon": 162.05458487126964,
+            "alpha": 0.013774122837082431
+          }
+        }
+      }
+    }
+  },
+  "10694": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10694": {
+            "geo_lat": 32.0,
+            "geo_lon": 106.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.826845949237907,
+            "mag_lon": 178.93493383798747,
+            "alpha": 0.013805779159348427
+          }
+        }
+      }
+    }
+  },
+  "10702": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10702": {
+            "geo_lat": 41.7,
+            "geo_lon": 85.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.08762273331457,
+            "mag_lon": 160.97423801088166,
+            "alpha": 0.04492869216285722
+          }
+        }
+      }
+    }
+  },
+  "10709": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10709": {
+            "geo_lat": 36.4,
+            "geo_lon": 85.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.82120407155091,
+            "mag_lon": 160.1945195777398,
+            "alpha": 0.024518758269014288
+          }
+        }
+      }
+    }
+  },
+  "10710": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10710": {
+            "geo_lat": 36.4,
+            "geo_lon": 85.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.82120407155091,
+            "mag_lon": 160.1945195777398,
+            "alpha": 0.024518758269014288
+          }
+        }
+      }
+    }
+  },
+  "10711": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10711": {
+            "geo_lat": 36.7,
+            "geo_lon": 85.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.12593408583094,
+            "mag_lon": 160.12664711771217,
+            "alpha": 0.02539322534811356
+          }
+        }
+      }
+    }
+  },
+  "10712": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10712": {
+            "geo_lat": 36.7,
+            "geo_lon": 85.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.12593408583094,
+            "mag_lon": 160.12664711771217,
+            "alpha": 0.02539322534811356
+          }
+        }
+      }
+    }
+  },
+  "10716": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10716": {
+            "geo_lat": 41.7,
+            "geo_lon": 71.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.07186809182185,
+            "mag_lon": 148.12968570333067,
+            "alpha": 0.05031306729579125
+          }
+        }
+      }
+    }
+  },
+  "10729": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10729": {
+            "geo_lat": 39.9,
+            "geo_lon": 83.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.447708330780472,
+            "mag_lon": 158.31848215970274,
+            "alpha": 0.03720661090684727
+          }
+        }
+      }
+    }
+  },
+  "10646": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10646": {
+            "geo_lat": 41.0,
+            "geo_lon": 81.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.6349854434554,
+            "mag_lon": 157.07937017515462,
+            "alpha": 0.042649831620677855
+          }
+        }
+      }
+    }
+  },
+  "10647": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10647": {
+            "geo_lat": 40.2,
+            "geo_lon": 74.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.33692989685028,
+            "mag_lon": 150.62908746816402,
+            "alpha": 0.04121271965249233
+          }
+        }
+      }
+    }
+  },
+  "10660": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10660": {
+            "geo_lat": 36.2,
+            "geo_lon": 88.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.465545389588648,
+            "mag_lon": 162.99516268056286,
+            "alpha": 0.02353615430119467
+          }
+        }
+      }
+    }
+  },
+  "10661": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10661": {
+            "geo_lat": 36.0,
+            "geo_lon": 87.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.299136661129786,
+            "mag_lon": 162.34606600992421,
+            "alpha": 0.0230900252296145
+          }
+        }
+      }
+    }
+  },
+  "10690": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10690": {
+            "geo_lat": 34.7,
+            "geo_lon": 86.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.056339048236026,
+            "mag_lon": 161.25504168101085,
+            "alpha": 0.020014939917113846
+          }
+        }
+      }
+    }
+  },
+  "10691": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10691": {
+            "geo_lat": 37.2,
+            "geo_lon": 86.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.546304579050165,
+            "mag_lon": 161.52286352679496,
+            "alpha": 0.026650956111988724
+          }
+        }
+      }
+    }
+  },
+  "10692": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10692": {
+            "geo_lat": 37.2,
+            "geo_lon": 86.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.546304579050165,
+            "mag_lon": 161.52286352679496,
+            "alpha": 0.026650956111988724
+          }
+        }
+      }
+    }
+  },
+  "10693": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10693": {
+            "geo_lat": 36.0,
+            "geo_lon": 84.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.500176374691407,
+            "mag_lon": 158.89086485896357,
+            "alpha": 0.02363007542449751
+          }
+        }
+      }
+    }
+  },
+  "10696": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10696": {
+            "geo_lat": 40.4,
+            "geo_lon": 85.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.79073146889675,
+            "mag_lon": 160.8677705872514,
+            "alpha": 0.03870365805381688
+          }
+        }
+      }
+    }
+  },
+  "10697": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10697": {
+            "geo_lat": 36.8,
+            "geo_lon": 80.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.49983609320121,
+            "mag_lon": 155.9602736387548,
+            "alpha": 0.02650891656949993
+          }
+        }
+      }
+    }
+  },
+  "10698": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10698": {
+            "geo_lat": 26.1,
+            "geo_lon": 98.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.036859018643014,
+            "mag_lon": 171.30938666506918,
+            "alpha": 0.00709392502243834
+          }
+        }
+      }
+    }
+  },
+  "10699": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10699": {
+            "geo_lat": 37.6,
+            "geo_lon": 81.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.24610528194917,
+            "mag_lon": 156.75893217405164,
+            "alpha": 0.028884413010509254
+          }
+        }
+      }
+    }
+  },
+  "10700": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10700": {
+            "geo_lat": 37.6,
+            "geo_lon": 81.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.24610528194917,
+            "mag_lon": 156.75893217405164,
+            "alpha": 0.028884413010509254
+          }
+        }
+      }
+    }
+  },
+  "10086": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10086": {
+            "geo_lat": 27.7,
+            "geo_lon": 82.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.349055208927098,
+            "mag_lon": 156.30404473936454,
+            "alpha": 0.00925479086713859
+          }
+        }
+      }
+    }
+  },
+  "10087": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10087": {
+            "geo_lat": 27.9,
+            "geo_lon": 82.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.523104798046134,
+            "mag_lon": 156.6935331364756,
+            "alpha": 0.009441898306914368
+          }
+        }
+      }
+    }
+  },
+  "10088": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10088": {
+            "geo_lat": 27.9,
+            "geo_lon": 82.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.523104798046134,
+            "mag_lon": 156.6935331364756,
+            "alpha": 0.009441898306914368
+          }
+        }
+      }
+    }
+  },
+  "10089": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10089": {
+            "geo_lat": 27.8,
+            "geo_lon": 82.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.423359740378785,
+            "mag_lon": 156.68596409776026,
+            "alpha": 0.009334212095306821
+          }
+        }
+      }
+    }
+  },
+  "10090": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10090": {
+            "geo_lat": 27.8,
+            "geo_lon": 82.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.442398730270043,
+            "mag_lon": 156.40528386536994,
+            "alpha": 0.009354671591520088
+          }
+        }
+      }
+    }
+  },
+  "10091": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10091": {
+            "geo_lat": 27.7,
+            "geo_lon": 82.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.329938746156984,
+            "mag_lon": 156.58481717368826,
+            "alpha": 0.009234467545168757
+          }
+        }
+      }
+    }
+  },
+  "10180": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10180": {
+            "geo_lat": 41.7,
+            "geo_lon": 73.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.88387164667855,
+            "mag_lon": 150.18807385567803,
+            "alpha": 0.04923699340146499
+          }
+        }
+      }
+    }
+  },
+  "10181": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10181": {
+            "geo_lat": 41.9,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.06694008648075,
+            "mag_lon": 150.3924154713781,
+            "alpha": 0.050284561921444315
+          }
+        }
+      }
+    }
+  },
+  "10182": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10182": {
+            "geo_lat": 26.6,
+            "geo_lon": 98.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.52726343613712,
+            "mag_lon": 171.6984090726094,
+            "alpha": 0.007505494070940112
+          }
+        }
+      }
+    }
+  },
+  "10184": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10184": {
+            "geo_lat": 39.0,
+            "geo_lon": 78.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.86764170047033,
+            "mag_lon": 153.8247827684995,
+            "alpha": 0.034805617478666326
+          }
+        }
+      }
+    }
+  },
+  "10185": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10185": {
+            "geo_lat": 39.3,
+            "geo_lon": 81.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.95950236252542,
+            "mag_lon": 156.64650992819185,
+            "alpha": 0.035175252159573546
+          }
+        }
+      }
+    }
+  },
+  "10186": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10186": {
+            "geo_lat": 42.0,
+            "geo_lon": 80.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.733418095293814,
+            "mag_lon": 155.75453698634274,
+            "alpha": 0.04839241472867802
+          }
+        }
+      }
+    }
+  },
+  "10187": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10187": {
+            "geo_lat": 41.0,
+            "geo_lon": 81.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.6349854434554,
+            "mag_lon": 157.07937017515462,
+            "alpha": 0.042649831620677855
+          }
+        }
+      }
+    }
+  },
+  "10191": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10191": {
+            "geo_lat": 41.3,
+            "geo_lon": 90.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.47404668369506,
+            "mag_lon": 165.03425118433597,
+            "alpha": 0.04186773022995003
+          }
+        }
+      }
+    }
+  },
+  "10192": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10192": {
+            "geo_lat": 41.1,
+            "geo_lon": 95.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.092595751108476,
+            "mag_lon": 169.64590969334583,
+            "alpha": 0.04007082491873909
+          }
+        }
+      }
+    }
+  },
+  "10193": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10193": {
+            "geo_lat": 41.6,
+            "geo_lon": 71.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.98093771485432,
+            "mag_lon": 148.0264883462778,
+            "alpha": 0.049789685156626864
+          }
+        }
+      }
+    }
+  },
+  "10194": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10194": {
+            "geo_lat": 42.6,
+            "geo_lon": 73.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.770842201034206,
+            "mag_lon": 150.3935027218442,
+            "alpha": 0.054524320678960264
+          }
+        }
+      }
+    }
+  },
+  "10196": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10196": {
+            "geo_lat": 33.3,
+            "geo_lon": 111.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.151412808096154,
+            "mag_lon": -175.83988674778058,
+            "alpha": 0.016077366459299004
+          }
+        }
+      }
+    }
+  },
+  "10197": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10197": {
+            "geo_lat": 36.4,
+            "geo_lon": 82.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.012353909600485,
+            "mag_lon": 157.1964256331863,
+            "alpha": 0.025063702891956165
+          }
+        }
+      }
+    }
+  },
+  "10199": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10199": {
+            "geo_lat": 35.0,
+            "geo_lon": 84.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.457331248195985,
+            "mag_lon": 159.5419267443724,
+            "alpha": 0.020959522831951648
+          }
+        }
+      }
+    }
+  },
+  "10200": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10200": {
+            "geo_lat": 34.1,
+            "geo_lon": 86.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.462646522805045,
+            "mag_lon": 161.12209109631894,
+            "alpha": 0.01869403240350084
+          }
+        }
+      }
+    }
+  },
+  "10201": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10201": {
+            "geo_lat": 36.5,
+            "geo_lon": 87.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.83261350331444,
+            "mag_lon": 161.74482810862918,
+            "alpha": 0.024550950070010593
+          }
+        }
+      }
+    }
+  },
+  "10202": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10202": {
+            "geo_lat": 34.9,
+            "geo_lon": 90.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.10448093553321,
+            "mag_lon": 164.1885133396375,
+            "alpha": 0.0201260562738877
+          }
+        }
+      }
+    }
+  },
+  "10203": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10203": {
+            "geo_lat": 35.0,
+            "geo_lon": 85.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.435229551184158,
+            "mag_lon": 159.90705055457516,
+            "alpha": 0.020906317758471855
+          }
+        }
+      }
+    }
+  },
+  "10205": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10205": {
+            "geo_lat": 36.2,
+            "geo_lon": 88.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.456267526179744,
+            "mag_lon": 163.17674781325937,
+            "alpha": 0.02351105569226054
+          }
+        }
+      }
+    }
+  },
+  "10207": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10207": {
+            "geo_lat": 36.0,
+            "geo_lon": 84.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.500176374691407,
+            "mag_lon": 158.89086485896357,
+            "alpha": 0.02363007542449751
+          }
+        }
+      }
+    }
+  },
+  "10208": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10208": {
+            "geo_lat": 35.8,
+            "geo_lon": 86.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.169598924300956,
+            "mag_lon": 161.05915749596312,
+            "alpha": 0.022748606170621327
+          }
+        }
+      }
+    }
+  },
+  "10210": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10210": {
+            "geo_lat": 34.7,
+            "geo_lon": 86.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.07181920575357,
+            "mag_lon": 160.98101739730387,
+            "alpha": 0.020050602609982756
+          }
+        }
+      }
+    }
+  },
+  "10211": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10211": {
+            "geo_lat": 34.3,
+            "geo_lon": 88.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.55932536541674,
+            "mag_lon": 163.0563281914728,
+            "alpha": 0.0189030335981256
+          }
+        }
+      }
+    }
+  },
+  "10212": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10212": {
+            "geo_lat": 36.0,
+            "geo_lon": 86.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.364030773940264,
+            "mag_lon": 161.16444000493559,
+            "alpha": 0.02326298658761011
+          }
+        }
+      }
+    }
+  },
+  "10219": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10219": {
+            "geo_lat": 36.1,
+            "geo_lon": 81.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.78915069819726,
+            "mag_lon": 156.0781675144248,
+            "alpha": 0.02442854511523602
+          }
+        }
+      }
+    }
+  },
+  "10220": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10220": {
+            "geo_lat": 39.4,
+            "geo_lon": 87.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.717020274757914,
+            "mag_lon": 162.13376915247684,
+            "alpha": 0.03420792463146184
+          }
+        }
+      }
+    }
+  },
+  "10248": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10248": {
+            "geo_lat": 32.8,
+            "geo_lon": 80.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.52577589941518,
+            "mag_lon": 155.41973989743457,
+            "alpha": 0.01678464077128667
+          }
+        }
+      }
+    }
+  },
+  "10249": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10249": {
+            "geo_lat": 33.3,
+            "geo_lon": 81.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 24.997911058664087,
+            "mag_lon": 155.83105360545903,
+            "alpha": 0.01772116648520283
+          }
+        }
+      }
+    }
+  },
+  "10250": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10250": {
+            "geo_lat": 34.1,
+            "geo_lon": 80.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.80197315797129,
+            "mag_lon": 155.8087654545878,
+            "alpha": 0.019437941687747852
+          }
+        }
+      }
+    }
+  },
+  "10251": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10251": {
+            "geo_lat": 35.9,
+            "geo_lon": 82.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.50764380989255,
+            "mag_lon": 157.2442073072715,
+            "alpha": 0.023650376586671157
+          }
+        }
+      }
+    }
+  },
+  "10252": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10252": {
+            "geo_lat": 36.4,
+            "geo_lon": 79.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.221963672524403,
+            "mag_lon": 154.2858769347123,
+            "alpha": 0.02567520710888227
+          }
+        }
+      }
+    }
+  },
+  "10325": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10325": {
+            "geo_lat": 29.8,
+            "geo_lon": 95.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 20.815226068238474,
+            "mag_lon": 168.7253156169692,
+            "alpha": 0.01095450730776349
+          }
+        }
+      }
+    }
+  },
+  "10366": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10366": {
+            "geo_lat": 42.4,
+            "geo_lon": 71.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.742273445890575,
+            "mag_lon": 148.4936717085212,
+            "alpha": 0.05434548004575803
+          }
+        }
+      }
+    }
+  },
+  "10367": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10367": {
+            "geo_lat": 42.4,
+            "geo_lon": 71.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.742273445890575,
+            "mag_lon": 148.4936717085212,
+            "alpha": 0.05434548004575803
+          }
+        }
+      }
+    }
+  },
+  "10371": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10371": {
+            "geo_lat": 42.4,
+            "geo_lon": 71.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.742273445890575,
+            "mag_lon": 148.4936717085212,
+            "alpha": 0.05434548004575803
+          }
+        }
+      }
+    }
+  },
+  "10373": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10373": {
+            "geo_lat": 42.6,
+            "geo_lon": 73.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.770842201034206,
+            "mag_lon": 150.3935027218442,
+            "alpha": 0.054524320678960264
+          }
+        }
+      }
+    }
+  },
+  "10374": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10374": {
+            "geo_lat": 42.6,
+            "geo_lon": 71.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 34.96606655667582,
+            "mag_lon": 148.253514748473,
+            "alpha": 0.05576227993725976
+          }
+        }
+      }
+    }
+  },
+  "10376": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10376": {
+            "geo_lat": 40.9,
+            "geo_lon": 73.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.08041094888022,
+            "mag_lon": 150.17641347429824,
+            "alpha": 0.04489144576531757
+          }
+        }
+      }
+    }
+  },
+  "10377": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10377": {
+            "geo_lat": 40.7,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.87358711814603,
+            "mag_lon": 150.24120574073314,
+            "alpha": 0.04383631215663827
+          }
+        }
+      }
+    }
+  },
+  "10378": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10378": {
+            "geo_lat": 40.7,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.87358711814603,
+            "mag_lon": 150.24120574073314,
+            "alpha": 0.04383631215663827
+          }
+        }
+      }
+    }
+  },
+  "10379": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10379": {
+            "geo_lat": 40.7,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.87358711814603,
+            "mag_lon": 150.24120574073314,
+            "alpha": 0.04383631215663827
+          }
+        }
+      }
+    }
+  },
+  "10380": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10380": {
+            "geo_lat": 41.1,
+            "geo_lon": 73.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.28723934108349,
+            "mag_lon": 150.1118704105095,
+            "alpha": 0.04597200040078802
+          }
+        }
+      }
+    }
+  },
+  "10381": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10381": {
+            "geo_lat": 40.7,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.87358711814603,
+            "mag_lon": 150.24120574073314,
+            "alpha": 0.04383631215663827
+          }
+        }
+      }
+    }
+  },
+  "10382": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10382": {
+            "geo_lat": 40.6,
+            "geo_lon": 74.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.75834186607156,
+            "mag_lon": 150.40839969700843,
+            "alpha": 0.043259173485507375
+          }
+        }
+      }
+    }
+  },
+  "10383": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10383": {
+            "geo_lat": 40.6,
+            "geo_lon": 74.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.75834186607156,
+            "mag_lon": 150.40839969700843,
+            "alpha": 0.043259173485507375
+          }
+        }
+      }
+    }
+  },
+  "10384": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10384": {
+            "geo_lat": 40.7,
+            "geo_lon": 74.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.87358711814603,
+            "mag_lon": 150.24120574073314,
+            "alpha": 0.04383631215663827
+          }
+        }
+      }
+    }
+  },
+  "10385": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10385": {
+            "geo_lat": 41.2,
+            "geo_lon": 73.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.38668128901935,
+            "mag_lon": 150.12449809444234,
+            "alpha": 0.04650074566342062
+          }
+        }
+      }
+    }
+  },
+  "10386": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10386": {
+            "geo_lat": 40.8,
+            "geo_lon": 73.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.98096217993757,
+            "mag_lon": 150.16390678439768,
+            "alpha": 0.0443809645293811
+          }
+        }
+      }
+    }
+  },
+  "10387": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10387": {
+            "geo_lat": 41.0,
+            "geo_lon": 73.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.17985846645483,
+            "mag_lon": 150.1889484774061,
+            "alpha": 0.04540779215283318
+          }
+        }
+      }
+    }
+  },
+  "10388": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10388": {
+            "geo_lat": 41.0,
+            "geo_lon": 73.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.17985846645483,
+            "mag_lon": 150.1889484774061,
+            "alpha": 0.04540779215283318
+          }
+        }
+      }
+    }
+  },
+  "10453": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10453": {
+            "geo_lat": 38.5,
+            "geo_lon": 81.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.130742248841834,
+            "mag_lon": 157.02198542694398,
+            "alpha": 0.031977590436507865
+          }
+        }
+      }
+    }
+  },
+  "10455": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10455": {
+            "geo_lat": 40.1,
+            "geo_lon": 82.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.670846206228802,
+            "mag_lon": 157.97814378143855,
+            "alpha": 0.03817371973166701
+          }
+        }
+      }
+    }
+  },
+  "10456": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10456": {
+            "geo_lat": 38.2,
+            "geo_lon": 82.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.78257881766283,
+            "mag_lon": 157.71680464551682,
+            "alpha": 0.0307225392896359
+          }
+        }
+      }
+    }
+  },
+  "10458": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10458": {
+            "geo_lat": 42.2,
+            "geo_lon": 86.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.565841889501705,
+            "mag_lon": 161.37082836188677,
+            "alpha": 0.04746876032429523
+          }
+        }
+      }
+    }
+  },
+  "10460": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10460": {
+            "geo_lat": 28.9,
+            "geo_lon": 96.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.885806590898923,
+            "mag_lon": 169.62144450889585,
+            "alpha": 0.009844055376835198
+          }
+        }
+      }
+    }
+  },
+  "10461": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10461": {
+            "geo_lat": 32.2,
+            "geo_lon": 100.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.094309319049984,
+            "mag_lon": 173.2345530981914,
+            "alpha": 0.014237019391649177
+          }
+        }
+      }
+    }
+  },
+  "10462": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10462": {
+            "geo_lat": 32.2,
+            "geo_lon": 100.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.094309319049984,
+            "mag_lon": 173.2345530981914,
+            "alpha": 0.014237019391649177
+          }
+        }
+      }
+    }
+  },
+  "10463": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10463": {
+            "geo_lat": 35.4,
+            "geo_lon": 99.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.299183244201352,
+            "mag_lon": 173.04105128463962,
+            "alpha": 0.0205817770090126
+          }
+        }
+      }
+    }
+  },
+  "10464": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10464": {
+            "geo_lat": 35.4,
+            "geo_lon": 99.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.299183244201352,
+            "mag_lon": 173.04105128463962,
+            "alpha": 0.0205817770090126
+          }
+        }
+      }
+    }
+  },
+  "10467": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10467": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.15711014601964,
+            "mag_lon": 155.2003129701747,
+            "alpha": 0.028590304784119887
+          }
+        }
+      }
+    }
+  },
+  "10468": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10468": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.15711014601964,
+            "mag_lon": 155.2003129701747,
+            "alpha": 0.028590304784119887
+          }
+        }
+      }
+    }
+  },
+  "10469": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10469": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.15711014601964,
+            "mag_lon": 155.2003129701747,
+            "alpha": 0.028590304784119887
+          }
+        }
+      }
+    }
+  },
+  "10471": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10471": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.15711014601964,
+            "mag_lon": 155.2003129701747,
+            "alpha": 0.028590304784119887
+          }
+        }
+      }
+    }
+  },
+  "10473": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10473": {
+            "geo_lat": 28.7,
+            "geo_lon": 97.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.658445854268024,
+            "mag_lon": 170.54553144355208,
+            "alpha": 0.009590003685873824
+          }
+        }
+      }
+    }
+  },
+  "10474": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10474": {
+            "geo_lat": 28.7,
+            "geo_lon": 97.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 19.658445854268024,
+            "mag_lon": 170.54553144355208,
+            "alpha": 0.009590003685873824
+          }
+        }
+      }
+    }
+  },
+  "10475": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10475": {
+            "geo_lat": 40.2,
+            "geo_lon": 81.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.819088656805576,
+            "mag_lon": 157.2706939753757,
+            "alpha": 0.038830079671051156
+          }
+        }
+      }
+    }
+  },
+  "10476": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10476": {
+            "geo_lat": 40.1,
+            "geo_lon": 82.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.66487909261472,
+            "mag_lon": 158.06774374072143,
+            "alpha": 0.038147533221411026
+          }
+        }
+      }
+    }
+  },
+  "10477": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10477": {
+            "geo_lat": 31.4,
+            "geo_lon": 95.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.40803140632245,
+            "mag_lon": 168.97202134109807,
+            "alpha": 0.013156601024542285
+          }
+        }
+      }
+    }
+  },
+  "10478": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10478": {
+            "geo_lat": 42.0,
+            "geo_lon": 86.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.351126124157915,
+            "mag_lon": 161.6206632739277,
+            "alpha": 0.046310999555893545
+          }
+        }
+      }
+    }
+  },
+  "10480": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10480": {
+            "geo_lat": 42.0,
+            "geo_lon": 86.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.351126124157915,
+            "mag_lon": 161.6206632739277,
+            "alpha": 0.046310999555893545
+          }
+        }
+      }
+    }
+  },
+  "10481": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10481": {
+            "geo_lat": 40.2,
+            "geo_lon": 85.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.62300565379237,
+            "mag_lon": 160.31485808062874,
+            "alpha": 0.03796427743880802
+          }
+        }
+      }
+    }
+  },
+  "10482": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10482": {
+            "geo_lat": 40.2,
+            "geo_lon": 85.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.62300565379237,
+            "mag_lon": 160.31485808062874,
+            "alpha": 0.03796427743880802
+          }
+        }
+      }
+    }
+  },
+  "10483": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10483": {
+            "geo_lat": 39.0,
+            "geo_lon": 83.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.556263609970756,
+            "mag_lon": 158.1482562624646,
+            "alpha": 0.033581331926651664
+          }
+        }
+      }
+    }
+  },
+  "10484": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10484": {
+            "geo_lat": 39.0,
+            "geo_lon": 83.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.556263609970756,
+            "mag_lon": 158.1482562624646,
+            "alpha": 0.033581331926651664
+          }
+        }
+      }
+    }
+  },
+  "10485": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10485": {
+            "geo_lat": 39.0,
+            "geo_lon": 83.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.556263609970756,
+            "mag_lon": 158.1482562624646,
+            "alpha": 0.033581331926651664
+          }
+        }
+      }
+    }
+  },
+  "10487": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10487": {
+            "geo_lat": 41.5,
+            "geo_lon": 86.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.862388366336894,
+            "mag_lon": 161.40248834302636,
+            "alpha": 0.04377989361621893
+          }
+        }
+      }
+    }
+  },
+  "10489": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10489": {
+            "geo_lat": 36.6,
+            "geo_lon": 79.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.400585086781085,
+            "mag_lon": 154.5782411449864,
+            "alpha": 0.026208067546205673
+          }
+        }
+      }
+    }
+  },
+  "10490": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10490": {
+            "geo_lat": 41.7,
+            "geo_lon": 85.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.08762273331457,
+            "mag_lon": 160.97423801088166,
+            "alpha": 0.04492869216285722
+          }
+        }
+      }
+    }
+  },
+  "10491": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10491": {
+            "geo_lat": 40.8,
+            "geo_lon": 84.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.29313647133185,
+            "mag_lon": 159.20412196474345,
+            "alpha": 0.04100568412143172
+          }
+        }
+      }
+    }
+  },
+  "10492": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10492": {
+            "geo_lat": 40.8,
+            "geo_lon": 84.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.29313647133185,
+            "mag_lon": 159.20412196474345,
+            "alpha": 0.04100568412143172
+          }
+        }
+      }
+    }
+  },
+  "10493": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10493": {
+            "geo_lat": 36.7,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.459578544596134,
+            "mag_lon": 155.13328250418905,
+            "alpha": 0.026386474059540196
+          }
+        }
+      }
+    }
+  },
+  "10494": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10494": {
+            "geo_lat": 36.7,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.459578544596134,
+            "mag_lon": 155.13328250418905,
+            "alpha": 0.026386474059540196
+          }
+        }
+      }
+    }
+  },
+  "10495": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10495": {
+            "geo_lat": 36.7,
+            "geo_lon": 79.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.459578544596134,
+            "mag_lon": 155.13328250418905,
+            "alpha": 0.026386474059540196
+          }
+        }
+      }
+    }
+  },
+  "10496": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10496": {
+            "geo_lat": 36.3,
+            "geo_lon": 94.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 27.332748418146707,
+            "mag_lon": 168.3530514271306,
+            "alpha": 0.02317944902201101
+          }
+        }
+      }
+    }
+  },
+  "10497": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10497": {
+            "geo_lat": 40.5,
+            "geo_lon": 84.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.988317470010216,
+            "mag_lon": 159.26707741858303,
+            "alpha": 0.03959316526519937
+          }
+        }
+      }
+    }
+  },
+  "10498": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10498": {
+            "geo_lat": 40.2,
+            "geo_lon": 83.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.74681975703576,
+            "mag_lon": 158.34557087788633,
+            "alpha": 0.03850870316802171
+          }
+        }
+      }
+    }
+  },
+  "10499": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10499": {
+            "geo_lat": 40.2,
+            "geo_lon": 83.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.74681975703576,
+            "mag_lon": 158.34557087788633,
+            "alpha": 0.03850870316802171
+          }
+        }
+      }
+    }
+  },
+  "10500": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10500": {
+            "geo_lat": 41.6,
+            "geo_lon": 86.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.96725203145251,
+            "mag_lon": 161.3216585445447,
+            "alpha": 0.04431104565769183
+          }
+        }
+      }
+    }
+  },
+  "10502": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10502": {
+            "geo_lat": 36.9,
+            "geo_lon": 80.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.59950622436004,
+            "mag_lon": 155.96951281883722,
+            "alpha": 0.026814511525422333
+          }
+        }
+      }
+    }
+  },
+  "10503": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10503": {
+            "geo_lat": 36.9,
+            "geo_lon": 80.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.59950622436004,
+            "mag_lon": 155.96951281883722,
+            "alpha": 0.026814511525422333
+          }
+        }
+      }
+    }
+  },
+  "10504": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10504": {
+            "geo_lat": 36.9,
+            "geo_lon": 80.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.59950622436004,
+            "mag_lon": 155.96951281883722,
+            "alpha": 0.026814511525422333
+          }
+        }
+      }
+    }
+  },
+  "10506": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10506": {
+            "geo_lat": 38.7,
+            "geo_lon": 85.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.12126974538164,
+            "mag_lon": 160.28293149459307,
+            "alpha": 0.03194277500169025
+          }
+        }
+      }
+    }
+  },
+  "10507": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10507": {
+            "geo_lat": 40.1,
+            "geo_lon": 82.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.670846206228802,
+            "mag_lon": 157.97814378143855,
+            "alpha": 0.03817371973166701
+          }
+        }
+      }
+    }
+  },
+  "10509": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10509": {
+            "geo_lat": 39.8,
+            "geo_lon": 80.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.489651080712548,
+            "mag_lon": 156.24552815511626,
+            "alpha": 0.037386507387235555
+          }
+        }
+      }
+    }
+  },
+  "10511": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10511": {
+            "geo_lat": 41.9,
+            "geo_lon": 86.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.27166103332795,
+            "mag_lon": 161.2573478996506,
+            "alpha": 0.045889715043532606
+          }
+        }
+      }
+    }
+  },
+  "10512": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10512": {
+            "geo_lat": 40.0,
+            "geo_lon": 82.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.57714440030606,
+            "mag_lon": 157.87933025324855,
+            "alpha": 0.0377645792349025
+          }
+        }
+      }
+    }
+  },
+  "10513": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10513": {
+            "geo_lat": 26.1,
+            "geo_lon": 97.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.049227967125262,
+            "mag_lon": 170.8399270461655,
+            "alpha": 0.0071040228076384385
+          }
+        }
+      }
+    }
+  },
+  "10515": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10515": {
+            "geo_lat": 26.1,
+            "geo_lon": 97.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.049227967125262,
+            "mag_lon": 170.8399270461655,
+            "alpha": 0.0071040228076384385
+          }
+        }
+      }
+    }
+  },
+  "10516": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10516": {
+            "geo_lat": 39.6,
+            "geo_lon": 81.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.264821554173324,
+            "mag_lon": 156.5853395324795,
+            "alpha": 0.03643225391037704
+          }
+        }
+      }
+    }
+  },
+  "10517": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10517": {
+            "geo_lat": 32.0,
+            "geo_lon": 93.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.080680634588703,
+            "mag_lon": 166.96939389950055,
+            "alpha": 0.014214723206434288
+          }
+        }
+      }
+    }
+  },
+  "10519": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10519": {
+            "geo_lat": 27.8,
+            "geo_lon": 97.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 18.74854230135402,
+            "mag_lon": 170.89066327581708,
+            "alpha": 0.00863723375801952
+          }
+        }
+      }
+    }
+  },
+  "10520": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10520": {
+            "geo_lat": 27.8,
+            "geo_lon": 97.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 18.74854230135402,
+            "mag_lon": 170.89066327581708,
+            "alpha": 0.00863723375801952
+          }
+        }
+      }
+    }
+  },
+  "10521": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10521": {
+            "geo_lat": 31.3,
+            "geo_lon": 103.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.148386423133005,
+            "mag_lon": 176.07280925644494,
+            "alpha": 0.012769562872706152
+          }
+        }
+      }
+    }
+  },
+  "10522": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10522": {
+            "geo_lat": 31.3,
+            "geo_lon": 103.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.148386423133005,
+            "mag_lon": 176.07280925644494,
+            "alpha": 0.012769562872706152
+          }
+        }
+      }
+    }
+  },
+  "10524": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10524": {
+            "geo_lat": 40.2,
+            "geo_lon": 83.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.75271509659423,
+            "mag_lon": 158.25601792262282,
+            "alpha": 0.03853481953633094
+          }
+        }
+      }
+    }
+  },
+  "10525": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10525": {
+            "geo_lat": 40.2,
+            "geo_lon": 83.0,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.75271509659423,
+            "mag_lon": 158.25601792262282,
+            "alpha": 0.03853481953633094
+          }
+        }
+      }
+    }
+  },
+  "10527": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10527": {
+            "geo_lat": 40.3,
+            "geo_lon": 83.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.828982299557133,
+            "mag_lon": 158.62316783320213,
+            "alpha": 0.03887428447137855
+          }
+        }
+      }
+    }
+  },
+  "10528": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10528": {
+            "geo_lat": 37.2,
+            "geo_lon": 80.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.937843360024857,
+            "mag_lon": 155.45319070898282,
+            "alpha": 0.027878394172481603
+          }
+        }
+      }
+    }
+  },
+  "10529": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10529": {
+            "geo_lat": 37.2,
+            "geo_lon": 80.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.937843360024857,
+            "mag_lon": 155.45319070898282,
+            "alpha": 0.027878394172481603
+          }
+        }
+      }
+    }
+  },
+  "10530": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10530": {
+            "geo_lat": 39.0,
+            "geo_lon": 81.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.622949055293667,
+            "mag_lon": 157.15822463368596,
+            "alpha": 0.033839851328372736
+          }
+        }
+      }
+    }
+  },
+  "10531": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10531": {
+            "geo_lat": 32.5,
+            "geo_lon": 99.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.398038755467155,
+            "mag_lon": 173.05806651140404,
+            "alpha": 0.014743089387242746
+          }
+        }
+      }
+    }
+  },
+  "10532": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10532": {
+            "geo_lat": 32.5,
+            "geo_lon": 99.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 23.398038755467155,
+            "mag_lon": 173.05806651140404,
+            "alpha": 0.014743089387242746
+          }
+        }
+      }
+    }
+  },
+  "10534": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10534": {
+            "geo_lat": 36.6,
+            "geo_lon": 82.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 28.18117751809124,
+            "mag_lon": 157.66798352685493,
+            "alpha": 0.02555506190349116
+          }
+        }
+      }
+    }
+  },
+  "10537": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10537": {
+            "geo_lat": 27.6,
+            "geo_lon": 97.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 18.546110476987963,
+            "mag_lon": 170.97808085172892,
+            "alpha": 0.008438484280432666
+          }
+        }
+      }
+    }
+  },
+  "10538": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10538": {
+            "geo_lat": 26.3,
+            "geo_lon": 98.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.234392161608355,
+            "mag_lon": 171.40883474036985,
+            "alpha": 0.007256917113116347
+          }
+        }
+      }
+    }
+  },
+  "10539": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10539": {
+            "geo_lat": 26.3,
+            "geo_lon": 98.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.234392161608355,
+            "mag_lon": 171.40883474036985,
+            "alpha": 0.007256917113116347
+          }
+        }
+      }
+    }
+  },
+  "10541": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10541": {
+            "geo_lat": 41.7,
+            "geo_lon": 86.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.05685671248114,
+            "mag_lon": 161.50757183548387,
+            "alpha": 0.04477001117828502
+          }
+        }
+      }
+    }
+  },
+  "10542": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10542": {
+            "geo_lat": 36.0,
+            "geo_lon": 95.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.996098811292867,
+            "mag_lon": 169.42852728512423,
+            "alpha": 0.022299212485672817
+          }
+        }
+      }
+    }
+  },
+  "10543": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10543": {
+            "geo_lat": 36.0,
+            "geo_lon": 95.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 26.996098811292867,
+            "mag_lon": 169.42852728512423,
+            "alpha": 0.022299212485672817
+          }
+        }
+      }
+    }
+  },
+  "10545": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10545": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.21134563938257,
+            "mag_lon": 154.47503055356904,
+            "alpha": 0.02876918210830456
+          }
+        }
+      }
+    }
+  },
+  "10546": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10546": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.21134563938257,
+            "mag_lon": 154.47503055356904,
+            "alpha": 0.02876918210830456
+          }
+        }
+      }
+    }
+  },
+  "10547": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10547": {
+            "geo_lat": 37.4,
+            "geo_lon": 79.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.21134563938257,
+            "mag_lon": 154.47503055356904,
+            "alpha": 0.02876918210830456
+          }
+        }
+      }
+    }
+  },
+  "10548": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10548": {
+            "geo_lat": 26.2,
+            "geo_lon": 98.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.13442744461284,
+            "mag_lon": 171.40605443157295,
+            "alpha": 0.007173969704408218
+          }
+        }
+      }
+    }
+  },
+  "10549": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10549": {
+            "geo_lat": 26.2,
+            "geo_lon": 98.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.13442744461284,
+            "mag_lon": 171.40605443157295,
+            "alpha": 0.007173969704408218
+          }
+        }
+      }
+    }
+  },
+  "10550": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10550": {
+            "geo_lat": 26.3,
+            "geo_lon": 97.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.24914797212638,
+            "mag_lon": 170.84584633168882,
+            "alpha": 0.007269241962083793
+          }
+        }
+      }
+    }
+  },
+  "10551": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10551": {
+            "geo_lat": 26.3,
+            "geo_lon": 97.6,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.24914797212638,
+            "mag_lon": 170.84584633168882,
+            "alpha": 0.007269241962083793
+          }
+        }
+      }
+    }
+  },
+  "10552": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10552": {
+            "geo_lat": 40.0,
+            "geo_lon": 83.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.547412773946007,
+            "mag_lon": 158.3274924206001,
+            "alpha": 0.037635677455565675
+          }
+        }
+      }
+    }
+  },
+  "10557": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10557": {
+            "geo_lat": 31.5,
+            "geo_lon": 100.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.38894651188744,
+            "mag_lon": 173.49433386016165,
+            "alpha": 0.013127757069648313
+          }
+        }
+      }
+    }
+  },
+  "10558": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10558": {
+            "geo_lat": 30.9,
+            "geo_lon": 103.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 21.745253714817096,
+            "mag_lon": 176.34442812156064,
+            "alpha": 0.012191075616386595
+          }
+        }
+      }
+    }
+  },
+  "10559": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10559": {
+            "geo_lat": 30.9,
+            "geo_lon": 103.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 21.745253714817096,
+            "mag_lon": 176.34442812156064,
+            "alpha": 0.012191075616386595
+          }
+        }
+      }
+    }
+  },
+  "10561": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10561": {
+            "geo_lat": 41.0,
+            "geo_lon": 83.3,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.53273826142995,
+            "mag_lon": 158.59718436585635,
+            "alpha": 0.04215127360748015
+          }
+        }
+      }
+    }
+  },
+  "10563": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10563": {
+            "geo_lat": 40.7,
+            "geo_lon": 81.4,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.348479687437944,
+            "mag_lon": 156.87129648671592,
+            "alpha": 0.041267495824381425
+          }
+        }
+      }
+    }
+  },
+  "10564": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10564": {
+            "geo_lat": 40.7,
+            "geo_lon": 84.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.18213599252188,
+            "mag_lon": 159.3739515139048,
+            "alpha": 0.04048557100454521
+          }
+        }
+      }
+    }
+  },
+  "10565": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10565": {
+            "geo_lat": 26.1,
+            "geo_lon": 98.2,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 17.0344626896741,
+            "mag_lon": 171.40327711218183,
+            "alpha": 0.007091970363307097
+          }
+        }
+      }
+    }
+  },
+  "10567": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10567": {
+            "geo_lat": 39.2,
+            "geo_lon": 87.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.512536798831867,
+            "mag_lon": 162.20884674220528,
+            "alpha": 0.03341288927127855
+          }
+        }
+      }
+    }
+  },
+  "10568": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10568": {
+            "geo_lat": 39.2,
+            "geo_lon": 87.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.512536798831867,
+            "mag_lon": 162.20884674220528,
+            "alpha": 0.03341288927127855
+          }
+        }
+      }
+    }
+  },
+  "10569": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10569": {
+            "geo_lat": 39.2,
+            "geo_lon": 87.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 30.512536798831867,
+            "mag_lon": 162.20884674220528,
+            "alpha": 0.03341288927127855
+          }
+        }
+      }
+    }
+  },
+  "10570": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10570": {
+            "geo_lat": 40.2,
+            "geo_lon": 80.7,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.89466905312201,
+            "mag_lon": 156.19527163477642,
+            "alpha": 0.039169051840179575
+          }
+        }
+      }
+    }
+  },
+  "10572": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10572": {
+            "geo_lat": 38.4,
+            "geo_lon": 82.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.98803791626444,
+            "mag_lon": 157.6443597179694,
+            "alpha": 0.031457088912503275
+          }
+        }
+      }
+    }
+  },
+  "10573": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10573": {
+            "geo_lat": 38.4,
+            "geo_lon": 82.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.98803791626444,
+            "mag_lon": 157.6443597179694,
+            "alpha": 0.031457088912503275
+          }
+        }
+      }
+    }
+  },
+  "10574": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10574": {
+            "geo_lat": 38.4,
+            "geo_lon": 82.5,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 29.98803791626444,
+            "mag_lon": 157.6443597179694,
+            "alpha": 0.031457088912503275
+          }
+        }
+      }
+    }
+  },
+  "10575": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10575": {
+            "geo_lat": 41.7,
+            "geo_lon": 86.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.07727371721609,
+            "mag_lon": 161.15202899979036,
+            "alpha": 0.04487525267709077
+          }
+        }
+      }
+    }
+  },
+  "10576": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10576": {
+            "geo_lat": 41.7,
+            "geo_lon": 86.1,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 33.07727371721609,
+            "mag_lon": 161.15202899979036,
+            "alpha": 0.04487525267709077
+          }
+        }
+      }
+    }
+  },
+  "10577": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10577": {
+            "geo_lat": 41.4,
+            "geo_lon": 84.9,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 32.84156128193272,
+            "mag_lon": 160.0591081356809,
+            "alpha": 0.04367516122228615
+          }
+        }
+      }
+    }
+  },
+  "10578": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10578": {
+            "geo_lat": 40.2,
+            "geo_lon": 82.8,
+            "error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 31.764575208895508,
+            "mag_lon": 158.07690118859787,
+            "alpha": 0.03858741353302259
+          }
+        }
+      }
+    }
+  }
+}
