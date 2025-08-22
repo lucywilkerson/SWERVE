@@ -125,6 +125,8 @@ def config():
 
   if event =='2024-10-10':
 
+    config_dict['nerc_prefix'] = '2024E11'
+
     config_dict['limits']['data'] = [
       datetime.datetime(2024, 10, 10, 14, 0),
       datetime.datetime(2024, 10, 11, 14, 0)
@@ -133,10 +135,5 @@ def config():
       datetime.datetime(2024, 10, 10, 12, 0),
       datetime.datetime(2024, 10, 11, 14, 0)
     ]
-
-    config_dict['nerc_prefix'] = '2024E11'
-    config_dict['files']['mage']['bcwind'] = None
-    config_dict['files']['swmf']['bcwind'] = None
-    config_dict['files']['gmu']['sim_file'] = None
 
   return config_dict
