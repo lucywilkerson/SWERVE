@@ -16,8 +16,10 @@ def config():
 
   console_format = u'%(message)s'
 
+  file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
+  common_dir = data_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-data-common'))
+
   if event == 'E04-2024-05':
-    file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
     data_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-' + event + '-data'))
     if not os.path.exists(data_dir):
       raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
@@ -34,7 +36,6 @@ def config():
     ]
   
   if event =='E11-2024-10':
-    file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
     data_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-' + event + '-data'))
     if not os.path.exists(data_dir):
       raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
@@ -84,10 +85,10 @@ def config():
           'info_extended_json': os.path.abspath(os.path.join(data_dir, 'info', 'info.extended.json')),
           'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
           'shape': {
-              'transmission_lines': os.path.join(data_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
-              'mag_lat': os.path.join(data_dir, 'shape', 'wmm_all', 'I_2024.shp')
+              'transmission_lines': os.path.join(common_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
+              'mag_lat': os.path.join(common_dir, 'shape', 'wmm_all', 'I_2024.shp')
           },
-          'beta': os.path.join(data_dir, 'pulkkinen', 'waveforms_All.mat'),
+          'beta': os.path.join(common_dir, 'pulkkinen', 'waveforms_All.mat'),
       },
       'paper_sids': {
         'GIC': {
