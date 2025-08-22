@@ -34,6 +34,33 @@ def config():
       datetime.datetime(2024, 5, 10, 11, 0),
       datetime.datetime(2024, 5, 12, 6, 0)
     ]
+
+    paper_sids = {
+        'GIC': {
+          'timeseries': {
+            'Bull Run': 'a)',
+            'Montgomery': 'c)',
+            'Union': 'e)',
+            'Widows Creek': 'g)'
+          },
+          'correlation': {
+            'Bull Run': 'b)',
+            'Montgomery': 'd)',
+            'Union': 'f)',
+            'Widows Creek': 'h)'
+          }
+        },
+        'B': {
+          'timeseries': {
+            'Bull Run': 'a)',
+            '50116': 'c)'
+          },
+          'correlation': {
+            'Bull Run': 'b)',
+            '50116': 'd)'
+          }
+         }
+      }
   
   if event =='E11-2024-10':
     data_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-' + event + '-data'))
@@ -50,6 +77,8 @@ def config():
       datetime.datetime(2024, 10, 10, 12, 0),
       datetime.datetime(2024, 10, 11, 14, 0)
     ]
+
+    paper_sids = None
 
   return {
       'logger': utilrsw.logger,
@@ -79,10 +108,10 @@ def config():
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, '_processed', 'all.pkl'),
-          'info': os.path.abspath(os.path.join(data_dir, 'info', 'info.csv')),
-          'info_json': os.path.abspath(os.path.join(data_dir, 'info', 'info.json')),
-          'info_extended': os.path.abspath(os.path.join(data_dir, 'info', 'info.extended.csv')),
-          'info_extended_json': os.path.abspath(os.path.join(data_dir, 'info', 'info.extended.json')),
+          'info': os.path.abspath(os.path.join(file_path, '..', 'info', event, 'info.csv')),
+          'info_json': os.path.abspath(os.path.join(file_path, '..', 'info', event, 'info.json')),
+          'info_extended': os.path.abspath(os.path.join(file_path, '..', 'info', event, 'info.extended.csv')),
+          'info_extended_json': os.path.abspath(os.path.join(file_path, '..', 'info', event, 'info.extended.json')),
           'nerc_gdf': os.path.join(data_dir, 'nerc', 'nerc_gdf.geojson'),
           'shape': {
               'transmission_lines': os.path.join(common_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
@@ -90,32 +119,7 @@ def config():
           },
           'beta': os.path.join(common_dir, 'pulkkinen', 'waveforms_All.mat'),
       },
-      'paper_sids': {
-        'GIC': {
-          'timeseries': {
-            'Bull Run': 'a)',
-            'Montgomery': 'c)',
-            'Union': 'e)',
-            'Widows Creek': 'g)'
-          },
-          'correlation': {
-            'Bull Run': 'b)',
-            'Montgomery': 'd)',
-            'Union': 'f)',
-            'Widows Creek': 'h)'
-          }
-        },
-        'B': {
-          'timeseries': {
-            'Bull Run': 'a)',
-            '50116': 'c)'
-          },
-          'correlation': {
-            'Bull Run': 'b)',
-            '50116': 'd)'
-          }
-         }
-      },
+      'paper_sids': paper_sids,
       'test_sids':{
         'GIC':{
           'timeseries':{
