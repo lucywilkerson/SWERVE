@@ -4,9 +4,6 @@
 #   python main.py test
 #   python main.py 'site1,site2,...'
 
-sites  = None   # Read and plot data only sites in this array. None => all sites.
-                    # Ignored if command line arguments are provided.
-
 # For debugging
 reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
@@ -15,19 +12,19 @@ data_types = None   # Read and plot these data types. None => all data types.
 import sys
 
 import utilrsw
-from swerve import config, sids, site_read, site_plot, site_stats, site_stats_summary
+from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-if sites is None and sys.argv is not None and len(sys.argv) > 1:
+args = cli('main.py')
+if args['sites'] is None:
   # Use command line arguments to specify sites under these conditions.
-  sids_only = sys.argv[1].split(',')
-  arg = sys.argv[1]
-else:
   sids_only = None # Read all sites.
-  arg = None
+else:
+  sids_only = sys.argv[1].split(',')
 
+# Get actual site IDs to process and validate given ones.
 sids_only = sids(sids_only=sids_only)
 
 # TODO: If info.extended.csv does not exist, run info.py code.
@@ -49,7 +46,7 @@ for sid in sids_only:
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-#dfs = site_stats_summary(stats, data_types=data_types, logger=logger, arg=arg)
+#dfs = site_stats_summary(stats, data_types=data_types, logger=logger)
 
 if sites is None and data_types is None:
   import utilrsw

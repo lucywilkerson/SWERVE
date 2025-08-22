@@ -1,8 +1,18 @@
-def config(event='2024-October-Storm'):
+def config():
   import os
   import datetime
 
   import utilrsw
+
+  from swerve.cli import cli
+  args = cli('config.py')
+  if args['event'] is None:
+    event = '2024-October-Storm'
+    print(f"No event specified, defaulting to '{event}'.")
+  else:
+    # Use event from command line argument if provided.
+    event = args['event']
+    print(f"Using event '{event}' from command line argument.")
 
   console_format = u'%(message)s'
 

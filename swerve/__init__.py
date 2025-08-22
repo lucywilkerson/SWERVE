@@ -1,3 +1,4 @@
+from .cli import cli
 from .config import config
 from .subset import subset
 from .cadence import cadence

@@ -97,7 +97,7 @@ def _plot_raw_mage(data, sid, show_plots=False):
   axes[0].legend()
 
   axes[1].plot(data['time'],  data['data_raw'][:,0], label=f"{ylabels[0]} 1st val = ${data['data_raw'][0,0]:.4f}$", color='blue', lw=2)
-  axes[1].plot(data['time'], -data['data_raw'][:,2], label=f"-{ylabels[2]} 1st val = $-1\cdot ({data['data_raw'][0,2]:.4f})$", color='red', lw=1)
+  axes[1].plot(data['time'], -data['data_raw'][:,2], label=f"-{ylabels[2]} 1st val = $-1\\cdot ({data['data_raw'][0,2]:.4f})$", color='red', lw=1)
 
   axes[1].grid(True)
   axes[1].set_title(sid)

@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 
-def site_stats_summary(stats, data_types=None, logger=None, arg=None, nan_fill=-99999):
+def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
 
     # Explain nan_fill
 
