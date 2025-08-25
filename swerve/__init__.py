@@ -77,7 +77,7 @@ def add_subplot_label(ax, label, loc=(-0.15, 1)):
   import matplotlib.pyplot as plt
   ax.text(*loc, label, transform=plt.gca().transAxes, fontsize=16, fontweight='bold', va='top', ha='left')
 
-def read_info(extended=False, data_type='GIC'):
+def read_info(extended=False, data_type='GIC', data_class='measured'):
   import pandas
   #reading in info.csv
   file = FILES['info_extended'] if extended else FILES['info']
@@ -90,7 +90,8 @@ def read_info(extended=False, data_type='GIC'):
     info_df = info_df[info_df['data_type'].str.contains('GIC', na=False)]
   elif data_type == 'B':
     info_df = info_df[info_df['data_type'].str.contains('B', na=False)]
-  info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
+  if data_class == 'measured':
+    info_df = info_df[info_df['data_class'].str.contains('measured', na=False)]
   return info_df
 
 def savefig(base_dir, fname, logger, root_dir=DATA_DIR, fmts=['png','pdf']):
