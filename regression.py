@@ -16,8 +16,9 @@ from swerve import config, savefig_paper, add_subplot_label, fix_latex
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
-paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
-paper_results_dir = os.path.join(paper_dir, '_results')
+if 'paper' in CONFIG['dirs']:
+  paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
+  paper_results_dir = os.path.join(paper_dir, '_results')
 
 warnings.filterwarnings("ignore", message="The figure layout has changed to tight")
 
@@ -54,7 +55,7 @@ def df_prep():
       data = {}
       stats = {}
       for sid in sites:
-
+        sid = str(sid)
         data[sid] = site_read(sid, data_types=data_types, logger=logger)
 
         # Extract gic_std and gic_maxabs from existing stats information in data[sid]
