@@ -81,7 +81,7 @@ def add_geomag(info_df, date):
   def get_geomag_coords(row):
       Re = 6371.0 #mean Earth radius in km
       alt = 0 #altitude in km, can be set to 0 for surface
-      # Geomagnetic coordnate doesn't depend much on altitude, and there is ambigutity in definition of Re
+      # Geomagnetic coordinate doesn't depend much on altitude, and there is ambiguity in definition of Re
       c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
       c.ticks = date
       c = c.convert('MAG', 'sph')
