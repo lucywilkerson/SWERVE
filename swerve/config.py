@@ -55,7 +55,7 @@ def config():
           'info_json': os.path.join(info_dir, 'info.json'),
           'info_extended': os.path.join(info_dir, 'info.extended.csv'),
           'info_extended_json': os.path.join(info_dir, 'info.extended.json'),
-          'nerc_gdf': os.path.join(common_dir, 'nerc', 'nerc_gdf.geojson'),
+          'nerc_gdf': os.path.join(common_dir, 'nerc_gdf', 'nerc_gdf.geojson'),
           'shape': {
               'transmission_lines': os.path.join(common_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
               'mag_lat': os.path.join(common_dir, 'shape', 'wmm_all', 'I_2024.shp')
