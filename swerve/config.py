@@ -20,7 +20,7 @@ def config():
   info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', event))
   data_dir = os.path.abspath(os.path.join(file_path, '..', '..', f'SWERVE-{event}'))
 
-  common_dir = data_dir # Common data directory for all events.
+  common_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-common')) # Common data directory for all events.
 
   if not os.path.exists(data_dir):
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
