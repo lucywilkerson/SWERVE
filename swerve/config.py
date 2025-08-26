@@ -94,7 +94,18 @@ def config():
     ]
 
     config_dict['nerc_prefix'] = '2024E04'
-    config_dict['dirs']['paper'] = os.path.abspath(os.path.join(file_path, '..', '..', '2024-May-Storm-paper')),
+    config_dict['dirs']['paper'] = os.path.abspath(os.path.join(file_path, '..', '..', '2024-May-Storm-paper'))
+
+    config_dict['sid_duplicates'] = {'10197':'Sullivan',
+                  '10204':'Shelby',
+                  '10208':'Rutherford',
+                  '10203':'Raccoon Mountain',
+                  '10212':'Pinhook',
+                  '10201':'Montgomery',
+                  '10660':'Gleason',
+                  '10200':'East Point',
+                  '10207':'Bull Run'
+                  }
 
     config_dict['paper_sids'] = {
         'GIC': {

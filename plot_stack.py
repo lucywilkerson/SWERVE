@@ -1,14 +1,9 @@
 import os
-import json
 import numpy
 import pickle
-import datetime
-
-import numpy as np
-import pandas as pd
 
 from swerve import config, subset, read_info_dict, read_info_df
-from swerve import plt_config, savefig, savefig_paper, add_subplot_label
+from swerve import plt_config, savefig, savefig_paper
 
 import matplotlib.pyplot as plt
 
@@ -35,19 +30,29 @@ def read(all_file, sid=None):
 
   return info_dict, info_df, data
 
+def stack_plot_config(axes, data_with_offset, offset=40):
+  plt.grid()
+  plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
+  #plt.legend(loc='upper right')
+  plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
+  plt.gca().set_xlim(limits['plot'][0], limits['plot'][1])
+  plt.gca().set_ylim(-offset, max(data_with_offset)+10)
+
+  axes.spines['top'].set_visible(False)
+  axes.spines['right'].set_visible(False)
+  axes.spines['left'].set_visible(False)
+  #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
+  axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
+  datetick()
+
+  # remove first x gridline
+  xgridlines = axes.get_xgridlines()
+  gridline_of_interest = xgridlines[0]
+  gridline_of_interest.set_visible(False)
 
 def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40):
     # note NERC sites that are TVA duplicates
-    sid_copies = {'10197':'Sullivan',
-                  '10204':'Shelby',
-                  '10208':'Rutherford',
-                  '10203':'Raccoon Mountain',
-                  '10212':'Pinhook',
-                  '10201':'Montgomery',
-                  '10660':'Gleason',
-                  '10200':'East Point',
-                  '10207':'Bull Run'
-                  }
+    sid_copies = CONFIG['sid_duplicates'] if 'sid_duplicates' in CONFIG else {}
 
     for source in data_source:
       logger.info(f"Plotting {source} GIC sites")
@@ -103,49 +108,32 @@ def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40)
               if sid in sid_copies.values():
                 text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
               axes.text(limits['plot'][0], (i*offset)-(offset_fix*offset), text, fontsize=11, verticalalignment='center', horizontalalignment='left')
-      plt.grid()
-      plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
-      #plt.legend(loc='upper right')
-      plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-      plt.gca().set_xlim(limits['plot'][0], limits['plot'][1])
-      plt.gca().set_ylim(-offset, max(data_with_offset)+10)
-
-      axes.spines['top'].set_visible(False)
-      axes.spines['right'].set_visible(False)
-      axes.spines['left'].set_visible(False)
-      #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
-      axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
-      datetick()
-
-      # remove first x gridline
-      xgridlines = axes.get_xgridlines()
-      gridline_of_interest = xgridlines[0]
-      gridline_of_interest.set_visible(False)
-
+      stack_plot_config(axes, data_with_offset, offset=offset)
       # Save the figure
       fdir = os.path.join(base_dir, f'_{source.lower()}')
       savefig(fdir, f'gic_{source.lower()}', logger)
-      savefig_paper(fdir, f'gic_{source.lower()}', logger)
+      savefig_paper(fdir, f'gic_{source.lower()}', logger) if 'paper' in CONFIG['dirs'] else None
       plt.close()
 
 
 def plot_all_db(info, info_df, data_all, offset=400):
+  info_df['site_id'] = info_df['site_id'].astype(str)
+  info_df = info_df[(info_df['data_type']=='B')]
   sids = info_df[~(info_df['data_source']=='TEST')]['site_id'].unique()
   # note NERC sites that are TVA duplicates
-  sid_copies = {}
+  sid_copies = CONFIG['sid_duplicates'] if 'sid_duplicates' in CONFIG else {}
 
   logger.info("Plotting all dB sites")
   source_sites = {'sites': [], 'lat': [], 'lon': []}
   for sid in sids:
-    sid_str = str(sid) # TODO: only necessary for October storm data
-    if 'B' in data_all[sid_str] and 'measured' in info[sid_str]['B']:
+    if 'measured' in info[sid]['B']:
       site_info = info_df[
             (info_df['site_id'] == sid) & 
             (info_df['data_type'] == 'B') & 
             (info_df['data_class'] == 'measured')
         ]
       
-      source_sites['sites'].append(sid_str)
+      source_sites['sites'].append(sid)
       source_sites['lat'].append(site_info['mag_lat'].values[0])
       source_sites['lon'].append(site_info['mag_lon'].values[0])
   # Sort sites by latitude
@@ -157,13 +145,12 @@ def plot_all_db(info, info_df, data_all, offset=400):
   offset_fix = 0
 
   for i, sid in enumerate(source_sites['sites']):
-    sid_val = int(sid) # TODO: only necessary for October storm data
     if sid in sid_copies.keys():
       offset_fix +=1
       continue # skipping NERC sites that are TVA duplicates
     if 'B' in data_all[sid].keys():
       source = info_df[
-            (info_df['site_id'] == sid_val) & 
+            (info_df['site_id'] == sid) & 
             (info_df['data_type'] == 'B') & 
             (info_df['data_class'] == 'measured')
         ]['data_source'].values[0] #TODO: find a simpler way to get data source
@@ -187,26 +174,7 @@ def plot_all_db(info, info_df, data_all, offset=400):
         text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
       axes.text(limits['plot'][0], (i*offset)-(offset_fix*offset), text,
                 fontsize=11, verticalalignment='center', horizontalalignment='left')
-
-  plt.grid()
-  plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
-  #plt.legend(loc='upper right')
-  plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
-  plt.gca().set_xlim(limits['plot'][0], limits['plot'][1])
-  plt.gca().set_ylim(-offset, max(data_with_offset)+10)
-
-  axes.spines['top'].set_visible(False)
-  axes.spines['right'].set_visible(False)
-  axes.spines['left'].set_visible(False)
-  #axes.spines['bottom'].set_position(('outward', 10))  # Adjust position of x-axis
-  axes.yaxis.set_ticks_position('none')  # Remove y-axis ticks
-  datetick()
-
-  # remove first x grid line
-  xgridlines = axes.get_xgridlines()
-  gridline_of_interest = xgridlines[0]
-  gridline_of_interest.set_visible(False)
-
+  stack_plot_config(axes, data_with_offset, offset=offset)
   # Save the figure
   fdir = os.path.join(base_dir, '_db')
   savefig(fdir, 'db_all', logger)
