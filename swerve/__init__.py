@@ -138,6 +138,7 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
   file = CONFIG['files']['info_extended'] if extended else CONFIG['files']['info']
   print(f"    Reading {file}")
   info_df = pandas.read_csv(file)
+  info_df['site_id'] = info_df['site_id'].astype(str)
 
   if key == 'paper_sids' or key == 'test_sids':
     if key not in CONFIG:
