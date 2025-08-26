@@ -72,6 +72,10 @@ def add_beta(info_df, beta_fname, beta_site='OTT'):
   # Add a new column to info_df based on the interpolated beta values
   info_df['interpolated_beta'] = interpolator(info_df['geo_lat'], info_df['geo_lon'])
   info_df['log10_beta'] = np.log10(info_df['interpolated_beta'])
+  if info_df['interpolated_beta'].isna().any():
+    nans = info_df[info_df['interpolated_beta'].isna()]
+    for index, row in nans.iterrows():
+      logger.warning(f"    Warning: Could not interpolate beta for site {row['site_id']} at ({row['geo_lat']},{row['geo_lon']})")
 
 # Code for geomag coords and alpha
 def add_geomag(info_df, date):
