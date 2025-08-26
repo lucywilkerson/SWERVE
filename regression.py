@@ -71,7 +71,7 @@ def df_prep():
             continue
           gic_site.append(sid)
           gic_std.append(stats[sid][data_type]['stats']['std'][0])
-          gic_maxabs.append(max(stats[sid][data_type]['stats']['max'], abs(stats[sid][data_type]['stats']['min'])))
+          gic_maxabs.append(max(stats[sid][data_type]['stats']['max'], abs(stats[sid][data_type]['stats']['min']))[0])
       # Save gic_std and gic_maxabs in temp_pkl
       # Ensure the directory exists before saving
       os.makedirs(os.path.dirname(temp_pkl), exist_ok=True)
@@ -352,9 +352,12 @@ input_sets = [
 
 ]
 
-paper_inputs = {'alpha':['a)', 'b)'],
-                'interpolated_beta':['b)', 'd)'],
-                'alpha*interpolated_beta':['c)', 'f)']}
+if 'paper' in CONFIG['dirs']:
+  paper_inputs = {'alpha':['a)', 'b)'],
+                  'interpolated_beta':['b)', 'd)'],
+                  'alpha*interpolated_beta':['c)', 'f)']}
+else:
+  paper_inputs = {}
 
 info = df_prep()
 
@@ -432,6 +435,7 @@ for output_name in output_names:
         f.write(latex_str)
 
   # Save output to paper dir
-  fname = os.path.join(paper_dir, f"fit_table_{output_name}.tex")
-  with open(fname + ".tex", "w") as f:
-        f.write(latex_str)
+  if 'paper' in CONFIG['dirs']:
+    fname = os.path.join(paper_dir, f"fit_table_{output_name}.tex")
+    with open(fname + ".tex", "w") as f:
+          f.write(latex_str)
