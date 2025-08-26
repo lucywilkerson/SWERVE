@@ -405,6 +405,7 @@ for output_name in output_names:
             paper_fig_index = 0
           else:
             logger.warning("  Skipping line plot because more than one input.")
+            continue
         elif plot_type == 'scatter': # Plot the scatter plot of correlation
             predictions = model.predict(x)
             plot_cc_scatter(y, predictions, output_name, mask, metrics, eqn)
