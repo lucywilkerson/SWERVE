@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
-from swerve import config, savefig_paper, add_subplot_label, fix_latex
+from swerve import config, savefig, savefig_paper, add_subplot_label, fix_latex
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -411,7 +411,7 @@ for output_name in output_names:
             paper_fig_index = 1
 
         fname = f'{plot_type}{base_fname}'
-        #savefig(results_dir, fname, logger)
+        savefig(results_dir, fname, logger)
         if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
             add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
             savefig_paper(paper_results_dir, fname, logger) 
@@ -427,15 +427,16 @@ for output_name in output_names:
 
 
   # Save output table
-  fname = os.path.join(results_dir, f"fit_table_{output_name}.md")
-  logger.info(f"Writing {fname}")
-  df_table.to_markdown(fname, index=True)
+  fname = os.path.join(results_dir, f"fit_table_{output_name}")
+  logger.info(f"Writing {fname}.md")
+  df_table.to_markdown(fname + ".md", index=True)
   latex_str = fix_latex(df_table, data_type='GIC', index=True)
   with open(fname + ".tex", "w") as f:
+        logger.info(f"Writing {fname}.tex")
         f.write(latex_str)
 
   # Save output to paper dir
   if 'paper' in CONFIG['dirs']:
     fname = os.path.join(paper_dir, f"fit_table_{output_name}.tex")
-    with open(fname + ".tex", "w") as f:
+    with open(fname, "w") as f:
           f.write(latex_str)
