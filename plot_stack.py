@@ -30,7 +30,7 @@ def read(all_file, sid=None):
 
   return info_dict, info_df, data
 
-def stack_plot_config(axes, data_with_offset, offset=40):
+def stack_plot_config(axes, data_with_offset, units, offset=40):
   plt.grid()
   plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
   #plt.legend(loc='upper right')
@@ -50,8 +50,21 @@ def stack_plot_config(axes, data_with_offset, offset=40):
   gridline_of_interest = xgridlines[0]
   gridline_of_interest.set_visible(False)
 
+  # Add a vertical scale bar on the right side
+  xmax = axes.get_xlim()[1]
+  xbar = xmax - (xmax - axes.get_xlim()[0]) * 0.01  # 1% from right edge
+  axes.plot([xbar, xbar], [0, -offset], color='k', linewidth=1, clip_on=False)
+  # Add caps
+  cap_width = 0.01 * (xmax - axes.get_xlim()[0])
+  axes.plot([xbar - cap_width/2, xbar + cap_width/2], [0, 0], color='k', linewidth=1, clip_on=False)
+  axes.plot([xbar - cap_width/2, xbar + cap_width/2], [-offset, -offset], color='k', linewidth=1, clip_on=False)
+  # Add text label
+  axes.text(xbar - cap_width, -offset/2, f'{offset} {units}', fontsize=plt.rcParams['ytick.labelsize'], verticalalignment='center', horizontalalignment='right')
+  
+
 def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40):
     # note NERC sites that are TVA duplicates
+    units  = '[A]'
     sid_copies = CONFIG['sid_duplicates'] if 'sid_duplicates' in CONFIG else {}
 
     for source in data_source:
@@ -108,7 +121,7 @@ def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40)
               if sid in sid_copies.values():
                 text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
               axes.text(limits['plot'][0], (i*offset)-(offset_fix*offset), text, fontsize=11, verticalalignment='center', horizontalalignment='left')
-      stack_plot_config(axes, data_with_offset, offset=offset)
+      stack_plot_config(axes, data_with_offset, units, offset=offset)
       # Save the figure
       fdir = os.path.join(base_dir, f'_{source.lower()}')
       savefig(fdir, f'gic_{source.lower()}', logger)
@@ -117,6 +130,7 @@ def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40)
 
 
 def plot_all_db(info, info_df, data_all, offset=400):
+  units = '[nT]'
   info_df['site_id'] = info_df['site_id'].astype(str)
   info_df = info_df[(info_df['data_type']=='B')]
   sids = info_df[~(info_df['data_source']=='TEST')]['site_id'].unique()
@@ -174,7 +188,7 @@ def plot_all_db(info, info_df, data_all, offset=400):
         text = f'{sid}*\n({sid_lat:.1f},{sid_lon:.1f})'
       axes.text(limits['plot'][0], (i*offset)-(offset_fix*offset), text,
                 fontsize=11, verticalalignment='center', horizontalalignment='left')
-  stack_plot_config(axes, data_with_offset, offset=offset)
+  stack_plot_config(axes, data_with_offset, units, offset=offset)
   # Save the figure
   fdir = os.path.join(base_dir, '_db')
   savefig(fdir, 'db_all', logger)
