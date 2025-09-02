@@ -60,7 +60,7 @@ def stack_plot_config(axes, data_with_offset, units, offset=40):
   axes.plot([xbar - cap_width/2, xbar + cap_width/2], [-offset, -offset], color='k', linewidth=1, clip_on=False)
   # Add text label
   axes.text(xbar - cap_width, -offset/2, f'{offset} {units}', fontsize=plt.rcParams['ytick.labelsize'], verticalalignment='center', horizontalalignment='right')
-  
+
 
 def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40):
     # note NERC sites that are TVA duplicates
@@ -125,7 +125,7 @@ def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40)
       # Save the figure
       fdir = os.path.join(base_dir, f'_{source.lower()}')
       savefig(fdir, f'gic_{source.lower()}', logger)
-      savefig_paper(fdir, f'gic_{source.lower()}', logger) if 'paper' in CONFIG['dirs'] else None
+      savefig_paper(os.path.join('figures', fdir), f'gic_{source.lower()}', logger) if 'paper' in CONFIG['dirs'] else None
       plt.close()
 
 
@@ -192,7 +192,7 @@ def plot_all_db(info, info_df, data_all, offset=400):
   # Save the figure
   fdir = os.path.join(base_dir, '_db')
   savefig(fdir, 'db_all', logger)
-  savefig_paper(fdir, 'db_all', logger)
+  savefig_paper(os.path.join('figures', fdir), 'db_all', logger)
   plt.close()
 
 
