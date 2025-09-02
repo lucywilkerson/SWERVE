@@ -73,6 +73,9 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
 
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
         orig = _site_read_orig(sid, data_type, data_class, data_source, logger)
+        if sid in CONFIG['single_phase_sids'] and data_type == 'GIC':
+          logger.info(f"    Multiplying GIC data by 3 to account for single-phase transformer.")
+          orig['data'] = orig['data'] * 3
         site_info[data_type][data_class][data_source]['original'] = orig
         # Check returned data object
         if _output_error(orig, logger):

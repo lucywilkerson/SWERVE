@@ -62,6 +62,9 @@ def config():
           },
           'beta': os.path.join(common_dir, 'pulkkinen', 'waveforms_All.mat'),
       },
+      'single_phase_sids':{
+        '10358','10107', '10420', '10421', '10503', '10568'
+      },
       'test_sids':{
         'GIC':{
           'timeseries':{
