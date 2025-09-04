@@ -29,7 +29,7 @@ stack_plot = False   # Plot GIC and dB_H stack plots
 plot_pairs = False   # Plot and compare measured GIC across all "good" pairs
 create_md = False    # updates md comparison files without replotting everything
 
-paper = False        # only plots paper sites if true
+paper = True        # only plots paper sites if true
 sids = None         # If none, plot all sites; ignored if paper is True
 if paper:
   write_stats_df = True
@@ -233,6 +233,16 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
       label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
 
     plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=label)
+    
+    if paper:
+      if cc[idx]**2 >= 0.6:
+        # Fit best line: y = m*x + b
+        fit = np.polyfit(data_meas, data_calcs[idx], 1)
+        m, b = fit
+        x_fit = np.array([data_meas.min(), data_meas.max()])
+        y_fit = m * x_fit + b
+        plt.plot(x_fit, y_fit, color=model_colors[idx], linestyle='--', linewidth=1,
+             label=f"{model_names[idx]} best fit slope = {m:.2f}")
 
   plt.title(sid)
   plt.xlabel('Measured GIC [A]')

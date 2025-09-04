@@ -13,7 +13,7 @@ all = [
   'DATA_DIR'
 ]
 
-DATA_DIR = os.path.join('..', '2024-May-Storm-data')
+DATA_DIR = os.path.join('..', 'SWERVE-2024-05-10')
 PAPER_DIR = os.path.join('..','2024-May-Storm-paper', 'figures')
 
 LOG_KWARGS = {
