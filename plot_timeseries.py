@@ -120,29 +120,29 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
       time_calc, data_calc = subset(time_calc, data_calc, limits['data'][0], time_meas[-1])
 
       sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
-      # cc will be calculated below, so just add label for now
+      # r will be calculated below, so just add label for now
       model_labels.append(f'Reference\n@ {sim_site}' if show_sim_site else f'Reference')
     time_calcs.append(time_calc)
     data_calcs.append(data_calc)
 
-  # Calculate cc and pe once for all models
-  cc = []
+  # Calculate r and pe once for all models
+  r = []
   pe = []
   for idx in range(len(model_names)):
     # for GMU, check sign and flip if needed
     if model_names[idx] == 'GMU':
-      cc_val = np.corrcoef(data_meas, data_calcs[idx])[0, 1]
-      if cc_val < 0:
+      r_val = np.corrcoef(data_meas, data_calcs[idx])[0, 1]
+      if r_val < 0:
         data_calcs[idx] = -data_calcs[idx]
-        cc_val = np.corrcoef(data_meas, data_calcs[idx])[0, 1]
+        r_val = np.corrcoef(data_meas, data_calcs[idx])[0, 1]
         if show_sim_site:
           sim_site = info_dict[sid]['GIC']['calculated'][idx+1]['nearest_sim_site']
           model_labels[idx] = fr'$-${model_labels[idx]}\n@ {sim_site}'
         else:
           model_labels[idx] = r'$-$' + model_labels[idx]
-      cc.append(cc_val)
+      r.append(r_val)
     else:
-      cc.append(np.corrcoef(data_meas, data_calcs[idx])[0, 1])
+      r.append(np.corrcoef(data_meas, data_calcs[idx])[0, 1])
     numer = np.sum((data_meas - data_calcs[idx]) ** 2)
     denom = np.sum((data_meas - data_meas.mean()) ** 2)
     pe.append(1 - numer / denom)
@@ -203,9 +203,9 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
     plt.plot()
 
     plt.plot(time_meas, data_meas, 'k', label='Measured', linewidth=1)
-    label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+    label = fr"{model_names[idx]} r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     if model_names[idx] == 'GMU':
-      label = fr"Ref  cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+      label = fr"Ref  r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     plt.plot(time_calcs[idx], data_calcs[idx], model_colors[idx], linewidth=0.4, label=label)
     plt.plot(time_calcs[idx], data_meas - data_calcs[idx] - error_shift, color=3 * [0.3], label='Error', linewidth=0.5)
     plt.ylabel('GIC [A]')
@@ -223,19 +223,19 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
     plt.close()
 
 
-  # Plot all model cc scatter on the same figure
+  # Plot all model r scatter on the same figure
   plt.figure()
   for idx in range(len(model_names)):
     if model_names[idx] == 'GMU':
       # Note: 2 Unicode thin spaces were inserted to pad Ref for alignment
-      label = fr"Ref    cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+      label = fr"Ref    r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     else:
-      label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+      label = fr"{model_names[idx]} r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
 
     plt.plot(data_meas, data_calcs[idx], model_points[idx], markersize=1, label=label)
     
     if paper:
-      if cc[idx]**2 >= 0.6:
+      if r[idx]**2 >= 0.6:
         # Fit best line: y = m*x + b
         fit = np.polyfit(data_meas, data_calcs[idx], 1)
         m, b = fit
@@ -279,14 +279,14 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
 
   plt.close()
 
-  # Plot each model cc scatter on its own figure
+  # Plot each model r scatter on its own figure
   for idx in range(len(model_names)):
     plt.figure()
     plt.title(sid)
     if model_names[idx] == 'GMU':
-      label = fr"GMU cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+      label = fr"GMU r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     else:
-      label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+      label = fr"{model_names[idx]} r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     plt.plot(data_meas, data_calcs[idx], 'k.', markersize=1, label=label)
     ax = plt.gca()
     format_cc_scatter(ax)
@@ -327,8 +327,8 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
             r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
             r'$\sigma_\text{TVA}$': f"{np.std(data_calcs[0]):.2f}",
             r'$\sigma_\text{Ref}$': f"{np.std(data_calcs[1]):.2f}",
-            r'$\text{cc}^2_\text{TVA}$': f"{cc[0]**2:.2f}",
-            r'$\text{cc}^2_\text{Ref}$': f"{cc[1]**2:.2f}",
+            r'$\text{r}^2_\text{TVA}$': f"{r[0]**2:.2f}",
+            r'$\text{r}^2_\text{Ref}$': f"{r[1]**2:.2f}",
             r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
             r'$\text{pe}_\text{Ref}$': f"{pe[1]:.2f}"
         }
@@ -338,8 +338,8 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
             r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
             r'$\sigma_\text{TVA}$': np.nan,
             r'$\sigma_\text{Ref}$': f"{np.std(data_calcs[0]):.2f}",
-            r'$\text{cc}^2_\text{TVA}$': np.nan,
-            r'$\text{cc}^2_\text{Ref}$': f"{cc[0]**2:.2f}",
+            r'$\text{r}^2_\text{TVA}$': np.nan,
+            r'$\text{r}^2_\text{Ref}$': f"{r[0]**2:.2f}",
             r'$\text{pe}_\text{TVA}$': np.nan,
             r'$\text{pe}_\text{Ref}$': f"{pe[0]:.2f}"
         }
@@ -349,8 +349,8 @@ def compare_gic(info, data, sid, show_sim_site=False, df=None):
             r'$\sigma$ [A]': f"{np.std(data_meas):.2f}",
             r'$\sigma_\text{TVA}$': f"{np.std(data_calcs[0]):.2f}",
             r'$\sigma_\text{Ref}$': np.nan,
-            r'$\text{cc}^2_\text{TVA}$': f"{cc[0]**2:.2f}",
-            r'$\text{cc}^2_\text{Ref}$': np.nan,
+            r'$\text{r}^2_\text{TVA}$': f"{r[0]**2:.2f}",
+            r'$\text{r}^2_\text{Ref}$': np.nan,
             r'$\text{pe}_\text{TVA}$': f"{pe[0]:.2f}",
             r'$\text{pe}_\text{Ref}$': np.nan
         }
@@ -412,7 +412,7 @@ def compare_db(info, data, sid, df=None):
 
   # Storage for correlation coefficient, prediction efficiency, and 
   # interpolated measured data
-  cc = []
+  r = []
   pe = []
   data_interp = []
 
@@ -429,21 +429,21 @@ def compare_db(info, data, sid, df=None):
   for idx in range(len(model_names)):
     time_calcs_ts = np.array( [time.mktime(t.timetuple()) for t in time_calcs[idx]] )
 
-    # Get rid of the NaNs for cc and pe calculations
+    # Get rid of the NaNs for r and pe calculations
     time_calcs_ts = time_calcs_ts[~np.isnan(data_calcs[idx])]
     data_calcs[idx] = data_calcs[idx][~np.isnan(data_calcs[idx])]
 
     # Interpolate measured data
     data_interp.append( np.interp( time_calcs_ts, time_meas_ts, data_meas ) )
 
-    cc.append( (np.corrcoef(data_interp[idx], data_calcs[idx]))[0,1] )
+    r.append( (np.corrcoef(data_interp[idx], data_calcs[idx]))[0,1] )
 
     numer = np.sum((data_interp[idx]-data_calcs[idx])**2)
     denom = np.sum((data_interp[idx]-data_interp[idx].mean())**2)
     pe.append( 1-numer/denom )
 
     # Add plot for each model
-    label = fr"{model_names[idx]} cc$^2$ = {cc[idx]**2:.2f} | pe = {pe[idx]:.2f}"
+    label = fr"{model_names[idx]} r$^2$ = {r[idx]**2:.2f} | pe = {pe[idx]:.2f}"
     plt.plot(data_interp[idx], data_calcs[idx], marker='.', linestyle='None', color=model_colors[idx], markersize=1, label=label)
 
   ylims = plt.gca().get_ylim()
@@ -505,9 +505,9 @@ def compare_db(info, data, sid, df=None):
             r'$\sigma_\text{SWMF}$': f"{np.std(data_calcs[0]):.1f}",
             r'$\sigma_\text{MAGE}$': f"{np.std(data_calcs[1]):.1f}",
             r'$\sigma_\text{GGCM}$': f"{np.std(data_calcs[2]):.1f}",
-            r'$\text{cc}^2_\text{SWMF}$': f"{cc[0]**2:.2f}",
-            r'$\text{cc}^2_\text{MAGE}$': f"{cc[1]**2:.2f}",
-            r'$\text{cc}^2_\text{GGCM}$': f"{cc[2]**2:.2f}",
+            r'$\text{r}^2_\text{SWMF}$': f"{r[0]**2:.2f}",
+            r'$\text{r}^2_\text{MAGE}$': f"{r[1]**2:.2f}",
+            r'$\text{r}^2_\text{GGCM}$': f"{r[2]**2:.2f}",
             r'$\text{pe}_\text{SWMF}$': f"{pe[0]:.2f}",
             r'$\text{pe}_\text{MAGE}$': f"{pe[1]:.2f}",
             r'$\text{pe}_\text{GGCM}$': f"{pe[2]:.2f}"
@@ -730,12 +730,12 @@ def plot_all_db(info, info_df, data_all, start, stop,  offset=400):
           t2 = np.array([time.mktime(dt.timetuple()) for dt in time2])
           # Interpolate data2 to t1
           data2_interp = np.interp(t1, t2, data2)
-          cc = np.corrcoef(data1, data2_interp)[0, 1]
+          r = np.corrcoef(data1, data2_interp)[0, 1]
         else:
-          cc = np.corrcoef(data1, data2)[0, 1]
+          r = np.corrcoef(data1, data2)[0, 1]
 
-        if cc >= 0.995:
-          text = f"cc={cc:.4f} between sites: {sid_1} and {sid_2}"
+        if r >= 0.995:
+          text = f"r={r:.4f} between sites: {sid_1} and {sid_2}"
         else:
           text = None
         if text is not None:
