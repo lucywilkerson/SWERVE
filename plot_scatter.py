@@ -17,7 +17,7 @@ paper = True    # set true to generate paper figs
 colorbar_scatter = False # set true to generate colorbar plots
 grid_scatter = False # set true to generate grid plots
 site_scatter = False # set true to generate scatter plots for each site
-B_scatter = True # set true to generate scatter plots for B
+B_scatter = False # set true to generate scatter plots for B
 
 
 def plot_avg_line(x, y, bins=23, color='k', marker='o', label='Average in bins', **kwargs):
@@ -49,7 +49,7 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     fig, ax = plt.subplots(figsize=(12, 5))
     sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=np.abs(df[color_col]), cmap=cmap, norm=norm)
     ax.set_xlabel('Distance [km]')
-    ax.set_ylabel('|cc|')
+    ax.set_ylabel('|r|')
     #ax.set_title(plot_title)
     ax.grid(True)
 
@@ -204,7 +204,7 @@ if not B_scatter:
     plot_avg_line(df['dist(km)'], np.abs(df['cc']))
     plt.legend(loc='upper right')
 plt.xlabel('Distance [km]')
-plt.ylabel('|cc|')
+plt.ylabel('|r|')
 plt.grid(True)
 plt.gca().xaxis.set_minor_locator(mpl.ticker.AutoMinorLocator(2))
 plt.gca().xaxis.grid(True, linestyle='--', which='minor')
@@ -226,7 +226,7 @@ if not B_scatter:
     plot_avg_line(avg_std, np.abs(df['cc']))
     plt.legend(loc='upper right')
 plt.xlabel('Average standard deviation [A]')
-plt.ylabel('|cc|')
+plt.ylabel('|r|')
 plt.grid(True)
 if B_scatter:
     savefig(results_dir, 'cc_vs_std_scatter_B', logger)
@@ -239,7 +239,7 @@ if not B_scatter:
     plot_avg_line(np.abs(df['beta_diff']), np.abs(df['cc']))
     plt.legend(loc='upper right')
 plt.xlabel(r'|$\Delta \beta$ |')
-plt.ylabel('|cc|')
+plt.ylabel('|r|')
 plt.grid(True)
 if B_scatter:
     savefig(results_dir, 'cc_vs_beta_scatter_B', logger)
@@ -258,7 +258,7 @@ if not B_scatter:
     plot_avg_line(np.abs(df['log_beta_diff']), np.abs(df['cc']))
     plt.legend(loc='upper right')
 plt.xlabel(r'|$\Delta \log_{10} (\beta)$|')
-plt.ylabel('|cc|')
+plt.ylabel('|r|')
 plt.grid(True)
 if B_scatter:
     savefig(results_dir, 'cc_vs_logbeta_scatter_B', logger)
@@ -270,7 +270,7 @@ plt.scatter(np.abs(df['volt_diff(kV)']), np.abs(df['cc']), **scatter_kwargs)
 nan_volt_diff = df['volt_diff(kV)'].isna().sum()
 #plt.text(0.10, 0.95, f"NaN values: {nan_volt_diff}", transform=plt.gca().transAxes, fontsize=12, verticalalignment='top', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5', alpha=0.5))
 plt.xlabel(r'|$\Delta$V| [kV]')
-plt.ylabel('|cc|')
+plt.ylabel('|r|')
 plt.grid(True)
 #plt.legend(loc='upper right')
 if B_scatter:
@@ -290,7 +290,7 @@ if not B_scatter:
     plot_avg_line(np.abs(df['lat_diff']), np.abs(df['cc']))
     plt.legend(loc='upper right')
 plt.xlabel(r'$\Delta \lambda$ [deg]')
-plt.ylabel('|cc|')
+plt.ylabel('|r|')
 plt.grid(True)
 if B_scatter:
     savefig(results_dir, 'cc_vs_lat_scatter_B', logger)
