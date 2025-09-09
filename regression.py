@@ -150,7 +150,7 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, met
         plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=f'${eqn}$')
       if metrics is not None:
         text = (
-          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$  |  "
+          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se']:.2f}$  |  "
           f"RMSE = ${metrics['rmse']:.1f}$ [A]"
         )
         plt.scatter([], [], facecolors='none', edgecolors='none', label=text) # Adds metrics to legend while keeping legend marker alined w eqn
@@ -176,7 +176,7 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
 
     text = (
         f"${eqn}$\n"
-        f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se_boot']:.2f}$\n"
+        f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se']:.2f}$\n"
         f"RMSE = ${metrics['rmse']:.1f}$ [A]\n"
         f"AIC = ${metrics['aic']:.1f}$\n"
         f"BIC = ${metrics['bic']:.1f}$"
@@ -394,7 +394,7 @@ for output_name in output_names:
         logger.info(f"  {key} = {metrics[key]:.4f}")
 
       # Modify if columns above changes
-      row = [eqn, metrics['cc'], metrics['cc_2se_boot'], metrics['rmse'], metrics['aic'], metrics['bic'], ', '.join(inputs)]
+      row = [eqn, metrics['cc'], metrics['cc_2se'], metrics['rmse'], metrics['aic'], metrics['bic'], ', '.join(inputs)]
       scatter_fit_df_rows.append(row)
 
       # Creating plots
