@@ -93,18 +93,22 @@ def scatter_fit_df(rows, columns):
   df_raw = pd.DataFrame(rows, columns=columns)
 
   # Create df for md and latex output
-  columns = ['Fit Equation', 'cc ± 2SE', 'RMSE [A]', 'AIC', 'BIC', 'inputs']
+  columns = ['Fit Equation', 'r $\pm$ 2SE', 'r$^2$', 'RMSE [A]', 'AIC', 'inputs']
   # Ideally would determine column indices from df_raw in case columns changes.
   for i, row in enumerate(rows):
-    rows[i] = [f"${row[0]}$", f"${row[1]:.2f}$ ± ${row[2]:.2f}$", f"${row[3]:.1f}$ [A]", f"${row[4]:.1f}$", f"${row[5]:.1f}$", row[6]]
+    rows[i] = [f"${row[0]}$", f"${row[1]:.2f} \pm {row[2]:.2f}$", f"${row[1]**2:.2f}$", f"${row[3]:.1f}$", f"${row[4]:.1f}$", row[7]]
 
   df = pd.DataFrame(rows, columns=columns)
   # Remove any duplicate rows
   df = df.drop_duplicates(subset=['inputs'])
 
   # Remove rows with these input combinations
+  # TODO: simplify this by setting outside of function, also figure out duplicates situation
   omits = ['alpha, alpha*interpolated_beta',
-           'interpolated_beta, alpha*interpolated_beta'
+           'interpolated_beta, alpha*interpolated_beta',
+           'interpolated_beta, alpha*interpolated_beta',
+           'alpha*interpolated_beta',
+           'mag_lat, mag_lat*interpolated_beta',
            'mag_lat, mag_lat*interpolated_beta',
            'interpolated_beta, mag_lat*interpolated_beta',
            'mag_lat*interpolated_beta'
@@ -253,6 +257,7 @@ def regress(x, y):
   def regress_metrics(target, predictions, n_inputs):
 
     import numpy as np
+    from scipy import stats
     def bootstrap_cc_unc(target, predictions, n_bootstrap=1000, random_state=None):
         """
         Returns: 2 sigma uncertainty in cc
@@ -281,6 +286,20 @@ def regress(x, y):
        ci_lower = (np.exp(2*c1)-1)/(np.exp(2*c1)+1)
        ci_upper = (np.exp(2*c2)-1)/(np.exp(2*c2)+1)
        return ci_lower, ci_upper
+    
+    def calc_p_values(x, target, model):
+      x_with_intercept = np.column_stack([np.ones(x.shape[0]), x])
+      params = np.append(model.intercept_, model.coef_)
+      y_hat = np.dot(x_with_intercept, params)
+      residuals = target - y_hat
+      dof = x_with_intercept.shape[0] - x_with_intercept.shape[1]
+      mse = np.sum(residuals**2) / dof
+      var_b = mse * np.linalg.inv(np.dot(x_with_intercept.T, x_with_intercept)).diagonal()
+      se_b = np.sqrt(var_b)
+      t_stats = params / se_b
+      p_values = [2 * (1 - stats.t.cdf(np.abs(t), dof)) for t in t_stats]
+      return p_values[1:]  # exclude intercept
+
 
     # Calculate error
     rss = np.sum((target-predictions)**2)  # Sum of squares error
@@ -302,7 +321,10 @@ def regress(x, y):
     aic = -2*llf + 2*k # see https://en.wikipedia.org/wiki/Akaike_information_criterion
     bic = -2*llf + k*np.log(n) # see https://en.wikipedia.org/wiki/Bayesian_information_criterion
 
-    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_ci_lower': cc_ci_lower, 'cc_ci_upper': cc_ci_upper, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic}
+    # Calculate p-value for each input coefficient
+    p_values = calc_p_values(x, target, model)
+
+    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_ci_lower': cc_ci_lower, 'cc_ci_upper': cc_ci_upper, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic, 'p_values': p_values}
 
   def remove_outliers(data, output, threshold=3.5):
     mask = output <= threshold * np.std(output)
@@ -361,7 +383,7 @@ else:
 
 info = df_prep()
 
-columns = ['Fit Equation', 'cc', '2SEb', 'RMSE [A]', 'AIC', 'BIC', 'inputs']
+columns = ['Fit Equation', 'cc', '2SE', 'RMSE [A]', 'AIC', 'BIC', 'p-values', 'inputs']
 for output_name in output_names:
   # Table to hold metrics
   scatter_fit_df_rows = []
@@ -391,10 +413,14 @@ for output_name in output_names:
       eqn, eqn_txt, base_fname = write_eqn_and_fname(inputs, output_name, model)
       logger.info(f"  Equation: {eqn_txt}")
       for key in metrics:
-        logger.info(f"  {key} = {metrics[key]:.4f}")
+        if key != 'p_values':
+          logger.info(f"  {key} = {metrics[key]:.4f}")
+        else:
+          for i, p_value in enumerate(metrics['p_values']):
+            logger.info(f"  p-value for {inputs[i]} = {p_value:.4e}")
 
       # Modify if columns above changes
-      row = [eqn, metrics['cc'], metrics['cc_2se'], metrics['rmse'], metrics['aic'], metrics['bic'], ', '.join(inputs)]
+      row = [eqn, metrics['cc'], metrics['cc_2se'], metrics['rmse'], metrics['aic'], metrics['bic'], metrics['p_values'], ', '.join(inputs)]
       scatter_fit_df_rows.append(row)
 
       # Creating plots
@@ -431,7 +457,7 @@ for output_name in output_names:
   fname = os.path.join(results_dir, f"fit_table_{output_name}")
   logger.info(f"Writing {fname}.md")
   df_table.to_markdown(fname + ".md", index=True)
-  latex_str = fix_latex(df_table, data_type='GIC', index=True)
+  latex_str = fix_latex(df_table, data_type='fit', index=True)
   with open(fname + ".tex", "w") as f:
         logger.info(f"Writing {fname}.tex")
         f.write(latex_str)
