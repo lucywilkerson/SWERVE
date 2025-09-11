@@ -8,33 +8,35 @@ from .site_plot import site_plot
 from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
 
-def sids(sids_only=None):
-  from swerve import config, read_info_dict
-
-  # TODO: Add keyword exclude_errors?
-
-  # TODO: Seems like this should be calling read_info_df() and getting all unique sids.
-  info = read_info_dict()
-  all_sids = list(info.keys())
-
-  if sids_only is None:
-    # Remove test sids unless keyword test is passed
-    all_sids = [sid for sid in all_sids if not sid.startswith('test')] 
-    return all_sids
+def sids(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None):
+  from swerve import config, read_info_df
 
   # Handle keywords 'paper' and 'test'
   special_keys = {'paper': 'paper_sids', 'test': 'test_sids'}
 
-  for sid in set(sids_only) & special_keys.keys():
-    new_df = read_info_df(key=special_keys[sid])
-    sids_only = list(new_df['site_id'].unique())
+  if key[0] in list(special_keys.keys()):
+    site_key = special_keys[key[0]]
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=site_key)
+  elif key is None:
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
+  else:
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
+    info = info[info['site_id'].isin(key)]
+    if info.empty:
+      raise ValueError(f"key '{key}' not recognized. Valid keys are {list(special_keys.keys())} or None")
 
+  all_sids = list(info['site_id'].unique())
+
+  if key != 'test':
+    # Remove test sids unless keyword test is passed
+    all_sids = [sid for sid in all_sids if not sid.startswith('test')] 
+    
   # Validate sids
-  for sid in sids_only:
-    if sid not in info:
-      raise ValueError(f"sid '{sid}' not found in info.json")
+  for sid in all_sids:
+    if sid not in info['site_id'].values:
+      raise ValueError(f"sid '{sid}' not found in info.csv")
 
-  return sids_only
+  return all_sids
 
 def format_df(df, float_fmt=".2f"):
     """

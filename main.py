@@ -5,9 +5,16 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
+
+info_kwargs = {'extended': False, # Should always be False, no need to use info.extended.csv
+                 'data_type': None, # If specified, only return sites with this data type (e.g., GIC, B)
+                 'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+                 'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
+                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'error' column)
+              }
 
 import utilrsw
 from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
@@ -23,7 +30,7 @@ else:
   sids_only = args['sites'].split(',')
 
 # Get actual site IDs to process and validate given ones.
-sids_only = sids(sids_only=sids_only)
+sids_only = sids(**info_kwargs, key=sids_only)
 
 # TODO: If info.extended.csv does not exist, run info.py code.
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
