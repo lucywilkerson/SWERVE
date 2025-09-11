@@ -80,46 +80,46 @@ def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, 
     ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
 
   if mag_lat:
-        mag_lat_fname = CONFIG['files']['shape_files']['mag_lat']
-        print(f'Reading {mag_lat_fname}')
-        mag_gdf = gpd.read_file(mag_lat_fname)
-        mag_gdf = mag_gdf.to_crs("EPSG:4326")
-        mag_gdf = mag_gdf[mag_gdf["geometry"].notnull()]
+        from spacepy import coordinates as coord
+        from spacepy.time import Ticktock
 
-        # Plotting lines from geometry
-        mag_gdf.loc[
-            mag_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
-        ] = mag_gdf.loc[
-            mag_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
-        ].apply(lambda x: list(x.geoms)[0])
-        for idx, row in mag_gdf.iterrows():
-            x, y = row['geometry'].xy
-            ax.plot(x, y, color='gray', linewidth=.5, transform=transform)
-            text = row['Contour']
-            if text <= 70 and text >= 52:
-                line = row['geometry']
-                map_box = box(extent[0], extent[2], extent[1], extent[3])
-                intersection = line.intersection(map_box)
+        # Create a grid of geographic latitude and longitude for CONUS
+        # Using a 1-degree resolution for a balance of detail and performance
+        lat_res, lon_res = 1, 1
+        lat_min, lat_max = extent[2], extent[3]
+        lon_min, lon_max = extent[0], extent[1]
 
-                # If intersection is a LineString or MultiLineString, get the endpoint on the east (right) extent
-                if intersection.is_empty:
-                    continue
-                if intersection.geom_type == "MultiLineString":
-                    # Take the first line
-                    intersection = list(intersection.geoms)[0]
-                if intersection.geom_type == "LineString":
-                    coords = list(intersection.coords)
-                    # Find the point(s) with longitude == east extent
-                    east_x = extent[1]
-                    east_points = [pt for pt in coords if np.isclose(pt[0], east_x, atol=0.05)]
-                    if east_points:
-                        endpoint = east_points[0]
-                    else:
-                        # fallback: picks the endpoint with max longitude
-                        endpoint = max(coords, key=lambda pt: pt[0])
-                    ax.text(endpoint[0], endpoint[1], text, fontsize=8, transform=transform, ha='right', va='center')
-                elif intersection.geom_type == "Point":
-                    ax.text(intersection.x, intersection.y, text, fontsize=8, transform=transform, ha='right', va='center')
+        lats_geo = np.arange(lat_min, lat_max + lat_res, lat_res)
+        lons_geo = np.arange(lon_min, lon_max + lon_res, lon_res)
+        lons_geo_grid, lats_geo_grid = np.meshgrid(lons_geo, lats_geo)
+
+        # Reshape the grids into a list of coordinate pairs (altitude, latitude, longitude)
+        altitude_re = np.ones_like(lats_geo_grid.ravel())  # 1 Earth radius above center (surface)
+        coords_geo = np.vstack([altitude_re, lats_geo_grid.ravel(), lons_geo_grid.ravel()]).T
+
+        # Convert geographic to geomagnetic coordinates
+        geo_c = coord.Coords(coords_geo, 'GEO', 'sph', units=['Re', 'deg', 'deg'])
+        geo_c.ticks = Ticktock(['2024-05-11T00:00:00'] * coords_geo.shape[0], 'UTC')
+
+        # Convert the coordinates to the geomagnetic (MAG) system
+        mag_c = geo_c.convert('MAG', 'sph')
+
+        # Extract the geomagnetic latitude and longitude, and reshape to the original grid
+        mlats = mag_c.lati.reshape(lats_geo_grid.shape)
+
+        # Plot the data using cartopy
+        lat_contour = ax.contour(lons_geo_grid, lats_geo_grid, mlats,
+                                transform=ccrs.PlateCarree(),
+                                colors='gray', linestyles='dashed',
+                                linewidths=0.5,
+                                levels=np.arange(30, 60, 2))
+        # Generate label locations along the right edge for each contour level
+        lat_edge = extent[1]-2
+        contour_levels = np.arange(int(extent[2]+2), int(extent[3]+2), 2)
+        label_loc_geo = [(lat_edge, level) for level in contour_levels]
+        label_loc = [projection.transform_point(lon, lat, ccrs.PlateCarree()) for lon, lat in label_loc_geo]
+        ax.clabel(lat_contour, inline=True, manual=label_loc, fontsize=10, fmt='%.1f°')
+
 
   add_symbols(ax, info_df, transform, markersize)
   # Set the extent of the map
