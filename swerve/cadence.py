@@ -1,5 +1,11 @@
 def cadence(time, logger=None, logger_indent=0):
   import numpy
+
+  if logger_indent == 0:
+    logger_indent = ''
+  else:
+    logger_indent = ' ' * logger_indent
+    
   if not isinstance(time, numpy.ndarray):
     time = numpy.array(time)
   if not numpy.issubdtype(time.dtype, numpy.datetime64):
