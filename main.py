@@ -5,9 +5,10 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
+debug = True # Log additional resampling time info (including cadence)
 
 info_kwargs = {'extended': False, # Should always be False, no need to use info.extended.csv
                  'data_type': None, # If specified, only return sites with this data type (e.g., GIC, B)
@@ -42,7 +43,7 @@ for sid in sids_only:
   data[sid] = {}
 
   # Read and parse data or use cached data if found and reparse is False.
-  data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse)
+  data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse, debug=debug)
 
   # Add stats and metrics to data in data[sid] and returns what was added.
   stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
