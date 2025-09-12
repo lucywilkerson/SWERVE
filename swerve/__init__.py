@@ -14,11 +14,11 @@ def sids(extended=False, data_type=None, data_source=None, data_class=None, excl
   # Handle keywords 'paper' and 'test'
   special_keys = {'paper': 'paper_sids', 'test': 'test_sids'}
 
-  if key[0] in list(special_keys.keys()):
+  if key is None:
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
+  elif key[0] in list(special_keys.keys()):
     site_key = special_keys[key[0]]
     info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=site_key)
-  elif key is None:
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
   else:
     info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
     info = info[info['site_id'].isin(key)]
