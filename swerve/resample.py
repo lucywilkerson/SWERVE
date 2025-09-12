@@ -28,7 +28,7 @@ def resample(time, data, start, stop, ave=None, inclusive='both', logger=None, l
     logger.info(f"{logger_indent}  time[-1]      = {time[-1]}")
     logger.info(f"{logger_indent}  data[-1]      = {data[-1]}")
 
-    _ = cadence(time, data, logger=logger, logger_indent=logger_indent)
+    _ = cadence(time, logger=logger, logger_indent=logger_indent)
 
   import numpy
   import pandas
@@ -53,7 +53,7 @@ def resample(time, data, start, stop, ave=None, inclusive='both', logger=None, l
   if not numpy.issubdtype(time.dtype, numpy.datetime64):
     time = time.astype('datetime64[ns]')
 
-  dts_uniq = cadence(time, data, logger=logger, logger_indent=logger_indent)
+  dts_uniq = cadence(time, logger=logger, logger_indent=logger_indent)
   #if len(dts_uniq) > 1:
   #  raise ValueError(f"Time steps are not uniform. Unique dts [s]: {dts_uniq/1e9}")
   if logger:

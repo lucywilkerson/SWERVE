@@ -1,4 +1,4 @@
-def cadence(time, data, logger=None, logger_indent=0):
+def cadence(time, logger=None, logger_indent=0):
   import numpy
   if not isinstance(time, numpy.ndarray):
     time = numpy.array(time)
