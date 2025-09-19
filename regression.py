@@ -22,9 +22,9 @@ if 'paper' in CONFIG['dirs']:
 
 warnings.filterwarnings("ignore", message="The figure layout has changed to tight")
 
-cc_hypothesis_test = True # If true, runs hypothesis test on cc of regression models and returns p-values
+r_hypothesis_test = True # If true, runs hypothesis test on r of regression models and returns p-values
 
-plot_types = None # If none, create both line plots and scatter cc plots
+plot_types = None # If none, create both line plots and scatter r plots
 if plot_types is None:
   plot_types = ['line', 'scatter']
 
@@ -154,7 +154,7 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, met
         plt.plot(x_range, y_model, color='m', linewidth=2, linestyle='--', label=f'${eqn}$')
       if metrics is not None:
         text = (
-          f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se']:.2f}$  |  "
+          f"r = ${metrics['r']:.2f}$ ± ${metrics['r_2se']:.2f}$  |  "
           f"RMSE = ${metrics['rmse']:.1f}$ [A]"
         )
         plt.scatter([], [], facecolors='none', edgecolors='none', label=text) # Adds metrics to legend while keeping legend marker alined w eqn
@@ -180,7 +180,7 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
 
     text = (
         f"${eqn}$\n"
-        f"cc = ${metrics['cc']:.2f}$ ± ${metrics['cc_2se']:.2f}$\n"
+        f"r = ${metrics['r']:.2f}$ ± ${metrics['r_2se']:.2f}$\n"
         f"RMSE = ${metrics['rmse']:.1f}$ [A]\n"
         f"AIC = ${metrics['aic']:.1f}$\n"
         f"BIC = ${metrics['bic']:.1f}$"
@@ -222,25 +222,25 @@ def run_cc_hypothesis_test(scatter_fit_df, y, compare_inputs):
   import re
   import scipy.stats as stats
 
-  cc_values = []
+  r_values = []
   aic_values = []
   for compare_input in compare_inputs:
     input_str = ', '.join(compare_input)
     row = scatter_fit_df[scatter_fit_df['inputs'] == input_str]
     aic_values.append(row.iloc[0]['AIC'])
-    cc_values.append(row.iloc[0]['cc'])
+    r_values.append(row.iloc[0]['r'])
 
-  logger.info("Running Fisher-z hyp. test on equality of ccs for models:")
-  logger.info(f"  cc = {cc_values[0]:.2f}; AIC = {aic_values[0]}; inputs = {compare_inputs[0]} ")
+  logger.info("Running Fisher-z hyp. test on equality of rs for models:")
+  logger.info(f"  r = {r_values[0]:.2f}; AIC = {aic_values[0]}; inputs = {compare_inputs[0]} ")
   logger.info("  vs")
-  logger.info(f"  cc = {cc_values[1]:.2f}; AIC = {aic_values[1]}; inputs = {compare_inputs[1]} ")
+  logger.info(f"  r = {r_values[1]:.2f}; AIC = {aic_values[1]}; inputs = {compare_inputs[1]} ")
 
   # Note that Devore yields slightly different results due to no sample size in rho
   # https://biostatistics.letgen.org/tag/fishers-z-transformation/
   # Run hypothesis test! Matches http://vassarstats.net/rdiff.html
   # Can also check with https://www.danielsoper.com/statcalc/calculator.aspx?id=104 
-  V = 0.5*np.log((1+cc_values[0])/(1-cc_values[0]))
-  z = (V - 0.5*np.log((1+cc_values[1])/(1-cc_values[1]))) * np.sqrt((len(y)-3)/2)
+  V = 0.5*np.log((1+r_values[0])/(1-r_values[0]))
+  z = (V - 0.5*np.log((1+r_values[1])/(1-r_values[1]))) * np.sqrt((len(y)-3)/2)
   logger.info(f"  z = {z:.4f}")
   logger.info(f'  p = {2*stats.norm.sf(abs(z)):.4f} (two-tailed)')
 
@@ -258,30 +258,30 @@ def regress(x, y):
 
     import numpy as np
     from scipy import stats
-    def bootstrap_cc_unc(target, predictions, n_bootstrap=1000, random_state=None):
+    def bootstrap_r_unc(target, predictions, n_bootstrap=1000, random_state=None):
         """
-        Returns: 2 sigma uncertainty in cc
+        Returns: 2 sigma uncertainty in r
         """
         rng = np.random.default_rng(random_state)
         n = len(target)
-        cc_samples = []
+        r_samples = []
 
         for _ in range(n_bootstrap):
             idx = rng.integers(0, n, n)
             target_sample = target[idx]
             pred_sample = predictions[idx]
-            cc = np.corrcoef(target_sample, pred_sample)[0, 1]
-            cc_samples.append(cc)
+            r = np.corrcoef(target_sample, pred_sample)[0, 1]
+            r_samples.append(r)
 
-        cc_samples = np.array(cc_samples)
-        #cc_mean = np.mean(cc_samples)
-        cc_std = np.std(cc_samples, ddof=1)
-        return 2*cc_std
+        r_samples = np.array(r_samples)
+        #r_mean = np.mean(r_samples)
+        r_std = np.std(r_samples, ddof=1)
+        return 2*r_std
 
-    def cc_95_ci (target, cc):
+    def r_95_ci (target, r):
        #from Devore CH 12.5 (p. 534)
        n = len(target)
-       v = np.log((1+cc)/(1-cc))/2 # Fischer transformation
+       v = np.log((1+r)/(1-r))/2 # Fischer transformation
        c1, c2 =(v-(1.96/np.sqrt(n-3)), v+(1.96/np.sqrt(n-3))) # 95% CI endpoints
        ci_lower = (np.exp(2*c1)-1)/(np.exp(2*c1)+1)
        ci_upper = (np.exp(2*c2)-1)/(np.exp(2*c2)+1)
@@ -307,10 +307,10 @@ def regress(x, y):
     rmse = np.sqrt(rss/n)
 
     # Calculate correlation coefficient
-    cc = np.corrcoef(target, predictions)[0,1]
-    cc_2se = np.sqrt((1-cc**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
-    cc_2se_boot = bootstrap_cc_unc(target, predictions) # bootstrapped uncertainty (2 sigma)
-    cc_ci_lower, cc_ci_upper = cc_95_ci(target, cc) # 95% CI for cc from Devore
+    r = np.corrcoef(target, predictions)[0,1]
+    r_2se = np.sqrt((1-r**2)/(n-2)) # see https://stats.stackexchange.com/questions/73621/standard-error-from-correlation-coefficient
+    r_2se_boot = bootstrap_r_unc(target, predictions) # bootstrapped uncertainty (2 sigma)
+    r_ci_lower, r_ci_upper = r_95_ci(target, r) # 95% CI for r from Devore
 
     # Calculate log likelihood
     n2 = 0.5*n
@@ -324,7 +324,7 @@ def regress(x, y):
     # Calculate p-value for each input coefficient
     p_values = calc_p_values(x, target, model)
 
-    return {'rmse': rmse, 'cc': cc, 'cc_2se': cc_2se, 'cc_ci_lower': cc_ci_lower, 'cc_ci_upper': cc_ci_upper, 'cc_2se_boot': cc_2se_boot, 'aic': aic, 'bic': bic, 'p_values': p_values}
+    return {'rmse': rmse, 'r': r, 'r_2se': r_2se, 'r_ci_lower': r_ci_lower, 'r_ci_upper': r_ci_upper, 'r_2se_boot': r_2se_boot, 'aic': aic, 'bic': bic, 'p_values': p_values}
 
   def remove_outliers(data, output, threshold=3.5):
     mask = output <= threshold * np.std(output)
@@ -383,7 +383,7 @@ else:
 
 info = df_prep()
 
-columns = ['Fit Equation', 'cc', '2SE', 'RMSE [A]', 'AIC', 'BIC', 'p-values', 'inputs']
+columns = ['Fit Equation', 'r', '2SE', 'RMSE [A]', 'AIC', 'BIC', 'p-values', 'inputs']
 for output_name in output_names:
   # Table to hold metrics
   scatter_fit_df_rows = []
@@ -420,7 +420,7 @@ for output_name in output_names:
             logger.info(f"  p-value for {inputs[i]} = {p_value:.4e}")
 
       # Modify if columns above changes
-      row = [eqn, metrics['cc'], metrics['cc_2se'], metrics['rmse'], metrics['aic'], metrics['bic'], metrics['p_values'], ', '.join(inputs)]
+      row = [eqn, metrics['r'], metrics['r_2se'], metrics['rmse'], metrics['aic'], metrics['bic'], metrics['p_values'], ', '.join(inputs)]
       scatter_fit_df_rows.append(row)
 
       # Creating plots
@@ -447,9 +447,9 @@ for output_name in output_names:
   # Convert to df and create df_table for markdown and latex output
   df, df_table = scatter_fit_df(scatter_fit_df_rows, columns)
 
-  if cc_hypothesis_test:
+  if r_hypothesis_test:
     for input_pair in itertools.combinations(df['inputs'], 2):
-      # Run hypothesis test on cc of regression models
+      # Run hypothesis test on r of regression models
       run_cc_hypothesis_test(df, y, [[input_pair[0]], [input_pair[1]]])
 
 
