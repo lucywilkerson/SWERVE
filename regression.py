@@ -104,13 +104,12 @@ def scatter_fit_df(rows, columns):
 
   # Remove rows with these input combinations
   # TODO: simplify this by setting outside of function, also figure out duplicates situation
-  omits = ['alpha, alpha*interpolated_beta',
-           'interpolated_beta, alpha*interpolated_beta',
-           'interpolated_beta, alpha*interpolated_beta',
-           'alpha*interpolated_beta',
+  omits = ['mag_lat',
+           'mag_lat, interpolated_beta',
            'mag_lat, mag_lat*interpolated_beta',
            'mag_lat, mag_lat*interpolated_beta',
            'interpolated_beta, mag_lat*interpolated_beta',
+           'mag_lat, interpolated_beta, mag_lat*interpolated_beta',
            'mag_lat*interpolated_beta'
           ]
   df = df[~df['inputs'].isin(omits)]
