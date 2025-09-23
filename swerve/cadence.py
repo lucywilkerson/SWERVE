@@ -3,8 +3,10 @@ def cadence(time, logger=None, logger_indent=0):
 
   if logger_indent == 0:
     logger_indent = ''
-  else:
+  elif isinstance(logger_indent, int):
     logger_indent = ' ' * logger_indent
+  else:
+    logger_indent = logger_indent
     
   if not isinstance(time, numpy.ndarray):
     time = numpy.array(time)
