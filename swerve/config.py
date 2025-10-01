@@ -118,7 +118,7 @@ def config():
             'Union': 'e)',
             'Widows Creek': 'g)'
           },
-          'correlation': {
+          'scatter': {
             'Bull Run': 'b)',
             'Montgomery': 'd)',
             'Union': 'f)',
@@ -130,7 +130,7 @@ def config():
             'Bull Run': 'a)',
             '50116': 'c)'
           },
-          'correlation': {
+          'scatter': {
             'Bull Run': 'b)',
             '50116': 'd)'
           }
