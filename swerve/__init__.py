@@ -145,7 +145,7 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
   if key == 'paper_sids' or key == 'test_sids':
     if key not in CONFIG:
       raise ValueError(f"key '{key}' not found in config")
-    key_sids = list(CONFIG[key]['GIC']['timeseries'])
+    key_sids = list(set(list(CONFIG[key]['GIC']['timeseries']) + list(CONFIG[key]['B']['timeseries'])))
     info_df = info_df[info_df['site_id'].isin(key_sids)]
 
   def filter_df(df, col, val):
