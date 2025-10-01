@@ -5,15 +5,15 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 
 info_kwargs = {'extended': False, # Should always be False, no need to use info.extended.csv
-                 'data_type': None, # If specified, only return sites with this data type (e.g., GIC, B)
+                 'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
                  'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
                  'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
-                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'error' column)
+                 'exclude_errors': True # If True, excludes sites with known data issues (see info.csv 'error' column)
               }
 
 import utilrsw
@@ -58,9 +58,9 @@ for sid in sids_only:
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-#dfs = site_stats_summary(stats, data_types=data_types, logger=logger)
-
 if args['sites'] is None and data_types is None:
   import utilrsw
+  # Create table of results
+  site_stats_summary(stats, data_types=data_types, logger=logger)
   # Write data from all sites to a single file.
   utilrsw.write(CONFIG['files']['all'], data, logger=logger)
