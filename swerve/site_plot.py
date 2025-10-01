@@ -3,7 +3,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
   import os
 
-  from swerve import config, savefig
+  from swerve import config, savefig, savefig_paper
 
   if logger is None:
     from swerve import LOG_KWARGS, logger
@@ -44,12 +44,29 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
     # Plot measured vs calculated data
     if 'measured' in data[data_type] and 'calculated' in data[data_type]:
-      for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
-        for style in ['timeseries', 'scatter']:
-          logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
-          _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
-          fname = f"{data_type}_calculated_{calculated_source}_vs_measured_{style}"
+      import pickle
+      for style in ['timeseries', 'scatter']:
+        if 'paper_sids' in CONFIG.keys() and sid in CONFIG['paper_sids'][data_type][style]:
+          paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', '_processed', f'{sid.lower().replace(' ', '')}')
+          subplot_label = CONFIG['paper_sids'][data_type][style][sid]
+        else: subplot_label = None
+
+        logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
+        plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
+        for label, fig in plots.items():
+          fname = f"{label}_calculated_all_vs_measured_{style}"
+          fig = pickle.loads(fig)
           savefig(dir_compare, fname, logger=logger, logger_indent=4)
+        if subplot_label != None:
+          fname = f"{data_type}_compare_{style}"
+          savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
+        for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
+          logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
+          plots = _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
+          for label, fig in plots.items():
+            fname = f"{label}_calculated_{calculated_source}_vs_measured_{style}"
+            fig = pickle.loads(fig)
+            savefig(dir_compare, fname, logger=logger, logger_indent=4)
 
     # Plot original vs modified data
     for data_class in data[data_type].keys(): # e.g., measured, calculated
@@ -78,9 +95,11 @@ def _plot_raw_mage(data, sid, show_plots=False):
   if sid == 'Bull Run':
     # Bull Run data has a different declination
     decl = np.deg2rad(2.3)
-  if sid == 'Union':
+  elif sid == 'Union':
     # Union data has a different declination
     decl = np.deg2rad(5.9)
+  else:
+    decl = np.deg2rad(0) #TODO; specify or other sites?
   #dBn_mag = -dBt_geo*cos(decl) + dBp_geo*sin(decl)
   # using dBn_geo = -dBt_geo
   #dBn_mag =  dBn_geo*cos(decl) + dBp_geo*sin(decl)
@@ -108,10 +127,10 @@ def _plot_raw_mage(data, sid, show_plots=False):
 def _plot_raw(data, sid, show_plots=False):
   data1 = {"time": data['time'], "data": data['data_raw']}
   ylabels = data['labels_raw'].copy()
-  _plot_stack(data1, None, ylabels, None, None, texts=None, suptitle=sid, style='timeseries', show_plots=show_plots)
+  _plot_stack(data1, None, ylabels, None, None, suptitle=sid, style='timeseries', show_plots=show_plots)
 
 
-def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries', show_plots=False):
+def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries', subplot_label=None, show_plots=False):
 
   measured_source = data['measured'].keys()
   #if len(m_keys) > 1:
@@ -119,48 +138,87 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
   measured_source = list(measured_source)[0]
   measured_modified = data['measured'][measured_source]['modified']
 
-  calculated = data['calculated'][calculated_source]['modified']
-  calculated_metrics = data['calculated'][calculated_source]['modified']['metrics']
-
   unit = data['measured'][measured_source]['original']['unit']
+
+  if calculated_source is None:
+    calculated_sources = data['calculated'].keys()
+  else:
+    calculated_sources = calculated_source.split(',')
+
+  ylabels = []
   component_labels1 = data['measured'][measured_source]['original']['labels'].copy()
   for idx, label in enumerate(component_labels1):
+    if label =='B_H': label = '$\Delta B_H$'
     if style == 'scatter':
-      component_labels1[idx] = f"{label} {measured_source} [{unit}]"
+      if len(calculated_sources) == 1:
+        component_labels1[idx] = f"Measured {label} {measured_source} [{unit}]"
+      else:
+        component_labels1[idx] = f"Measured {label} [{unit}]"
     if style == 'timeseries':
-      component_labels1[idx] = f"{label} {measured_source}"
+      ylabels.append(f"{label} [{unit}]")
+      component_labels1[idx] = f"Measured"
+  
+  calculated = {}
+  calculated_metrics = {}
+  component_labels2 = {}
+  fit = {}
+  for source in calculated_sources:
+    calculated[source] = data['calculated'][source]['modified']
+    calculated_metrics[source] = data['calculated'][source]['modified']['metrics']
+    component_labels2[source] = data['calculated'][source]['original']['labels'].copy()
+    fit[source] = False
 
-  component_labels2 = data['calculated'][calculated_source]['original']['labels'].copy()
-  texts = None
-  if style == 'scatter':
-    texts = []
-  for idx, label in enumerate(component_labels2):
-    cc = f"{calculated_metrics['cc'][idx]:.2f}"
-    pe = f"{calculated_metrics['pe'][idx]:.2f}"
-    metrics = f"cc = ${cc}$ | pe = ${pe}$"
-    if style == 'scatter':
-      component_labels2[idx] = f"{label} {calculated_source} [{unit}]"
-      texts.append(metrics)
-    if style == 'timeseries':
-      component_labels2[idx] = f"{label} {calculated_source} {metrics}"
+    for idx, label in enumerate(component_labels2[source]):
+      cc = calculated_metrics[source]['cc'][idx]
+      cc2 = f"{cc**2:.2f}"
+      pe = f"{calculated_metrics[source]['pe'][idx]:.2f}"
+      metrics = f"r$^2$ = ${cc2}$ | pe = ${pe}$"
+      if label =='B_H': label = '$\Delta B_H$'
 
-  if style == 'scatter':
-    ylabels = None
+      if style == 'timeseries':
+        if source == 'GMU':
+          component_labels2[source][idx] = f"Ref"
+        elif source == 'OpenGGCM':
+          component_labels2[source][idx] = f"GGCM"
+        else:
+          component_labels2[source][idx] = f"{source}"
 
-  if style == 'timeseries':
-    ylabels = len(component_labels2)*[f"[{unit}]"]
+      if style == 'scatter':
+        if len(calculated_sources) == 1:
+          ylabels.append(f"Calculated {label} {source} [{unit}]")
+        else:
+          ylabels.append(f"Calculated {label} [{unit}]")
+        if source == 'GMU':
+          component_labels2[source][idx] = f"Ref    {metrics}"
+        elif source == 'OpenGGCM':
+          component_labels2[source][idx] = f"GGCM {metrics}"
+        else:
+          component_labels2[source][idx] = f"{source} {metrics}"
+        if cc**2 >= 0.6:
+          fit[source] = True
+
+      if cc < 0 and label == 'GIC':
+        calculated[source]['data'] = -calculated[source]['data']
+
+  if style == 'timeseries': fit = None
 
   kwargs = {
     'ylabels': ylabels,
     'component_labels1': component_labels1,
     'component_labels2': component_labels2,
-    'texts': texts,
     'suptitle': sid,
+    'subplot_label': subplot_label,
+    'fit': fit,
     'style': style,
     'show_plots': show_plots
   }
 
-  _plot_stack(measured_modified, calculated, **kwargs)
+  output_figures = _plot_stack(measured_modified, calculated, **kwargs)
+  figures = {}
+  for idx, label in enumerate(data['measured'][measured_source]['original']['labels']):
+    figures[label] = output_figures[idx]
+  return figures
+
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
@@ -176,12 +234,13 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   for idx, label in enumerate(component_labels1):
     component_labels1[idx] = f"{label} original"
 
-  component_labels2 = data['modified']['labels'].copy()
+  component_labels2 = {} #TODO: clean up so don't need modified['modified']
+  component_labels2['modified'] = data['modified']['labels'].copy()
   for idx, label in enumerate(component_labels2):
-    component_labels2[idx] = f"{label} modified"
+    component_labels2['modified'][idx] = f"{label} modified"
 
   kwargs = {
-    'ylabels': len(component_labels2)*[f"[{data['original']['unit']}]"],
+    'ylabels': len(component_labels1)*[f"[{data['original']['unit']}]"],
     'component_labels1': component_labels1,
     'component_labels2': component_labels2,
     'style': 'timeseries',
@@ -190,7 +249,8 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   }
 
   original = data['original']
-  modified = data['modified']
+  modified = {}
+  modified['modified'] = data['modified'] #TODO: clean up so don't need modified['modified']
 
   if 'error' in data['original']:
     kwargs['suptitle'] = f"Original Error: {data['original']['error']}"
@@ -200,31 +260,26 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
     _plot_stack(original, modified, **kwargs)
 
 
-def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, texts=None, suptitle=None, style='timeseries', show_plots=False):
+def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit=None, suptitle=None, style='timeseries', subplot_label=None, show_plots=False):
 
   from matplotlib import pyplot as plt
+  import pickle
   from datetick import datetick
 
-  from swerve import plt_config, format_cc_scatter
+  from swerve import plt_config, format_cc_scatter, add_subplot_label
 
   plt.close()
-  if style == 'scatter':
-    plt_config(scale=0.5)
-  if style == 'timeseries':
-    plt_config(scale=0.75)
-  plt.figure()
+  plt_config()
 
-  line1_opts = {'color': 'blue', 'lw': 2}
-  line2_opts = {'color': 'orange', 'lw': 1}
-  sharex = False
-  if style == 'timeseries':
-    sharex = True
+  line1_opts = {'color': 'black', 'lw': 1}
+  line2_opts = {'TVA':{'color': 'blue', 'lw': 0.4},
+                'GMU':{'color': 'green', 'lw': 0.4},
+                'modified':{'color': 'orange', 'lw': 0.4},
+                'SWMF':{'color': 'blue', 'lw': 0.4},
+                'MAGE':{'color': 'green', 'lw': 0.4},
+                'OpenGGCM':{'color': 'orange', 'lw': 0.4},} #TODO: set outside of function, remove repetition
 
   n_stack = data1['data'].shape[1]
-  gs = plt.gcf().add_gridspec(n_stack)
-  axes = gs.subplots(sharex=sharex)
-  if n_stack == 1:
-    axes = [axes]
 
   if data1 is None:
     return
@@ -234,13 +289,16 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, tex
   if component_labels2 is None:
     component_labels2 = [''] * n_stack
 
+  figures = {}
   for j in range(n_stack):
+    fig, axes = plt.subplots()
+
     if j == 0 and suptitle is not None:
       # Use title() for force suptitle to be centered on axis
-      axes[j].set_title(suptitle)
+      axes.set_title(suptitle)
 
     if ylabels is not None:
-      axes[j].set_ylabel(ylabels[j])
+      axes.set_ylabel(ylabels[j])
 
     show_legend = False
     if style == 'timeseries':
@@ -249,35 +307,52 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, tex
         kwargs1 = {'label': component_labels1[j], **line1_opts}
       else:
         kwargs1 = line1_opts
-      axes[j].plot(data1['time'], data1['data'][:, j], **kwargs1)
+      axes.plot(data1['time'], data1['data'][:, j], **kwargs1)
 
       if data2 is not None:
-        if component_labels2[j]:
-          show_legend = True
-          kwargs2 = {'label': component_labels2[j], **line2_opts}
-        else:
-          kwargs2 = line2_opts
-        axes[j].plot(data2['time'], data2['data'][:, j], **kwargs2)
+          for source in data2.keys():
+            if component_labels2[source][j]:
+              show_legend = True
+              kwargs2 = {'label': component_labels2[source][j], **line2_opts[source]}
+            else:
+              kwargs2 = line2_opts[source]
+            axes.plot(data2[source]['time'], data2[source]['data'][:, j], **kwargs2) #TODO: fix issue w time for Bx, By, Bz
 
       if show_legend:
-        axes[j].legend(ncol=2, frameon=True, loc='upper right')
+        leg = axes.legend(ncol=1, frameon=True, loc='upper right')
+        for line in leg.get_lines():
+          line.set_linewidth(1.5)
 
     if style == 'scatter':
-      axes[j].scatter(data1['data'][:, j], data2['data'][:, j], label=component_labels2[j], s=1, color='black')
-      axes[j].set_xlabel(component_labels1[j])
-      axes[j].set_ylabel(component_labels2[j])
-      format_cc_scatter(axes[j])
-      bbox_props = dict(boxstyle="round,pad=0.3", edgecolor="black", facecolor="white", linewidth=0.8, alpha=0.5)
-      axes[j].text(0.02, 0.98, texts[j], transform=axes[j].transAxes,
-             fontsize=6, verticalalignment='top', horizontalalignment='left',
-             bbox=bbox_props)
+      for source in data2.keys():
+        axes.scatter(data1['data'][:, j], data2[source]['data'][:, j], label=component_labels2[source][j], s=1, color=line2_opts[source]['color'])
+        if fit is not None and fit[source] is True:
+          import numpy as np
+          line_fit = np.polyfit(data1['data'][:, j],  data2[source]['data'][:, j], 1)
+          m, b = line_fit
+          x_fit = np.array([data1['data'][:, j].min(), data1['data'][:, j].max()])
+          y_fit = m * x_fit + b
+          axes.plot(x_fit, y_fit, color=line2_opts[source]['color'], linestyle='--', linewidth=1,
+             label=f"{source} best fit slope = {m:.2f}")
+      axes.set_xlabel(component_labels1[j])
+      format_cc_scatter(axes, regression=True) # setting regression = False centers point (0,0) on plot, saves space
+      # TODO: switch for format_cc_scatter
+      leg = axes.legend(loc='lower right', handletextpad=0.1)
+      for line in leg.get_lines():
+        line.set_markersize(6)
 
-    axes[j].grid(True)
+    axes.grid(True)
 
-  plt.gcf().align_ylabels(axes)
+    if style == 'timeseries':
+      datetick('x')
 
-  if style == 'timeseries':
-    datetick('x')
+    if subplot_label != None:
+      add_subplot_label(axes, subplot_label)
+
+    figures[j] = pickle.dumps(fig)
 
   if show_plots:
     plt.show()
+  plt.close('all')
+
+  return figures
