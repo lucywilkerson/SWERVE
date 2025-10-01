@@ -111,7 +111,7 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
 
         # LaTeX
         if n_neg_cc > 0:
-            tex_note = f'{n_neg_cc}/{n_sites} sites found with cc < 0.'
+            tex_note = f'{n_neg_cc}/{n_sites} sites found with r < 0.'
             logger.info(tex_note)
 
         # TODO: Pass nan_fill to _nan_remove
@@ -149,8 +149,8 @@ def _column_names(data_type):
             'sigma_data': r'$\sigma$ [A]',
             'sigma_tva': r'$\sigma_\text{TVA}$',
             'sigma_gmu': r'$\sigma_\text{Ref}$',
-            'cc_tva': r'$\text{cc}^2_\text{TVA}$',
-            'cc_gmu': r'$\text{cc}^2_\text{Ref}$',
+            'cc_tva': r'$\text{r}^2_\text{TVA}$',
+            'cc_gmu': r'$\text{r}^2_\text{Ref}$',
             'pe_tva': r'$\text{pe}_\text{TVA}$',
             'pe_gmu': r'$\text{pe}_\text{Ref}$'
         },
@@ -160,9 +160,9 @@ def _column_names(data_type):
                 'sigma_swmf':r'$\sigma_\text{SWMF}$',
                 'sigma_mage':r'$\sigma_\text{MAGE}$',
                 'sigma_openggcm':r'$\sigma_\text{GGCM}$',
-                'cc_swmf':r'$\text{cc}^2_\text{SWMF}$',
-                'cc_mage':r'$\text{cc}^2_\text{MAGE}$',
-                'cc_openggcm':r'$\text{cc}^2_\text{GGCM}$',
+                'cc_swmf':r'$\text{r}^2_\text{SWMF}$',
+                'cc_mage':r'$\text{r}^2_\text{MAGE}$',
+                'cc_openggcm':r'$\text{r}^2_\text{GGCM}$',
                 'pe_swmf':r'$\text{pe}_\text{SWMF}$',
                 'pe_mage':r'$\text{pe}_\text{MAGE}$',
                 'pe_openggcm':r'$\text{pe}_\text{GGCM}$'
