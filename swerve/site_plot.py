@@ -337,9 +337,9 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
       axes.set_xlabel(component_labels1[j])
       format_cc_scatter(axes, regression=True) # setting regression = False centers point (0,0) on plot, saves space
       # TODO: switch for format_cc_scatter
-      leg = axes.legend(loc='lower right', handletextpad=0.1)
+      leg = axes.legend(loc='lower right', handletextpad=0.1, markerscale=3)
       for line in leg.get_lines():
-        line.set_markersize(6)
+        line.set_linewidth(1.5)
 
     axes.grid(True)
 
