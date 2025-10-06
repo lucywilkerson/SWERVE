@@ -25,6 +25,7 @@ def sids(extended=False, data_type=None, data_source=None, data_class=None, excl
     if info.empty:
       raise ValueError(f"key '{key}' not recognized. Valid keys are {list(special_keys.keys())} or None")
 
+  info = info[~(info['error'].astype(str).str.startswith('x '))]
   all_sids = list(info['site_id'].unique())
 
   if key != 'test':
