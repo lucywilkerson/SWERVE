@@ -13,7 +13,7 @@ info_kwargs = {'extended': False, # Should always be False, no need to use info.
                  'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
                  'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
                  'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
-                 'exclude_errors': True # If True, excludes sites with known data issues (see info.csv 'error' column)
+                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'error' column)
               }
 
 import utilrsw
@@ -60,7 +60,8 @@ for sid in sids_only:
 
 if args['sites'] is None and data_types is None:
   import utilrsw
-  # Create table of results
-  site_stats_summary(stats, data_types=data_types, logger=logger)
+  if info_kwargs['exclude_errors']:
+    # Create table of results
+    site_stats_summary(stats, data_types=data_types, logger=logger)
   # Write data from all sites to a single file.
   utilrsw.write(CONFIG['files']['all'], data, logger=logger)
