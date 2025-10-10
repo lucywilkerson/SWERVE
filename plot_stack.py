@@ -200,13 +200,14 @@ def plot_bad_gic(info, info_df, data_all, offset=40, sites_per_fig=25):
     # note NERC sites that are TVA duplicates
     units  = '[A]'
     sites = sids(data_type='GIC', data_class='measured', exclude_errors=False)
-    source_sites = {'sites': [], 'lat': [], 'lon': []}
+    source_sites = {'sites': [], 'error':[], 'lat': [], 'lon': []}
     for sid in sites:
       sid_str = str(sid) # TODO: only necessary for October storm data
       source = list(info[sid]['GIC']['measured'].keys())[0]
       error_val = info[sid_str]['GIC']['measured'][source][sid_str]['error']
       if error_val is None or (isinstance(error_val, float) and numpy.isnan(error_val)):
         continue
+      source_sites['error'].append(error_val)
       if sid_str not in data_all.keys():
         logger.error(f"Site {sid} not found in data_all, rerun main.py to generate all.pkl")
       elif 'GIC' in data_all[sid_str]:
@@ -256,7 +257,7 @@ def plot_bad_gic(info, info_df, data_all, offset=40, sites_per_fig=25):
         # Add text to the plot to label waveform
         sid_lat = source_sites['lat'][i]
         sid_lon = source_sites['lon'][i]
-        text = f'{sid}'
+        text = f'{sid}\n{source_sites['error'][i]}'
         axes.text(limits['plot'][0], (idx_in_fig * offset) - (offset_fix * offset), text,
               fontsize=11, verticalalignment='center', horizontalalignment='left')
 
