@@ -74,10 +74,10 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
                         if np.isnan(row[i]):
                             row[i] = nan_fill # fill with nan_fill if cc is nan
                         elif i.startswith('pe') and calc_cc < 0:
-                            row[i] = f"{row[i]:.2f}*"
+                            row[i] = f"${row[i]:.2f}*$"
                             n_neg_cc += 1
                         else:
-                            row[i] = f"{row[i]:.2f}"
+                            row[i] = f"${row[i]:.2f}\\phantom{{*}}$"
                 else: #fill with nan_fill if not enough valid data
                     row[f'cc_{data_source_lower}'] = nan_fill
                     row[f'pe_{data_source_lower}'] = nan_fill

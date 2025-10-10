@@ -236,9 +236,9 @@ def fix_latex(df, data_type, formatters=None, index=False, note=None):
   if data_type =='B':
     column_format = "l " + " ".join(["p{1cm}"] * (len(df.columns) - 1))
   elif data_type == 'GIC':
-    column_format = "l " + " ".join(["c"] * (len(df.columns) - 1))
+    column_format = "l " + " ".join(["r"] * (len(df.columns) - 1))
   elif data_type == 'fit':
-    column_format = "l l " + " ".join(["c"] * (len(df.columns) - 2))
+    column_format = "l l " + " ".join(["r"] * (len(df.columns) - 2))
   # Setting up string
   latex_string = df.to_latex(index=index, formatters=formatters, column_format=column_format)
   # Removing \toprule, \midrule, \bottomrule
