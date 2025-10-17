@@ -4,6 +4,7 @@
 This branch contains plot_scatter.py, which is used to generate GIC correlation scatter plots. To run, you will need to generate cc.pkl by running cc.py. To run cc.py, the event must have an info.extended.csv and _all.pkl (these can be generated in the main branch by info.py and main.py,respectively). The event should also have a defined paper repo. To generate B_H correlation scatter plots, first run cc.py with B_cc = True, then run plot_scatter.py with B_scatter = True. As long as info.extended.csv and _all.pkl have already been generated, you should just be able to run:
 
 cc.py
+
 plot_scatter.py
 
 ## Overview
