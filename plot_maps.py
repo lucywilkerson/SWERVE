@@ -3,32 +3,35 @@ import pickle
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+import geopandas as gpd
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-import geopandas as gpd
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+from shapely.geometry import box
 from scipy.interpolate import LinearNDInterpolator
-from shapely.geometry import LineString, box
 
-from swerve import FILES, read_info, savefig, logger, LOG_KWARGS
+from swerve import config, read_info_df, savefig
 
-logger = logger(**LOG_KWARGS)
+CONFIG = config()
+logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 out_dir = '_map'
 
-projection = ccrs.Miller()
-crs = ccrs.PlateCarree()
-transform = ccrs.PlateCarree()
-state = True # Show political boundaries
+state = True # Show political boundaries if True
 
 # Set types of maps to produce
-map_location = True
-map_cc = False
+map_cc  = False
 map_std = False
-map_sites = False
 map_beta = False
+map_sites = False
+map_location = True
 map_transmission = False
+
+crs = ccrs.PlateCarree()
+transform = ccrs.PlateCarree()
+projection = ccrs.Miller()
 
 def add_features(ax, state):
     # Add coastlines and other features
@@ -347,7 +350,7 @@ def beta_maps():
 
     from scipy.io import loadmat
 
-    data = loadmat(FILES['beta'])
+    data = loadmat(CONFIG['files']['beta'])
     data = data['waveform'][0]
 
     # Convert the MATLAB data to a pandas DataFrame
@@ -421,9 +424,16 @@ def transmission_map(info_df, gdf, cc_df, std=False):
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
         savefig(out_dir, 'transmission_map', logger)
 
-info_df = read_info(data_class=None, data_type=None)
+info_df = read_info_df(data_class='measured', exclude_errors=True)
 
 sites = info_df['site_id'].tolist()
+
+# Read in cc data
+with open(CONFIG['files']['cc'], 'rb') as file:
+  print(f"Reading {CONFIG['files']['cc']}")
+  cc_rows = pickle.load(file)
+cc_df = pd.DataFrame(cc_rows)
+cc_df.reset_index(drop=True, inplace=True)
 
 if map_location:
     USA_extent = [-125, -67, 25.5, 49.5]
@@ -433,13 +443,6 @@ if map_location:
 
 if map_beta:
     beta_maps()
-
-# Read in cc data
-with open(FILES['cc'], 'rb') as file:
-  print(f"Reading {FILES['cc']}")
-  cc_rows = pickle.load(file)
-cc_df = pd.DataFrame(cc_rows)
-cc_df.reset_index(drop=True, inplace=True)
 
 if map_cc:
     cc_vs_dist_map(cc_df)
@@ -451,7 +454,7 @@ if map_sites:
     site_maps(info_df, cc_df)
 
 if map_transmission:
-    trans_lines_fname = FILES['shape_files']['electric_power']
+    trans_lines_fname = CONFIG['files']['shape_files']['electric_power']
     # US Transmission lines
     print(f"Reading {trans_lines_fname}")
     trans_lines_gdf = gpd.read_file(trans_lines_fname)
