@@ -1,0 +1,16 @@
+2025-09-12T14:56:49.927362Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_dist_scatter.png
+2025-09-12T14:56:50.762431Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_dist_scatter.pdf
+2025-09-12T14:56:51.198149Z INFO  utilrsw.logger Writing ..\2024-May-Storm-paper\figures\_results\cc_vs_dist_scatter.pdf
+2025-09-12T14:56:51.647410Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_std_scatter.png
+2025-09-12T14:56:52.516184Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_std_scatter.pdf
+2025-09-12T14:56:52.950105Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_beta_scatter.png
+2025-09-12T14:56:53.833717Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_beta_scatter.pdf
+2025-09-12T14:56:54.034125Z INFO  utilrsw.logger Writing ..\2024-May-Storm-paper\figures\_results\cc_vs_beta_scatter.pdf
+2025-09-12T14:56:54.388253Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_logbeta_scatter.png
+2025-09-12T14:56:55.146104Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_logbeta_scatter.pdf
+2025-09-12T14:56:55.532948Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_volt_scatter.png
+2025-09-12T14:56:56.205072Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_volt_scatter.pdf
+2025-09-12T14:56:56.358149Z INFO  utilrsw.logger Writing ..\2024-May-Storm-paper\figures\_results\cc_vs_volt_scatter.pdf
+2025-09-12T14:56:56.772155Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_lat_scatter.png
+2025-09-12T14:56:57.540341Z INFO  utilrsw.logger Writing ..\SWERVE-2024-05-10\_results\cc_vs_lat_scatter.pdf
+2025-09-12T14:56:57.748333Z INFO  utilrsw.logger Writing ..\2024-May-Storm-paper\figures\_results\cc_vs_lat_scatter.pdf
