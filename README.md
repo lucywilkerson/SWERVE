@@ -20,6 +20,9 @@ The storm provided a rare opportunity to observe rapid fluctuations in Earth's m
 - Provide accessible, structured data for the research community.
 - Support space weather infrastructure resilience efforts through a better understanding of space weather impacts.
 
+## Paper Citations
+Lucy Wilkerson, Robert S Weigel, Dean Thomas, et al. GIC-Related Observations During the May 2024 Geomagnetic Storm in the United States. _ESS Open Archive_. October 16, 2025. doi: https://doi.org/10.22541/essoar.176062871.15246663/v1
+
 ## Funding Acknowledgment
 This work was supported by the U.S. National Science Foundation (NSF) under grant [#2434136](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2434136) as part of the ChronoStorm project. The research focuses on collecting and analyzing perishable operational data from critical infrastructure sectors during significant space weather events, aiming to enhance our understanding of infrastructure vulnerabilities and resilience. 
 
