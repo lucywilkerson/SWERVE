@@ -7,6 +7,7 @@ from .site_read import site_read
 from .site_plot import site_plot
 from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
+from .find_errors import find_errors
 
 def sids(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None):
   from swerve import config, read_info_df
