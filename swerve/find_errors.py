@@ -8,7 +8,8 @@ import datetime
 # This function will read the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def find_errors(sid, logger=None, data_type='GIC'):
+def find_errors(sid, logger=None, data_type='GIC', baseline_buffer=0.5):
+    """baseline_buffer in [A]"""
     from swerve import site_read, cadence
     data = site_read(sid, data_types=data_type, logger=logger)
     data_sources = data[data_type]['measured'].keys()
@@ -28,25 +29,25 @@ def find_errors(sid, logger=None, data_type='GIC'):
         if any(dt_array >= 60e9):
             return f"x Cadence is greater than 1 minute ({max(dt_array)/1e9} seconds) for data source '{data_source}'"
         
-        # Removing sites with constant values for more than 2min
+        # Removing all sites with baseline offset
+        if numpy.mean(data_meas) > baseline_buffer or numpy.mean(data_meas) < -baseline_buffer:
+            return f"x Baseline offset detected (mean value: {numpy.mean(data_meas)} A) for data source '{data_source}'"
+
+        
+        # Remove sites with constant values for more than 2min
         data_array = numpy.array(data_meas)
-        window_ns = 120e9  # 2 minutes in nanoseconds
-        start_idx = 0
-        while start_idx < len(data_array):
-            val = data_array[start_idx]
-            end_idx = start_idx
-            elapsed_ns = 0
-            while end_idx + 1 < len(data_array) and data_array[end_idx + 1] == val:
-                # Calculate time difference using time_meas
-                if end_idx + 1 < len(time_meas):
-                    delta = time_meas[end_idx + 1] - time_meas[end_idx]
-                    elapsed_ns += delta.total_seconds() * 1e9
-                else:
-                    break
-            if elapsed_ns >= window_ns:
-                return f"x Data is constant for at least 2 minutes starting at index {start_idx} for data source '{data_source}'"
-            end_idx += 1
-            start_idx = end_idx + 1
+        time_array = numpy.array([t.timestamp() for t in time_meas])  # convert to seconds
+        window_s = 120  # 2 minutes in seconds
+        # Find runs of constant values
+        diff = numpy.diff(data_array)
+        change_idx = numpy.where(diff != 0)[0] + 1
+        run_starts = numpy.concatenate(([0], change_idx))
+        run_ends = numpy.concatenate((change_idx, [len(data_array)]))
+        for start, end in zip(run_starts, run_ends):
+            if end - start > 1:
+                elapsed_s = time_array[end - 1] - time_array[start]
+            if elapsed_s >= window_s:
+                return f"x Data is constant for at least 2 minutes starting at time {time_meas[start]}"
 
 
     return dt
