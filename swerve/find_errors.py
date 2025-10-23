@@ -4,8 +4,9 @@ import datetime
 # This function will read the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def find_errors(sid, logger=None, data_type='GIC', low_signal_threshold=3, baseline_buffer=0.5, std_limit=10):
-    """low_signal_threshold, baseline_buffer, and std_limit in [A]"""
+def find_errors(sid, logger=None, data_type='GIC', low_signal_threshold=3.5, baseline_buffer=1, std_limit=10, max_cadence=60, max_gap=600):
+    """low_signal_threshold, baseline_buffer, and std_limit in [A]
+       max_cadence, max_gap, and max_constant in [s]"""
     from swerve import config, site_read, cadence
     CONFIG = config()
     data = site_read(sid, data_types=data_type, logger=logger)
@@ -24,23 +25,25 @@ def find_errors(sid, logger=None, data_type='GIC', low_signal_threshold=3, basel
         if all(i <= 0 for i in data_meas):
             return f"x All GIC values are negative for data source '{data_source}'"
         
-        # Removing sites with low signal (all values within +/- low_signal_threshold A)
+        # Removing sites with low signal (all values within +/- low_signal_threshold [A])
         if all(-low_signal_threshold <= i <= low_signal_threshold for i in data_meas):
             return f"x Low signal: all GIC values within +/- {low_signal_threshold} A for data source '{data_source}'"
         
-        # Removing any sites with dt >= 1min
-        dt = cadence(time_meas, logger=logger, logger_indent=2) #returns cadence in ns
-        dt_array = (numpy.array(dt)).astype(numpy.float64)
-        if any(dt_array >= 60e9):
-            return f"x Cadence is greater than 1 minute ({max(dt_array)/1e9} seconds) for data source '{data_source}'"
+        # Removing all sites with baseline offset [A]
+        if numpy.median(data_meas) > baseline_buffer or numpy.median(data_meas) < -baseline_buffer:
+            return f"x Baseline offset detected (median value: {numpy.median(data_meas)} A) for data source '{data_source}'"
         
-        # Removing all sites with baseline offset
-        if numpy.mean(data_meas) > baseline_buffer or numpy.mean(data_meas) < -baseline_buffer:
-            return f"x Baseline offset detected (mean value: {numpy.mean(data_meas)} A) for data source '{data_source}'"
-
         # Removing noisy sites
         if numpy.std(data_meas) > std_limit:
             return f"x Excessive noise detected (std dev: {numpy.std(data_meas)} A) for data source '{data_source}'"
+        
+        # Removing any sites with dt >= max_cadence [s] or with gap in data >= max_gap [s]
+        dt = cadence(time_meas, logger=logger, logger_indent=2) #returns cadence in ns
+        dt_array = (numpy.array(dt)).astype(numpy.float64)
+        if (any(dt_array >= max_cadence*1e9) and len(dt_array) == 1):
+            return f"x Cadence is >= {max_cadence} seconds ({max(dt_array)/1e9} seconds) for data source '{data_source}'"
+        if any(dt_array >= max_gap*1e9):
+            return f"x Data gap detected >= {max_gap/60} minutes ({max(dt_array)/1e9} seconds) for data source '{data_source}'"
         
         # Remove sites with constant values for more than 5min
         data_array = numpy.array(data_meas).ravel()
