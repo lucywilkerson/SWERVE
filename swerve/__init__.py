@@ -22,8 +22,10 @@ def sids(extended=False, data_type=None, data_source=None, data_class=None, excl
   else:
     info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
     info = info[info['site_id'].isin(key)]
+    if info.empty and data_type is not None:
+      raise ValueError(f"key '{key}' with data_type '{data_type}' not recognized. Check site IDs and data_type.")
     if info.empty:
-      raise ValueError(f"key '{key}' not recognized. Valid keys are {list(special_keys.keys())} or None")
+      raise ValueError(f"key '{key}' not recognized. Valid keys are {list(special_keys.keys())}, site IDs, or None.")
 
   info = info[~(info['error'].astype(str).str.startswith('x '))]
   all_sids = list(info['site_id'].unique())
