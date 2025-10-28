@@ -65,10 +65,26 @@ See stdout for files read and written.
 
 ```
 python info.py
-python main.py
+python main.py # generates all figures for all sites, see instructions below to generate for specific sites
 python regression.py
 python plot_maps.py
 python plot_imf.py
 python plot_stack.py
 python plot_voltage.py
+```
+
+To generate plots for just one site (e. g., Bull Run):
+```
+python main.py --site 'Bull Run'
+# Can also use 'paper' to create paper figures:
+# python main.py --site paper
+# Or 'test' to create figures for test data:
+# python main.py --site test
+```
+
+Uses 10 May 2024 storm data by default. To change event (e. g., 2024-10-10):
+```
+info.py --event 2024-10-10
+main.py --event 2024-10-10
+regression.py --event 2024-10-10
 ```
