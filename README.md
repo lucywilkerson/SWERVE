@@ -70,8 +70,7 @@ python main.py # generates all figures for all sites, see instructions below to 
 python regression.py
 python plot_maps.py
 python plot_imf.py
-python plot_stack.py
-python plot_voltage.py
+python plot_stack.py # requires full main.py to be run first
 ```
 
 To generate plots for just one site (e. g., Bull Run):
