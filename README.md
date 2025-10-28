@@ -45,6 +45,7 @@ This repository is licensed under the MIT License. See `LICENSE` for details.
 ```
 git clone https://github.com/lucywilkerson/SWERVE
 git clone --depth 1 https://github.com/lucywilkerson/SWERVE-2024-05-10
+git clone --depth 1 https://github.com/lucywilkerson/SWERVE-common
 cd SWERVE
 pip install -e .
 ```
