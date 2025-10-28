@@ -50,16 +50,16 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
           paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', '_processed', f'{sid.lower().replace(' ', '')}')
           subplot_label = CONFIG['paper_sids'][data_type][style][sid]
         else: subplot_label = None
-
-        logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
-        plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
-        for label, fig in plots.items():
-          fname = f"{label}_calculated_all_vs_measured_{style}"
-          fig = pickle.loads(fig)
-          savefig(dir_compare, fname, logger=logger, logger_indent=4)
-        if subplot_label != None:
-          fname = f"{data_type}_compare_{style}"
-          savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
+        if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
+          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
+          plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
+          for label, fig in plots.items():
+            fname = f"{label}_calculated_all_vs_measured_{style}"
+            fig = pickle.loads(fig)
+            savefig(dir_compare, fname, logger=logger, logger_indent=4)
+          if subplot_label != None:
+            fname = f"{data_type}_compare_{style}"
+            savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
         for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
           logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
           plots = _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
@@ -70,12 +70,15 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
     # Plot original vs modified data
     for data_class in data[data_type].keys(): # e.g., measured, calculated
+      import pickle
       for data_source in data[data_type][data_class].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
         if data[data_type][data_class][data_source] is not None:
           logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}' original vs. modified data")
-          _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
-          fname = f"{data_type}_{data_class}_{data_source}"
-          savefig(dir_original, fname, logger=logger, logger_indent=4)
+          plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+          for label, fig in plots.items():
+            fname = f"{data_type}_{data_class}_{data_source}"
+            fig = pickle.loads(fig)
+            savefig(dir_original, fname, logger=logger, logger_indent=4)
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
@@ -148,7 +151,7 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
   ylabels = []
   component_labels1 = data['measured'][measured_source]['original']['labels'].copy()
   for idx, label in enumerate(component_labels1):
-    if label =='B_H': label = '$\Delta B_H$'
+    if label =='B_H': label = '$\\Delta B_H$'
     if style == 'scatter':
       if len(calculated_sources) == 1:
         component_labels1[idx] = f"Measured {label} {measured_source} [{unit}]"
@@ -173,7 +176,7 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
       cc2 = f"{cc**2:.2f}"
       pe = f"{calculated_metrics[source]['pe'][idx]:.2f}"
       metrics = f"r$^2$ = ${cc2}$ | pe = ${pe}$"
-      if label =='B_H': label = '$\Delta B_H$'
+      if label =='B_H': label = '$\\Delta B_H$'
 
       if style == 'timeseries':
         if source == 'GMU':
@@ -223,12 +226,17 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   # TODO: add condition to plot just orig if no modified data and display modified error
-  if 'modified' not in data.keys():
+  if 'modified' not in data.keys() or 'labels' not in data['modified'].keys():
     original = data['original']
-    suptitle = f"Modified Error: {original['error']}"
-    _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
+    if 'modified' in data.keys() and 'error' in data['modified']:
+      suptitle = f"Modified Error: {data['modified']['error']}" #TODO: all errors are showing up as 'can't multiply sequence by non-int of type 'str''?
+    else:
+      suptitle = f"Modified Error: {original['error']}"
+    output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
                 suptitle=suptitle, show_plots=show_plots)
-    return
+    figures = {}
+    figures['error'] = output_figure[0]
+    return figures
   
   component_labels1 = data['original']['labels'].copy()
   for idx, label in enumerate(component_labels1):
@@ -236,7 +244,7 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
 
   component_labels2 = {} #TODO: clean up so don't need modified['modified']
   component_labels2['modified'] = data['modified']['labels'].copy()
-  for idx, label in enumerate(component_labels2):
+  for idx, label in enumerate(component_labels2['modified']):
     component_labels2['modified'][idx] = f"{label} modified"
 
   kwargs = {
@@ -254,10 +262,15 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
 
   if 'error' in data['original']:
     kwargs['suptitle'] = f"Original Error: {data['original']['error']}"
-    _plot_stack(None, None, 'original', 'modified', **kwargs)
+    output_figure = _plot_stack(None, None, 'original', 'modified', **kwargs)
   else:
     kwargs['suptitle'] = f"Modification = {data['modified']['modification']}"
-    _plot_stack(original, modified, **kwargs)
+    output_figure = _plot_stack(original, modified, **kwargs)
+  figures = {}
+  for idx in range(original['data'].shape[1]):
+    label = component_labels2['modified'][idx]
+    figures[label] = output_figure[idx]
+  return figures
 
 
 def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit=None, suptitle=None, style='timeseries', subplot_label=None, show_plots=False):
