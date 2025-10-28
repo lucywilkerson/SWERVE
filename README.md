@@ -71,6 +71,7 @@ python regression.py
 python plot_maps.py
 python plot_imf.py
 python plot_stack.py # requires full main.py to be run first
+python plot_voltage.py
 ```
 
 To generate plots for just one site (e. g., Bull Run):
