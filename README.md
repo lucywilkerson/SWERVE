@@ -43,8 +43,8 @@ This repository is licensed under the MIT License. See `LICENSE` for details.
 # Installing
 
 ```
-git clone https://github.com/lucywilkerson/SWERVE/generalize
-git clone --depth 1 https://github.com/lucywilkerson/2024-May-Storm-data
+git clone https://github.com/lucywilkerson/SWERVE
+git clone --depth 1 https://github.com/lucywilkerson/SWERVE-2024-05-10
 cd SWERVE
 pip install -e .
 ```
