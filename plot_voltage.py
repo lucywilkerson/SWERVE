@@ -55,7 +55,7 @@ def plot_lengths():
     savefig('_results', 'trans_lines_length', logger)
     plt.close()
 
-voltages, gdf = read_lines(CONFIG['files']['shape_files']['electric_power'])
+voltages, gdf = read_lines(CONFIG['files']['shape']['transmission_lines'])
 
 plot_volts = []
 voltage_counts = []
