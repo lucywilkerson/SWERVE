@@ -56,7 +56,7 @@ for sid in sids_only:
 
   utilrsw.print_dict(data[sid], indent=4)
 
-  #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
 if args['sites'] is None and data_types is None:
   import utilrsw
