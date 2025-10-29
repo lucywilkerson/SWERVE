@@ -225,11 +225,10 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  # TODO: add condition to plot just orig if no modified data and display modified error
-  if 'modified' not in data.keys() or 'labels' not in data['modified'].keys():
+  if 'error' in data[sid] or 'modified' not in data.keys():
     original = data['original']
-    if 'modified' in data.keys() and 'error' in data['modified']:
-      suptitle = f"Modified Error: {data['modified']['error']}" #TODO: all errors are showing up as 'can't multiply sequence by non-int of type 'str''?
+    if 'error' in data[sid]:
+      suptitle = f"Original Error: {data[sid]['error']}"
     else:
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
@@ -260,12 +259,8 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   modified = {}
   modified['modified'] = data['modified'] #TODO: clean up so don't need modified['modified']
 
-  if 'error' in data['original']:
-    kwargs['suptitle'] = f"Original Error: {data['original']['error']}"
-    output_figure = _plot_stack(None, None, 'original', 'modified', **kwargs)
-  else:
-    kwargs['suptitle'] = f"Modification = {data['modified']['modification']}"
-    output_figure = _plot_stack(original, modified, **kwargs)
+  kwargs['suptitle'] = f"Modification = {data['modified']['modification']}"
+  output_figure = _plot_stack(original, modified, **kwargs)
   figures = {}
   for idx in range(original['data'].shape[1]):
     label = component_labels2['modified'][idx]
