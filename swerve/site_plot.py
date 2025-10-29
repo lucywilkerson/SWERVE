@@ -225,10 +225,9 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  import numpy as np
-  if not np.isnan(data[sid]['error']) or 'modified' not in data.keys():
+  if isinstance(data.get(sid, {}).get('error'), str) or 'modified' not in data.keys():
     original = data['original']
-    if 'error' in data[sid]:
+    if isinstance(data.get(sid, {}).get('error'), str):
       suptitle = f"Original Error: {data[sid]['error']}"
     else:
       suptitle = f"Modified Error: {original['error']}"
