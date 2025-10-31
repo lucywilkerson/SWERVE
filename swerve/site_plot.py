@@ -69,8 +69,8 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
         if data[data_type][data_class][data_source] is not None:
           logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}' original vs. modified data")
           plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
-          fname = f"_{data_class}_{data_source}"
-          _save_plots(plots, fname, dir_original, logger=logger)
+          fname = f"{data_type}_{data_class}_{data_source}"
+          _save_plots(plots, fname, dir_original, logger=logger, include_label=False)
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
@@ -357,10 +357,11 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
   return figures
 
 
-def _save_plots(plots, fname, dir_compare, logger):
+def _save_plots(plots, fname, dir_compare, logger=None, include_label=True):
   import pickle
   from swerve import savefig
   for label, fig in plots.items():
-    fname = f"{label}{fname}"
+    if include_label:
+      fname = f"{label}{fname}"
     fig = pickle.loads(fig)
     savefig(dir_compare, fname, logger=logger, logger_indent=4)
