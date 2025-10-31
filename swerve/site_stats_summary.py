@@ -130,7 +130,7 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
 
 def _mean_exclude_invalid(series, nan_fill=-99999):
     # Excludes nan_fill values from mean calculation
-    value = pd.to_numeric(series.astype(str).str.replace('*', '', regex=False), errors='coerce')
+    value = pd.to_numeric(series.astype(str).str.replace(r'[$*]|\\phantom\{.*?\}', '', regex=True), errors='coerce')
     valid = value[value != nan_fill]
     return np.mean(valid) if len(valid) > 0 else ''
 
