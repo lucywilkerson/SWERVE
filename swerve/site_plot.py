@@ -44,7 +44,6 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
     # Plot measured vs calculated data
     if 'measured' in data[data_type] and 'calculated' in data[data_type]:
-      import pickle
       for style in ['timeseries', 'scatter']:
         if 'paper_sids' in CONFIG.keys() and sid in CONFIG['paper_sids'][data_type][style]:
           paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', '_processed', f'{sid.lower().replace(' ', '')}')
@@ -53,32 +52,25 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
         if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
           logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
           plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
-          for label, fig in plots.items():
-            fname = f"{label}_calculated_all_vs_measured_{style}"
-            fig = pickle.loads(fig)
-            savefig(dir_compare, fname, logger=logger, logger_indent=4)
+          fname = f"_calculated_all_vs_measured_{style}"
+          _save_plots(plots, fname, dir_compare, logger=logger)
           if subplot_label != None:
             fname = f"{data_type}_compare_{style}"
             savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
         for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
           logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
           plots = _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
-          for label, fig in plots.items():
-            fname = f"{label}_calculated_{calculated_source}_vs_measured_{style}"
-            fig = pickle.loads(fig)
-            savefig(dir_compare, fname, logger=logger, logger_indent=4)
+          fname = f"_calculated_{calculated_source}_vs_measured_{style}"
+          _save_plots(plots, fname, dir_compare, logger=logger)
 
     # Plot original vs modified data
     for data_class in data[data_type].keys(): # e.g., measured, calculated
-      import pickle
       for data_source in data[data_type][data_class].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
         if data[data_type][data_class][data_source] is not None:
           logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}' original vs. modified data")
           plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
-          for label, fig in plots.items():
-            fname = f"{data_type}_{data_class}_{data_source}"
-            fig = pickle.loads(fig)
-            savefig(dir_original, fname, logger=logger, logger_indent=4)
+          fname = f"_{data_class}_{data_source}"
+          _save_plots(plots, fname, dir_original, logger=logger)
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
 
@@ -223,7 +215,6 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
   return figures
 
 
-
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   if isinstance(data.get(sid, {}).get('error'), str) or 'modified' not in data.keys():
     original = data['original']
@@ -364,3 +355,12 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
   plt.close('all')
 
   return figures
+
+
+def _save_plots(plots, fname, dir_compare, logger):
+  import pickle
+  from swerve import savefig
+  for label, fig in plots.items():
+    fname = f"{label}{fname}"
+    fig = pickle.loads(fig)
+    savefig(dir_compare, fname, logger=logger, logger_indent=4)
