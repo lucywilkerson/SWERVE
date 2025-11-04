@@ -5,7 +5,7 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 
@@ -17,7 +17,7 @@ info_kwargs = {'extended': False, # Should always be False, no need to use info.
               }
 
 import utilrsw
-from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary, cadence
+from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -43,13 +43,6 @@ for sid in sids_only:
 
   # Read and parse data or use cached data if found and reparse is False.
   data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse)
-
-  # Print cadence of original data, TODO: move elsewhere to simplify things, maybe site_read or site_stats?
-  for data_type in data[sid].keys():
-    for data_class in data[sid][data_type].keys():
-      for data_source in data[sid][data_type][data_class].keys():
-        logger.info(f"Cadence for '{sid}/{data_type}/{data_class}/{data_source}' data:")
-        dt = cadence(data[sid][data_type][data_class][data_source]['original']['time'], logger=logger, logger_indent=2)
 
   # Add stats and metrics to data in data[sid] and returns what was added.
   stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
