@@ -5,7 +5,7 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 add_errors = True # Add automated error checks to data and update info.extended files.
@@ -49,7 +49,7 @@ for sid in sids_only:
 
   utilrsw.print_dict(data[sid], indent=4)
 
-  #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
 if args['sites'] is None and data_types is None:
   import utilrsw

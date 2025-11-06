@@ -216,11 +216,12 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  if isinstance(data.get(sid, {}).get('error'), str) or 'modified' not in data.keys():
+  if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str) or 'modified' not in data.keys():
     original = data['original']
-    if isinstance(data.get(sid, {}).get('error'), str):
-      suptitle = f"Original Error: {data[sid]['error']}"
+    if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str):
+      suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
     else:
+      print(original.keys())
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
                 suptitle=suptitle, show_plots=show_plots)
