@@ -1,12 +1,12 @@
 import numpy
 
-# This function will read the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
+# This function will input the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
 def find_errors(data, sid, data_source, logger=None, low_signal_threshold=3.5, baseline_buffer=1, spike_threshold = 40, std_limit=15, max_cadence=60, max_gap=600):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]"""
-    from swerve import config, site_read, cadence
+    from swerve import config, cadence
     CONFIG = config()
     # Removing NERC sites that are TVA duplicates
     if data_source == 'NERC' and 'sid_duplicates' in CONFIG and sid in CONFIG['sid_duplicates']:
