@@ -90,7 +90,7 @@ def infodf2dict(info_df, logger):
   for idx, row in info_df.iterrows():
 
     site = row['site_id']
-    error = row['error']
+    error = row['manual_error']
 
     if isinstance(error, str) and error.startswith("x "):
       msg = f"  Skipping site '{site}' due to error message:\n    {error}"

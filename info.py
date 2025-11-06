@@ -662,6 +662,9 @@ add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
 
+# Rename 'error' column from info.csv to 'manual_error' in info.extended.csv
+info_df = info_df.rename(columns={'error': 'manual_error'})
+
 out_fname = CONFIG['files']['info_extended']
 info_df.to_csv(out_fname, index=False)
 logger.info(f"Wrote {out_fname}")
