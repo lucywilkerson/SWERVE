@@ -81,6 +81,7 @@ def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None
         site_info[data_type][data_class][data_source]['original'] = orig
         # Check returned data object
         if _output_error(orig, logger):
+          site_info[data_type][data_class][data_source][sid]['automated_error'] = orig['error']
           continue
 
         if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
