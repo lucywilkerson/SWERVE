@@ -51,12 +51,12 @@ for sid in sids_only:
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-if add_errors:
-  from swerve import update_info_extended
-  update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
-
 if args['sites'] is None and data_types is None:
   import utilrsw
+  if add_errors and not info_kwargs['exclude_errors']:
+    # Update info.extended.csv and info.extended.json with automated errors
+    from swerve import update_info_extended
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
   if info_kwargs['exclude_errors']:
     # Create table of results
     site_stats_summary(stats, data_types=data_types, logger=logger)
