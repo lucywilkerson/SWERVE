@@ -1,9 +1,9 @@
 # Update info.extended.csv and info.extended.json with automated errors
 # Only used in main.py
 import json
-from swerve import read_info_df, infodf2dict
 
 def update_info_extended(sids_only, data, logger=None, CONFIG=None):
+  from swerve import read_info_df, infodf2dict
   if CONFIG is None:
     from swerve import config
     CONFIG = config()
