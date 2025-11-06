@@ -10,8 +10,7 @@ show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 add_errors = True # Add automated error checks to data and update info.extended files.
 
-info_kwargs = {'extended': False, # Should always be False, no need to use info.extended.csv
-                 'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
+info_kwargs = {'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
                  'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
                  'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
                  'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'error' column)
@@ -31,7 +30,7 @@ else:
   sids_only = args['sites'].split(',')
 
 # Get actual site IDs to process and validate given ones.
-sids_only = sids(**info_kwargs, key=sids_only)
+sids_only = sids(**info_kwargs, key=sids_only, logger=logger)
 
 # TODO: If info.extended.csv does not exist, run info.py code.
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
