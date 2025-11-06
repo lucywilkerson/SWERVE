@@ -1,4 +1,4 @@
-site_id,geo_lat,geo_lon,data_type,data_class,data_source,error
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,manual_error
 10052,44.9,-97,GIC,measured,NERC,
 10064,41.8,-88.2,GIC,measured,NERC,"stays at zero"
 10065,41.8,-87.8,GIC,measured,NERC,"periods of missing data, otherwise fine"
