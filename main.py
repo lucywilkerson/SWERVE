@@ -8,6 +8,7 @@
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
+add_errors = True # Add automated error checks to data and update info.extended files.
 
 info_kwargs = {'extended': False, # Should always be False, no need to use info.extended.csv
                  'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
@@ -42,7 +43,7 @@ for sid in sids_only:
   data[sid] = {}
 
   # Read and parse data or use cached data if found and reparse is False.
-  data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse)
+  data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
 
   # Add stats and metrics to data in data[sid] and returns what was added.
   stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
@@ -50,6 +51,10 @@ for sid in sids_only:
   utilrsw.print_dict(data[sid], indent=4)
 
   #site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+
+if add_errors:
+  from swerve import update_info_extended
+  update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
 
 if args['sites'] is None and data_types is None:
   import utilrsw
