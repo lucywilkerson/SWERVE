@@ -69,6 +69,7 @@ def find_errors(data, sid, data_source, logger=None, low_signal_threshold=3.5, b
             elapsed_s = time_array[end - 1] - time_array[start]
             if elapsed_s >= window_s:
                 errors.append(f"Data is constant for at least 5 minutes starting at time {time_meas[start]}")
+                break
 
     return errors
 
