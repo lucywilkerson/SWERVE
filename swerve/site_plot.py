@@ -219,6 +219,12 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str) or 'modified' not in data.keys():
     original = data['original']
     if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str):
+      if len(data[sid]['automated_error']) > 0:
+        ae = data[sid]['automated_error']
+        if isinstance(ae, (list, tuple)):
+          data[sid]['automated_error'] = ';\n'.join(map(str, ae))
+        else:
+          data[sid]['automated_error'] = str(ae)
       suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
     else:
       print(original.keys())
