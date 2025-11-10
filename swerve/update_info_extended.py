@@ -13,7 +13,7 @@ def update_info_extended(sids_only, data, logger=None, CONFIG=None):
       for data_source in data[sid]['GIC']['measured'].keys():
         error_msg = data[sid]['GIC']['measured'][data_source][sid]['automated_error']
         logger.info(f"  Adding error for site '{sid}', GIC/'measured/{data_source}: {error_msg}")
-        info_df.loc[(info_df['site_id'] == sid) & (info_df['data_type'] == 'GIC') & (info_df['data_class'] == 'measured'), 'automated_error'] = error_msg
+        info_df.loc[(info_df['site_id'] == sid) & (info_df['data_type'] == 'GIC') & (info_df['data_class'] == 'measured'), 'automated_error'] = str(error_msg)
   out_fname = CONFIG['files']['info_extended']
   info_df.to_csv(out_fname, index=False)
   logger.info(f"Wrote {out_fname}")
