@@ -16,7 +16,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.45 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.45 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:01:47']"
           }
         }
       },
@@ -58,7 +58,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -81,7 +81,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.98 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.98 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -104,7 +104,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.17 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.17 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 06:30:20']"
           }
         }
       }
@@ -127,7 +127,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -15.74 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -150,7 +150,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -173,7 +173,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -196,7 +196,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.26 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.26 A)']"
           }
         }
       }
@@ -219,7 +219,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 2.43 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.43 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -242,7 +242,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.48 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.48 A)']"
           }
         }
       }
@@ -265,7 +265,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 01:45:10"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 01:45:10']"
           }
         }
       }
@@ -288,7 +288,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 2.55 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.55 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-12 15:46:00']"
           }
         }
       }
@@ -311,7 +311,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.21 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.21 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:58:00']"
           }
         }
       },
@@ -353,7 +353,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data gap detected >= 10.0 minutes (3540.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:14:01']"
           }
         }
       }
@@ -376,7 +376,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data gap detected >= 10.0 minutes (3300.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:16:00']"
           }
         }
       }
@@ -399,7 +399,7 @@
             "nearest_volt": 345.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data gap detected >= 10.0 minutes (3240.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:28:00']"
           }
         }
       }
@@ -422,7 +422,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 2.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.0 A)', 'Data gap detected >= 10.0 minutes (3601.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:37:13']"
           }
         }
       }
@@ -445,7 +445,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data gap detected >= 10.0 minutes (3601.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (3601.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:37:13']"
           }
         }
       }
@@ -468,7 +468,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -510,7 +510,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data gap detected >= 10.0 minutes (3240.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:41:00']"
           }
         }
       }
@@ -533,7 +533,7 @@
             "nearest_volt": NaN,
             "power_pool": "NotOrder1000",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: -4.95 A)"
+            "automated_error": "['Baseline offset detected (median value: -4.95 A)']"
           }
         }
       }
@@ -556,7 +556,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -579,7 +579,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -602,7 +602,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -619,13 +619,13 @@
             "interpolated_beta": 1.1145399400687936,
             "log10_beta": 0.0470956362444158,
             "mag_lat": 52.13561137298429,
-            "mag_lon": -23.86441933707156,
+            "mag_lon": -23.864419337071556,
             "alpha": 0.4016557216548033,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 7.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -642,13 +642,13 @@
             "interpolated_beta": 0.8432142123234811,
             "log10_beta": -0.0740620820631635,
             "mag_lat": 53.52330479183824,
-            "mag_lon": -24.19311686051412,
+            "mag_lon": -24.193116860514117,
             "alpha": 0.4711516661818736,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.89 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.89 A)', 'Unphysical spike detected (max diff: 76.32 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:09:00']"
           }
         }
       }
@@ -661,7 +661,7 @@
           "10233": {
             "geo_lat": 47.6,
             "geo_lon": -122.3,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.7863563266877992,
             "log10_beta": -0.1043806147145654,
             "mag_lat": 53.00865169270546,
@@ -694,7 +694,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -2.6 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.6 A)']"
           }
         }
       }
@@ -717,7 +717,7 @@
             "nearest_volt": 230.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.9 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.9 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       },
@@ -759,7 +759,7 @@
             "nearest_volt": 230.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:03:26"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:03:26']"
           }
         }
       }
@@ -782,7 +782,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 03:13:20"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 03:13:20']"
           }
         }
       }
@@ -805,7 +805,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 6549.0 A)', 'Unphysical spike detected (max diff: 6552.0 A)', 'Excessive noise detected (std dev: 3215.4706355068083 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:20:00']"
           }
         }
       }
@@ -828,7 +828,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 02:59:40"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 02:59:40']"
           }
         }
       },
@@ -870,7 +870,7 @@
             "nearest_volt": 138.0,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: -1.59 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.59 A)']"
           }
         }
       }
@@ -893,7 +893,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:44:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:44:30']"
           }
         }
       }
@@ -916,7 +916,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Unphysical spike detected (max diff: 44.6 A)"
+            "automated_error": "['Unphysical spike detected (max diff: 44.6 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -939,7 +939,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: 1.2 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -962,7 +962,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 2.8 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:28:00']"
           }
         }
       }
@@ -985,7 +985,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 1.6 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:48:40']"
           }
         }
       }
@@ -1008,7 +1008,7 @@
             "nearest_volt": 138.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 5.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 5.3 A)']"
           }
         }
       }
@@ -1031,7 +1031,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 10.0 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1054,7 +1054,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1077,7 +1077,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1100,7 +1100,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:48:00']"
           }
         }
       }
@@ -1123,7 +1123,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 1.9 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1146,7 +1146,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:21:10"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:21:10']"
           }
         }
       }
@@ -1169,7 +1169,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:22:50']"
           }
         }
       }
@@ -1192,7 +1192,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.8 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.8 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:18:50']"
           }
         }
       }
@@ -1215,7 +1215,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -1.1 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.1 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:05:50']"
           }
         }
       }
@@ -1238,7 +1238,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:20"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:20']"
           }
         }
       }
@@ -1261,7 +1261,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.1 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.1 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:20']"
           }
         }
       }
@@ -1284,7 +1284,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1307,7 +1307,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 01:05:50"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 01:05:50']"
           }
         }
       }
@@ -1330,7 +1330,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:46:40"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:46:40']"
           }
         }
       }
@@ -1353,7 +1353,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 01:48:10"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 01:48:10']"
           }
         }
       }
@@ -1376,7 +1376,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 6.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 6.4 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:49:50']"
           }
         }
       }
@@ -1399,7 +1399,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -1.1 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.1 A)']"
           }
         }
       }
@@ -1422,7 +1422,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 5.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 5.2 A)']"
           }
         }
       }
@@ -1445,7 +1445,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 05:36:00']"
           }
         }
       }
@@ -1468,7 +1468,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Unphysical spike detected (max diff: 48.879999999999995 A)"
+            "automated_error": "['Unphysical spike detected (max diff: 48.879999999999995 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1491,7 +1491,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:07:00']"
           }
         }
       }
@@ -1514,7 +1514,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1537,7 +1537,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Unphysical spike detected (max diff: 41.73 A)"
+            "automated_error": "['Unphysical spike detected (max diff: 41.73 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:18:00']"
           }
         }
       }
@@ -1560,7 +1560,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1583,7 +1583,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1606,7 +1606,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1629,7 +1629,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1652,7 +1652,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -2.0 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1675,7 +1675,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1698,7 +1698,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1721,7 +1721,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 2.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1744,7 +1744,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1767,7 +1767,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1790,7 +1790,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.1 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)']"
           }
         }
       }
@@ -1813,7 +1813,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:24:00']"
           }
         }
       }
@@ -1836,7 +1836,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Unphysical spike detected (max diff: 40.85 A)"
+            "automated_error": "['Unphysical spike detected (max diff: 40.85 A)', 'Cadence is >= 60 seconds (60.0 seconds)']"
           }
         }
       }
@@ -1859,7 +1859,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)']"
           }
         }
       }
@@ -1882,7 +1882,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -1905,7 +1905,7 @@
             "nearest_volt": NaN,
             "power_pool": "NotOrder1000",
             "US_region": "West",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1928,7 +1928,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -1951,7 +1951,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -1974,7 +1974,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 15.5 A)"
+            "automated_error": "['Baseline offset detected (median value: 15.5 A)']"
           }
         }
       }
@@ -1987,7 +1987,7 @@
           "10586": {
             "geo_lat": 34.0,
             "geo_lon": -118.5,
-            "manual_error": "no data availible",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 1.299364227218366,
             "log10_beta": 0.1137309060375355,
             "mag_lat": 40.1116609980105,
@@ -2020,7 +2020,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 1.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.6 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 03:54:30']"
           }
         }
       }
@@ -2033,7 +2033,7 @@
           "10591": {
             "geo_lat": 35.8,
             "geo_lon": -106.1,
-            "manual_error": "no data availible",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.4274114177415486,
             "log10_beta": -0.3691538804033071,
             "mag_lat": 43.28108397765961,
@@ -2066,7 +2066,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2089,7 +2089,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 2.66 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.66 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2112,7 +2112,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2135,7 +2135,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.4 A)', 'Unphysical spike detected (max diff: 43.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 06:04:00']"
           }
         }
       }
@@ -2158,7 +2158,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -2.6 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.6 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:45']"
           }
         }
       }
@@ -2171,7 +2171,7 @@
           "10608": {
             "geo_lat": 41.2,
             "geo_lon": -73.2,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 2.359721585037499,
             "log10_beta": 0.3728607651672594,
             "mag_lat": 50.39498378278181,
@@ -2194,7 +2194,7 @@
           "10609": {
             "geo_lat": 41.2,
             "geo_lon": -73.2,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 2.359721585037499,
             "log10_beta": 0.3728607651672594,
             "mag_lat": 50.39498378278181,
@@ -2227,7 +2227,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:03:50"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:03:50']"
           }
         }
       }
@@ -2250,7 +2250,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (294.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2273,7 +2273,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (3600.0 seconds)', 'Data gap detected >= 10.0 minutes (3600.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:52:36']"
           }
         }
       }
@@ -2296,7 +2296,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (3600.0 seconds)', 'Data gap detected >= 10.0 minutes (3600.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:22:46']"
           }
         }
       }
@@ -2319,7 +2319,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (3600.0 seconds)', 'Data gap detected >= 10.0 minutes (3600.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:52:01']"
           }
         }
       }
@@ -2342,7 +2342,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (3600.0 seconds)', 'Data gap detected >= 10.0 minutes (3600.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:25:54']"
           }
         }
       }
@@ -2365,7 +2365,7 @@
             "nearest_volt": NaN,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.0 A)', 'Cadence is >= 60 seconds (3600.0 seconds)', 'Data gap detected >= 10.0 minutes (3600.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:40:36']"
           }
         }
       }
@@ -2388,7 +2388,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (5251.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (5251.0 seconds)']"
           }
         }
       }
@@ -2411,7 +2411,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (7200.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (7200.0 seconds)']"
           }
         }
       }
@@ -2434,7 +2434,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (4900.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (4900.0 seconds)']"
           }
         }
       }
@@ -2457,7 +2457,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (19459.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (19459.0 seconds)']"
           }
         }
       }
@@ -2480,7 +2480,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -2522,7 +2522,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (19449.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (19449.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 08:30:02']"
           }
         }
       }
@@ -2545,7 +2545,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 7.8 A)"
+            "automated_error": "['Baseline offset detected (median value: 7.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:00']"
           }
         }
       }
@@ -2568,7 +2568,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2591,7 +2591,7 @@
             "nearest_volt": 765.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 4.5 A)"
+            "automated_error": "['Baseline offset detected (median value: 4.5 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:19:00']"
           }
         }
       }
@@ -2614,7 +2614,7 @@
             "nearest_volt": NaN,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2637,7 +2637,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 12:46:30']"
           }
         }
       }
@@ -2660,7 +2660,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 1.6 A)', 'Unphysical spike detected (max diff: 6552.98 A)', 'Excessive noise detected (std dev: 362.3000734318454 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 04:33:20']"
           }
         }
       }
@@ -2683,7 +2683,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:10']"
           }
         }
       }
@@ -2706,7 +2706,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:19:00']"
           }
         }
       }
@@ -2729,7 +2729,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 02:49:10"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 02:49:10']"
           }
         }
       }
@@ -2752,7 +2752,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A']"
           }
         }
       },
@@ -2794,7 +2794,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.42 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.42 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:07:50']"
           }
         }
       },
@@ -2836,7 +2836,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2859,7 +2859,7 @@
             "nearest_volt": 345.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -2901,7 +2901,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 4.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 4.2 A)']"
           }
         }
       }
@@ -2924,7 +2924,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2947,7 +2947,7 @@
             "nearest_volt": 345.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.36 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.36 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2970,7 +2970,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -2993,7 +2993,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3006,7 +3006,7 @@
           "10102": {
             "geo_lat": 42.9,
             "geo_lon": -71.3,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 2.880981184607718,
             "log10_beta": 0.4595404219570091,
             "mag_lat": 52.09247795710621,
@@ -3039,7 +3039,7 @@
             "nearest_volt": 500.0,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -3062,7 +3062,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 2.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.0 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:05:00']"
           }
         }
       }
@@ -3085,7 +3085,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 1.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.4 A)', 'Unphysical spike detected (max diff: 68.4 A)']"
           }
         }
       }
@@ -3108,7 +3108,7 @@
             "nearest_volt": 500.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: -1.85 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.85 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 03:04:10']"
           }
         }
       },
@@ -3150,7 +3150,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: -2.36 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.36 A)']"
           }
         }
       },
@@ -3192,7 +3192,7 @@
             "nearest_volt": 230.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:09:10"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:09:10']"
           }
         }
       },
@@ -3234,7 +3234,7 @@
             "nearest_volt": 500.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 1.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.2 A)', 'Unphysical spike detected (max diff: 202.36 A)']"
           }
         }
       }
@@ -3257,7 +3257,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:08:50"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:08:50']"
           }
         }
       }
@@ -3280,7 +3280,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 6.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 6.0 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3303,7 +3303,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 1.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.4 A)']"
           }
         }
       }
@@ -3326,7 +3326,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3349,7 +3349,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -3366,13 +3366,13 @@
             "interpolated_beta": 1.1145399400687936,
             "log10_beta": 0.0470956362444158,
             "mag_lat": 52.13561137298429,
-            "mag_lon": -23.86441933707156,
+            "mag_lon": -23.864419337071556,
             "alpha": 0.4016557216548033,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3389,13 +3389,13 @@
             "interpolated_beta": 0.8432142123234811,
             "log10_beta": -0.0740620820631635,
             "mag_lat": 53.52330479183824,
-            "mag_lon": -24.19311686051412,
+            "mag_lon": -24.193116860514117,
             "alpha": 0.4711516661818736,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.62 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.62 A)', 'Unphysical spike detected (max diff: 56.61 A)', 'Cadence is >= 60 seconds (60.0 seconds)']"
           }
         }
       }
@@ -3418,7 +3418,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:02"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:02']"
           }
         }
       }
@@ -3441,7 +3441,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:51"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:51']"
           }
         }
       }
@@ -3464,7 +3464,7 @@
             "nearest_volt": 115.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 03:40:52"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 03:40:52']"
           }
         }
       }
@@ -3487,7 +3487,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -7.87 A)"
+            "automated_error": "['Baseline offset detected (median value: -7.87 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-11 20:41:30']"
           }
         }
       }
@@ -3510,7 +3510,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -4.08 A)']"
           }
         }
       }
@@ -3533,7 +3533,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -3556,7 +3556,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: -1.23 A)']"
           }
         }
       }
@@ -3579,7 +3579,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -4.81 A)"
+            "automated_error": "['Baseline offset detected (median value: -4.81 A)']"
           }
         }
       }
@@ -3596,13 +3596,13 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -3619,13 +3619,13 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -3642,13 +3642,13 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -3665,13 +3665,13 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -1.14 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.14 A)']"
           }
         }
       }
@@ -3694,7 +3694,7 @@
             "nearest_volt": 46.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3717,7 +3717,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3740,7 +3740,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3763,7 +3763,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3786,7 +3786,7 @@
             "nearest_volt": 345.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.3 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3809,7 +3809,7 @@
             "nearest_volt": 115.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3832,7 +3832,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -1.76 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.76 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3855,7 +3855,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 6.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -3878,7 +3878,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3901,7 +3901,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3924,7 +3924,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:07:54"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:07:54']"
           }
         }
       }
@@ -3947,7 +3947,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3970,7 +3970,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -3993,7 +3993,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4016,7 +4016,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: 2.4 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4039,7 +4039,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4062,7 +4062,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:30']"
           }
         }
       }
@@ -4085,7 +4085,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:01:50"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:01:50']"
           }
         }
       }
@@ -4108,7 +4108,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4131,7 +4131,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:50"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:50']"
           }
         }
       },
@@ -4173,7 +4173,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -4196,7 +4196,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:50:20"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:50:20']"
           }
         }
       }
@@ -4219,7 +4219,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:51:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:51:30']"
           }
         }
       }
@@ -4242,7 +4242,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:50:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:50:30']"
           }
         }
       }
@@ -4265,7 +4265,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:40"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:40']"
           }
         }
       }
@@ -4288,7 +4288,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4311,7 +4311,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4334,7 +4334,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:30']"
           }
         }
       }
@@ -4357,7 +4357,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:30']"
           }
         }
       }
@@ -4380,7 +4380,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4403,7 +4403,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4426,7 +4426,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4449,7 +4449,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4472,7 +4472,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 2.9 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.9 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:03:27']"
           }
         }
       }
@@ -4495,7 +4495,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 9.0 A)', 'Excessive noise detected (std dev: 20.108786661458247 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:06:48']"
           }
         }
       }
@@ -4518,7 +4518,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 13.5 A)', 'Excessive noise detected (std dev: 21.795977817828405 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:50:18']"
           }
         }
       }
@@ -4541,7 +4541,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 1.2 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:18:40']"
           }
         }
       }
@@ -4564,7 +4564,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:25:25"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:25:25']"
           }
         }
       }
@@ -4587,7 +4587,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -3.8 A)"
+            "automated_error": "['Baseline offset detected (median value: -3.8 A)']"
           }
         }
       }
@@ -4610,7 +4610,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 06:08:40"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 06:08:40']"
           }
         }
       },
@@ -4652,7 +4652,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 1.1 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:37:50']"
           }
         }
       }
@@ -4675,7 +4675,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4698,7 +4698,7 @@
             "nearest_volt": 230.0,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -6.57 A)"
+            "automated_error": "['Baseline offset detected (median value: -6.57 A)']"
           }
         }
       }
@@ -4721,7 +4721,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.0 A)', 'Data gap detected >= 10.0 minutes (12600.0 seconds)']"
           }
         }
       }
@@ -4734,7 +4734,7 @@
           "10445": {
             "geo_lat": 41.1,
             "geo_lon": -74.2,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 2.4943337505101617,
             "log10_beta": 0.396954563139045,
             "mag_lat": 50.29151607419289,
@@ -4767,7 +4767,7 @@
             "nearest_volt": 500.0,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 25.63 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4790,7 +4790,7 @@
             "nearest_volt": 500.0,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -4.88 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4813,7 +4813,7 @@
             "nearest_volt": NaN,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: -4.27 A)"
+            "automated_error": "['Baseline offset detected (median value: -4.27 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4836,7 +4836,7 @@
             "nearest_volt": NaN,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 23.19 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4859,7 +4859,7 @@
             "nearest_volt": 345.0,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: 1.24 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.24 A)', 'Cadence is >= 60 seconds (60.0 seconds)']"
           }
         }
       }
@@ -4882,7 +4882,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 23.0 A)', 'Data gap detected >= 10.0 minutes (19762.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 14:00:04']"
           }
         }
       }
@@ -4905,7 +4905,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 06:34:00']"
           }
         }
       }
@@ -4928,7 +4928,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:26:00']"
           }
         }
       }
@@ -4951,7 +4951,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 5.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 5.6 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -4974,7 +4974,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:26:04']"
           }
         }
       }
@@ -4997,7 +4997,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 01:48:20"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 01:48:20']"
           }
         }
       }
@@ -5020,7 +5020,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 02:49:20"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 02:49:20']"
           }
         }
       }
@@ -5043,7 +5043,7 @@
             "nearest_volt": 230.0,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (300.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:25:00']"
           }
         }
       }
@@ -5056,7 +5056,7 @@
           "10648": {
             "geo_lat": 32.8,
             "geo_lon": -115.5,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 1.0896628213431034,
             "log10_beta": 0.0372921332766582,
             "mag_lat": 39.28800338612621,
@@ -5089,7 +5089,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 5.75 A)', 'Cadence is >= 60 seconds (300.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:35:00']"
           }
         }
       }
@@ -5112,7 +5112,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 76.7 A)', 'Excessive noise detected (std dev: 24.45072584273399 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:01:00']"
           }
         }
       }
@@ -5135,7 +5135,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 6.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 6.0 A)', 'Unphysical spike detected (max diff: 83.6 A)']"
           }
         }
       },
@@ -5167,7 +5167,7 @@
           "10674": {
             "geo_lat": 41.7,
             "geo_lon": -72.6,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 3.2596497933952056,
             "log10_beta": 0.513170943329938,
             "mag_lat": 50.89548588839735,
@@ -5200,7 +5200,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 04:01:54"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 04:01:54']"
           }
         }
       }
@@ -5223,7 +5223,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 06:42:10"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 06:42:10']"
           }
         }
       }
@@ -5246,7 +5246,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -5269,7 +5269,7 @@
             "nearest_volt": 115.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -29.11 A)']"
           }
         }
       }
@@ -5292,7 +5292,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (3600.0 seconds)', 'Data gap detected >= 10.0 minutes (3600.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-11 07:00:00']"
           }
         }
       }
@@ -5315,7 +5315,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Data gap detected >= 10.0 minutes (3660.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -5338,7 +5338,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -5361,7 +5361,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -5384,7 +5384,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Gleason'"
+            "automated_error": "[\"Duplicate of TVA site 'Gleason'\"]"
           }
         }
       },
@@ -5426,7 +5426,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -5449,7 +5449,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data gap detected >= 10.0 minutes (3820.0 seconds)']"
           }
         }
       }
@@ -5472,7 +5472,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data gap detected >= 10.0 minutes (6191.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (6191.0 seconds)']"
           }
         }
       }
@@ -5495,7 +5495,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -5537,7 +5537,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 2.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:38:00']"
           }
         }
       }
@@ -5560,7 +5560,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -5583,7 +5583,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -5606,7 +5606,7 @@
             "nearest_volt": 46.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.4 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -5629,7 +5629,7 @@
             "nearest_volt": 46.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -5642,7 +5642,7 @@
           "10086": {
             "geo_lat": 27.7,
             "geo_lon": -82.0,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.3651553433744837,
             "log10_beta": -0.437522339877867,
             "mag_lat": 36.76081245421975,
@@ -5665,7 +5665,7 @@
           "10087": {
             "geo_lat": 27.9,
             "geo_lon": -82.4,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.505614521871141,
             "log10_beta": -0.2961804610746953,
             "mag_lat": 36.94897336192287,
@@ -5688,7 +5688,7 @@
           "10088": {
             "geo_lat": 27.9,
             "geo_lon": -82.4,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.505614521871141,
             "log10_beta": -0.2961804610746953,
             "mag_lat": 36.94897336192287,
@@ -5711,7 +5711,7 @@
           "10089": {
             "geo_lat": 27.8,
             "geo_lon": -82.4,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.4850123295363409,
             "log10_beta": -0.3142472210234348,
             "mag_lat": 36.84903068880144,
@@ -5734,7 +5734,7 @@
           "10090": {
             "geo_lat": 27.8,
             "geo_lon": -82.1,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.3727310104831341,
             "log10_beta": -0.4286044733007659,
             "mag_lat": 36.8578729795544,
@@ -5757,7 +5757,7 @@
           "10091": {
             "geo_lat": 27.7,
             "geo_lon": -82.3,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 0.4232283596543554,
             "log10_beta": -0.3734252388255728,
             "mag_lat": 36.75206443017938,
@@ -5790,7 +5790,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -5813,7 +5813,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -5836,7 +5836,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -5859,7 +5859,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -5901,7 +5901,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -5943,7 +5943,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -5985,7 +5985,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 06:26:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 06:26:30']"
           }
         }
       },
@@ -6027,7 +6027,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6050,7 +6050,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6073,7 +6073,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6096,7 +6096,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -6138,7 +6138,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-11 22:36:57"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-11 22:36:57']"
           }
         }
       }
@@ -6161,7 +6161,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Sullivan'"
+            "automated_error": "[\"Duplicate of TVA site 'Sullivan'\"]"
           }
         }
       },
@@ -6203,7 +6203,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-12 07:51:47']"
           }
         }
       }
@@ -6226,7 +6226,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'East Point'"
+            "automated_error": "[\"Duplicate of TVA site 'East Point'\", 'Data is constant for at least 5 minutes starting at time 2024-05-10 06:42:50']"
           }
         }
       }
@@ -6249,7 +6249,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Montgomery'"
+            "automated_error": "[\"Duplicate of TVA site 'Montgomery'\"]"
           }
         }
       }
@@ -6272,7 +6272,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6295,7 +6295,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Raccoon Mountain'"
+            "automated_error": "[\"Duplicate of TVA site 'Raccoon Mountain'\", 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:50:11']"
           }
         }
       },
@@ -6337,7 +6337,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Shelby'"
+            "automated_error": "[\"Duplicate of TVA site 'Shelby'\", 'Data is constant for at least 5 minutes starting at time 2024-05-10 08:52:10']"
           }
         }
       },
@@ -6379,7 +6379,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 17:59:49"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 17:59:49']"
           }
         }
       }
@@ -6402,7 +6402,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Bull Run'"
+            "automated_error": "[\"Duplicate of TVA site 'Bull Run'\"]"
           }
         }
       }
@@ -6425,7 +6425,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Rutherford'"
+            "automated_error": "[\"Duplicate of TVA site 'Rutherford'\"]"
           }
         }
       },
@@ -6467,7 +6467,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6490,7 +6490,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6513,7 +6513,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Duplicate of TVA site 'Pinhook'"
+            "automated_error": "[\"Duplicate of TVA site 'Pinhook'\"]"
           }
         }
       },
@@ -6555,7 +6555,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -6578,7 +6578,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-12 18:05:26"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-12 18:05:26']"
           }
         }
       },
@@ -6620,7 +6620,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:08:56"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:08:56']"
           }
         }
       }
@@ -6643,7 +6643,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -6666,7 +6666,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:49:40"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:49:40']"
           }
         }
       },
@@ -6708,7 +6708,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A']"
           }
         }
       }
@@ -6731,7 +6731,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:45:41']"
           }
         }
       }
@@ -6754,7 +6754,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.57 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.57 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -6777,7 +6777,7 @@
             "nearest_volt": 230.0,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.2 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -6800,7 +6800,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A']"
           }
         }
       }
@@ -6823,7 +6823,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -3.0 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:01']"
           }
         }
       }
@@ -6846,7 +6846,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.4 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.4 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:14:50']"
           }
         }
       }
@@ -6869,7 +6869,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.5 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.5 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:22:10']"
           }
         }
       }
@@ -6892,7 +6892,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -3.2 A)"
+            "automated_error": "['Baseline offset detected (median value: -3.2 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 03:04:40']"
           }
         }
       }
@@ -6915,7 +6915,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -3.7 A)"
+            "automated_error": "['Baseline offset detected (median value: -3.7 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -6928,7 +6928,7 @@
           "10374": {
             "geo_lat": 42.6,
             "geo_lon": -71.5,
-            "manual_error": "no data available",
+            "manual_error": "duplicate timestamps",
             "interpolated_beta": 2.6652790154959165,
             "log10_beta": 0.4257426799845072,
             "mag_lat": 51.79331049233907,
@@ -6961,7 +6961,7 @@
             "nearest_volt": 345.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.2 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:46:20']"
           }
         }
       }
@@ -6984,7 +6984,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-11 21:28:30"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-11 21:28:30']"
           }
         }
       }
@@ -7007,7 +7007,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.9 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:34:10']"
           }
         }
       }
@@ -7030,7 +7030,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -4.0 A)']"
           }
         }
       }
@@ -7053,7 +7053,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.7 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.7 A)']"
           }
         }
       }
@@ -7076,7 +7076,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.5 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.5 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7099,7 +7099,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -3.8 A)"
+            "automated_error": "['Baseline offset detected (median value: -3.8 A)']"
           }
         }
       }
@@ -7122,7 +7122,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -7145,7 +7145,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.2 A)']"
           }
         }
       }
@@ -7168,7 +7168,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -7191,7 +7191,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.7 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.7 A)']"
           }
         }
       }
@@ -7214,7 +7214,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 7.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 7.6 A)']"
           }
         }
       }
@@ -7237,7 +7237,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7260,7 +7260,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7283,7 +7283,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7306,7 +7306,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -9.39 A)"
+            "automated_error": "['Baseline offset detected (median value: -9.39 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 04:01:20']"
           }
         }
       }
@@ -7329,7 +7329,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -2.0 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.0 A)', 'Unphysical spike detected (max diff: 43.0 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7352,7 +7352,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7375,7 +7375,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00"
+            "automated_error": "['Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7398,7 +7398,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7421,7 +7421,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 07:52:00']"
           }
         }
       }
@@ -7444,7 +7444,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 6.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 6.4 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:28:00']"
           }
         }
       }
@@ -7467,7 +7467,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.8 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:17:00']"
           }
         }
       }
@@ -7490,7 +7490,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 8.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 8.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:20:00']"
           }
         }
       }
@@ -7513,7 +7513,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 4.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 4.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:06:00']"
           }
         }
       }
@@ -7536,7 +7536,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7559,7 +7559,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:13:00']"
           }
         }
       }
@@ -7582,7 +7582,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 3.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:28:00']"
           }
         }
       }
@@ -7605,7 +7605,7 @@
             "nearest_volt": 345.0,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -7628,7 +7628,7 @@
             "nearest_volt": 345.0,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:13:00']"
           }
         }
       }
@@ -7651,7 +7651,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:26:00']"
           }
         }
       }
@@ -7674,7 +7674,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 2.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 03:43:00']"
           }
         }
       }
@@ -7697,7 +7697,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:06:00']"
           }
         }
       }
@@ -7720,7 +7720,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:13:00']"
           }
         }
       }
@@ -7743,7 +7743,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7766,7 +7766,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -6.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:00']"
           }
         }
       }
@@ -7789,7 +7789,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7812,7 +7812,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 2.2 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.2 A)', 'Unphysical spike detected (max diff: 91.80000000000001 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 06:31:00']"
           }
         }
       }
@@ -7835,7 +7835,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -4.1 A)"
+            "automated_error": "['Baseline offset detected (median value: -4.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:39:00']"
           }
         }
       }
@@ -7858,7 +7858,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 17.6 A)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -7881,7 +7881,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.7 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7904,7 +7904,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.7 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.7 A)', 'Unphysical spike detected (max diff: 40.199999999999996 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:06:00']"
           }
         }
       }
@@ -7927,7 +7927,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7950,7 +7950,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:06:00']"
           }
         }
       }
@@ -7973,7 +7973,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -7996,7 +7996,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 7.9 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:00']"
           }
         }
       }
@@ -8019,7 +8019,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 6.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8042,7 +8042,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -2.4 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.4 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:47:00']"
           }
         }
       }
@@ -8065,7 +8065,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:11:00']"
           }
         }
       }
@@ -8088,7 +8088,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:26:00']"
           }
         }
       }
@@ -8111,7 +8111,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 9.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:14:00']"
           }
         }
       }
@@ -8134,7 +8134,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -3.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:00']"
           }
         }
       }
@@ -8157,7 +8157,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -2.0 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:08:00']"
           }
         }
       }
@@ -8180,7 +8180,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -3.3 A)"
+            "automated_error": "['Baseline offset detected (median value: -3.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8203,7 +8203,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 4.1 A)"
+            "automated_error": "['Baseline offset detected (median value: 4.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:31:00']"
           }
         }
       }
@@ -8226,7 +8226,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 25.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8249,7 +8249,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8272,7 +8272,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 9.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 9.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8295,7 +8295,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -8.2 A)"
+            "automated_error": "['Baseline offset detected (median value: -8.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:47:00']"
           }
         }
       }
@@ -8318,7 +8318,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:50:00']"
           }
         }
       }
@@ -8341,7 +8341,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 10.5 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -8364,7 +8364,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 3.0 A)"
+            "automated_error": "['Baseline offset detected (median value: 3.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 07:05:00']"
           }
         }
       }
@@ -8387,7 +8387,7 @@
             "nearest_volt": 345.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:13:00']"
           }
         }
       }
@@ -8410,7 +8410,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8433,7 +8433,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.5 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.5 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:29:00']"
           }
         }
       }
@@ -8456,7 +8456,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8479,7 +8479,7 @@
             "nearest_volt": 69.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8502,7 +8502,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: 2.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:07:00']"
           }
         }
       }
@@ -8525,7 +8525,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Baseline offset detected (median value: 8.1 A)"
+            "automated_error": "['Baseline offset detected (median value: 8.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:16:00']"
           }
         }
       }
@@ -8548,7 +8548,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -2.1 A)"
+            "automated_error": "['Baseline offset detected (median value: -2.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:06:00']"
           }
         }
       }
@@ -8571,7 +8571,7 @@
             "nearest_volt": 230.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.5 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.5 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:09:00']"
           }
         }
       }
@@ -8594,7 +8594,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Baseline offset detected (median value: 7.1 A)"
+            "automated_error": "['Baseline offset detected (median value: 7.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:17:00']"
           }
         }
       }
@@ -8617,7 +8617,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 7.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8640,7 +8640,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:00']"
           }
         }
       }
@@ -8663,7 +8663,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:01:00']"
           }
         }
       }
@@ -8686,7 +8686,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:02:00']"
           }
         }
       }
@@ -8709,7 +8709,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -1.1 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 09:11:00']"
           }
         }
       }
@@ -8732,7 +8732,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -4.8 A)"
+            "automated_error": "['Baseline offset detected (median value: -4.8 A)', 'Unphysical spike detected (max diff: 41.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8755,7 +8755,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:39:00']"
           }
         }
       }
@@ -8778,7 +8778,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:00']"
           }
         }
       }
@@ -8801,7 +8801,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8824,7 +8824,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 3.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8847,7 +8847,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Baseline offset detected (median value: 1.3 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:23:00']"
           }
         }
       }
@@ -8870,7 +8870,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 2.8 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8893,7 +8893,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 2.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:16:00']"
           }
         }
       }
@@ -8916,7 +8916,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -11.5 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:08:00']"
           }
         }
       }
@@ -8939,7 +8939,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 13.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -8962,7 +8962,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 4.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 4.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 04:21:00']"
           }
         }
       }
@@ -8985,7 +8985,7 @@
             "nearest_volt": 345.0,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 8.7 A)"
+            "automated_error": "['Baseline offset detected (median value: 8.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:01:00']"
           }
         }
       }
@@ -9008,7 +9008,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: -1.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:21:00']"
           }
         }
       }
@@ -9031,7 +9031,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -3.9 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:11:00']"
           }
         }
       }
@@ -9054,7 +9054,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: -2.2 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9077,7 +9077,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 7.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:03:00']"
           }
         }
       }
@@ -9100,7 +9100,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: -1.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9123,7 +9123,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Baseline offset detected (median value: 2.4 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.4 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:06:00']"
           }
         }
       }
@@ -9146,7 +9146,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9169,7 +9169,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.8 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.8 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9192,7 +9192,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Low signal: all GIC values within +/- 3.5 A', 'Baseline offset detected (median value: 1.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9215,7 +9215,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 4.9 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:04:00']"
           }
         }
       }
@@ -9238,7 +9238,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Baseline offset detected (median value: -1.9 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.9 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:00']"
           }
         }
       }
@@ -9261,7 +9261,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Baseline offset detected (median value: 2.9 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.9 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:30:00']"
           }
         }
       }
@@ -9284,7 +9284,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 08:58:00']"
           }
         }
       }
@@ -9307,7 +9307,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -3.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9330,7 +9330,7 @@
             "nearest_volt": 345.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are negative"
+            "automated_error": "['All GIC values are negative', 'Baseline offset detected (median value: -3.7 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9353,7 +9353,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:13:00']"
           }
         }
       }
@@ -9376,7 +9376,7 @@
             "nearest_volt": 138.0,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:07:00']"
           }
         }
       }
@@ -9399,7 +9399,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -1.1 A)"
+            "automated_error": "['Baseline offset detected (median value: -1.1 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 02:55:00']"
           }
         }
       }
@@ -9422,7 +9422,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 2.4000000000000004 A)"
+            "automated_error": "['Baseline offset detected (median value: 2.4000000000000004 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:16:00']"
           }
         }
       }
@@ -9445,7 +9445,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9468,7 +9468,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:00']"
           }
         }
       }
@@ -9491,7 +9491,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 7.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:00']"
           }
         }
       }
@@ -9514,7 +9514,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 11.3 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:16:00']"
           }
         }
       }
@@ -9537,7 +9537,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 6.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9560,7 +9560,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 3.5 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:02:00']"
           }
         }
       }
@@ -9583,7 +9583,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.6 A)"
+            "automated_error": "['Baseline offset detected (median value: 1.6 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:00:00']"
           }
         }
       }
@@ -9606,7 +9606,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "['Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:05:00']"
           }
         }
       }
@@ -9629,7 +9629,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 9.9 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 01:11:00']"
           }
         }
       }
@@ -9646,13 +9646,13 @@
             "interpolated_beta": 0.1855197224049235,
             "log10_beta": -0.731609914208901,
             "mag_lat": 41.25555189932742,
-            "mag_lon": -24.59563494437125,
+            "mag_lon": -24.595634944371252,
             "alpha": 0.1149374960988044,
             "nearest_sim_site": NaN,
             "nearest_volt": 345.0,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive"
+            "automated_error": "['All GIC values are positive', 'Baseline offset detected (median value: 7.0 A)', 'Cadence is >= 60 seconds (60.0 seconds)', 'Data is constant for at least 5 minutes starting at time 2024-05-10 00:35:00']"
           }
         }
       }
@@ -10838,7 +10838,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -10861,7 +10861,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A']"
           }
         }
       }
@@ -10920,7 +10920,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -11017,7 +11017,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       }
@@ -11040,7 +11040,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11082,7 +11082,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11147,7 +11147,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11261,7 +11261,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 3.5 A"
+            "automated_error": "['Low signal: all GIC values within +/- 3.5 A', 'Data gap detected >= 10.0 minutes (3723.0 seconds)']"
           }
         }
       }
@@ -11284,7 +11284,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data gap detected >= 10.0 minutes (6156.0 seconds)"
+            "automated_error": "['Data gap detected >= 10.0 minutes (6156.0 seconds)']"
           }
         }
       },
@@ -11349,7 +11349,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11391,7 +11391,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11454,7 +11454,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11496,7 +11496,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11538,7 +11538,7 @@
             "nearest_volt": 500.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11580,7 +11580,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11622,7 +11622,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11778,7 +11778,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
@@ -11820,7 +11820,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": null
+            "automated_error": "[]"
           }
         }
       },
