@@ -36,7 +36,7 @@ def plot_counts():
     plt.yscale('log')
     plt.xscale('log')
     plt.grid(True, zorder=1)
-    savefig('_results', 'trans_lines_count', logger)
+    savefig('_results\plot_voltage', 'trans_lines_count', logger)
     plt.close()
 
 def plot_lengths():
@@ -52,7 +52,7 @@ def plot_lengths():
     plt.yscale('log')
     plt.xscale('log')
     plt.grid(True, zorder=1)
-    savefig('_results', 'trans_lines_length', logger)
+    savefig('_results\plot_voltage', 'trans_lines_length', logger)
     plt.close()
 
 voltages, gdf = read_lines(CONFIG['files']['shape']['transmission_lines'])
