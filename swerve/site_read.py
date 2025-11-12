@@ -7,13 +7,15 @@ import datetime
 
 debug = False  # Set to True to log resampling information.
 
-def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
+def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
 
   Usage:
     site_read(sid, data_types=None, reparse=False, logger=None):
 
   If `data_types` is None, read all data types (e.g, B, GIC) for the site.
+
+  If 'add_errors' is True, add automated error checks to data.
 
   If `reparse` is True, reparse the data files even if cache file exists
   (use if data files or code in this script that reads them has changed).
@@ -79,8 +81,15 @@ def site_read(sid, data_types=None, reparse=False, logger=None, debug=False):
         site_info[data_type][data_class][data_source]['original'] = orig
         # Check returned data object
         if _output_error(orig, logger):
+          site_info[data_type][data_class][data_source][sid]['automated_error'] = orig['error']
           continue
 
+        if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
+          add_errors = True
+        if add_errors and data_type == 'GIC' and data_class == 'measured':
+          from swerve import find_errors
+          logger.info('    Running automated error checks on GIC measured data')
+          site_info[data_type][data_class][data_source][sid]['automated_error'] = find_errors(orig, sid, data_source)
 
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
         data_mod = orig['data'].copy()

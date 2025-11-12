@@ -7,27 +7,29 @@ from .site_read import site_read
 from .site_plot import site_plot
 from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
+from .find_errors import find_errors
+from .update_info_extended import update_info_extended
 
-def sids(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None):
+def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None, logger=None):
   from swerve import config, read_info_df
 
   # Handle keywords 'paper' and 'test'
   special_keys = {'paper': 'paper_sids', 'test': 'test_sids'}
 
   if key is None:
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, logger=logger)
   elif key[0] in list(special_keys.keys()):
     site_key = special_keys[key[0]]
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=site_key)
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=site_key, logger=logger)
   else:
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors)
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, logger=logger)
     info = info[info['site_id'].isin(key)]
     if info.empty and data_type is not None:
       raise ValueError(f"key '{key}' with data_type '{data_type}' not recognized. Check site IDs and data_type.")
     if info.empty:
       raise ValueError(f"key '{key}' not recognized. Valid keys are {list(special_keys.keys())}, site IDs, or None.")
 
-  info = info[~(info['error'].astype(str).str.startswith('x '))]
+  info = info[~(info['manual_error'].astype(str).str.startswith('x '))]
   all_sids = list(info['site_id'].unique())
 
   if key != 'test':
@@ -91,7 +93,7 @@ def infodf2dict(info_df, logger):
   for idx, row in info_df.iterrows():
 
     site = row['site_id']
-    error = row['error']
+    error = row['manual_error']
 
     if isinstance(error, str) and error.startswith("x "):
       msg = f"  Skipping site '{site}' due to error message:\n    {error}"
@@ -136,7 +138,7 @@ def read_info_dict(sid=None):
 
   return info_dict
 
-def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None):
+def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None, logger=None):
   import pandas
   from swerve import config
   CONFIG = config()
@@ -161,7 +163,14 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
 
   if exclude_errors:
     # Remove rows that have errors
-    info_df = info_df[info_df['error'].isna()]
+    if 'automated_error' in info_df.columns:
+      if logger is not None: 
+        logger.info("    Excluding sites with automated errors")
+      info_df = info_df[info_df['automated_error'].isna()]
+    else:
+      if logger is not None: 
+        logger.info("    Excluding sites with manual errors")
+      info_df = info_df[info_df['manual_error'].isna()]
 
   info_df = filter_df(info_df, 'data_type', data_type)
   info_df = filter_df(info_df, 'data_source', data_source)

@@ -46,9 +46,17 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     if 'measured' in data[data_type] and 'calculated' in data[data_type]:
       for style in ['timeseries', 'scatter']:
         if 'paper_sids' in CONFIG.keys() and sid in CONFIG['paper_sids'][data_type][style]:
-          paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', '_processed', f'{sid.lower().replace(' ', '')}')
+          paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', 'data_processed', f'{sid.lower().replace(' ', '')}')
           subplot_label = CONFIG['paper_sids'][data_type][style][sid]
         else: subplot_label = None
+        if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
+          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
+          plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
+          fname = f"_calculated_all_vs_measured_{style}"
+          _save_plots(plots, fname, dir_compare, logger=logger)
+          if subplot_label != None:
+            fname = f"{data_type}_compare_{style}"
+            savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
         if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
           logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
           plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
@@ -216,11 +224,18 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  if isinstance(data.get(sid, {}).get('error'), str) or 'modified' not in data.keys():
+  if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str) or 'modified' not in data.keys():
     original = data['original']
-    if isinstance(data.get(sid, {}).get('error'), str):
-      suptitle = f"Original Error: {data[sid]['error']}"
+    if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str):
+      if len(data[sid]['automated_error']) > 0:
+        ae = data[sid]['automated_error']
+        if isinstance(ae, (list, tuple)):
+          data[sid]['automated_error'] = ';\n'.join(map(str, ae))
+        else:
+          data[sid]['automated_error'] = str(ae)
+      suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
     else:
+      print(original.keys())
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
                 suptitle=suptitle, show_plots=show_plots)
