@@ -9,7 +9,7 @@ from swerve import FILES, DATA_DIR, plt_config, savefig, savefig_paper, add_subp
 
 logger = logger(**LOG_KWARGS)
 
-results_dir = '_results'
+results_dir = '_results\plot_scatter'
 limits = plt_config()
 
 poster = False  # set to be true to generate poster figs
@@ -289,7 +289,7 @@ plt.scatter(np.abs(df['lat_diff']), np.abs(df['cc']), **scatter_kwargs)
 if not B_scatter:
     plot_avg_line(np.abs(df['lat_diff']), np.abs(df['cc']))
     plt.legend(loc='upper right')
-plt.xlabel(r'|$\Delta \lambda$ [deg]|')
+plt.xlabel(r'|$\Delta \lambda$| [deg]')
 plt.ylabel('|r|')
 plt.grid(True)
 if B_scatter:
@@ -317,7 +317,7 @@ if not paper:
     plt.close()
 
     plt.scatter(np.abs(df['lat_diff']), avg_std)
-    plt.xlabel(r'|$\Delta \lambda$ [deg]|')
+    plt.xlabel(r'|$\Delta \lambda$| [deg]')
     plt.ylabel('Average standard deviation [A]')
     plt.grid(True)
     savefig(results_dir, 'std_vs_lat_scatter', logger)
@@ -374,7 +374,7 @@ if poster:
 if colorbar_scatter:
     scatter_with_colorbar(df, 'log_beta_diff', r'|$\Delta \log_{10} (\beta)$|', 'CC vs Distance with Beta Colorbar', 'cc_vs_dist_vs_beta_scatter')
     scatter_with_colorbar(df, 'volt_diff(kV)', r'|$\Delta V$| [kV]', 'CC vs Distance with Line Voltage Colorbar', 'cc_vs_dist_vs_volt_scatter')
-    scatter_with_colorbar(df, 'lat_diff', r'|$\Delta \lambda$ [deg]|', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
+    scatter_with_colorbar(df, 'lat_diff', r'|$\Delta \lambda$| [deg]', 'CC vs Distance with Latitude Colorbar', 'cc_vs_dist_vs_lat_scatter')
     scatter_with_colorbar(df, 'min_avg_cc', r'min mean |cc|', 'CC vs Distance with Min |cc| Colorbar', 'cc_vs_dist_vs_min_scatter')
 
 if grid_scatter:
@@ -409,7 +409,7 @@ if grid_scatter:
     plt.close()
 
     # Four panel plot for |lat_diff| vs |cc| with region colors and pool shapes
-    plot_grid_scatter(np.abs(df['lat_diff']), np.abs(df['cc']), r'|$\Delta \lambda$ [deg]|', '|cc|')
+    plot_grid_scatter(np.abs(df['lat_diff']), np.abs(df['cc']), r'|$\Delta \lambda$| [deg]', '|cc|')
     savefig(results_dir, 'cc_vs_lat_grid_scatter', logger)
     plt.close()
 
