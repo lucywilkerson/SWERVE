@@ -8,6 +8,9 @@ install_requires = [
     "geopy",
     "geopandas",
     "statsmodels",
+    "h5py",
+    "hapiclient",
+    "spacepy",
     "datetick @ git+https://github.com/rweigel/datetick",
     "utilrsw @ git+https://github.com/rweigel/utilrsw"
 ]

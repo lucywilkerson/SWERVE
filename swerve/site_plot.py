@@ -57,6 +57,14 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
           if subplot_label != None:
             fname = f"{data_type}_compare_{style}"
             savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
+        if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
+          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
+          plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
+          fname = f"_calculated_all_vs_measured_{style}"
+          _save_plots(plots, fname, dir_compare, logger=logger)
+          if subplot_label != None:
+            fname = f"{data_type}_compare_{style}"
+            savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
         for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
           logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
           plots = _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
