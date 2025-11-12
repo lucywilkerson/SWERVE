@@ -138,7 +138,7 @@ def read_info_dict(sid=None):
 
   return info_dict
 
-def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None, logger=None):
+def read_info_df(extended=False, data_type=None, data_source=None, data_class=None, exclude_errors=False, error_type='manual_error', key=None, logger=None):
   import pandas
   from swerve import config
   CONFIG = config()
@@ -163,13 +163,13 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
 
   if exclude_errors:
     # Remove rows that have errors
-    if 'automated_error' in info_df.columns:
+    if error_type in info_df.columns:
       if logger is not None: 
         logger.info("    Excluding sites with automated errors")
-      info_df = info_df[info_df['automated_error'].isna()]
+      info_df = info_df[info_df[error_type].isna()]
     else:
       if logger is not None: 
-        logger.info("    Excluding sites with manual errors")
+        logger.info(f"    Error type {error_type} not available; Excluding sites with manual errors")
       info_df = info_df[info_df['manual_error'].isna()]
 
   info_df = filter_df(info_df, 'data_type', data_type)
