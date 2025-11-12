@@ -36,7 +36,7 @@ def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None
   sidx = sid.lower().replace(' ', '')
   site_all_file = '_all.pkl'
   out_dir = CONFIG['dirs']['processed']
-  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, sidx, 'data', site_all_file)
+  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, 'site', sidx, 'data', site_all_file)
 
   logger.info(f"Reading '{sid}' data")
 
@@ -124,7 +124,7 @@ def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None
         site_info[data_type][data_class][data_source]['modified'] = modified
 
         file_name = f'{data_type}_{data_class}_{data_source}.pkl'
-        file_name = os.path.join(CONFIG['dirs']['processed'], sidx, 'data', file_name)
+        file_name = os.path.join(CONFIG['dirs']['processed'], 'sites', sidx, 'data', file_name)
         _write_pkl(file_name, site_info[data_type][data_class], logger, indent= ' '*4)
 
   if data_types is None:

@@ -15,7 +15,7 @@ from swerve import config, savefig, savefig_paper, add_subplot_label, fix_latex
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
-results_dir = os.path.join(CONFIG['dirs']['data'], '_results')
+results_dir = os.path.join(CONFIG['dirs']['data'], '_results', 'regression')
 if 'paper' in CONFIG['dirs']:
   paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
   paper_results_dir = os.path.join(paper_dir, '_results')
