@@ -14,7 +14,7 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 DATA_DIR = CONFIG['dirs']['data']
 
-base_dir = '_processed'
+base_dir = 'data_processed'
 
 limits = CONFIG['limits']
 

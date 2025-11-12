@@ -309,7 +309,7 @@ def site_maps(info_df, cc_df):
         plt.suptitle(site_1_id)
         # saving figure
         sid = site_1_id
-        fdir = os.path.join('_processed', sid.lower().replace(' ', ''))
+        fdir = os.path.join('data_processed', sid.lower().replace(' ', ''))
         savefig(fdir, 'cc_vs_dist_map', logger)
         plt.close()
 

@@ -37,7 +37,7 @@ def config():
       },
       'dirs': {
         'data': data_dir,
-        'processed': os.path.join(data_dir, '_processed'),
+        'processed': os.path.join(data_dir, 'data_processed'),
       },
       'files': {
           'mage': {
@@ -50,7 +50,7 @@ def config():
             'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
-          'all': os.path.join(data_dir, '_processed', 'all.pkl'),
+          'all': os.path.join(data_dir, 'data_processed', 'all.pkl'),
           'info': os.path.join(info_dir, 'info.csv'),
           'info_json': os.path.join(info_dir, 'info.json'),
           'info_extended': os.path.join(info_dir, 'info.extended.csv'),
