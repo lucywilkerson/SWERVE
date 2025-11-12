@@ -19,8 +19,6 @@ Write info/info.extended.csv with additional columns from info/info.csv:
   * nearest_volt
   * power_pool
   * US_region
-  * gic_std
-  * gic_max
 
 Write info/info.json, which is a dict with keys of site_id and values of
 a dict with all measured and calculated data for that site.

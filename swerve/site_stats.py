@@ -23,7 +23,8 @@ def site_stats(sid, data, data_types=None, logger=None):
         if 'modified' in data[data_type][data_class][data_source]:
           if 'error' not in data[data_type][data_class][data_source]['modified']:
             data_modified = data[data_type][data_class][data_source]['modified']['data']
-            stats = _stats(data_modified, logger)
+            data_time = data[data_type][data_class][data_source]['original']['time']
+            stats = _stats(data_modified, data_time, logger)
 
             key = f"{data_type}/{data_class}/{data_source}"
             all_stats[key]['stats'] = stats
@@ -62,8 +63,9 @@ def site_stats(sid, data, data_types=None, logger=None):
 
   return all_stats
 
-def _stats(data_meas, logger):
+def _stats(data_meas, time_original, logger):
   import numpy as np
+  from swerve import cadence
   return {
           'std': np.nanstd(data_meas, axis=0),
           'ave': np.nanmean(data_meas, axis=0),
@@ -71,6 +73,7 @@ def _stats(data_meas, logger):
           'max': np.nanmax(data_meas, axis=0),
           'n': len(data_meas),
           'n_valid': np.sum(~np.isnan(data_meas), axis=0),
+          'dt_original': cadence(time_original, logger=logger)
   }
 
 def _metrics(data_meas, data_calc, logger):

@@ -8,16 +8,16 @@
 reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
+add_errors = True # Add automated error checks to data and update info.extended files.
 
-info_kwargs = {'extended': False, # Should always be False, no need to use info.extended.csv
-                 'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
+info_kwargs = {'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
                  'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
                  'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
                  'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'error' column)
               }
 
 import utilrsw
-from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary, cadence
+from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -30,7 +30,7 @@ else:
   sids_only = args['sites'].split(',')
 
 # Get actual site IDs to process and validate given ones.
-sids_only = sids(**info_kwargs, key=sids_only)
+sids_only = sids(**info_kwargs, key=sids_only, logger=logger)
 
 # TODO: If info.extended.csv does not exist, run info.py code.
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
@@ -42,14 +42,7 @@ for sid in sids_only:
   data[sid] = {}
 
   # Read and parse data or use cached data if found and reparse is False.
-  data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse)
-
-  # Print cadence of original data, TODO: move elsewhere to simplify things, maybe site_read or site_stats?
-  for data_type in data[sid].keys():
-    for data_class in data[sid][data_type].keys():
-      for data_source in data[sid][data_type][data_class].keys():
-        logger.info(f"Cadence for '{sid}/{data_type}/{data_class}/{data_source}' data:")
-        dt = cadence(data[sid][data_type][data_class][data_source]['original']['time'], logger=logger, logger_indent=2)
+  data[sid] = site_read(sid, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
 
   # Add stats and metrics to data in data[sid] and returns what was added.
   stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
@@ -60,6 +53,10 @@ for sid in sids_only:
 
 if args['sites'] is None and data_types is None:
   import utilrsw
+  if add_errors and not info_kwargs['exclude_errors']:
+    # Update info.extended.csv and info.extended.json with automated errors
+    from swerve import update_info_extended
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
   if info_kwargs['exclude_errors']:
     # Create table of results
     site_stats_summary(stats, data_types=data_types, logger=logger)
