@@ -21,7 +21,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
       logger.info(f"  Not plotting '{sid}/{data_type}' data type b/c not in requested data_types = {data_types}.")
       continue
 
-    base_dir = f"{out_dir}/{sid.lower().replace(' ', '')}/figures"
+    base_dir = f"{out_dir}/sites/{sid.lower().replace(' ', '')}/figures"
     dir_raw = os.path.join(base_dir, 'raw')
     dir_original = os.path.join(base_dir, 'original')
     dir_compare = os.path.join(base_dir, 'compare')
@@ -46,7 +46,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     if 'measured' in data[data_type] and 'calculated' in data[data_type]:
       for style in ['timeseries', 'scatter']:
         if 'paper_sids' in CONFIG.keys() and sid in CONFIG['paper_sids'][data_type][style]:
-          paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', 'data_processed', f'{sid.lower().replace(' ', '')}')
+          paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures', '_processed', f'{sid.lower().replace(' ', '')}')
           subplot_label = CONFIG['paper_sids'][data_type][style][sid]
         else: subplot_label = None
         if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured

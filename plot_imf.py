@@ -189,7 +189,7 @@ axes[6].yaxis.set_major_locator(MultipleLocator(50))
 plt_adjust(limits_plot)
 fig.align_ylabels(axes)
 
-savefig('data_processed', '_imf', 'imf_mage', logger)
+savefig('data_processed', 'summary', '_imf', 'imf_mage', logger)
 savefig_paper('_imf', 'imf_mage', logger)
 
 if plot_both:
@@ -211,4 +211,4 @@ if plot_both:
   axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{SWMF}$', color='dimgray', linewidth=0.5, linestyle='--')
   axes[6].legend(loc='upper right', ncol=4)
 
-  savefig('data_processed', '_imf', 'imf_all', logger)
+  savefig('data_processed', 'summary', '_imf', 'imf_all', logger)
