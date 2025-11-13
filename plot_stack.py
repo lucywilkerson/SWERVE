@@ -14,7 +14,7 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 DATA_DIR = CONFIG['dirs']['data']
 
-base_dir = 'data_processed'
+base_dir = 'data_processed\summary'
 
 limits = CONFIG['limits']
 
@@ -204,7 +204,7 @@ def plot_bad_gic(info, info_df, data_all, offset=40, sites_per_fig=25):
     for sid in sites:
       sid_str = str(sid) # TODO: only necessary for October storm data
       source = list(info[sid]['GIC']['measured'].keys())[0]
-      error_val = info[sid_str]['GIC']['measured'][source][sid_str]['error']
+      error_val = info[sid_str]['GIC']['measured'][source][sid_str]['manual_error']
       if error_val is None or (isinstance(error_val, float) and numpy.isnan(error_val)):
         continue
       source_sites['error'].append(error_val)
