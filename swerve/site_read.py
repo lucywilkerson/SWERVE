@@ -36,7 +36,7 @@ def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None
   sidx = sid.lower().replace(' ', '')
   site_all_file = '_all.pkl'
   out_dir = CONFIG['dirs']['processed']
-  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, 'site', sidx, 'data', site_all_file)
+  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, 'sites', sidx, 'data', site_all_file)
 
   logger.info(f"Reading '{sid}' data")
 
