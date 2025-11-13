@@ -3,12 +3,13 @@ import numpy
 # This function will input the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def find_errors(data, sid, data_source, logger=None, low_signal_threshold=3.5, baseline_buffer=1, spike_threshold = 40, std_limit=15, max_cadence=60, max_gap=600):
+def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
     from swerve import config, cadence
     CONFIG = config()
+    gic_filter_kwargs = CONFIG['gic_filter_kwargs']
 
     errors = []
 
@@ -26,21 +27,29 @@ def find_errors(data, sid, data_source, logger=None, low_signal_threshold=3.5, b
         errors.append("All GIC values are negative")
 
     # Removing sites with low signal (all values within +/- low_signal_threshold [A])
+    low_signal_threshold = gic_filter_kwargs['low_signal_threshold']
     if all(-low_signal_threshold <= i <= low_signal_threshold for i in data_meas):
         errors.append(f"Low signal: all GIC values within +/- {low_signal_threshold} A")
 
     # Removing all sites with baseline offset [A]
     median_val = numpy.median(data_meas)
+    baseline_buffer = gic_filter_kwargs['baseline_buffer']
     if median_val > baseline_buffer or median_val < -baseline_buffer:
         errors.append(f"Baseline offset detected (median value: {median_val} A)")
 
     # Removing sites with large, unphysical spikes (> spike_threshold [A])
+    spike_threshold = gic_filter_kwargs['spike_threshold']
     data_array = numpy.array(data_meas).ravel()
     diffs = numpy.abs(numpy.diff(data_array))
-    if diffs.size and any(diffs > spike_threshold):
-        errors.append(f"Unphysical spike detected (max diff: {numpy.max(diffs)} A)")
+    if spike_filt_type == 'difference':
+        _diff_spike_filt(diffs, spike_threshold, errors)
+    elif spike_filt_type == 'median':
+        _median_spike_filt(data_array, spike_threshold, errors)
+    else:
+        raise ValueError(f"Unknown spike_filt_type: {spike_filt_type}")
 
     # Removing noisy sites
+    std_limit = gic_filter_kwargs['std_limit']
     if numpy.std(data_array) > std_limit:
         errors.append(f"Excessive noise detected (std dev: {numpy.std(data_meas)} A)")
 
@@ -48,6 +57,8 @@ def find_errors(data, sid, data_source, logger=None, low_signal_threshold=3.5, b
     dt = cadence(time_meas, logger=logger, logger_indent=2) # returns cadence in ns
     dt_array = (numpy.array(dt)).astype(numpy.float64)
     if dt_array.size:
+        max_cadence = gic_filter_kwargs['max_cadence']
+        max_gap = gic_filter_kwargs['max_gap']
         if (any(dt_array >= max_cadence*1e9) and len(dt_array) == 1):
             errors.append(f"Cadence is >= {max_cadence} seconds ({max(dt_array)/1e9} seconds)")
         if any(dt_array >= max_gap*1e9):
@@ -73,5 +84,25 @@ def find_errors(data, sid, data_source, logger=None, low_signal_threshold=3.5, b
 
     return errors
 
+def _diff_spike_filt(diffs, spike_threshold, errors):
+    diffs = numpy.abs(diffs)
+    if diffs.size and any(diffs > spike_threshold):
+        errors.append(f"Unphysical spike detected (max diff: {numpy.max(diffs)} A)")
 
-    
+def _median_spike_filt(data_array, spike_threshold, errors, win=20):
+    n = data_array.size
+    if n == 0:
+        return
+    # moving window median filter: use window size (win)
+    if win % 2 == 0:
+        win -= 1
+    half = win // 2
+    deviations = numpy.empty(n, dtype=numpy.float64)
+    for i in range(n):
+        start = max(0, i - half)
+        end = min(n, i + half + 1)
+        median = numpy.median(data_array[start:end])
+        deviations[i] = abs(data_array[i] - median)
+
+    if any(deviations > spike_threshold):
+        errors.append(f"Unphysical spike detected (max deviation from moving median: {numpy.max(deviations)} A)")
