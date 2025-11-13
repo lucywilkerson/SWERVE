@@ -35,6 +35,13 @@ def config():
         'data': None, # Pad or trim data to these limits
         'plot': None  # Plot data within these limits
       },
+      'gic_filter_kwargs': {'low_signal_threshold':3.5, # [A]
+                            'baseline_buffer':1, # [A]
+                            'spike_threshold':40, # [A]
+                            'std_limit':15, # [A]
+                            'max_cadence':60, # [s]
+                            'max_gap':600 # [s]
+      },
       'dirs': {
         'data': data_dir,
         'processed': os.path.join(data_dir, 'data_processed'),
