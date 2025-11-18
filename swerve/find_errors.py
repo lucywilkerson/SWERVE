@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 # This function will input the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
@@ -21,27 +21,26 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
     time_meas = data['time']
 
     # Removing any sites with all negative or all positive values
-    if all(i >= 0 for i in data_meas):
+    if np.all(data_meas >= 0):
         errors.append("All GIC values are positive")
-    if all(i <= 0 for i in data_meas):
+    if np.all(data_meas <= 0):
         errors.append("All GIC values are negative")
 
     # Removing sites with low signal (all values within +/- low_signal_threshold [A])
     low_signal_threshold = gic_filter_kwargs['low_signal_threshold']
-    if all(-low_signal_threshold <= i <= low_signal_threshold for i in data_meas):
+    if np.all((-low_signal_threshold <= data_meas) & (data_meas <= low_signal_threshold)):
         errors.append(f"Low signal: all GIC values within +/- {low_signal_threshold} A")
 
     # Removing all sites with baseline offset [A]
-    median_val = numpy.median(data_meas)
+    median_val = np.median(data_meas)
     baseline_buffer = gic_filter_kwargs['baseline_buffer']
     if median_val > baseline_buffer or median_val < -baseline_buffer:
         errors.append(f"Baseline offset detected (median value: {median_val} A)")
 
     # Removing sites with large, unphysical spikes (> spike_threshold [A])
     spike_threshold = gic_filter_kwargs['spike_threshold']
-    data_array = numpy.array(data_meas).ravel()
-    diffs = numpy.abs(numpy.diff(data_array))
-    if spike_filt_type == 'difference':
+    data_array = np.array(data_meas).ravel()
+    diffs = np.abs(np.diff(data_array))
         _diff_spike_filt(diffs, spike_threshold, errors)
     elif spike_filt_type == 'median':
         _median_spike_filt(data_array, spike_threshold, errors)
@@ -55,7 +54,7 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
 
     # Removing any sites with dt >= max_cadence [s] or with gap in data >= max_gap [s]
     dt = cadence(time_meas, logger=logger, logger_indent=2) # returns cadence in ns
-    dt_array = (numpy.array(dt)).astype(numpy.float64)
+    dt_array = (np.array(dt)).astype(np.float64)
     if dt_array.size:
         max_cadence = gic_filter_kwargs['max_cadence']
         max_gap = gic_filter_kwargs['max_gap']
@@ -65,16 +64,16 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
             errors.append(f"Data gap detected >= {max_gap/60} minutes ({max(dt_array)/1e9} seconds)")
 
     # Remove sites with constant values for more than 5min
-    time_array = numpy.array([t.timestamp() for t in time_meas])  # convert to seconds
+    time_array = np.array([t.timestamp() for t in time_meas])  # convert to seconds
     window_s = 300  # 5 minutes in seconds
     # Find runs of constant values
-    change_idx = numpy.where(diffs != 0)[0] + 1
+    change_idx = np.where(diffs != 0)[0] + 1
     if change_idx.size:
-        run_starts = numpy.concatenate(([0], change_idx))
-        run_ends = numpy.concatenate((change_idx, [len(data_array)]))
+        run_starts = np.concatenate(([0], change_idx))
+        run_ends = np.concatenate((change_idx, [len(data_array)]))
     else:
-        run_starts = numpy.array([0])
-        run_ends = numpy.array([len(data_array)])
+        run_starts = np.array([0])
+        run_ends = np.array([len(data_array)])
     for start, end in zip(run_starts, run_ends):
         if end - start > 1:
             elapsed_s = time_array[end - 1] - time_array[start]
@@ -85,9 +84,9 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
     return errors
 
 def _diff_spike_filt(diffs, spike_threshold, errors):
-    diffs = numpy.abs(diffs)
+    diffs = np.abs(diffs)
     if diffs.size and any(diffs > spike_threshold):
-        errors.append(f"Unphysical spike detected (max diff: {numpy.max(diffs)} A)")
+        errors.append(f"Unphysical spike detected (max diff: {np.max(diffs)} A)")
 
 def _median_spike_filt(data_array, spike_threshold, errors, win=20):
     n = data_array.size
@@ -97,12 +96,12 @@ def _median_spike_filt(data_array, spike_threshold, errors, win=20):
     if win % 2 == 0:
         win -= 1
     half = win // 2
-    deviations = numpy.empty(n, dtype=numpy.float64)
+    deviations = np.empty(n, dtype=np.float64)
     for i in range(n):
         start = max(0, i - half)
         end = min(n, i + half + 1)
-        median = numpy.median(data_array[start:end])
+        median = np.median(data_array[start:end])
         deviations[i] = abs(data_array[i] - median)
 
     if any(deviations > spike_threshold):
-        errors.append(f"Unphysical spike detected (max deviation from moving median: {numpy.max(deviations)} A)")
+        errors.append(f"Unphysical spike detected (max deviation from moving median: {np.max(deviations)} A)")
