@@ -3,13 +3,14 @@ import numpy as np
 # This function will input the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
+def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
     from swerve import config, cadence
+    from datetime import timedelta
     CONFIG = config()
-    gic_filter_kwargs = CONFIG['gic_filter_kwargs']
+    gic_filter_kwargs = CONFIG['find_errors_kwargs']
 
     errors = []
 
@@ -41,8 +42,9 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='median'):
     spike_threshold = gic_filter_kwargs['spike_threshold']
     data_array = np.array(data_meas).ravel()
     diffs = np.abs(np.diff(data_array))
+    if spike_filt_type == 'difference' or spike_filt_type == 'both':
         _diff_spike_filt(diffs, spike_threshold, errors)
-    elif spike_filt_type == 'median':
+    elif spike_filt_type == 'median' or spike_filt_type == 'both':
         _median_spike_filt(data_array, spike_threshold, errors)
     else:
         raise ValueError(f"Unknown spike_filt_type: {spike_filt_type}")
