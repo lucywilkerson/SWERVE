@@ -49,10 +49,33 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
     else:
         raise ValueError(f"Unknown spike_filt_type: {spike_filt_type}")
 
-    # Removing noisy sites
-    std_limit = gic_filter_kwargs['std_limit']
-    if numpy.std(data_array) > std_limit:
-        errors.append(f"Excessive noise detected (std dev: {numpy.std(data_meas)} A)")
+    # Removing noisy sites before storm (std before > 1/4 * std after)
+    storm_start = CONFIG['limits']['data'][0]
+    pre_dt = timedelta(hours=10)
+    post_dt = timedelta(hours=10)
+    try:
+        pre_start = storm_start - pre_dt
+        pre_end = storm_start
+        post_start = storm_start
+        post_end = storm_start + post_dt
+
+        pre_mask = np.array([(t >= pre_start) and (t < pre_end) for t in time_meas])
+        post_mask = np.array([(t >= post_start) and (t < post_end) for t in time_meas])
+    except Exception:
+        # Fallback: use POSIX seconds if storm_start is a numeric timestamp
+        time_secs = np.array([t.timestamp() for t in time_meas])
+        ss = float(storm_start)
+        pre_mask = (time_secs >= ss - 2*3600) & (time_secs < ss)
+        post_mask = (time_secs >= ss) & (time_secs < ss + 2*3600)
+    std_pre = float(np.std(data_array[pre_mask]))
+    std_post = float(np.std(data_array[post_mask]))
+    # if std_pre > 1/4 * std_post then flag as noisy before storm
+    if std_post == 0.0:
+        if std_pre > 0.0:
+            errors.append("Excessive pre-storm noise: nonzero std before while std after is zero")
+    else:
+        if 4*std_pre > std_post:
+            errors.append(f"Excessive pre-storm noise: std before ({std_pre:.4f} A) > 1/4 * std after ({std_post:.4f} A)")
 
     # Removing any sites with dt >= max_cadence [s] or with gap in data >= max_gap [s]
     dt = cadence(time_meas, logger=logger, logger_indent=2) # returns cadence in ns
