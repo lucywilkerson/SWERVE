@@ -224,17 +224,21 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str) or 'modified' not in data.keys():
+  if 'modified' not in data.keys() or isinstance(data[sid]['manual_error'], str) or (not isinstance(data[sid]['automated_error'], float) and len(data[sid]['automated_error'])>0):
     original = data['original']
-    if isinstance(data.get(sid, {}).get('manual_error'), str) or isinstance(data.get(sid, {}).get('automated_error'), str):
-      if len(data[sid]['automated_error']) > 0:
-        ae = data[sid]['automated_error']
-        if isinstance(ae, (list, tuple)):
-          data[sid]['automated_error'] = ';\n'.join(map(str, ae))
-        else:
-          data[sid]['automated_error'] = str(ae)
-      suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
-    else:
+    if not isinstance(data[sid]['automated_error'], float):
+      ae = data[sid]['automated_error']
+      if isinstance(ae, (list, tuple)):
+        data[sid]['automated_error'] = ';\n'.join(map(str, ae))
+      else:
+        data[sid]['automated_error'] = str(ae)
+      if isinstance(data.get(sid, {}).get('manual_error'), str):
+        suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
+      else:
+        suptitle = f"Automated Error: {data[sid]['automated_error']}"
+    elif isinstance(data[sid]['manual_error'], str):
+      suptitle = f"Manual Error: {data[sid]['manual_error']}"
+    elif 'modified' not in data.keys():
       print(original.keys())
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
@@ -292,6 +296,9 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
                 'SWMF':{'color': 'blue', 'lw': 0.4},
                 'MAGE':{'color': 'green', 'lw': 0.4},
                 'OpenGGCM':{'color': 'orange', 'lw': 0.4},} #TODO: set outside of function, remove repetition
+  
+  if ('Automated' in suptitle and 'Manual' not in suptitle) or ('Automated' not in suptitle and 'Manual' in suptitle):
+    line1_opts = {'color': 'maroon', 'lw': 1}
 
   n_stack = data1['data'].shape[1]
 
