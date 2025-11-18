@@ -35,7 +35,7 @@ def config():
         'data': None, # Pad or trim data to these limits
         'plot': None  # Plot data within these limits
       },
-      'gic_filter_kwargs': {'low_signal_threshold':3.5, # [A]
+      'find_errors_kwargs': {'low_signal_threshold':4, # [A]
                             'baseline_buffer':1, # [A]
                             'spike_threshold':40, # [A]
                             'std_limit':15, # [A]
