@@ -10,19 +10,19 @@ from .site_stats_summary import site_stats_summary
 from .find_errors import find_errors
 from .update_info_extended import update_info_extended
 
-def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=False, key=None, logger=None):
+def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=False, error_type='manual_error', key=None, logger=None):
   from swerve import config, read_info_df
 
   # Handle keywords 'paper' and 'test'
   special_keys = {'paper': 'paper_sids', 'test': 'test_sids'}
 
   if key is None:
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, logger=logger)
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, error_type=error_type, logger=logger)
   elif key[0] in list(special_keys.keys()):
     site_key = special_keys[key[0]]
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=site_key, logger=logger)
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors,  error_type=error_type, key=site_key, logger=logger)
   else:
-    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, logger=logger)
+    info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, error_type=error_type, logger=logger)
     info = info[info['site_id'].isin(key)]
     if info.empty and data_type is not None:
       raise ValueError(f"key '{key}' with data_type '{data_type}' not recognized. Check site IDs and data_type.")
@@ -165,8 +165,11 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
     # Remove rows that have errors
     if error_type in info_df.columns:
       if logger is not None: 
-        logger.info("    Excluding sites with automated errors")
-      info_df = info_df[info_df[error_type].isna()]
+        logger.info("    Excluding sites with {error_type}")
+      if error_type == 'automated_error':
+        info_df = info_df[~info_df['automated_error'].apply(lambda x: (isinstance(x, str) and x != '[]') or isinstance(x, float))]
+      else:
+        info_df = info_df[info_df[error_type].isna()]
     else:
       if logger is not None: 
         logger.info(f"    Error type {error_type} not available; Excluding sites with manual errors")
