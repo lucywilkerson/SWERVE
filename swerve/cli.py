@@ -17,6 +17,10 @@ def cli(script, defs=False):
       "action": "store_true",
       "help": "Same as --log-level debug",
       "default": False
+    },
+    "error-type": {
+      "help": "Type of error removed (manual or automated)",
+      "default": 'manual'
     }
 
   }

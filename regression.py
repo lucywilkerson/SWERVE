@@ -1,6 +1,8 @@
 # Partial rewrite of linear_regression.py, which has too much code duplication
 # and will be very difficult to maintain and generalize.
 
+reparse = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+
 import os
 import itertools
 import warnings
@@ -11,14 +13,24 @@ import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 
-from swerve import config, savefig, savefig_paper, add_subplot_label, fix_latex
+from swerve import cli, config, savefig, savefig_paper, add_subplot_label, fix_latex
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 results_dir = os.path.join(CONFIG['dirs']['data'], '_results', 'regression')
+
+args = cli('regression.py') 
+if args['error_type'] == 'manual':
+   error_type = 'manual_error'
+elif args['error_type'] =='automated':
+   error_type = 'automated_error'
+else:
+    raise ValueError(f"Invalid error-type '{args['error-type']}'. Must be 'manual' or 'automated'.")
+
 if 'paper' in CONFIG['dirs']:
   paper_dir = os.path.join(CONFIG['dirs']['paper'], 'figures')
   paper_results_dir = os.path.join(paper_dir, '_results')
+  paper_error_type = 'manual_error'  # Use manual errors for paper figures and tables
 
 warnings.filterwarnings("ignore", message="The figure layout has changed to tight")
 
@@ -28,25 +40,23 @@ plot_types = None # If none, create both line plots and scatter r plots
 if plot_types is None:
   plot_types = ['line', 'scatter']
 
-def df_prep():
+def df_prep(reparse=False):
   from swerve import read_info_df
   # Read GIC stats or create file if no GIC stats file
-  def gic_stats(data_types=['GIC']):
+  def gic_stats(data_types=['GIC'], reparse=False):
     import pickle
-    temp_pkl = os.path.join(results_dir, 'gic_stats.pkl')
+    temp_pkl = os.path.join(results_dir, f'gic_stats_{error_type}.pkl')
 
-    if os.path.exists(temp_pkl):
+    if os.path.exists(temp_pkl) and not reparse:
       # read gic_std and gic_max from it.
       logger.info(f"  Reading gic_std and gic_maxabs from {temp_pkl}")
       with open(temp_pkl, 'rb') as f:
         gic_site, gic_std, gic_maxabs = pickle.load(f)
 
     else:
-      from swerve import site_read, site_stats
+      from swerve import sids, site_read, site_stats
 
-      info_df = read_info_df(data_type='GIC', data_class='measured', exclude_errors=True)
-      #info_df = read_info()
-      sites = info_df['site_id']
+      sites = sids(extended=True, data_type='GIC', data_class='measured', exclude_errors=True, error_type=error_type)
 
       gic_site = []
       gic_std = []
@@ -81,8 +91,8 @@ def df_prep():
     return gic_site, gic_std, gic_maxabs 
 
   # Read info and add GIC stats
-  info = read_info_df(extended=True, data_type='GIC', data_class='measured', exclude_errors=True)
-  sites, gic_std, gic_maxabs = gic_stats()
+  info = read_info_df(extended=True, data_type='GIC', data_class='measured', exclude_errors=True, error_type=error_type)
+  sites, gic_std, gic_maxabs = gic_stats(reparse=reparse)
   info = info[info['site_id'].isin(sites)].reset_index(drop=True)
   info['gic_std'] = gic_std
   info['gic_max'] = gic_maxabs 
@@ -373,14 +383,14 @@ input_sets = [
 
 ]
 
-if 'paper' in CONFIG['dirs']:
+if 'paper' in CONFIG['dirs'] and error_type == paper_error_type:
   paper_inputs = {'alpha':['a)', 'b)'],
                   'interpolated_beta':['b)', 'd)'],
                   'alpha*interpolated_beta':['c)', 'f)']}
 else:
   paper_inputs = {}
 
-info = df_prep()
+info = df_prep(reparse=reparse)
 
 columns = ['Fit Equation', 'r', '2SE', 'RMSE [A]', 'AIC', 'BIC', 'p-values', 'inputs']
 for output_name in output_names:
@@ -437,7 +447,7 @@ for output_name in output_names:
             paper_fig_index = 1
 
         fname = f'{plot_type}{base_fname}'
-        savefig(results_dir, fname, logger)
+        savefig(results_dir, f'{fname}_{error_type}', logger)
         if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
             add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
             savefig_paper(paper_results_dir, fname, logger) 
@@ -453,16 +463,16 @@ for output_name in output_names:
 
 
   # Save output table
-  fname = os.path.join(results_dir, f"fit_table_{output_name}")
-  logger.info(f"Writing {fname}.md")
+  fname = os.path.join(results_dir, f"fit_table_{output_name}_{error_type}")
+  logger.info(f"Writing {fname}_{error_type}.md")
   df_table.to_markdown(fname + ".md", index=True)
   latex_str = fix_latex(df_table, data_type='fit', index=True)
   with open(fname + ".tex", "w") as f:
-        logger.info(f"Writing {fname}.tex")
+        logger.info(f"Writing {fname}_{error_type}.tex")
         f.write(latex_str)
 
   # Save output to paper dir
-  if 'paper' in CONFIG['dirs']:
+  if 'paper' in CONFIG['dirs'] and error_type == paper_error_type:
     fname = os.path.join(paper_dir, f"fit_table_{output_name}.tex")
     with open(fname, "w") as f:
           f.write(latex_str)
