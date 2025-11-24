@@ -450,7 +450,7 @@ for output_name in output_names:
 
         fname = f'{plot_type}{base_fname}'
         savefig(results_dir, f'{fname}_{error_type}', logger)
-        if len(inputs) == 1 and inputs[0] in paper_inputs.keys():
+        if len(inputs) == 1 and inputs[0] in paper_inputs.keys() and outliers:
             add_subplot_label(plt.gca(), paper_inputs[inputs[0]][paper_fig_index], loc=(-0.15, 1))
             savefig_paper(paper_results_dir, fname, logger) 
         plt.close()
