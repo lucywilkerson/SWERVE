@@ -224,7 +224,7 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  if 'modified' not in data.keys() or isinstance(data[sid]['manual_error'], str) or (not isinstance(data[sid]['automated_error'], float) and len(data[sid]['automated_error'])>0):
+  if 'modified' not in data.keys() or isinstance(data[sid]['manual_error'], str) or ('automated_error' in data[sid].keys() and not isinstance(data[sid]['automated_error'], float) and len(data[sid]['automated_error'])>0):
     original = data['original']
     if not isinstance(data[sid]['automated_error'], float):
       ae = data[sid]['automated_error']
