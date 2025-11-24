@@ -667,7 +667,7 @@ info_df.to_csv(out_fname, index=False)
 logger.info(f"Wrote {out_fname}")
 
 
-print(f"Preparing {CONFIG['files']['info_extended_json']}")
+logger.info(f"Preparing {CONFIG['files']['info_extended_json']}")
 info_dict = infodf2dict(info_df, logger)
 
 logger.info(f"Writing {CONFIG['files']['info_extended_json']}")

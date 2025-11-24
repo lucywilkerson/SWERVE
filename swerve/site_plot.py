@@ -239,7 +239,6 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
     elif isinstance(data[sid]['manual_error'], str):
       suptitle = f"Manual Error: {data[sid]['manual_error']}"
     elif 'modified' not in data.keys():
-      print(original.keys())
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
                 suptitle=suptitle, show_plots=show_plots)
