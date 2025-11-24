@@ -2,6 +2,7 @@
 # and will be very difficult to maintain and generalize.
 
 reparse = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+outliers = False  # Remove outliers from regression based on threshold.
 
 import os
 import itertools
@@ -343,7 +344,8 @@ def regress(x, y):
     return x, output, mask
   
   # Remove outliers
-  x, y, mask = remove_outliers(x, y)
+  if outliers:
+    x, y, mask = remove_outliers(x, y)
   
   model = LinearRegression()
   model.fit(x, y)
