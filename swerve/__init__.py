@@ -269,7 +269,7 @@ def fix_latex(df, data_type, formatters=None, index=False, note=None):
 
 def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png','pdf']):
   import os
-  logger_indent = ' ' * logger_indent
+  logger_indent = " " * logger_indent
 
   if root_dir is None:
     root_dir = config()['dirs']['data']
