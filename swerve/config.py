@@ -184,4 +184,17 @@ def config():
       datetime.datetime(2025, 1, 2, 0, 0)
     ]
 
+  if event =='2025-04-15':
+
+    config_dict['nerc_prefix'] = '2025E01'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2025, 4, 15, 15, 0),
+      datetime.datetime(2025, 4, 17, 9, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2025, 4, 15, 13, 0),
+      datetime.datetime(2025, 4, 17, 9, 0)
+    ]
+
   return config_dict
