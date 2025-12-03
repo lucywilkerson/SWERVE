@@ -126,7 +126,7 @@ def compare_kp(time_omni2, kp_omni2, time_mage, data_mage):
   plt.grid()
   datetick('x')
   plt.legend()
-  savefig('_imf', 'mage_omni2_kp_compare', logger)
+  savefig('data_processed\summary\_imf', 'mage_omni2_kp_compare', logger)
   plt.close()
 
 limits_data = CONFIG['limits']['data']
@@ -189,7 +189,7 @@ axes[6].yaxis.set_major_locator(MultipleLocator(50))
 plt_adjust(limits_plot)
 fig.align_ylabels(axes)
 
-savefig('data_processed', 'summary', '_imf', 'imf_mage', logger)
+savefig('data_processed\summary\_imf', 'imf_mage', logger)
 savefig_paper('_imf', 'imf_mage', logger)
 
 if plot_both:
@@ -211,4 +211,4 @@ if plot_both:
   axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{SWMF}$', color='dimgray', linewidth=0.5, linestyle='--')
   axes[6].legend(loc='upper right', ncol=4)
 
-  savefig('data_processed', 'summary', '_imf', 'imf_all', logger)
+  savefig('data_processed\summary\_imf', 'imf_all', logger)
