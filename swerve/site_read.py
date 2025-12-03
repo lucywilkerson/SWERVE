@@ -194,7 +194,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
 
   from swerve import config
   CONFIG = config()
-  data_dir = CONFIG['dirs']['data']
+  data_dir = CONFIG['dirs']['original']
 
   data = []
   time = []

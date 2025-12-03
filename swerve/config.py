@@ -44,6 +44,7 @@ def config():
       },
       'dirs': {
         'data': data_dir,
+        'original': os.path.join(data_dir, 'data_original'),
         'processed': os.path.join(data_dir, 'data_processed'),
       },
       'files': {
