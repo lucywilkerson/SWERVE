@@ -45,22 +45,18 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
     if spike_filt_type == 'difference' or spike_filt_type == 'both':
         _diff_spike_filt(diffs, spike_threshold, errors)
     elif spike_filt_type == 'median' or spike_filt_type == 'both':
-        _median_spike_filt(data_array, spike_threshold, errors)
+        median_window = gic_filter_kwargs['median_window']
+        _median_spike_filt(data_array, spike_threshold, errors, win=median_window)
     else:
         raise ValueError(f"Unknown spike_filt_type: {spike_filt_type}")
 
-    # Removing noisy sites before storm (std before > 1/4 * std after)
+    # Removing noisy sites before storm (std before > 1/noise_threshold * std after)
     storm_start = CONFIG['limits']['data'][0]
-    pre_dt = timedelta(hours=10)
-    post_dt = timedelta(hours=10)
+    storm_stop = CONFIG['limits']['data'][1]
+    noise_threshold = gic_filter_kwargs['noise_threshold']
     try:
-        pre_start = storm_start - pre_dt
-        pre_end = storm_start
-        post_start = storm_start
-        post_end = storm_start + post_dt
-
-        pre_mask = np.array([(t >= pre_start) and (t < pre_end) for t in time_meas])
-        post_mask = np.array([(t >= post_start) and (t < post_end) for t in time_meas])
+        pre_mask = np.array([(t >= time_meas[0]) and (t < storm_start) for t in time_meas])
+        post_mask = np.array([(t >= storm_start) and (t < storm_stop) for t in time_meas])
     except Exception:
         # Fallback: use POSIX seconds if storm_start is a numeric timestamp
         time_secs = np.array([t.timestamp() for t in time_meas])
@@ -69,16 +65,18 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
         post_mask = (time_secs >= ss) & (time_secs < ss + 2*3600)
     std_pre = float(np.std(data_array[pre_mask]))
     std_post = float(np.std(data_array[post_mask]))
-    # if std_pre > 1/4 * std_post then flag as noisy before storm
+    # if std_pre > 1/noise_threshold * std_post then flag as noisy before storm
     if std_post == 0.0:
         if std_pre > 0.0:
             errors.append("Excessive pre-storm noise: nonzero std before while std after is zero")
     else:
-        if 4*std_pre > std_post:
-            errors.append(f"Excessive pre-storm noise: std before ({std_pre:.4f} A) > 1/4 * std after ({std_post:.4f} A)")
+        if noise_threshold*std_pre > std_post:
+            errors.append(f"Excessive pre-storm noise: std before ({std_pre:.4f} A) > 1/{noise_threshold} * std after ({std_post:.4f} A)")
 
     # Removing any sites with dt >= max_cadence [s] or with gap in data >= max_gap [s]
-    dt = cadence(time_meas, logger=logger, logger_indent=2) # returns cadence in ns
+    from swerve import subset
+    crop_time_meas, crop_data_meas = subset(time_meas, data_meas, storm_start, storm_stop)
+    dt = cadence(crop_time_meas, logger=logger, logger_indent=2) # returns cadence in ns
     dt_array = (np.array(dt)).astype(np.float64)
     if dt_array.size:
         max_cadence = gic_filter_kwargs['max_cadence']
@@ -88,22 +86,24 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
         if any(dt_array >= max_gap*1e9):
             errors.append(f"Data gap detected >= {max_gap/60} minutes ({max(dt_array)/1e9} seconds)")
 
-    # Remove sites with constant values for more than 5min
-    time_array = np.array([t.timestamp() for t in time_meas])  # convert to seconds
-    window_s = 300  # 5 minutes in seconds
+    # Remove sites with constant values for more than max_const [s]
+    time_array = np.array([t.timestamp() for t in crop_time_meas])  # convert to seconds
+    crop_data_array = np.array(crop_data_meas).ravel()
+    crop_diffs = np.diff(crop_data_array)
+    window_s = gic_filter_kwargs['max_const'] 
     # Find runs of constant values
-    change_idx = np.where(diffs != 0)[0] + 1
+    change_idx = np.where(crop_diffs != 0)[0] + 1
     if change_idx.size:
         run_starts = np.concatenate(([0], change_idx))
-        run_ends = np.concatenate((change_idx, [len(data_array)]))
+        run_ends = np.concatenate((change_idx, [len(crop_data_array)]))
     else:
         run_starts = np.array([0])
-        run_ends = np.array([len(data_array)])
+        run_ends = np.array([len(crop_data_array)])
     for start, end in zip(run_starts, run_ends):
         if end - start > 1:
             elapsed_s = time_array[end - 1] - time_array[start]
             if elapsed_s >= window_s:
-                errors.append(f"Data is constant for at least 5 minutes starting at time {time_meas[start]}")
+                errors.append(f"Data is constant for at least 5 minutes starting at time {crop_time_meas[start]}")
                 break
 
     return errors

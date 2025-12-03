@@ -38,9 +38,11 @@ def config():
       'find_errors_kwargs': {'low_signal_threshold':4, # [A]
                             'baseline_buffer':1, # [A]
                             'spike_threshold':40, # [A]
-                            'std_limit':15, # [A]
+                            'median_window':20, # [number of points]
+                            'noise_limit':4, # [unitless]
                             'max_cadence':60, # [s]
-                            'max_gap':600 # [s]
+                            'max_gap':600, # [s]
+                            'max_const':300 # [s]
       },
       'dirs': {
         'data': data_dir,
