@@ -346,6 +346,8 @@ def regress(x, y):
   # Remove outliers
   if outliers:
     x, y, mask = remove_outliers(x, y)
+  else:
+    mask = np.array([True]*len(y))
   
   model = LinearRegression()
   model.fit(x, y)
@@ -381,7 +383,7 @@ input_sets = [
     #['alpha', 'interpolated_beta'],
     ['alpha', 'interpolated_beta', 'alpha*interpolated_beta'],
     #['alpha', 'mag_lat'],
-    ['mag_lat', 'interpolated_beta', 'mag_lat*interpolated_beta'],
+    #['mag_lat', 'interpolated_beta', 'mag_lat*interpolated_beta'],
 
 ]
 
