@@ -39,7 +39,7 @@ def config():
                             'baseline_buffer':1, # [A]
                             'spike_threshold':40, # [A]
                             'median_window':20, # [number of points]
-                            'noise_limit':4, # [unitless]
+                            'noise_threshold':4, # [unitless]
                             'max_cadence':60, # [s]
                             'max_gap':600, # [s]
                             'max_const':300 # [s]
@@ -51,13 +51,13 @@ def config():
       },
       'files': {
           'mage': {
-              'bcwind': os.path.join(data_dir, 'imf_data', 'bcwind.h5')
+              'bcwind': os.path.join(data_dir, 'data_original', 'imf_data', 'bcwind.h5')
           },
           'swmf': {
-            'bcwind': os.path.join(data_dir, 'imf_data', 'Dean_IMF.txt')
+            'bcwind': os.path.join(data_dir, 'data_original', 'imf_data', 'Dean_IMF.txt')
           },
           'gmu': {
-            'sim_file': os.path.join(data_dir, 'gmu', 'gic_mean_df_1.csv')
+            'sim_file': os.path.join(data_dir, 'data_original', 'gmu', 'gic_mean_df_1.csv')
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, 'data_processed', 'all.pkl'),
