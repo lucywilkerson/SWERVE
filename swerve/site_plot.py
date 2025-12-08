@@ -313,7 +313,7 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
   for j in range(n_stack):
     fig, axes = plt.subplots()
 
-    if j == 0 and suptitle is not None:
+    if suptitle is not None:
       # Use title() for force suptitle to be centered on axis
       axes.set_title(suptitle)
 
@@ -327,16 +327,21 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
         kwargs1 = {'label': component_labels1[j], **line1_opts}
       else:
         kwargs1 = line1_opts
-      axes.plot(data1['time'], data1['data'][:, j], **kwargs1)
+      added_data1 = False
 
       if data2 is not None:
           for source in data2.keys():
+            if 'modified' in component_labels2[source][j]: # Plot data1 under modifications if measured vs modified plot
+              axes.plot(data1['time'], data1['data'][:, j], **kwargs1)
+              added_data1 = True
             if component_labels2[source][j]:
               show_legend = True
               kwargs2 = {'label': component_labels2[source][j], **line2_opts[source]}
             else:
               kwargs2 = line2_opts[source]
             axes.plot(data2[source]['time'], data2[source]['data'][:, j], **kwargs2) #TODO: fix issue w time for Bx, By, Bz
+      # Plot data1 on top to be visible if added_data1 == False
+      if added_data1 == False: axes.plot(data1['time'], data1['data'][:, j], **kwargs1)
 
       if show_legend:
         leg = axes.legend(ncol=1, frameon=True, loc='upper right')
@@ -381,8 +386,9 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
 def _save_plots(plots, fname, dir_compare, logger=None, include_label=True):
   import pickle
   from swerve import savefig
+  og_fname = fname
   for label, fig in plots.items():
     if include_label:
-      fname = f"{label}{fname}"
+      fname = f"{label}{og_fname}"
     fig = pickle.loads(fig)
     savefig(dir_compare, fname, logger=logger, logger_indent=4)
