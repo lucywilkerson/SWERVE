@@ -11,6 +11,7 @@ from swerve import config, plt_config, savefig, savefig_paper, subset
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+plt_config()
 
 plot_both = True # if True, plot data used for MAGE and SWMF/OpenGGCM
 plot_kp_compare = True # if True, compare Kp from MAGE and OMNI2
@@ -143,8 +144,8 @@ gs = plt.gcf().add_gridspec(7, 1, hspace=0.15)
 axes = gs.subplots(sharex=True)
 
 # Plotting al and ae
-axes[0].plot(data['time'], -data['al'], label=r'$-$SME L', color='k', linewidth=1)
-axes[0].plot(data['time'], data['ae'], label='SME U', color='m', linewidth=0.5)
+axes[0].plot(data['time'], -data['al'], label=r'$-$AL', color='k', linewidth=1)
+axes[0].plot(data['time'], data['ae'], label='AE', color='m', linewidth=0.5)
 axes[0].set_ylabel('[nT]')
 axes[0].yaxis.set_major_locator(MultipleLocator(2000))
 axes[0].legend(ncol=2, frameon=False)
