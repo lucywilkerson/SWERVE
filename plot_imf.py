@@ -46,7 +46,7 @@ def read_mage(limits):
 def read_swmf(limits):
   # Reading Dean's data used for SWMF and OpenGGCM runs at CCMC
   logger.info(f'Reading {CONFIG['files']['swmf']['bcwind']}')
-  columns = ['year', 'month', 'day', 'hour', 'min', 'sec', 'msec', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']
+  columns = ['year', 'month', 'day', 'hour', 'min', 'sec', 'msec', 'Bx(nT)', 'By(nT)', 'Bz(nT)', 'Vx(km/s)', 'Vy(km/s)', 'Vz(km/s)', 'N(cm^(-3))', 'T(Kelvin)']
   data = pd.read_csv(CONFIG['files']['swmf']['bcwind'], delim_whitespace=True, names=columns, header=0)
   time = np.array([
       datetime(row.year, row.month, row.day, row.hour, row.min, row.sec) +
@@ -55,16 +55,16 @@ def read_swmf(limits):
   ])
 
   data['time'] = time
-  df = data[['time', 'Bx[nT]', 'By[nT]', 'Bz[nT]', 'Vx[km/s]', 'Vy[km/s]', 'Vz[km/s]', 'N[cm^(-3)]', 'T[Kelvin]']]
+  df = data[['time', 'Bx(nT)', 'By(nT)', 'Bz(nT)', 'Vx(km/s)', 'Vy(km/s)', 'Vz(km/s)', 'N(cm^(-3))', 'T(Kelvin)']]
   df = df.rename(columns={
-      'Bx[nT]': 'Bx',
-      'By[nT]': 'By',
-      'Bz[nT]': 'Bz',
-      'Vx[km/s]': 'Vx',
-      'Vy[km/s]': 'Vy',
-      'Vz[km/s]': 'Vz',
-      'N[cm^(-3)]': 'N',
-      'T[Kelvin]': 'T'
+      'Bx(nT)': 'Bx',
+      'By(nT)': 'By',
+      'Bz(nT)': 'Bz',
+      'Vx(km/s)': 'Vx',
+      'Vy(km/s)': 'Vy',
+      'Vz(km/s)': 'Vz',
+      'N(cm^(-3))': 'N',
+      'T(Kelvin)': 'T'
   })
 
   df = df[(df['time'] >= limits[0]) & (df['time'] <= limits[1])]
@@ -146,7 +146,7 @@ axes = gs.subplots(sharex=True)
 # Plotting al and ae
 axes[0].plot(data['time'], -data['al'], label=r'$-$AL', color='k', linewidth=1)
 axes[0].plot(data['time'], data['ae'], label='AE', color='m', linewidth=0.5)
-axes[0].set_ylabel('[nT]')
+axes[0].set_ylabel('(nT)')
 axes[0].yaxis.set_major_locator(MultipleLocator(2000))
 axes[0].legend(ncol=2, frameon=False)
 
@@ -161,11 +161,11 @@ axes[1].set_ylim(0, 9.5)
 
 # Plotting symh
 axes[2].plot(data['time'], data['symh'], color='k', linewidth=0.8)
-axes[2].set_ylabel('SYM-H [nT]')
+axes[2].set_ylabel('SYM-H (nT)')
 
 # Plotting temperature
 axes[3].plot(data['time'], data['Temp'] / 1e6, color='k', linewidth=0.8, label='T (MAGE)')
-axes[3].set_ylabel(r'T [MK]')
+axes[3].set_ylabel(r'T (MK)')
 axes[3].yaxis.set_major_locator(MultipleLocator(2))
 
 # Plotting mach
@@ -177,13 +177,13 @@ axes[4].set_ylim(0, 0.03)
 # Plotting Vx
 # divide by 1000 to get in km/s
 axes[5].plot(data['time'], data['Vx']/1000, color='k', linewidth=0.8, label=r'V$_x$ (MAGE)')
-axes[5].set_ylabel(r'V$_x$ [km/s]')
+axes[5].set_ylabel(r'V$_x$ (km/s)')
 axes[5].yaxis.set_major_locator(MultipleLocator(200))
 
 # Plotting Bx, By, Bz IMF
 axes[6].plot(data['time'], data['By'], label=r'B$_y^\text{IMF}$', color='k', linewidth=0.5)
 axes[6].plot(data['time'], data['Bz'], label=r'B$_z^\text{IMF}$', color='m', linewidth=0.5)
-axes[6].set_ylabel('[nT]')
+axes[6].set_ylabel('(nT)')
 axes[6].legend(loc='lower right', ncol=2, frameon=False)
 axes[6].yaxis.set_major_locator(MultipleLocator(50))
 

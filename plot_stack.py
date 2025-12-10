@@ -64,7 +64,7 @@ def stack_plot_config(axes, data_with_offset, units, offset=40):
 
 def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40):
     # note NERC sites that are TVA duplicates
-    units  = '[A]'
+    units  = '(A)'
     sid_copies = CONFIG['sid_duplicates'] if 'sid_duplicates' in CONFIG else {}
 
     for source in data_source:
@@ -130,7 +130,7 @@ def plot_all_gic(info, info_df, data_all, data_source=['TVA','NERC'], offset=40)
 
 
 def plot_all_db(info, info_df, data_all, offset=400):
-  units = '[nT]'
+  units = '(nT)'
   info_df['site_id'] = info_df['site_id'].astype(str)
   info_df = info_df[(info_df['data_type']=='B')]
   sids = info_df[~(info_df['data_source']=='TEST')]['site_id'].unique()
@@ -198,7 +198,7 @@ def plot_all_db(info, info_df, data_all, offset=400):
 def plot_bad_gic(info, info_df, data_all, offset=40, sites_per_fig=25):
     from swerve import sids
     # note NERC sites that are TVA duplicates
-    units  = '[A]'
+    units  = '(A)'
     sites = sids(data_type='GIC', data_class='measured', exclude_errors=False)
     source_sites = {'sites': [], 'error':[], 'lat': [], 'lon': []}
     for sid in sites:

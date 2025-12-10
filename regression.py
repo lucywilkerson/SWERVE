@@ -105,7 +105,7 @@ def scatter_fit_df(rows, columns):
   df_raw = pd.DataFrame(rows, columns=columns)
 
   # Create df for md and latex output
-  columns = ['Fit Equation', 'r $\pm$ 2SE', 'r$^2$', 'RMSE [A]', 'AIC', 'inputs']
+  columns = ['Fit Equation', 'r $\pm$ 2SE', 'r$^2$', 'RMSE (A)', 'AIC', 'inputs']
   # Ideally would determine column indices from df_raw in case columns changes.
   for i, row in enumerate(rows):
     rows[i] = [f"${row[0]}$", f"${row[1]:.2f} \pm {row[2]:.2f}$", f"${row[1]**2:.2f}$", f"${row[3]:.1f}$", f"${row[4]:.1f}$", row[7]]
@@ -166,11 +166,11 @@ def plot_line_scatter(x, y, inputs, output_name, mask, model=None, eqn=None, met
       if metrics is not None:
         text = (
           f"r = ${metrics['r']:.2f}$ ± ${metrics['r_2se']:.2f}$  |  "
-          f"RMSE = ${metrics['rmse']:.1f}$ [A]"
+          f"RMSE = ${metrics['rmse']:.1f}$ (A)"
         )
         plt.scatter([], [], facecolors='none', edgecolors='none', label=text) # Adds metrics to legend while keeping legend marker alined w eqn
       plt.xlabel(f'${labels.get(input_name, input_name)}$')
-      plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
+      plt.ylabel(f'${labels.get(output_name, output_name)}$ (A)')
       plt.grid(True)
       plt.legend(bbox_to_anchor=(0.005, 0.93), loc='upper left')
       plt.tight_layout()
@@ -182,8 +182,8 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
     plt.scatter(y[mask], predicted[mask], color='k')
     plt.scatter(y[~mask], predicted[~mask], facecolors='none', edgecolors='k')
     output_label = (labels.get(output_name, output_name))
-    plt.xlabel(f'Measured ${output_label}$ [A]')
-    plt.ylabel(f'Predicted ${output_label}$ [A]')
+    plt.xlabel(f'Measured ${output_label}$ (A)')
+    plt.ylabel(f'Predicted ${output_label}$ (A)')
     plt.grid()
     format_cc_scatter(plt.gca(), regression=True)
 
@@ -192,7 +192,7 @@ def plot_cc_scatter(y, predicted, output_name, mask, metrics, eqn):
     text = (
         f"${eqn}$\n"
         f"r = ${metrics['r']:.2f}$ ± ${metrics['r_2se']:.2f}$\n"
-        f"RMSE = ${metrics['rmse']:.1f}$ [A]\n"
+        f"RMSE = ${metrics['rmse']:.1f}$ (A)\n"
         f"AIC = ${metrics['aic']:.1f}$\n"
         f"BIC = ${metrics['bic']:.1f}$"
     )
@@ -369,7 +369,7 @@ labels = {
     'interpolated_beta': '\\beta',
     'log_beta': '\\log_{10} (\\beta)',
     'alpha': '\\alpha',
-    'gic_std': '\\sigma_\\text{GIC} [A]',
+    'gic_std': '\\sigma_\\text{GIC} (A)',
     'gic_max': '\\vert{\\text{GIC}\\vert_\\text{max}}',
     'mag_lat*mag_lon': 'Mag. Lat. \\cdot Mag. Long.',
     'alpha*interpolated_beta': '\\alpha \\cdot \\beta',
@@ -397,7 +397,7 @@ else:
 
 info = df_prep(reparse=reparse)
 
-columns = ['Fit Equation', 'r', '2SE', 'RMSE [A]', 'AIC', 'BIC', 'p-values', 'inputs']
+columns = ['Fit Equation', 'r', '2SE', 'RMSE (A)', 'AIC', 'BIC', 'p-values', 'inputs']
 for output_name in output_names:
   # Table to hold metrics
   scatter_fit_df_rows = []
@@ -544,7 +544,7 @@ if all_plot:
   y_model = all_model.predict(np.column_stack([x_range]))
   plt.plot(x_range, y_model, color='k', linewidth=3, linestyle='-', label=f'${all_equation}$')
   plt.xlabel(f'${labels.get('alpha*interpolated_beta', 'alpha*interpolated_beta')}$')
-  plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
+  plt.ylabel(f'${labels.get(output_name, output_name)}$ (A)')
   plt.grid(True)
   plt.legend(bbox_to_anchor=(1, 1), loc='upper left')
   plt.tight_layout()

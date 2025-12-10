@@ -146,7 +146,7 @@ def _column_names(data_type):
     tmp = {
         'GIC': {
             'site_id': 'Site ID',
-            'sigma_data': r'$\sigma$ [A]',
+            'sigma_data': r'$\sigma$ (A)',
             'sigma_tva': r'$\sigma_\text{TVA}$',
             'sigma_gmu': r'$\sigma_\text{Ref}$',
             'cc_tva': r'$\text{r}^2_\text{TVA}$',
@@ -156,7 +156,7 @@ def _column_names(data_type):
         },
         'B': {
                 'site_id':'Site ID',
-                'sigma_data':r'$\sigma$ [nT]',
+                'sigma_data':r'$\sigma$ (nT)',
                 'sigma_swmf':r'$\sigma_\text{SWMF}$',
                 'sigma_mage':r'$\sigma_\text{MAGE}$',
                 'sigma_openggcm':r'$\sigma_\text{GGCM}$',
