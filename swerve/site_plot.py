@@ -154,11 +154,11 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
     if label =='B_H': label = '$\\Delta B_H$'
     if style == 'scatter':
       if len(calculated_sources) == 1:
-        component_labels1[idx] = f"Measured {label} {measured_source} [{unit}]"
+        component_labels1[idx] = f"Measured {label} {measured_source} ({unit})"
       else:
-        component_labels1[idx] = f"Measured {label} [{unit}]"
+        component_labels1[idx] = f"Measured {label} ({unit})"
     if style == 'timeseries':
-      ylabels.append(f"{label} [{unit}]")
+      ylabels.append(f"{label} ({unit})")
       component_labels1[idx] = f"Measured"
   
   calculated = {}
@@ -188,9 +188,9 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
       if style == 'scatter':
         if len(calculated_sources) == 1:
-          ylabels.append(f"Calculated {label} {source} [{unit}]")
+          ylabels.append(f"Calculated {label} {source} ({unit})")
         else:
-          ylabels.append(f"Calculated {label} [{unit}]")
+          ylabels.append(f"Calculated {label} ({unit})")
         if source == 'GMU':
           component_labels2[source][idx] = f"Ref    {metrics}"
         elif source == 'OpenGGCM':
@@ -240,7 +240,7 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
       suptitle = f"Manual Error: {data[sid]['manual_error']}"
     elif 'modified' not in data.keys():
       suptitle = f"Modified Error: {original['error']}"
-    output_figure = _plot_stack(original, None, ylabels=[f"[{original['unit']}]"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
+    output_figure = _plot_stack(original, None, ylabels=[f"({original['unit']})"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
                 suptitle=suptitle, show_plots=show_plots)
     figures = {}
     figures['error'] = output_figure[0]
@@ -256,7 +256,7 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
     component_labels2['modified'][idx] = f"{label} modified"
 
   kwargs = {
-    'ylabels': len(component_labels1)*[f"[{data['original']['unit']}]"],
+    'ylabels': len(component_labels1)*[f"({data['original']['unit']})"],
     'component_labels1': component_labels1,
     'component_labels2': component_labels2,
     'style': 'timeseries',
