@@ -1,8 +1,9 @@
 # Partial rewrite of linear_regression.py, which has too much code duplication
 # and will be very difficult to maintain and generalize.
 
-reparse = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 outliers = False  # Remove outliers from regression based on threshold.
+all_plot = True # Plot regression fits for all available events on one plot.
 
 import os
 import itertools
@@ -457,6 +458,36 @@ for output_name in output_names:
             savefig_paper(paper_results_dir, fname, logger) 
         plt.close()
 
+      # Add event, output, alpha*beta, and model to pkl file
+      if reparse and inputs == ['alpha*interpolated_beta'] and output_name == 'gic_max':
+        import pickle
+        fname = CONFIG['files']['regression_results'][output_name]
+        if os.path.exists(fname):
+          with open(fname, 'rb') as f:
+            fit_models = pickle.load(f)
+        else:
+          fit_models = {}
+        event = args['event'] if args['event'] is not None else '2024-05-10'
+        if event in fit_models:
+          fit_models[event][error_type] = {'gic_max': y,
+                                'alpha_beta': x,
+                                'model': model,
+                                'equation': eqn
+                              }
+        else:
+          fit_models[event] = {error_type: {
+                                  'gic_max': y,
+                                  'alpha_beta': x,
+                                  'model': model,
+                                  'equation': eqn
+                                }
+                              }
+        if not os.path.exists(os.path.dirname(fname)):
+          os.makedirs(os.path.dirname(fname))
+        with open(fname, 'wb') as f:
+          logger.info(f"Saving fit models to {fname}")
+          pickle.dump(fit_models, f)
+
   # Convert to df and create df_table for markdown and latex output
   df, df_table = scatter_fit_df(scatter_fit_df_rows, columns)
 
@@ -480,3 +511,44 @@ for output_name in output_names:
     fname = os.path.join(paper_dir, f"fit_table_{output_name}.tex")
     with open(fname, "w") as f:
           f.write(latex_str)
+
+if all_plot:
+  import pickle
+  from swerve import plt_config
+  plt_config()
+  fname = CONFIG['files']['regression_results'][output_name]
+  if os.path.exists(fname):
+    with open(fname, 'rb') as f:
+      fit_models = pickle.load(f)
+  else:
+    logger.error(f"File {fname} does not exist. Rerun regression with reparse=True to create it.")
+  plt.figure(figsize=(10,6))
+  for event_name in fit_models.keys():
+    if error_type not in fit_models[event_name]:
+      logger.warning(f"  No {error_type} data for event {event_name}. Skipping.")
+      continue
+    y = fit_models[event_name][error_type]['gic_max']
+    x = fit_models[event_name][error_type]['alpha_beta']
+    model = fit_models[event_name][error_type]['model']
+    equation = fit_models[event_name][error_type]['equation']
+
+    x_range = np.linspace(x.min(),x.max(), 100)
+    y_model = model.predict(np.column_stack([x_range]))
+    plt.plot(x, y, marker='o', linestyle='', label=f'{event_name} data')
+    plt.plot(x_range, y_model, linewidth=2, linestyle='--', color=plt.gca().lines[-1].get_color(), label=f'${equation}$')
+  all_x = np.concatenate([fit_models[event_name][error_type]['alpha_beta'] for event_name in fit_models.keys() if error_type in fit_models[event_name]])
+  all_y = np.concatenate([fit_models[event_name][error_type]['gic_max'] for event_name in fit_models.keys() if error_type in fit_models[event_name]])
+  all_model, _, _ = regress(all_x, all_y)
+  all_equation = write_eqn_and_fname(['alpha*interpolated_beta'], output_name, all_model)[0]
+  x_range = np.linspace(all_x.min(),all_x.max(), 100)
+  y_model = all_model.predict(np.column_stack([x_range]))
+  plt.plot(x_range, y_model, color='k', linewidth=3, linestyle='-', label=f'${all_equation}$')
+  plt.xlabel(f'${labels.get('alpha*interpolated_beta', 'alpha*interpolated_beta')}$')
+  plt.ylabel(f'${labels.get(output_name, output_name)}$ [A]')
+  plt.grid(True)
+  plt.legend(bbox_to_anchor=(1, 1), loc='upper left')
+  plt.tight_layout()
+  if args['event'] is None:
+    save_results_dir = results_dir
+    logger.info(f"Saving all events fit plot to results dir: {save_results_dir}")
+    savefig(save_results_dir, f'all_events_fit_alpha_beta_{output_name}_{error_type}', logger)

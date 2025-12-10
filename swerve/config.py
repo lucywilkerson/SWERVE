@@ -71,6 +71,9 @@ def config():
               'mag_lat': os.path.join(common_dir, 'shape', 'wmm_all', 'I_2024.shp')
           },
           'beta': os.path.join(common_dir, 'pulkkinen', 'waveforms_All.mat'),
+          'regression_results': {
+              'gic_max': os.path.join(common_dir, 'regression_results', 'regression_results_gic_max.pkl'),
+          },
       },
       'single_phase_sids':{
         '10358','10107', '10420', '10421', '10503', '10568'
