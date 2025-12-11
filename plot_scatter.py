@@ -48,7 +48,7 @@ def scatter_with_colorbar(df, color_col, cbar_label, plot_title, file_name):
     # Plotting scatter with colorbar
     fig, ax = plt.subplots(figsize=(12, 5))
     sc = ax.scatter(df['dist(km)'], np.abs(df['cc']), c=np.abs(df[color_col]), cmap=cmap, norm=norm)
-    ax.set_xlabel('Distance [km]')
+    ax.set_xlabel('Distance (km)')
     ax.set_ylabel('|r|')
     #ax.set_title(plot_title)
     ax.grid(True)
