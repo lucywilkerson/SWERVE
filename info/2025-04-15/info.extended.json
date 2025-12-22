@@ -15,7 +15,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:02:05"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -59,7 +59,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:20:40"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3004.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:21:35"
           }
         }
       }
@@ -103,7 +103,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.5154 A) > 1/4 * std after (0.6869 A);\nData gap detected >= 10.0 minutes (3532.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:13:49"
+            "automated_error": "Excessive pre-storm noise: std before (1.1853 A) > 1/4 * std after (1.1508 A);\nData gap detected >= 10.0 minutes (3513.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:04:24"
           }
         }
       }
@@ -191,7 +191,7 @@
             "nearest_volt": NaN,
             "power_pool": "NotOrder1000",
             "US_region": "West",
-            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -7.46 A);\nExcessive pre-storm noise: std before (0.5685 A) > 1/4 * std after (0.5632 A)"
+            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -7.46 A);\nExcessive pre-storm noise: std before (0.5670 A) > 1/4 * std after (0.5688 A)"
           }
         }
       }
@@ -213,7 +213,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0342 A) > 1/4 * std after (0.0484 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0494 A) > 1/4 * std after (0.0976 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -235,7 +235,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2422 A) > 1/4 * std after (0.1922 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2377 A) > 1/4 * std after (0.2072 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:05:00"
           }
         }
       }
@@ -257,7 +257,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.2111 A) > 1/4 * std after (0.7584 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -279,7 +279,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -2.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -2.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -301,7 +301,29 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.1851 A) > 1/4 * std after (0.5713 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.2142 A) > 1/4 * std after (0.6696 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10233": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10233": {
+            "geo_lat": 47.6,
+            "geo_lon": -122.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.7863563266877992,
+            "log10_beta": -0.1043806147145654,
+            "mag_lat": 52.99137503578466,
+            "mag_lon": -58.63243172020317,
+            "alpha": 0.4431942356374206,
+            "nearest_volt": NaN,
+            "power_pool": "NorthernGridConnected",
+            "US_region": "West",
+            "automated_error": "Duplicate time stamps found"
           }
         }
       }
@@ -323,7 +345,7 @@
             "nearest_volt": 138.0,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 05:22:40"
+            "automated_error": "Low signal: all GIC values within +/- 4 A"
           }
         }
       }
@@ -345,7 +367,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 05:22:40"
+            "automated_error": "Low signal: all GIC values within +/- 4 A"
           }
         }
       }
@@ -367,7 +389,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.8 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:12:00"
+            "automated_error": "Baseline offset detected (median value: 1.8 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -389,7 +411,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.2 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.2 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -411,7 +433,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: nonzero std before while std after is zero;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:02:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0820 A) > 1/4 * std after (0.0469 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -433,7 +455,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.4 A);\nExcessive pre-storm noise: std before (0.0954 A) > 1/4 * std after (0.0496 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:04:40"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.4 A);\nExcessive pre-storm noise: std before (0.0993 A) > 1/4 * std after (0.2427 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -455,7 +477,7 @@
             "nearest_volt": 138.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 5.7 A);\nExcessive pre-storm noise: std before (0.1243 A) > 1/4 * std after (0.4620 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:36:50"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 5.7 A);\nExcessive pre-storm noise: std before (0.1219 A) > 1/4 * std after (0.4597 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 05:59:40"
           }
         }
       }
@@ -477,7 +499,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 10.0 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 10.0 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -499,7 +521,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -521,7 +543,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -543,7 +565,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.3 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:27:20"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.3 A);\nExcessive pre-storm noise: std before (0.0848 A) > 1/4 * std after (0.3008 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 20:03:30"
           }
         }
       }
@@ -565,7 +587,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1379 A) > 1/4 * std after (0.1786 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:07:30"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2363 A) > 1/4 * std after (0.4174 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:04:30"
           }
         }
       }
@@ -587,7 +609,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:09:30"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:50:50"
           }
         }
       }
@@ -609,7 +631,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.9 A);\nExcessive pre-storm noise: std before (0.1243 A) > 1/4 * std after (0.4792 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.9 A);\nExcessive pre-storm noise: std before (0.1272 A) > 1/4 * std after (0.4764 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 05:16:50"
           }
         }
       }
@@ -631,7 +653,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -1.2 A);\nExcessive pre-storm noise: std before (0.0917 A) > 1/4 * std after (0.3385 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:04:30"
+            "automated_error": "Baseline offset detected (median value: -1.2 A);\nExcessive pre-storm noise: std before (0.1215 A) > 1/4 * std after (0.3091 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:03:30"
           }
         }
       }
@@ -653,7 +675,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 01:33:40"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-16 04:48:30"
           }
         }
       }
@@ -675,7 +697,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.4 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.4 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -697,7 +719,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:40"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0410 A) > 1/4 * std after (0.0895 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -719,7 +741,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.5 A);\nExcessive pre-storm noise: std before (0.1092 A) > 1/4 * std after (0.3428 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 04:25:00"
+            "automated_error": "Baseline offset detected (median value: 1.5 A);\nExcessive pre-storm noise: std before (0.1666 A) > 1/4 * std after (0.4216 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 06:54:00"
           }
         }
       }
@@ -741,7 +763,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:20"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 16:04:00"
           }
         }
       }
@@ -763,7 +785,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:10:30"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0600 A) > 1/4 * std after (0.2289 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:13:30"
           }
         }
       }
@@ -785,7 +807,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:06:20"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-16 02:14:00"
           }
         }
       }
@@ -807,7 +829,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 6.0 A);\nExcessive pre-storm noise: std before (0.1207 A) > 1/4 * std after (0.3004 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 03:55:40"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 6.0 A);\nExcessive pre-storm noise: std before (0.1329 A) > 1/4 * std after (0.3500 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 08:06:20"
           }
         }
       }
@@ -829,7 +851,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: -5.5 A)"
+            "automated_error": "Baseline offset detected (median value: -5.5 A);\nExcessive pre-storm noise: std before (0.2555 A) > 1/4 * std after (0.9377 A)"
           }
         }
       }
@@ -851,7 +873,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 5.2 A);\nExcessive pre-storm noise: std before (0.0860 A) > 1/4 * std after (0.3135 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:01:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 5.2 A);\nExcessive pre-storm noise: std before (0.1123 A) > 1/4 * std after (0.3732 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 01:39:50"
           }
         }
       }
@@ -873,7 +895,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 2.12 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 08:19:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 2.12 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 06:04:00"
           }
         }
       }
@@ -895,7 +917,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -917,7 +939,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.1002 A) > 1/4 * std after (0.3849 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -939,7 +961,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 2.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Baseline offset detected (median value: 2.0 A);\nExcessive pre-storm noise: std before (0.1210 A) > 1/4 * std after (0.4642 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 17:38:00"
           }
         }
       }
@@ -961,7 +983,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -983,7 +1005,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1005,7 +1027,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.4329 A) > 1/4 * std after (0.1142 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.4459 A) > 1/4 * std after (0.2185 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1027,7 +1049,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -2.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -2.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1049,7 +1071,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -2.2649999999999997 A);\nExcessive pre-storm noise: std before (0.4006 A) > 1/4 * std after (0.1802 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:09:00"
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -2.2649999999999997 A);\nExcessive pre-storm noise: std before (0.3603 A) > 1/4 * std after (0.4444 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1071,7 +1093,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.4132 A) > 1/4 * std after (0.5339 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:24:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.4142 A) > 1/4 * std after (0.4932 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:55:00"
           }
         }
       }
@@ -1093,7 +1115,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1115,7 +1137,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1137,7 +1159,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1159,7 +1181,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1181,7 +1203,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1203,7 +1225,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -2.26 A);\nExcessive pre-storm noise: std before (0.3444 A) > 1/4 * std after (0.3916 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 02:19:00"
+            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -2.26 A);\nExcessive pre-storm noise: std before (0.3444 A) > 1/4 * std after (0.4029 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:22:00"
           }
         }
       }
@@ -1225,7 +1247,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.35 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 08:50:00"
+            "automated_error": "Baseline offset detected (median value: 1.35 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -1247,7 +1269,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.01 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 03:38:00"
+            "automated_error": "Baseline offset detected (median value: 1.01 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -1269,7 +1291,7 @@
             "nearest_volt": NaN,
             "power_pool": "NotOrder1000",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.4591 A) > 1/4 * std after (0.6479 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3911 A) > 1/4 * std after (0.5899 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:04:00"
           }
         }
       }
@@ -1291,7 +1313,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.7689 A) > 1/4 * std after (1.2684 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.6291 A) > 1/4 * std after (1.0074 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 23:42:30"
           }
         }
       }
@@ -1313,7 +1335,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.5 A);\nExcessive pre-storm noise: std before (0.2716 A) > 1/4 * std after (0.4082 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 04:20:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.5 A);\nExcessive pre-storm noise: std before (0.3245 A) > 1/4 * std after (0.3234 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:06:00"
           }
         }
       }
@@ -1335,7 +1357,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: 1.45 A);\nExcessive pre-storm noise: std before (0.1856 A) > 1/4 * std after (0.5501 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:16:04"
+            "automated_error": "Baseline offset detected (median value: 1.45 A);\nExcessive pre-storm noise: std before (0.1873 A) > 1/4 * std after (0.3533 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 19:55:44"
           }
         }
       }
@@ -1357,7 +1379,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.1890 A) > 1/4 * std after (0.2372 A);\nData gap detected >= 10.0 minutes (16890.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 08:33:01"
+            "automated_error": "Data gap detected >= 10.0 minutes (8460.0 seconds)"
           }
         }
       }
@@ -1379,7 +1401,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.1890 A) > 1/4 * std after (0.2372 A);\nData gap detected >= 10.0 minutes (16890.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 08:33:01"
+            "automated_error": "Data gap detected >= 10.0 minutes (8460.0 seconds)"
           }
         }
       }
@@ -1401,7 +1423,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2151 A) > 1/4 * std after (0.3082 A);\nData gap detected >= 10.0 minutes (8956.0 seconds)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1767 A) > 1/4 * std after (0.2657 A);\nData gap detected >= 10.0 minutes (5620.0 seconds)"
           }
         }
       }
@@ -1423,7 +1445,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0750 A) > 1/4 * std after (0.1555 A);\nData gap detected >= 10.0 minutes (32196.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 12:24:12"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0750 A) > 1/4 * std after (0.1473 A);\nData gap detected >= 10.0 minutes (32196.0 seconds)"
           }
         }
       }
@@ -1445,7 +1467,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0729 A) > 1/4 * std after (0.1052 A);\nData gap detected >= 10.0 minutes (900.0 seconds)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0903 A) > 1/4 * std after (0.1038 A);\nData gap detected >= 10.0 minutes (900.0 seconds)"
           }
         }
       }
@@ -1467,7 +1489,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (159601.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 17:48:19"
+            "automated_error": "Low signal: all GIC values within +/- 4 A"
           }
         }
       }
@@ -1511,7 +1533,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 01:18:58"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 18:05:54"
           }
         }
       }
@@ -1533,7 +1555,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 1.2 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:32:40"
+            "automated_error": "Baseline offset detected (median value: 1.2 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 06:02:38"
           }
         }
       }
@@ -1555,7 +1577,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0500 A) > 1/4 * std after (0.0739 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 01:23:33"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0497 A) > 1/4 * std after (0.0773 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 21:57:49"
           }
         }
       }
@@ -1599,7 +1621,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1621,7 +1643,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.2083 A) > 1/4 * std after (0.6857 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:58:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.2410 A) > 1/4 * std after (0.7874 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 05:40:00"
           }
         }
       }
@@ -1643,7 +1665,7 @@
             "nearest_volt": 46.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Baseline offset detected (median value: -2.1 A);\nExcessive pre-storm noise: std before (0.0879 A) > 1/4 * std after (0.1779 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:02:10"
+            "automated_error": "Baseline offset detected (median value: -2.1 A);\nExcessive pre-storm noise: std before (0.1680 A) > 1/4 * std after (0.2326 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1665,7 +1687,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Unphysical spike detected (max diff: 43.7 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Unphysical spike detected (max diff: 43.7 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1687,7 +1709,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1709,7 +1731,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1731,7 +1753,7 @@
             "nearest_volt": 345.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.5 A);\nExcessive pre-storm noise: std before (0.0500 A) > 1/4 * std after (0.1055 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:08:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 1.5 A);\nExcessive pre-storm noise: std before (0.0564 A) > 1/4 * std after (0.0920 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:22:10"
           }
         }
       }
@@ -1753,7 +1775,7 @@
             "nearest_volt": 115.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1775,7 +1797,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1797,7 +1819,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1819,7 +1841,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 7.0 A);\nExcessive pre-storm noise: std before (0.4630 A) > 1/4 * std after (0.6192 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 7.0 A);\nExcessive pre-storm noise: std before (0.5310 A) > 1/4 * std after (1.4188 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1841,7 +1863,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1863,7 +1885,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -3.0 A);\nExcessive pre-storm noise: std before (0.4419 A) > 1/4 * std after (0.4193 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -3.0 A);\nExcessive pre-storm noise: std before (0.4918 A) > 1/4 * std after (0.4832 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1885,7 +1907,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0525 A) > 1/4 * std after (0.1579 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0451 A) > 1/4 * std after (0.1454 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:04:37"
           }
         }
       }
@@ -1907,7 +1929,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1342 A) > 1/4 * std after (0.2782 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3072 A) > 1/4 * std after (0.3308 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1929,7 +1951,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1849 A) > 1/4 * std after (0.3894 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1951,7 +1973,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2548 A) > 1/4 * std after (0.8617 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2679 A) > 1/4 * std after (0.9531 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1973,7 +1995,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 2.6 A);\nExcessive pre-storm noise: std before (0.7377 A) > 1/4 * std after (0.1607 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: 2.6 A);\nExcessive pre-storm noise: std before (0.6450 A) > 1/4 * std after (0.6381 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -1995,7 +2017,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2017,7 +2039,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2294 A) > 1/4 * std after (0.3695 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1928 A) > 1/4 * std after (0.3195 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:01:10"
           }
         }
       }
@@ -2039,7 +2061,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2225 A) > 1/4 * std after (0.3359 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1885 A) > 1/4 * std after (0.3026 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:03:10"
           }
         }
       }
@@ -2061,7 +2083,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2067 A) > 1/4 * std after (0.3454 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:30"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1748 A) > 1/4 * std after (0.2925 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:01:30"
           }
         }
       }
@@ -2083,7 +2105,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.4064 A) > 1/4 * std after (0.6016 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:15:20"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3462 A) > 1/4 * std after (0.6805 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:01:00"
           }
         }
       }
@@ -2105,7 +2127,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2127,7 +2149,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.6313 A) > 1/4 * std after (0.9553 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:47:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.5349 A) > 1/4 * std after (1.0337 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 01:02:20"
           }
         }
       }
@@ -2149,7 +2171,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2171,7 +2193,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.6281 A) > 1/4 * std after (0.8748 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:34:50"
+            "automated_error": "Excessive pre-storm noise: std before (0.5287 A) > 1/4 * std after (1.0120 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 00:56:30"
           }
         }
       }
@@ -2193,7 +2215,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.5099 A) > 1/4 * std after (0.7277 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:07:40"
+            "automated_error": "Excessive pre-storm noise: std before (0.4278 A) > 1/4 * std after (0.8170 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 23:37:20"
           }
         }
       }
@@ -2215,7 +2237,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.3170 A) > 1/4 * std after (0.3979 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:06:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.2832 A) > 1/4 * std after (0.4184 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 00:51:40"
           }
         }
       }
@@ -2237,7 +2259,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2259,7 +2281,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3170 A) > 1/4 * std after (0.3851 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:39:20"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2773 A) > 1/4 * std after (0.4104 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 00:37:40"
           }
         }
       }
@@ -2281,7 +2303,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3436 A) > 1/4 * std after (0.4153 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:44:10"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3002 A) > 1/4 * std after (0.4363 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 00:45:30"
           }
         }
       }
@@ -2303,7 +2325,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2325,7 +2347,7 @@
             "nearest_volt": 230.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2347,7 +2369,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (43202.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (43202.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2369,7 +2391,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (43202.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (43202.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2391,7 +2413,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2413,7 +2435,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -1.2 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 04:32:10"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -1.2 A);\nExcessive pre-storm noise: std before (0.2603 A) > 1/4 * std after (0.7554 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 02:44:30"
           }
         }
       }
@@ -2435,7 +2457,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.6884 A) > 1/4 * std after (1.8804 A)"
+            "automated_error": "Excessive pre-storm noise: std before (0.8347 A) > 1/4 * std after (2.0497 A)"
           }
         }
       }
@@ -2457,7 +2479,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 03:45:50"
+            "automated_error": "Excessive pre-storm noise: std before (0.3601 A) > 1/4 * std after (1.2469 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 07:44:20"
           }
         }
       }
@@ -2479,7 +2501,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2501,7 +2523,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:23:50"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 16:13:55"
           }
         }
       }
@@ -2545,7 +2567,7 @@
             "nearest_volt": 500.0,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 17.09 A);\nExcessive pre-storm noise: std before (4.3435 A) > 1/4 * std after (2.4151 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 17.09 A);\nExcessive pre-storm noise: std before (5.9071 A) > 1/4 * std after (2.4388 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2567,7 +2589,7 @@
             "nearest_volt": 500.0,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -8.54 A);\nExcessive pre-storm noise: std before (2.4139 A) > 1/4 * std after (1.8483 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -8.54 A);\nExcessive pre-storm noise: std before (3.8134 A) > 1/4 * std after (2.5272 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2589,7 +2611,7 @@
             "nearest_volt": NaN,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "Baseline offset detected (median value: -9.77 A);\nExcessive pre-storm noise: std before (3.3239 A) > 1/4 * std after (4.4164 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Baseline offset detected (median value: -9.77 A);\nExcessive pre-storm noise: std before (6.5873 A) > 1/4 * std after (6.7979 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:44"
           }
         }
       }
@@ -2611,7 +2633,7 @@
             "nearest_volt": NaN,
             "power_pool": "CAISO",
             "US_region": "West",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 14.65 A);\nExcessive pre-storm noise: std before (2.7278 A) > 1/4 * std after (4.3776 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 14.65 A);\nExcessive pre-storm noise: std before (6.8378 A) > 1/4 * std after (5.6462 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2633,7 +2655,7 @@
             "nearest_volt": 345.0,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2222 A) > 1/4 * std after (0.0948 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-16 19:30:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2188 A) > 1/4 * std after (0.1633 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-16 19:30:00"
           }
         }
       }
@@ -2655,7 +2677,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.5 A);\nExcessive pre-storm noise: std before (0.0497 A) > 1/4 * std after (0.0485 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:05:10"
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 3.5 A);\nExcessive pre-storm noise: std before (0.0469 A) > 1/4 * std after (0.0398 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:21:30"
           }
         }
       }
@@ -2677,7 +2699,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:03:42"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1131 A) > 1/4 * std after (0.4318 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:17:54"
           }
         }
       }
@@ -2699,7 +2721,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:37:10"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-17 01:17:10"
           }
         }
       }
@@ -2721,7 +2743,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 00:32:40"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-16 02:14:00"
           }
         }
       }
@@ -2743,7 +2765,7 @@
             "nearest_volt": 161.0,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2787,7 +2809,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Baseline offset detected (median value: 2.2 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Baseline offset detected (median value: 2.2 A);\nExcessive pre-storm noise: std before (0.0778 A) > 1/4 * std after (0.2734 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:07:30"
           }
         }
       }
@@ -2831,7 +2853,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:24:16"
           }
         }
       }
@@ -2853,7 +2875,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 04:48:40"
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-16 21:45:56"
           }
         }
       }
@@ -2875,7 +2897,51 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (0.2116 A) > 1/4 * std after (0.6281 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 04:01:18"
+            "automated_error": "Excessive pre-storm noise: std before (0.2351 A) > 1/4 * std after (0.5701 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 05:28:04"
+          }
+        }
+      }
+    }
+  },
+  "10679": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10679": {
+            "geo_lat": 41.3,
+            "geo_lon": -74.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.6233528265186177,
+            "log10_beta": 0.4188567047364862,
+            "mag_lat": 50.45911952915587,
+            "mag_lon": -1.958284616463828,
+            "alpha": 0.3312252792554974,
+            "nearest_volt": 115.0,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "Excessive pre-storm noise: std before (0.3261 A) > 1/4 * std after (0.7604 A)"
+          }
+        }
+      }
+    }
+  },
+  "10717": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10717": {
+            "geo_lat": 34.3,
+            "geo_lon": -81.3,
+            "manual_error": NaN,
+            "interpolated_beta": 1.8406472507822904,
+            "log10_beta": 0.2649705664956144,
+            "mag_lat": 43.34536653354117,
+            "mag_lon": -9.84765210113918,
+            "alpha": 0.1461622273912305,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 2.0 A);\nExcessive pre-storm noise: std before (0.2748 A) > 1/4 * std after (0.8327 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2897,7 +2963,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0555 A) > 1/4 * std after (0.1951 A)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0568 A) > 1/4 * std after (0.1536 A)"
           }
         }
       }
@@ -2919,7 +2985,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -2941,7 +3007,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0573 A) > 1/4 * std after (0.1453 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:25:26"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0565 A) > 1/4 * std after (0.2139 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 05:42:05"
           }
         }
       }
@@ -2963,7 +3029,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0721 A) > 1/4 * std after (0.2608 A)"
           }
         }
       }
@@ -2985,7 +3051,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3015 A) > 1/4 * std after (0.8269 A)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3575 A) > 1/4 * std after (1.0928 A)"
           }
         }
       }
@@ -3029,7 +3095,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data gap detected >= 10.0 minutes (4226.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 16:34:03"
+            "automated_error": "Data gap detected >= 10.0 minutes (4226.0 seconds)"
           }
         }
       }
@@ -3051,7 +3117,117 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (3.6651 A) > 1/4 * std after (0.4383 A)"
+            "automated_error": "Excessive pre-storm noise: std before (4.2800 A) > 1/4 * std after (0.4390 A)"
+          }
+        }
+      }
+    }
+  },
+  "10086": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10086": {
+            "geo_lat": 27.7,
+            "geo_lon": -82.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3651553433744837,
+            "log10_beta": -0.437522339877867,
+            "mag_lat": 36.72932868704479,
+            "mag_lon": -10.349694831476238,
+            "alpha": 0.0682974751618705,
+            "nearest_volt": NaN,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 4.1 A);\nExcessive pre-storm noise: std before (0.1270 A) > 1/4 * std after (0.1513 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:10"
+          }
+        }
+      }
+    }
+  },
+  "10087": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10087": {
+            "geo_lat": 27.9,
+            "geo_lon": -82.4,
+            "manual_error": NaN,
+            "interpolated_beta": 0.505614521871141,
+            "log10_beta": -0.2961804610746953,
+            "mag_lat": 36.91752916144425,
+            "mag_lon": -10.79973041747764,
+            "alpha": 0.0697917531842996,
+            "nearest_volt": 69.0,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0871 A) > 1/4 * std after (0.1133 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10088": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10088": {
+            "geo_lat": 27.9,
+            "geo_lon": -82.4,
+            "manual_error": NaN,
+            "interpolated_beta": 0.505614521871141,
+            "log10_beta": -0.2961804610746953,
+            "mag_lat": 36.91752916144425,
+            "mag_lon": -10.79973041747764,
+            "alpha": 0.0697917531842996,
+            "nearest_volt": 69.0,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0400 A) > 1/4 * std after (0.0572 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10090": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10090": {
+            "geo_lat": 27.8,
+            "geo_lon": -82.1,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3727310104831341,
+            "log10_beta": -0.4286044733007659,
+            "mag_lat": 36.82639909434399,
+            "mag_lon": -10.464185318638588,
+            "alpha": 0.0690641578056422,
+            "nearest_volt": NaN,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -1.9 A);\nExcessive pre-storm noise: std before (0.1224 A) > 1/4 * std after (0.1383 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10091": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10091": {
+            "geo_lat": 27.7,
+            "geo_lon": -82.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.4232283596543554,
+            "log10_beta": -0.3734252388255728,
+            "mag_lat": 36.72060959365108,
+            "mag_lon": -10.680911301959847,
+            "alpha": 0.0682290278960796,
+            "nearest_volt": NaN,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -8.8 A);\nExcessive pre-storm noise: std before (0.0496 A) > 1/4 * std after (0.0623 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -3073,7 +3249,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.5081 A) > 1/4 * std after (1.4129 A);\nData gap detected >= 10.0 minutes (984.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (0.5503 A) > 1/4 * std after (1.5996 A)"
           }
         }
       }
@@ -3095,7 +3271,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.3782 A) > 1/4 * std after (1.4484 A);\nData gap detected >= 10.0 minutes (846.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 16:33:29"
+            "automated_error": "Excessive pre-storm noise: std before (0.4797 A) > 1/4 * std after (1.4835 A)"
           }
         }
       }
@@ -3117,7 +3293,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Excessive pre-storm noise: std before (0.1106 A) > 1/4 * std after (0.2047 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 01:39:04"
+            "automated_error": "Excessive pre-storm noise: std before (0.0986 A) > 1/4 * std after (0.1803 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 02:59:23"
           }
         }
       }
@@ -3139,7 +3315,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 07:39:53"
+            "automated_error": "[]"
           }
         }
       }
@@ -3161,7 +3337,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0811 A) > 1/4 * std after (0.2615 A)"
           }
         }
       }
@@ -3183,7 +3359,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.0553 A) > 1/4 * std after (0.1826 A)"
+            "automated_error": "Excessive pre-storm noise: std before (0.0569 A) > 1/4 * std after (0.1547 A)"
           }
         }
       }
@@ -3205,7 +3381,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0728 A) > 1/4 * std after (0.1351 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 06:04:50"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0674 A) > 1/4 * std after (0.1073 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 17:33:12"
           }
         }
       }
@@ -3227,7 +3403,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0659 A) > 1/4 * std after (0.0695 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 22:25:51"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0635 A) > 1/4 * std after (0.1613 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 22:25:51"
           }
         }
       }
@@ -3249,7 +3425,7 @@
             "nearest_volt": 161.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2668 A) > 1/4 * std after (0.5789 A);\nData gap detected >= 10.0 minutes (36061.0 seconds)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2891 A) > 1/4 * std after (0.7773 A);\nData gap detected >= 10.0 minutes (36061.0 seconds)"
           }
         }
       }
@@ -3271,7 +3447,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.1903 A) > 1/4 * std after (0.5257 A)"
+            "automated_error": "Excessive pre-storm noise: std before (0.2256 A) > 1/4 * std after (0.6282 A)"
           }
         }
       }
@@ -3293,7 +3469,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Data gap detected >= 10.0 minutes (835.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-04-17 16:33:44"
+            "automated_error": "[]"
           }
         }
       }
@@ -3315,7 +3491,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1844 A) > 1/4 * std after (0.4693 A)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2036 A) > 1/4 * std after (0.4687 A)"
           }
         }
       }
@@ -3337,7 +3513,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnectNonEnrolled",
             "US_region": "West",
-            "automated_error": "Excessive pre-storm noise: std before (0.0468 A) > 1/4 * std after (0.1353 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 01:55:14"
+            "automated_error": "Excessive pre-storm noise: std before (0.0495 A) > 1/4 * std after (0.1468 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 05:49:43"
           }
         }
       }
@@ -3359,7 +3535,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.0601 A) > 1/4 * std after (0.2328 A)"
+            "automated_error": "Excessive pre-storm noise: std before (0.0574 A) > 1/4 * std after (0.1519 A)"
           }
         }
       }
@@ -3381,7 +3557,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0723 A) > 1/4 * std after (0.1281 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:15:05"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0755 A) > 1/4 * std after (0.1874 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 16:06:29"
           }
         }
       }
@@ -3403,7 +3579,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1290 A) > 1/4 * std after (0.3141 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:25:49"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1127 A) > 1/4 * std after (0.3665 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 01:34:57"
           }
         }
       }
@@ -3425,7 +3601,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1267 A) > 1/4 * std after (0.2404 A)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1170 A) > 1/4 * std after (0.2219 A)"
           }
         }
       }
@@ -3447,7 +3623,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0786 A) > 1/4 * std after (0.0781 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 09:14:06"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0803 A) > 1/4 * std after (0.0680 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
           }
         }
       }
@@ -3469,7 +3645,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0837 A) > 1/4 * std after (0.3139 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:51:31"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-17 08:49:21"
           }
         }
       }
@@ -3491,7 +3667,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.1446 A) > 1/4 * std after (0.4379 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 01:01:35"
+            "automated_error": "Excessive pre-storm noise: std before (0.1626 A) > 1/4 * std after (0.4350 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 14:34:17"
           }
         }
       }
@@ -3513,7 +3689,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1146 A) > 1/4 * std after (0.2889 A)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1054 A) > 1/4 * std after (0.2751 A)"
           }
         }
       }
@@ -3535,7 +3711,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.1721 A) > 1/4 * std after (0.1481 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:10:33"
+            "automated_error": "Excessive pre-storm noise: std before (0.1438 A) > 1/4 * std after (0.2159 A)"
           }
         }
       }
@@ -3557,7 +3733,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1744 A) > 1/4 * std after (0.4694 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 09:15:42"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1595 A) > 1/4 * std after (0.3858 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 05:25:16"
           }
         }
       }
@@ -3579,7 +3755,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-17 19:34:39"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0771 A) > 1/4 * std after (0.3051 A)"
           }
         }
       }
@@ -3601,7 +3777,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0006 A) > 1/4 * std after (0.0022 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:34"
           }
         }
       }
@@ -3623,7 +3799,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-04-15 05:24:57"
+            "automated_error": "Excessive pre-storm noise: std before (0.0790 A) > 1/4 * std after (0.2863 A)"
           }
         }
       }
@@ -3645,7 +3821,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0520 A) > 1/4 * std after (0.0890 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 01:30:45"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0510 A) > 1/4 * std after (0.1110 A)"
           }
         }
       }
@@ -3667,7 +3843,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0968 A) > 1/4 * std after (0.2671 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 00:40:30"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0995 A) > 1/4 * std after (0.2811 A);\nData is constant for at least 5 minutes starting at time 2025-04-17 08:15:24"
           }
         }
       }
@@ -3689,7 +3865,73 @@
             "nearest_volt": NaN,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0739 A) > 1/4 * std after (0.0554 A)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0717 A) > 1/4 * std after (0.0608 A)"
+          }
+        }
+      }
+    }
+  },
+  "10248": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10248": {
+            "geo_lat": 32.8,
+            "geo_lon": -80.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.901094778523134,
+            "log10_beta": -0.0452295268624527,
+            "mag_lat": 41.86434380560822,
+            "mag_lon": -8.991674493964295,
+            "alpha": 0.1232727694249775,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0534 A) > 1/4 * std after (0.1424 A);\nData is constant for at least 5 minutes starting at time 2025-04-15 15:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10249": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10249": {
+            "geo_lat": 33.3,
+            "geo_lon": -81.0,
+            "manual_error": NaN,
+            "interpolated_beta": 1.238758315244013,
+            "log10_beta": 0.0929865827324599,
+            "mag_lat": 42.35389659951471,
+            "mag_lon": -9.463937997932176,
+            "alpha": 0.1304119268578973,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0785 A) > 1/4 * std after (0.2742 A);\nData is constant for at least 5 minutes starting at time 2025-04-16 01:05:36"
+          }
+        }
+      }
+    }
+  },
+  "10250": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10250": {
+            "geo_lat": 34.1,
+            "geo_lon": 80.9,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 25.812339777308964,
+            "mag_lon": 155.8048667220775,
+            "alpha": 0.0194611286666614,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 16:48:40"
           }
         }
       }
@@ -3711,7 +3953,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-04-15 00:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1883 A) > 1/4 * std after (0.5897 A)"
           }
         }
       }
@@ -3733,7 +3975,7 @@
             "nearest_volt": NaN,
             "power_pool": "ERCOT",
             "US_region": "ERCOT",
-            "automated_error": "Excessive pre-storm noise: std before (0.2608 A) > 1/4 * std after (0.1337 A);\nData gap detected >= 10.0 minutes (47645.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (0.1717 A) > 1/4 * std after (0.3373 A);\nData gap detected >= 10.0 minutes (40662.0 seconds)"
           }
         }
       }
