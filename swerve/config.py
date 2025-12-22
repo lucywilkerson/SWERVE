@@ -202,4 +202,17 @@ def config():
       datetime.datetime(2025, 4, 17, 9, 0)
     ]
 
+  if event =='2013-10-02':
+
+    config_dict['nerc_prefix'] = '2013E02'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2013, 10, 2, 1, 0),
+      datetime.datetime(2013, 10, 2, 20, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2013, 10, 2, 0, 0),
+      datetime.datetime(2013, 10, 2, 20, 0)
+    ]
+
   return config_dict
