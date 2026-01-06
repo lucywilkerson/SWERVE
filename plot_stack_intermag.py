@@ -119,7 +119,7 @@ def plot_intermag(offset=1000, use_hapi=False):
         if fill is not None:
           fill = float(fill)
           dfs[-1][dfs[-1][component] == fill] = numpy.nan  # remove erroneous high values
-        dfs[-1][component] = dfs[-1][component] - numpy.median(dfs[-1][component])  # remove median offset
+        dfs[-1][component] = dfs[-1][component] - numpy.nanmedian(dfs[-1][component])  # remove median offset
       
       df = pandas.concat(dfs, axis=1)
 
