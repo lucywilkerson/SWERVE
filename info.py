@@ -225,16 +225,19 @@ def add_sim_site(info_df, sim_file, update_csv=False):
             'data_type': 'GIC',
             'data_class': 'calculated',
             'data_source': 'GMU',
-            'error': np.nan
+            'manual_error': np.nan
           }])
           info_df = pd.concat([info_df, new_row], ignore_index=True)
+          # Keep only columns that exist in original info_df
+          info_df = info_df[[col for col in info_df.columns if col in new_row.columns]]
       return info_df
 
     new_info_df = add_info(no_gmu_df, output_df)
 
-    output_fname = os.path.join('info', 'info.csv')
+    output_fname = config()['files']['info']
     new_info_df.to_csv(output_fname, index=False)
     logger.info(f"Saved updated info table to {output_fname}")
+    logger.error(f"{output_fname} has been rewritten. Please run info.py again with add_sim_site(...,update_csv=False)")
 
   add_nearest_sim_site(info_df, output_df)
 
