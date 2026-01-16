@@ -228,4 +228,17 @@ def config():
       datetime.datetime(2023, 3, 24, 12, 0)
     ]
 
+  if event =='2024-03-23':
+
+    config_dict['nerc_prefix'] = '2024E01'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2024, 3, 24, 12, 0),
+      datetime.datetime(2024, 3, 25, 0, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2024, 3, 24, 10, 0),
+      datetime.datetime(2024, 3, 25, 0, 0)
+    ]
+
   return config_dict
