@@ -471,25 +471,6 @@
             "automated_error": "[]"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10099": {
-            "geo_lat": 41.4,
-            "geo_lon": -73.4,
-            "manual_error": NaN,
-            "interpolated_beta": 2.7748233392986035,
-            "log10_beta": 0.4432353387343588,
-            "mag_lat": 50.59455197658316,
-            "mag_lon": -0.8912264355120784,
-            "alpha": 0.3364244064389854,
-            "nearest_sim_site": 140295802.0,
-            "nearest_volt": NaN,
-            "power_pool": "NYISO",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -619,7 +600,7 @@
             "interpolated_beta": 1.1145399400687936,
             "log10_beta": 0.0470956362444158,
             "mag_lat": 52.13561137298429,
-            "mag_lon": -23.86441933707156,
+            "mag_lon": -23.864419337071556,
             "alpha": 0.4016557216548033,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
@@ -642,7 +623,7 @@
             "interpolated_beta": 0.8432142123234811,
             "log10_beta": -0.0740620820631635,
             "mag_lat": 53.52330479183824,
-            "mag_lon": -24.19311686051412,
+            "mag_lon": -24.193116860514117,
             "alpha": 0.4711516661818736,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
@@ -718,25 +699,6 @@
             "power_pool": "SERTP",
             "US_region": "East",
             "automated_error": "Baseline offset detected (median value: -1.9 A);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:05:31"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10238": {
-            "geo_lat": 31.5,
-            "geo_lon": -83.5,
-            "manual_error": NaN,
-            "interpolated_beta": 0.9257162349465204,
-            "log10_beta": -0.0335221196715361,
-            "mag_lat": 40.51152940603236,
-            "mag_lon": -12.192004654100506,
-            "alpha": 0.1055121256828184,
-            "nearest_sim_site": 53154820.0,
-            "nearest_volt": 230.0,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -829,25 +791,6 @@
             "power_pool": "MISO",
             "US_region": "Central",
             "automated_error": "[]"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10255": {
-            "geo_lat": 45.7,
-            "geo_lon": -94.7,
-            "manual_error": NaN,
-            "interpolated_beta": 2.069921759555765,
-            "log10_beta": 0.3159539299808916,
-            "mag_lat": 54.089863149632414,
-            "mag_lon": -26.559137708685665,
-            "alpha": 0.502871294799359,
-            "nearest_sim_site": 872338053.0,
-            "nearest_volt": NaN,
-            "power_pool": "MISO",
-            "US_region": "Central",
-            "automated_error": NaN
           }
         }
       }
@@ -2483,25 +2426,6 @@
             "automated_error": "Low signal: all GIC values within +/- 4 A"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10622": {
-            "geo_lat": 39.3,
-            "geo_lon": -86.5,
-            "manual_error": NaN,
-            "interpolated_beta": 0.5118813171556331,
-            "log10_beta": -0.2908307212102241,
-            "mag_lat": 48.18538730619996,
-            "mag_lon": -16.136308739574567,
-            "alpha": 0.2550142791386919,
-            "nearest_sim_site": 178843564.0,
-            "nearest_volt": 69.0,
-            "power_pool": "MISO",
-            "US_region": "Central",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -2862,25 +2786,6 @@
             "automated_error": "[]"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10079": {
-            "geo_lat": 41.5,
-            "geo_lon": -87.6,
-            "manual_error": NaN,
-            "interpolated_beta": 0.7866879617083581,
-            "log10_beta": -0.1041974955708377,
-            "mag_lat": 50.33026558193213,
-            "mag_lon": -17.623038378428202,
-            "alpha": 0.3263533016477513,
-            "nearest_sim_site": 104296608.0,
-            "nearest_volt": 345.0,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -3195,25 +3100,6 @@
             "automated_error": "[]"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10115": {
-            "geo_lat": 47.6,
-            "geo_lon": -114.6,
-            "manual_error": NaN,
-            "interpolated_beta": 0.2891062058950986,
-            "log10_beta": -0.5389425857521396,
-            "mag_lat": 54.00820306221349,
-            "mag_lon": -50.09336147601408,
-            "alpha": 0.4981709803596629,
-            "nearest_sim_site": 102517038.0,
-            "nearest_volt": 230.0,
-            "power_pool": "NorthernGridUnconnected",
-            "US_region": "West",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -3366,7 +3252,7 @@
             "interpolated_beta": 1.1145399400687936,
             "log10_beta": 0.0470956362444158,
             "mag_lat": 52.13561137298429,
-            "mag_lon": -23.86441933707156,
+            "mag_lon": -23.864419337071556,
             "alpha": 0.4016557216548033,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
@@ -3389,7 +3275,7 @@
             "interpolated_beta": 0.8432142123234811,
             "log10_beta": -0.0740620820631635,
             "mag_lat": 53.52330479183824,
-            "mag_lon": -24.19311686051412,
+            "mag_lon": -24.193116860514117,
             "alpha": 0.4711516661818736,
             "nearest_sim_site": NaN,
             "nearest_volt": NaN,
@@ -3596,7 +3482,7 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
@@ -3619,7 +3505,7 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
@@ -3642,7 +3528,7 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
@@ -3665,7 +3551,7 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.39256503673929,
+            "mag_lon": -25.392565036739292,
             "alpha": 0.4729179746365427,
             "nearest_sim_site": NaN,
             "nearest_volt": 115.0,
@@ -4134,25 +4020,6 @@
             "automated_error": "Excessive pre-storm noise: std before (0.5176 A) > 1/4 * std after (1.6281 A);\nData is constant for at least 5 minutes starting at time 2024-05-10 23:47:20"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10402": {
-            "geo_lat": 39.5,
-            "geo_lon": -78.9,
-            "manual_error": NaN,
-            "interpolated_beta": 1.100117757927958,
-            "log10_beta": 0.0414391750501201,
-            "mag_lat": 48.63182502972377,
-            "mag_lon": -7.307381381047362,
-            "alpha": 0.2684487118590954,
-            "nearest_sim_site": 73877825.0,
-            "nearest_volt": 138.0,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -4611,25 +4478,6 @@
             "power_pool": "PJM",
             "US_region": "East",
             "automated_error": "[]"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10428": {
-            "geo_lat": 36.7,
-            "geo_lon": -76.5,
-            "manual_error": NaN,
-            "interpolated_beta": 1.305214367144753,
-            "log10_beta": 0.1156818456378613,
-            "mag_lat": 45.87163805227058,
-            "mag_lon": -4.439352902847068,
-            "alpha": 0.1954370584667418,
-            "nearest_sim_site": 80921422.0,
-            "nearest_volt": NaN,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -5387,25 +5235,6 @@
             "automated_error": "Duplicate of TVA site 'Gleason'"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10660": {
-            "geo_lat": 36.2,
-            "geo_lon": -88.6,
-            "manual_error": NaN,
-            "interpolated_beta": 0.9314245148534188,
-            "log10_beta": -0.0308523357339139,
-            "mag_lat": 44.99164226608075,
-            "mag_lon": -18.278663297495733,
-            "alpha": 0.1766267697197612,
-            "nearest_sim_site": 106759357.0,
-            "nearest_volt": NaN,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -5496,25 +5325,6 @@
             "power_pool": "SERTP",
             "US_region": "East",
             "automated_error": "Excessive pre-storm noise: std before (0.5370 A) > 1/4 * std after (1.4886 A)"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10693": {
-            "geo_lat": 36.0,
-            "geo_lon": -84.1,
-            "manual_error": NaN,
-            "interpolated_beta": 0.5592615251552008,
-            "log10_beta": -0.2523850572809846,
-            "mag_lat": 44.98652056449961,
-            "mag_lon": -13.12945871409814,
-            "alpha": 0.1765227679464048,
-            "nearest_sim_site": 108137138.0,
-            "nearest_volt": 161.0,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -5862,25 +5672,6 @@
             "automated_error": "[]"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10184": {
-            "geo_lat": 39.0,
-            "geo_lon": -78.2,
-            "manual_error": NaN,
-            "interpolated_beta": 2.098515690648496,
-            "log10_beta": 0.3219122207891498,
-            "mag_lat": 48.1453971333501,
-            "mag_lon": -6.472700714072776,
-            "alpha": 0.2538441942482828,
-            "nearest_sim_site": 97213220.0,
-            "nearest_volt": 500.0,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -5902,25 +5693,6 @@
             "power_pool": "PJM",
             "US_region": "East",
             "automated_error": "[]"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10185": {
-            "geo_lat": 39.3,
-            "geo_lon": -81.3,
-            "manual_error": NaN,
-            "interpolated_beta": 0.458449579058219,
-            "log10_beta": -0.3387084216971334,
-            "mag_lat": 48.373901155575325,
-            "mag_lon": -10.095633855275205,
-            "alpha": 0.2606031189316929,
-            "nearest_sim_site": 138212810.0,
-            "nearest_volt": NaN,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -5946,25 +5718,6 @@
             "automated_error": "[]"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10186": {
-            "geo_lat": 42.0,
-            "geo_lon": -80.0,
-            "manual_error": NaN,
-            "interpolated_beta": 0.5616616324596242,
-            "log10_beta": -0.2505252421024606,
-            "mag_lat": 51.106255825960105,
-            "mag_lon": -8.713989832799731,
-            "alpha": 0.3568157064246364,
-            "nearest_sim_site": 175954899.0,
-            "nearest_volt": NaN,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -5986,25 +5739,6 @@
             "power_pool": "PJM",
             "US_region": "East",
             "automated_error": "[]"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10187": {
-            "geo_lat": 41.0,
-            "geo_lon": -81.6,
-            "manual_error": NaN,
-            "interpolated_beta": 0.6117421374360327,
-            "log10_beta": -0.2134316038153043,
-            "mag_lat": 50.06412043878372,
-            "mag_lon": -10.543983745044356,
-            "alpha": 0.3165160181145472,
-            "nearest_sim_site": 86822197.0,
-            "nearest_volt": NaN,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -6099,25 +5833,6 @@
             "automated_error": "[]"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10195": {
-            "geo_lat": 39.7,
-            "geo_lon": -74.9,
-            "manual_error": NaN,
-            "interpolated_beta": 2.354882212141629,
-            "log10_beta": 0.3719691892159787,
-            "mag_lat": 48.88719785128629,
-            "mag_lon": -2.637939134348516,
-            "alpha": 0.2764493863131914,
-            "nearest_sim_site": 95131944.0,
-            "nearest_volt": NaN,
-            "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -6162,25 +5877,6 @@
             "power_pool": "SERTP",
             "US_region": "East",
             "automated_error": "Duplicate of TVA site 'Sullivan'"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10197": {
-            "geo_lat": 36.4,
-            "geo_lon": -82.2,
-            "manual_error": NaN,
-            "interpolated_beta": 1.4198283724986611,
-            "log10_beta": 0.1522358504523761,
-            "mag_lat": 45.44958503022409,
-            "mag_lon": -10.978157442757729,
-            "alpha": 0.1861778274386792,
-            "nearest_sim_site": 108718796.0,
-            "nearest_volt": NaN,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -6298,25 +5994,6 @@
             "automated_error": "Duplicate of TVA site 'Raccoon Mountain';\nExcessive pre-storm noise: std before (0.4041 A) > 1/4 * std after (0.8405 A)"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10203": {
-            "geo_lat": 35.0,
-            "geo_lon": -85.3,
-            "manual_error": NaN,
-            "interpolated_beta": 0.996526544232336,
-            "log10_beta": -0.0015111286141768,
-            "mag_lat": 43.94193414375441,
-            "mag_lon": -14.431333269327364,
-            "alpha": 0.1565416997448219,
-            "nearest_sim_site": 53159889.0,
-            "nearest_volt": NaN,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -6338,25 +6015,6 @@
             "power_pool": "SERTP",
             "US_region": "East",
             "automated_error": "Duplicate of TVA site 'Shelby'"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10204": {
-            "geo_lat": 35.3,
-            "geo_lon": -89.8,
-            "manual_error": NaN,
-            "interpolated_beta": 0.6301141833833783,
-            "log10_beta": -0.2005807446416425,
-            "mag_lat": 44.031298836731125,
-            "mag_lon": -19.56101370687615,
-            "alpha": 0.1581587643579561,
-            "nearest_sim_site": 97859576.0,
-            "nearest_volt": NaN,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
           }
         }
       }
@@ -6428,25 +6086,6 @@
             "automated_error": "Duplicate of TVA site 'Rutherford'"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10208": {
-            "geo_lat": 35.8,
-            "geo_lon": -86.5,
-            "manual_error": NaN,
-            "interpolated_beta": 0.7257450701500456,
-            "log10_beta": -0.1392159055671167,
-            "mag_lat": 44.69079428892031,
-            "mag_lon": -15.853922423093188,
-            "alpha": 0.1706204234359063,
-            "nearest_sim_site": 164138694.0,
-            "nearest_volt": NaN,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -6516,25 +6155,6 @@
             "automated_error": "Duplicate of TVA site 'Pinhook'"
           }
         }
-      },
-      "calculated": {
-        "GMU": {
-          "10212": {
-            "geo_lat": 36.0,
-            "geo_lon": -86.6,
-            "manual_error": NaN,
-            "interpolated_beta": 0.7824508982511382,
-            "log10_beta": -0.1065429065453077,
-            "mag_lat": 44.886118382535365,
-            "mag_lon": -15.983139620288483,
-            "alpha": 0.1744963132638616,
-            "nearest_sim_site": 1210590700.0,
-            "nearest_volt": 161.0,
-            "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": NaN
-          }
-        }
       }
     }
   },
@@ -6579,25 +6199,6 @@
             "power_pool": "MISO",
             "US_region": "Central",
             "automated_error": "Excessive pre-storm noise: std before (0.2465 A) > 1/4 * std after (0.9210 A)"
-          }
-        }
-      },
-      "calculated": {
-        "GMU": {
-          "10220": {
-            "geo_lat": 39.4,
-            "geo_lon": -87.4,
-            "manual_error": NaN,
-            "interpolated_beta": 0.4903456338448295,
-            "log10_beta": -0.3094976874089987,
-            "mag_lat": 48.24397426827768,
-            "mag_lon": -17.187816861891438,
-            "alpha": 0.2567382390764825,
-            "nearest_sim_site": 391063456.0,
-            "nearest_volt": NaN,
-            "power_pool": "MISO",
-            "US_region": "Central",
-            "automated_error": NaN
           }
         }
       }
@@ -9646,7 +9247,7 @@
             "interpolated_beta": 0.1855197224049235,
             "log10_beta": -0.731609914208901,
             "mag_lat": 41.25555189932742,
-            "mag_lon": -24.59563494437125,
+            "mag_lon": -24.595634944371252,
             "alpha": 0.1149374960988044,
             "nearest_sim_site": NaN,
             "nearest_volt": 345.0,
