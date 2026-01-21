@@ -165,7 +165,7 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
     # Remove rows that have errors
     if error_type in info_df.columns:
       if logger is not None: 
-        logger.info("    Excluding sites with {error_type}")
+        logger.info(f"    Excluding sites with {error_type}")
       if error_type == 'automated_error':
         info_df = info_df[~info_df['automated_error'].apply(lambda x: (isinstance(x, str) and x != '[]') or isinstance(x, float))]
       else:
