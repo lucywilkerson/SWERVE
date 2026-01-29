@@ -61,5 +61,6 @@ if args['sites'] is None and data_types is None:
   if info_kwargs['exclude_errors']:
     # Create table of results
     site_stats_summary(stats, data_types=data_types, logger=logger)
-  # Write data from all sites to a single file.
-  utilrsw.write(CONFIG['files']['all'], data, logger=logger)
+  else:
+    # Write data from all sites to a single file.
+    utilrsw.write(CONFIG['files']['all'], data, logger=logger)
