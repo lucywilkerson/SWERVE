@@ -1,0 +1,882 @@
+{
+  "10052": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10052": {
+            "geo_lat": 44.9,
+            "geo_lon": -97.0,
+            "manual_error": NaN,
+            "interpolated_beta": 1.4613600380655098,
+            "log10_beta": 0.1647572270786324,
+            "mag_lat": 53.09448620954036,
+            "mag_lon": -29.11287345877365,
+            "alpha": 0.4484808192304922,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central",
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-06-01 03:07:58"
+          }
+        }
+      }
+    }
+  },
+  "10094": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10094": {
+            "geo_lat": 41.9,
+            "geo_lon": -72.5,
+            "manual_error": NaN,
+            "interpolated_beta": 2.929623783371682,
+            "log10_beta": 0.4668118526762025,
+            "mag_lat": 51.063602704038495,
+            "mag_lon": 0.1665446908720124,
+            "alpha": 0.3550697719842215,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10095": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10095": {
+            "geo_lat": 41.7,
+            "geo_lon": -72.2,
+            "manual_error": NaN,
+            "interpolated_beta": 2.5428320075460182,
+            "log10_beta": 0.4053176694145182,
+            "mag_lat": 50.86331607438063,
+            "mag_lon": 0.521230071277396,
+            "alpha": 0.3469849296338646,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3588.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-06-01 00:14:41"
+          }
+        }
+      }
+    }
+  },
+  "10096": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10096": {
+            "geo_lat": 41.8,
+            "geo_lon": -72.6,
+            "manual_error": NaN,
+            "interpolated_beta": 3.171537678413347,
+            "log10_beta": 0.5012698752573048,
+            "mag_lat": 50.96363253744801,
+            "mag_lon": 0.0480814281392541,
+            "alpha": 0.3510110631119145,
+            "nearest_volt": 345.0,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10097": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10097": {
+            "geo_lat": 41.4,
+            "geo_lon": -72.1,
+            "manual_error": NaN,
+            "interpolated_beta": 2.324064908774785,
+            "log10_beta": 0.3662482532918991,
+            "mag_lat": 50.56315560515037,
+            "mag_lon": 0.6383990893281606,
+            "alpha": 0.3352119085214888,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10098": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10098": {
+            "geo_lat": 41.4,
+            "geo_lon": -72.1,
+            "manual_error": NaN,
+            "interpolated_beta": 2.324064908774785,
+            "log10_beta": 0.3662482532918991,
+            "mag_lat": 50.56315560515037,
+            "mag_lon": 0.6383990893281606,
+            "alpha": 0.3352119085214888,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10099": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10099": {
+            "geo_lat": 41.4,
+            "geo_lon": -73.4,
+            "manual_error": NaN,
+            "interpolated_beta": 2.7748233392986035,
+            "log10_beta": 0.4432353387343588,
+            "mag_lat": 50.56268891400056,
+            "mag_lon": -0.896717099086777,
+            "alpha": 0.3351939183546875,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10100": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10100": {
+            "geo_lat": 41.6,
+            "geo_lon": -72.9,
+            "manual_error": NaN,
+            "interpolated_beta": 3.187275795663601,
+            "log10_beta": 0.5034196446951135,
+            "mag_lat": 50.76352471281549,
+            "mag_lon": -0.3066500016648961,
+            "alpha": 0.3430256898810969,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3521.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-06-01 00:35:41"
+          }
+        }
+      }
+    }
+  },
+  "10103": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10103": {
+            "geo_lat": 38.6,
+            "geo_lon": -121.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5766122104959627,
+            "log10_beta": -0.2391161651131437,
+            "mag_lat": 44.27700044258799,
+            "mag_lon": -55.03792329726751,
+            "alpha": 0.1626913830948284,
+            "nearest_volt": NaN,
+            "power_pool": "NotOrder1000",
+            "US_region": "West",
+            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -7.23 A)"
+          }
+        }
+      }
+    }
+  },
+  "10233": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10233": {
+            "geo_lat": 47.6,
+            "geo_lon": -122.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.7863563266877992,
+            "log10_beta": -0.1043806147145654,
+            "mag_lat": 52.99137503578466,
+            "mag_lon": -58.63243172020317,
+            "alpha": 0.4431942356374206,
+            "nearest_volt": NaN,
+            "power_pool": "NorthernGridConnected",
+            "US_region": "West",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-02 17:48:10"
+          }
+        }
+      }
+    }
+  },
+  "10611": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10611": {
+            "geo_lat": 39.6,
+            "geo_lon": -92.6,
+            "manual_error": NaN,
+            "interpolated_beta": 1.2699476826377936,
+            "log10_beta": 0.1037858299246789,
+            "mag_lat": 48.1270055560019,
+            "mag_lon": -23.20641150441771,
+            "alpha": 0.2533078731758808,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10618": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10618": {
+            "geo_lat": 38.3,
+            "geo_lon": -86.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5330126156362351,
+            "log10_beta": -0.2732625117307198,
+            "mag_lat": 47.16923334133603,
+            "mag_lon": -15.70257641277367,
+            "alpha": 0.2268892094525426,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3329.0 seconds)"
+          }
+        }
+      }
+    }
+  },
+  "10619": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10619": {
+            "geo_lat": 38.3,
+            "geo_lon": -86.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5330126156362351,
+            "log10_beta": -0.2732625117307198,
+            "mag_lat": 47.16923334133603,
+            "mag_lon": -15.70257641277367,
+            "alpha": 0.2268892094525426,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (8611.0 seconds)"
+          }
+        }
+      }
+    }
+  },
+  "10620": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10620": {
+            "geo_lat": 39.1,
+            "geo_lon": -87.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.4657602038935467,
+            "log10_beta": -0.3318376217862699,
+            "mag_lat": 47.909139534494486,
+            "mag_lon": -17.271568204212453,
+            "alpha": 0.2470401925999825,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (9164.0 seconds)"
+          }
+        }
+      }
+    }
+  },
+  "10621": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10621": {
+            "geo_lat": 39.1,
+            "geo_lon": -87.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.4657602038935467,
+            "log10_beta": -0.3318376217862699,
+            "mag_lat": 47.909139534494486,
+            "mag_lon": -17.271568204212453,
+            "alpha": 0.2470401925999825,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (34112.0 seconds)"
+          }
+        }
+      }
+    }
+  },
+  "10622": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10622": {
+            "geo_lat": 39.3,
+            "geo_lon": -86.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5118813171556331,
+            "log10_beta": -0.2908307212102241,
+            "mag_lat": 48.154559101943626,
+            "mag_lon": -16.132396261976147,
+            "alpha": 0.2541117921391923,
+            "nearest_volt": 69.0,
+            "power_pool": "MISO",
+            "US_region": "Central",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (1052.0 seconds)"
+          }
+        }
+      }
+    }
+  },
+  "10715": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10715": {
+            "geo_lat": 41.9,
+            "geo_lon": -72.8,
+            "manual_error": NaN,
+            "interpolated_beta": 3.201092569475634,
+            "log10_beta": 0.5052982332916383,
+            "mag_lat": 51.06359344206056,
+            "mag_lon": -0.1887595434978713,
+            "alpha": 0.3550693937898576,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10051": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10051": {
+            "geo_lat": 44.4,
+            "geo_lon": -96.5,
+            "manual_error": NaN,
+            "interpolated_beta": 1.4244053758465474,
+            "log10_beta": 0.15363360407557,
+            "mag_lat": 52.63572802042437,
+            "mag_lon": -28.43783167931573,
+            "alpha": 0.4254335311719053,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central",
+            "automated_error": "Baseline offset detected (median value: 2.55 A);\nData is constant for at least 5 minutes starting at time 2025-06-01 13:03:04"
+          }
+        }
+      }
+    }
+  },
+  "10102": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10102": {
+            "geo_lat": 42.9,
+            "geo_lon": -71.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.880981184607718,
+            "log10_beta": 0.4595404219570091,
+            "mag_lat": 52.06065929463653,
+            "mag_lon": 1.5973608426783366,
+            "alpha": 0.3982085324235995,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10240": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10240": {
+            "geo_lat": 40.8,
+            "geo_lon": -73.6,
+            "manual_error": NaN,
+            "interpolated_beta": 2.2671631544570605,
+            "log10_beta": 0.3554827748820328,
+            "mag_lat": 49.9621300325783,
+            "mag_lon": -1.128967619934516,
+            "alpha": 0.3128253206443461,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-01 02:01:50"
+          }
+        }
+      }
+    }
+  },
+  "10438": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10438": {
+            "geo_lat": 43.2,
+            "geo_lon": -75.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5913986068916508,
+            "log10_beta": -0.2281197028399677,
+            "mag_lat": 52.35277097397719,
+            "mag_lon": -3.054970935758681,
+            "alpha": 0.4118127113971396,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-06-01 00:34:20"
+          }
+        }
+      }
+    }
+  },
+  "10445": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10445": {
+            "geo_lat": 41.1,
+            "geo_lon": -74.2,
+            "manual_error": NaN,
+            "interpolated_beta": 2.4943337505101617,
+            "log10_beta": 0.396954563139045,
+            "mag_lat": 50.259651956072425,
+            "mag_lon": -1.8381505794739343,
+            "alpha": 0.3237138591937032,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10584": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10584": {
+            "geo_lat": 40.0,
+            "geo_lon": -104.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3594216977007461,
+            "log10_beta": -0.444395708787237,
+            "mag_lat": 47.62580748857175,
+            "mag_lon": -36.26350241991327,
+            "alpha": 0.2391205603090481,
+            "nearest_volt": 345.0,
+            "power_pool": "WestConnectNonEnrolled",
+            "US_region": "West",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (60.0 seconds)"
+          }
+        }
+      }
+    }
+  },
+  "10628": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10628": {
+            "geo_lat": 48.0,
+            "geo_lon": -66.4,
+            "manual_error": NaN,
+            "interpolated_beta": 1.3344079242092903,
+            "log10_beta": 0.1252886123030684,
+            "mag_lat": 57.09697106484774,
+            "mag_lon": 7.695046678494694,
+            "alpha": 0.710629837917849,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "All GIC values are positive"
+          }
+        }
+      }
+    }
+  },
+  "10648": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10648": {
+            "geo_lat": 32.8,
+            "geo_lon": -115.5,
+            "manual_error": NaN,
+            "interpolated_beta": 1.0896628213431034,
+            "log10_beta": 0.0372921332766582,
+            "mag_lat": 39.26592027492618,
+            "mag_lon": -47.60329180067519,
+            "alpha": 0.0914306564185716,
+            "nearest_volt": 161.0,
+            "power_pool": "WestConnect",
+            "US_region": "West",
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10649": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10649": {
+            "geo_lat": 42.8,
+            "geo_lon": -74.0,
+            "manual_error": NaN,
+            "interpolated_beta": 1.7507451747730551,
+            "log10_beta": 0.2432229380631113,
+            "mag_lat": 51.96057732758683,
+            "mag_lon": -1.618711502902702,
+            "alpha": 0.3936516545309644,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 2.8 A)"
+          }
+        }
+      }
+    }
+  },
+  "10674": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10674": {
+            "geo_lat": 41.7,
+            "geo_lon": -72.6,
+            "manual_error": NaN,
+            "interpolated_beta": 3.2596497933952056,
+            "log10_beta": 0.513170943329938,
+            "mag_lat": 50.86363253905149,
+            "mag_lon": 0.0480530249100379,
+            "alpha": 0.3469975578378838,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East",
+            "automated_error": "Duplicate time stamps found"
+          }
+        }
+      }
+    }
+  },
+  "10675": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10675": {
+            "geo_lat": 47.9,
+            "geo_lon": -65.9,
+            "manual_error": NaN,
+            "interpolated_beta": 1.358741267118803,
+            "log10_beta": 0.1331367658124352,
+            "mag_lat": 56.98594431319281,
+            "mag_lon": 8.30419784558877,
+            "alpha": 0.7016141408618787,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-01 04:15:48"
+          }
+        }
+      }
+    }
+  },
+  "10676": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10676": {
+            "geo_lat": 46.1,
+            "geo_lon": -66.8,
+            "manual_error": NaN,
+            "interpolated_beta": 1.7878719113419783,
+            "log10_beta": 0.2523364013782359,
+            "mag_lat": 55.20603446369499,
+            "mag_lon": 7.103171542165226,
+            "alpha": 0.5717455005865023,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "[]"
+          }
+        }
+      }
+    }
+  },
+  "10677": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10677": {
+            "geo_lat": 45.2,
+            "geo_lon": -66.2,
+            "manual_error": NaN,
+            "interpolated_beta": 2.3574003177808254,
+            "log10_beta": 0.3724333377389509,
+            "mag_lat": 54.29404726758031,
+            "mag_lon": 7.783569465015439,
+            "alpha": 0.514819027385243,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-06-03 04:01:08"
+          }
+        }
+      }
+    }
+  },
+  "10679": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10679": {
+            "geo_lat": 41.3,
+            "geo_lon": -74.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.6233528265186177,
+            "log10_beta": 0.4188567047364862,
+            "mag_lat": 50.45911952915587,
+            "mag_lon": -1.958284616463828,
+            "alpha": 0.3312252792554974,
+            "nearest_volt": 115.0,
+            "power_pool": "NYISO",
+            "US_region": "East",
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-06-02 02:27:11"
+          }
+        }
+      }
+    }
+  },
+  "10717": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10717": {
+            "geo_lat": 34.3,
+            "geo_lon": -81.3,
+            "manual_error": NaN,
+            "interpolated_beta": 1.8406472507822904,
+            "log10_beta": 0.2649705664956144,
+            "mag_lat": 43.34536653354117,
+            "mag_lon": -9.84765210113918,
+            "alpha": 0.1461622273912305,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 2.0 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10086": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10086": {
+            "geo_lat": 27.7,
+            "geo_lon": -82.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3651553433744837,
+            "log10_beta": -0.437522339877867,
+            "mag_lat": 36.72932868704479,
+            "mag_lon": -10.349694831476238,
+            "alpha": 0.0682974751618705,
+            "nearest_volt": NaN,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10087": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10087": {
+            "geo_lat": 27.9,
+            "geo_lon": -82.4,
+            "manual_error": NaN,
+            "interpolated_beta": 0.505614521871141,
+            "log10_beta": -0.2961804610746953,
+            "mag_lat": 36.91752916144425,
+            "mag_lon": -10.79973041747764,
+            "alpha": 0.0697917531842996,
+            "nearest_volt": 69.0,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10088": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10088": {
+            "geo_lat": 27.9,
+            "geo_lon": -82.4,
+            "manual_error": NaN,
+            "interpolated_beta": 0.505614521871141,
+            "log10_beta": -0.2961804610746953,
+            "mag_lat": 36.91752916144425,
+            "mag_lon": -10.79973041747764,
+            "alpha": 0.0697917531842996,
+            "nearest_volt": 69.0,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10090": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10090": {
+            "geo_lat": 27.8,
+            "geo_lon": -82.1,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3727310104831341,
+            "log10_beta": -0.4286044733007659,
+            "mag_lat": 36.82639909434399,
+            "mag_lon": -10.464185318638588,
+            "alpha": 0.0690641578056422,
+            "nearest_volt": NaN,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nBaseline offset detected (median value: -1.6 A);\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10091": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10091": {
+            "geo_lat": 27.7,
+            "geo_lon": -82.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.4232283596543554,
+            "log10_beta": -0.3734252388255728,
+            "mag_lat": 36.72060959365108,
+            "mag_lon": -10.680911301959847,
+            "alpha": 0.0682290278960796,
+            "nearest_volt": NaN,
+            "power_pool": "FRCC",
+            "US_region": "East",
+            "automated_error": "All GIC values are positive;\nBaseline offset detected (median value: 4.6 A);\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10248": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10248": {
+            "geo_lat": 32.8,
+            "geo_lon": -80.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.901094778523134,
+            "log10_beta": -0.0452295268624527,
+            "mag_lat": 41.86434380560822,
+            "mag_lon": -8.991674493964295,
+            "alpha": 0.1232727694249775,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "All GIC values are negative;\nBaseline offset detected (median value: -3.3 A);\nData is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+          }
+        }
+      }
+    }
+  },
+  "10249": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10249": {
+            "geo_lat": 33.3,
+            "geo_lon": -81.0,
+            "manual_error": NaN,
+            "interpolated_beta": 1.238758315244013,
+            "log10_beta": 0.0929865827324599,
+            "mag_lat": 42.35389659951471,
+            "mag_lon": -9.463937997932176,
+            "alpha": 0.1304119268578973,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2025-06-01 00:20:00"
+          }
+        }
+      }
+    }
+  },
+  "10250": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10250": {
+            "geo_lat": 34.1,
+            "geo_lon": -80.9,
+            "manual_error": NaN,
+            "interpolated_beta": 1.9961869176524896,
+            "log10_beta": 0.300201205039686,
+            "mag_lat": 43.15611122982684,
+            "mag_lon": -9.38484051775345,
+            "alpha": 0.1430154678838328,
+            "nearest_volt": NaN,
+            "power_pool": "SCRTP",
+            "US_region": "East",
+            "automated_error": "Baseline offset detected (median value: -1.4 A);\nData is constant for at least 5 minutes starting at time 2025-06-01 03:01:16"
+          }
+        }
+      }
+    }
+  }
+}

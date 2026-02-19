@@ -1,0 +1,78 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+10052,44.9,-97.0,GIC,measured,NERC,,1.4613600380655098,0.1647572270786324,53.09448620954036,-29.11287345877365,0.4484808192304922,,SPP,Central,Data is constant for at least 5 minutes starting at time 2025-06-01 03:07:58
+10094,41.9,-72.5,GIC,measured,NERC,,2.929623783371682,0.4668118526762025,51.063602704038495,0.1665446908720124,0.3550697719842215,,ISONE,East,Duplicate time stamps found
+10095,41.7,-72.2,GIC,measured,NERC,,2.5428320075460182,0.4053176694145182,50.86331607438063,0.521230071277396,0.3469849296338646,,ISONE,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (3588.0 seconds);
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:14:41"
+10096,41.8,-72.6,GIC,measured,NERC,,3.171537678413347,0.5012698752573048,50.96363253744801,0.0480814281392541,0.3510110631119145,345.0,ISONE,East,Duplicate time stamps found
+10097,41.4,-72.1,GIC,measured,NERC,,2.324064908774785,0.3662482532918991,50.56315560515037,0.6383990893281606,0.3352119085214888,,ISONE,East,Duplicate time stamps found
+10098,41.4,-72.1,GIC,measured,NERC,,2.324064908774785,0.3662482532918991,50.56315560515037,0.6383990893281606,0.3352119085214888,,ISONE,East,Duplicate time stamps found
+10099,41.4,-73.4,GIC,measured,NERC,,2.7748233392986035,0.4432353387343588,50.56268891400056,-0.896717099086777,0.3351939183546875,,NYISO,East,Duplicate time stamps found
+10100,41.6,-72.9,GIC,measured,NERC,,3.187275795663601,0.5034196446951135,50.76352471281549,-0.3066500016648961,0.3430256898810969,,ISONE,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (3521.0 seconds);
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:35:41"
+10103,38.6,-121.3,GIC,measured,NERC,,0.5766122104959627,-0.2391161651131437,44.27700044258799,-55.03792329726751,0.1626913830948284,,NotOrder1000,West,"All GIC values are negative;
+Baseline offset detected (median value: -7.23 A)"
+10233,47.6,-122.3,GIC,measured,NERC,,0.7863563266877992,-0.1043806147145654,52.99137503578466,-58.63243172020317,0.4431942356374206,,NorthernGridConnected,West,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-02 17:48:10"
+10611,39.6,-92.6,GIC,measured,NERC,,1.2699476826377936,0.1037858299246789,48.1270055560019,-23.20641150441771,0.2533078731758808,,SERTP,East,Duplicate time stamps found
+10618,38.3,-86.2,GIC,measured,NERC,,0.5330126156362351,-0.2732625117307198,47.16923334133603,-15.70257641277367,0.2268892094525426,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (3329.0 seconds)"
+10619,38.3,-86.2,GIC,measured,NERC,,0.5330126156362351,-0.2732625117307198,47.16923334133603,-15.70257641277367,0.2268892094525426,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (8611.0 seconds)"
+10620,39.1,-87.5,GIC,measured,NERC,,0.4657602038935467,-0.3318376217862699,47.909139534494486,-17.271568204212453,0.2470401925999825,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (9164.0 seconds)"
+10621,39.1,-87.5,GIC,measured,NERC,,0.4657602038935467,-0.3318376217862699,47.909139534494486,-17.271568204212453,0.2470401925999825,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (34112.0 seconds)"
+10622,39.3,-86.5,GIC,measured,NERC,,0.5118813171556331,-0.2908307212102241,48.154559101943626,-16.132396261976147,0.2541117921391923,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (1052.0 seconds)"
+10715,41.9,-72.8,GIC,measured,NERC,,3.201092569475634,0.5052982332916383,51.06359344206056,-0.1887595434978713,0.3550693937898576,,ISONE,East,Duplicate time stamps found
+10051,44.4,-96.5,GIC,measured,NERC,,1.4244053758465474,0.15363360407557,52.63572802042437,-28.43783167931573,0.4254335311719053,,SPP,Central,"Baseline offset detected (median value: 2.55 A);
+Data is constant for at least 5 minutes starting at time 2025-06-01 13:03:04"
+10102,42.9,-71.3,GIC,measured,NERC,,2.880981184607718,0.4595404219570091,52.06065929463653,1.5973608426783366,0.3982085324235995,,ISONE,East,Duplicate time stamps found
+10240,40.8,-73.6,GIC,measured,NERC,,2.2671631544570605,0.3554827748820328,49.9621300325783,-1.128967619934516,0.3128253206443461,,NYISO,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-01 02:01:50"
+10438,43.2,-75.2,GIC,measured,NERC,,0.5913986068916508,-0.2281197028399677,52.35277097397719,-3.054970935758681,0.4118127113971396,,NYISO,East,Data is constant for at least 5 minutes starting at time 2025-06-01 00:34:20
+10445,41.1,-74.2,GIC,measured,NERC,,2.4943337505101617,0.396954563139045,50.259651956072425,-1.8381505794739343,0.3237138591937032,,NYISO,East,Duplicate time stamps found
+10584,40.0,-104.0,GIC,measured,NERC,,0.3594216977007461,-0.444395708787237,47.62580748857175,-36.26350241991327,0.2391205603090481,345.0,WestConnectNonEnrolled,West,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds)"
+10628,48.0,-66.4,GIC,measured,NERC,,1.3344079242092903,0.1252886123030684,57.09697106484774,7.695046678494694,0.710629837917849,,,,All GIC values are positive
+10648,32.8,-115.5,GIC,measured,NERC,,1.0896628213431034,0.0372921332766582,39.26592027492618,-47.60329180067519,0.0914306564185716,161.0,WestConnect,West,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10649,42.8,-74.0,GIC,measured,NERC,,1.7507451747730551,0.2432229380631113,51.96057732758683,-1.618711502902702,0.3936516545309644,,NYISO,East,"All GIC values are positive;
+Baseline offset detected (median value: 2.8 A)"
+10674,41.7,-72.6,GIC,measured,NERC,,3.2596497933952056,0.513170943329938,50.86363253905149,0.0480530249100379,0.3469975578378838,,ISONE,East,Duplicate time stamps found
+10675,47.9,-65.9,GIC,measured,NERC,,1.358741267118803,0.1331367658124352,56.98594431319281,8.30419784558877,0.7016141408618787,,,,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-01 04:15:48"
+10676,46.1,-66.8,GIC,measured,NERC,,1.7878719113419783,0.2523364013782359,55.20603446369499,7.103171542165226,0.5717455005865023,,,,[]
+10677,45.2,-66.2,GIC,measured,NERC,,2.3574003177808254,0.3724333377389509,54.29404726758031,7.783569465015439,0.514819027385243,,,,Data is constant for at least 5 minutes starting at time 2025-06-03 04:01:08
+10679,41.3,-74.3,GIC,measured,NERC,,2.6233528265186177,0.4188567047364862,50.45911952915587,-1.958284616463828,0.3312252792554974,115.0,NYISO,East,Data is constant for at least 5 minutes starting at time 2025-06-02 02:27:11
+10717,34.3,-81.3,GIC,measured,NERC,,1.8406472507822904,0.2649705664956144,43.34536653354117,-9.84765210113918,0.1461622273912305,,SCRTP,East,"All GIC values are positive;
+Baseline offset detected (median value: 2.0 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10086,27.7,-82.0,GIC,measured,NERC,,0.3651553433744837,-0.437522339877867,36.72932868704479,-10.349694831476238,0.0682974751618705,,FRCC,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10087,27.9,-82.4,GIC,measured,NERC,,0.505614521871141,-0.2961804610746953,36.91752916144425,-10.79973041747764,0.0697917531842996,69.0,FRCC,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10088,27.9,-82.4,GIC,measured,NERC,,0.505614521871141,-0.2961804610746953,36.91752916144425,-10.79973041747764,0.0697917531842996,69.0,FRCC,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10090,27.8,-82.1,GIC,measured,NERC,,0.3727310104831341,-0.4286044733007659,36.82639909434399,-10.464185318638588,0.0690641578056422,,FRCC,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.6 A);
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10091,27.7,-82.3,GIC,measured,NERC,,0.4232283596543554,-0.3734252388255728,36.72060959365108,-10.680911301959847,0.0682290278960796,,FRCC,East,"All GIC values are positive;
+Baseline offset detected (median value: 4.6 A);
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10248,32.8,-80.6,GIC,measured,NERC,,0.901094778523134,-0.0452295268624527,41.86434380560822,-8.991674493964295,0.1232727694249775,,SCRTP,East,"All GIC values are negative;
+Baseline offset detected (median value: -3.3 A);
+Data is constant for at least 5 minutes starting at time 2025-06-01 00:00:00"
+10249,33.3,-81.0,GIC,measured,NERC,,1.238758315244013,0.0929865827324599,42.35389659951471,-9.463937997932176,0.1304119268578973,,SCRTP,East,Data is constant for at least 5 minutes starting at time 2025-06-01 00:20:00
+10250,34.1,-80.9,GIC,measured,NERC,,1.9961869176524896,0.300201205039686,43.15611122982684,-9.38484051775345,0.1430154678838328,,SCRTP,East,"Baseline offset detected (median value: -1.4 A);
+Data is constant for at least 5 minutes starting at time 2025-06-01 03:01:16"
