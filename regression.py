@@ -3,7 +3,6 @@
 
 reparse = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 outliers = False  # Remove outliers from regression based on threshold.
-all_plot = True # Plot regression fits for all available events on one plot.
 
 import os
 import itertools
@@ -12,6 +11,7 @@ import warnings
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 
 from swerve import cli, config, savefig, savefig_paper, add_subplot_label, fix_latex, regress, write_eqn_and_fname
 
@@ -44,7 +44,6 @@ def df_prep(reparse=False):
   from swerve import read_info_df
   # Read GIC stats or create file if no GIC stats file
   def gic_stats(data_types=['GIC'], reparse=False):
-    import pickle
     temp_pkl = os.path.join(results_dir, f'gic_stats_{error_type}.pkl')
 
     if os.path.exists(temp_pkl) and not reparse:
@@ -301,16 +300,18 @@ for output_name in output_names:
 
       x = info[inputs].values
       y = info[output_name].values
+      site_ids = info['site_id'].values
 
       # Remove rows where y is nan
       mask = ~pd.isna(y)
       x = x[mask]
       y = y[mask]
+      site_ids = site_ids[mask]
 
       # Run regression
-      model, mask, metrics = regress(x, y)
+      model, mask, metrics = regress(x, y, outliers=outliers)
 
-      eqn, eqn_txt, base_fname = write_eqn_and_fname(inputs, output_name, model)
+      eqn, eqn_txt, base_fname = write_eqn_and_fname(inputs, output_name, model, labels)
       logger.info(f"  Equation: {eqn_txt}")
       for key in metrics:
         if key != 'p_values':
@@ -346,7 +347,6 @@ for output_name in output_names:
 
       # Add event, output, alpha*beta, and model to pkl file
       if reparse and inputs == ['alpha*interpolated_beta'] and output_name == 'gic_max':
-        import pickle
         fname = CONFIG['files']['regression_results'][output_name]
         if os.path.exists(fname):
           with open(fname, 'rb') as f:
@@ -355,13 +355,15 @@ for output_name in output_names:
           fit_models = {}
         event = args['event'] if args['event'] is not None else '2024-05-10'
         if event in fit_models:
-          fit_models[event][error_type] = {'gic_max': y,
+          fit_models[event][error_type] = {'site_id': site_ids, 
+                                'gic_max': y,
                                 'alpha_beta': x,
                                 'model': model,
                                 'equation': eqn
                               }
         else:
           fit_models[event] = {error_type: {
+                                  'site_id': site_ids,
                                   'gic_max': y,
                                   'alpha_beta': x,
                                   'model': model,

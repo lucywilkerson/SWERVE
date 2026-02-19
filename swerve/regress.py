@@ -94,7 +94,7 @@ def regress(x, y, outliers=False):
   metrics = regress_metrics(y, predictions, x.shape[1])
   return model, mask, metrics
 
-def write_eqn_and_fname(inputs, output_name, model, labels, multiplier=None):
+def write_eqn_and_fname(inputs, output_name, model, labels):
     """
     Create a string for the equation and a filename based on inputs, output_name, and model.
     """
