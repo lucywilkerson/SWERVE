@@ -9,6 +9,7 @@ from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
 from .find_errors import find_errors
 from .update_info_extended import update_info_extended
+from .regress import regress, write_eqn_and_fname
 
 def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=False, error_type='manual_error', key=None, logger=None):
   from swerve import config, read_info_df
