@@ -1,0 +1,1088 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+10052,44.9,-97.0,GIC,measured,NERC,,1.4613600380655098,0.1647572270786324,53.11154821320488,-29.12168991105191,0.449361660969914,,SPP,Central,"Baseline offset detected (median value: 4.0 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:18"
+10064,41.8,-88.2,GIC,measured,NERC,,0.9992471574670888,-0.0003270784925398,50.58793496345012,-18.35450562887742,0.3361684994760653,138.0,PJM,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10065,41.8,-87.8,GIC,measured,NERC,,0.909356959861706,-0.0412656049328742,50.607788147674526,-17.885778391258217,0.3369368880447902,,PJM,East,"Baseline offset detected (median value: 2.58 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10066,41.6,-87.9,GIC,measured,NERC,,0.8800135763626162,-0.0555106277431414,50.4033077753664,-17.98222273366087,0.3291061668052691,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3838 A) > 1/4 * std after (0.4596 A);
+Data is constant for at least 5 minutes starting at time 2024-08-12 05:07:30"
+10067,42.1,-87.9,GIC,measured,NERC,,1.1739638468547255,0.0696547226754306,50.90220982701288,-18.03445728225072,0.3485403934579607,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -8.0 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10068,42.0,-88.2,GIC,measured,NERC,,1.1501378826302473,0.0607499082457068,50.78747808599493,-18.37583136987456,0.3439719040929276,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.77 A);
+Excessive pre-storm noise: std before (0.0406 A) > 1/4 * std after (0.1326 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10069,41.9,-87.7,GIC,measured,NERC,,0.9673350159942892,-0.0144230911702549,50.712459752967305,-17.778874876095127,0.3410171848919404,,PJM,East,"Baseline offset detected (median value: -11.01 A);
+Unphysical spike detected (max diff: 41.14 A);
+Excessive pre-storm noise: std before (7.3397 A) > 1/4 * std after (8.3508 A)"
+10071,42.2,-88.9,GIC,measured,NERC,,1.597837505434032,0.2035326109719616,50.95100212235661,-19.21880876664131,0.3505015904311346,,PJM,East,"Baseline offset detected (median value: -11.01 A);
+Unphysical spike detected (max diff: 41.14 A);
+Excessive pre-storm noise: std before (7.3397 A) > 1/4 * std after (8.3508 A)"
+10072,42.2,-88.9,GIC,measured,NERC,,1.597837505434032,0.2035326109719616,50.95100212235661,-19.21880876664131,0.3505015904311346,,PJM,East,"Baseline offset detected (median value: -11.01 A);
+Unphysical spike detected (max diff: 41.14 A);
+Excessive pre-storm noise: std before (7.3397 A) > 1/4 * std after (8.3508 A)"
+10073,41.6,-87.7,GIC,measured,NERC,,0.8350684775599249,-0.0782779098972061,50.41309927440296,-17.748054234412727,0.3294769564370528,,PJM,East,Excessive pre-storm noise: std before (0.6251 A) > 1/4 * std after (0.8621 A)
+10074,41.2,-87.9,GIC,measured,NERC,,0.7763817105617404,-0.1099247039581599,50.00416960336819,-17.94122068793587,0.3143413522115956,,PJM,East,"Excessive pre-storm noise: std before (0.1655 A) > 1/4 * std after (0.5325 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 21:31:00"
+10075,41.7,-87.5,GIC,measured,NERC,,0.8160313452074529,-0.0882931589064612,50.52255964517891,-17.52392634387999,0.3336506071921568,,PJM,East,"Baseline offset detected (median value: 3.52 A);
+Excessive pre-storm noise: std before (0.7127 A) > 1/4 * std after (1.1927 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 19:31:00"
+10076,41.8,-88.0,GIC,measured,NERC,,0.9543020586643974,-0.0203141392918848,50.59792359561889,-18.12017324599404,0.3365548756484436,,PJM,East,"Excessive pre-storm noise: std before (0.1213 A) > 1/4 * std after (0.4204 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 08:51:00"
+10094,41.9,-72.5,GIC,measured,NERC,,2.929623783371682,0.4668118526762025,51.08285395985224,0.170314268441765,0.3558567297699208,,ISONE,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.5377 A) > 1/4 * std after (0.3109 A);
+Data gap detected >= 10.0 minutes (3601.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 19:31:57"
+10095,41.7,-72.2,GIC,measured,NERC,,2.5428320075460182,0.4053176694145182,50.88256352812912,0.5251412772658223,0.3477538165533017,,ISONE,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (3240.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:15:00"
+10096,41.8,-72.6,GIC,measured,NERC,,3.171537678413347,0.5012698752573048,50.982884898746,0.0517994421784045,0.3517890701140015,345.0,ISONE,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (3240.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:40:00"
+10097,41.4,-72.1,GIC,measured,NERC,,2.324064908774785,0.3662482532918991,50.582401640800285,0.6423493679634161,0.3359546527132457,,ISONE,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.5000 A) > 1/4 * std after (0.7857 A);
+Data gap detected >= 10.0 minutes (3601.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:31:56"
+10098,41.4,-72.1,GIC,measured,NERC,,2.324064908774785,0.3662482532918991,50.582401640800285,0.6423493679634161,0.3359546527132457,,ISONE,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3727 A) > 1/4 * std after (0.8906 A);
+Data gap detected >= 10.0 minutes (3601.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 09:31:56"
+10099,41.4,-73.4,GIC,measured,NERC,,2.7748233392986035,0.4432353387343588,50.58194714471284,-0.8933943507677821,0.3359370938134758,,NYISO,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3194 A) > 1/4 * std after (0.5792 A)"
+10100,41.6,-72.9,GIC,measured,NERC,,3.187275795663601,0.5034196446951135,50.78277989197055,-0.303082552366261,0.3437861089136989,,ISONE,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (3600.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:17:00"
+10103,38.6,-121.3,GIC,measured,NERC,,0.5766122104959627,-0.2391161651131437,44.28843935186522,-55.04995123940205,0.1629055402998359,,NotOrder1000,West,"All GIC values are negative;
+Baseline offset detected (median value: -6.32 A);
+Excessive pre-storm noise: std before (0.5939 A) > 1/4 * std after (0.8448 A)"
+10222,40.2,-75.3,GIC,measured,NERC,,2.691713307197934,0.430028801565164,49.371362816355735,-3.116178490725404,0.2922783857297107,230.0,PJM,East,"Baseline offset detected (median value: -1.2 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10223,32.9,-115.7,GIC,measured,NERC,,1.0780617886924158,0.032643652983504,39.35465794468967,-47.84474971679971,0.0923684678747305,,WestConnect,West,Duplicate time stamps found
+10224,40.2,-75.3,GIC,measured,NERC,,2.691713307197934,0.430028801565164,49.371362816355735,-3.116178490725404,0.2922783857297107,230.0,PJM,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00
+10232,45.0,-92.8,GIC,measured,NERC,,0.8432142123234811,-0.0740620820631635,53.51167676874005,-24.18854621429333,0.4705220525599265,,MISO,Central,"Baseline offset detected (median value: 1.53 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:00"
+10233,47.6,-122.3,GIC,measured,NERC,,0.7863563266877992,-0.1043806147145654,53.00181913826858,-58.650819488341206,0.4437268635275439,,NorthernGridConnected,West,Duplicate time stamps found
+10237,33.7,-84.9,GIC,measured,NERC,,1.4445260600745655,0.1597253811712105,42.64672134250193,-13.892966009478364,0.1348783086335025,,SERTP,East,Baseline offset detected (median value: -3.3 A)
+10238,31.5,-83.5,GIC,measured,NERC,,0.9257162349465204,-0.0335221196715361,40.4991436288753,-12.192013830357284,0.1053619449515022,230.0,SERTP,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.8 A);
+Excessive pre-storm noise: std before (0.0000 A) > 1/4 * std after (0.0000 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10239,31.3,-81.7,GIC,measured,NERC,,1.1620205240966242,0.0652137988143742,40.35496237907827,-10.165500269013297,0.1036293585735169,230.0,SERTP,East,"Excessive pre-storm noise: std before (0.4667 A) > 1/4 * std after (1.4316 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:31:44"
+10253,47.5,-116.2,GIC,measured,NERC,,0.4344943757814788,-0.3620158408099691,53.70323338061489,-51.8508404345176,0.4810021975328614,,NorthernGridConnected,West,Data is constant for at least 5 minutes starting at time 2024-08-11 07:09:20
+10254,42.8,-82.5,GIC,measured,NERC,,0.6150394477268439,-0.2110970283210519,51.82239830984291,-11.72409952054222,0.3874457370745959,,MISO,Central,"All GIC values are positive;
+Baseline offset detected (median value: 6552.0 A);
+Unphysical spike detected (max diff: 6553.0 A);
+Excessive pre-storm noise: std before (3220.7302 A) > 1/4 * std after (3246.3851 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:18:20"
+10255,45.7,-94.7,GIC,measured,NERC,,2.069921759555765,0.3159539299808916,54.07844592667882,-26.553772126465883,0.5022114677898801,,MISO,Central,Data is constant for at least 5 minutes starting at time 2024-08-11 22:44:40
+10265,43.6,-116.3,GIC,measured,NERC,,0.1485872026084397,-0.8280185935086252,49.8531210725671,-50.83837797436204,0.3089282110927954,138.0,NorthernGridConnected,West,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0739 A) > 1/4 * std after (0.2156 A)"
+10266,42.8,-114.4,GIC,measured,NERC,,0.2360842303848971,-0.6269330213310534,49.29552097662668,-48.52649948603712,0.2897402732824805,,NorthernGridConnected,West,Excessive pre-storm noise: std before (0.1174 A) > 1/4 * std after (0.1417 A)
+10297,46.8,-92.3,GIC,measured,NERC,,1.8714973966240973,0.2721892273186879,55.336305367163405,-23.88212459515372,0.5803753893642618,115.0,MISO,Central,"Baseline offset detected (median value: 1.3 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:21:00"
+10298,43.4,-88.0,GIC,measured,NERC,,1.5289654735567622,0.1843976784711311,52.19424766565076,-18.293933860621827,0.404373308217697,,MISO,Central,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.2 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10299,46.6,-87.4,GIC,measured,NERC,,1.2584233259576691,0.0998267597112356,55.4161314934502,-17.958040351608,0.5857277679051263,,MISO,Central,"All GIC values are positive;
+Baseline offset detected (median value: 1.1 A)"
+10300,46.6,-87.4,GIC,measured,NERC,,1.2584233259576691,0.0998267597112356,55.4161314934502,-17.958040351608,0.5857277679051263,,MISO,Central,All GIC values are positive
+10301,44.0,-88.6,GIC,measured,NERC,,1.6600117205555995,0.2201111543982792,52.76207247889124,-19.07402929773004,0.4316600404645305,138.0,MISO,Central,Baseline offset detected (median value: 5.1 A)
+10302,44.2,-88.1,GIC,measured,NERC,,1.326821049844309,0.122812352927872,52.98725991772324,-18.504363350198894,0.4429845486478845,,MISO,Central,"All GIC values are positive;
+Baseline offset detected (median value: 10.0 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10303,44.8,-89.7,GIC,measured,NERC,,1.0464862727242994,0.0197335358575153,53.5003888979213,-20.48098980553924,0.4699116617245144,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10304,44.8,-89.7,GIC,measured,NERC,,1.0464862727242994,0.0197335358575153,53.5003888979213,-20.48098980553924,0.4699116617245144,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10306,44.8,-88.2,GIC,measured,NERC,,1.2345599369449158,0.0915121794462043,53.58064001892586,-18.6949871823192,0.4742684929621695,,MISO,Central,"All GIC values are positive;
+Baseline offset detected (median value: 1.8 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:18:30"
+10307,44.4,-88.4,GIC,measured,NERC,,1.24281518276483,0.0944065501435332,53.171403225602205,-18.884669504298788,0.4524654338517423,,MISO,Central,"All GIC values are positive;
+Baseline offset detected (median value: 2.0 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10308,42.5,-89.1,GIC,measured,NERC,,1.9542158803012368,0.290972538116041,51.239655932672,-19.48774346965748,0.3623318237848592,,MISO,Central,Data is constant for at least 5 minutes starting at time 2024-08-12 17:01:30
+10309,45.8,-88.0,GIC,measured,NERC,,1.0855066860857323,0.0356325027984502,54.5882077557786,-18.579407852099493,0.5325324804717878,69.0,MISO,Central,All GIC values are positive
+10310,43.0,-89.0,GIC,measured,NERC,,1.885019320707212,0.2753158059123828,51.7436600253779,-19.4282507855708,0.3839532893682248,,MISO,Central,"Baseline offset detected (median value: -1.2 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:10:20"
+10311,43.0,-89.0,GIC,measured,NERC,,1.885019320707212,0.2753158059123828,51.7436600253779,-19.4282507855708,0.3839532893682248,,MISO,Central,Baseline offset detected (median value: -1.4 A)
+10312,43.0,-89.0,GIC,measured,NERC,,1.885019320707212,0.2753158059123828,51.7436600253779,-19.4282507855708,0.3839532893682248,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.6 A);
+Excessive pre-storm noise: std before (0.0485 A) > 1/4 * std after (0.1862 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10313,44.5,-89.6,GIC,measured,NERC,,1.212655004665201,0.08373726345428,53.20687081748336,-20.32285970063674,0.4543147064947399,345.0,MISO,Central,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0476 A) > 1/4 * std after (0.1251 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:03:40"
+10315,44.5,-89.6,GIC,measured,NERC,,1.212655004665201,0.08373726345428,53.20687081748336,-20.32285970063674,0.4543147064947399,345.0,MISO,Central,Data is constant for at least 5 minutes starting at time 2024-08-11 07:03:00
+10316,43.7,-88.5,GIC,measured,NERC,,1.763343750849685,0.2463369830564509,52.468046670809365,-18.91997106570347,0.4173083375476563,,MISO,Central,Data is constant for at least 5 minutes starting at time 2024-08-11 06:20:30
+10317,43.7,-88.5,GIC,measured,NERC,,1.763343750849685,0.2463369830564509,52.468046670809365,-18.91997106570347,0.4173083375476563,,MISO,Central,"Baseline offset detected (median value: -1.2 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10318,44.4,-88.7,GIC,measured,NERC,,1.2746208789783278,0.1053810281802575,53.155766642781565,-19.24123204136785,0.4516525384264805,345.0,MISO,Central,"Baseline offset detected (median value: 6.0 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:40"
+10321,43.1,-88.0,GIC,measured,NERC,,1.572139297661632,0.1964910235899094,51.89495673035579,-18.26041758058619,0.3906921946459764,,MISO,Central,Baseline offset detected (median value: -6.3 A)
+10322,43.3,-89.4,GIC,measured,NERC,,2.057880568862676,0.3134201664473121,52.02134562436736,-19.935536969229528,0.3964122665287076,,MISO,Central,"All GIC values are positive;
+Baseline offset detected (median value: 6.3 A);
+Excessive pre-storm noise: std before (0.1596 A) > 1/4 * std after (0.5507 A)"
+10336,44.8,-91.5,GIC,measured,NERC,,1.0779706740382995,0.0326069461229064,53.39488142151824,-22.61829021031056,0.4642445048175204,,MISO,Central,"Baseline offset detected (median value: 1.51 A);
+Excessive pre-storm noise: std before (0.1140 A) > 1/4 * std after (0.3431 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10338,44.8,-91.5,GIC,measured,NERC,,1.0779706740382995,0.0326069461229064,53.39488142151824,-22.61829021031056,0.4642445048175204,,MISO,Central,"Baseline offset detected (median value: 1.99 A);
+Excessive pre-storm noise: std before (0.3780 A) > 1/4 * std after (0.9027 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:18:00"
+10339,43.7,-95.7,GIC,measured,NERC,,1.2680504229953962,0.103136523256494,52.01646267335581,-27.391189327261923,0.396189727923697,,MISO,Central,"Excessive pre-storm noise: std before (0.3400 A) > 1/4 * std after (0.8922 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:03:00"
+10340,43.7,-95.7,GIC,measured,NERC,,1.2680504229953962,0.103136523256494,52.01646267335581,-27.391189327261923,0.396189727923697,,MISO,Central,"Excessive pre-storm noise: std before (0.4249 A) > 1/4 * std after (1.0010 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10341,45.0,-93.5,GIC,measured,NERC,,0.830843512382833,-0.0804807669601032,53.46516936867007,-25.016779118472364,0.4680122530927659,115.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10342,45.0,-93.5,GIC,measured,NERC,,0.830843512382833,-0.0804807669601032,53.46516936867007,-25.016779118472364,0.4680122530927659,115.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.2268 A) > 1/4 * std after (0.3597 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:00:00"
+10343,47.9,-97.1,GIC,measured,NERC,,1.973718919571009,0.2952853041740031,56.08416627828866,-29.83038726084239,0.6324993051368439,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3051 A) > 1/4 * std after (0.3763 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10344,47.9,-97.1,GIC,measured,NERC,,1.973718919571009,0.2952853041740031,56.08416627828866,-29.83038726084239,0.6324993051368439,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10345,47.9,-97.1,GIC,measured,NERC,,1.973718919571009,0.2952853041740031,56.08416627828866,-29.83038726084239,0.6324993051368439,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10347,47.9,-97.1,GIC,measured,NERC,,1.973718919571009,0.2952853041740031,56.08416627828866,-29.83038726084239,0.6324993051368439,69.0,MISO,Central,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -2.64 A);
+Excessive pre-storm noise: std before (0.2695 A) > 1/4 * std after (0.4589 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10348,45.5,-94.3,GIC,measured,NERC,,1.557177655525663,0.1923381632508964,53.90775273054688,-26.045771296882624,0.4924493260320027,,MISO,Central,"Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10349,44.8,-93.6,GIC,measured,NERC,,0.9811921599604532,-0.0082459306037645,53.25932257653461,-25.10295399370913,0.4570633927674832,,MISO,Central,"Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10350,44.8,-93.6,GIC,measured,NERC,,0.9811921599604532,-0.0082459306037645,53.25932257653461,-25.10295399370913,0.4570633927674832,,MISO,Central,"Baseline offset detected (median value: 3.0 A);
+Excessive pre-storm noise: std before (0.1537 A) > 1/4 * std after (0.5479 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10351,44.8,-93.6,GIC,measured,NERC,,0.9811921599604532,-0.0082459306037645,53.25932257653461,-25.10295399370913,0.4570633927674832,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10352,44.8,-93.6,GIC,measured,NERC,,0.9811921599604532,-0.0082459306037645,53.25932257653461,-25.10295399370913,0.4570633927674832,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10353,45.4,-93.9,GIC,measured,NERC,,1.0959693941101911,0.0397984262700192,53.83602734695929,-25.555373439762302,0.4884041038782265,345.0,MISO,Central,"Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-12 15:05:00"
+10354,45.9,-91.5,GIC,measured,NERC,,1.077550657076097,0.0324376960684848,54.49064910446203,-22.78208922814584,0.5265912584867118,,MISO,Central,"Baseline offset detected (median value: -2.0 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10355,44.2,-94.0,GIC,measured,NERC,,1.3178553957476833,0.1198677590636158,52.634798797858366,-25.47908999054976,0.4253880715205586,345.0,MISO,Central,Cadence is >= 60 seconds (60.0 seconds)
+10356,44.2,-94.0,GIC,measured,NERC,,1.3178553957476833,0.1198677590636158,52.634798797858366,-25.47908999054976,0.4253880715205586,345.0,MISO,Central,"Baseline offset detected (median value: 1.47 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10357,47.7,-117.5,GIC,measured,NERC,,0.6980376656756322,-0.15612114248609,53.7348364524589,-53.36934630327531,0.4827535099548433,115.0,NorthernGridConnected,West,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10358,38.7,-121.2,GIC,measured,NERC,,0.5169217895347824,-0.2865751608575163,44.40010199811596,-54.96569630562472,0.1650109325828245,,NotOrder1000,West,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.2989 A) > 1/4 * std after (0.3107 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:02"
+10389,38.3,-87.4,GIC,measured,NERC,,0.5245947440295479,-0.2801760649664037,47.133846624901246,-17.087341470416263,0.2259677662445711,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.4870 A) > 1/4 * std after (0.5811 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 13:04:20"
+10397,39.1,-78.3,GIC,measured,NERC,,2.0731811017327963,0.3166372413354602,48.23099633463102,-6.593433625886871,0.2563553527087029,,PJM,East,Excessive pre-storm noise: std before (1.7281 A) > 1/4 * std after (2.6058 A)
+10398,41.1,-74.2,GIC,measured,NERC,,2.4943337505101617,0.396954563139045,50.27891082458646,-1.835211222340664,0.3244316054264747,,NYISO,East,"All GIC values are positive;
+Baseline offset detected (median value: 4.9 A)"
+10586,34.0,-118.5,GIC,measured,NERC,,1.299364227218366,0.1137309060375355,40.10348817459455,-51.05811402548878,0.1006753657872551,,CAISO,West,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3098 A) > 1/4 * std after (0.5784 A)"
+10587,46.4,-117.0,GIC,measured,NERC,,0.7112390905451829,-0.147984382041321,52.52134811331818,-52.40679899222312,0.4198741539943516,,NorthernGridConnected,West,"Baseline offset detected (median value: 1.6 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 08:41:10"
+10591,35.8,-106.1,GIC,measured,NERC,,0.4274114177415486,-0.3691538804033071,43.27093924961736,-37.88663440359844,0.1449165433628826,,WestConnect,West,"All GIC values are positive;
+Baseline offset detected (median value: 2.73 A);
+Excessive pre-storm noise: std before (0.2952 A) > 1/4 * std after (0.4518 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 09:14:00"
+10592,43.2,-84.5,GIC,measured,NERC,,0.5365818570603087,-0.2703640158083231,52.15053137688558,-14.12813841888504,0.402345474291945,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.1 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10605,45.3,-122.6,GIC,measured,NERC,,0.8880410561791788,-0.0515669553251296,50.70629586343394,-58.24342004692473,0.3407755414366985,,NorthernGridConnected,West,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10606,41.3,-72.9,GIC,measured,NERC,,2.519333459417882,0.4012856545963779,50.482780081909134,-0.3025503238291907,0.3321277584223606,,ISONE,East,"All GIC values are positive;
+Baseline offset detected (median value: 1.5 A);
+Data gap detected >= 10.0 minutes (1539.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:37:17"
+10608,41.2,-73.2,GIC,measured,NERC,,2.359721585037499,0.3728607651672594,50.38237959264171,-0.6563637601668006,0.3283150458893276,,ISONE,East,"All GIC values are positive;
+Baseline offset detected (median value: 7.5 A);
+Excessive pre-storm noise: std before (0.2982 A) > 1/4 * std after (0.5506 A);
+Data gap detected >= 10.0 minutes (7266.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:58:54"
+10609,41.2,-73.2,GIC,measured,NERC,,2.359721585037499,0.3728607651672594,50.38237959264171,-0.6563637601668006,0.3283150458893276,,ISONE,East,Baseline offset detected (median value: -1.6 A)
+10611,39.6,-92.6,GIC,measured,NERC,,1.2699476826377936,0.1037858299246789,48.14489651947528,-23.21128457583428,0.2538295807074882,,SERTP,East,"Baseline offset detected (median value: 3.29 A);
+Excessive pre-storm noise: std before (0.2247 A) > 1/4 * std after (0.5042 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:14"
+10618,38.3,-86.2,GIC,measured,NERC,,0.5330126156362351,-0.2732625117307198,47.18790228385173,-15.70459926292174,0.2273768476123419,,MISO,Central,Data gap detected >= 10.0 minutes (1680.0 seconds)
+10619,38.3,-86.2,GIC,measured,NERC,,0.5330126156362351,-0.2732625117307198,47.18790228385173,-15.70459926292174,0.2273768476123419,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (1980.0 seconds)"
+10620,39.1,-87.5,GIC,measured,NERC,,0.4657602038935467,-0.3318376217862699,47.927671889018384,-17.27428942100585,0.2475672512291906,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1707 A) > 1/4 * std after (0.2063 A);
+Data gap detected >= 10.0 minutes (2404.0 seconds)"
+10621,39.1,-87.5,GIC,measured,NERC,,0.4657602038935467,-0.3318376217862699,47.927671889018384,-17.27428942100585,0.2475672512291906,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0800 A) > 1/4 * std after (0.1851 A);
+Data gap detected >= 10.0 minutes (4749.0 seconds)"
+10622,39.3,-86.5,GIC,measured,NERC,,0.5118813171556331,-0.2908307212102241,48.17319200916719,-16.134754930807294,0.2546568827028297,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0985 A) > 1/4 * std after (0.1593 A)"
+10623,39.3,-86.5,GIC,measured,NERC,,0.5118813171556331,-0.2908307212102241,48.17319200916719,-16.134754930807294,0.2546568827028297,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Data gap detected >= 10.0 minutes (10290.0 seconds)"
+10642,42.2,-86.3,GIC,measured,NERC,,0.5461142418775051,-0.2627164975385062,51.07708385448928,-16.163754645213114,0.3556206750522037,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 6.6 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:53:00"
+10643,40.5,-85.9,GIC,measured,NERC,,0.6847150592020781,-0.1644901204217946,49.39738896312297,-15.540665158027243,0.2931544873836801,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.2 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10644,37.7,-81.7,GIC,measured,NERC,,0.7270994843128518,-0.1384061633745122,46.75110205128783,-10.472763606705012,0.2162373692250066,765.0,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 3.6 A);
+Excessive pre-storm noise: std before (0.0707 A) > 1/4 * std after (0.2644 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:12:00"
+10664,36.3,-115.3,GIC,measured,NERC,,0.2845726094012771,-0.5458069038242861,42.76661387995957,-48.06232461390377,0.1367508416842436,,CAISO,West,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10665,31.0,-86.0,GIC,measured,NERC,,0.1930207859474642,-0.7143959203383019,39.90597723753373,-14.959053190052426,0.0984144243577268,,SERTP,East,Low signal: all GIC values within +/- 4 A
+10701,41.8,-83.3,GIC,measured,NERC,,0.713233725338786,-0.1467681293465939,50.79653698189478,-12.5969871903083,0.344330431464815,,,,"All GIC values are positive;
+Baseline offset detected (median value: 1.4 A);
+Unphysical spike detected (max diff: 6552.99 A);
+Data is constant for at least 5 minutes starting at time 2024-08-12 04:17:10"
+10707,38.3,-82.7,GIC,measured,NERC,,0.5806159156987967,-0.2361110635690612,47.320014899904926,-11.662339784858425,0.2308577485031882,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.5 A);
+Excessive pre-storm noise: std before (0.1117 A) > 1/4 * std after (0.2303 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:29:00"
+10708,38.3,-82.7,GIC,measured,NERC,,0.5806159156987967,-0.2361110635690612,47.320014899904926,-11.662339784858425,0.2308577485031882,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.0 A);
+Excessive pre-storm noise: std before (0.1080 A) > 1/4 * std after (0.1903 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:20:00"
+10051,44.4,-96.5,GIC,measured,NERC,,1.4244053758465474,0.15363360407557,52.65289412368369,-28.44618756226192,0.4262742098230384,,SPP,Central,"Baseline offset detected (median value: 1.4 A);
+Data is constant for at least 5 minutes starting at time 2024-08-12 09:06:10"
+10063,33.4,-112.5,GIC,measured,NERC,,0.5072943140435764,-0.294740005400589,40.21822817647372,-44.48064158564743,0.1020125903320186,,WestConnect,West,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0503 A) > 1/4 * std after (0.0902 A);
+Data is constant for at least 5 minutes starting at time 2024-08-12 16:04:21"
+10077,42.3,-87.9,GIC,measured,NERC,,1.3255865352890053,0.1224080840659391,51.10176403300247,-18.05566544211909,0.3566314386591727,138.0,PJM,East,Data is constant for at least 5 minutes starting at time 2024-08-11 22:25:10
+10078,42.1,-87.8,GIC,measured,NERC,,1.1540917340532886,0.0622403304919486,50.90713489400222,-17.917057218687923,0.3487378566229639,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0513 A) > 1/4 * std after (0.1611 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10079,41.5,-87.6,GIC,measured,NERC,,0.7866879617083581,-0.1041974955708377,50.31815712404371,-17.620824088138118,0.3258991798481023,345.0,PJM,East,Excessive pre-storm noise: std before (0.6897 A) > 1/4 * std after (0.8450 A)
+10080,42.0,-87.9,GIC,measured,NERC,,1.0905215442259428,0.0376342498743888,50.80243129179769,-18.023921263039654,0.3445639134695407,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 4.31 A);
+Excessive pre-storm noise: std before (0.8202 A) > 1/4 * std after (0.9383 A)"
+10082,41.6,-87.7,GIC,measured,NERC,,0.8350684775599249,-0.0782779098972061,50.41309927440296,-17.748054234412727,0.3294769564370528,,PJM,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10083,40.8,-88.6,GIC,measured,NERC,,0.7003540656265397,-0.1546823458825831,49.56992508200081,-18.716481785959648,0.2990292469310957,345.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.21 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:39:20"
+10084,41.2,-87.9,GIC,measured,NERC,,0.7763817105617404,-0.1099247039581599,50.00416960336819,-17.94122068793587,0.3143413522115956,,PJM,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10085,41.2,-87.9,GIC,measured,NERC,,0.7763817105617404,-0.1099247039581599,50.00416960336819,-17.94122068793587,0.3143413522115956,,PJM,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10102,42.9,-71.3,GIC,measured,NERC,,2.880981184607718,0.4595404219570091,52.07989069723583,1.6017721444689412,0.399090189495239,,ISONE,East,Duplicate time stamps found
+10107,34.5,-118.1,GIC,measured,NERC,,0.9647671847862695,-0.0155774768753736,40.64737872962967,-50.72732828430796,0.1071734504132521,500.0,CAISO,West,[]
+10111,43.4,-123.0,GIC,measured,NERC,,0.5699654737361433,-0.244151451380176,48.78654252428751,-58.12023430874567,0.2732678337612889,,NorthernGridConnected,West,"Baseline offset detected (median value: 2.0 A);
+Excessive pre-storm noise: std before (0.9229 A) > 1/4 * std after (0.9072 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:04:20"
+10112,47.7,-117.4,GIC,measured,NERC,,0.6947322760129329,-0.1581825241158557,53.74763394161782,-53.25762897389568,0.4834645067906936,,NorthernGridConnected,West,Excessive pre-storm noise: std before (0.8896 A) > 1/4 * std after (3.4481 A)
+10113,45.6,-121.1,GIC,measured,NERC,,0.6593937188565016,-0.1808551941036236,51.20254426273396,-56.695269376521125,0.3607887439465419,500.0,NorthernGridUnconnected,West,"Baseline offset detected (median value: -2.13 A);
+Excessive pre-storm noise: std before (0.4413 A) > 1/4 * std after (0.6627 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:32:00"
+10114,46.5,-116.9,GIC,measured,NERC,,0.7795147586163345,-0.108175657864546,52.63228949453739,-52.32553042371689,0.4252653350448701,,NorthernGridConnected,West,"Baseline offset detected (median value: -1.76 A);
+Excessive pre-storm noise: std before (0.4164 A) > 1/4 * std after (0.6622 A)"
+10115,47.6,-114.6,GIC,measured,NERC,,0.2891062058950986,-0.5389425857521396,53.99986839912718,-50.082354227285386,0.4976937190831106,230.0,NorthernGridUnconnected,West,"Excessive pre-storm noise: std before (0.4442 A) > 1/4 * std after (1.2330 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:22:00"
+10116,47.9,-121.9,GIC,measured,NERC,,0.9013327943924132,-0.04511482713106,53.35003123542393,-58.31265283574022,0.4618562022415213,500.0,NorthernGridUnconnected,West,"Baseline offset detected (median value: 1.2 A);
+Unphysical spike detected (max diff: 159.4 A);
+Excessive pre-storm noise: std before (3.6304 A) > 1/4 * std after (0.9443 A)"
+10117,45.3,-122.8,GIC,measured,NERC,,0.8455076590755253,-0.0728824539690527,50.679124988942974,-58.46131211275685,0.3397123987877463,,NorthernGridConnected,West,"Baseline offset detected (median value: -1.28 A);
+Excessive pre-storm noise: std before (0.5175 A) > 1/4 * std after (1.1494 A)"
+10118,45.7,-122.6,GIC,measured,NERC,,1.0349144259528795,0.0149044407369739,51.09871794108775,-58.366298384015415,0.3565065323415161,115.0,NorthernGridUnconnected,West,"All GIC values are positive;
+Baseline offset detected (median value: 6.2 A);
+Excessive pre-storm noise: std before (0.2884 A) > 1/4 * std after (0.5365 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10119,47.5,-120.3,GIC,measured,NERC,,0.3611132137327444,-0.442356619725426,53.17310183423984,-56.415153009414105,0.452553827079657,115.0,NorthernGridUnconnected,West,"Baseline offset detected (median value: 3.3 A);
+Excessive pre-storm noise: std before (1.0921 A) > 1/4 * std after (1.2827 A)"
+10120,47.8,-122.2,GIC,measured,NERC,,0.8667019498089719,-0.0621302264079593,53.21130303516678,-58.60848382527831,0.4545463320128073,115.0,NorthernGridConnected,West,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10121,46.9,-119.9,GIC,measured,NERC,,0.3463592333958862,-0.4604732302606293,52.63759517330196,-55.779248079269735,0.4255248911659055,,NorthernGridUnconnected,West,Excessive pre-storm noise: std before (0.4482 A) > 1/4 * std after (0.9280 A)
+10231,45.0,-92.8,GIC,measured,NERC,,0.8432142123234811,-0.0740620820631635,53.51167676874005,-24.18854621429333,0.4705220525599265,,MISO,Central,"Baseline offset detected (median value: 1.4 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10234,30.8,-88.1,GIC,measured,NERC,,0.1248950531166711,-0.903454762960365,39.6131823600364,-17.28655269458856,0.095155840263771,,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0453 A) > 1/4 * std after (0.1252 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:35:15"
+10235,33.3,-87.4,GIC,measured,NERC,,0.6705732866081765,-0.1735537513989088,42.14203182575404,-16.6849347066874,0.1272729076382578,,SERTP,East,"Baseline offset detected (median value: -17.1 A);
+Excessive pre-storm noise: std before (2.7556 A) > 1/4 * std after (7.7168 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:55:30"
+10236,33.7,-86.6,GIC,measured,NERC,,1.3276050516602194,0.1230688962704498,42.57718075978751,-15.812409800881154,0.133803965848149,115.0,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:06:26"
+10240,40.8,-73.6,GIC,measured,NERC,,2.2671631544570605,0.3554827748820328,49.981388903976594,-1.125742889467588,0.3135189246489153,,NYISO,East,"Baseline offset detected (median value: -2.33 A);
+Unphysical spike detected (max diff: 120.35 A);
+Excessive pre-storm noise: std before (0.0650 A) > 1/4 * std after (0.1373 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10257,47.4,-101.2,GIC,measured,NERC,,0.24746824742487,-0.6064805173478696,55.239510402001976,-34.57640224505568,0.573950810256532,,SPP,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0657 A) > 1/4 * std after (0.1166 A)"
+10258,47.4,-101.2,GIC,measured,NERC,,0.24746824742487,-0.6064805173478696,55.239510402001976,-34.57640224505568,0.573950810256532,,SPP,Central,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0555 A) > 1/4 * std after (0.1061 A)"
+10259,47.4,-101.2,GIC,measured,NERC,,0.24746824742487,-0.6064805173478696,55.239510402001976,-34.57640224505568,0.573950810256532,,SPP,Central,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0504 A) > 1/4 * std after (0.0984 A)"
+10260,47.4,-101.2,GIC,measured,NERC,,0.24746824742487,-0.6064805173478696,55.239510402001976,-34.57640224505568,0.573950810256532,,SPP,Central,"All GIC values are positive;
+Baseline offset detected (median value: 13.5 A);
+Excessive pre-storm noise: std before (0.1085 A) > 1/4 * std after (0.1768 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10261,45.1,-93.8,GIC,measured,NERC,,0.9661853461548524,-0.0149395536145032,53.54431950504183,-25.387658495464585,0.4722916716191767,115.0,MISO,Central,[]
+10262,45.1,-93.8,GIC,measured,NERC,,0.9661853461548524,-0.0149395536145032,53.54431950504183,-25.387658495464585,0.4722916716191767,115.0,MISO,Central,[]
+10263,45.1,-93.8,GIC,measured,NERC,,0.9661853461548524,-0.0149395536145032,53.54431950504183,-25.387658495464585,0.4722916716191767,115.0,MISO,Central,[]
+10264,45.1,-93.8,GIC,measured,NERC,,0.9661853461548524,-0.0149395536145032,53.54431950504183,-25.387658495464585,0.4722916716191767,115.0,MISO,Central,Baseline offset detected (median value: -1.12 A)
+10291,43.4,-72.7,GIC,measured,NERC,,1.336512172970902,0.1259729186705699,52.58288278422479,-0.0672694982868277,0.4228559258435014,46.0,ISONE,East,"All GIC values are negative;
+Baseline offset detected (median value: -1.8 A);
+Excessive pre-storm noise: std before (0.2022 A) > 1/4 * std after (0.4113 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10292,44.1,-72.5,GIC,measured,NERC,,1.4669498915554624,0.1664152793561469,53.28285349048205,0.1726589375716343,0.4583019064817161,,ISONE,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10293,43.0,-72.7,GIC,measured,NERC,,1.855730884607322,0.2685149956952512,52.18288279740473,-0.0671012674494487,0.4038451537536546,,ISONE,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10294,44.1,-73.2,GIC,measured,NERC,,1.2176979111964337,0.0855395610614689,53.28237046693194,-0.668144032121343,0.4582764495681622,,ISONE,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00
+10295,42.8,-72.5,GIC,measured,NERC,,2.031084131575116,0.3077279131251809,51.98285377342084,0.1712455589031759,0.3946614007305932,345.0,ISONE,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.5 A);
+Excessive pre-storm noise: std before (0.0966 A) > 1/4 * std after (0.1941 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10296,43.6,-73.1,GIC,measured,NERC,,1.0984825737037112,0.0407931716758751,52.78254095116946,-0.5462732796283818,0.4326773107387769,115.0,ISONE,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00
+10333,44.4,-96.5,GIC,measured,NERC,,1.4244053758465474,0.15363360407557,52.65289412368369,-28.44618756226192,0.4262742098230384,,SPP,Central,"Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10334,44.4,-96.5,GIC,measured,NERC,,1.4244053758465474,0.15363360407557,52.65289412368369,-28.44618756226192,0.4262742098230384,,SPP,Central,"All GIC values are positive;
+Baseline offset detected (median value: 5.0 A);
+Excessive pre-storm noise: std before (0.4908 A) > 1/4 * std after (0.9293 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10335,45.1,-93.5,GIC,measured,NERC,,0.8098156397016619,-0.0916138401008952,53.56471180862989,-25.032848809584493,0.4734005495763218,,MISO,Central,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10346,47.9,-97.1,GIC,measured,NERC,,1.973718919571009,0.2952853041740031,56.08416627828866,-29.83038726084239,0.6324993051368439,69.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10359,33.7,-111.9,GIC,measured,NERC,,0.7318294816873394,-0.1355900989813782,40.58227724020602,-43.88246275645373,0.1063740740873248,,WestConnect,West,"Excessive pre-storm noise: std before (0.0965 A) > 1/4 * std after (0.1744 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10360,40.2,-75.3,GIC,measured,NERC,,2.691713307197934,0.430028801565164,49.371362816355735,-3.116178490725404,0.2922783857297107,230.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10361,40.2,-75.3,GIC,measured,NERC,,2.691713307197934,0.430028801565164,49.371362816355735,-3.116178490725404,0.2922783857297107,230.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10362,39.8,-76.3,GIC,measured,NERC,,2.44308449385514,0.3879384872683546,48.96110577170167,-4.279423844367145,0.2788090569258851,230.0,PJM,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00
+10363,40.2,-75.6,GIC,measured,NERC,,2.343391466974178,0.3698448441861944,49.36861347130559,-3.4680401633210365,0.2921859893118813,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 3.0 A);
+Excessive pre-storm noise: std before (0.6164 A) > 1/4 * std after (0.7552 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:03:30"
+10364,40.2,-75.6,GIC,measured,NERC,,2.343391466974178,0.3698448441861944,49.36861347130559,-3.4680401633210365,0.2921859893118813,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10399,39.1,-78.3,GIC,measured,NERC,,2.0731811017327963,0.3166372413354602,48.23099633463102,-6.593433625886871,0.2563553527087029,,PJM,East,"Excessive pre-storm noise: std before (0.3883 A) > 1/4 * std after (0.7456 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:21:40"
+10400,39.1,-78.3,GIC,measured,NERC,,2.0731811017327963,0.3166372413354602,48.23099633463102,-6.593433625886871,0.2563553527087029,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3588 A) > 1/4 * std after (0.7050 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:17:20"
+10401,39.1,-78.3,GIC,measured,NERC,,2.0731811017327963,0.3166372413354602,48.23099633463102,-6.593433625886871,0.2563553527087029,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3567 A) > 1/4 * std after (0.6923 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:21:10"
+10402,39.5,-78.9,GIC,measured,NERC,,1.100117757927958,0.0414391750501201,48.61928471242904,-7.307938892242998,0.2680618511963138,138.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1181 A) > 1/4 * std after (0.2748 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:06:20"
+10403,39.5,-78.9,GIC,measured,NERC,,1.100117757927958,0.0414391750501201,48.61928471242904,-7.307938892242998,0.2680618511963138,138.0,PJM,East,Excessive pre-storm noise: std before (0.7792 A) > 1/4 * std after (1.1537 A)
+10404,39.5,-77.9,GIC,measured,NERC,,2.975750740745741,0.4735965503777589,48.637970993114365,-6.140805163289195,0.2686385146610198,500.0,PJM,East,Excessive pre-storm noise: std before (0.5912 A) > 1/4 * std after (1.1498 A)
+10405,39.5,-77.9,GIC,measured,NERC,,2.975750740745741,0.4735965503777589,48.637970993114365,-6.140805163289195,0.2686385146610198,500.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3882 A) > 1/4 * std after (0.7635 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:41:00"
+10406,39.5,-77.9,GIC,measured,NERC,,2.975750740745741,0.4735965503777589,48.637970993114365,-6.140805163289195,0.2686385146610198,500.0,PJM,East,Excessive pre-storm noise: std before (0.5686 A) > 1/4 * std after (1.0940 A)
+10407,39.5,-77.9,GIC,measured,NERC,,2.975750740745741,0.4735965503777589,48.637970993114365,-6.140805163289195,0.2686385146610198,500.0,PJM,East,"Excessive pre-storm noise: std before (0.4563 A) > 1/4 * std after (0.8515 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:41:10"
+10409,39.3,-77.5,GIC,measured,NERC,,3.214361482606811,0.5070947153251723,48.44458244049933,-5.667640616862088,0.2627300241134543,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3027 A) > 1/4 * std after (0.5810 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:04:30"
+10410,39.3,-77.5,GIC,measured,NERC,,3.214361482606811,0.5070947153251723,48.44458244049933,-5.667640616862088,0.2627300241134543,,PJM,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10411,39.3,-77.5,GIC,measured,NERC,,3.214361482606811,0.5070947153251723,48.44458244049933,-5.667640616862088,0.2627300241134543,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.2876 A) > 1/4 * std after (0.5501 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:31:30"
+10412,39.3,-77.5,GIC,measured,NERC,,3.214361482606811,0.5070947153251723,48.44458244049933,-5.667640616862088,0.2627300241134543,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3193 A) > 1/4 * std after (0.6056 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:04:20"
+10413,39.3,-77.5,GIC,measured,NERC,,3.214361482606811,0.5070947153251723,48.44458244049933,-5.667640616862088,0.2627300241134543,,PJM,East,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10414,39.4,-77.4,GIC,measured,NERC,,3.647067586236612,0.5619438115884283,48.54612237590781,-5.554018411257684,0.2658159290606625,230.0,PJM,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10415,44.1,-103.2,GIC,measured,NERC,,0.3562053270327211,-0.4482995899721114,51.783820186566686,-36.16757635866385,0.3857306474896997,,WestConnectNonEnrolled,West,Duplicate time stamps found
+10416,44.1,-103.2,GIC,measured,NERC,,0.3562053270327211,-0.4482995899721114,51.783820186566686,-36.16757635866385,0.3857306474896997,,WestConnectNonEnrolled,West,Duplicate time stamps found
+10418,39.4,-115.2,GIC,measured,NERC,,0.4612294356878539,-0.3360829837952325,45.84297516799057,-48.607785913705534,0.194793913201019,,NorthernGridConnected,West,"All GIC values are positive;
+Baseline offset detected (median value: 3.4 A);
+Excessive pre-storm noise: std before (0.1795 A) > 1/4 * std after (0.3002 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:30"
+10420,39.5,-75.5,GIC,measured,NERC,,2.175188946991257,0.3374969877603458,48.66961400224602,-3.337811665383326,0.2696178565282733,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 7.800000000000001 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:33"
+10421,39.5,-75.5,GIC,measured,NERC,,2.175188946991257,0.3374969877603458,48.66961400224602,-3.337811665383326,0.2696178565282733,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 9.3 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:17:08"
+10425,36.8,-78.7,GIC,measured,NERC,,2.1019543813075523,0.3226232863062152,45.92411232445915,-6.975724545094152,0.1966199971242407,,PJM,East,"All GIC values are positive;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10426,38.1,-78.8,GIC,measured,NERC,,2.24051517483117,0.3503478897010249,47.22175526944384,-7.137887669718708,0.2282637722241072,,PJM,East,Excessive pre-storm noise: std before (0.5371 A) > 1/4 * std after (0.9657 A)
+10427,39.0,-77.5,GIC,measured,NERC,,2.793857275758007,0.4462042164045267,48.14464430110156,-5.65848379433242,0.2538222184585947,,PJM,East,Excessive pre-storm noise: std before (0.5746 A) > 1/4 * std after (2.0499 A)
+10428,36.7,-76.5,GIC,measured,NERC,,1.305214367144753,0.1156818456378613,45.85904939208785,-4.440692627033677,0.1951543297363784,,PJM,East,[]
+10429,36.7,-76.3,GIC,measured,NERC,,0.7578720845612434,-0.1204040894301088,45.8614567145134,-4.210459144864767,0.1952083641458905,,PJM,East,"All GIC values are positive;
+Excessive pre-storm noise: std before (0.5341 A) > 1/4 * std after (0.8252 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:05:55"
+10438,43.2,-75.2,GIC,measured,NERC,,0.5913986068916508,-0.2281197028399677,52.372022960391774,-3.0525731895131067,0.412725465897088,,NYISO,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00
+10441,34.2,-81.6,GIC,measured,NERC,,1.7050957343971544,0.2317487679344993,43.25615112414037,-10.183200112916056,0.1446703027417706,230.0,SCRTP,East,"All GIC values are negative;
+Baseline offset detected (median value: -6.0 A);
+Excessive pre-storm noise: std before (0.4000 A) > 1/4 * std after (1.2189 A);
+Data gap detected >= 10.0 minutes (6527.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:15:00"
+10442,33.8,-78.9,GIC,measured,NERC,,0.9210879549517226,-0.035698896918954,42.92106266666213,-7.103502441910355,0.1392014558678162,,SCRTP,East,"Baseline offset detected (median value: 2.0 A);
+Data gap detected >= 10.0 minutes (4606.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:41:22"
+10445,41.1,-74.2,GIC,measured,NERC,,2.4943337505101617,0.396954563139045,50.27891082458646,-1.835211222340664,0.3244316054264747,,NYISO,East,Duplicate time stamps found
+10446,37.0,-121.0,GIC,measured,NERC,,0.698922467190616,-0.1555709987019102,42.74940882789931,-54.363722506104025,0.1364805365674049,500.0,CAISO,West,"All GIC values are positive;
+Baseline offset detected (median value: 23.19 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10447,37.0,-121.0,GIC,measured,NERC,,0.698922467190616,-0.1555709987019102,42.74940882789931,-54.363722506104025,0.1364805365674049,500.0,CAISO,West,"All GIC values are negative;
+Baseline offset detected (median value: -4.88 A);
+Excessive pre-storm noise: std before (1.4361 A) > 1/4 * std after (3.9035 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10448,37.0,-120.0,GIC,measured,NERC,,0.5721220770222946,-0.2425112933740492,42.87823073736236,-53.28927298651049,0.1385174810730576,,CAISO,West,"Baseline offset detected (median value: -4.27 A);
+Excessive pre-storm noise: std before (3.1174 A) > 1/4 * std after (7.6765 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10449,37.0,-120.0,GIC,measured,NERC,,0.5721220770222946,-0.2425112933740492,42.87823073736236,-53.28927298651049,0.1385174810730576,,CAISO,West,"All GIC values are positive;
+Baseline offset detected (median value: 20.75 A);
+Excessive pre-storm noise: std before (3.4027 A) > 1/4 * std after (5.8562 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10584,40.0,-104.0,GIC,measured,NERC,,0.3594216977007461,-0.444395708787237,47.64162475628588,-36.27246677965413,0.2395559130398365,345.0,WestConnectNonEnrolled,West,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0961 A) > 1/4 * std after (0.2379 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10585,33.1,-80.1,GIC,measured,NERC,,0.903367798180872,-0.0441353945379746,42.19540266375185,-8.437779126959475,0.1280564658797248,,SCRTP,East,Duplicate time stamps found
+10593,37.0,-84.5,GIC,measured,NERC,,0.4758607201486001,-0.322520142494289,45.95833419634195,-13.652485751906552,0.197395322776893,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 5.6 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:22:50"
+10628,48.0,-66.4,GIC,measured,NERC,,1.3344079242092903,0.1252886123030684,57.115983616260365,7.702880524342387,0.7121852896796268,,,,"All GIC values are positive;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10635,43.7,-87.7,GIC,measured,NERC,,1.3986159376354528,0.1456984728443709,52.50844272997672,-17.972458633261816,0.4192514729301362,,MISO,Central,"Baseline offset detected (median value: -1.1 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:45:10"
+10636,43.7,-87.7,GIC,measured,NERC,,1.3986159376354528,0.1456984728443709,52.50844272997672,-17.972458633261816,0.4192514729301362,,MISO,Central,Baseline offset detected (median value: -1.2 A)
+10637,40.1,-104.8,GIC,measured,NERC,,1.2382724793697353,0.0928162208278167,47.664488328468735,-37.19298462619039,0.2401866087736471,230.0,WestConnect,West,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0251 A) > 1/4 * std after (0.1003 A);
+Cadence is >= 60 seconds (300.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:15:00"
+10648,32.8,-115.5,GIC,measured,NERC,,1.0896628213431034,0.0372921332766582,39.27926834328392,-47.61156102901537,0.0915711127981845,161.0,WestConnect,West,"All GIC values are positive;
+All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10649,42.8,-74.0,GIC,measured,NERC,,1.7507451747730551,0.2432229380631113,51.97983651236184,-1.6156868226299883,0.3945244828914562,,NYISO,East,"All GIC values are positive;
+Baseline offset detected (median value: 4.1 A);
+Excessive pre-storm noise: std before (0.2749 A) > 1/4 * std after (0.3080 A);
+Cadence is >= 60 seconds (300.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10658,43.1,-78.7,GIC,measured,NERC,,0.7601303754311045,-0.119111912358339,52.222020621210135,-7.224146090361539,0.4056668967283096,,NYISO,East,"All GIC values are positive;
+Baseline offset detected (median value: 432.1 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10659,42.5,-87.9,GIC,measured,NERC,,1.4085185528992998,0.1487625718533669,51.301314369300286,-18.07705749113011,0.3649101476550978,345.0,MISO,Central,"Baseline offset detected (median value: 2.7 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:00:50"
+10674,41.7,-72.6,GIC,measured,NERC,,3.2596497933952056,0.513170943329938,50.88288490061482,0.0517687661928296,0.3477666690192699,,ISONE,East,Duplicate time stamps found
+10675,47.9,-65.9,GIC,measured,NERC,,1.358741267118803,0.1331367658124352,57.00492311493371,8.312322568977073,0.703147129678031,,,,[]
+10676,46.1,-66.8,GIC,measured,NERC,,1.7878719113419783,0.2523364013782359,55.22507775641857,7.110395015475558,0.5729989830825586,,,,[]
+10677,45.2,-66.2,GIC,measured,NERC,,2.3574003177808254,0.3724333377389509,54.31305506074524,7.790969923242783,0.5159455991840212,,,,[]
+10678,31.5,-87.9,GIC,measured,NERC,,0.1838295000939585,-0.7355847938205067,40.32155563392438,-17.113925918153935,0.1032320015896242,115.0,SERTP,East,"All GIC values are negative;
+Baseline offset detected (median value: -27.51 A);
+Excessive pre-storm noise: std before (0.0889 A) > 1/4 * std after (0.1548 A)"
+10679,41.3,-74.3,GIC,measured,NERC,,2.6233528265186177,0.4188567047364862,50.47837810481677,-1.955395222624503,0.3319596688115346,115.0,NYISO,East,Excessive pre-storm noise: std before (0.4503 A) > 1/4 * std after (1.2363 A)
+10694,32.0,-106.2,GIC,measured,NERC,,0.3655362467058836,-0.4370695517735677,39.48750568376076,-37.40120122785921,0.0937904608018727,,WestConnect,West,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 3.0 A);
+Cadence is >= 60 seconds (3600.0 seconds);
+Data gap detected >= 10.0 minutes (3600.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10709,36.4,-85.5,GIC,measured,NERC,,0.6145266464755583,-0.2114592809363589,45.31989048116968,-14.75596077688069,0.1834216141404679,69.0,SERTP,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:35:00"
+10710,36.4,-85.5,GIC,measured,NERC,,0.6145266464755583,-0.2114592809363589,45.31989048116968,-14.75596077688069,0.1834216141404679,69.0,SERTP,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -2.2 A);
+Excessive pre-storm noise: std before (0.0986 A) > 1/4 * std after (0.2645 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 11:28:00"
+10711,36.7,-85.4,GIC,measured,NERC,,0.5564342147261355,-0.2545861734141599,45.62356078077936,-14.663129654051811,0.1899402387499474,,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:19:00"
+10712,36.7,-85.4,GIC,measured,NERC,,0.5564342147261355,-0.2545861734141599,45.62356078077936,-14.663129654051811,0.1899402387499474,,SERTP,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.1 A);
+Excessive pre-storm noise: std before (0.2815 A) > 1/4 * std after (0.5033 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:21:00"
+10716,41.7,-71.5,GIC,measured,NERC,,1.8646215846150305,0.2705907072499137,50.88073219132438,1.3535208182876632,0.3476805860131117,,ISONE,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:03:40
+10646,41.0,-81.6,GIC,measured,NERC,,0.6117421374360327,-0.2134316038153043,50.051672387071385,-10.543622888756447,0.3160632413801444,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0676 A) > 1/4 * std after (0.2035 A)"
+10647,40.2,-74.5,GIC,measured,NERC,,2.9734133513883285,0.4732552871896889,49.37725879102224,-2.1777718518032496,0.2924766285152465,,PJM,East,Low signal: all GIC values within +/- 4 A
+10660,36.2,-88.6,GIC,measured,NERC,,0.9314245148534188,-0.0308523357339139,44.97957472346895,-18.277032838405347,0.1763818228506656,,SERTP,East,Excessive pre-storm noise: std before (0.0690 A) > 1/4 * std after (0.2752 A)
+10661,36.0,-87.9,GIC,measured,NERC,,1.0497657761486834,0.0210924100476153,44.8142212865253,-17.46295357807529,0.1730594968758219,,SERTP,East,Excessive pre-storm noise: std before (0.0929 A) > 1/4 * std after (0.2831 A)
+10691,37.2,-86.9,GIC,measured,NERC,,0.6880772749551748,-0.1623627853080093,46.05871008230823,-16.41980651699396,0.1996871035994578,161.0,SERTP,East,[]
+10692,37.2,-86.9,GIC,measured,NERC,,0.6880772749551748,-0.1623627853080093,46.05871008230823,-16.41980651699396,0.1996871035994578,161.0,SERTP,East,[]
+10693,36.0,-84.1,GIC,measured,NERC,,0.5592615251552008,-0.2523850572809846,44.97417477135233,-13.128925812974092,0.1762723247123267,161.0,SERTP,East,[]
+10696,40.4,-85.9,GIC,measured,NERC,,0.6860433507730741,-0.1636484405517251,49.29754685125515,-15.532042839794691,0.2898077835551739,,MISO,Central,"Baseline offset detected (median value: 2.5 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:47:00"
+10697,36.8,-80.8,GIC,measured,NERC,,1.5739338390000075,0.1969864726474962,45.876411156716166,-9.391110062286996,0.1955443646862646,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0740 A) > 1/4 * std after (0.2439 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:06:00"
+10698,26.1,-98.1,GIC,measured,NERC,,,,34.31207449398052,-27.86009036526619,0.0517222763974952,,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 3.6 A);
+Excessive pre-storm noise: std before (0.1126 A) > 1/4 * std after (0.2390 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10699,37.6,-81.6,GIC,measured,NERC,,0.8329471584712761,-0.079382549028088,46.65405266389546,-10.352075754175912,0.2138374306246189,46.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1289 A) > 1/4 * std after (0.4417 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10700,37.6,-81.6,GIC,measured,NERC,,0.8329471584712761,-0.079382549028088,46.65405266389546,-10.352075754175912,0.2138374306246189,46.0,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:04:00"
+10086,27.7,-82.0,GIC,measured,NERC,,0.3651553433744837,-0.437522339877867,36.74835770661453,-10.348827880041458,0.0684470967223916,,FRCC,East,Duplicate time stamps found
+10087,27.9,-82.4,GIC,measured,NERC,,0.505614521871141,-0.2961804610746953,36.93653427082391,-10.798990966174724,0.0699444559850386,69.0,FRCC,East,Duplicate time stamps found
+10088,27.9,-82.4,GIC,measured,NERC,,0.505614521871141,-0.2961804610746953,36.93653427082391,-10.798990966174724,0.0699444559850386,69.0,FRCC,East,Duplicate time stamps found
+10089,27.8,-82.4,GIC,measured,NERC,,0.4850123295363409,-0.3142472210234348,36.83659144700663,-10.794763643305306,0.0691451567857144,230.0,FRCC,East,Duplicate time stamps found
+10090,27.8,-82.1,GIC,measured,NERC,,0.3727310104831341,-0.4286044733007659,36.84542214229946,-10.463354692590942,0.0692154114307382,,FRCC,East,Duplicate time stamps found
+10091,27.7,-82.3,GIC,measured,NERC,,0.4232283596543554,-0.3734252388255728,36.73962113018443,-10.680125702871214,0.0683783620286908,,FRCC,East,Duplicate time stamps found
+10180,41.7,-73.8,GIC,measured,NERC,,3.145835293715519,0.4977359805558551,50.88068477163663,-1.3683259157642471,0.3476786900242266,,NYISO,East,[]
+10181,41.9,-74.0,GIC,measured,NERC,,2.89686190112345,0.4619277920592693,51.079853103876985,-1.606901900042169,0.3557339453561994,,NYISO,East,[]
+10182,26.6,-98.5,GIC,measured,NERC,,0.0771152934542634,-1.1128594844114634,34.78024305375168,-28.34465576262536,0.0545832986911689,,ERCOT,ERCOT,"Excessive pre-storm noise: std before (0.1216 A) > 1/4 * std after (0.3922 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 13:11:57"
+10184,39.0,-78.2,GIC,measured,NERC,,2.098515690648496,0.3219122207891498,48.13283949990842,-6.473486869319924,0.2534778753482014,500.0,PJM,East,Excessive pre-storm noise: std before (0.7517 A) > 1/4 * std after (2.5735 A)
+10185,39.3,-81.3,GIC,measured,NERC,,0.458449579058219,-0.3387084216971334,48.36143794791262,-10.09551996992259,0.2602298721363854,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1051 A) > 1/4 * std after (0.3889 A)"
+10186,42.0,-80.0,GIC,measured,NERC,,0.5616616324596242,-0.2505252421024606,51.093750705719046,-8.714033229832285,0.3563029425320547,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0608 A) > 1/4 * std after (0.2430 A)"
+10187,41.0,-81.6,GIC,measured,NERC,,0.6117421374360327,-0.2134316038153043,50.051672387071385,-10.543622888756447,0.3160632413801444,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0510 A) > 1/4 * std after (0.1740 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:59:14"
+10191,41.3,-90.5,GIC,measured,NERC,,1.4474025826441173,0.160589343215479,49.9656782943259,-20.98485315835187,0.3129529950950368,,MISO,Central,Low signal: all GIC values within +/- 4 A
+10192,41.1,-95.7,GIC,measured,NERC,,1.225836002583152,0.0884323723543077,49.42917607201871,-26.98535339495283,0.294228079821728,161.0,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.7413 A) > 1/4 * std after (0.3525 A)"
+10193,41.6,-71.4,GIC,measured,NERC,,1.895916683083308,0.2778192481538303,50.7803402578209,1.470988440640685,0.3436896705244885,,ISONE,East,[]
+10194,42.6,-73.9,GIC,measured,NERC,,2.1945295536401264,0.3413414338464751,51.7802731003263,-1.4947281696316828,0.3855733342917773,115.0,NYISO,East,[]
+10196,33.3,-111.9,GIC,measured,NERC,,0.59432779565099,-0.2259739580884836,40.18580807859333,-43.81284316108001,0.1016329637659484,,WestConnectNonEnrolled,West,"Excessive pre-storm noise: std before (0.0649 A) > 1/4 * std after (0.1386 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:02:16"
+10197,36.4,-82.2,GIC,measured,NERC,,1.4198283724986611,0.1522358504523761,45.43715239036925,-10.978055537135145,0.1859118292240295,,SERTP,East,"Excessive pre-storm noise: std before (0.0499 A) > 1/4 * std after (0.1693 A);
+Data is constant for at least 5 minutes starting at time 2024-08-12 16:57:05"
+10199,35.0,-84.9,GIC,measured,NERC,,1.1069538243316337,0.0441295050194376,43.94531206629967,-13.97611880036571,0.1566025219173177,,SERTP,East,Low signal: all GIC values within +/- 4 A
+10200,34.1,-86.7,GIC,measured,NERC,,1.2489859812121804,0.0965575638214047,42.97225909418745,-15.954004376756451,0.1400234342121905,,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10201,36.5,-87.2,GIC,measured,NERC,,1.049994166488022,0.0211868862422239,45.346194306461385,-16.706007908558973,0.1839772935258282,500.0,SERTP,East,[]
+10202,34.9,-90.0,GIC,measured,NERC,,0.6097493392599633,-0.214848661626626,43.6094424632154,-19.749151156408864,0.1506690761631842,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.6492 A) > 1/4 * std after (0.5164 A)"
+10203,35.0,-85.3,GIC,measured,NERC,,0.996526544232336,-0.0015111286141768,43.929649368074585,-14.430621856104604,0.1563207017273863,,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Data is constant for at least 5 minutes starting at time 2024-08-12 01:58:30"
+10204,35.3,-89.8,GIC,measured,NERC,,0.6301141833833783,-0.2005807446416425,44.01931584398546,-19.559243176964674,0.157940964698712,,SERTP,East,Low signal: all GIC values within +/- 4 A
+10205,36.2,-88.8,GIC,measured,NERC,,0.8956529666713062,-0.0478602312465515,44.969504891615145,-18.50472985607987,0.1761776855128368,,SERTP,East,Data is constant for at least 5 minutes starting at time 2024-08-12 06:14:11
+10207,36.0,-84.1,GIC,measured,NERC,,0.5592615251552008,-0.2523850572809846,44.97417477135233,-13.128925812974092,0.1762723247123267,161.0,SERTP,East,[]
+10208,35.8,-86.5,GIC,measured,NERC,,0.7257450701500456,-0.1392159055671167,44.67858343301809,-15.852838136364031,0.1703809981200386,,SERTP,East,"Excessive pre-storm noise: std before (0.0657 A) > 1/4 * std after (0.1986 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:35"
+10211,34.3,-88.8,GIC,measured,NERC,,0.6415197941404186,-0.1927899388941441,43.073132496997495,-18.341502895830377,0.1416572258751926,,SERTP,East,[]
+10212,36.0,-86.6,GIC,measured,NERC,,0.7824508982511382,-0.1065429065453077,44.87391461407369,-15.9820067465825,0.1742515910801529,161.0,SERTP,East,Low signal: all GIC values within +/- 4 A
+10219,36.1,-81.0,GIC,measured,NERC,,2.7564328346317017,0.4403474145899267,45.171523584279534,-9.587928181920004,0.1803185866394697,,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0393 A) > 1/4 * std after (0.1376 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 18:13:10"
+10220,39.4,-87.4,GIC,measured,NERC,,0.4903456338448295,-0.3094976874089987,48.23183954928565,-17.186005698755856,0.2563802126118846,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1428 A) > 1/4 * std after (0.4145 A)"
+10248,32.8,-80.6,GIC,measured,NERC,,0.901094778523134,-0.0452295268624527,41.883437842851095,-8.990847855128617,0.1235437509364335,,SCRTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0486 A) > 1/4 * std after (0.1828 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10249,33.3,-81.0,GIC,measured,NERC,,1.238758315244013,0.0929865827324599,42.37296923640178,-9.463293923704056,0.1306982802026879,,SCRTP,East,[]
+10250,34.1,-80.9,GIC,measured,NERC,,1.9961869176524896,0.300201205039686,43.175187539644206,-9.384241232766716,0.1433295561254444,,SCRTP,East,"Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.6 A);
+Excessive pre-storm noise: std before (0.0927 A) > 1/4 * std after (0.3415 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:16:16"
+10251,35.9,-82.3,GIC,measured,NERC,,1.72529499839907,0.2368633633068773,44.93445840542228,-11.065735001947694,0.1754690574655174,,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0464 A) > 1/4 * std after (0.1530 A)"
+10252,36.4,-79.0,GIC,measured,NERC,,2.6171669225579013,0.4178314227674844,45.5182828186528,-7.306438061566152,0.1876545033845796,,SERTP,East,Low signal: all GIC values within +/- 4 A
+10325,29.8,-95.2,GIC,measured,NERC,,0.0668729584706316,-1.1747494631161035,38.2062951579118,-25.062584032721915,0.0809412791625681,,ERCOT,ERCOT,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.8341 A) > 1/4 * std after (0.7524 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:23:44"
+10366,42.4,-71.8,GIC,measured,NERC,,2.3406874307614425,0.3693434230264963,51.58170985916245,1.0027019526409933,0.3768686181742254,,ISONE,East,"All GIC values are negative;
+Baseline offset detected (median value: -3.1 A);
+Excessive pre-storm noise: std before (0.1156 A) > 1/4 * std after (0.4021 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:15:01"
+10367,42.4,-71.8,GIC,measured,NERC,,2.3406874307614425,0.3693434230264963,51.58170985916245,1.0027019526409933,0.3768686181742254,,ISONE,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -2.9 A);
+Excessive pre-storm noise: std before (0.0732 A) > 1/4 * std after (0.1477 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:48:30"
+10368,42.4,-71.8,GIC,measured,NERC,,2.3406874307614425,0.3693434230264963,51.58170985916245,1.0027019526409933,0.3768686181742254,,ISONE,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.8 A);
+Excessive pre-storm noise: std before (0.1305 A) > 1/4 * std after (0.2708 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:04:41"
+10369,42.4,-71.8,GIC,measured,NERC,,2.3406874307614425,0.3693434230264963,51.58170985916245,1.0027019526409933,0.3768686181742254,,ISONE,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.5 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10372,42.4,-71.8,GIC,measured,NERC,,2.3406874307614425,0.3693434230264963,51.58170985916245,1.0027019526409933,0.3768686181742254,,ISONE,East,"All GIC values are negative;
+Baseline offset detected (median value: -4.5 A)"
+10373,42.6,-73.9,GIC,measured,NERC,,2.1945295536401264,0.3413414338464751,51.7802731003263,-1.4947281696316828,0.3855733342917773,115.0,NYISO,East,"All GIC values are negative;
+Baseline offset detected (median value: -4.2 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10374,42.6,-71.5,GIC,measured,NERC,,2.6652790154959165,0.4257426799845072,51.78072049371088,1.3608651304170367,0.3855931726424055,,ISONE,East,Duplicate time stamps found
+10376,40.9,-73.9,GIC,measured,NERC,,2.403237240915885,0.3807966452670485,50.08029930536406,-1.4797487457260097,0.3171054663984767,345.0,NYISO,East,"Baseline offset detected (median value: -9.6 A);
+Excessive pre-storm noise: std before (4.0953 A) > 1/4 * std after (3.8913 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:50"
+10377,40.7,-74.0,GIC,measured,NERC,,2.553542949086076,0.4071431668299854,49.87987424840139,-1.5957062326310147,0.3098801279192523,,NYISO,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.4940 A) > 1/4 * std after (0.4842 A);
+Data is constant for at least 5 minutes starting at time 2024-08-12 02:29:20"
+10378,40.7,-74.0,GIC,measured,NERC,,2.553542949086076,0.4071431668299854,49.87987424840139,-1.5957062326310147,0.3098801279192523,,NYISO,East,"All GIC values are positive;
+Baseline offset detected (median value: 4.2 A);
+Excessive pre-storm noise: std before (0.1699 A) > 1/4 * std after (0.1919 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:36:20"
+10379,40.7,-74.0,GIC,measured,NERC,,2.553542949086076,0.4071431668299854,49.87987424840139,-1.5957062326310147,0.3098801279192523,,NYISO,East,"All GIC values are negative;
+Baseline offset detected (median value: -3.0 A);
+Excessive pre-storm noise: std before (0.5110 A) > 1/4 * std after (0.4845 A)"
+10380,41.1,-73.8,GIC,measured,NERC,,2.252931532745684,0.3527479935868742,50.28069248787373,-1.3635337118864197,0.3244980854431011,,NYISO,East,Excessive pre-storm noise: std before (2.3763 A) > 1/4 * std after (2.1995 A)
+10381,40.7,-74.0,GIC,measured,NERC,,2.553542949086076,0.4071431668299854,49.87987424840139,-1.5957062326310147,0.3098801279192523,,NYISO,East,Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00
+10382,40.6,-74.2,GIC,measured,NERC,,2.719221634832854,0.434444606948329,49.77892220474892,-1.8299598492912337,0.3063033814810407,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -4.1 A);
+Excessive pre-storm noise: std before (0.4354 A) > 1/4 * std after (0.7642 A)"
+10383,40.6,-74.2,GIC,measured,NERC,,2.719221634832854,0.434444606948329,49.77892220474892,-1.8299598492912337,0.3063033814810407,,PJM,East,Excessive pre-storm noise: std before (0.6647 A) > 1/4 * std after (1.9647 A)
+10384,40.7,-74.0,GIC,measured,NERC,,2.553542949086076,0.4071431668299854,49.87987424840139,-1.5957062326310147,0.3098801279192523,,NYISO,East,"Baseline offset detected (median value: 58.0 A);
+Unphysical spike detected (max diff: 41.1 A);
+Excessive pre-storm noise: std before (8.0695 A) > 1/4 * std after (18.8475 A)"
+10385,41.2,-73.8,GIC,measured,NERC,,2.3933698036478432,0.3790098073787664,50.38069121541706,-1.3643239769009272,0.3282513053182815,,NYISO,East,Excessive pre-storm noise: std before (3.7208 A) > 1/4 * std after (3.9499 A)
+10386,40.8,-73.9,GIC,measured,NERC,,2.448214817780424,0.3888495221677638,49.98030078863052,-1.4789008750245904,0.3134796954567876,,NYISO,East,"Baseline offset detected (median value: 2.5 A);
+Excessive pre-storm noise: std before (0.6080 A) > 1/4 * std after (0.8691 A)"
+10387,41.0,-73.9,GIC,measured,NERC,,2.358259664051346,0.3725916228353744,50.18029781589671,-1.480600160974043,0.3207731735274391,,NYISO,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -3.1 A);
+Excessive pre-storm noise: std before (0.0000 A) > 1/4 * std after (0.0000 A);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10388,41.0,-73.9,GIC,measured,NERC,,2.358259664051346,0.3725916228353744,50.18029781589671,-1.480600160974043,0.3207731735274391,,NYISO,East,"Baseline offset detected (median value: 3.8 A);
+Excessive pre-storm noise: std before (0.8032 A) > 1/4 * std after (0.9777 A)"
+10450,41.0,-85.0,GIC,measured,NERC,,0.732541440595982,-0.1351678018092302,49.933902683276855,-14.531048474719285,0.3118114906507213,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0254 A) > 1/4 * std after (0.0453 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10453,38.5,-81.8,GIC,measured,NERC,,0.4794559077539824,-0.3192513257187913,47.547627562664125,-10.632085086740682,0.2369803365871467,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0801 A) > 1/4 * std after (0.2778 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:00"
+10454,36.6,-79.7,GIC,measured,NERC,,1.9686181942317031,0.2941614945957184,45.703220672256165,-8.118169428349395,0.1916882543751788,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 6.2 A);
+Excessive pre-storm noise: std before (0.1655 A) > 1/4 * std after (0.4711 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:19:00"
+10455,40.1,-82.7,GIC,measured,NERC,,0.789302714347613,-0.1027564036887897,49.11843931868504,-11.775372255368625,0.2838995622747592,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.8 A);
+Excessive pre-storm noise: std before (0.0677 A) > 1/4 * std after (0.2042 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:03:00"
+10458,42.2,-86.3,GIC,measured,NERC,,0.5461142418775051,-0.2627164975385062,51.07708385448928,-16.163754645213114,0.3556206750522037,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 3.3 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:07:00"
+10460,28.9,-96.2,GIC,measured,NERC,,0.0626858854189427,-1.202830235480755,37.24023690346226,-26.07122780345001,0.0724304827976028,138.0,ERCOT,ERCOT,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.8 A);
+Excessive pre-storm noise: std before (0.0893 A) > 1/4 * std after (0.2297 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10461,32.2,-100.0,GIC,measured,NERC,,0.4124801634036799,-0.3845969322812525,40.23962091551133,-30.623347619934503,0.102263867099641,,ERCOT,ERCOT,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1765 A) > 1/4 * std after (0.4225 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10462,32.2,-100.0,GIC,measured,NERC,,0.4124801634036799,-0.3845969322812525,40.23962091551133,-30.623347619934503,0.102263867099641,,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 4.5 A);
+Excessive pre-storm noise: std before (0.1789 A) > 1/4 * std after (0.3133 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:00"
+10463,35.4,-99.7,GIC,measured,NERC,,0.3709370469559069,-0.4306997897907094,43.44864207326789,-30.71134351040504,0.1479084998663048,345.0,SPP,Central,"Baseline offset detected (median value: 2.2 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:22:00"
+10464,35.4,-99.7,GIC,measured,NERC,,0.3709370469559069,-0.4306997897907094,43.44864207326789,-30.71134351040504,0.1479084998663048,345.0,SPP,Central,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.1 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10467,37.4,-79.9,GIC,measured,NERC,,1.5019975681211808,0.176669229504097,46.49831202005759,-8.381516031085198,0.2100416579650476,500.0,PJM,East,"Baseline offset detected (median value: -1.6 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-12 17:23:00"
+10468,37.4,-79.9,GIC,measured,NERC,,1.5019975681211808,0.176669229504097,46.49831202005759,-8.381516031085198,0.2100416579650476,500.0,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.0 A);
+Excessive pre-storm noise: std before (0.0813 A) > 1/4 * std after (0.2278 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:15:00"
+10469,37.4,-79.9,GIC,measured,NERC,,1.5019975681211808,0.176669229504097,46.49831202005759,-8.381516031085198,0.2100416579650476,500.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3844 A) > 1/4 * std after (0.3444 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 08:33:00"
+10471,37.4,-79.9,GIC,measured,NERC,,1.5019975681211808,0.176669229504097,46.49831202005759,-8.381516031085198,0.2100416579650476,500.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.2825 A) > 1/4 * std after (0.2622 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:28:00"
+10475,40.2,-81.9,GIC,measured,NERC,,0.6044645604758745,-0.2186291565748386,49.243396067653016,-10.84695450837904,0.2880086596117021,,PJM,East,"Baseline offset detected (median value: -3.1 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10476,40.1,-82.8,GIC,measured,NERC,,0.8056019555572088,-0.093879488225697,49.1151666390208,-11.892132941848551,0.2837927344615034,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -3.2 A);
+Excessive pre-storm noise: std before (0.1105 A) > 1/4 * std after (0.4172 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:52:00"
+10477,31.4,-95.4,GIC,measured,NERC,,0.1500301249933128,-0.8238215289124776,39.787664181787726,-25.446272384884104,0.0970844657872934,,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 17.34 A);
+Excessive pre-storm noise: std before (0.1297 A) > 1/4 * std after (0.2671 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10478,42.0,-86.6,GIC,measured,NERC,,0.6317656392031411,-0.1994439984218071,50.8639882220865,-16.49737955827641,0.3470117515597872,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.6 A);
+Excessive pre-storm noise: std before (0.0450 A) > 1/4 * std after (0.1117 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:02:00"
+10480,42.0,-86.6,GIC,measured,NERC,,0.6317656392031411,-0.1994439984218071,50.8639882220865,-16.49737955827641,0.3470117515597872,,PJM,East,"Baseline offset detected (median value: 4.3 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10481,40.2,-85.3,GIC,measured,NERC,,0.725399273789205,-0.1394228835357042,49.12290987909594,-14.815863986140112,0.284045556666991,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.6 A);
+Excessive pre-storm noise: std before (0.0561 A) > 1/4 * std after (0.1611 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10482,40.2,-85.3,GIC,measured,NERC,,0.725399273789205,-0.1394228835357042,49.12290987909594,-14.815863986140112,0.284045556666991,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.7 A);
+Excessive pre-storm noise: std before (0.0591 A) > 1/4 * std after (0.1429 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:00"
+10483,39.0,-83.0,GIC,measured,NERC,,0.8505385171694224,-0.0703060143084743,48.009559857535606,-12.053572160008873,0.2499096327749947,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -5.3 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-12 13:37:00"
+10485,39.0,-83.0,GIC,measured,NERC,,0.8505385171694224,-0.0703060143084743,48.009559857535606,-12.053572160008873,0.2499096327749947,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 8.2 A);
+Excessive pre-storm noise: std before (0.0883 A) > 1/4 * std after (0.2871 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10487,41.5,-86.4,GIC,measured,NERC,,0.638281251821335,-0.1949879118761939,50.37388434617846,-16.215160312679235,0.3279944540347397,,MISO,Central,"Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.1 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10489,36.6,-79.3,GIC,measured,NERC,,2.1642369169569338,0.3353048008407843,45.71198148505209,-7.658484009774594,0.1918814763586304,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:47:00"
+10490,41.7,-85.9,GIC,measured,NERC,,0.6046347552238722,-0.2185068926062253,50.59544265227281,-15.646951469916525,0.3364588673834581,,PJM,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.4 A);
+Excessive pre-storm noise: std before (0.0551 A) > 1/4 * std after (0.1755 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10491,40.8,-84.0,GIC,measured,NERC,,0.7665596415364551,-0.1154540495734584,49.77259979526756,-13.344459495107143,0.3060807562523264,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 11.7 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:26:00"
+10492,40.8,-84.0,GIC,measured,NERC,,0.7665596415364551,-0.1154540495734584,49.77259979526756,-13.344459495107143,0.3060807562523264,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 12.3 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:02:00"
+10496,36.3,-94.5,GIC,measured,NERC,,1.3046803267356712,0.1155041137113139,44.732382663414974,-24.98234780907815,0.1714383979225272,,SPP,Central,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0889 A) > 1/4 * std after (0.2834 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:11:00"
+10497,40.5,-84.1,GIC,measured,NERC,,0.8526834604335003,-0.0692121609783843,49.46925987476824,-13.43887352714767,0.2955874953570799,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1567 A) > 1/4 * std after (0.6184 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10498,40.2,-83.1,GIC,measured,NERC,,0.8540103698566057,-0.0685368558400822,49.20505963030257,-12.249126796623427,0.2867417134677816,138.0,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -7.8 A);
+Excessive pre-storm noise: std before (0.1219 A) > 1/4 * std after (0.4856 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:00"
+10499,40.2,-83.1,GIC,measured,NERC,,0.8540103698566057,-0.0685368558400822,49.20505963030257,-12.249126796623427,0.2867417134677816,138.0,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 5.3 A);
+Excessive pre-storm noise: std before (0.2259 A) > 1/4 * std after (0.7849 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10500,41.6,-86.3,GIC,measured,NERC,,0.624466135894625,-0.2044911079589629,50.47814998101807,-16.10721309299296,0.3319509602171903,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -21.1 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10502,36.9,-80.8,GIC,measured,NERC,,1.5265457569238223,0.1837098264412309,45.97635816826797,-9.395789567541568,0.1978048995987657,138.0,PJM,East,"Baseline offset detected (median value: 1.6 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+10503,36.9,-80.8,GIC,measured,NERC,,1.5265457569238223,0.1837098264412309,45.97635816826797,-9.395789567541568,0.1978048995987657,138.0,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 11.7 A);
+Excessive pre-storm noise: std before (0.6673 A) > 1/4 * std after (1.9585 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:19:00"
+10504,36.9,-80.8,GIC,measured,NERC,,1.5265457569238223,0.1837098264412309,45.97635816826797,-9.395789567541568,0.1978048995987657,138.0,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 5.9 A);
+Excessive pre-storm noise: std before (0.1233 A) > 1/4 * std after (0.4757 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 20:07:00"
+10506,38.7,-85.4,GIC,measured,NERC,,0.6278369474216446,-0.2021531301950936,47.620925565255874,-14.812600757031005,0.238986350639201,345.0,PJM,East,"Baseline offset detected (median value: -1.2 A);
+Excessive pre-storm noise: std before (0.2065 A) > 1/4 * std after (0.7703 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:03:00"
+10507,40.1,-82.7,GIC,measured,NERC,,0.789302714347613,-0.1027564036887897,49.11843931868504,-11.775372255368625,0.2838995622747592,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10509,39.8,-80.8,GIC,measured,NERC,,0.4269383218552357,-0.3696348613044888,48.87473221637688,-9.539378054430184,0.276053366768646,138.0,PJM,East,"Baseline offset detected (median value: -1.7 A);
+Excessive pre-storm noise: std before (0.1897 A) > 1/4 * std after (0.4583 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:00"
+10511,41.9,-86.2,GIC,measured,NERC,,0.5966081956720358,-0.2243107849821809,50.78203962157754,-16.01779595201106,0.3437568432714595,138.0,PJM,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.3 A);
+Excessive pre-storm noise: std before (0.0936 A) > 1/4 * std after (0.2786 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10512,40.0,-82.6,GIC,measured,NERC,,0.7716446476070943,-0.1125826518829761,49.02176889449657,-11.652172754427705,0.2807609015231788,69.0,PJM,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -2.0 A);
+Excessive pre-storm noise: std before (0.0788 A) > 1/4 * std after (0.2877 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10513,26.1,-97.6,GIC,measured,NERC,,,,34.34902885558347,-27.318201245952743,0.0519425509481011,,ERCOT,ERCOT,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 2.0 A);
+Excessive pre-storm noise: std before (0.0369 A) > 1/4 * std after (0.0466 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10515,26.1,-97.6,GIC,measured,NERC,,,,34.34902885558347,-27.318201245952743,0.0519425509481011,,ERCOT,ERCOT,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -3.2 A);
+Excessive pre-storm noise: std before (0.0792 A) > 1/4 * std after (0.1763 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:08:00"
+10518,27.6,-99.3,GIC,measured,NERC,,0.1604749567405534,-0.794592732717007,35.714933081758915,-29.319304847066903,0.0607773571554702,,ERCOT,ERCOT,"All GIC values are negative;
+Baseline offset detected (median value: -28.5 A);
+Excessive pre-storm noise: std before (0.1571 A) > 1/4 * std after (0.2408 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:18:00"
+10524,40.2,-83.0,GIC,measured,NERC,,0.83771112864701,-0.0769057150961176,49.20842956173488,-12.13233275045122,0.2868528594932877,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1355 A) > 1/4 * std after (0.3751 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-12 07:27:00"
+10525,40.2,-83.0,GIC,measured,NERC,,0.83771112864701,-0.0769057150961176,49.20842956173488,-12.13233275045122,0.2868528594932877,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1519 A) > 1/4 * std after (0.4877 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:04:00"
+10528,37.2,-80.2,GIC,measured,NERC,,1.2684313918881838,0.1032669816640313,46.29128304705224,-8.71872890480639,0.2050999764817326,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.1 A);
+Excessive pre-storm noise: std before (0.0588 A) > 1/4 * std after (0.2015 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:00"
+10529,37.2,-80.2,GIC,measured,NERC,,1.2684313918881838,0.1032669816640313,46.29128304705224,-8.71872890480639,0.2050999764817326,,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 1.5 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:17:00"
+10531,32.5,-99.8,GIC,measured,NERC,,0.4425380146204536,-0.3540494168740014,40.55445078236082,-30.440319444535795,0.1060342165824324,138.0,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 3.2 A);
+Excessive pre-storm noise: std before (0.1733 A) > 1/4 * std after (0.3890 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:01:00"
+10532,32.5,-99.8,GIC,measured,NERC,,0.4425380146204536,-0.3540494168740014,40.55445078236082,-30.440319444535795,0.1060342165824324,138.0,ERCOT,ERCOT,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1356 A) > 1/4 * std after (0.3313 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:21:00"
+10534,36.6,-82.7,GIC,measured,NERC,,0.8686256164587953,-0.0611673670959917,45.62140740659383,-11.562438299854168,0.1898932081466752,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 3.7 A);
+Excessive pre-storm noise: std before (0.0795 A) > 1/4 * std after (0.2578 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:02:00"
+10538,26.3,-98.2,GIC,measured,NERC,,,,34.503905999068806,-27.98865789322413,0.0528759809739368,138.0,ERCOT,ERCOT,"All GIC values are negative;
+Baseline offset detected (median value: -9.1 A);
+Excessive pre-storm noise: std before (0.0828 A) > 1/4 * std after (0.1769 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10539,26.3,-98.2,GIC,measured,NERC,,,,34.503905999068806,-27.98865789322413,0.0528759809739368,138.0,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 10.2 A);
+Excessive pre-storm noise: std before (0.0483 A) > 1/4 * std after (0.0579 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:06:00"
+10541,41.7,-86.5,GIC,measured,NERC,,0.6234138921661652,-0.2052235241254546,50.56905142175888,-16.35124571962502,0.3354392656018062,,PJM,East,"Baseline offset detected (median value: 3.3 A);
+Excessive pre-storm noise: std before (0.9309 A) > 1/4 * std after (0.8308 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 08:19:00"
+10542,36.0,-95.7,GIC,measured,NERC,,0.9354586046984892,-0.0289754258537487,44.35061105271665,-26.30087500571874,0.1640744471834651,345.0,SPP,Central,"Baseline offset detected (median value: 8.8 A);
+Excessive pre-storm noise: std before (0.7961 A) > 1/4 * std after (1.6151 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:46:00"
+10545,37.4,-79.1,GIC,measured,NERC,,1.71663255208625,0.2346773436877947,46.51590346147565,-7.458484510747249,0.2104670056474824,,PJM,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -1.7 A);
+Excessive pre-storm noise: std before (0.0643 A) > 1/4 * std after (0.2332 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:00"
+10546,37.4,-79.1,GIC,measured,NERC,,1.71663255208625,0.2346773436877947,46.51590346147565,-7.458484510747249,0.2104670056474824,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -3.8 A);
+Excessive pre-storm noise: std before (0.0794 A) > 1/4 * std after (0.2403 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:10:00"
+10547,37.4,-79.1,GIC,measured,NERC,,1.71663255208625,0.2346773436877947,46.51590346147565,-7.458484510747249,0.2104670056474824,,PJM,East,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -2.3 A);
+Excessive pre-storm noise: std before (0.0361 A) > 1/4 * std after (0.0669 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10548,26.2,-98.2,GIC,measured,NERC,,,,34.40425514711185,-27.97853259566196,0.0522734890967656,138.0,ERCOT,ERCOT,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: -3.6 A);
+Excessive pre-storm noise: std before (0.0628 A) > 1/4 * std after (0.0758 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:09:00"
+10549,26.2,-98.2,GIC,measured,NERC,,,,34.40425514711185,-27.97853259566196,0.0522734890967656,138.0,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 4.9 A);
+Excessive pre-storm noise: std before (0.1073 A) > 1/4 * std after (0.2158 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:23:00"
+10550,26.3,-97.6,GIC,measured,NERC,,0.0725056662286701,-1.139628052522973,34.54836101961294,-27.33800474107161,0.0531469924577447,,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 4.1 A);
+Excessive pre-storm noise: std before (0.1193 A) > 1/4 * std after (0.2778 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:02:00"
+10551,26.3,-97.6,GIC,measured,NERC,,0.0725056662286701,-1.139628052522973,34.54836101961294,-27.33800474107161,0.0531469924577447,,ERCOT,ERCOT,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1436 A) > 1/4 * std after (0.2105 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:20:00"
+10552,40.0,-83.1,GIC,measured,NERC,,0.8541780627588123,-0.0684515864389715,49.00525544181821,-12.235611685960146,0.280228229304027,,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:07:00"
+10557,31.5,-100.3,GIC,measured,NERC,,0.5541085061651425,-0.2564051828986983,39.51838212127358,-30.86627188092253,0.094124083022377,,ERCOT,ERCOT,"All GIC values are positive;
+Baseline offset detected (median value: 4.4 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:00:00"
+10558,30.9,-103.4,GIC,measured,NERC,,0.4830834702534755,-0.3159778225849357,38.65542134040103,-34.187838916582635,0.0852317020270175,,ERCOT,ERCOT,"All GIC values are negative;
+Baseline offset detected (median value: -3.0 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:03:00"
+10559,30.9,-103.4,GIC,measured,NERC,,0.4830834702534755,-0.3159778225849357,38.65542134040103,-34.187838916582635,0.0852317020270175,,ERCOT,ERCOT,"Baseline offset detected (median value: 3.7 A);
+Excessive pre-storm noise: std before (0.2405 A) > 1/4 * std after (0.8681 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:05:00"
+10561,41.0,-83.3,GIC,measured,NERC,,0.760887461840249,-0.1186795722911652,49.99739473167651,-12.53888578803833,0.3140965410236396,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -5.5 A);
+Excessive pre-storm noise: std before (0.1055 A) > 1/4 * std after (0.3401 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:07:00"
+10563,40.7,-81.4,GIC,measured,NERC,,0.5531077842915348,-0.257190229343039,49.75766192273798,-10.291132091337222,0.3055554051582365,345.0,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -3.1 A);
+Excessive pre-storm noise: std before (0.1091 A) > 1/4 * std after (0.2474 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:03:00"
+10564,40.7,-84.2,GIC,measured,NERC,,0.7994264663558704,-0.0972214777896476,49.6652920134578,-13.57094023529824,0.3023268090808176,,PJM,East,Cadence is >= 60 seconds (60.0 seconds)
+10565,26.1,-98.2,GIC,measured,NERC,,,,34.30460346296928,-27.96843138938853,0.051677857327904,138.0,ERCOT,ERCOT,"All GIC values are negative;
+Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0595 A) > 1/4 * std after (0.0659 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:31:00"
+10567,39.2,-87.5,GIC,measured,NERC,,0.4723830744533478,-0.3257056716072112,48.02748491213654,-17.28342017279828,0.2504253231480963,,MISO,Central,"Baseline offset detected (median value: -2.6 A);
+Excessive pre-storm noise: std before (0.4880 A) > 1/4 * std after (0.8391 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 10:46:00"
+10568,39.2,-87.5,GIC,measured,NERC,,0.4723830744533478,-0.3257056716072112,48.02748491213654,-17.28342017279828,0.2504253231480963,,MISO,Central,"Baseline offset detected (median value: 3.9000000000000004 A);
+Excessive pre-storm noise: std before (0.3143 A) > 1/4 * std after (0.7434 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:14:00"
+10569,39.2,-87.5,GIC,measured,NERC,,0.4723830744533478,-0.3257056716072112,48.02748491213654,-17.28342017279828,0.2504253231480963,,MISO,Central,"Baseline offset detected (median value: -1.1 A);
+Excessive pre-storm noise: std before (0.1407 A) > 1/4 * std after (0.4550 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 07:42:00"
+10572,38.4,-82.5,GIC,measured,NERC,,0.614144348980766,-0.2117295399371909,47.42632224882961,-11.436944113453483,0.2336973865640104,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -15.8 A);
+Excessive pre-storm noise: std before (0.2103 A) > 1/4 * std after (0.4746 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:29:00"
+10573,38.4,-82.5,GIC,measured,NERC,,0.614144348980766,-0.2117295399371909,47.42632224882961,-11.436944113453483,0.2336973865640104,,PJM,East,"All GIC values are negative;
+Baseline offset detected (median value: -18.8 A);
+Excessive pre-storm noise: std before (0.1193 A) > 1/4 * std after (0.3462 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:04:00"
+10574,38.4,-82.5,GIC,measured,NERC,,0.614144348980766,-0.2117295399371909,47.42632224882961,-11.436944113453483,0.2336973865640104,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 6.3 A);
+Excessive pre-storm noise: std before (0.1545 A) > 1/4 * std after (0.3644 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:00"
+10575,41.7,-86.1,GIC,measured,NERC,,0.6083122404911356,-0.2158734445525765,50.586771317452815,-15.881771632944996,0.3361235166561011,138.0,PJM,East,"All GIC values are positive;
+Low signal: all GIC values within +/- 4 A;
+Baseline offset detected (median value: 3.6 A);
+Excessive pre-storm noise: std before (0.0436 A) > 1/4 * std after (0.0634 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:09:00"
+10577,41.4,-84.9,GIC,measured,NERC,,0.7188458081390685,-0.1433642554526925,50.33733184152914,-14.446943427029272,0.3266186106030389,138.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:08:00"
+10578,40.2,-82.8,GIC,measured,NERC,,0.8051126462278162,-0.0941433516661854,49.21507399145684,-11.898714560798116,0.2870721302275621,,PJM,East,"All GIC values are positive;
+Baseline offset detected (median value: 11.6 A);
+Excessive pre-storm noise: std before (0.7893 A) > 1/4 * std after (2.0334 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:28:00"
+10581,32.8,-94.5,GIC,measured,NERC,,0.1855197224049235,-0.731609914208901,41.24395845155158,-24.59330592340712,0.1147843581930482,345.0,SPP,Central,"Baseline offset detected (median value: 5.300000000000001 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-08-11 06:05:00"
+50100,30.4,-89.6,B,measured,NERC,,0.0995504350253595,-1.0019568378093455,39.13945634459634,-18.924251325643507,0.0901105707028262,,SERTP,East,
+50127,37.1,-119.7,B,measured,NERC,,0.6691525698113988,-0.1744748498363537,43.01524776121152,-52.98824187643745,0.1407173815220846,115.0,CAISO,West,
+50112,48.3,-117.1,B,measured,NERC,,0.4145956885347474,-0.3823752185357036,54.37492374673031,-53.11710439400063,0.5196295900244005,,NorthernGridConnected,West,
+50131,37.8,-84.7,B,measured,NERC,,0.6012161899336259,-0.2209693329684212,46.74980515347888,-13.937947335949591,0.2162051212862557,,PJM,East,
+50132,38.0,-84.8,B,measured,NERC,,0.6526523734307923,-0.1853180782966305,46.94570406084463,-14.067492747850736,0.2211311505706493,138.0,PJM,East,
+50102,42.1,-72.5,B,measured,NERC,,2.6740021839655927,0.4271617576319559,51.28285391905592,0.1705180604376301,0.3641362827378827,,ISONE,East,
+50103,33.3,-89.2,B,measured,NERC,,0.33901322106753,-0.4697833645558863,42.05471400282044,-18.70911861561889,0.1260012856315408,,SERTP,East,
+50104,36.0,-84.1,B,measured,NERC,,0.5592615251552008,-0.2523850572809846,44.97417477135233,-13.128925812974092,0.1762723247123267,161.0,SERTP,East,
+50106,36.3,-86.4,B,measured,NERC,,0.7254586446046727,-0.1393873398518862,45.18220866861967,-15.776794111835828,0.180540295548059,,SERTP,East,
+50109,35.6,-84.7,B,measured,NERC,,0.8873089882136032,-0.0519251191665101,44.55230910268493,-13.78779496033443,0.1679246802133113,,SERTP,East,
+50115,41.3,-90.5,B,measured,NERC,,1.4474025826441173,0.160589343215479,49.9656782943259,-20.98485315835187,0.3129529950950368,,MISO,Central,
+50116,37.2,-86.9,B,measured,NERC,,0.6880772749551748,-0.1623627853080093,46.05871008230823,-16.41980651699396,0.1996871035994578,161.0,SERTP,East,
+50117,36.1,-81.0,B,measured,NERC,,2.7564328346317017,0.4403474145899267,45.171523584279534,-9.587928181920004,0.1803185866394697,,SERTP,East,
+50118,39.4,-87.4,B,measured,NERC,,0.4903456338448295,-0.3094976874089987,48.23183954928565,-17.186005698755856,0.2563802126118846,,MISO,Central,
+50120,34.3,-88.8,B,measured,NERC,,0.6415197941404186,-0.1927899388941441,43.073132496997495,-18.341502895830377,0.1416572258751926,,SERTP,East,
+50122,35.6,-89.3,B,measured,NERC,,0.7105385487306504,-0.1484123553904725,44.34504588585797,-19.019528940281013,0.1639694740854149,,SERTP,East,
