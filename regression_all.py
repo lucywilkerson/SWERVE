@@ -7,11 +7,11 @@ from swerve import config, cli, plt_config, savefig, regress, write_eqn_and_fnam
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
-results_dir = os.path.join(CONFIG['dirs']['data'], '_results', 'regression')
+results_dir = os.path.join(CONFIG['dirs']['data'], '_results', 'regression_all')
 
 args = cli('all_plot.py') 
 error_type = 'automated_error'
-model_type = 'gamma' # 'gamma' or 'linear'
+model_type = 'linear' # 'gamma' or 'linear'
 
 plt_config()
 
@@ -111,9 +111,9 @@ def plot_regression_all(fit_models, model_type, output_name=output_name, save_re
     if save_results_dir is not None:
         logger.info(f"Saving all events fit plot to results dir: {save_results_dir}")
         if slope_model is None:
-            savefig(save_results_dir, f'all_events_fit_alpha_beta_{output_name}_{error_type}', logger)
+            savefig(save_results_dir, f'all_events_{model_type}_fit_alpha_beta_{output_name}_{error_type}', logger)
         else:
-            savefig(save_results_dir, f'all_events_fit_alpha_beta_{output_name}_dst_slope', logger)
+            savefig(save_results_dir, f'all_events_{model_type}_fit_alpha_beta_{output_name}_dst_slope', logger)
     if all_residual:
         def create_residual_plots(plot_type='residuals', event_colors={}):
             plt.figure(figsize=(10,6))
@@ -161,7 +161,7 @@ def plot_regression_all(fit_models, model_type, output_name=output_name, save_re
             if save_results_dir is not None:
                 logger.info(f"Saving all events {fname_suffix} plot to results dir: {save_results_dir}")
                 slope_suffix = 'dst_slope' if slope_model else f'{error_type}'
-                savefig(save_results_dir, f'all_events_{fname_suffix}_alpha_beta_{output_name}_{slope_suffix}', logger)
+                savefig(save_results_dir, f'all_events_{model_type}_{fname_suffix}_alpha_beta_{output_name}_{slope_suffix}', logger)
             plt.close()
             return event_colors
         
