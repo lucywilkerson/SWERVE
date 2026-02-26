@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-def regress(x, y, outliers=False):
+def regress(x, y, model_type='linear', outliers=False):
 
   def regress_metrics(target, predictions, n_inputs):
 
@@ -88,23 +88,40 @@ def regress(x, y, outliers=False):
   else:
     mask = np.array([True]*len(y))
   
-  model = LinearRegression()
+  if model_type == 'linear':
+    model = LinearRegression()
+  elif model_type == 'gamma':
+    from sklearn.linear_model import GammaRegressor
+    model = GammaRegressor()
+  else:
+    raise ValueError(f"Unsupported model type: {model_type}")
   model.fit(x, y)
   predictions = model.predict(x)
   metrics = regress_metrics(y, predictions, x.shape[1])
   return model, mask, metrics
 
-def write_eqn_and_fname(inputs, output_name, model, labels):
+def write_eqn_and_fname(inputs, output_name, model, labels, model_type='linear'):
     """
     Create a string for the equation and a filename based on inputs, output_name, and model.
     """
-    eqn = f"{labels.get(output_name, output_name)} = "
-    eqn_txt = f"{output_name} = "
-    for i, input_name in enumerate(inputs):
-      eqn_txt += f"{model.coef_[i]:+.3g} {input_name}"
-      eqn += f"{model.coef_[i]:+.3g} {labels.get(input_name, input_name)} "
-    eqn += f" {model.intercept_:+.3g}"
-    eqn_txt += f" {model.intercept_:+.3g}"
+    if model_type == 'linear':
+      eqn = f"{labels.get(output_name, output_name)} = "
+      eqn_txt = f"{output_name} = "
+      for i, input_name in enumerate(inputs):
+        eqn_txt += f"{model.coef_[i]:+.3g} {input_name}"
+        eqn += f"{model.coef_[i]:+.3g} {labels.get(input_name, input_name)} "
+      eqn += f" {model.intercept_:+.3g}"
+      eqn_txt += f" {model.intercept_:+.3g}"
+    elif model_type == 'gamma':
+      eqn = f"{labels.get(output_name, output_name)} = exp("
+      eqn_txt = f"{output_name} = exp("
+      for i, input_name in enumerate(inputs):
+        eqn_txt += f"{model.coef_[i]:+.3g} {input_name}"
+        eqn += f"{model.coef_[i]:+.3g} {labels.get(input_name, input_name)} "
+      eqn += f" {model.intercept_:+.3g})"
+      eqn_txt += f" {model.intercept_:+.3g})"
+    else:
+      raise ValueError(f"Unsupported model type: {model_type}")
 
     fname = f'_fit_{inputs[0]}_{output_name}'
     if '*' in inputs[0]:

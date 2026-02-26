@@ -11,6 +11,7 @@ results_dir = os.path.join(CONFIG['dirs']['data'], '_results', 'regression')
 
 args = cli('all_plot.py') 
 error_type = 'automated_error'
+model_type = 'gamma' # 'gamma' or 'linear'
 
 plt_config()
 
@@ -38,10 +39,13 @@ fname = CONFIG['files']['regression_results'][output_name]
 if os.path.exists(fname):
     with open(fname, 'rb') as f:
         fit_models = pickle.load(f)
+    # Remove events with <= 2 data points
+    fit_models = {event: data for event, data in fit_models.items() 
+                  if error_type in data and len(data[error_type][output_name]) > 2}
 else:
     logger.error(f"File {fname} does not exist. Rerun regression.py with reparse=True to create it.")
 
-def plot_regression_all(fit_models, output_name=output_name, save_results_dir=save_results_dir, slope_model=None, all_residual=False):
+def plot_regression_all(fit_models, model_type, output_name=output_name, save_results_dir=save_results_dir, slope_model=None, all_residual=False):
 
     plt.figure(figsize=(10,6))
     # Sort events by model slope (coefficient) in descending order
@@ -83,11 +87,11 @@ def plot_regression_all(fit_models, output_name=output_name, save_results_dir=sa
     else:
         all_x = np.concatenate([fit_models[event_name][error_type]['alpha_beta'] for event_name in fit_models.keys() if error_type in fit_models[event_name]])
     all_y = np.concatenate([fit_models[event_name][error_type][output_name] for event_name in fit_models.keys() if error_type in fit_models[event_name]])
-    all_model, _, all_metrics = regress(all_x, all_y)
+    all_model, _, all_metrics = regress(all_x, all_y, model_type=model_type)
     if slope_model is not None:
-        all_equation = write_eqn_and_fname(['slope*alpha*interpolated_beta'], output_name, all_model, labels)[0]
+        all_equation = write_eqn_and_fname(['slope*alpha*interpolated_beta'], output_name, all_model, labels, model_type=model_type)[0]
     else:
-        all_equation = write_eqn_and_fname(['alpha*interpolated_beta'], output_name, all_model, labels)[0]
+        all_equation = write_eqn_and_fname(['alpha*interpolated_beta'], output_name, all_model, labels, model_type=model_type)[0]
     x_range = np.linspace(all_x.min(),all_x.max(), 100)
     y_model = all_model.predict(np.column_stack([x_range]))
     # add linear model for all events combined
@@ -165,7 +169,7 @@ def plot_regression_all(fit_models, output_name=output_name, save_results_dir=sa
         create_residual_plots('qq', event_colors=event_colors)
 
 # plotting all events regression
-plot_regression_all(fit_models, output_name=output_name, save_results_dir=save_results_dir)
+plot_regression_all(fit_models, model_type, output_name=output_name, save_results_dir=save_results_dir)
 
 # plotting slope vs min Dst
 plt.figure(figsize=(10,6))
@@ -262,4 +266,4 @@ savefig(save_results_dir, f'all_events_log_slope_vs_params_{output_name}_{error_
 plt.close()
 
 # plotting all regression with dst modeled slope
-plot_regression_all(fit_models, output_name=output_name, save_results_dir=save_results_dir, slope_model=slope_model, all_residual=True)
+plot_regression_all(fit_models, model_type, output_name=output_name, save_results_dir=save_results_dir, slope_model=slope_model, all_residual=True)
