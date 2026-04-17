@@ -13,9 +13,9 @@ CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 plt_config()
 
-plot_both = False # if True, plot data used for MAGE and SWMF/OpenGGCM
+plot_all = True # if True, plot data used for MAGE and SWMF/OpenGGCM and raw data from OMNI
 plot_kp_compare = False # if True, compare Kp from MAGE and OMNI2
-plot_hapi = True  # if True, make IMF plot using HAPI data
+plot_hapi = False  # if True, make IMF plot using HAPI data
 
 args = cli('main.py')
 paper = False
@@ -76,6 +76,7 @@ def read_swmf(limits):
       'N(cm^(-3))': 'N',
       'T(Kelvin)': 'T'
   })
+  df = df.sort_values('time').reset_index(drop=True)
 
   df = df[(df['time'] >= limits[0]) & (df['time'] <= limits[1])]
 
@@ -106,6 +107,73 @@ def read_kp_omni2(start='2024-05-10', stop='2024-05-12'):
       timex.append(time + timedelta(minutes=30))
 
   return time, kp, timex, kpx
+
+def read_hapi(limits_plot):
+  #TODO: save file locally with start and stop in name (pkl)
+  from hapiclient import hapi, hapitime2datetime
+  import pandas
+
+  server     = 'https://cdaweb.gsfc.nasa.gov/hapi'
+  dataset    = 'OMNI2_H0_MRG1HR'  
+  parameters = 'T1800,Mgs_mach_num1800,DST1800,AE1800,AL_INDEX1800,AU_INDEX1800'
+  start      = limits_plot[0].strftime('%Y-%m-%dT%H:%M:%SZ')
+  stop       = limits_plot[1].strftime('%Y-%m-%dT%H:%M:%SZ')
+  data_hapi, meta = hapi(server, dataset, parameters, start, stop, logging=True)
+
+  parameters_dict = {
+    'Time': 'Time',
+    'T1800': 'Temp',
+    'Mgs_mach_num1800': 'Magnetosonic Mach',
+    'DST1800': 'Dst',
+    'AE1800': 'AE',
+    'AL_INDEX1800': 'AL',
+    'AU_INDEX1800': 'AU'
+  }
+  
+  dfs = []
+  for param, name in parameters_dict.items():
+    if param == 'Time':
+      dfs.append(pandas.DataFrame(hapitime2datetime(data_hapi[param])))
+    else:
+      dfs.append(pandas.DataFrame(data_hapi[param]))
+  
+  df_1hr = pandas.concat(dfs, axis=1)
+  df_1hr.columns = list(parameters_dict.values())
+
+  dataset    = 'OMNI_HRO2_1MIN'
+  parameters = 'BX_GSE,BY_GSE,BZ_GSE,Vx,T,Mgs_mach_num,AE_INDEX,AL_INDEX,AU_INDEX,SYM_H'
+  data_hapi, meta = hapi(server, dataset, parameters, start, stop)
+
+  parameters_dict = {
+    'Time': 'Time',
+    'BX_GSE': 'Bx',
+    'BY_GSE': 'By',
+    'BZ_GSE': 'Bz',
+    'Vx': 'Vx',
+    'T': 'Temp',
+    'Mgs_mach_num': 'Magnetosonic Mach',
+    'SYM_H': 'SYM_H',
+    'AE_INDEX': 'AE',
+    'AL_INDEX': 'AL',
+    'AU_INDEX': 'AU'
+  }
+  
+  dfs = []
+  i=0
+  for param, name in parameters_dict.items():
+    if param == 'Time':
+      dfs.append(pandas.DataFrame(hapitime2datetime(data_hapi[param])))
+    else:
+      dfs.append(pandas.DataFrame(data_hapi[param]))
+      fill = meta['parameters'][i]['fill']
+      if fill is not None:
+        fill = float(fill)
+        dfs[-1][dfs[-1] == fill] = np.nan
+    i+=1
+  df_1m = pandas.concat(dfs, axis=1)
+  df_1m.columns = list(parameters_dict.values())
+  
+  return df_1hr, df_1m
 
 def plt_adjust(xlims):
   for ax in axes:
@@ -140,76 +208,50 @@ def compare_kp(time_omni2, kp_omni2, time_mage, data_mage):
   savefig('data_processed/summary/_imf', 'mage_omni2_kp_compare', logger)
   plt.close()
 
+def mage_swmf_rmse(mage_values, swmf_values, parameter, start_time, stop_time):
+    import pandas as pd
+
+    def filter_by_mage_and_swmf(mage_values, swmf_values, parameter, start_time, stop_time):
+      # Create masks for each dataset independently
+      mage_mask = (mage_values['time'] >= start_time) & (mage_values['time'] <= stop_time)
+      swmf_mask = (swmf_values['time'] >= start_time) & (swmf_values['time'] <= stop_time)
+
+      # Filter the specific parameter data using the masks
+      filtered_mage = mage_values[parameter][mage_mask]
+      filtered_swmf = swmf_values[parameter][swmf_mask]
+
+      # Interpolate SWMF data to match MAGE time grid
+      mage_time = pd.Series(mage_values['time'][mage_mask])
+      swmf_values_temp = swmf_values.drop_duplicates(subset=['time']).set_index('time').reindex(mage_time).interpolate().reset_index()
+      swmf_values_temp.columns = ['time'] + list(swmf_values_temp.columns[1:])
+      filtered_mage = mage_values[parameter][mage_mask]
+      filtered_swmf = swmf_values_temp[parameter]
+      
+      # Return the filtered times and the data
+      return (mage_values['time'][mage_mask], filtered_mage, 
+              swmf_values_temp['time'], filtered_swmf)
+    
+    _, mage_filtered, _, swmf_filtered = filter_by_mage_and_swmf(mage_values, swmf_values, parameter, start_time, stop_time)
+    rmse = np.sqrt(np.mean((mage_filtered - swmf_filtered)**2))
+    if parameter in ['Vx']:
+      unit = 'km/s'
+    elif parameter in ['By', 'Bz']:
+      unit = 'nT'
+    else:
+      unit = ''
+    print(f'RMSE between MAGE and SWMF {parameter}: {rmse:.2f} {unit}')
+    return rmse
+
 limits_data = CONFIG['limits']['data']
 limits_plot = CONFIG['limits']['plot']
 
 data = read_mage(limits_data)
 
 if plot_hapi:
-    # make same stack plot but using HAPI data
-    from hapiclient import hapi, hapitime2datetime
-    import pandas
+    start = limits_plot[0].strftime('%Y-%m-%dT%H:%M:%SZ')
+    stop = limits_plot[1].strftime('%Y-%m-%dT%H:%M:%SZ')
 
-    server     = 'https://cdaweb.gsfc.nasa.gov/hapi'
-    dataset    = 'OMNI2_H0_MRG1HR'  
-    parameters = 'T1800,Mgs_mach_num1800,DST1800,AE1800,AL_INDEX1800,AU_INDEX1800'
-    start      = limits_plot[0].strftime('%Y-%m-%dT%H:%M:%SZ')
-    stop       = limits_plot[1].strftime('%Y-%m-%dT%H:%M:%SZ')
-    data_hapi, meta = hapi(server, dataset, parameters, start, stop)
-
-    parameters_dict = {
-      'Time': 'Time',
-      'T1800': 'Temp',
-      'Mgs_mach_num1800': 'Magnetosonic Mach',
-      'DST1800': 'Dst',
-      'AE1800': 'AE',
-      'AL_INDEX1800': 'AL',
-      'AU_INDEX1800': 'AU'
-    }
-    
-    dfs = []
-    for param, name in parameters_dict.items():
-      if param == 'Time':
-        dfs.append(pandas.DataFrame(hapitime2datetime(data_hapi[param])))
-      else:
-        dfs.append(pandas.DataFrame(data_hapi[param]))
-    
-    df_1hr = pandas.concat(dfs, axis=1)
-    df_1hr.columns = list(parameters_dict.values())
-
-    dataset    = 'OMNI_HRO2_1MIN'
-    parameters = 'BX_GSE,BY_GSE,BZ_GSE,Vx,T,Mgs_mach_num,AE_INDEX,AL_INDEX,AU_INDEX,SYM_H'
-    data_hapi, meta = hapi(server, dataset, parameters, start, stop)
-
-    parameters_dict = {
-      'Time': 'Time',
-      'BX_GSE': 'Bx',
-      'BY_GSE': 'By',
-      'BZ_GSE': 'Bz',
-      'Vx': 'Vx',
-      'T': 'Temp',
-      'Mgs_mach_num': 'Magnetosonic Mach',
-      'SYM_H': 'SYM_H',
-      'AE_INDEX': 'AE',
-      'AL_INDEX': 'AL',
-      'AU_INDEX': 'AU'
-    }
-    
-
-    dfs = []
-    i=0
-    for param, name in parameters_dict.items():
-      if param == 'Time':
-        dfs.append(pandas.DataFrame(hapitime2datetime(data_hapi[param])))
-      else:
-        dfs.append(pandas.DataFrame(data_hapi[param]))
-        fill = meta['parameters'][i]['fill']
-        if fill is not None:
-          fill = float(fill)
-          dfs[-1][dfs[-1] == fill] = np.nan  # remove erroneous high values
-      i+=1
-    df_1m = pandas.concat(dfs, axis=1) # find more efficient way to do this?
-    df_1m.columns = list(parameters_dict.values())
+    df_1hr, df_1m = read_hapi(limits_plot)
     
     fig = plt.figure(figsize=(8.5, 11))
     gs = plt.gcf().add_gridspec(7, 1, hspace=0.15)
@@ -293,7 +335,6 @@ if plot_hapi:
     with open(fname, 'wb') as f:
       logger.info(f"Saving IMF parameters for {current_event} to {fname}")
       pickle.dump(fit_models, f)
-    exit()
 
 if plot_kp_compare:
   time, kp, timex, kpx = read_kp_omni2()
@@ -320,7 +361,7 @@ axes[1].yaxis.set_major_locator(MultipleLocator(3))
 axes[1].set_ylim(0, 9.5)
 
 # Plotting symh
-axes[2].plot(data['time'], data['symh'], color='k', linewidth=0.8)
+axes[2].plot(data['time'], data['symh'], color='k', linewidth=0.8, label='SYM-H (MAGE)')
 axes[2].set_ylabel('SYM-H (nT)')
 
 # Plotting temperature
@@ -329,7 +370,7 @@ axes[3].set_ylabel(r'T (MK)')
 axes[3].yaxis.set_major_locator(MultipleLocator(2))
 
 # Plotting mach
-axes[4].plot(data['time'], data['Magnetosonic Mach'], color='k', linewidth=0.8)
+axes[4].plot(data['time'], data['Magnetosonic Mach'], color='k', linewidth=0.8, label='Mag Mach (MAGE)')
 axes[4].set_ylabel("Mag Mach")
 axes[4].yaxis.set_major_locator(MultipleLocator(0.01))
 axes[4].set_ylim(0, 0.03)
@@ -353,23 +394,92 @@ fig.align_ylabels(axes)
 savefig('data_processed/summary/_imf', 'imf_mage', logger)
 savefig_paper('figures/_imf', 'imf_mage', logger)
 
-if plot_both:
+if plot_all:
   df = read_swmf(limits_data)
   ## To plot Magnetosonic Mach, see:
   ##  https://omniweb.gsfc.nasa.gov/ftpbrowser/bow_derivation.html
   ##  https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2009JA014998
 
+  if not plot_hapi: # only read HAPI data if we haven't already read it for the previous plot
+    df_1hr, df_1m = read_hapi(limits_plot)
+
+  # Adding -al and ae to existing axes
+  axes[0].plot(df_1m['Time'], -df_1m['AL'], label=r'$-$AL (OMNI)', color='c', linewidth=0.8, linestyle=':')
+  axes[0].plot(df_1m['Time'], df_1m['AE'], label='AE (OMNI)', color='b', linewidth=0.5, linestyle=':')
+  axes[0].legend(loc='upper right', ncol=4)
+
+  # Adding SYM-H and Dst to existing axes
+  axes[2].plot(df_1m['Time'], df_1m['SYM_H'], color='c', linewidth=0.8, linestyle=':', label='SYM-H (OMNI)')
+  axes[2].plot(df_1hr['Time'], df_1hr['Dst'], color='b', linewidth=0.5, linestyle=':', label='Dst (OMNI)')
+  axes[2].legend(loc='upper right', ncol=3)
+
   # Adding T to existing axes
   axes[3].plot(df['time'], df['T']/1e6, label='T (SWMF)', color='gray', linewidth=0.8)
-  axes[3].legend(loc='upper right', ncol=2)
+  axes[3].plot(df_1m['Time'], df_1m['Temp'] / 1e6, color='c', linewidth=0.8, linestyle=':', label='T (OMNI)')
+  axes[3].legend(loc='upper right', ncol=3)
 
+  # Adding Magnetosonic Mach to existing axes
+  axes[4].plot(df_1m['Time'], df_1m['Magnetosonic Mach'], color='c', linewidth=0.8, linestyle=':', label='Mag Mach (OMNI)')
+  axes[4].legend(loc='upper right', ncol=2)
+  axes[4].yaxis.set_major_locator(MultipleLocator(5))
+  axes[4].set_ylim(-1,18)
+  
   # Adding Vx to existing axes
   axes[5].plot(df['time'], df['Vx'], label=r'V$_x$ (SWMF)', color='gray', linewidth=0.8)
-  axes[5].legend(loc='upper right', ncol=2)
+  axes[5].plot(df_1m['Time'], df_1m['Vx'], color='c', linewidth=0.8, linestyle=':', label=r'V$_x$ (OMNI)')
+  axes[5].legend(loc='upper right', ncol=3)
+  # Adding RMSE calculation for Vx
+  vx_rmse = mage_swmf_rmse(data, df, 'Vx', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-10T12:00:00'))
+  # Add RMSE to title
+  axes[5].set_title(f'Vx Comparison (RMSE: {vx_rmse:.2f} km/s)', fontsize=10)
 
   # Adding By and Bz to the existing axes
-  axes[6].plot(df['time'], df['By'], label=r'B$_y^\text{SWMF}$', color='gray', linewidth=0.8)
-  axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{SWMF}$', color='dimgray', linewidth=0.5, linestyle='--')
-  axes[6].legend(loc='upper right', ncol=4)
+  axes[6].plot(df['time'], df['By'], label=r'B$_y^\text{SWMF}$', color='orange', linewidth=0.8)
+  axes[6].plot(df['time'], df['Bz'], label=r'B$_z^\text{SWMF}$', color='gray', linewidth=0.5, linestyle='--')
+  axes[6].plot(df_1m['Time'], df_1m['By'], label=r'B$_y^\text{OMNI}$', color='c', linewidth=0.8, linestyle=':')
+  axes[6].plot(df_1m['Time'], df_1m['Bz'], label=r'B$_z^\text{OMNI}$', color='b', linewidth=0.5, linestyle=':')
+  axes[6].legend(loc='upper right', ncol=6)
+  # Similar RMSE calcualtions for By and Bz
+  by_rmse = mage_swmf_rmse(data, df, 'By', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-10T12:00:00'))
+  bz_rmse = mage_swmf_rmse(data, df, 'Bz', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-10T12:00:00'))
+  # Adding both RMSE to title
+  axes[6].set_title(f'By Comparison (RMSE: {by_rmse:.2f} nT), Bz Comparison (RMSE: {bz_rmse:.2f} nT)', fontsize=10)
 
   savefig('data_processed/summary/_imf', 'imf_all', logger)
+  plt.close()
+
+  # New figure with just Vx, By, and Bz for better visibility
+  fig = plt.figure(figsize=(8.5, 11))
+  gs = plt.gcf().add_gridspec(3, 1, hspace=0.15)
+  axes = gs.subplots(sharex=True)
+
+  # Plotting Vx
+  axes[0].plot(df_1m['Time'], df_1m['Vx'], color='k', linewidth=0.8, label=r'OMNI')
+  axes[0].plot(data['time'], data['Vx']/1000, color='c', linestyle='-.', linewidth=0.8, label=r'MAGE')
+  axes[0].plot(df['time'], df['Vx'], label=r'SWMF/GGCM', color='orange', linestyle=':', linewidth=0.8)
+  axes[0].set_ylabel(r'V$_x$ (km/s)')
+  axes[0].legend(loc='upper right', ncol=3)
+  axes[0].yaxis.set_major_locator(MultipleLocator(200))
+
+  # Plotting By
+  axes[1].plot(df_1m['Time'], df_1m['By'], label=r'OMNI', color='k', linewidth=0.8)
+  axes[1].plot(data['time'], data['By'], color='c', linestyle='-.', linewidth=0.8, label=r'MAGE')
+  axes[1].plot(df['time'], df['By'], label=r'SWMF/GGCM', color='orange', linestyle=':', linewidth=0.8)
+  axes[1].set_ylabel(r'B$_y^\text{IMF}$ (nT)')
+  axes[1].legend(loc='upper right', ncol=3)
+  axes[1].yaxis.set_major_locator(MultipleLocator(50))
+
+  # Plotting Bz
+  axes[2].plot(df_1m['Time'], df_1m['Bz'], label=r'OMNI', color='k', linewidth=0.8)
+  axes[2].plot(data['time'], data['Bz'], color='c', linestyle='-.', linewidth=0.8, label=r'MAGE')
+  axes[2].plot(df['time'], df['Bz'], label=r'SWMF/GGCM', color='orange', linestyle=':', linewidth=0.8)
+  axes[2].set_ylabel(r'B$_z^\text{IMF}$ (nT)')
+  axes[2].legend(loc='upper right', ncol=3)
+  axes[2].yaxis.set_major_locator(MultipleLocator(50))
+
+  plt_adjust(limits_plot)
+  fig.align_ylabels(axes)
+  
+  savefig('data_processed/summary/_imf', 'imf_vx_by_bz', logger)
+  savefig_paper('figures/_imf', 'imf_vx_by_bz', logger)
+  
