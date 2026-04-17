@@ -7,7 +7,7 @@ import datetime
 
 debug = False  # Set to True to log resampling information.
 
-def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None, debug=False):
+def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
 
   Usage:
@@ -47,8 +47,10 @@ def site_read(sid, data_types=None, reparse=False, add_errors=False, logger=None
         data = pickle.load(f)
         return data
 
-  start = CONFIG['limits']['data'][0]
-  stop = CONFIG['limits']['data'][1]
+  if start is None:
+    start = CONFIG['limits']['data'][0]
+  if stop is None:
+    stop = CONFIG['limits']['data'][1]
 
   site_info = read_info_dict(sid=sid)
 
