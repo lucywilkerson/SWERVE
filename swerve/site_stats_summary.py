@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 
-def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
+def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill=-99999):
 
     # Explain nan_fill
 
@@ -100,7 +100,10 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
         #rename columns with LaTeX
         df = df.rename(columns=column_names)
         # Format and save df as .md and .tex files
-        fname = os.path.join(DATA_DIR, "_results", f"{data_type.lower()}_table")
+        if crop:
+            fname = os.path.join(DATA_DIR, "_results", f"{data_type.lower()}_table_cropped")
+        else:
+            fname = os.path.join(DATA_DIR, "_results", f"{data_type.lower()}_table")
         logger.info(f"Writing {data_type} prediction comparison tables to {fname}.{{md,tex}}")
 
         # Markdown
@@ -120,7 +123,10 @@ def site_stats_summary(stats, data_types=None, logger=None, nan_fill=-99999):
         with open(fname + ".tex", "w") as f:
             logger.info(f"Writing {fname+".tex"}")
             f.write(df_tex)
-        fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table")
+        if crop:
+            fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table_cropped")
+        else:
+            fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table")
         with open(fname + ".tex", "w") as f:
             logger.info(f"Writing {fname+".tex"}")
             f.write(df_tex)
