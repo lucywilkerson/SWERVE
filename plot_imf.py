@@ -13,9 +13,9 @@ CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 plt_config()
 
-plot_all = True # if True, plot data used for MAGE and SWMF/OpenGGCM and raw data from OMNI
+plot_all = False # if True, plot data used for MAGE and SWMF/OpenGGCM and raw data from OMNI
 plot_kp_compare = False # if True, compare Kp from MAGE and OMNI2
-plot_hapi = False  # if True, make IMF plot using HAPI data
+plot_hapi = True  # if True, make IMF plot using HAPI data
 
 args = cli('main.py')
 paper = False
@@ -232,6 +232,8 @@ def mage_swmf_rmse(mage_values, swmf_values, parameter, start_time, stop_time):
               swmf_values_temp['time'], filtered_swmf)
     
     _, mage_filtered, _, swmf_filtered = filter_by_mage_and_swmf(mage_values, swmf_values, parameter, start_time, stop_time)
+    if parameter in ['Vx']:
+      mage_filtered = mage_filtered/1000
     rmse = np.sqrt(np.mean((mage_filtered - swmf_filtered)**2))
     if parameter in ['Vx']:
       unit = 'km/s'
@@ -328,13 +330,14 @@ if plot_hapi:
       fit_models[current_event]['max_kp'] = max_kp
       max_ae = df_1m['AE'].max()
       fit_models[current_event]['max_ae'] = max_ae
-      max_vx = df_1m['Vx'].max()
+      max_vx = np.abs(df_1m['Vx']).max()
       fit_models[current_event]['max_vx'] = max_vx
     if not os.path.exists(os.path.dirname(fname)):
       os.makedirs(os.path.dirname(fname))
     with open(fname, 'wb') as f:
       logger.info(f"Saving IMF parameters for {current_event} to {fname}")
       pickle.dump(fit_models, f)
+    exit()
 
 if plot_kp_compare:
   time, kp, timex, kpx = read_kp_omni2()
@@ -429,7 +432,7 @@ if plot_all:
   axes[5].plot(df_1m['Time'], df_1m['Vx'], color='c', linewidth=0.8, linestyle=':', label=r'V$_x$ (OMNI)')
   axes[5].legend(loc='upper right', ncol=3)
   # Adding RMSE calculation for Vx
-  vx_rmse = mage_swmf_rmse(data, df, 'Vx', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-10T12:00:00'))
+  vx_rmse = mage_swmf_rmse(data, df, 'Vx', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-11T12:00:00'))
   # Add RMSE to title
   axes[5].set_title(f'Vx Comparison (RMSE: {vx_rmse:.2f} km/s)', fontsize=10)
 
@@ -440,8 +443,8 @@ if plot_all:
   axes[6].plot(df_1m['Time'], df_1m['Bz'], label=r'B$_z^\text{OMNI}$', color='b', linewidth=0.5, linestyle=':')
   axes[6].legend(loc='upper right', ncol=6)
   # Similar RMSE calcualtions for By and Bz
-  by_rmse = mage_swmf_rmse(data, df, 'By', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-10T12:00:00'))
-  bz_rmse = mage_swmf_rmse(data, df, 'Bz', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-10T12:00:00'))
+  by_rmse = mage_swmf_rmse(data, df, 'By', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-11T12:00:00'))
+  bz_rmse = mage_swmf_rmse(data, df, 'Bz', pd.to_datetime('2024-05-10T12:00:00'), pd.to_datetime('2024-05-11T12:00:00'))
   # Adding both RMSE to title
   axes[6].set_title(f'By Comparison (RMSE: {by_rmse:.2f} nT), Bz Comparison (RMSE: {bz_rmse:.2f} nT)', fontsize=10)
 
