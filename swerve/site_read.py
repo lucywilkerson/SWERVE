@@ -22,9 +22,11 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
 
   If `debug` is True, print processing details for computing resampled data.
   """
-  from swerve import config, read_info_dict, resample
+  from swerve import cli, config, read_info_dict, resample
 
   CONFIG = config()
+  args = cli('site_read.py')
+  event = args['event']
 
   if logger is None:
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -76,7 +78,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
       for data_source in data_sources.keys():
 
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
-        orig = _site_read_orig(sid, data_type, data_class, data_source, logger)
+        orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
         if sid in CONFIG['single_phase_sids'] and data_type == 'GIC':
           logger.info(f"    Multiplying GIC data by 3 to account for single-phase transformer.")
           orig['data'] = orig['data'] * 3
@@ -138,7 +140,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
 
   return site_info
 
-def _site_read_orig(sid, data_type, data_class, data_source, logger):
+def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
 
   """Read data from site
 
@@ -204,9 +206,10 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'TVA':
     data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-measured')
     sid = sid.lower().replace(' ','')
-    if sid == 'widowscreek':
-      sid = f'{sid}2'
-    fname = f'gic-{sid}_20240510.csv'
+    if event == '2024-05-10' or event == None:
+      if sid == 'widowscreek':
+        sid = f'{sid}2'
+    fname = f'gic-{sid}_{event.replace("-", "")}.csv'
     file = os.path.join(data_dir, fname)
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
@@ -214,6 +217,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, logger):
     with open(file, 'r') as csvfile:
       rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
+          if row[0] == 'Timestamp': #skip header row if applicable
+            continue
           time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
           data.append(float(row[1]))
 
