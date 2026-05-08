@@ -1,0 +1,2564 @@
+{
+  "10222": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10222": {
+            "geo_lat": 40.2,
+            "geo_lon": -75.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.691713307197934,
+            "log10_beta": 0.430028801565164,
+            "mag_lat": 49.83236006865366,
+            "mag_lon": -3.1703836042161733,
+            "alpha": 0.3081915199964859,
+            "nearest_volt": 230.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10224": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10224": {
+            "geo_lat": 40.2,
+            "geo_lon": -75.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.691713307197934,
+            "log10_beta": 0.430028801565164,
+            "mag_lat": 49.83236006865366,
+            "mag_lon": -3.1703836042161733,
+            "alpha": 0.3081915199964859,
+            "nearest_volt": 230.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10254": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10254": {
+            "geo_lat": 42.8,
+            "geo_lon": -82.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6150394477268439,
+            "log10_beta": -0.2110970283210519,
+            "mag_lat": 52.2738274416334,
+            "mag_lon": -11.86989491617454,
+            "alpha": 0.4080909865483176,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10297": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10297": {
+            "geo_lat": 46.8,
+            "geo_lon": -92.3,
+            "manual_error": NaN,
+            "interpolated_beta": 1.8714973966240973,
+            "log10_beta": 0.27218922731868794,
+            "mag_lat": 55.75676798634816,
+            "mag_lon": -24.181265252030958,
+            "alpha": 0.609127934324444,
+            "nearest_volt": 115.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10299": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10299": {
+            "geo_lat": 46.6,
+            "geo_lon": -87.4,
+            "manual_error": NaN,
+            "interpolated_beta": 1.2584233259576691,
+            "log10_beta": 0.09982675971123568,
+            "mag_lat": 55.85416377616329,
+            "mag_lon": -18.192791550641253,
+            "alpha": 0.6159888324679893,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10300": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10300": {
+            "geo_lat": 46.6,
+            "geo_lon": -87.4,
+            "manual_error": NaN,
+            "interpolated_beta": 1.2584233259576691,
+            "log10_beta": 0.09982675971123568,
+            "mag_lat": 55.85416377616329,
+            "mag_lon": -18.192791550641253,
+            "alpha": 0.6159888324679893,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10301": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10301": {
+            "geo_lat": 44.0,
+            "geo_lon": -88.6,
+            "manual_error": NaN,
+            "interpolated_beta": 1.6600117205555995,
+            "log10_beta": 0.22011115439827922,
+            "mag_lat": 53.19717954634106,
+            "mag_lon": -19.300036910719363,
+            "alpha": 0.45380865653696734,
+            "nearest_volt": 138.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10305": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10305": {
+            "geo_lat": 44.3,
+            "geo_lon": -87.5,
+            "manual_error": NaN,
+            "interpolated_beta": 1.3779552496165988,
+            "log10_beta": 0.13923511368180067,
+            "mag_lat": 53.55530374719703,
+            "mag_lon": -18.018246029954987,
+            "alpha": 0.47288864168269196,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10306": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10306": {
+            "geo_lat": 44.8,
+            "geo_lon": -88.2,
+            "manual_error": NaN,
+            "interpolated_beta": 1.2345599369449158,
+            "log10_beta": 0.09151217944620431,
+            "mag_lat": 54.016759925976515,
+            "mag_lon": -18.923300268077945,
+            "alpha": 0.4986614414757079,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10309": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10309": {
+            "geo_lat": 45.8,
+            "geo_lon": -88.0,
+            "manual_error": NaN,
+            "interpolated_beta": 1.0855066860857323,
+            "log10_beta": 0.035632502798450295,
+            "mag_lat": 55.024624924921206,
+            "mag_lon": -18.814368872406572,
+            "alpha": 0.5599412493586117,
+            "nearest_volt": 69.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10318": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10318": {
+            "geo_lat": 44.4,
+            "geo_lon": -88.7,
+            "manual_error": NaN,
+            "interpolated_beta": 1.2746208789783278,
+            "log10_beta": 0.10538102818025757,
+            "mag_lat": 53.59041315902979,
+            "mag_lon": -19.47193400115109,
+            "alpha": 0.474801828246043,
+            "nearest_volt": 345.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10319": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10319": {
+            "geo_lat": 43.7,
+            "geo_lon": -87.7,
+            "manual_error": NaN,
+            "interpolated_beta": 1.3986159376354528,
+            "log10_beta": 0.1456984728443709,
+            "mag_lat": 52.94646574997521,
+            "mag_lon": -18.185501139120362,
+            "alpha": 0.44091122937362764,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10320": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10320": {
+            "geo_lat": 43.7,
+            "geo_lon": -87.7,
+            "manual_error": NaN,
+            "interpolated_beta": 1.3986159376354528,
+            "log10_beta": 0.1456984728443709,
+            "mag_lat": 52.94646574997521,
+            "mag_lon": -18.185501139120362,
+            "alpha": 0.44091122937362764,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10321": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10321": {
+            "geo_lat": 43.1,
+            "geo_lon": -88.0,
+            "manual_error": NaN,
+            "interpolated_beta": 1.572139297661632,
+            "log10_beta": 0.1964910235899094,
+            "mag_lat": 52.3322394578722,
+            "mag_lon": -18.472058040782038,
+            "alpha": 0.4108415173818793,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10322": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10322": {
+            "geo_lat": 43.3,
+            "geo_lon": -89.4,
+            "manual_error": NaN,
+            "interpolated_beta": 2.0578805688626756,
+            "log10_beta": 0.31342016644731213,
+            "mag_lat": 52.454068780081144,
+            "mag_lon": -20.164538704799778,
+            "alpha": 0.416638071015088,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10397": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10397": {
+            "geo_lat": 39.1,
+            "geo_lon": -78.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.0731811017327963,
+            "log10_beta": 0.3166372413354602,
+            "mag_lat": 48.6893883923146,
+            "mag_lon": -6.677944326261995,
+            "alpha": 0.2702316799942783,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10398": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10398": {
+            "geo_lat": 41.1,
+            "geo_lon": -74.2,
+            "manual_error": NaN,
+            "interpolated_beta": 2.4943337505101617,
+            "log10_beta": 0.39695456313904504,
+            "mag_lat": 50.740436598280006,
+            "mag_lon": -1.8779491965807429,
+            "alpha": 0.34211611904339345,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10063": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10063": {
+            "geo_lat": 33.4,
+            "geo_lon": -112.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5072943140435764,
+            "log10_beta": -0.29474000540058903,
+            "mag_lat": 40.54454651984903,
+            "mag_lon": -44.77913387245658,
+            "alpha": 0.10591351340297964,
+            "nearest_volt": NaN,
+            "power_pool": "WestConnect",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10107": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10107": {
+            "geo_lat": 34.5,
+            "geo_lon": -118.1,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9647671847862697,
+            "log10_beta": -0.015577476875373655,
+            "mag_lat": 40.936086395636806,
+            "mag_lon": -51.05891675473804,
+            "alpha": 0.11079148658638795,
+            "nearest_volt": 500.0,
+            "power_pool": "CAISO",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10112": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10112": {
+            "geo_lat": 47.7,
+            "geo_lon": -117.4,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6947322760129329,
+            "log10_beta": -0.15818252411585576,
+            "mag_lat": 54.01949114713086,
+            "mag_lon": -53.789868380959156,
+            "alpha": 0.49881809086340534,
+            "nearest_volt": NaN,
+            "power_pool": "NorthernGridConnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10115": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10115": {
+            "geo_lat": 47.6,
+            "geo_lon": -114.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.28910620589509867,
+            "log10_beta": -0.5389425857521396,
+            "mag_lat": 54.29204417972752,
+            "mag_lon": -50.59785721078258,
+            "alpha": 0.5147004498531211,
+            "nearest_volt": 230.0,
+            "power_pool": "NorthernGridUnconnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10116": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10116": {
+            "geo_lat": 47.9,
+            "geo_lon": -121.9,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9013327943924132,
+            "log10_beta": -0.04511482713106004,
+            "mag_lat": 53.58784990730655,
+            "mag_lon": -58.867629000206506,
+            "alpha": 0.4746618896626691,
+            "nearest_volt": 500.0,
+            "power_pool": "NorthernGridUnconnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10119": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10119": {
+            "geo_lat": 47.5,
+            "geo_lon": -120.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3611132137327444,
+            "log10_beta": -0.44235661972542606,
+            "mag_lat": 53.423949163827906,
+            "mag_lon": -56.95592168545893,
+            "alpha": 0.4657989735595784,
+            "nearest_volt": 115.0,
+            "power_pool": "NorthernGridUnconnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10120": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10120": {
+            "geo_lat": 47.8,
+            "geo_lon": -122.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.8667019498089719,
+            "log10_beta": -0.06213022640795931,
+            "mag_lat": 53.44707779954524,
+            "mag_lon": -59.16238226483965,
+            "alpha": 0.46703955156797566,
+            "nearest_volt": 115.0,
+            "power_pool": "NorthernGridConnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10121": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10121": {
+            "geo_lat": 46.9,
+            "geo_lon": -119.9,
+            "manual_error": NaN,
+            "interpolated_beta": 0.34635923339588626,
+            "log10_beta": -0.4604732302606293,
+            "mag_lat": 52.8927774681828,
+            "mag_lon": -56.306298622062585,
+            "alpha": 0.43819736277996124,
+            "nearest_volt": NaN,
+            "power_pool": "NorthernGridUnconnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10257": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10257": {
+            "geo_lat": 47.4,
+            "geo_lon": -101.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.24746824742487,
+            "log10_beta": -0.6064805173478696,
+            "mag_lat": 55.616941571141325,
+            "mag_lon": -34.98323209440816,
+            "alpha": 0.5994114641133648,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10258": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10258": {
+            "geo_lat": 47.4,
+            "geo_lon": -101.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.24746824742487,
+            "log10_beta": -0.6064805173478696,
+            "mag_lat": 55.616941571141325,
+            "mag_lon": -34.98323209440816,
+            "alpha": 0.5994114641133648,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10259": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10259": {
+            "geo_lat": 47.4,
+            "geo_lon": -101.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.24746824742487,
+            "log10_beta": -0.6064805173478696,
+            "mag_lat": 55.616941571141325,
+            "mag_lon": -34.98323209440816,
+            "alpha": 0.5994114641133648,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10260": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10260": {
+            "geo_lat": 47.4,
+            "geo_lon": -101.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.24746824742487,
+            "log10_beta": -0.6064805173478696,
+            "mag_lat": 55.616941571141325,
+            "mag_lon": -34.98323209440816,
+            "alpha": 0.5994114641133648,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10261": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10261": {
+            "geo_lat": 45.1,
+            "geo_lon": -93.8,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9661853461548524,
+            "log10_beta": -0.01493955361450329,
+            "mag_lat": 53.95961879905005,
+            "mag_lon": -25.68386266293042,
+            "alpha": 0.4953953654731835,
+            "nearest_volt": 115.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10262": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10262": {
+            "geo_lat": 45.1,
+            "geo_lon": -93.8,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9661853461548524,
+            "log10_beta": -0.01493955361450329,
+            "mag_lat": 53.95961879905005,
+            "mag_lon": -25.68386266293042,
+            "alpha": 0.4953953654731835,
+            "nearest_volt": 115.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10263": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10263": {
+            "geo_lat": 45.1,
+            "geo_lon": -93.8,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9661853461548524,
+            "log10_beta": -0.01493955361450329,
+            "mag_lat": 53.95961879905005,
+            "mag_lon": -25.68386266293042,
+            "alpha": 0.4953953654731835,
+            "nearest_volt": 115.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10264": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10264": {
+            "geo_lat": 45.1,
+            "geo_lon": -93.8,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9661853461548524,
+            "log10_beta": -0.01493955361450329,
+            "mag_lat": 53.95961879905005,
+            "mag_lon": -25.68386266293042,
+            "alpha": 0.4953953654731835,
+            "nearest_volt": 115.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10331": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10331": {
+            "geo_lat": 32.2,
+            "geo_lon": -86.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6516517340247865,
+            "log10_beta": -0.18598444476006154,
+            "mag_lat": 41.536321119320235,
+            "mag_lon": -15.50344334268574,
+            "alpha": 0.118709214695157,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10360": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10360": {
+            "geo_lat": 40.2,
+            "geo_lon": -75.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.691713307197934,
+            "log10_beta": 0.430028801565164,
+            "mag_lat": 49.83236006865366,
+            "mag_lon": -3.1703836042161733,
+            "alpha": 0.3081915199964859,
+            "nearest_volt": 230.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10361": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10361": {
+            "geo_lat": 40.2,
+            "geo_lon": -75.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.691713307197934,
+            "log10_beta": 0.430028801565164,
+            "mag_lat": 49.83236006865366,
+            "mag_lon": -3.1703836042161733,
+            "alpha": 0.3081915199964859,
+            "nearest_volt": 230.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10362": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10362": {
+            "geo_lat": 39.8,
+            "geo_lon": -76.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.44308449385514,
+            "log10_beta": 0.3879384872683546,
+            "mag_lat": 49.421421660984926,
+            "mag_lon": -4.344023558910891,
+            "alpha": 0.29396581674771816,
+            "nearest_volt": 230.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10363": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10363": {
+            "geo_lat": 40.2,
+            "geo_lon": -75.6,
+            "manual_error": NaN,
+            "interpolated_beta": 2.343391466974178,
+            "log10_beta": 0.36984484418619445,
+            "mag_lat": 49.82942478237361,
+            "mag_lon": -3.5255833769258973,
+            "alpha": 0.3080875050638742,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10364": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10364": {
+            "geo_lat": 40.2,
+            "geo_lon": -75.6,
+            "manual_error": NaN,
+            "interpolated_beta": 2.343391466974178,
+            "log10_beta": 0.36984484418619445,
+            "mag_lat": 49.82942478237361,
+            "mag_lon": -3.5255833769258973,
+            "alpha": 0.3080875050638742,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10399": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10399": {
+            "geo_lat": 39.1,
+            "geo_lon": -78.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.0731811017327963,
+            "log10_beta": 0.3166372413354602,
+            "mag_lat": 48.6893883923146,
+            "mag_lon": -6.677944326261995,
+            "alpha": 0.2702316799942783,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10400": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10400": {
+            "geo_lat": 39.1,
+            "geo_lon": -78.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.0731811017327963,
+            "log10_beta": 0.3166372413354602,
+            "mag_lat": 48.6893883923146,
+            "mag_lon": -6.677944326261995,
+            "alpha": 0.2702316799942783,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10401": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10401": {
+            "geo_lat": 39.1,
+            "geo_lon": -78.3,
+            "manual_error": NaN,
+            "interpolated_beta": 2.0731811017327963,
+            "log10_beta": 0.3166372413354602,
+            "mag_lat": 48.6893883923146,
+            "mag_lon": -6.677944326261995,
+            "alpha": 0.2702316799942783,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10402": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10402": {
+            "geo_lat": 39.5,
+            "geo_lon": -78.9,
+            "manual_error": NaN,
+            "interpolated_beta": 1.100117757927958,
+            "log10_beta": 0.041439175050120194,
+            "mag_lat": 49.07692950005452,
+            "mag_lon": -7.399899626189418,
+            "alpha": 0.28254756059544484,
+            "nearest_volt": 138.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10403": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10403": {
+            "geo_lat": 39.5,
+            "geo_lon": -78.9,
+            "manual_error": NaN,
+            "interpolated_beta": 1.100117757927958,
+            "log10_beta": 0.041439175050120194,
+            "mag_lat": 49.07692950005452,
+            "mag_lon": -7.399899626189418,
+            "alpha": 0.28254756059544484,
+            "nearest_volt": 138.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10404": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10404": {
+            "geo_lat": 39.5,
+            "geo_lon": -77.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.975750740745741,
+            "log10_beta": 0.47359655037775894,
+            "mag_lat": 49.09679849255656,
+            "mag_lon": -6.222077133369064,
+            "alpha": 0.28319390130394984,
+            "nearest_volt": 500.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10405": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10405": {
+            "geo_lat": 39.5,
+            "geo_lon": -77.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.975750740745741,
+            "log10_beta": 0.47359655037775894,
+            "mag_lat": 49.09679849255656,
+            "mag_lon": -6.222077133369064,
+            "alpha": 0.28319390130394984,
+            "nearest_volt": 500.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10406": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10406": {
+            "geo_lat": 39.5,
+            "geo_lon": -77.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.975750740745741,
+            "log10_beta": 0.47359655037775894,
+            "mag_lat": 49.09679849255656,
+            "mag_lon": -6.222077133369064,
+            "alpha": 0.28319390130394984,
+            "nearest_volt": 500.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10407": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10407": {
+            "geo_lat": 39.5,
+            "geo_lon": -77.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.975750740745741,
+            "log10_beta": 0.47359655037775894,
+            "mag_lat": 49.09679849255656,
+            "mag_lon": -6.222077133369064,
+            "alpha": 0.28319390130394984,
+            "nearest_volt": 500.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10408": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10408": {
+            "geo_lat": 39.7,
+            "geo_lon": -80.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.35839272232075164,
+            "log10_beta": -0.44564081789392257,
+            "mag_lat": 49.25102227901106,
+            "mag_lon": -8.70479808514706,
+            "alpha": 0.28826135812039044,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10409": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10409": {
+            "geo_lat": 39.3,
+            "geo_lon": -77.5,
+            "manual_error": NaN,
+            "interpolated_beta": 3.214361482606811,
+            "log10_beta": 0.5070947153251723,
+            "mag_lat": 48.90383488852565,
+            "mag_lon": -5.7441675583019975,
+            "alpha": 0.2769788119704808,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10410": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10410": {
+            "geo_lat": 39.3,
+            "geo_lon": -77.5,
+            "manual_error": NaN,
+            "interpolated_beta": 3.214361482606811,
+            "log10_beta": 0.5070947153251723,
+            "mag_lat": 48.90383488852565,
+            "mag_lon": -5.7441675583019975,
+            "alpha": 0.2769788119704808,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10411": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10411": {
+            "geo_lat": 39.3,
+            "geo_lon": -77.5,
+            "manual_error": NaN,
+            "interpolated_beta": 3.214361482606811,
+            "log10_beta": 0.5070947153251723,
+            "mag_lat": 48.90383488852565,
+            "mag_lon": -5.7441675583019975,
+            "alpha": 0.2769788119704808,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10412": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10412": {
+            "geo_lat": 39.3,
+            "geo_lon": -77.5,
+            "manual_error": NaN,
+            "interpolated_beta": 3.214361482606811,
+            "log10_beta": 0.5070947153251723,
+            "mag_lat": 48.90383488852565,
+            "mag_lon": -5.7441675583019975,
+            "alpha": 0.2769788119704808,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10413": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10413": {
+            "geo_lat": 39.3,
+            "geo_lon": -77.5,
+            "manual_error": NaN,
+            "interpolated_beta": 3.214361482606811,
+            "log10_beta": 0.5070947153251723,
+            "mag_lat": 48.90383488852565,
+            "mag_lon": -5.7441675583019975,
+            "alpha": 0.2769788119704808,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10414": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10414": {
+            "geo_lat": 39.4,
+            "geo_lon": -77.4,
+            "manual_error": NaN,
+            "interpolated_beta": 3.647067586236612,
+            "log10_beta": 0.5619438115884283,
+            "mag_lat": 49.005472033922416,
+            "mag_lon": -5.629702801512378,
+            "alpha": 0.2802352093414682,
+            "nearest_volt": 230.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10425": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10425": {
+            "geo_lat": 36.8,
+            "geo_lon": -78.7,
+            "manual_error": NaN,
+            "interpolated_beta": 2.1019543813075523,
+            "log10_beta": 0.3226232863062152,
+            "mag_lat": 46.38211651763885,
+            "mag_lon": -7.058438221343478,
+            "alpha": 0.20725364877470157,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10437": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10437": {
+            "geo_lat": 39.6,
+            "geo_lon": -75.6,
+            "manual_error": NaN,
+            "interpolated_beta": 2.2656142528262535,
+            "log10_beta": 0.35518596813552383,
+            "mag_lat": 49.22947870222182,
+            "mag_lon": -3.5131902054532387,
+            "alpha": 0.28754807129237503,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10180": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10180": {
+            "geo_lat": 41.7,
+            "geo_lon": -73.8,
+            "manual_error": NaN,
+            "interpolated_beta": 3.145835293715519,
+            "log10_beta": 0.49773598055585516,
+            "mag_lat": 51.34234531933361,
+            "mag_lon": -1.406862311746886,
+            "alpha": 0.3666360665321084,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10181": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10181": {
+            "geo_lat": 41.9,
+            "geo_lon": -74.0,
+            "manual_error": NaN,
+            "interpolated_beta": 2.89686190112345,
+            "log10_beta": 0.46192779205926937,
+            "mag_lat": 51.54144858999293,
+            "mag_lon": -1.6479803942274875,
+            "alpha": 0.37512773245370895,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10183": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10183": {
+            "geo_lat": 41.1,
+            "geo_lon": -76.7,
+            "manual_error": NaN,
+            "interpolated_beta": 0.3383415505177352,
+            "log10_beta": -0.4706446647822341,
+            "mag_lat": 50.715846288730496,
+            "mag_lon": -4.8539496130304425,
+            "alpha": 0.3411500204494099,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10184": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10184": {
+            "geo_lat": 39.0,
+            "geo_lon": -78.2,
+            "manual_error": NaN,
+            "interpolated_beta": 2.0985156906484956,
+            "log10_beta": 0.3219122207891498,
+            "mag_lat": 48.59134997382266,
+            "mag_lon": -6.556691635265122,
+            "alpha": 0.2672020855915447,
+            "nearest_volt": 500.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10187": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10187": {
+            "geo_lat": 41.0,
+            "geo_lon": -81.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6117421374360327,
+            "log10_beta": -0.2134316038153043,
+            "mag_lat": 50.505034077389396,
+            "mag_lon": -10.670428125316826,
+            "alpha": 0.3329788315029986,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10188": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10188": {
+            "geo_lat": 40.2,
+            "geo_lon": -74.5,
+            "manual_error": NaN,
+            "interpolated_beta": 2.9734133513883285,
+            "log10_beta": 0.47325528718968896,
+            "mag_lat": 49.838666108856174,
+            "mag_lon": -2.223063763042586,
+            "alpha": 0.3084150998894002,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10189": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10189": {
+            "geo_lat": 36.7,
+            "geo_lon": -83.7,
+            "manual_error": NaN,
+            "interpolated_beta": 0.527466012355076,
+            "log10_beta": -0.2778055192002973,
+            "mag_lat": 46.13744827184239,
+            "mag_lon": -12.844588095619663,
+            "alpha": 0.20150345975954187,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10190": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10190": {
+            "geo_lat": 36.7,
+            "geo_lon": -83.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.57653457392805,
+            "log10_beta": -0.23917464358881532,
+            "mag_lat": 46.16271154483735,
+            "mag_lon": -12.035266321187216,
+            "alpha": 0.20208973423689802,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10191": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10191": {
+            "geo_lat": 41.3,
+            "geo_lon": -90.5,
+            "manual_error": NaN,
+            "interpolated_beta": 1.4474025826441173,
+            "log10_beta": 0.16058934321547907,
+            "mag_lat": 50.39537852062453,
+            "mag_lon": -21.208516236150864,
+            "alpha": 0.32880620342612404,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10192": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10192": {
+            "geo_lat": 41.1,
+            "geo_lon": -95.7,
+            "manual_error": NaN,
+            "interpolated_beta": 1.225836002583152,
+            "log10_beta": 0.08843237235430772,
+            "mag_lat": 49.83872272740416,
+            "mag_lon": -27.257073955022335,
+            "alpha": 0.30841710802767813,
+            "nearest_volt": 161.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10193": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10193": {
+            "geo_lat": 41.6,
+            "geo_lon": -71.4,
+            "manual_error": NaN,
+            "interpolated_beta": 1.895916683083308,
+            "log10_beta": 0.2778192481538303,
+            "mag_lat": 51.24215402947223,
+            "mag_lon": 1.4609321446043777,
+            "alpha": 0.3624359298345015,
+            "nearest_volt": NaN,
+            "power_pool": "ISONE",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10194": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10194": {
+            "geo_lat": 42.6,
+            "geo_lon": -73.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.1945295536401264,
+            "log10_beta": 0.34134143384647514,
+            "mag_lat": 52.24190010889534,
+            "mag_lon": -1.5351707134495152,
+            "alpha": 0.4065953693926249,
+            "nearest_volt": 115.0,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10196": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10196": {
+            "geo_lat": 33.3,
+            "geo_lon": -111.9,
+            "manual_error": NaN,
+            "interpolated_beta": 0.59432779565099,
+            "log10_beta": -0.22597395808848364,
+            "mag_lat": 40.51592423608334,
+            "mag_lon": -44.107776703990766,
+            "alpha": 0.10556546556479655,
+            "nearest_volt": NaN,
+            "power_pool": "WestConnectNonEnrolled",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "10197": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10197": {
+            "geo_lat": 36.4,
+            "geo_lon": -82.2,
+            "manual_error": NaN,
+            "interpolated_beta": 1.4198283724986611,
+            "log10_beta": 0.1522358504523761,
+            "mag_lat": 45.88984106782539,
+            "mag_lon": -11.092409103717541,
+            "alpha": 0.1958466045168947,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10198": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10198": {
+            "geo_lat": 37.2,
+            "geo_lon": -86.9,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6880772749551748,
+            "log10_beta": -0.16236278530800938,
+            "mag_lat": 46.50060410599234,
+            "mag_lon": -16.580850674789545,
+            "alpha": 0.21009703011843897,
+            "nearest_volt": 161.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10199": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10199": {
+            "geo_lat": 35.0,
+            "geo_lon": -84.9,
+            "manual_error": NaN,
+            "interpolated_beta": 1.1069538243316335,
+            "log10_beta": 0.04412950501943767,
+            "mag_lat": 44.392564804955555,
+            "mag_lon": -14.108645772295707,
+            "alpha": 0.16486796683516924,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10201": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10201": {
+            "geo_lat": 36.5,
+            "geo_lon": -87.2,
+            "manual_error": NaN,
+            "interpolated_beta": 1.049994166488022,
+            "log10_beta": 0.02118688624222394,
+            "mag_lat": 45.787412735575344,
+            "mag_lon": -16.865840241613572,
+            "alpha": 0.1935532105503187,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10202": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10202": {
+            "geo_lat": 34.9,
+            "geo_lon": -90.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6097493392599633,
+            "log10_beta": -0.214848661626626,
+            "mag_lat": 44.04276534507717,
+            "mag_lon": -19.923114819134724,
+            "alpha": 0.15836745773534,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10204": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10204": {
+            "geo_lat": 35.3,
+            "geo_lon": -89.8,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6301141833833783,
+            "log10_beta": -0.20058074464164255,
+            "mag_lat": 44.4531652746804,
+            "mag_lon": -19.73402520546328,
+            "alpha": 0.16602095354879487,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10205": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10205": {
+            "geo_lat": 36.2,
+            "geo_lon": -88.8,
+            "manual_error": NaN,
+            "interpolated_beta": 0.8956529666713062,
+            "log10_beta": -0.0478602312465515,
+            "mag_lat": 45.40620131438505,
+            "mag_lon": -18.67664955914967,
+            "alpha": 0.18525127581708353,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10206": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10206": {
+            "geo_lat": 34.8,
+            "geo_lon": -85.7,
+            "manual_error": NaN,
+            "interpolated_beta": 0.8374007929076037,
+            "log10_beta": -0.07706663222525892,
+            "mag_lat": 44.159136153254,
+            "mag_lon": -15.009483297868082,
+            "alpha": 0.16050107776980813,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10207": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10207": {
+            "geo_lat": 36.0,
+            "geo_lon": -84.1,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5592615251552008,
+            "log10_beta": -0.2523850572809846,
+            "mag_lat": 45.42308674771812,
+            "mag_lon": -13.258872516833708,
+            "alpha": 0.1856113508330261,
+            "nearest_volt": 161.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10208": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10208": {
+            "geo_lat": 35.8,
+            "geo_lon": -86.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.7257450701500456,
+            "log10_beta": -0.13921590556711677,
+            "mag_lat": 45.12179854856175,
+            "mag_lon": -16.002864899067347,
+            "alpha": 0.1792903991855533,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10213": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10213": {
+            "geo_lat": 30.5,
+            "geo_lon": -97.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.4236653335317851,
+            "log10_beta": -0.3729770707448052,
+            "mag_lat": 39.14806933036726,
+            "mag_lon": -27.8645122802521,
+            "alpha": 0.09019986884240916,
+            "nearest_volt": NaN,
+            "power_pool": "ERCOT",
+            "US_region": "ERCOT"
+          }
+        }
+      }
+    }
+  },
+  "10214": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10214": {
+            "geo_lat": 32.6,
+            "geo_lon": -97.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6969613331851104,
+            "log10_beta": -0.15679131551770836,
+            "mag_lat": 41.262666834403504,
+            "mag_lon": -27.783557700609986,
+            "alpha": 0.11503157845806698,
+            "nearest_volt": NaN,
+            "power_pool": "ERCOT",
+            "US_region": "ERCOT"
+          }
+        }
+      }
+    }
+  },
+  "10215": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10215": {
+            "geo_lat": 40.6,
+            "geo_lon": -74.1,
+            "manual_error": NaN,
+            "interpolated_beta": 2.65887108039173,
+            "log10_beta": 0.4246972803809019,
+            "mag_lat": 50.24097975147798,
+            "mag_lon": -1.7535391450580824,
+            "alpha": 0.32301949305591104,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10218": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10218": {
+            "geo_lat": 42.6,
+            "geo_lon": -96.3,
+            "manual_error": NaN,
+            "interpolated_beta": 1.4552467820579302,
+            "log10_beta": 0.16293664761606325,
+            "mag_lat": 51.28371128428763,
+            "mag_lon": -28.203976076525404,
+            "alpha": 0.3641721872535611,
+            "nearest_volt": 345.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10219": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10219": {
+            "geo_lat": 36.1,
+            "geo_lon": -81.0,
+            "manual_error": NaN,
+            "interpolated_beta": 2.7564328346317017,
+            "log10_beta": 0.4403474145899267,
+            "mag_lat": 45.6263130660265,
+            "mag_lon": -9.69020624461412,
+            "alpha": 0.19000036678254068,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10221": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10221": {
+            "geo_lat": 38.9,
+            "geo_lon": -84.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.846515101823899,
+            "log10_beta": -0.07236528967520824,
+            "mag_lat": 48.299711403463114,
+            "mag_lon": -14.050205871158198,
+            "alpha": 0.2583891576316446,
+            "nearest_volt": 138.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10251": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10251": {
+            "geo_lat": 35.9,
+            "geo_lon": -82.3,
+            "manual_error": NaN,
+            "interpolated_beta": 1.72529499839907,
+            "log10_beta": 0.23686336330687735,
+            "mag_lat": 45.38700692168156,
+            "mag_lon": -11.179147816697261,
+            "alpha": 0.18484281143617537,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10252": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10252": {
+            "geo_lat": 36.4,
+            "geo_lon": -79.0,
+            "manual_error": NaN,
+            "interpolated_beta": 2.6171669225579013,
+            "log10_beta": 0.4178314227674844,
+            "mag_lat": 45.97593326057725,
+            "mag_lon": -7.3909952627067605,
+            "alpha": 0.19779523422025744,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10273": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10273": {
+            "geo_lat": 42.9,
+            "geo_lon": -82.5,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6159649281559347,
+            "log10_beta": -0.2104440150140903,
+            "mag_lat": 52.373716836127066,
+            "mag_lon": -11.877588012233778,
+            "alpha": 0.41280587087808857,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10276": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10276": {
+            "geo_lat": 42.6,
+            "geo_lon": -84.0,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6573630712803762,
+            "log10_beta": -0.18219469695294935,
+            "mag_lat": 52.01858039375839,
+            "mag_lon": -13.647655738752572,
+            "alpha": 0.3962862268668562,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "10324": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10324": {
+            "geo_lat": 28.9,
+            "geo_lon": -95.3,
+            "manual_error": NaN,
+            "interpolated_beta": 0.050208675317364865,
+            "log10_beta": -1.299221236700696,
+            "mag_lat": 37.71882253908337,
+            "mag_lon": -25.257790991844583,
+            "alpha": 0.07652860496056618,
+            "nearest_volt": NaN,
+            "power_pool": "ERCOT",
+            "US_region": "ERCOT"
+          }
+        }
+      }
+    }
+  },
+  "10325": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10325": {
+            "geo_lat": 29.8,
+            "geo_lon": -95.2,
+            "manual_error": NaN,
+            "interpolated_beta": 0.06687295847063161,
+            "log10_beta": -1.1747494631161035,
+            "mag_lat": 38.62293884055812,
+            "mag_lon": -25.24115690207861,
+            "alpha": 0.08491391398718502,
+            "nearest_volt": NaN,
+            "power_pool": "ERCOT",
+            "US_region": "ERCOT"
+          }
+        }
+      }
+    }
+  },
+  "10326": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10326": {
+            "geo_lat": 29.4,
+            "geo_lon": -94.9,
+            "manual_error": NaN,
+            "interpolated_beta": 0.05207006605437056,
+            "log10_beta": -1.2834118713922844,
+            "mag_lat": 38.245557373066234,
+            "mag_lon": -24.867595980021306,
+            "alpha": 0.08130756786586979,
+            "nearest_volt": NaN,
+            "power_pool": "ERCOT",
+            "US_region": "ERCOT"
+          }
+        }
+      }
+    }
+  },
+  "10327": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10327": {
+            "geo_lat": 36.7,
+            "geo_lon": -83.7,
+            "manual_error": NaN,
+            "interpolated_beta": 0.527466012355076,
+            "log10_beta": -0.2778055192002973,
+            "mag_lat": 46.13744827184239,
+            "mag_lon": -12.844588095619663,
+            "alpha": 0.20150345975954187,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10376": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10376": {
+            "geo_lat": 40.9,
+            "geo_lon": -73.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.403237240915885,
+            "log10_beta": 0.38079664526704854,
+            "mag_lat": 50.54193055596174,
+            "mag_lon": -1.518861853329781,
+            "alpha": 0.3343946940253537,
+            "nearest_volt": 345.0,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10377": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10377": {
+            "geo_lat": 40.7,
+            "geo_lon": -74.0,
+            "manual_error": NaN,
+            "interpolated_beta": 2.5535429490860757,
+            "log10_beta": 0.4071431668299854,
+            "mag_lat": 50.341473090546025,
+            "mag_lon": -1.6358096741627803,
+            "alpha": 0.32677419768378324,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10378": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10378": {
+            "geo_lat": 40.7,
+            "geo_lon": -74.0,
+            "manual_error": NaN,
+            "interpolated_beta": 2.5535429490860757,
+            "log10_beta": 0.4071431668299854,
+            "mag_lat": 50.341473090546025,
+            "mag_lon": -1.6358096741627803,
+            "alpha": 0.32677419768378324,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10379": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10379": {
+            "geo_lat": 40.7,
+            "geo_lon": -74.0,
+            "manual_error": NaN,
+            "interpolated_beta": 2.5535429490860757,
+            "log10_beta": 0.4071431668299854,
+            "mag_lat": 50.341473090546025,
+            "mag_lon": -1.6358096741627803,
+            "alpha": 0.32677419768378324,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10380": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10380": {
+            "geo_lat": 41.1,
+            "geo_lon": -73.8,
+            "manual_error": NaN,
+            "interpolated_beta": 2.2529315327456834,
+            "log10_beta": 0.35274799358687425,
+            "mag_lat": 50.74235430756567,
+            "mag_lon": -1.4016388053504083,
+            "alpha": 0.34219157647834986,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10383": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10383": {
+            "geo_lat": 40.6,
+            "geo_lon": -74.2,
+            "manual_error": NaN,
+            "interpolated_beta": 2.719221634832854,
+            "log10_beta": 0.434444606948329,
+            "mag_lat": 50.24044972946037,
+            "mag_lon": -1.8722533523593288,
+            "alpha": 0.32299980479994667,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10387": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10387": {
+            "geo_lat": 41.0,
+            "geo_lon": -73.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.358259664051346,
+            "log10_beta": 0.3725916228353744,
+            "mag_lat": 50.64192882637405,
+            "mag_lon": -1.519788300962989,
+            "alpha": 0.3382623625808639,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10388": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10388": {
+            "geo_lat": 41.0,
+            "geo_lon": -73.9,
+            "manual_error": NaN,
+            "interpolated_beta": 2.358259664051346,
+            "log10_beta": 0.3725916228353744,
+            "mag_lat": 50.64192882637405,
+            "mag_lon": -1.519788300962989,
+            "alpha": 0.3382623625808639,
+            "nearest_volt": NaN,
+            "power_pool": "NYISO",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10431": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10431": {
+            "geo_lat": 39.6,
+            "geo_lon": -75.7,
+            "manual_error": NaN,
+            "interpolated_beta": 2.3091290131355544,
+            "log10_beta": 0.36344819802225226,
+            "mag_lat": 49.228434834932145,
+            "mag_lon": -3.6311684297328624,
+            "alpha": 0.2875135547312117,
+            "nearest_volt": 138.0,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10432": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10432": {
+            "geo_lat": 38.5,
+            "geo_lon": -76.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9920645909046397,
+            "log10_beta": -0.003460051071360802,
+            "mag_lat": 48.117661753417224,
+            "mag_lon": -4.663503598002281,
+            "alpha": 0.2530358306045899,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10433": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10433": {
+            "geo_lat": 38.5,
+            "geo_lon": -76.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9920645909046397,
+            "log10_beta": -0.003460051071360802,
+            "mag_lat": 48.117661753417224,
+            "mag_lon": -4.663503598002281,
+            "alpha": 0.2530358306045899,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10434": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10434": {
+            "geo_lat": 39.5,
+            "geo_lon": -75.1,
+            "manual_error": NaN,
+            "interpolated_beta": 2.1973806720954783,
+            "log10_beta": 0.3419053001928759,
+            "mag_lat": 49.1341875676878,
+            "mag_lon": -2.921559070558572,
+            "alpha": 0.2844141840514584,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10435": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10435": {
+            "geo_lat": 39.4,
+            "geo_lon": -74.6,
+            "manual_error": NaN,
+            "interpolated_beta": 1.5563786944062044,
+            "log10_beta": 0.1921152770243088,
+            "mag_lat": 49.03803052745658,
+            "mag_lon": -2.330551225354869,
+            "alpha": 0.2812864403058089,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10436": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10436": {
+            "geo_lat": 39.4,
+            "geo_lon": -74.6,
+            "manual_error": NaN,
+            "interpolated_beta": 1.5563786944062044,
+            "log10_beta": 0.1921152770243088,
+            "mag_lat": 49.03803052745658,
+            "mag_lon": -2.330551225354869,
+            "alpha": 0.2812864403058089,
+            "nearest_volt": NaN,
+            "power_pool": "PJM",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "10440": {
+    "GIC": {
+      "measured": {
+        "NERC": {
+          "10440": {
+            "geo_lat": 38.3,
+            "geo_lon": -94.6,
+            "manual_error": NaN,
+            "interpolated_beta": 1.2477031682550597,
+            "log10_beta": 0.09611127787688804,
+            "mag_lat": 47.13387853271615,
+            "mag_lon": -25.576439177961863,
+            "alpha": 0.22596859541192346,
+            "nearest_volt": NaN,
+            "power_pool": "SPP",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "Bradley": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Bradley": {
+            "geo_lat": 35.0425,
+            "geo_lon": -84.9587,
+            "manual_error": NaN,
+            "interpolated_beta": 1.0815509992037882,
+            "log10_beta": 0.034047002878745763,
+            "mag_lat": 44.4326085444157,
+            "mag_lon": -14.178833216898024,
+            "alpha": 0.1656289395811277,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Bull Run": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Bull Run": {
+            "geo_lat": 36.0193,
+            "geo_lon": -84.1575,
+            "manual_error": NaN,
+            "interpolated_beta": 0.5554131998087664,
+            "log10_beta": -0.2553838031309736,
+            "mag_lat": 45.440149874393825,
+            "mag_lon": -13.326387188874447,
+            "alpha": 0.18597592606070523,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Montgomery": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Montgomery": {
+            "geo_lat": 36.5949,
+            "geo_lon": -87.2533,
+            "manual_error": NaN,
+            "interpolated_beta": 1.0349744841285202,
+            "log10_beta": 0.014929642992181141,
+            "mag_lat": 45.879542147913845,
+            "mag_lon": -16.935441020560578,
+            "alpha": 0.19561478584729358,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Paradise": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Paradise": {
+            "geo_lat": 37.2587,
+            "geo_lon": -86.9781,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6772767922631994,
+            "log10_beta": -0.1692338057825545,
+            "mag_lat": 46.55545317500784,
+            "mag_lon": -16.676209072165683,
+            "alpha": 0.21142643546594958,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Rutherford": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Rutherford": {
+            "geo_lat": 35.8275,
+            "geo_lon": -86.5986,
+            "manual_error": NaN,
+            "interpolated_beta": 0.7616738866511537,
+            "log10_beta": -0.1182309335725758,
+            "mag_lat": 45.14468346097504,
+            "mag_lon": -16.11824792049909,
+            "alpha": 0.17976287081440126,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Shelby": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Shelby": {
+            "geo_lat": 35.3859,
+            "geo_lon": -89.8042,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6428864352302863,
+            "log10_beta": -0.19186573766483497,
+            "mag_lat": 44.538620648503155,
+            "mag_lon": -19.747170999553095,
+            "alpha": 0.16766054579591277,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Sullivan": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Sullivan": {
+            "geo_lat": 36.4419,
+            "geo_lon": -82.2791,
+            "manual_error": NaN,
+            "interpolated_beta": 1.3050919687734381,
+            "log10_beta": 0.11564111713288588,
+            "mag_lat": 45.92914686638199,
+            "mag_lon": -11.186235509077122,
+            "alpha": 0.19673386762110762,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Widows Creek": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Widows Creek": {
+            "geo_lat": 34.8859,
+            "geo_lon": -85.7554,
+            "manual_error": NaN,
+            "interpolated_beta": 0.7869561046938021,
+            "log10_beta": -0.10404949130157161,
+            "mag_lat": 44.24250627558678,
+            "mag_lon": -15.079166126337313,
+            "alpha": 0.16204729250822117,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Weakley": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Weakley": {
+            "geo_lat": 36.2752,
+            "geo_lon": -88.8347,
+            "manual_error": NaN,
+            "interpolated_beta": 0.9126381392221878,
+            "log10_beta": -0.03970138598233974,
+            "mag_lat": 45.479370436856385,
+            "mag_lon": -18.72358949548356,
+            "alpha": 0.18681663984717256,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "50100": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "50100": {
+            "geo_lat": 30.4,
+            "geo_lon": -89.6,
+            "manual_error": NaN,
+            "interpolated_beta": 0.09955043502535955,
+            "log10_beta": -1.0019568378093457,
+            "mag_lat": 39.57507344931598,
+            "mag_lon": -19.070661089160204,
+            "alpha": 0.0947397299132939,
+            "nearest_volt": NaN,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "50112": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "50112": {
+            "geo_lat": 48.3,
+            "geo_lon": -117.1,
+            "manual_error": NaN,
+            "interpolated_beta": 0.41459568853474743,
+            "log10_beta": -0.38237521853570366,
+            "mag_lat": 54.64766014016705,
+            "mag_lon": -53.66039966522022,
+            "alpha": 0.5361858929337412,
+            "nearest_volt": NaN,
+            "power_pool": "NorthernGridConnected",
+            "US_region": "West"
+          }
+        }
+      }
+    }
+  },
+  "50115": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "50115": {
+            "geo_lat": 41.3,
+            "geo_lon": -90.5,
+            "manual_error": NaN,
+            "interpolated_beta": 1.4474025826441173,
+            "log10_beta": 0.16058934321547907,
+            "mag_lat": 50.39537852062453,
+            "mag_lon": -21.208516236150864,
+            "alpha": 0.32880620342612404,
+            "nearest_volt": NaN,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "50116": {
+    "B": {
+      "measured": {
+        "NERC": {
+          "50116": {
+            "geo_lat": 37.2,
+            "geo_lon": -86.9,
+            "manual_error": NaN,
+            "interpolated_beta": 0.6880772749551748,
+            "log10_beta": -0.16236278530800938,
+            "mag_lat": 46.50060410599234,
+            "mag_lon": -16.580850674789545,
+            "alpha": 0.21009703011843897,
+            "nearest_volt": 161.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  }
+}
