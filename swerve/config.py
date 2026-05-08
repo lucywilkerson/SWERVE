@@ -293,4 +293,17 @@ def config():
       datetime.datetime(2015, 3, 18, 12, 0)
     ]
 
+  if event =='2015-06-22':
+
+    config_dict['nerc_prefix'] = '2015E02'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2015, 6, 22, 5, 0),
+      datetime.datetime(2015, 6, 23, 14, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2015, 6, 22, 3, 0),
+      datetime.datetime(2015, 6, 23, 14, 0)
+    ]
+
   return config_dict
