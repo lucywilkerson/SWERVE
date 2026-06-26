@@ -20,6 +20,8 @@ Write info/info.extended.csv with additional columns from info/info.csv:
   * power_pool
   * US_region
 
+Add error if site is a duplicate between TVA and NERC
+
 Write info/info.json, which is a dict with keys of site_id and values of
 a dict with all measured and calculated data for that site.
 """
@@ -655,6 +657,12 @@ def add_voltage(info_df, transmission_fname):
       # Optional plot the data for TVA and NERC on the same plot
       plot(tl_gdf_subset, device_gdf, device_to_lines, extent=[-125, -67, 25.5, 49.5])
 
+def find_duplicates(info_df):
+  # Removing NERC sites that are TVA duplicates
+  for i, sid in enumerate(info_df['site_id']):
+    if info_df['data_source'].iloc[i] == 'NERC' and 'sid_duplicates' in CONFIG and sid in CONFIG['sid_duplicates']:
+      info_df['manual_error'].iloc[i] = f"x Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'"
+
 # Read info.csv
 logger.info(f"Reading {CONFIG['files']['info']}")
 info_df = pd.read_csv(CONFIG['files']['info'])
@@ -664,6 +672,7 @@ add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
 add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
+find_duplicates(info_df)
 
 out_fname = CONFIG['files']['info_extended']
 info_df.to_csv(out_fname, index=False)

@@ -4,7 +4,7 @@ import pandas as pd
 # This function will input the raw GIC data and determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
+def find_errors(data, logger=None, spike_filt_type='both'):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
@@ -14,10 +14,6 @@ def find_errors(data, sid, data_source, logger=None, spike_filt_type='both'):
     gic_filter_kwargs = CONFIG['find_errors_kwargs']
 
     errors = []
-
-    # Removing NERC sites that are TVA duplicates
-    if data_source == 'NERC' and 'sid_duplicates' in CONFIG and sid in CONFIG['sid_duplicates']:
-        errors.append(f"Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'")
 
     data_meas = data['data']
     time_meas = data['time']

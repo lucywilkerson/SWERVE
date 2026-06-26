@@ -178,7 +178,7 @@ def _test_site(site, data_types=None, plot=False, logger=logger):
     def test_data(data, data_type):
         # Test filtering
         logger.info(f"Testing filter for {site} {data_type}...")
-        filtered_data, errors = filter(data, site, 'TEST', logger=logger, spike_filt_type='difference')
+        filtered_data, errors = filter(data, logger=logger, spike_filt_type='difference')
         return filtered_data, errors
 
     if 'GIC' in data_types:

@@ -93,7 +93,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
         if add_errors and data_type == 'GIC' and data_class == 'measured':
           from swerve import find_errors
           logger.info('    Running automated error checks on GIC measured data')
-          site_info[data_type][data_class][data_source][sid]['automated_error'] = find_errors(orig, sid, data_source)
+          site_info[data_type][data_class][data_source][sid]['automated_error'] = find_errors(orig)
 
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
         data_mod = orig['data'].copy()
