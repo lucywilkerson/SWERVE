@@ -1,5 +1,5 @@
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 data_types = 'B'   # Read and plot these data types. None => all data types.
 add_errors = False # Add automated error checks to data and update info.extended files.
 
@@ -10,6 +10,7 @@ info_kwargs = {'data_type': data_types, # If specified, only return sites with t
               }
 
 import utilrsw
+import datetime
 from swerve import cli, config, sids, site_read, site_stats, site_stats_summary
 
 CONFIG = config()
@@ -17,8 +18,8 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 # Crop the data :)
 crop = True
-start = '2024-05-10T12:00:00'
-stop = '2024-05-11T12:00:00'
+start = datetime.datetime(2024, 5, 10, 12, 0)
+stop = datetime.datetime(2024, 5, 11, 12, 0)
 
 args = cli('main.py')
 if args['sites'] is None:
