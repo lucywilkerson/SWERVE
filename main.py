@@ -13,7 +13,7 @@ add_errors = True # Add automated error checks to data and update info.extended 
 info_kwargs = {'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
                  'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
                  'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
-                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'error' column)
+                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
                  #TODO: add error-type arg?
               }
 
