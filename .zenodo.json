@@ -1,0 +1,19 @@
+{
+  "creators": [
+    {
+      "name": "Wilkerson, Lucy",
+      "affiliation": "George Mason University",
+      "orcid": "0000-0000-0000-0000"
+    },
+    {
+      "name": "Weigel, Robert",
+      "affiliation": "George Mason University",
+      "orcid": "0000-0000-0000-0000"
+    }
+    
+  ],
+  "title": "My Software Project Title",
+  "description": "Collection of raw and processed data, code, and documentation for the May 2024 storm.",
+  "license": "MIT",
+  "keywords": ["data-science", "reproducibility"]
+}
