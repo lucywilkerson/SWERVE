@@ -91,9 +91,9 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
         if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
           add_errors = True
         if add_errors and data_type == 'GIC' and data_class == 'measured':
-          from swerve import find_errors
+          from swerve import filter
           logger.info('    Running automated error checks on GIC measured data')
-          site_info[data_type][data_class][data_source][sid]['automated_error'] = find_errors(orig)
+          data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'] = filter(orig)
 
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
         data_mod = orig['data'].copy()

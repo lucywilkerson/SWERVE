@@ -12,7 +12,7 @@ def filter(data, logger=None, spike_filt_type='both'):
     from swerve import config, cadence
     from datetime import timedelta
     CONFIG = config()
-    gic_filter_kwargs = CONFIG['find_errors_kwargs']
+    gic_filter_kwargs = CONFIG['filter_kwargs']
 
     errors = []
 

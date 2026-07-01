@@ -35,14 +35,6 @@ def config():
         'data': None, # Pad or trim data to these limits
         'plot': None  # Plot data within these limits
       },
-      'find_errors_kwargs': {'low_signal_threshold':4, # [A]
-                            'baseline_buffer':1, # [A]
-                            'spike_threshold':40, # [A]
-                            'median_window':20, # [number of points]
-                            'noise_threshold':4, # [unitless]
-                            'max_cadence':60, # [s]
-                            'max_gap':600, # [s]
-                            'max_const':300 # [s]
       'info_kwargs': {
                   'data_type': conf.get('data_type', None), # If specified, only return sites with this data type (e.g., GIC, B)
                   'data_source': conf.get('data_source', None), # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
@@ -50,6 +42,14 @@ def config():
                   'exclude_errors': conf.get('exclude_errors', False) # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
                  #TODO: add error-type arg?
               },
+      'filter_kwargs': {'low_signal_threshold': conf.get('filter_kwargs', {}).get('low_signal_threshold', 0.1), # [A]
+                        'baseline_buffer': conf.get('filter_kwargs', {}).get('baseline_buffer', 10), # [A]
+                        'spike_threshold': conf.get('filter_kwargs', {}).get('spike_threshold', 0.5), # [A]
+                        'median_window': conf.get('filter_kwargs', {}).get('median_window', 20), # [number of points]
+                        'noise_threshold': conf.get('filter_kwargs', {}).get('noise_threshold', 4), # [unitless]
+                        'max_cadence': conf.get('filter_kwargs', {}).get('max_cadence', 60), # [s]
+                        'max_gap': conf.get('filter_kwargs', {}).get('max_gap', 600), # [s]
+                        'max_const': conf.get('filter_kwargs', {}).get('max_const', 300) # [s]
       },
       'dirs': {
         'data': data_dir,
