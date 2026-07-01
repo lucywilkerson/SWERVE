@@ -21,6 +21,10 @@ def cli(script, defs=False):
     "error-type": {
       "help": "Type of error removed (manual or automated)",
       "default": 'manual'
+    },
+    "run_config": {
+      "help": "Run configuration file",
+      "default": None
     }
 
   }
