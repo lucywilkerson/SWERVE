@@ -13,6 +13,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
   CONFIG = config()
   out_dir = CONFIG['dirs']['processed']
+  event = CONFIG['event']
 
   for data_type in data.keys(): # e.g., GIC, B
 
@@ -21,7 +22,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
       logger.info(f"  Not plotting '{sid}/{data_type}' data type b/c not in requested data_types = {data_types}.")
       continue
 
-    base_dir = f"{out_dir}/sites/{sid.lower().replace(' ', '')}/figures"
+    base_dir = f"{out_dir}/{event}/sites/{sid.lower().replace(' ', '')}/figures"
     dir_raw = os.path.join(base_dir, 'raw')
     dir_original = os.path.join(base_dir, 'original')
     dir_compare = os.path.join(base_dir, 'compare')

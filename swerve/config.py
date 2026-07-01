@@ -1,24 +1,28 @@
 def config():
   import os
   import datetime
+  import yaml
 
   import utilrsw
 
   from swerve.cli import cli
   args = cli('config.py')
-  if args['event'] is None:
-    event = '2024-05-10'
-    print(f"No event specified, defaulting to '{event}'.")
+  if args['run_config'] is None:
+    raise ValueError("No run configuration specified.")
   else:
-    # Use event from command line argument if provided.
-    event = args['event']
-    print(f"Using event '{event}' from command line argument.")
+    # Use run configuration from command line argument if provided.
+    run_config_file = os.path.abspath(os.path.join('configs', args['run_config']))
+    print(f"Using run configuration '{run_config_file}' from command line argument.")
 
   console_format = u'%(message)s'
 
+  with open(run_config_file) as f:
+    conf = yaml.safe_load(f)
+  event = conf.get('event', None)
+
   file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
-  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', event))
-  data_dir = os.path.abspath(os.path.join(file_path, '..', '..', f'SWERVE-{event}'))
+  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
+  data_dir = os.path.abspath(os.path.join(file_path, '..', '..', f'SWERVE-data'))
 
   common_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-common')) # Common data directory for all events.
 
@@ -26,9 +30,10 @@ def config():
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
 
   config_dict =  {
+      'event': event,
       'logger': utilrsw.logger,
       'logger_kwargs': {
-        'log_dir': os.path.join(data_dir, '_log'),
+        'log_dir': os.path.join(info_dir, '_log'),
         'console_format': console_format
       },
       'limits': {
