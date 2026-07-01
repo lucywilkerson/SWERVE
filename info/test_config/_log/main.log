@@ -1,0 +1,814 @@
+2026-07-01T03:18:27.016657Z INFO  main     Excluding sites with manual_error
+2026-07-01T03:18:27.030877Z INFO  main Reading '10052' data
+2026-07-01T03:18:27.033475Z INFO  main   Reading cached file with all data for site '10052': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10052\data\_all.pkl
+2026-07-01T03:18:27.168768Z INFO  main Computing stats for '10052' data
+2026-07-01T03:18:27.777581Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:18:27.777581Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:18:27.777581Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:27.777581Z INFO  main 
+    std: : [4.2228103726638855]
+    ave: : [1.3159525843656557]
+    min: : [-30.749166666666667]
+    max: : [40.157500000000006]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:18:27.809134Z INFO  main Plotting '10052' data
+2026-07-01T03:18:27.809134Z INFO  main   Plotting '10052/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:30.817959Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10052/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:31.904803Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10052/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:32.451281Z INFO  main Reading '10076' data
+2026-07-01T03:18:32.469490Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:32.473515Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10076.csv
+2026-07-01T03:18:33.015821Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:33.047964Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:33.134664Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10076\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:33.205146Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10076\data\_all.pkl
+2026-07-01T03:18:33.253307Z INFO  main Computing stats for '10076' data
+2026-07-01T03:18:33.314134Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:18:33.314134Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:18:33.314134Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:33.314134Z INFO  main 
+    std: : [1.8160638647764598]
+    ave: : [-1.1994574967962408]
+    min: : [-9.558333333333334]
+    max: : [16.411666666666665]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:18:33.314134Z INFO  main Plotting '10076' data
+2026-07-01T03:18:33.325243Z INFO  main   Plotting '10076/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:34.231702Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10076/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:35.458020Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10076/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:35.777747Z INFO  main Reading '10099' data
+2026-07-01T03:18:35.796788Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:35.796788Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10099.csv
+2026-07-01T03:18:36.453977Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:36.494691Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:36.653984Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10099\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:36.725299Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10099\data\_all.pkl
+2026-07-01T03:18:36.782064Z INFO  main Computing stats for '10099' data
+2026-07-01T03:18:36.850924Z INFO  main   Uniq dts [ns] = [  2000000000   4000000000   6000000000   8000000000  10000000000
+  12000000000  14000000000  16000000000  18000000000  20000000000
+  22000000000  24000000000  26000000000  28000000000  30000000000
+  32000000000  34000000000  36000000000  38000000000  40000000000
+  42000000000  44000000000  46000000000  48000000000  50000000000
+  52000000000  54000000000  56000000000  58000000000  60000000000
+  62000000000  64000000000  66000000000  68000000000  70000000000
+  72000000000  74000000000  76000000000  78000000000  80000000000
+  82000000000  84000000000  86000000000  88000000000  90000000000
+  92000000000  94000000000  96000000000  98000000000 100000000000
+ 102000000000 104000000000 106000000000 108000000000 110000000000
+ 112000000000 116000000000 118000000000 120000000000 122000000000
+ 142000000000 146000000000 148000000000 150000000000 160000000000
+ 170000000000 174000000000 178000000000 182000000000 184000000000
+ 198000000000 222000000000 228000000000 254000000000 270000000000
+ 308000000000 442000000000]
+2026-07-01T03:18:36.850924Z INFO  main   Uniq dts [#]  = 77
+2026-07-01T03:18:36.850924Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:36.850924Z INFO  main 
+    std: : [4.553419276659334]
+    ave: : [0.40137444459968813]
+    min: : [-24.184615384615384]
+    max: : [45.45294117647059]
+    n: 2341
+    n_valid: : [2333]
+    dt_original: : [2000000000 nanoseconds, 4000000000 nanoseconds, ..., 308000000000 nanoseconds, 442000000000 nanoseconds] (77 elements)
+2026-07-01T03:18:36.850924Z INFO  main Plotting '10099' data
+2026-07-01T03:18:36.869268Z INFO  main   Plotting '10099/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:37.822970Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10099/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:38.970703Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10099/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:39.294669Z INFO  main Reading '10238' data
+2026-07-01T03:18:39.317399Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:39.320437Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10238.csv
+2026-07-01T03:18:43.603431Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:43.727032Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:44.381372Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10238\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:44.876271Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10238\data\_all.pkl
+2026-07-01T03:18:45.369080Z INFO  main Computing stats for '10238' data
+2026-07-01T03:18:45.967808Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:18:45.967808Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:18:45.967808Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:45.970025Z INFO  main 
+    std: : [0.9714362154094454]
+    ave: : [-1.9737953865869289]
+    min: : [-7.318333333333333]
+    max: : [4.548333333333333]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:18:45.970025Z INFO  main Plotting '10238' data
+2026-07-01T03:18:45.978084Z INFO  main   Plotting '10238/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:48.055074Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10238/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:49.327955Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10238/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:49.697715Z INFO  main Reading '10255' data
+2026-07-01T03:18:49.719402Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:49.723945Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10255.csv
+2026-07-01T03:18:50.245185Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:50.287318Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:50.404137Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10255\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:50.461892Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10255\data\_all.pkl
+2026-07-01T03:18:50.502163Z INFO  main Computing stats for '10255' data
+2026-07-01T03:18:50.566253Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:18:50.567012Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:18:50.567012Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:50.567012Z INFO  main 
+    std: : [5.432164720983948]
+    ave: : [0.6347501067919693]
+    min: : [-46.4]
+    max: : [37.9]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:18:50.569676Z INFO  main Plotting '10255' data
+2026-07-01T03:18:50.573790Z INFO  main   Plotting '10255/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:51.518086Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10255/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:52.603844Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10255/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:52.912652Z INFO  main Reading '10587' data
+2026-07-01T03:18:52.925459Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:52.934627Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10587.csv
+2026-07-01T03:18:53.666844Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:53.702863Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:53.798860Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10587\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:53.850195Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10587\data\_all.pkl
+2026-07-01T03:18:53.927301Z INFO  main Computing stats for '10587' data
+2026-07-01T03:18:53.996539Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:18:53.998878Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:18:53.998878Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:53.998878Z INFO  main 
+    std: : [3.579474683108461]
+    ave: : [1.5757511035170157]
+    min: : [-27.866666666666664]
+    max: : [33.233333333333334]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:18:53.998878Z INFO  main Plotting '10587' data
+2026-07-01T03:18:54.006956Z INFO  main   Plotting '10587/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:55.220398Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10587/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:56.422616Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10587/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:56.852265Z INFO  main Reading '10618' data
+2026-07-01T03:18:56.864962Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:56.871598Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10618.csv
+2026-07-01T03:18:56.963499Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:56.985799Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:57.066639Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10618\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:57.090254Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10618\data\_all.pkl
+2026-07-01T03:18:57.102392Z INFO  main Computing stats for '10618' data
+2026-07-01T03:18:57.113660Z INFO  main   Uniq dts [ns] = [   2000000000    3000000000    4000000000    5000000000    6000000000
+    7000000000    8000000000    9000000000   10000000000   11000000000
+   12000000000   13000000000   14000000000   15000000000   16000000000
+   17000000000   18000000000   19000000000   21000000000   22000000000
+   23000000000   25000000000   26000000000   27000000000   28000000000
+   29000000000   30000000000   31000000000   32000000000   33000000000
+   34000000000   35000000000   37000000000   38000000000   39000000000
+   41000000000   43000000000   45000000000   46000000000   47000000000
+   49000000000   50000000000   53000000000   57000000000   58000000000
+   59000000000   60000000000   61000000000   62000000000   74000000000
+   78000000000   79000000000   85000000000   89000000000   90000000000
+   91000000000   92000000000   93000000000  102000000000  114000000000
+  119000000000  120000000000  126000000000  149000000000  150000000000
+  151000000000  166000000000  170000000000  171000000000  179000000000
+  180000000000  201000000000  209000000000  210000000000  211000000000
+  239000000000  240000000000  241000000000  269000000000  271000000000
+  300000000000  329000000000  331000000000  360000000000  363000000000
+  389000000000  391000000000  420000000000  449000000000  451000000000
+  480000000000  509000000000  540000000000  569000000000  571000000000
+  600000000000  629000000000  660000000000  720000000000  749000000000
+  780000000000  809000000000  840000000000  869000000000  900000000000
+  931000000000  960000000000 1020000000000 1080000000000 1109000000000
+ 1140000000000 1171000000000 1229000000000 1260000000000 1351000000000
+ 1380000000000 1589000000000 1680000000000 1800000000000 2129000000000
+ 2160000000000 2369000000000 2371000000000 2400000000000 2669000000000
+ 2671000000000 3240000000000 3600000000000 4860000000000 4949000000000
+ 5251000000000]
+2026-07-01T03:18:57.113660Z INFO  main   Uniq dts [#]  = 131
+2026-07-01T03:18:57.113660Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:57.113660Z INFO  main 
+    std: : [1.2306408005950744]
+    ave: : [0.0025749999999999927]
+    min: : [-9.4]
+    max: : [9.34]
+    n: 2341
+    n_valid: : [1400]
+    dt_original: : [2000000000 nanoseconds, 3000000000 nanoseconds, ..., 4949000000000 nanoseconds, 5251000000000 nanoseconds] (131 elements)
+2026-07-01T03:18:57.113660Z INFO  main Plotting '10618' data
+2026-07-01T03:18:57.126364Z INFO  main   Plotting '10618/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:18:58.081692Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10618/figures\original\GIC_measured_NERC.png
+2026-07-01T03:18:59.083801Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10618/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:18:59.451548Z INFO  main Reading '10619' data
+2026-07-01T03:18:59.467182Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:18:59.473556Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10619.csv
+2026-07-01T03:18:59.578399Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:18:59.590132Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:18:59.682211Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10619\data\GIC_measured_NERC.pkl
+2026-07-01T03:18:59.695975Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10619\data\_all.pkl
+2026-07-01T03:18:59.712556Z INFO  main Computing stats for '10619' data
+2026-07-01T03:18:59.724481Z INFO  main   Uniq dts [ns] = [   2000000000    3000000000    5000000000    6000000000    7000000000
+    8000000000    9000000000   10000000000   11000000000   13000000000
+   14000000000   15000000000   16000000000   17000000000   18000000000
+   19000000000   20000000000   21000000000   22000000000   23000000000
+   25000000000   26000000000   27000000000   28000000000   29000000000
+   30000000000   31000000000   33000000000   34000000000   35000000000
+   37000000000   38000000000   39000000000   40000000000   41000000000
+   42000000000   43000000000   49000000000   50000000000   53000000000
+   54000000000   55000000000   56000000000   58000000000   59000000000
+   60000000000   61000000000   65000000000   70000000000   89000000000
+   90000000000   91000000000   93000000000   94000000000  112000000000
+  115000000000  119000000000  120000000000  149000000000  150000000000
+  151000000000  161000000000  171000000000  180000000000  181000000000
+  201000000000  209000000000  210000000000  211000000000  239000000000
+  240000000000  269000000000  271000000000  299000000000  300000000000
+  301000000000  329000000000  330000000000  331000000000  360000000000
+  389000000000  391000000000  420000000000  451000000000  480000000000
+  509000000000  511000000000  540000000000  569000000000  600000000000
+  629000000000  631000000000  660000000000  691000000000  720000000000
+  780000000000  809000000000  811000000000  840000000000  869000000000
+  871000000000  900000000000  929000000000  960000000000 1020000000000
+ 1109000000000 1140000000000 1231000000000 1291000000000 1349000000000
+ 1351000000000 1380000000000 1409000000000 1469000000000 1800000000000
+ 1860000000000 1891000000000 1920000000000 2071000000000 2191000000000
+ 2228000000000 2400000000000 2671000000000 3420000000000 3689000000000
+ 4409000000000 4500000000000 4949000000000 5520000000000 6391000000000
+ 7200000000000]
+2026-07-01T03:18:59.728509Z INFO  main   Uniq dts [#]  = 131
+2026-07-01T03:18:59.728896Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:18:59.728896Z INFO  main 
+    std: : [1.0394716258051215]
+    ave: : [0.009177865612648203]
+    min: : [-7.57]
+    max: : [8.33]
+    n: 2341
+    n_valid: : [1265]
+    dt_original: : [2000000000 nanoseconds, 3000000000 nanoseconds, ..., 6391000000000 nanoseconds, 7200000000000 nanoseconds] (131 elements)
+2026-07-01T03:18:59.728896Z INFO  main Plotting '10619' data
+2026-07-01T03:18:59.734392Z INFO  main   Plotting '10619/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:00.706469Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10619/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:01.671461Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10619/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:01.955867Z INFO  main Reading '10622' data
+2026-07-01T03:19:01.977937Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:01.983935Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10622.csv
+2026-07-01T03:19:02.169082Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:02.187327Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:02.275388Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10622\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:02.301999Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10622\data\_all.pkl
+2026-07-01T03:19:02.319580Z INFO  main Computing stats for '10622' data
+2026-07-01T03:19:02.337075Z INFO  main   Uniq dts [ns] = [  2000000000   6000000000   7000000000   9000000000  10000000000
+  13000000000  18000000000  19000000000  20000000000  22000000000
+  23000000000  25000000000  27000000000  28000000000  29000000000
+  30000000000  31000000000  33000000000  40000000000  51000000000
+  59000000000  60000000000  61000000000  89000000000  90000000000
+  91000000000 119000000000 120000000000 121000000000 149000000000
+ 150000000000 151000000000 179000000000 180000000000 181000000000
+ 209000000000 210000000000 211000000000 239000000000 240000000000
+ 241000000000 269000000000 271000000000 300000000000 329000000000
+ 331000000000 360000000000 389000000000 391000000000 451000000000]
+2026-07-01T03:19:02.337075Z INFO  main   Uniq dts [#]  = 50
+2026-07-01T03:19:02.337075Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:02.341190Z INFO  main 
+    std: : [0.4574878078043578]
+    ave: : [-0.02840154867256637]
+    min: : [-3.63]
+    max: : [2.14]
+    n: 2341
+    n_valid: : [1808]
+    dt_original: : [2000000000 nanoseconds, 6000000000 nanoseconds, ..., 391000000000 nanoseconds, 451000000000 nanoseconds] (50 elements)
+2026-07-01T03:19:02.342867Z INFO  main Plotting '10622' data
+2026-07-01T03:19:02.350324Z INFO  main   Plotting '10622/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:03.184524Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10622/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:04.179271Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10622/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:04.476083Z INFO  main Reading '10063' data
+2026-07-01T03:19:04.493544Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:04.508948Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10063.csv
+2026-07-01T03:19:08.950376Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:09.057760Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:09.730300Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10063\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:10.167953Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10063\data\_all.pkl
+2026-07-01T03:19:10.614634Z INFO  main Computing stats for '10063' data
+2026-07-01T03:19:11.194997Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-07-01T03:19:11.194997Z INFO  main   Uniq dts [#]  = 2
+2026-07-01T03:19:11.194997Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:11.194997Z INFO  main 
+    std: : [0.2041025781117166]
+    ave: : [0.011742844938060657]
+    min: : [-1.27]
+    max: : [1.1783333333333335]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000, 2000000000]
+2026-07-01T03:19:11.197681Z INFO  main Plotting '10063' data
+2026-07-01T03:19:11.209989Z INFO  main   Plotting '10063/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:13.493495Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10063/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:15.197255Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10063/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:15.544760Z INFO  main Reading '10077' data
+2026-07-01T03:19:15.560509Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:15.586648Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10077.csv
+2026-07-01T03:19:16.133955Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:16.165175Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:16.245598Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10077\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:16.292338Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10077\data\_all.pkl
+2026-07-01T03:19:16.338187Z INFO  main Computing stats for '10077' data
+2026-07-01T03:19:16.401292Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:16.401292Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:16.401292Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:16.401292Z INFO  main 
+    std: : [3.958709726217614]
+    ave: : [-1.4648924960842946]
+    min: : [-32.66166666666667]
+    max: : [36.843333333333334]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:16.405196Z INFO  main Plotting '10077' data
+2026-07-01T03:19:16.414555Z INFO  main   Plotting '10077/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:17.323595Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10077/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:18.428244Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10077/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:18.749189Z INFO  main Reading '10079' data
+2026-07-01T03:19:18.762092Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:18.768751Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10079.csv
+2026-07-01T03:19:19.312600Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:19.341854Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:19.431590Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10079\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:19.493171Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10079\data\_all.pkl
+2026-07-01T03:19:19.578177Z INFO  main Computing stats for '10079' data
+2026-07-01T03:19:19.651430Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:19.651430Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:19.651430Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:19.651430Z INFO  main 
+    std: : [2.865992370109481]
+    ave: : [0.034896055816602545]
+    min: : [-27.31833333333333]
+    max: : [27.588333333333335]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:19.656738Z INFO  main Plotting '10079' data
+2026-07-01T03:19:19.666985Z INFO  main   Plotting '10079/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:20.640005Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10079/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:21.768507Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10079/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:22.093888Z INFO  main Reading '10107' data
+2026-07-01T03:19:22.106074Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:22.110476Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10107.csv
+2026-07-01T03:19:26.293756Z INFO  main     Multiplying GIC data by 3 to account for single-phase transformer.
+2026-07-01T03:19:26.293756Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:26.424248Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:26.891131Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10107\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:27.351975Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10107\data\_all.pkl
+2026-07-01T03:19:27.845950Z INFO  main Computing stats for '10107' data
+2026-07-01T03:19:28.435122Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:19:28.435122Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:28.435122Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:28.435122Z INFO  main 
+    std: : [5.004354270751081]
+    ave: : [0.054468175993165356]
+    min: : [-19.535]
+    max: : [32.85]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:19:28.435122Z INFO  main Plotting '10107' data
+2026-07-01T03:19:28.435122Z INFO  main   Plotting '10107/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:30.744056Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10107/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:32.169576Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10107/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:32.513345Z INFO  main Reading '10112' data
+2026-07-01T03:19:32.529558Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:32.538562Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10112.csv
+2026-07-01T03:19:33.172166Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:33.224907Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:33.301423Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10112\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:33.369426Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10112\data\_all.pkl
+2026-07-01T03:19:33.419889Z INFO  main Computing stats for '10112' data
+2026-07-01T03:19:33.484399Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:33.484399Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:33.484399Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:33.484399Z INFO  main 
+    std: : [8.817753053845296]
+    ave: : [0.6858742702548768]
+    min: : [-49.873333333333335]
+    max: : [59.65833333333333]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:33.484399Z INFO  main Plotting '10112' data
+2026-07-01T03:19:33.493790Z INFO  main   Plotting '10112/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:34.585570Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10112/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:35.771560Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10112/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:36.029852Z INFO  main Reading '10113' data
+2026-07-01T03:19:36.029852Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:36.046963Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10113.csv
+2026-07-01T03:19:36.496727Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:36.520571Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:36.613526Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10113\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:36.667336Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10113\data\_all.pkl
+2026-07-01T03:19:36.723555Z INFO  main Computing stats for '10113' data
+2026-07-01T03:19:36.786366Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:36.786366Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:36.786366Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:36.786366Z INFO  main 
+    std: : [2.0694191571360947]
+    ave: : [-1.5523757653424461]
+    min: : [-10.385]
+    max: : [16.091666666666665]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:36.786366Z INFO  main Plotting '10113' data
+2026-07-01T03:19:36.798969Z INFO  main   Plotting '10113/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:37.880478Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10113/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:38.874760Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10113/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:39.073622Z INFO  main Reading '10114' data
+2026-07-01T03:19:39.073622Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:39.085886Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10114.csv
+2026-07-01T03:19:39.437809Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:39.461256Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:39.545943Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10114\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:39.594888Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10114\data\_all.pkl
+2026-07-01T03:19:39.643133Z INFO  main Computing stats for '10114' data
+2026-07-01T03:19:39.715237Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:39.715237Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:39.715237Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:39.715237Z INFO  main 
+    std: : [2.473464333264276]
+    ave: : [-2.138425174426883]
+    min: : [-29.526666666666667]
+    max: : [20.180000000000003]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:39.715237Z INFO  main Plotting '10114' data
+2026-07-01T03:19:39.728694Z INFO  main   Plotting '10114/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:40.719420Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10114/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:41.805666Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10114/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:42.102761Z INFO  main Reading '10115' data
+2026-07-01T03:19:42.125454Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:42.135869Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10115.csv
+2026-07-01T03:19:42.631180Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:42.666532Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:42.741312Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10115\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:42.925767Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10115\data\_all.pkl
+2026-07-01T03:19:42.996897Z INFO  main Computing stats for '10115' data
+2026-07-01T03:19:43.062581Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:43.062581Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:43.062581Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:43.062581Z INFO  main 
+    std: : [3.8897628256000827]
+    ave: : [-0.710516161184679]
+    min: : [-24.493333333333336]
+    max: : [25.616666666666664]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:43.068286Z INFO  main Plotting '10115' data
+2026-07-01T03:19:43.076754Z INFO  main   Plotting '10115/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:44.089741Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10115/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:45.244520Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10115/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:45.562252Z INFO  main Reading '10402' data
+2026-07-01T03:19:45.579014Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:45.579014Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10402.csv
+2026-07-01T03:19:46.045595Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:46.068398Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:46.164031Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10402\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:46.220906Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10402\data\_all.pkl
+2026-07-01T03:19:46.276428Z INFO  main Computing stats for '10402' data
+2026-07-01T03:19:46.341713Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:46.362355Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:46.362355Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:46.362355Z INFO  main 
+    std: : [1.5694643096627001]
+    ave: : [-0.3823508472162893]
+    min: : [-12.25]
+    max: : [14.200000000000001]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:46.362355Z INFO  main Plotting '10402' data
+2026-07-01T03:19:46.375062Z INFO  main   Plotting '10402/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:47.438127Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10402/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:48.668241Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10402/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:48.980193Z INFO  main Reading '10428' data
+2026-07-01T03:19:48.996244Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:49.012758Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10428.csv
+2026-07-01T03:19:50.007478Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:50.075476Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:50.220613Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10428\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:50.303020Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10428\data\_all.pkl
+2026-07-01T03:19:50.401367Z INFO  main Computing stats for '10428' data
+2026-07-01T03:19:50.533931Z INFO  main   Uniq dts [ns] = [5000000000]
+2026-07-01T03:19:50.533931Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:50.533931Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:50.533931Z INFO  main 
+    std: : [4.562564666136237]
+    ave: : [0.07484337177844218]
+    min: : [-34.041666666666664]
+    max: : [17.8]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [5000000000]
+2026-07-01T03:19:50.533931Z INFO  main Plotting '10428' data
+2026-07-01T03:19:50.547507Z INFO  main   Plotting '10428/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:51.756901Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10428/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:52.909129Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10428/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:53.243235Z INFO  main Reading '10438' data
+2026-07-01T03:19:53.267208Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:53.267208Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10438.csv
+2026-07-01T03:19:54.030627Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:54.066888Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:54.197711Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10438\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:54.286556Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10438\data\_all.pkl
+2026-07-01T03:19:54.382434Z INFO  main Computing stats for '10438' data
+2026-07-01T03:19:54.508798Z INFO  main   Uniq dts [ns] = [5000000000]
+2026-07-01T03:19:54.513428Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:54.513428Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:54.513428Z INFO  main 
+    std: : [3.6985676018897236]
+    ave: : [0.674723764772889]
+    min: : [-20.8725]
+    max: : [25.550833333333333]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [5000000000]
+2026-07-01T03:19:54.513428Z INFO  main Plotting '10438' data
+2026-07-01T03:19:54.524063Z INFO  main   Plotting '10438/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:55.651143Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10438/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:56.748676Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10438/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:19:57.033196Z INFO  main Reading '10659' data
+2026-07-01T03:19:57.057032Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:19:57.065123Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10659.csv
+2026-07-01T03:19:57.562981Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:19:57.596695Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:19:57.694584Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10659\data\GIC_measured_NERC.pkl
+2026-07-01T03:19:57.747054Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10659\data\_all.pkl
+2026-07-01T03:19:57.806634Z INFO  main Computing stats for '10659' data
+2026-07-01T03:19:57.868235Z INFO  main   Uniq dts [ns] = [10000000000]
+2026-07-01T03:19:57.868235Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:19:57.868235Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:19:57.868235Z INFO  main 
+    std: : [18.04392818928956]
+    ave: : [5.632429161327068]
+    min: : [-72.18333333333332]
+    max: : [154.7]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [10000000000]
+2026-07-01T03:19:57.868235Z INFO  main Plotting '10659' data
+2026-07-01T03:19:57.876861Z INFO  main   Plotting '10659/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:19:58.904195Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10659/figures\original\GIC_measured_NERC.png
+2026-07-01T03:19:59.984325Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10659/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:20:00.286468Z INFO  main Reading '10693' data
+2026-07-01T03:20:00.286468Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:20:00.304041Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10693.csv
+2026-07-01T03:20:04.472215Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:20:04.611656Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:20:05.290380Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10693\data\GIC_measured_NERC.pkl
+2026-07-01T03:20:05.775460Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10693\data\_all.pkl
+2026-07-01T03:20:06.238995Z INFO  main Computing stats for '10693' data
+2026-07-01T03:20:06.832647Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:20:06.832647Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:20:06.832647Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:20:06.832647Z INFO  main 
+    std: : [1.353384570984606]
+    ave: : [0.12153282073188099]
+    min: : [-15.866666666666667]
+    max: : [8.431666666666667]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:20:06.832647Z INFO  main Plotting '10693' data
+2026-07-01T03:20:06.832647Z INFO  main   Plotting '10693/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:20:08.915287Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10693/figures\original\GIC_measured_NERC.png
+2026-07-01T03:20:10.339620Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10693/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:20:10.673020Z INFO  main Reading '10181' data
+2026-07-01T03:20:10.687638Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:20:10.694647Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10181.csv
+2026-07-01T03:20:14.775990Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:20:14.986882Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:20:15.649132Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10181\data\GIC_measured_NERC.pkl
+2026-07-01T03:20:16.163751Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10181\data\_all.pkl
+2026-07-01T03:20:16.659433Z INFO  main Computing stats for '10181' data
+2026-07-01T03:20:17.276846Z INFO  main   Uniq dts [ns] = [ 1000000000  4000000000  5000000000  6000000000  7000000000 10000000000
+ 12000000000 15000000000 19000000000 40000000000 41000000000 48000000000]
+2026-07-01T03:20:17.278858Z INFO  main   Uniq dts [#]  = 12
+2026-07-01T03:20:17.278858Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:20:17.278858Z INFO  main 
+    std: : [8.81270687789255]
+    ave: : [-0.39429161327068213]
+    min: : [-49.40833333333333]
+    max: : [81.00333333333333]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000 nanoseconds, 4000000000 nanoseconds, ..., 41000000000 nanoseconds, 48000000000 nanoseconds] (12 elements)
+2026-07-01T03:20:17.278858Z INFO  main Plotting '10181' data
+2026-07-01T03:20:17.290364Z INFO  main   Plotting '10181/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:20:19.601303Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10181/figures\original\GIC_measured_NERC.png
+2026-07-01T03:20:20.883728Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10181/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:20:21.219224Z INFO  main Reading '10182' data
+2026-07-01T03:20:21.237910Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:20:21.248013Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10182.csv
+2026-07-01T03:20:25.158118Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:20:25.295734Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:20:25.941965Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10182\data\GIC_measured_NERC.pkl
+2026-07-01T03:20:26.482510Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10182\data\_all.pkl
+2026-07-01T03:20:27.009377Z INFO  main Computing stats for '10182' data
+2026-07-01T03:20:27.603229Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-07-01T03:20:27.603229Z INFO  main   Uniq dts [#]  = 2
+2026-07-01T03:20:27.604778Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:20:27.604778Z INFO  main 
+    std: : [0.8893550655084739]
+    ave: : [-0.0032493236508614486]
+    min: : [-4.451666666666667]
+    max: : [3.9133333333333336]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000, 2000000000]
+2026-07-01T03:20:27.606333Z INFO  main Plotting '10182' data
+2026-07-01T03:20:27.611371Z INFO  main   Plotting '10182/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:20:30.006988Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10182/figures\original\GIC_measured_NERC.png
+2026-07-01T03:20:31.318113Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10182/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:20:31.651481Z INFO  main Reading '10184' data
+2026-07-01T03:20:31.671725Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:20:31.678083Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10184.csv
+2026-07-01T03:20:35.633636Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:20:35.826568Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:20:36.495398Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10184\data\GIC_measured_NERC.pkl
+2026-07-01T03:20:37.039860Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10184\data\_all.pkl
+2026-07-01T03:20:37.554768Z INFO  main Computing stats for '10184' data
+2026-07-01T03:20:38.134083Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:20:38.134083Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:20:38.134083Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:20:38.134083Z INFO  main 
+    std: : [8.196749137265337]
+    ave: : [-0.015568845222839208]
+    min: : [-68.46166666666666]
+    max: : [73.09666666666666]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:20:38.137416Z INFO  main Plotting '10184' data
+2026-07-01T03:20:38.173138Z INFO  main   Plotting '10184/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:20:40.369657Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10184/figures\original\GIC_measured_NERC.png
+2026-07-01T03:20:41.548739Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10184/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:20:41.923284Z INFO  main Reading '10185' data
+2026-07-01T03:20:41.936520Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:20:41.945988Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10185.csv
+2026-07-01T03:20:45.756177Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:20:45.929417Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:20:46.606308Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10185\data\GIC_measured_NERC.pkl
+2026-07-01T03:20:47.148090Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10185\data\_all.pkl
+2026-07-01T03:20:47.669062Z INFO  main Computing stats for '10185' data
+2026-07-01T03:20:48.285086Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:20:48.285086Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:20:48.285086Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:20:48.285086Z INFO  main 
+    std: : [1.2735348366839387]
+    ave: : [-0.004614125017798635]
+    min: : [-7.201666666666667]
+    max: : [16.691666666666666]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:20:48.290843Z INFO  main Plotting '10185' data
+2026-07-01T03:20:48.295288Z INFO  main   Plotting '10185/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:20:50.575619Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10185/figures\original\GIC_measured_NERC.png
+2026-07-01T03:20:51.861499Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10185/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:20:52.218668Z INFO  main Reading '10186' data
+2026-07-01T03:20:52.235821Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:20:52.236327Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10186.csv
+2026-07-01T03:20:55.979177Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:20:56.143895Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:20:56.849650Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10186\data\GIC_measured_NERC.pkl
+2026-07-01T03:20:57.342062Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10186\data\_all.pkl
+2026-07-01T03:20:57.842880Z INFO  main Computing stats for '10186' data
+2026-07-01T03:20:58.410031Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:20:58.410031Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:20:58.410031Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:20:58.410031Z INFO  main 
+    std: : [1.0659676877409066]
+    ave: : [0.002136551331339887]
+    min: : [-7.746666666666667]
+    max: : [7.338333333333334]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:20:58.410031Z INFO  main Plotting '10186' data
+2026-07-01T03:20:58.421972Z INFO  main   Plotting '10186/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:21:00.863884Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10186/figures\original\GIC_measured_NERC.png
+2026-07-01T03:21:02.326883Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10186/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:21:02.727406Z INFO  main Reading '10187' data
+2026-07-01T03:21:02.748165Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:21:02.754713Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10187.csv
+2026-07-01T03:21:06.923134Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:21:07.074458Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:21:07.765683Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10187\data\GIC_measured_NERC.pkl
+2026-07-01T03:21:08.314207Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10187\data\_all.pkl
+2026-07-01T03:21:08.813106Z INFO  main Computing stats for '10187' data
+2026-07-01T03:21:09.393736Z INFO  main   Uniq dts [ns] = [  1000000000   4000000000   5000000000   6000000000   8000000000
+ 382000000000]
+2026-07-01T03:21:09.393736Z INFO  main   Uniq dts [#]  = 6
+2026-07-01T03:21:09.393736Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:21:09.393736Z INFO  main 
+    std: : [0.6870121774835843]
+    ave: : [0.005822065308508348]
+    min: : [-3.8]
+    max: : [6.905]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000 nanoseconds, 4000000000 nanoseconds, ..., 8000000000 nanoseconds, 382000000000 nanoseconds] (6 elements)
+2026-07-01T03:21:09.393736Z INFO  main Plotting '10187' data
+2026-07-01T03:21:09.393736Z INFO  main   Plotting '10187/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:21:11.664361Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10187/figures\original\GIC_measured_NERC.png
+2026-07-01T03:21:12.937094Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10187/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:21:13.308420Z INFO  main Reading '10195' data
+2026-07-01T03:21:13.322691Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:21:13.332249Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10195.csv
+2026-07-01T03:21:17.777280Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:21:17.991623Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:21:18.618127Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10195\data\GIC_measured_NERC.pkl
+2026-07-01T03:21:19.137621Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10195\data\_all.pkl
+2026-07-01T03:21:19.654434Z INFO  main Computing stats for '10195' data
+2026-07-01T03:21:20.234245Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-07-01T03:21:20.234245Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:21:20.234245Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:21:20.234245Z INFO  main 
+    std: : [3.850539685453714]
+    ave: : [0.018583226541364076]
+    min: : [-29.413333333333334]
+    max: : [28.98]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000]
+2026-07-01T03:21:20.234245Z INFO  main Plotting '10195' data
+2026-07-01T03:21:20.234245Z INFO  main   Plotting '10195/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:21:22.348790Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10195/figures\original\GIC_measured_NERC.png
+2026-07-01T03:21:23.572094Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10195/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:21:23.979829Z INFO  main Reading '10220' data
+2026-07-01T03:21:23.997332Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:21:23.997332Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10220.csv
+2026-07-01T03:21:29.165013Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:21:29.306879Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:21:30.023329Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10220\data\GIC_measured_NERC.pkl
+2026-07-01T03:21:30.573225Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10220\data\_all.pkl
+2026-07-01T03:21:31.169952Z INFO  main Computing stats for '10220' data
+2026-07-01T03:21:31.764756Z INFO  main   Uniq dts [ns] = [1000000000 6000000000 8000000000]
+2026-07-01T03:21:31.764756Z INFO  main   Uniq dts [#]  = 3
+2026-07-01T03:21:31.764756Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:21:31.764756Z INFO  main 
+    std: : [0.8567779820808912]
+    ave: : [0.00925957567990887]
+    min: : [-6.381666666666666]
+    max: : [9.629999999999999]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [1000000000, 6000000000, 8000000000]
+2026-07-01T03:21:31.764756Z INFO  main Plotting '10220' data
+2026-07-01T03:21:31.777400Z INFO  main   Plotting '10220/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:21:33.960787Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10220/figures\original\GIC_measured_NERC.png
+2026-07-01T03:21:35.318384Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10220/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:21:35.691551Z INFO  main Reading '10249' data
+2026-07-01T03:21:35.703835Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:21:35.709938Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10249.csv
+2026-07-01T03:21:37.076295Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:21:37.129945Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:21:37.313402Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10249\data\GIC_measured_NERC.pkl
+2026-07-01T03:21:37.449939Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10249\data\_all.pkl
+2026-07-01T03:21:37.562454Z INFO  main Computing stats for '10249' data
+2026-07-01T03:21:37.716241Z INFO  main   Uniq dts [ns] = [4000000000]
+2026-07-01T03:21:37.716241Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:21:37.716241Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:21:37.716241Z INFO  main 
+    std: : [0.8531805342051602]
+    ave: : [0.20628791114908157]
+    min: : [-6.5]
+    max: : [4.413333333333333]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [4000000000]
+2026-07-01T03:21:37.716241Z INFO  main Plotting '10249' data
+2026-07-01T03:21:37.733738Z INFO  main   Plotting '10249/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:21:39.131277Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10249/figures\original\GIC_measured_NERC.png
+2026-07-01T03:21:40.328290Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10249/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:21:40.638571Z INFO  main Reading '10250' data
+2026-07-01T03:21:40.662856Z INFO  main   Reading 'GIC/measured/NERC' data
+2026-07-01T03:21:40.662856Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2024-05-10\gic\2024E04_10250.csv
+2026-07-01T03:21:41.703091Z INFO  main     Running automated error checks on GIC measured data
+2026-07-01T03:21:41.766844Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-01T03:21:41.959317Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10250\data\GIC_measured_NERC.pkl
+2026-07-01T03:21:42.120156Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\10250\data\_all.pkl
+2026-07-01T03:21:42.357651Z INFO  main Computing stats for '10250' data
+2026-07-01T03:21:42.498597Z INFO  main   Uniq dts [ns] = [4000000000]
+2026-07-01T03:21:42.498597Z INFO  main   Uniq dts [#]  = 1
+2026-07-01T03:21:42.498597Z INFO  main   Stats for GIC/measured/NERC:
+2026-07-01T03:21:42.498597Z INFO  main 
+    std: : [1.0638951847021014]
+    ave: : [0.5355944752954578]
+    min: : [-9.78]
+    max: : [12.74]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [4000000000]
+2026-07-01T03:21:42.512153Z INFO  main Plotting '10250' data
+2026-07-01T03:21:42.520041Z INFO  main   Plotting '10250/GIC/measured/NERC' original vs. modified data
+2026-07-01T03:21:43.706353Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10250/figures\original\GIC_measured_NERC.png
+2026-07-01T03:21:44.662010Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/10250/figures\original\GIC_measured_NERC.pdf
+2026-07-01T03:21:44.981003Z INFO  main Empty DataFrame
+Columns: [site_id, sigma_data, sigma_tva, sigma_gmu, cc_tva, cc_gmu, pe_tva, pe_gmu]
+Index: []
