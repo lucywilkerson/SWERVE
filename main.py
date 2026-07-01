@@ -10,18 +10,12 @@ show_plots = False  # Show interactive plots as generated.
 data_types = None   # Read and plot these data types. None => all data types.
 add_errors = True # Add automated error checks to data and update info.extended files.
 
-info_kwargs = {'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
-                 'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
-                 'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
-                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
-                 #TODO: add error-type arg?
-              }
-
 import utilrsw
 from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+info_kwargs = CONFIG['info_kwargs']
 
 args = cli('main.py')
 if args['sites'] is None:

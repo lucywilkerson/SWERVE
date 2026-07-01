@@ -43,6 +43,13 @@ def config():
                             'max_cadence':60, # [s]
                             'max_gap':600, # [s]
                             'max_const':300 # [s]
+      'info_kwargs': {
+                  'data_type': conf.get('data_type', None), # If specified, only return sites with this data type (e.g., GIC, B)
+                  'data_source': conf.get('data_source', None), # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+                  'data_class': conf.get('data_class', None), # If specified, only return sites with this data class (e.g., measured, calculated)
+                  'exclude_errors': conf.get('exclude_errors', False) # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
+                 #TODO: add error-type arg?
+              },
       },
       'dirs': {
         'data': data_dir,
