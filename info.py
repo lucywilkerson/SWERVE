@@ -659,9 +659,10 @@ def add_voltage(info_df, transmission_fname):
 
 def find_duplicates(info_df):
   # Removing NERC sites that are TVA duplicates
-  for i, sid in enumerate(info_df['site_id']):
-    if info_df['data_source'].iloc[i] == 'NERC' and 'sid_duplicates' in CONFIG and sid in CONFIG['sid_duplicates']:
-      info_df['manual_error'].iloc[i] = f"x Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'"
+  if info_df['data_source'].isin(['TVA']).any() and info_df['data_source'].isin(['NERC']).any():
+    for i, sid in enumerate(info_df['site_id']):
+      if info_df['data_source'].iloc[i] == 'NERC' and 'sid_duplicates' in CONFIG and sid in CONFIG['sid_duplicates']:
+        info_df['manual_error'].iloc[i] = f"x Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'"
 
 # Read info.csv
 logger.info(f"Reading {CONFIG['files']['info']}")
