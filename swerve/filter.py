@@ -5,7 +5,7 @@ import pandas as pd
 # determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def filter(data, logger=None, spike_filt_type='difference'):
+def filter(data, logger=None):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
@@ -22,6 +22,7 @@ def filter(data, logger=None, spike_filt_type='difference'):
     
     # Correcting large, unphysical spikes (> spike_threshold [A])
     spike_threshold = gic_filter_kwargs['spike_threshold']
+    spike_filt_type = gic_filter_kwargs['spike_filt_type']
     if spike_filt_type == None:
         pass
     elif spike_filt_type == 'difference':

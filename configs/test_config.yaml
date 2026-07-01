@@ -13,6 +13,7 @@ data_class: 'measured' # If specified, only return sites with this data class (e
 exclude_errors: True # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
 
 filter_kwargs: # for filter.py
+  spike_filt_type: 'difference' # 'difference' or 'median' or None
   low_signal_threshold: 4 # [A]
   baseline_buffer: 1 # [A]
   spike_threshold: 40 # [A]
@@ -21,4 +22,4 @@ filter_kwargs: # for filter.py
   max_cadence: 60 # [s]
   max_gap: 600 # [s]
   max_const: 300 # [s]
-# add spike_filt_type, check for other undocumented kwargs lying abt filter.py
+# check for other undocumented kwargs lying abt filter.py

@@ -47,7 +47,8 @@ def config():
                   'exclude_errors': conf.get('exclude_errors', False) # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
                  #TODO: add error-type arg?
               },
-      'filter_kwargs': {'low_signal_threshold': conf.get('filter_kwargs', {}).get('low_signal_threshold', 0.1), # [A]
+      'filter_kwargs': {'spike_filt_type': conf.get('filter_kwargs', {}).get('spike_filt_type', 'difference'), # 'difference' or 'median' or None
+                        'low_signal_threshold': conf.get('filter_kwargs', {}).get('low_signal_threshold', 0.1), # [A]
                         'baseline_buffer': conf.get('filter_kwargs', {}).get('baseline_buffer', 10), # [A]
                         'spike_threshold': conf.get('filter_kwargs', {}).get('spike_threshold', 0.5), # [A]
                         'median_window': conf.get('filter_kwargs', {}).get('median_window', 20), # [number of points]
