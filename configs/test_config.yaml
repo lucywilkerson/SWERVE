@@ -4,11 +4,11 @@ event: '2024-05-10'
 start_time: 2024-05-10 #unclear if these are needed, already included in config.py
 stop_time: 2024-05-13
 
-data_source: 'NERC' # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+data_source: ['NERC'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 
-data_type: 'GIC' # If specified, only return sites with this data type (e.g., GIC, B)
+data_type: ['GIC'] # If specified, only return sites with this data type (e.g., GIC, B)
 
-data_class: 'measured' # If specified, only return sites with this data class (e.g., measured, calculated)
+data_class: ['measured'] # If specified, only return sites with this data class (e.g., measured, calculated)
 
 exclude_errors: True # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
 
