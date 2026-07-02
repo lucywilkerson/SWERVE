@@ -7,7 +7,6 @@
 # For debugging
 reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
-data_types = None   # Read and plot these data types. None => all data types.
 add_errors = True # Add automated error checks to data and update info.extended files.
 
 import utilrsw
@@ -16,6 +15,7 @@ from swerve import cli, config, sids, site_read, site_plot, site_stats, site_sta
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 info_kwargs = CONFIG['info_kwargs']
+data_types = info_kwargs['data_type']
 
 args = cli('main.py')
 if args['sites'] is None:
