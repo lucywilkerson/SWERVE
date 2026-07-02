@@ -89,6 +89,14 @@ def filter(data, logger=None):
             errors.append(f"Cadence is >= {max_cadence} seconds ({max(dt_array)/1e9} seconds)")
         if any(dt_array >= max_gap*1e9):
             errors.append(f"Data gap detected >= {max_gap/60} minutes ({max(dt_array)/1e9} seconds)")
+        # checking for gaps of NaN values
+        valid_times = crop_time_meas[~np.isnan(crop_data_meas)]
+        if len(valid_times) > 1:
+            time_gaps = np.diff(valid_times)
+            gap_durations = time_gaps.astype('timedelta64[s]').astype(int)
+            max_detected_gap = np.nanmax(gap_durations) if len(gap_durations) > 0 else 0
+            if max_detected_gap >= max_gap:
+                errors.append(f"Data gap detected >= {max_gap/60} minutes ({max_detected_gap} seconds) due to NaN values")
 
     # Remove sites with constant values for more than max_const [s]
     try:
