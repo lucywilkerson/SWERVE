@@ -1,62 +1,62 @@
-2026-07-01T02:51:44.449047Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.csv
-2026-07-01T02:51:45.554256Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
-2026-07-01T02:51:45.555764Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
-2026-07-01T02:51:46.802531Z WARN  info     Warning: Could not interpolate beta for site 10698 at (26.1,-98.1)
-2026-07-01T02:51:46.802531Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
-2026-07-01T02:51:46.802531Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
-2026-07-01T02:51:46.802531Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
-2026-07-01T02:51:46.804543Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
-2026-07-01T02:51:46.804543Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
-2026-07-01T02:51:46.804543Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
-2026-07-01T02:51:46.804543Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
-2026-07-01T02:51:46.804543Z WARN  info     Warning: Could not interpolate beta for site Anderson at (0.0,0.0)
-2026-07-01T02:51:46.804543Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
-2026-07-01T02:51:46.806946Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
-2026-07-01T02:51:46.806946Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
-2026-07-01T02:51:46.806946Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
-2026-07-01T02:51:46.806946Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
-2026-07-01T02:51:46.807954Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
-2026-07-01T02:51:46.812684Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
-2026-07-01T02:51:46.812684Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
-2026-07-01T02:51:46.812684Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
-2026-07-01T02:51:46.812684Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
-2026-07-01T02:51:46.815515Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
-2026-07-01T02:51:46.816625Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
-2026-07-01T02:51:47.388934Z INFO  info Adding geomagnetic coordinates and alpha on date 2024-05-10T15:00:00 to extended info_df
-2026-07-01T02:51:49.796881Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
-2026-07-01T02:51:58.452786Z INFO  info Adding nearset voltage to extended info_df
-2026-07-01T02:52:11.692316Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
-2026-07-01T02:52:12.541028Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
-2026-07-01T02:52:12.771897Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.extended.csv
-2026-07-01T02:52:12.775818Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.extended.json
-2026-07-01T02:52:12.798810Z INFO  info   Skipping site '10660' due to error message:
+2026-07-01T17:57:40.859736Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.csv
+2026-07-01T17:57:42.055654Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-07-01T17:57:42.055654Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10698 at (26.1,-98.1)
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-07-01T17:57:43.300519Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-07-01T17:57:43.311788Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
+2026-07-01T17:57:43.312888Z WARN  info     Warning: Could not interpolate beta for site Anderson at (0.0,0.0)
+2026-07-01T17:57:43.312888Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
+2026-07-01T17:57:43.314531Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
+2026-07-01T17:57:43.315741Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
+2026-07-01T17:57:43.316392Z WARN  info     Warning: Could not interpolate beta for site test1 at (0.0,0.0)
+2026-07-01T17:57:43.316392Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
+2026-07-01T17:57:43.316392Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
+2026-07-01T17:57:43.316392Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
+2026-07-01T17:57:43.316392Z WARN  info     Warning: Could not interpolate beta for site test2 at (0.0,0.0)
+2026-07-01T17:57:43.323075Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
+2026-07-01T17:57:43.323075Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
+2026-07-01T17:57:43.323075Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
+2026-07-01T17:57:43.323075Z WARN  info     Warning: Could not interpolate beta for site test3 at (0.0,0.0)
+2026-07-01T17:57:43.960779Z INFO  info Adding geomagnetic coordinates and alpha on date 2024-05-10T15:00:00 to extended info_df
+2026-07-01T17:57:46.968807Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-07-01T17:57:51.932504Z INFO  info Adding nearset voltage to extended info_df
+2026-07-01T17:58:04.101717Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-07-01T17:58:05.181992Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-07-01T17:58:05.403986Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.extended.csv
+2026-07-01T17:58:05.403986Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.extended.json
+2026-07-01T17:58:05.435034Z INFO  info   Skipping site '10660' due to error message:
     x Duplicate of TVA site 'Gleason'
-2026-07-01T02:52:12.801911Z INFO  info   Skipping site '10197' due to error message:
+2026-07-01T17:58:05.435034Z INFO  info   Skipping site '10197' due to error message:
     x Duplicate of TVA site 'Sullivan'
-2026-07-01T02:52:12.801911Z INFO  info   Skipping site '10200' due to error message:
+2026-07-01T17:58:05.435034Z INFO  info   Skipping site '10200' due to error message:
     x Duplicate of TVA site 'East Point'
-2026-07-01T02:52:12.801911Z INFO  info   Skipping site '10201' due to error message:
+2026-07-01T17:58:05.435034Z INFO  info   Skipping site '10201' due to error message:
     x Duplicate of TVA site 'Montgomery'
-2026-07-01T02:52:12.804135Z INFO  info   Skipping site '10203' due to error message:
+2026-07-01T17:58:05.435034Z INFO  info   Skipping site '10203' due to error message:
     x Duplicate of TVA site 'Raccoon Mountain'
-2026-07-01T02:52:12.805145Z INFO  info   Skipping site '10204' due to error message:
+2026-07-01T17:58:05.435034Z INFO  info   Skipping site '10204' due to error message:
     x Duplicate of TVA site 'Shelby'
-2026-07-01T02:52:12.806183Z INFO  info   Skipping site '10207' due to error message:
+2026-07-01T17:58:05.442638Z INFO  info   Skipping site '10207' due to error message:
     x Duplicate of TVA site 'Bull Run'
-2026-07-01T02:52:12.806183Z INFO  info   Skipping site '10208' due to error message:
+2026-07-01T17:58:05.443173Z INFO  info   Skipping site '10208' due to error message:
     x Duplicate of TVA site 'Rutherford'
-2026-07-01T02:52:12.806183Z INFO  info   Skipping site '10212' due to error message:
+2026-07-01T17:58:05.443496Z INFO  info   Skipping site '10212' due to error message:
     x Duplicate of TVA site 'Pinhook'
-2026-07-01T02:52:12.824037Z INFO  info   Skipping site 'Allen' due to error message:
+2026-07-01T17:58:05.464051Z INFO  info   Skipping site 'Allen' due to error message:
     x In TVAmagmetadata.dat, but no file
-2026-07-01T02:52:12.824037Z INFO  info   Skipping site 'Colbert' due to error message:
+2026-07-01T17:58:05.467658Z INFO  info   Skipping site 'Colbert' due to error message:
     x In TVAmagmetadata.dat, but no file
-2026-07-01T02:52:12.824037Z INFO  info   Skipping site 'Gallatin' due to error message:
+2026-07-01T17:58:05.467658Z INFO  info   Skipping site 'Gallatin' due to error message:
     x In TVAmagmetadata.dat, but no file
-2026-07-01T02:52:12.824037Z INFO  info   Skipping site 'John Sevier' due to error message:
+2026-07-01T17:58:05.467658Z INFO  info   Skipping site 'John Sevier' due to error message:
     x In TVAmagmetadata.dat, but no file
-2026-07-01T02:52:12.824037Z INFO  info   Skipping site 'Madison' due to error message:
+2026-07-01T17:58:05.467658Z INFO  info   Skipping site 'Madison' due to error message:
     x In GIC_monitors.txt, but no file
-2026-07-01T02:52:12.824037Z INFO  info   Skipping site 'Shawnee' due to error message:
+2026-07-01T17:58:05.473379Z INFO  info   Skipping site 'Shawnee' due to error message:
     x In TVAmagmetadata.dat, but no file
-2026-07-01T02:52:12.835109Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.extended.json
+2026-07-01T17:58:05.475116Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\test_config\info.extended.json
