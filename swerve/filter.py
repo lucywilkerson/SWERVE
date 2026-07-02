@@ -15,6 +15,7 @@ def filter(data, logger=None):
     gic_filter_kwargs = CONFIG['filter_kwargs']
 
     errors = []
+    corrections = ''
 
     data_meas = data['data']
     time_meas = data['time']
@@ -26,10 +27,10 @@ def filter(data, logger=None):
     if spike_filt_type == None:
         pass
     elif spike_filt_type == 'difference':
-        data_df['data'] = _diff_spike_filt(data_df['data'], spike_threshold, errors)
+        data_df['data'], corrections = _diff_spike_filt(data_df['data'], spike_threshold, corrections)
     elif spike_filt_type == 'median':
         median_window = gic_filter_kwargs['median_window']
-        data_df['data'] = _median_spike_filt(data_df['data'], spike_threshold, errors, win=median_window)
+        data_df['data'], corrections = _median_spike_filt(data_df['data'], spike_threshold, corrections, win=median_window)
     else:
         raise ValueError(f"Unknown spike_filt_type: {spike_filt_type}")
 
@@ -38,6 +39,7 @@ def filter(data, logger=None):
     baseline_buffer = gic_filter_kwargs['baseline_buffer']
     if median_val > baseline_buffer or median_val < -baseline_buffer:
         data_df['data'] = data_df['data'] - median_val
+        corrections += f"Baseline offset of {median_val:.2f} A corrected. "
 
     data_series = data_df['data']
 
@@ -114,7 +116,13 @@ def filter(data, logger=None):
     if errors==[]:
         errors = None
 
-    return data_df, errors
+    # Return data in same simple form as the input: dict with 'data' and 'time'
+    out_data = {
+        'data': np.array(data_df['data']).ravel(),
+        'time': list(data_df.index)
+    }
+
+    return out_data, errors, corrections
 
 def _expand_mask(mask, pre=2, post=8):
     # expands mask to include values before/after detected spike
@@ -130,7 +138,7 @@ def _expand_mask(mask, pre=2, post=8):
                 broad_mask[i-pre:i+post] = True
     return broad_mask
 
-def _diff_spike_filt(data, spike_threshold, errors, diff_window=5, std_window=20, dd_thresh=10, std_thresh=1):
+def _diff_spike_filt(data, spike_threshold, corrections, diff_window=5, std_window=20, dd_thresh=10, std_thresh=1):
     series = data.squeeze()
     ddat = series.diff() #d/dt proxy
     dddat = ddat.diff().shift(-1) #d^2/dt^2 proxy, shifted to align with the middle point of the 3-point stencil
@@ -141,9 +149,10 @@ def _diff_spike_filt(data, spike_threshold, errors, diff_window=5, std_window=20
     if spike_mask.any():
         mask = _expand_mask(spike_mask)
         data[mask] = np.nan
-    return data
+        corrections += f"Removed {mask.sum()} spikes exceeding {spike_threshold} A. "
+    return data, corrections
 
-def _median_spike_filt(data, spike_threshold, errors, win=20):
+def _median_spike_filt(data, spike_threshold, corrections, win=20):
     data = data.squeeze() if hasattr(data, 'squeeze') else data
     n = data.size
     if n == 0:
@@ -169,4 +178,5 @@ def _median_spike_filt(data, spike_threshold, errors, win=20):
             data.iloc[mask] = np.nan
         else:
             data[mask] = np.nan
-    return data
+        corrections += f"Removed {mask.sum()} spikes exceeding {spike_threshold} A. "
+    return data, corrections
