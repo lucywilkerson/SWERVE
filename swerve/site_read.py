@@ -130,12 +130,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
         file_name = os.path.join(CONFIG['dirs']['processed'], event, 'sites', sidx, 'data', file_name)
         _write_pkl(file_name, site_info[data_type][data_class], logger, indent= ' '*4)
 
-  if data_types is None:
-    _write_pkl(site_all_file, site_info, logger, indent=' '*2)
-  else:
-    logger.warning(f"  Not writing {site_all_file} b/c data_types is not None.")
-    if reparse == True and data_types is not None and not sid.lower().startswith('test'):
-      raise ValueError("Reparse requested with data_types not None, which is not supported unless running for test data.")
+  _write_pkl(site_all_file, site_info, logger, indent=' '*2)
 
   return site_info
 
