@@ -297,7 +297,9 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
                 'MAGE':{'color': 'green', 'lw': 0.4},
                 'OpenGGCM':{'color': 'orange', 'lw': 0.4},} #TODO: set outside of function, remove repetition
   
-  if ('Automated' in suptitle and 'Manual' not in suptitle) or ('Automated' not in suptitle and 'Manual' in suptitle):
+  if ('Automated' not in suptitle and 'Manual' in suptitle):
+    line1_opts = {'color': 'seagreen', 'lw': 1}
+  elif ('Automated' in suptitle and 'Manual' not in suptitle):
     line1_opts = {'color': 'maroon', 'lw': 1}
 
   n_stack = data1['data'].shape[1]
