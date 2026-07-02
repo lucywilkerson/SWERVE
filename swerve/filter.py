@@ -111,6 +111,8 @@ def filter(data, logger=None):
                 error_time = pd.to_datetime(crop_time_meas[start]).round('s')
                 errors.append(f"Data is constant for at least {int(window_s/60)} minutes starting at time {error_time}")
                 break
+    if errors==[]:
+        errors = None
 
     return data_df, errors
 
