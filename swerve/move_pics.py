@@ -8,6 +8,7 @@ import sys
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 data_dir = CONFIG['dirs']['data']
+event_dir = os.path.join(data_dir, 'data_processed', CONFIG['event'])
 
 sids_only = None # Read all sites.
 
@@ -16,10 +17,10 @@ sids_only = sids(key=sids_only, data_type='GIC', data_class='measured')
 for sid in sids_only:
     sid = sid.lower().replace(' ', '')
     # Define source and destination paths
-    source_image = os.path.join(data_dir,'data_processed','sites',sid,'figures','original','GIC_measured_NERC.png')
+    source_image = os.path.join(event_dir,'sites',sid,'figures','original','GIC_measured_NERC.png')
     if not os.path.isfile(source_image):
-        source_image = os.path.join(data_dir,'data_processed','sites',sid,'figures','original','GIC_measured_TVA.png')
-    destination_folder = os.path.join(data_dir, '_all','all_gic')
+        source_image = os.path.join(event_dir,'sites',sid,'figures','original','GIC_measured_TVA.png')
+    destination_folder = os.path.join(event_dir,'_all','all_gic')
     new_fname = f'{sid}_GIC_measured.png'
 
     # Create the destination folder if it doesn't exist
