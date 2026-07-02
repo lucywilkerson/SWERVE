@@ -52,9 +52,9 @@ if args['sites'] is None and data_types is None:
     # Update info.extended.csv and info.extended.json with automated errors
     from swerve import update_info_extended
     update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
-  if info_kwargs['exclude_errors']:
-    # Create table of results
-    site_stats_summary(stats, data_types=data_types, logger=logger)
-  else:
     # Write data from all sites to a single file.
     utilrsw.write(CONFIG['files']['all'], data, logger=logger)
+
+if CONFIG['main_kwargs']['summary_table']:
+    # Create table of results
+    site_stats_summary(stats, data_types=data_types, logger=logger)
