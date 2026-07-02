@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 
+#TODO: make tables for only measured or calculated (std, max, mean)
 
 def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill=-99999):
 

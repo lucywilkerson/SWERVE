@@ -1,3 +1,6 @@
+# Written for Appendix of May 2024 storm paper
+# Very similar to main.py, TODO: merge with main.py and remove duplicate code
+
 # For debugging
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 data_types = 'B'   # Read and plot these data types. None => all data types.

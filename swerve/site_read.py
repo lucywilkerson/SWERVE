@@ -86,7 +86,8 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
         if _output_error(orig, logger):
           site_info[data_type][data_class][data_source][sid]['automated_error'] = orig['error']
           continue
-
+        
+        #TODO: Make resampling optional setting in config file
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
         data_mod = orig['data'].copy()
         if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
