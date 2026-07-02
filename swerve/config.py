@@ -47,6 +47,8 @@ def config():
                   'exclude_errors': conf.get('exclude_errors', False) # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
                  #TODO: add error-type arg?
               },
+      'main_kwargs': {'summary_table': conf.get('summary_table', False) # If True, creates a summary table of site statistics and metrics
+                    },
       'filter_kwargs': {'spike_filt_type': conf.get('filter_kwargs', {}).get('spike_filt_type', 'difference'), # 'difference' or 'median' or None
                         'low_signal_threshold': conf.get('filter_kwargs', {}).get('low_signal_threshold', 0.1), # [A]
                         'baseline_buffer': conf.get('filter_kwargs', {}).get('baseline_buffer', 10), # [A]
@@ -78,6 +80,7 @@ def config():
           'info_json': os.path.join(info_dir, 'info.json'),
           'info_extended': os.path.join(info_dir, 'info.extended.csv'),
           'info_extended_json': os.path.join(info_dir, 'info.extended.json'),
+          'stats_summary': os.path.join(info_dir, 'summary_table', 'stats_summary.md'),
           'nerc_gdf': os.path.join(common_dir, 'nerc_gdf', 'nerc_gdf.geojson'),
           'shape': {
               'transmission_lines': os.path.join(common_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),

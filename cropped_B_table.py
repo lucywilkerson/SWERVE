@@ -46,6 +46,6 @@ for sid in sids_only:
   utilrsw.print_dict(data[sid], indent=4)
 
 if args['sites'] is None:
-  if info_kwargs['exclude_errors']:
+  if info_kwargs['exclude_errors'] != None:
     # Create table of results
     site_stats_summary(stats, data_types=data_types, crop=crop, logger=logger)

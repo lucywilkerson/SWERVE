@@ -46,12 +46,13 @@ for sid in sids_only:
 
   site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-if args['sites'] is None and data_types is None:
+if args['sites'] is None:
   import utilrsw
-  if add_errors and not info_kwargs['exclude_errors']:
+  if add_errors and info_kwargs['exclude_errors']==None:
     # Update info.extended.csv and info.extended.json with automated errors
     from swerve import update_info_extended
     update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  if info_kwargs['exclude_errors'] == None and data_types is None:
     # Write data from all sites to a single file.
     utilrsw.write(CONFIG['files']['all'], data, logger=logger)
 
