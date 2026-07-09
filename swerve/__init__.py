@@ -33,7 +33,7 @@ def sids(extended=True, data_type=None, data_source=None, data_class=None, exclu
   info = info[~(info['manual_error'].astype(str).str.startswith('x '))]
   all_sids = list(info['site_id'].unique())
 
-  if key != 'test':
+  if key[0] != 'test':
     # Remove test sids unless keyword test is passed
     all_sids = [sid for sid in all_sids if not sid.startswith('test')] 
     
@@ -151,7 +151,10 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
   if key == 'paper_sids' or key == 'test_sids':
     if key not in CONFIG:
       raise ValueError(f"key '{key}' not found in config")
-    key_sids = list(set(list(CONFIG[key]['GIC']['timeseries']) + list(CONFIG[key]['B']['timeseries'])))
+    if key == 'paper_sids':
+      key_sids = list(set(list(CONFIG[key]['GIC']['timeseries']) + list(CONFIG[key]['B']['timeseries'])))
+    elif key == 'test_sids':
+      key_sids = info_df[info_df['data_source'] == 'TEST']['site_id'].unique()
     info_df = info_df[info_df['site_id'].isin(key_sids)]
 
   def filter_df(df, col, val):
