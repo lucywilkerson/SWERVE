@@ -1,6 +1,6 @@
 run_config_name: test_config # for saving info files/logs
 
-event: '2024-05-10'
+event: '2024-05-10' # make all option
 start_time: 2024-05-10 #unclear if these are needed, already included in config.py
 stop_time: 2024-05-13
 
@@ -14,8 +14,8 @@ exclude_errors: null # If specified, excludes sites with known data issues ('all
 
 summary_table: False # If True, creates a summary table of site statistics and metrics
 
-filter_kwargs: # for filter.py
-  spike_filt_type: 'difference' # 'difference' or 'median' or None
+filter_kwargs: # for filter.py, maybe set per event? (filter.yaml with defaults)
+  spike_filt_type: 'median' # 'difference' or 'median' or null
   low_signal_threshold: 4 # [A]
   baseline_buffer: 1 # [A]
   spike_threshold: 40 # [A]
