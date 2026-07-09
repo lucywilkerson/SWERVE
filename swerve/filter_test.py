@@ -8,6 +8,7 @@ write_tests = True # Write test timeseries
 from swerve import config
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+filter_kwargs = CONFIG['filter_kwargs']
 
 def _test_dict():
     # Returns dictionary with all test configuration information
@@ -146,6 +147,24 @@ def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, 
     output_file = os.path.join(DATA_DIR, 'test', f'{test_name}_{data_type}_{data_class}_timeseries.csv')
     df.to_csv(output_file, index=False)
 
+    # Add test data to info.csv if not already included
+    from swerve import sids
+    test_sids = sids(key=['test'], logger=logger)
+    if test_name not in test_sids:
+        logger.info(f"Adding {test_name} to info.csv")
+        new_row = {
+            'site_id': test_name,
+            'data_type': data_type,
+            'data_class': data_class,
+            'data_source': 'TEST'
+        }
+        from swerve import read_info_df
+        info_df = read_info_df(extended=False, logger=logger)
+        info_df = (pd.concat([info_df, pd.DataFrame([new_row])], ignore_index=True)
+                   if not info_df.empty else pd.DataFrame([new_row]))
+        info_df.to_csv(CONFIG['files']['info'], index=False)
+        logger.info(f"Added {test_name} to info.csv. Please rerun info.py to update info.extended.csv and info.extended.json.")
+
     # Make calculated data by averaging measured data into 1-min intervals
     df_resampled = df.copy()
     df_resampled.set_index('time', inplace=True)
@@ -178,25 +197,25 @@ def _test_site(site, data_types=None, plot=False, logger=logger):
     def test_data(data, data_type):
         # Test filtering
         logger.info(f"Testing filter for {site} {data_type}...")
-        filtered_data, errors = filter(data, logger=logger, spike_filt_type='difference')
-        return filtered_data, errors
+        filtered_data, errors, corrections = filter(data, logger=logger)
+        return filtered_data, errors, corrections
 
     if 'GIC' in data_types:
         # Read and parse data or use cached data if found and reparse is False.
         gic_data = site_read(site, data_types='GIC', logger=logger, reparse=True)
         # Get original test GIC data 
         orig_data = gic_data['GIC']['measured']['TEST']['original']
-        filtered_data, errors = test_data(orig_data, 'GIC')    
+        filtered_data, errors, corrections = test_data(orig_data, 'GIC')    
     
     # Plot filtered data and original data for visual inspection
     if plot:
         import matplotlib.pyplot as plt
         plt.figure(figsize=(12, 4))
         plt.plot(orig_data['time'], orig_data['data'], color='salmon', linestyle='-', label='Original')
-        plt.plot(filtered_data.index, filtered_data['data'], color='maroon', linestyle='-', label='Filtered')
+        plt.plot(filtered_data['time'], filtered_data['data'], color='maroon', linestyle='-', label='Filtered')
         plt.xlabel('Time')
         plt.ylabel('GIC (A)')
-        plt.title(f"{site} GIC Timeseries")
+        plt.title(f"{site} GIC Timeseries\nErrors: {errors}\nCorrections: {corrections}")
         plt.tight_layout()
         plt.grid()
         plt.legend()
