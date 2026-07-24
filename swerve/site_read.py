@@ -505,7 +505,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
   
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2025':
     from matio import load_from_mat
-    data_file = os.path.join(data_dir, 'parry2025', '2023-04-24', 'gic', '20230424_hallprobe_data.mat')
+    data_file = os.path.join(data_dir, 'parry2025', '2023-04-24', data_type.lower(), '20230424_hallprobe_data.mat')
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Data file not found: {data_file}")
 
@@ -524,6 +524,42 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       "labels": ["GIC"],
       "unit": "A"
     }
+
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
+      from datetime import timedelta
+      data_file = os.path.join(data_dir, 'parry2024', '2021-10-12', data_type.lower(), 'gic-hall', '20211012_GIC_data_89S.csv')
+      if not os.path.exists(data_file):
+          raise FileNotFoundError(f"Data file not found: {data_file}")
+  
+      data = []
+      time = []
+
+      if sid.lower().replace(' ','') == 'ellerslie1':
+        data_col = 1
+      elif sid.lower().replace(' ','') == 'ellerslie2':
+        data_col = 2
+
+      with open(data_file, 'r') as csvfile:
+        next(csvfile)  # Skip header rows
+        next(csvfile)
+        rows = csv.reader(csvfile, delimiter=',')
+        for row in rows:
+          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M'))
+          data.append(float(row[data_col]) if row[data_col] != '#VALUE!' else numpy.nan)
+
+      # Edit time column to match 0.5Hz measurement frequency described in paper
+      corrected_time = [
+        time[0] + timedelta(seconds=i * 2) 
+        for i in range(len(time))
+      ]
+
+      data = numpy.array(data).reshape(-1, 1)
+      return {
+        "time": numpy.array(corrected_time).flatten(),
+        "data": data,
+        "labels": ["GIC"],
+        "unit": "A"
+      }
 
     
 
