@@ -157,7 +157,7 @@ def _diff_spike_filt(data, spike_threshold, corrections, diff_window=5, std_wind
     if spike_mask.any():
         mask = _expand_mask(spike_mask)
         data[mask] = np.nan
-        corrections += f"Removed {mask.sum()} spikes. "
+        corrections += f"Removed {spike_mask.sum()} spikes. "
     return data, corrections
 
 def _median_spike_filt(data, spike_threshold, corrections, win=20):
@@ -186,5 +186,5 @@ def _median_spike_filt(data, spike_threshold, corrections, win=20):
             data.iloc[mask] = np.nan
         else:
             data[mask] = np.nan
-        corrections += f"Removed {mask.sum()} spikes. "
+        corrections += f"Removed {spike_mask.sum()} spikes. "
     return data, corrections
