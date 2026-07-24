@@ -301,7 +301,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (2160.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:06:01"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (2160.0 seconds);\nData gap detected >= 10.0 minutes (2160 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:06:01"
           }
         }
       }
@@ -323,7 +323,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3300.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:18:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3300.0 seconds);\nData gap detected >= 10.0 minutes (3300 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:18:00"
           }
         }
       }
@@ -345,7 +345,7 @@
             "nearest_volt": 345.0,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0418 A) > 1/4 * std after (0.0490 A);\nData gap detected >= 10.0 minutes (3240.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:00:00"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0418 A) > 1/4 * std after (0.0490 A);\nData gap detected >= 10.0 minutes (3240.0 seconds);\nData gap detected >= 10.0 minutes (3240 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:00:00"
           }
         }
       }
@@ -367,7 +367,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Data gap detected >= 10.0 minutes (3601.0 seconds)"
+            "automated_error": "Data gap detected >= 10.0 minutes (3601.0 seconds);\nData gap detected >= 10.0 minutes (3601 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-11 12:37:16"
           }
         }
       }
@@ -389,7 +389,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.4899 A) > 1/4 * std after (1.8028 A);\nData gap detected >= 10.0 minutes (3601.0 seconds)"
+            "automated_error": "Data gap detected >= 10.0 minutes (3601.0 seconds);\nData gap detected >= 10.0 minutes (3601 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:37:14"
           }
         }
       }
@@ -433,7 +433,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3240.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:39:00"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (3240.0 seconds);\nData gap detected >= 10.0 minutes (3240 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:39:00"
           }
         }
       }
@@ -538,7 +538,7 @@
             "interpolated_beta": 1.1145399400687936,
             "log10_beta": 0.0470956362444158,
             "mag_lat": 52.13561137298429,
-            "mag_lon": -23.864419337071556,
+            "mag_lon": -23.86441933707156,
             "alpha": 0.4016557216548033,
             "nearest_volt": NaN,
             "power_pool": "MISO",
@@ -560,12 +560,12 @@
             "interpolated_beta": 0.8432142123234811,
             "log10_beta": -0.0740620820631635,
             "mag_lat": 53.52330479183824,
-            "mag_lon": -24.193116860514117,
+            "mag_lon": -24.19311686051412,
             "alpha": 0.4711516661818736,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (1.7123 A) > 1/4 * std after (4.8643 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 16:56:00"
+            "automated_error": "Excessive pre-storm noise: std before (1.8144 A) > 1/4 * std after (5.1850 A);\nCadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (1440 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-11 16:56:00"
           }
         }
       }
@@ -609,7 +609,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -653,7 +653,7 @@
             "nearest_volt": 230.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -675,7 +675,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -697,7 +697,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (2946.5752 A) > 1/4 * std after (3268.5613 A);\nData is constant for at least 5 minutes starting at time 2024-05-11 03:38:50"
+            "automated_error": "Excessive pre-storm noise: std before (2583.0080 A) > 1/4 * std after (3261.1416 A);\nData gap detected >= 10.0 minutes (1360 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-11 03:40:00"
           }
         }
       }
@@ -741,7 +741,7 @@
             "nearest_volt": 138.0,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -763,7 +763,7 @@
             "nearest_volt": NaN,
             "power_pool": "NorthernGridConnected",
             "US_region": "West",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -829,7 +829,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -851,7 +851,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -873,7 +873,7 @@
             "nearest_volt": 138.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1005,7 +1005,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1049,7 +1049,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1071,7 +1071,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1159,7 +1159,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1181,7 +1181,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1203,7 +1203,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1225,7 +1225,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1247,7 +1247,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1269,7 +1269,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -1291,7 +1291,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.3834 A) > 1/4 * std after (1.2195 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (0.3834 A) > 1/4 * std after (1.2541 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -1313,7 +1313,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.7932 A) > 1/4 * std after (2.4393 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-12 00:37:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.9601 A) > 1/4 * std after (3.1552 A);\nCadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (660 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-12 00:37:00"
           }
         }
       }
@@ -1335,7 +1335,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.8310 A) > 1/4 * std after (1.6523 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-12 01:08:00"
+            "automated_error": "Excessive pre-storm noise: std before (1.0758 A) > 1/4 * std after (2.5814 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-12 01:08:00"
           }
         }
       }
@@ -1357,7 +1357,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.7736 A) > 1/4 * std after (1.6603 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:51:00"
+            "automated_error": "Excessive pre-storm noise: std before (1.0083 A) > 1/4 * std after (2.4758 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:51:00"
           }
         }
       }
@@ -1379,7 +1379,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (1.3040 A) > 1/4 * std after (2.5016 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 18:08:00"
+            "automated_error": "Excessive pre-storm noise: std before (1.7006 A) > 1/4 * std after (4.5805 A);\nCadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (720 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-11 18:08:00"
           }
         }
       }
@@ -1401,7 +1401,7 @@
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.9388 A) > 1/4 * std after (1.7846 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:52:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.9388 A) > 1/4 * std after (2.8668 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:52:00"
           }
         }
       }
@@ -1423,7 +1423,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.3471 A) > 1/4 * std after (0.9713 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 19:02:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.3471 A) > 1/4 * std after (1.0164 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 19:02:00"
           }
         }
       }
@@ -1445,7 +1445,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.3739 A) > 1/4 * std after (0.9842 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 18:52:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.3739 A) > 1/4 * std after (1.0250 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 18:52:00"
           }
         }
       }
@@ -1467,7 +1467,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.2721 A) > 1/4 * std after (0.7172 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 16:54:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.2721 A) > 1/4 * std after (0.7359 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 16:54:00"
           }
         }
       }
@@ -1511,7 +1511,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.8749 A) > 1/4 * std after (2.1011 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-12 03:05:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.9517 A) > 1/4 * std after (3.2803 A);\nCadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (660 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-12 03:05:00"
           }
         }
       }
@@ -1533,7 +1533,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.3632 A) > 1/4 * std after (1.2765 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 20:38:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.3632 A) > 1/4 * std after (1.3455 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 20:38:00"
           }
         }
       }
@@ -1555,7 +1555,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.4373 A) > 1/4 * std after (1.2518 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:15:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.4373 A) > 1/4 * std after (1.4251 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:15:00"
           }
         }
       }
@@ -1577,7 +1577,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.6133 A) > 1/4 * std after (1.2021 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 22:57:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.6133 A) > 1/4 * std after (1.5980 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 22:57:00"
           }
         }
       }
@@ -1599,7 +1599,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.6602 A) > 1/4 * std after (1.2801 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 22:57:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.6602 A) > 1/4 * std after (1.6804 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 22:57:00"
           }
         }
       }
@@ -1621,7 +1621,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.5044 A) > 1/4 * std after (1.7474 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (0.5775 A) > 1/4 * std after (2.0673 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -1643,7 +1643,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.8183 A) > 1/4 * std after (1.6253 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 18:06:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.8183 A) > 1/4 * std after (2.2279 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 18:06:00"
           }
         }
       }
@@ -1665,7 +1665,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (1.6562 A) > 1/4 * std after (3.8260 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (1.9702 A) > 1/4 * std after (5.2462 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -1687,7 +1687,7 @@
             "nearest_volt": 345.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (1.4027 A) > 1/4 * std after (3.5428 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (1.6727 A) > 1/4 * std after (4.7784 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -1775,7 +1775,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (2.7825 A) > 1/4 * std after (8.5196 A)"
+            "automated_error": "Excessive pre-storm noise: std before (3.1896 A) > 1/4 * std after (8.3423 A)"
           }
         }
       }
@@ -1797,7 +1797,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (4.1248 A) > 1/4 * std after (2.0900 A)"
+            "automated_error": "Excessive pre-storm noise: std before (4.1248 A) > 1/4 * std after (2.1012 A)"
           }
         }
       }
@@ -1951,7 +1951,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (1200 seconds) due to NaN values"
           }
         }
       }
@@ -1973,7 +1973,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": "Data gap detected >= 10.0 minutes (840 seconds) due to NaN values"
           }
         }
       }
@@ -2083,7 +2083,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:52:36"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:52:36"
           }
         }
       }
@@ -2105,7 +2105,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:22:46"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:22:46"
           }
         }
       }
@@ -2127,7 +2127,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:52:01"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:52:01"
           }
         }
       }
@@ -2149,7 +2149,7 @@
             "nearest_volt": 115.0,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:25:54"
+            "automated_error": "All GIC values are positive;\nAll GIC values are negative;\nLow signal: all GIC values within +/- 4 A;\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:25:54"
           }
         }
       }
@@ -2171,7 +2171,7 @@
             "nearest_volt": NaN,
             "power_pool": "FRCC",
             "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0471 A) > 1/4 * std after (0.1017 A);\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 19:40:36"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0471 A) > 1/4 * std after (0.1017 A);\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 19:40:36"
           }
         }
       }
@@ -2193,7 +2193,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (931.0 seconds)"
+            "automated_error": "Data gap detected >= 10.0 minutes (931.0 seconds);\nData gap detected >= 10.0 minutes (931 seconds) due to NaN values"
           }
         }
       }
@@ -2215,7 +2215,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (1409.0 seconds)"
+            "automated_error": "Data gap detected >= 10.0 minutes (1409.0 seconds);\nData gap detected >= 10.0 minutes (1409 seconds) due to NaN values"
           }
         }
       }
@@ -2237,7 +2237,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Data gap detected >= 10.0 minutes (812.0 seconds)"
+            "automated_error": "Data gap detected >= 10.0 minutes (812.0 seconds);\nData gap detected >= 10.0 minutes (812 seconds) due to NaN values"
           }
         }
       }
@@ -2259,7 +2259,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (2492.0 seconds)"
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nData gap detected >= 10.0 minutes (2492.0 seconds);\nData gap detected >= 10.0 minutes (2492 seconds) due to NaN values"
           }
         }
       }
@@ -2303,7 +2303,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.3774 A) > 1/4 * std after (0.9895 A);\nData gap detected >= 10.0 minutes (6420.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (0.3774 A) > 1/4 * std after (0.9895 A);\nData gap detected >= 10.0 minutes (6420.0 seconds);\nData gap detected >= 10.0 minutes (6420 seconds) due to NaN values"
           }
         }
       }
@@ -2435,7 +2435,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -2875,7 +2875,7 @@
             "nearest_volt": 500.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Excessive pre-storm noise: std before (0.9767 A) > 1/4 * std after (2.9042 A)"
+            "automated_error": "Excessive pre-storm noise: std before (1.0140 A) > 1/4 * std after (2.9062 A)"
           }
         }
       }
@@ -2941,7 +2941,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NorthernGridUnconnected",
             "US_region": "West",
-            "automated_error": "Excessive pre-storm noise: std before (1.0865 A) > 1/4 * std after (3.4198 A)"
+            "automated_error": "Excessive pre-storm noise: std before (1.0865 A) > 1/4 * std after (3.4972 A)"
           }
         }
       }
@@ -3002,12 +3002,12 @@
             "interpolated_beta": 1.1145399400687936,
             "log10_beta": 0.0470956362444158,
             "mag_lat": 52.13561137298429,
-            "mag_lon": -23.864419337071556,
+            "mag_lon": -23.86441933707156,
             "alpha": 0.4016557216548033,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.3552 A) > 1/4 * std after (0.7912 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 18:19:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.3552 A) > 1/4 * std after (0.8380 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 18:19:00"
           }
         }
       }
@@ -3024,12 +3024,12 @@
             "interpolated_beta": 0.8432142123234811,
             "log10_beta": -0.0740620820631635,
             "mag_lat": 53.52330479183824,
-            "mag_lon": -24.193116860514117,
+            "mag_lon": -24.19311686051412,
             "alpha": 0.4711516661818736,
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (1.9181 A) > 1/4 * std after (3.8944 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (2.0305 A) > 1/4 * std after (5.9958 A);\nCadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (1440 seconds) due to NaN values"
           }
         }
       }
@@ -3095,7 +3095,7 @@
             "nearest_volt": 115.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -3117,7 +3117,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (1.7262 A) > 1/4 * std after (2.9197 A);\nData is constant for at least 5 minutes starting at time 2024-05-11 20:41:30"
+            "automated_error": "Excessive pre-storm noise: std before (1.7262 A) > 1/4 * std after (2.9215 A);\nData is constant for at least 5 minutes starting at time 2024-05-11 20:41:30"
           }
         }
       }
@@ -3161,7 +3161,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -3205,7 +3205,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.1665 A) > 1/4 * std after (0.2299 A)"
+            "automated_error": "Excessive pre-storm noise: std before (0.1665 A) > 1/4 * std after (0.4838 A)"
           }
         }
       }
@@ -3222,12 +3222,12 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.392565036739292,
+            "mag_lon": -25.39256503673929,
             "alpha": 0.4729179746365427,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -3244,12 +3244,12 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.392565036739292,
+            "mag_lon": -25.39256503673929,
             "alpha": 0.4729179746365427,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.1869 A) > 1/4 * std after (0.6847 A)"
+            "automated_error": "Excessive pre-storm noise: std before (0.1869 A) > 1/4 * std after (0.6897 A)"
           }
         }
       }
@@ -3266,12 +3266,12 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.392565036739292,
+            "mag_lon": -25.39256503673929,
             "alpha": 0.4729179746365427,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -3288,12 +3288,12 @@
             "interpolated_beta": 0.9661853461548524,
             "log10_beta": -0.0149395536145032,
             "mag_lat": 53.55584311573094,
-            "mag_lon": -25.392565036739292,
+            "mag_lon": -25.39256503673929,
             "alpha": 0.4729179746365427,
             "nearest_volt": 115.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -3447,7 +3447,7 @@
             "nearest_volt": NaN,
             "power_pool": "SPP",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.5699 A) > 1/4 * std after (1.2264 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:50:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.5699 A) > 1/4 * std after (1.3641 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 11:50:00"
           }
         }
       }
@@ -3513,7 +3513,7 @@
             "nearest_volt": 69.0,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.2826 A) > 1/4 * std after (0.8267 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 16:54:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.2826 A) > 1/4 * std after (0.8593 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 16:54:00"
           }
         }
       }
@@ -3755,7 +3755,7 @@
             "nearest_volt": 138.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (1.8029 A) > 1/4 * std after (2.6992 A)"
+            "automated_error": "Excessive pre-storm noise: std before (1.8037 A) > 1/4 * std after (2.7132 A)"
           }
         }
       }
@@ -3777,7 +3777,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -3821,7 +3821,7 @@
             "nearest_volt": 500.0,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4129,7 +4129,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4151,7 +4151,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4261,7 +4261,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (2.7270 A) > 1/4 * std after (4.3377 A);\nData gap detected >= 10.0 minutes (9156.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (2.7270 A) > 1/4 * std after (4.3377 A);\nData gap detected >= 10.0 minutes (9156.0 seconds);\nData gap detected >= 10.0 minutes (9156 seconds) due to NaN values"
           }
         }
       }
@@ -4415,7 +4415,7 @@
             "nearest_volt": NaN,
             "power_pool": "SCRTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (3.2998 A) > 1/4 * std after (1.7453 A);\nData gap detected >= 10.0 minutes (19418.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 05:15:04"
+            "automated_error": "Excessive pre-storm noise: std before (3.2998 A) > 1/4 * std after (1.9679 A);\nData gap detected >= 10.0 minutes (19418.0 seconds);\nData gap detected >= 10.0 minutes (19418 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-11 05:15:04"
           }
         }
       }
@@ -4525,7 +4525,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4547,7 +4547,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4701,7 +4701,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4723,7 +4723,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4745,7 +4745,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4789,7 +4789,7 @@
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
             "US_region": "West",
-            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2710 A) > 1/4 * std after (0.3251 A);\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-11 07:00:00"
+            "automated_error": "All GIC values are positive;\nLow signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.2710 A) > 1/4 * std after (0.3251 A);\nCadence is >= 60 seconds (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600.0 seconds);\nData gap detected >= 10.0 minutes (3600 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-11 07:00:00"
           }
         }
       }
@@ -4811,7 +4811,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "All GIC values are positive;\nData gap detected >= 10.0 minutes (3660.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:01:00"
+            "automated_error": "All GIC values are positive;\nData gap detected >= 10.0 minutes (3660.0 seconds);\nData gap detected >= 10.0 minutes (3660 seconds) due to NaN values;\nData is constant for at least 5 minutes starting at time 2024-05-10 15:01:00"
           }
         }
       }
@@ -4833,7 +4833,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4855,7 +4855,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4877,7 +4877,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -4921,7 +4921,7 @@
             "nearest_volt": 161.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5361,7 +5361,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5383,7 +5383,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5405,7 +5405,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5493,7 +5493,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5515,7 +5515,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.2569 A) > 1/4 * std after (0.9605 A);\nData is constant for at least 5 minutes starting at time 2024-05-10 17:59:49"
+            "automated_error": "Excessive pre-storm noise: std before (0.2569 A) > 1/4 * std after (0.9619 A);\nData is constant for at least 5 minutes starting at time 2024-05-10 17:59:49"
           }
         }
       }
@@ -5537,7 +5537,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5559,7 +5559,7 @@
             "nearest_volt": NaN,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5735,7 +5735,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Excessive pre-storm noise: std before (0.2476 A) > 1/4 * std after (0.6310 A);\nData is constant for at least 5 minutes starting at time 2024-05-11 12:49:20"
+            "automated_error": "Excessive pre-storm noise: std before (0.3244 A) > 1/4 * std after (0.6310 A);\nData is constant for at least 5 minutes starting at time 2024-05-11 12:49:20"
           }
         }
       }
@@ -5867,7 +5867,7 @@
             "nearest_volt": NaN,
             "power_pool": "ISONE",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5889,7 +5889,7 @@
             "nearest_volt": 115.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -5933,7 +5933,7 @@
             "nearest_volt": 345.0,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (4.5244 A) > 1/4 * std after (6.4470 A);\nData is constant for at least 5 minutes starting at time 2024-05-10 17:11:10"
+            "automated_error": "Excessive pre-storm noise: std before (4.5354 A) > 1/4 * std after (6.4546 A);\nData is constant for at least 5 minutes starting at time 2024-05-10 17:11:10"
           }
         }
       }
@@ -6087,7 +6087,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -6109,7 +6109,7 @@
             "nearest_volt": NaN,
             "power_pool": "NYISO",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (4.8586 A) > 1/4 * std after (7.3683 A)"
+            "automated_error": "Excessive pre-storm noise: std before (4.8748 A) > 1/4 * std after (7.3887 A)"
           }
         }
       }
@@ -6263,7 +6263,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "None"
+            "automated_error": NaN
           }
         }
       }
@@ -6747,7 +6747,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData gap detected >= 10.0 minutes (1200 seconds) due to NaN values"
           }
         }
       }
@@ -7143,7 +7143,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (3.2598 A) > 1/4 * std after (6.9386 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Excessive pre-storm noise: std before (3.2598 A) > 1/4 * std after (7.0420 A);\nCadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -7847,7 +7847,7 @@
             "nearest_volt": NaN,
             "power_pool": "PJM",
             "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.8411 A) > 1/4 * std after (2.8819 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
           }
         }
       }
@@ -8287,7 +8287,7 @@
             "nearest_volt": NaN,
             "power_pool": "MISO",
             "US_region": "Central",
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:15:00"
+            "automated_error": "Excessive pre-storm noise: std before (0.9879 A) > 1/4 * std after (1.8879 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:15:00"
           }
         }
       }
@@ -8502,7 +8502,7 @@
             "interpolated_beta": 0.1855197224049235,
             "log10_beta": -0.731609914208901,
             "mag_lat": 41.25555189932742,
-            "mag_lon": -24.595634944371252,
+            "mag_lon": -24.59563494437125,
             "alpha": 0.1149374960988044,
             "nearest_volt": 345.0,
             "power_pool": "SPP",
@@ -9631,7 +9631,7 @@
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
-            "automated_error": NaN
+            "automated_error": "Excessive pre-storm noise: std before (0.5332 A) > 1/4 * std after (1.4850 A)"
           }
         }
       }
@@ -9653,7 +9653,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": NaN
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3065 A) > 1/4 * std after (0.4361 A)"
           }
         }
       }
@@ -9965,7 +9965,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": NaN
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1141 A) > 1/4 * std after (0.1593 A)"
           }
         }
       }
@@ -10053,7 +10053,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": NaN
+            "automated_error": "Excessive pre-storm noise: std before (0.4002 A) > 1/4 * std after (0.8388 A)"
           }
         }
       }
@@ -10315,7 +10315,7 @@
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
             "US_region": "East",
-            "automated_error": NaN
+            "automated_error": "Excessive pre-storm noise: std before (0.2531 A) > 1/4 * std after (0.9608 A)"
           }
         }
       }
@@ -10638,6 +10638,138 @@
             "mag_lat": 2.732089911987458,
             "mag_lon": 72.85565014070959,
             "alpha": 0.0013691503156521,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "test_spike": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test_spike": {
+            "geo_lat": NaN,
+            "geo_lon": NaN,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": NaN,
+            "mag_lon": NaN,
+            "alpha": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "test_offset": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test_offset": {
+            "geo_lat": NaN,
+            "geo_lon": NaN,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": NaN,
+            "mag_lon": NaN,
+            "alpha": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "test_both": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test_both": {
+            "geo_lat": NaN,
+            "geo_lon": NaN,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": NaN,
+            "mag_lon": NaN,
+            "alpha": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "test_low_val": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test_low_val": {
+            "geo_lat": NaN,
+            "geo_lon": NaN,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": NaN,
+            "mag_lon": NaN,
+            "alpha": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "test_long_break": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test_long_break": {
+            "geo_lat": NaN,
+            "geo_lon": NaN,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": NaN,
+            "mag_lon": NaN,
+            "alpha": NaN,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "test_cadence": {
+    "GIC": {
+      "measured": {
+        "TEST": {
+          "test_cadence": {
+            "geo_lat": NaN,
+            "geo_lon": NaN,
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": NaN,
+            "mag_lon": NaN,
+            "alpha": NaN,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,

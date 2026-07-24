@@ -1,0 +1,51 @@
+2026-07-24T13:26:06.854355Z INFO  main Reading 'Ellerslie 1' data
+2026-07-24T13:26:06.857559Z INFO  main   Reading 'GIC/measured/Parry2024' data
+2026-07-24T13:26:07.112238Z INFO  main     Running automated error checks on GIC measured data
+2026-07-24T13:26:08.914062Z INFO  main     Baseline offset of -3.19 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-24T13:26:08.997253Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\GIC_measured_Parry2024.pkl
+2026-07-24T13:26:09.037590Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\_all.pkl
+2026-07-24T13:26:09.110162Z INFO  main Computing stats for 'Ellerslie 1' data
+2026-07-24T13:26:09.161439Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-07-24T13:26:09.161439Z INFO  main   Uniq dts [#]  = 1
+2026-07-24T13:26:09.161439Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-07-24T13:26:09.162439Z INFO  main 
+    std: : [4.122730054818817]
+    ave: : [0.14495858700617292]
+    min: : [-16.156331733333335]
+    max: : [42.2807879]
+    n: 1441
+    n_valid: : [1080]
+    dt_original: : [2000000000]
+2026-07-24T13:26:09.163440Z INFO  main Plotting 'Ellerslie 1' data
+2026-07-24T13:26:09.165943Z INFO  main   Plotting 'Ellerslie 1/GIC/measured/Parry2024' original vs. modified data
+2026-07-24T13:26:14.104633Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.png
+2026-07-24T13:26:14.613763Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.pdf
+2026-07-24T13:26:16.856996Z INFO  main Reading 'Ellerslie 2' data
+2026-07-24T13:26:16.859981Z INFO  main   Reading 'GIC/measured/Parry2024' data
+2026-07-24T13:26:17.127414Z INFO  main     Running automated error checks on GIC measured data
+2026-07-24T13:26:18.909707Z INFO  main     Baseline offset of -3.89 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-24T13:26:18.975789Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\GIC_measured_Parry2024.pkl
+2026-07-24T13:26:19.010316Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\_all.pkl
+2026-07-24T13:26:19.044982Z INFO  main Computing stats for 'Ellerslie 2' data
+2026-07-24T13:26:19.085993Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-07-24T13:26:19.086991Z INFO  main   Uniq dts [#]  = 1
+2026-07-24T13:26:19.086991Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-07-24T13:26:19.086991Z INFO  main 
+    std: : [4.184276681054267]
+    ave: : [-0.01830898716049358]
+    min: : [-15.5576997]
+    max: : [43.4732256]
+    n: 1441
+    n_valid: : [1080]
+    dt_original: : [2000000000]
+2026-07-24T13:26:19.088990Z INFO  main Plotting 'Ellerslie 2' data
+2026-07-24T13:26:19.092000Z INFO  main   Plotting 'Ellerslie 2/GIC/measured/Parry2024' original vs. modified data
+2026-07-24T13:26:19.567256Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.png
+2026-07-24T13:26:20.096138Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.pdf
+2026-07-24T13:26:20.217292Z INFO  main   Adding error for site 'Ellerslie 1', GIC/'measured/Parry2024: Excessive pre-storm noise: std before (2.6031 A) > 1/4 * std after (4.1819 A)
+2026-07-24T13:26:20.220291Z INFO  main   Adding error for site 'Ellerslie 2', GIC/'measured/Parry2024: Excessive pre-storm noise: std before (2.6735 A) > 1/4 * std after (4.2387 A)
+2026-07-24T13:26:20.222293Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.csv
+2026-07-24T13:26:20.222293Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-07-24T13:26:20.222293Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json

@@ -1,0 +1,66 @@
+2026-07-12T11:55:52.983167Z INFO  filter_test   Writing test_spike_GIC_measured_timeseries.csv
+2026-07-12T11:56:04.264728Z INFO  filter_test   Writing test_offset_GIC_measured_timeseries.csv
+2026-07-12T11:56:09.174533Z INFO  filter_test   Writing test_both_GIC_measured_timeseries.csv
+2026-07-12T11:56:13.405163Z INFO  filter_test   Writing test_low_val_GIC_measured_timeseries.csv
+2026-07-12T11:56:20.595784Z INFO  filter_test   Writing test_long_break_GIC_measured_timeseries.csv
+2026-07-12T11:56:24.158901Z INFO  filter_test   Writing test_cadence_GIC_measured_timeseries.csv
+2026-07-12T11:56:26.653035Z INFO  filter_test Reading 'test_spike' data
+2026-07-12T11:56:26.708788Z INFO  filter_test   Reading 'GIC/measured/TEST' data
+2026-07-12T11:56:26.708788Z INFO  filter_test     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\test_spike_GIC_measured_timeseries.csv
+2026-07-12T11:56:29.030133Z INFO  filter_test     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-12T11:56:29.498339Z INFO  filter_test     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\GIC_measured_TEST.pkl
+2026-07-12T11:56:29.738595Z INFO  filter_test   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-07-12T11:56:29.997796Z INFO  filter_test Testing filter for test_spike GIC...
+2026-07-12T11:56:45.384630Z INFO  filter_test     Uniq dts [ns] = [1000000000]
+2026-07-12T11:56:45.384630Z INFO  filter_test     Uniq dts [#]  = 1
+2026-07-12T11:56:47.038180Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_spike_GIC_filtered.png
+2026-07-12T11:56:47.463277Z INFO  filter_test Reading 'test_offset' data
+2026-07-12T11:56:47.475408Z INFO  filter_test   Reading 'GIC/measured/TEST' data
+2026-07-12T11:56:47.487172Z INFO  filter_test     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\test_offset_GIC_measured_timeseries.csv
+2026-07-12T11:56:49.273460Z INFO  filter_test     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-12T11:56:49.561217Z INFO  filter_test     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_offset\data\GIC_measured_TEST.pkl
+2026-07-12T11:56:49.782644Z INFO  filter_test   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_offset\data\_all.pkl
+2026-07-12T11:56:50.036362Z INFO  filter_test Testing filter for test_offset GIC...
+2026-07-12T11:57:06.792856Z INFO  filter_test     Uniq dts [ns] = [1000000000]
+2026-07-12T11:57:06.794870Z INFO  filter_test     Uniq dts [#]  = 1
+2026-07-12T11:57:08.348994Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_offset_GIC_filtered.png
+2026-07-12T11:57:09.389615Z INFO  filter_test Reading 'test_both' data
+2026-07-12T11:57:09.406645Z INFO  filter_test   Reading 'GIC/measured/TEST' data
+2026-07-12T11:57:09.410308Z INFO  filter_test     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\test_both_GIC_measured_timeseries.csv
+2026-07-12T11:57:11.849154Z INFO  filter_test     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-12T11:57:12.313430Z INFO  filter_test     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_both\data\GIC_measured_TEST.pkl
+2026-07-12T11:57:12.547122Z INFO  filter_test   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_both\data\_all.pkl
+2026-07-12T11:57:12.778202Z INFO  filter_test Testing filter for test_both GIC...
+2026-07-12T11:57:25.181739Z INFO  filter_test     Uniq dts [ns] = [1000000000]
+2026-07-12T11:57:25.185567Z INFO  filter_test     Uniq dts [#]  = 1
+2026-07-12T11:57:26.627831Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_both_GIC_filtered.png
+2026-07-12T11:57:26.945461Z INFO  filter_test Reading 'test_low_val' data
+2026-07-12T11:57:26.960588Z INFO  filter_test   Reading 'GIC/measured/TEST' data
+2026-07-12T11:57:26.960588Z INFO  filter_test     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\test_low_val_GIC_measured_timeseries.csv
+2026-07-12T11:57:29.040941Z INFO  filter_test     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-12T11:57:29.425635Z INFO  filter_test     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_low_val\data\GIC_measured_TEST.pkl
+2026-07-12T11:57:29.695808Z INFO  filter_test   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_low_val\data\_all.pkl
+2026-07-12T11:57:29.946198Z INFO  filter_test Testing filter for test_low_val GIC...
+2026-07-12T11:57:44.774622Z INFO  filter_test     Uniq dts [ns] = [1000000000]
+2026-07-12T11:57:44.774622Z INFO  filter_test     Uniq dts [#]  = 1
+2026-07-12T11:57:46.272304Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_low_val_GIC_filtered.png
+2026-07-12T11:57:48.243186Z INFO  filter_test Reading 'test_long_break' data
+2026-07-12T11:57:48.260497Z INFO  filter_test   Reading 'GIC/measured/TEST' data
+2026-07-12T11:57:48.272305Z INFO  filter_test     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\test_long_break_GIC_measured_timeseries.csv
+2026-07-12T11:57:50.431234Z INFO  filter_test     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-12T11:57:50.904989Z INFO  filter_test     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_long_break\data\GIC_measured_TEST.pkl
+2026-07-12T11:57:51.155121Z INFO  filter_test   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_long_break\data\_all.pkl
+2026-07-12T11:57:51.405580Z INFO  filter_test Testing filter for test_long_break GIC...
+2026-07-12T11:58:05.625832Z INFO  filter_test     Uniq dts [ns] = [1000000000]
+2026-07-12T11:58:05.625832Z INFO  filter_test     Uniq dts [#]  = 1
+2026-07-12T11:58:06.936273Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_long_break_GIC_filtered.png
+2026-07-12T11:58:08.088989Z INFO  filter_test Reading 'test_cadence' data
+2026-07-12T11:58:08.104814Z INFO  filter_test   Reading 'GIC/measured/TEST' data
+2026-07-12T11:58:08.110217Z INFO  filter_test     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\test_cadence_GIC_measured_timeseries.csv
+2026-07-12T11:58:08.163457Z INFO  filter_test     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-12T11:58:08.179890Z INFO  filter_test     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_cadence\data\GIC_measured_TEST.pkl
+2026-07-12T11:58:08.194311Z INFO  filter_test   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_cadence\data\_all.pkl
+2026-07-12T11:58:08.196168Z INFO  filter_test Testing filter for test_cadence GIC...
+2026-07-12T11:58:08.240483Z INFO  filter_test     Uniq dts [ns] = [600000000000]
+2026-07-12T11:58:08.240483Z INFO  filter_test     Uniq dts [#]  = 1
+2026-07-12T11:58:08.509031Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_cadence_GIC_filtered.png

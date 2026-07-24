@@ -1,0 +1,48 @@
+{
+  "Ellerslie 1": {
+    "GIC": {
+      "measured": {
+        "Parry2024": {
+          "Ellerslie 1": {
+            "geo_lat": 53.44,
+            "geo_lon": -113.46,
+            "event": "2021-10-12",
+            "manual_error": NaN,
+            "interpolated_beta": 0.5719732390647249,
+            "log10_beta": -0.2426242900852953,
+            "mag_lat": 59.96019940566114,
+            "mag_lon": -51.02384615101371,
+            "alpha": 0.987743384427782,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Excessive pre-storm noise: std before (2.6031 A) > 1/4 * std after (4.1819 A)"
+          }
+        }
+      }
+    }
+  },
+  "Ellerslie 2": {
+    "GIC": {
+      "measured": {
+        "Parry2024": {
+          "Ellerslie 2": {
+            "geo_lat": 53.44,
+            "geo_lon": -113.46,
+            "event": "2021-10-12",
+            "manual_error": NaN,
+            "interpolated_beta": 0.5719732390647249,
+            "log10_beta": -0.2426242900852953,
+            "mag_lat": 59.96019940566114,
+            "mag_lon": -51.02384615101371,
+            "alpha": 0.987743384427782,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Excessive pre-storm noise: std before (2.6735 A) > 1/4 * std after (4.2387 A)"
+          }
+        }
+      }
+    }
+  }
+}
