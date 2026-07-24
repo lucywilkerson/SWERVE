@@ -604,7 +604,7 @@ def add_voltage(info_df, transmission_fname):
       ax.set_title("Transmission Lines and Device Locations")
       #plt.show()
 
-  logger.info("Adding nearset voltage to extended info_df")
+  logger.info("Adding nearest voltage to extended info_df")
 
   info_df['nearest_volt'] = np.nan
 
@@ -622,6 +622,10 @@ def add_voltage(info_df, transmission_fname):
           device_2_device,
           line_to_device_map,
       ) = connection_dicts
+
+      if device_gdf.empty:
+         logger.info("Skipping nearest voltage: sites outside of CONUS.")
+         return
 
       # Haversine distance usage between two devices
       # Make sure to make it earth centered earth fixed (wgs84) crs
@@ -673,6 +677,7 @@ add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
 add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
+#TODO: skip add_power_pool for sites outside US - no power pool info
 find_duplicates(info_df)
 
 out_fname = CONFIG['files']['info_extended']
