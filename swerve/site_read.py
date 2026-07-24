@@ -502,6 +502,30 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       "labels": ["Bx", "By", "Bz"],
       "unit": "nT"
     }
+  
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2025':
+    from matio import load_from_mat
+    data_file = os.path.join(data_dir, 'parry2025', '2023-04-24', 'gic', '20230424_hallprobe_data.mat')
+    if not os.path.exists(data_file):
+        raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    load_data = load_from_mat(data_file)
+
+    time = pandas.to_datetime(load_data['time_GIC'])
+    if sid.lower().replace(' ','') == 'albertasite1':
+      data = load_data['Sub1_GIC']
+    elif sid.lower().replace(' ','') == 'albertasite2':
+      data = load_data['Sub2_GIC']
+
+    data = numpy.array(data).reshape(-1, 1)
+    return {
+      "time": numpy.array(time).flatten(),
+      "data": data,
+      "labels": ["GIC"],
+      "unit": "A"
+    }
+
+    
 
 def _output_error(d, logger):
   msgo = "Not computing modified"
