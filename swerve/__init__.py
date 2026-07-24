@@ -10,6 +10,7 @@ from .site_stats_summary import site_stats_summary
 from .update_info_extended import update_info_extended
 from .regress import regress, write_eqn_and_fname
 from .filter import filter
+from .write_info_csv import write_info_csv
 
 def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=None, key=None, logger=None):
   from swerve import config, read_info_df
@@ -33,7 +34,7 @@ def sids(extended=True, data_type=None, data_source=None, data_class=None, exclu
   info = info[~(info['manual_error'].astype(str).str.startswith('x '))]
   all_sids = list(info['site_id'].unique())
 
-  if key[0] != 'test':
+  if key is not None and key[0] != 'test':
     # Remove test sids unless keyword test is passed
     all_sids = [sid for sid in all_sids if not sid.startswith('test')] 
     
