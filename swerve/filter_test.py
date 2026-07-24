@@ -3,8 +3,9 @@
 
 run_tests   = True  # Run tests
 write_tests = True # Write test timeseries 
-# Before running tests (for new series), add test to info.csv, and run 'python info.py --event 2015-03-17'
 
+from datetime import timedelta
+import json
 from swerve import config
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -48,15 +49,51 @@ def _test_dict():
                             'start_time':limits[0],
                             'stop_time':limits[1],
                             'value_range':[-15, 5],
-                            'mode':'rand',
+                            'mode':'sin',
                             'add_spikes':True
                         }
                     }
-                }
+                },
+                'test_low_val':{
+                    'GIC':{
+                        'description':{'Rand walk with max/min of +/-3.9, offset by 5.'},
+                        'config':{
+                            'start_time':limits[0]-timedelta(hours=3),
+                            'stop_time':limits[1],
+                            'value_range':[-3.9-5, 3.9-5],
+                            'mode':'rand',
+                            'add_spikes':False
+                        }
+                    }
+                },
+                'test_long_break':{
+                    'GIC':{
+                        'description':{'Rand walk with max/min of +/-15, breaks every 3 hours.'},
+                        'config':{
+                            'start_time':limits[0],
+                            'stop_time':limits[1],
+                            'value_range':[-15, 15],
+                            'mode':'rand',
+                            'add_breaks':True
+                        }
+                    }
+                },
+                'test_cadence':{
+                    'GIC':{
+                        'description':{'Rand walk with max/min of +/-15, 10 min cadence.'},
+                        'config':{
+                            'start_time':limits[0],
+                            'stop_time':limits[1],
+                            'value_range':[-15, 15],
+                            'mode':'rand',
+                            'cadence':600
+                        }
+                    }
+                },
             }
 
 
-def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, mode='sin', logger=logger,nan_interval=None, add_spikes=False, seed=None, plot=False):
+def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, mode='sin', logger=logger,nan_interval=None, cadence=None, add_spikes=False, add_breaks=False, seed=None, plot=False):
     import os
     import random
 
@@ -79,6 +116,9 @@ def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, 
         data_class (str): 'measured' or 'calculated'.
         mode (str): 'sin' for sine wave, 'rand' for random walk.
         nan_interval (int, optional): Interval (in seconds) to insert NaN values.
+        cadence (int, optional): Cadence in seconds for the timeseries. If None, defaults to 1 second.
+        add_spikes (bool, optional): If True, adds spikes to the timeseries.
+        add_breaks (bool, optional): If True, adds breaks (NaN values) to the timeseries.
         seed (int, optional): Random seed for reproducibility.
         plot (bool, optional): If True, plots the generated timeseries.
     """
@@ -86,8 +126,11 @@ def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, 
         np.random.seed(seed)
         random.seed(seed)
 
-    # Determine buffer and frequency based on data type
-    freq = '1s'
+    # Determine buffer and frequency
+    if cadence is None:
+        freq = '1s'
+    else:
+        freq = f"{cadence}s"
     val_buffer = 1
 
     # Generate time index
@@ -122,6 +165,18 @@ def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, 
             values[idx] += sign * 5 * i
             if idx + 1 < n:
                 values[idx+1] += sign * i
+
+    if add_breaks:
+        break_interval = 3 * 60 * 60 # every 3 hours
+        break_indices = np.arange(0, n, break_interval)
+        i = 1
+        for idx in break_indices:
+            break_length = i * 60 # idx minutes
+            start_break = idx
+            print(f"Break length: {break_length/60} min")
+            end_break = min(idx + break_length, n)
+            values[start_break:end_break] = np.nan
+            i += 1
 
     # Optionally insert NaNs
     if nan_interval is not None and nan_interval > 0:
@@ -158,12 +213,20 @@ def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, 
             'data_class': data_class,
             'data_source': 'TEST'
         }
-        from swerve import read_info_df
+        from swerve import read_info_df, infodf2dict
         info_df = read_info_df(extended=False, logger=logger)
         info_df = (pd.concat([info_df, pd.DataFrame([new_row])], ignore_index=True)
                    if not info_df.empty else pd.DataFrame([new_row]))
         info_df.to_csv(CONFIG['files']['info'], index=False)
-        logger.info(f"Added {test_name} to info.csv. Please rerun info.py to update info.extended.csv and info.extended.json.")
+        info_extended = read_info_df(extended=True, logger=logger)
+        info_extended = (pd.concat([info_extended, pd.DataFrame([new_row])], ignore_index=True)
+                         if not info_extended.empty else pd.DataFrame([new_row]))
+        info_extended.to_csv(CONFIG['files']['info_extended'], index=False)
+        info_dict = infodf2dict(info_extended, logger)
+        logger.info(f"Writing {CONFIG['files']['info_extended_json']}")
+        with open(CONFIG['files']['info_extended_json'], 'w') as f:
+            json.dump(info_dict, f, indent=2)
+        logger.info(f"Added {test_name} to info.csv, info.extended.csv, info.extended.json.")
 
     # Make calculated data by averaging measured data into 1-min intervals
     df_resampled = df.copy()
@@ -210,6 +273,10 @@ def _test_site(site, data_types=None, plot=False, logger=logger):
     # Plot filtered data and original data for visual inspection
     if plot:
         import matplotlib.pyplot as plt
+        import os
+        fig_dir = os.path.join(CONFIG['dirs']['original'], 'test', 'figures')
+        if not os.path.exists(fig_dir):
+            os.makedirs(fig_dir)
         plt.figure(figsize=(12, 4))
         plt.plot(orig_data['time'], orig_data['data'], color='salmon', linestyle='-', label='Original')
         plt.plot(filtered_data['time'], filtered_data['data'], color='maroon', linestyle='-', label='Filtered')
@@ -219,7 +286,9 @@ def _test_site(site, data_types=None, plot=False, logger=logger):
         plt.tight_layout()
         plt.grid()
         plt.legend()
-        plt.show()
+        logger.info(f"Saving plot to {os.path.join(fig_dir, f'{site}_GIC_filtered.png')}")
+        plt.savefig(os.path.join(fig_dir, f"{site}_GIC_filtered.png"))
+        #plt.show()
 
 
 if __name__ == "__main__":
