@@ -235,14 +235,14 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     return {**data, "labels": ["GIC"], "unit": "A"}
 
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'TVA':
-    data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-calculated')
+    data_dir = os.path.join(data_dir, 'tva', event, 'gic', 'GIC-calculated')
     sid = sid.replace(' ','')
     if sid == 'BullRun':
       sid = 'BullRunXfrm' # BullRun file Xfrm appended to name in file name.
     if sid == 'WidowsCreek':
       sid = f'{sid}2'
 
-    dates = ['20240510', '20240511', '20240512']
+    dates = ['20240510', '20240511', '20240512'] #TODO: for 2024-05-10 storm ONLY
     time = []
     data = []
     for date in dates:
