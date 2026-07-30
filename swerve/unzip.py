@@ -4,6 +4,7 @@ from swerve import config
 
 CONFIG = config()
 data_dir = CONFIG['dirs']['data']
+event = CONFIG['event']
 
 def unzip_all_zip_files(directory_path, output_directory=None):
     """
@@ -41,5 +42,5 @@ def unzip_all_zip_files(directory_path, output_directory=None):
                 print(f"An error occurred while unzipping '{item}': {e}")
 
 for nerc_data_type in ['gic', 'mag']:
-    gic_zip_dir = os.path.join(data_dir, 'data_original', 'nerc', nerc_data_type)
+    gic_zip_dir = os.path.join(data_dir, 'data_original', 'nerc', event, nerc_data_type)
     unzip_all_zip_files(gic_zip_dir, gic_zip_dir)
