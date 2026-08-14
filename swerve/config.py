@@ -335,7 +335,7 @@ def config():
       datetime.datetime(2015, 6, 23, 14, 0)
     ]
 
-  elif event =='2015-10-07':
+  elif event =='2015-10-07' or event =='2015-10-06':
 
     config_dict['nerc_prefix'] = '2015E05'
 
@@ -347,6 +347,123 @@ def config():
       datetime.datetime(2015, 10, 7, 1, 0),
       datetime.datetime(2015, 10, 8, 18, 0)
     ]
+
+  elif event =='2013-05-31':
+  
+      config_dict['nerc_prefix'] = '2013E01'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2013, 5, 31, 3, 0),
+        datetime.datetime(2013, 6, 1, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2013, 5, 7, 1, 0),
+        datetime.datetime(2013, 6, 1, 18, 0)
+      ]
+
+  elif event =='2015-09-11':
+    
+        config_dict['nerc_prefix'] = '2015E03'
+    
+        config_dict['limits']['data'] = [
+          datetime.datetime(2015, 9, 11, 3, 0),
+          datetime.datetime(2015, 9, 12, 18, 0)
+        ]
+        config_dict['limits']['plot'] = [
+          datetime.datetime(2015, 9, 11, 1, 0),
+          datetime.datetime(2015, 9, 12, 18, 0)
+        ]
+
+  elif event =='2015-09-19':
+      
+      config_dict['nerc_prefix'] = '2015E04'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2015, 9, 19, 3, 0),
+        datetime.datetime(2015, 9, 20, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2015, 9, 19, 1, 0),
+        datetime.datetime(2015, 9, 20, 18, 0)
+      ]
+
+  elif event =='2015-12-20':
+  
+      config_dict['nerc_prefix'] = '2015E06'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2015, 12, 20, 3, 0),
+        datetime.datetime(2015, 12, 21, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2015, 12, 20, 1, 0),
+        datetime.datetime(2015, 12, 21, 18, 0)
+      ]
+
+  elif event =='2017-05-27':
+  
+      config_dict['nerc_prefix'] = '2017E01'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2017, 5, 27, 3, 0),
+        datetime.datetime(2017, 5, 28, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2017, 5, 27, 1, 0),
+        datetime.datetime(2017, 5, 28, 18, 0)
+      ]
+
+  elif event =='2017-09-07':
+
+    config_dict['nerc_prefix'] = '2017E02'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2017, 9, 17, 3, 0),
+      datetime.datetime(2017, 9, 18, 18, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2017, 9, 17, 1, 0),
+      datetime.datetime(2017, 9, 18, 18, 0)
+    ]
+
+  elif event =='2017-09-27':
+  
+      config_dict['nerc_prefix'] = '2017E03'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2017, 9, 27, 3, 0),
+        datetime.datetime(2017, 9, 28, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2017, 9, 27, 1, 0),
+        datetime.datetime(2017, 9, 28, 18, 0)
+      ]
+
+  elif event =='2018-08-25':
+
+    config_dict['nerc_prefix'] = '2018E01'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2018, 8, 25, 3, 0),
+      datetime.datetime(2018, 8, 26, 18, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2018, 8, 25, 1, 0),
+      datetime.datetime(2018, 8, 26, 18, 0)
+    ]
+
+  elif event =='2021-05-12':
+  
+      config_dict['nerc_prefix'] = '2021E01'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2021, 5, 12, 6, 0),
+        datetime.datetime(2021, 5, 13, 4, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2021, 5, 12, 4, 0),
+        datetime.datetime(2021, 5, 13, 4, 0)
+      ]
 
   else:
     from datetime import timedelta
