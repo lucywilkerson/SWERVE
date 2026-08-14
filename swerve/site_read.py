@@ -527,31 +527,88 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
       from datetime import timedelta
-      data_file = os.path.join(data_dir, 'parry2024', '2021-10-12', data_type.lower(), 'gic-hall', '20211012_GIC_data_89S.csv')
-      if not os.path.exists(data_file):
-          raise FileNotFoundError(f"Data file not found: {data_file}")
-  
-      data = []
-      time = []
+      if 'DMM' not in sid:
+        data_file = os.path.join(data_dir, 'parry2024', '2021-10-12', data_type.lower(), 'gic-hall', '20211012_GIC_data_89S.csv')
+        if not os.path.exists(data_file):
+            raise FileNotFoundError(f"Data file not found: {data_file}")
+    
+        data = []
+        time = []
 
-      if sid.lower().replace(' ','') == 'ellerslie1':
-        data_col = 1
-      elif sid.lower().replace(' ','') == 'ellerslie2':
-        data_col = 2
+        if sid.lower().replace(' ','') == 'ellerslie1':
+          data_col = 1
+        elif sid.lower().replace(' ','') == 'ellerslie2':
+          data_col = 2
 
-      with open(data_file, 'r') as csvfile:
-        next(csvfile)  # Skip header rows
-        next(csvfile)
-        rows = csv.reader(csvfile, delimiter=',')
-        for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M'))
-          data.append(float(row[data_col]) if row[data_col] != '#VALUE!' else numpy.nan)
+        with open(data_file, 'r') as csvfile:
+          next(csvfile)  # Skip header rows
+          next(csvfile)
+          rows = csv.reader(csvfile, delimiter=',')
+          for row in rows:
+            time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M'))
+            data.append(float(row[data_col]) if row[data_col] != '#VALUE!' else numpy.nan)
 
-      # Edit time column to match 0.5Hz measurement frequency described in paper
-      corrected_time = [
-        time[0] + timedelta(seconds=i * 2) 
-        for i in range(len(time))
-      ]
+        # Edit time column to match 0.5Hz measurement frequency described in paper
+        corrected_time = [
+          time[0] + timedelta(seconds=i * 2) 
+          for i in range(len(time))
+        ]
+
+      else:
+        print(f"oh no, DMM data! at {sid}! please write a reader :)")
+        exit()
+
+      data = numpy.array(data).reshape(-1, 1)
+      return {
+        "time": numpy.array(corrected_time).flatten(),
+        "data": data,
+        "labels": ["GIC"],
+        "unit": "A"
+      }
+
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Marsal':
+      data_path = os.path.join(data_dir, 'marsal', '2024-05-10', 'gic', sid, f'{sid}_LIN')
+      if not os.path.exists(data_path):
+        raise FileNotFoundError(f"Data directory not found: {data_path}")
+    
+      time_line = []
+      bx_line = []
+      by_line = []
+      bz_line = []
+
+      for item in os.listdir(data_path):
+        with open(os.path.join(data_path, item), "r") as file:
+            for line in file:
+                # Split line by whitespace and convert to float
+                row = line.split()
+                timestamp = f'{row[0]}-{row[1]}-{row[2]}{row[3]}:{row[4]}:{row[5]}'
+                time_line.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
+                bx_line.append(float(row[6]))
+                by_line.append(float(row[7]))
+                bz_line.append(float(row[8]))
+
+      data_path = os.path.join(data_dir, 'marsal', '2024-05-10', 'gic', sid, f'{sid}_REF')
+      if not os.path.exists(data_path):
+        raise FileNotFoundError(f"Data directory not found: {data_path}")
+
+      time_ref = []
+      bx_ref = []
+      by_ref = []
+      bz_ref = []
+
+      for item in os.listdir(data_path):
+        with open(os.path.join(data_path, item), "r") as file:
+            for line in file:
+                # Split line by whitespace and convert to float
+                row = line.split()
+                timestamp = f'{row[0]}-{row[1]}-{row[2]}{row[3]}:{row[4]}:{row[5]}'
+                time_ref.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
+                bx_ref.append(float(row[6]))
+                by_ref.append(float(row[7]))
+                bz_ref.append(float(row[8]))
+
+      print('need to write function to handle DMM data!')
+      exit()
 
       data = numpy.array(data).reshape(-1, 1)
       return {
@@ -597,3 +654,7 @@ def _write_pkl(fname, data, logger, indent=''):
   with open(fname, 'wb') as f:
     logger.info(f"{indent}Writing {fname}")
     pickle.dump(data, f)
+
+def _read_dmm(data_line, data_ref, logger):
+  # Reads in DMM data and computes GIC
+  return
