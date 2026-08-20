@@ -172,5 +172,3 @@ def _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, d
     return info_list
 
 
-write_info_csv()
-
