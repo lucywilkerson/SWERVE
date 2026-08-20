@@ -1,10 +1,9 @@
-run_config_name: test_config # for saving info files/logs
+run_config_name: nerc_config # for saving info files/logs
 
-event: '2024-05-10' # make all option
-start_time: 2024-05-10 #unclear if these are needed, already included in config.py
-stop_time: 2024-05-13
+event: '2021-05-12' # make all option
+# No start/stop time needed for NERC, preset in config.py
 
-data_source: ['TVA','NERC','marsal'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+data_source: ['NERC'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 
 data_type: ['GIC','B'] # If specified, only return sites with this data type (e.g., GIC, B)
 
