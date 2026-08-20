@@ -1,24 +1,28 @@
 def config():
   import os
   import datetime
+  import yaml
 
   import utilrsw
 
   from swerve.cli import cli
   args = cli('config.py')
-  if args['event'] is None:
-    event = '2024-05-10'
-    print(f"No event specified, defaulting to '{event}'.")
+  if args['run_config'] is None:
+    raise ValueError("No run configuration specified.")
   else:
-    # Use event from command line argument if provided.
-    event = args['event']
-    print(f"Using event '{event}' from command line argument.")
+    # Use run configuration from command line argument if provided.
+    run_config_file = os.path.abspath(os.path.join('configs', args['run_config']))
+    print(f"Using run configuration '{run_config_file}' from command line argument.")
 
   console_format = u'%(message)s'
 
+  with open(run_config_file) as f:
+    conf = yaml.safe_load(f)
+  event = conf.get('event', None)
+
   file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
-  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', event))
-  data_dir = os.path.abspath(os.path.join(file_path, '..', '..', f'SWERVE-{event}'))
+  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
+  data_dir = os.path.abspath(os.path.join(file_path, '..', '..', f'SWERVE-data'))
 
   common_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-common')) # Common data directory for all events.
 
@@ -26,23 +30,34 @@ def config():
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
 
   config_dict =  {
+      'event': event,
       'logger': utilrsw.logger,
       'logger_kwargs': {
-        'log_dir': os.path.join(data_dir, '_log'),
+        'log_dir': os.path.join(info_dir, '_log'),
         'console_format': console_format
       },
       'limits': {
         'data': None, # Pad or trim data to these limits
         'plot': None  # Plot data within these limits
       },
-      'find_errors_kwargs': {'low_signal_threshold':4, # [A]
-                            'baseline_buffer':1, # [A]
-                            'spike_threshold':40, # [A]
-                            'median_window':20, # [number of points]
-                            'noise_threshold':4, # [unitless]
-                            'max_cadence':60, # [s]
-                            'max_gap':600, # [s]
-                            'max_const':300 # [s]
+      'info_kwargs': {
+                  'data_type': conf.get('data_type', None), # If specified, only return sites with this data type (e.g., GIC, B)
+                  'data_source': conf.get('data_source', None), # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+                  'data_class': conf.get('data_class', None), # If specified, only return sites with this data class (e.g., measured, calculated)
+                  'exclude_errors': conf.get('exclude_errors', False) # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
+                 #TODO: add error-type arg?
+              },
+      'main_kwargs': {'summary_table': conf.get('summary_table', False) # If True, creates a summary table of site statistics and metrics
+                    },
+      'filter_kwargs': {'spike_filt_type': conf.get('filter_kwargs', {}).get('spike_filt_type', 'difference'), # 'difference' or 'median' or None
+                        'low_signal_threshold': conf.get('filter_kwargs', {}).get('low_signal_threshold', 0.1), # [A]
+                        'baseline_buffer': conf.get('filter_kwargs', {}).get('baseline_buffer', 10), # [A]
+                        'spike_threshold': conf.get('filter_kwargs', {}).get('spike_threshold', 0.5), # [A]
+                        'median_window': conf.get('filter_kwargs', {}).get('median_window', 20), # [number of points]
+                        'noise_threshold': conf.get('filter_kwargs', {}).get('noise_threshold', 4), # [unitless]
+                        'max_cadence': conf.get('filter_kwargs', {}).get('max_cadence', 60), # [s]
+                        'max_gap': conf.get('filter_kwargs', {}).get('max_gap', 600), # [s]
+                        'max_const': conf.get('filter_kwargs', {}).get('max_const', 300) # [s]
       },
       'dirs': {
         'data': data_dir,
@@ -65,6 +80,7 @@ def config():
           'info_json': os.path.join(info_dir, 'info.json'),
           'info_extended': os.path.join(info_dir, 'info.extended.csv'),
           'info_extended_json': os.path.join(info_dir, 'info.extended.json'),
+          'stats_summary': os.path.join(info_dir, 'summary_table', 'stats_summary.md'),
           'nerc_gdf': os.path.join(common_dir, 'nerc_gdf', 'nerc_gdf.geojson'),
           'shape': {
               'transmission_lines': os.path.join(common_dir, 'shape', 'Electric__Power_Transmission_Lines', 'Electric__Power_Transmission_Lines.shp'),
@@ -150,7 +166,7 @@ def config():
          }
       }
 
-  if event =='2024-10-10':
+  elif event =='2024-10-10':
 
     config_dict['nerc_prefix'] = '2024E11'
 
@@ -163,7 +179,7 @@ def config():
       datetime.datetime(2024, 10, 11, 14, 0)
     ]
 
-  if event =='2024-10-07':
+  elif event =='2024-10-07':
 
     config_dict['nerc_prefix'] = '2024E10'
 
@@ -176,7 +192,7 @@ def config():
       datetime.datetime(2024, 10, 8, 12, 0)
     ]
 
-  if event =='2024-12-31':
+  elif event =='2024-12-31':
 
     config_dict['nerc_prefix'] = '2024E12'
 
@@ -189,7 +205,7 @@ def config():
       datetime.datetime(2025, 1, 2, 0, 0)
     ]
 
-  if event =='2025-04-15':
+  elif event =='2025-04-15':
 
     config_dict['nerc_prefix'] = '2025E01'
 
@@ -202,7 +218,7 @@ def config():
       datetime.datetime(2025, 4, 17, 9, 0)
     ]
 
-  if event =='2013-10-02':
+  elif event =='2013-10-02':
 
     config_dict['nerc_prefix'] = '2013E02'
 
@@ -215,7 +231,7 @@ def config():
       datetime.datetime(2013, 10, 2, 20, 0)
     ]
 
-  if event =='2023-03-23':
+  elif event =='2023-03-23':
 
     config_dict['nerc_prefix'] = '2023E02'
 
@@ -228,7 +244,20 @@ def config():
       datetime.datetime(2023, 3, 24, 12, 0)
     ]
 
-  if event =='2024-03-23':
+  elif event =='2023-04-23' or event == '2023-04-24':
+
+    config_dict['nerc_prefix'] = '2023E03'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2023, 4, 24, 0, 0),
+      datetime.datetime(2023, 4, 24, 20, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2023, 4, 23, 22, 0),
+      datetime.datetime(2023, 4, 24, 20, 0)
+    ]
+
+  elif event =='2024-03-23':
 
     config_dict['nerc_prefix'] = '2024E01'
 
@@ -241,7 +270,7 @@ def config():
       datetime.datetime(2024, 3, 25, 0, 0)
     ]
 
-  if event =='2021-11-03':
+  elif event =='2021-11-03':
 
     config_dict['nerc_prefix'] = '2021E02'
 
@@ -254,7 +283,7 @@ def config():
       datetime.datetime(2021, 11, 4, 14, 0)
     ]
 
-  if event =='2024-08-11':
+  elif event =='2024-08-11':
 
     config_dict['nerc_prefix'] = '2024E07'
 
@@ -267,7 +296,7 @@ def config():
       datetime.datetime(2024, 8, 12, 18, 0)
     ]
 
-  if event =='2025-06-01':
+  elif event =='2025-06-01':
 
     config_dict['nerc_prefix'] = '2025E02'
 
@@ -280,7 +309,7 @@ def config():
       datetime.datetime(2025, 6, 3, 12, 0)
     ]
 
-  if event =='2015-03-17':
+  elif event =='2015-03-17':
 
     config_dict['nerc_prefix'] = '2015E01'
 
@@ -293,7 +322,7 @@ def config():
       datetime.datetime(2015, 3, 18, 12, 0)
     ]
 
-  if event =='2015-06-22':
+  elif event =='2015-06-22':
 
     config_dict['nerc_prefix'] = '2015E02'
 
@@ -306,7 +335,7 @@ def config():
       datetime.datetime(2015, 6, 23, 14, 0)
     ]
 
-  if event =='2015-10-07':
+  elif event =='2015-10-07' or event =='2015-10-06':
 
     config_dict['nerc_prefix'] = '2015E05'
 
@@ -317,6 +346,136 @@ def config():
     config_dict['limits']['plot'] = [
       datetime.datetime(2015, 10, 7, 1, 0),
       datetime.datetime(2015, 10, 8, 18, 0)
+    ]
+
+  elif event =='2013-05-31':
+  
+      config_dict['nerc_prefix'] = '2013E01'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2013, 5, 31, 3, 0),
+        datetime.datetime(2013, 6, 1, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2013, 5, 7, 1, 0),
+        datetime.datetime(2013, 6, 1, 18, 0)
+      ]
+
+  elif event =='2015-09-11':
+    
+        config_dict['nerc_prefix'] = '2015E03'
+    
+        config_dict['limits']['data'] = [
+          datetime.datetime(2015, 9, 11, 3, 0),
+          datetime.datetime(2015, 9, 12, 18, 0)
+        ]
+        config_dict['limits']['plot'] = [
+          datetime.datetime(2015, 9, 11, 1, 0),
+          datetime.datetime(2015, 9, 12, 18, 0)
+        ]
+
+  elif event =='2015-09-19':
+      
+      config_dict['nerc_prefix'] = '2015E04'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2015, 9, 19, 3, 0),
+        datetime.datetime(2015, 9, 20, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2015, 9, 19, 1, 0),
+        datetime.datetime(2015, 9, 20, 18, 0)
+      ]
+
+  elif event =='2015-12-20':
+  
+      config_dict['nerc_prefix'] = '2015E06'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2015, 12, 20, 3, 0),
+        datetime.datetime(2015, 12, 21, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2015, 12, 20, 1, 0),
+        datetime.datetime(2015, 12, 21, 18, 0)
+      ]
+
+  elif event =='2017-05-27':
+  
+      config_dict['nerc_prefix'] = '2017E01'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2017, 5, 27, 3, 0),
+        datetime.datetime(2017, 5, 28, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2017, 5, 27, 1, 0),
+        datetime.datetime(2017, 5, 28, 18, 0)
+      ]
+
+  elif event =='2017-09-07':
+
+    config_dict['nerc_prefix'] = '2017E02'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2017, 9, 17, 3, 0),
+      datetime.datetime(2017, 9, 18, 18, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2017, 9, 17, 1, 0),
+      datetime.datetime(2017, 9, 18, 18, 0)
+    ]
+
+  elif event =='2017-09-27':
+  
+      config_dict['nerc_prefix'] = '2017E03'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2017, 9, 27, 3, 0),
+        datetime.datetime(2017, 9, 28, 18, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2017, 9, 27, 1, 0),
+        datetime.datetime(2017, 9, 28, 18, 0)
+      ]
+
+  elif event =='2018-08-25':
+
+    config_dict['nerc_prefix'] = '2018E01'
+
+    config_dict['limits']['data'] = [
+      datetime.datetime(2018, 8, 25, 3, 0),
+      datetime.datetime(2018, 8, 26, 18, 0)
+    ]
+    config_dict['limits']['plot'] = [
+      datetime.datetime(2018, 8, 25, 1, 0),
+      datetime.datetime(2018, 8, 26, 18, 0)
+    ]
+
+  elif event =='2021-05-12':
+  
+      config_dict['nerc_prefix'] = '2021E01'
+  
+      config_dict['limits']['data'] = [
+        datetime.datetime(2021, 5, 12, 6, 0),
+        datetime.datetime(2021, 5, 13, 4, 0)
+      ]
+      config_dict['limits']['plot'] = [
+        datetime.datetime(2021, 5, 12, 4, 0),
+        datetime.datetime(2021, 5, 13, 4, 0)
+      ]
+
+  else:
+    from datetime import timedelta
+    times = [conf.get('start_time'), conf.get('stop_time')]
+    for i, time in enumerate(times):
+      if type(time) == datetime.date:
+        times[i] = datetime.datetime.combine(time, datetime.time.min)
+
+    config_dict['limits']['data'] = times
+    config_dict['limits']['plot'] = [
+      times[0] - timedelta(hours=2),
+      times[1]
     ]
 
   return config_dict

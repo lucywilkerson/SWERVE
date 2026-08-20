@@ -5,23 +5,17 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
-data_types = None   # Read and plot these data types. None => all data types.
 add_errors = True # Add automated error checks to data and update info.extended files.
-
-info_kwargs = {'data_type': data_types, # If specified, only return sites with this data type (e.g., GIC, B)
-                 'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
-                 'data_class': None, # If specified, only return sites with this data class (e.g., measured, calculated)
-                 'exclude_errors': False # If True, excludes sites with known data issues (see info.csv 'manual_error' column)
-                 #TODO: add error-type arg?
-              }
 
 import utilrsw
 from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+info_kwargs = CONFIG['info_kwargs']
+data_types = info_kwargs['data_type']
 
 args = cli('main.py')
 if args['sites'] is None:
@@ -52,15 +46,16 @@ for sid in sids_only:
 
   site_plot(sid, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
-if args['sites'] is None and data_types is None:
+if args['sites'] is None:
   import utilrsw
-  if add_errors and not info_kwargs['exclude_errors']:
+  if add_errors and info_kwargs['exclude_errors']==None:
     # Update info.extended.csv and info.extended.json with automated errors
     from swerve import update_info_extended
     update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
-  if info_kwargs['exclude_errors']:
-    # Create table of results
-    site_stats_summary(stats, data_types=data_types, logger=logger)
-  else:
+  if info_kwargs['exclude_errors'] == None and data_types is None:
     # Write data from all sites to a single file.
     utilrsw.write(CONFIG['files']['all'], data, logger=logger)
+
+if CONFIG['main_kwargs']['summary_table']:
+    # Create table of results
+    site_stats_summary(stats, data_types=data_types, logger=logger)

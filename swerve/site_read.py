@@ -22,11 +22,10 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
 
   If `debug` is True, print processing details for computing resampled data.
   """
-  from swerve import cli, config, read_info_dict, resample
+  from swerve import config, read_info_dict, resample
 
   CONFIG = config()
-  args = cli('site_read.py')
-  event = args['event']
+  event = CONFIG['event']
 
   if logger is None:
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -38,7 +37,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
   sidx = sid.lower().replace(' ', '')
   site_all_file = '_all.pkl'
   out_dir = CONFIG['dirs']['processed']
-  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, 'sites', sidx, 'data', site_all_file)
+  site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, event, 'sites', sidx, 'data', site_all_file)
 
   logger.info(f"Reading '{sid}' data")
 
@@ -87,16 +86,18 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
         if _output_error(orig, logger):
           site_info[data_type][data_class][data_source][sid]['automated_error'] = orig['error']
           continue
-
+        
+        #TODO: Make resampling optional setting in config file
+        resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
+        data_mod = orig['data'].copy()
         if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
           add_errors = True
         if add_errors and data_type == 'GIC' and data_class == 'measured':
-          from swerve import find_errors
+          from swerve import filter
           logger.info('    Running automated error checks on GIC measured data')
-          site_info[data_type][data_class][data_source][sid]['automated_error'] = find_errors(orig)
-
-        resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
-        data_mod = orig['data'].copy()
+          data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig)
+          data_mod = data_filtered['data']
+          resample_msg = corrections + '\n' + resample_msg
         if data_type == 'B' and data_class == 'measured':
             logger.info(f'    Remove baseline then {resample_msg}')
             for i in range(3):
@@ -128,15 +129,10 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
         site_info[data_type][data_class][data_source]['modified'] = modified
 
         file_name = f'{data_type}_{data_class}_{data_source}.pkl'
-        file_name = os.path.join(CONFIG['dirs']['processed'], 'sites', sidx, 'data', file_name)
+        file_name = os.path.join(CONFIG['dirs']['processed'], event, 'sites', sidx, 'data', file_name)
         _write_pkl(file_name, site_info[data_type][data_class], logger, indent= ' '*4)
 
-  if data_types is None:
-    _write_pkl(site_all_file, site_info, logger, indent=' '*2)
-  else:
-    logger.warning(f"  Not writing {site_all_file} b/c data_types is not None.")
-    if reparse == True and data_types is not None and not sid.lower().startswith('test'):
-      raise ValueError("Reparse requested with data_types not None, which is not supported unless running for test data.")
+  _write_pkl(site_all_file, site_info, logger, indent=' '*2)
 
   return site_info
 
@@ -204,7 +200,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
   time = []
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'TVA':
-    data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-measured')
+    data_dir = os.path.join(data_dir, 'tva', event, 'gic', 'GIC-measured')
     sid = sid.lower().replace(' ','')
     if event == '2024-05-10' or event == None:
       if sid == 'widowscreek':
@@ -234,19 +230,19 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'NERC':
     nerc_prefix = CONFIG['nerc_prefix']
     fname = f'{nerc_prefix}_{sid}.csv'
-    data_dir = os.path.join(data_dir, 'nerc', 'gic')
+    data_dir = os.path.join(data_dir, 'nerc', event, 'gic')
     data = read_nerc(data_dir, fname)
     return {**data, "labels": ["GIC"], "unit": "A"}
 
   if data_type == 'GIC' and data_class == 'calculated' and data_source == 'TVA':
-    data_dir = os.path.join(data_dir, 'tva', 'gic', 'GIC-calculated')
+    data_dir = os.path.join(data_dir, 'tva', event, 'gic', 'GIC-calculated')
     sid = sid.replace(' ','')
     if sid == 'BullRun':
       sid = 'BullRunXfrm' # BullRun file Xfrm appended to name in file name.
     if sid == 'WidowsCreek':
       sid = f'{sid}2'
 
-    dates = ['20240510', '20240511', '20240512']
+    dates = ['20240510', '20240511', '20240512'] #TODO: for 2024-05-10 storm ONLY
     time = []
     data = []
     for date in dates:
@@ -282,9 +278,9 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     info = read_info_dict(sid)
     measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
     if 'NERC' in measured_sources:
-      fname = os.path.join(data_dir, 'gmu', 'nerc', f'site_{nearest_sim_site}.csv')
+      fname = os.path.join(data_dir, 'gmu', event, 'nerc', f'site_{nearest_sim_site}.csv')
     elif 'TVA' in measured_sources:
-      fname = os.path.join(data_dir, 'gmu', 'tva', f'site_{nearest_sim_site}.csv')
+      fname = os.path.join(data_dir, 'gmu', event, 'tva', f'site_{nearest_sim_site}.csv')
     else:
       raise ValueError(f"No corresponding measured data source found for site {sid}")
     logger.info(f"      Reading {fname}")
@@ -307,7 +303,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     return {"time": time, "data": data, "labels": ["GIC"], "unit": "A"}
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'TVA':
-    data_dir = os.path.join(data_dir, 'tva', 'mag')
+    data_dir = os.path.join(data_dir, 'tva', event, 'mag')
     sid = sid.lower().replace(' ','')
 
     data  = []
@@ -333,14 +329,14 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     # TODO: magnetometers.csv indicates if GEO or MAG coordinates
     nerc_prefix = CONFIG['nerc_prefix']
     fname = f'{nerc_prefix}_{sid}.csv'
-    data_dir = os.path.join(data_dir, 'nerc', 'mag')
+    data_dir = os.path.join(data_dir, 'nerc', event, 'mag')
     data = read_nerc(data_dir, fname)
     return {**data, "labels": ["B_N", "B_E", "B_v"], "unit": "nT"}
 
   if data_type == 'B' and data_class == 'calculated' and data_source in ['SWMF', 'OpenGGCM']:
 
     sid = sid.replace(' ','')
-    data_dir = os.path.join(data_dir, data_source.lower(), sid.lower())
+    data_dir = os.path.join(data_dir, data_source.lower(), event, sid.lower())
 
     if data_source == 'OpenGGCM':
       file = os.path.join(data_dir, f'dB_{data_source}_{sid}.pkl')
@@ -506,6 +502,123 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       "labels": ["Bx", "By", "Bz"],
       "unit": "nT"
     }
+  
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2025':
+    from matio import load_from_mat
+    data_file = os.path.join(data_dir, 'parry2025', '2023-04-24', data_type.lower(), '20230424_hallprobe_data.mat')
+    if not os.path.exists(data_file):
+        raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    load_data = load_from_mat(data_file)
+
+    time = pandas.to_datetime(load_data['time_GIC'])
+    if sid.lower().replace(' ','') == 'albertasite1':
+      data = load_data['Sub1_GIC']
+    elif sid.lower().replace(' ','') == 'albertasite2':
+      data = load_data['Sub2_GIC']
+
+    data = numpy.array(data).reshape(-1, 1)
+    return {
+      "time": numpy.array(time).flatten(),
+      "data": data,
+      "labels": ["GIC"],
+      "unit": "A"
+    }
+
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
+      from datetime import timedelta
+      if 'DMM' not in sid:
+        data_file = os.path.join(data_dir, 'parry2024', '2021-10-12', data_type.lower(), 'gic-hall', '20211012_GIC_data_89S.csv')
+        if not os.path.exists(data_file):
+            raise FileNotFoundError(f"Data file not found: {data_file}")
+    
+        data = []
+        time = []
+
+        if sid.lower().replace(' ','') == 'ellerslie1':
+          data_col = 1
+        elif sid.lower().replace(' ','') == 'ellerslie2':
+          data_col = 2
+
+        with open(data_file, 'r') as csvfile:
+          next(csvfile)  # Skip header rows
+          next(csvfile)
+          rows = csv.reader(csvfile, delimiter=',')
+          for row in rows:
+            time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M'))
+            data.append(float(row[data_col]) if row[data_col] != '#VALUE!' else numpy.nan)
+
+        # Edit time column to match 0.5Hz measurement frequency described in paper
+        corrected_time = [
+          time[0] + timedelta(seconds=i * 2) 
+          for i in range(len(time))
+        ]
+
+      else:
+        print(f"oh no, DMM data! at {sid}! please write a reader :)")
+        exit()
+
+      data = numpy.array(data).reshape(-1, 1)
+      return {
+        "time": numpy.array(corrected_time).flatten(),
+        "data": data,
+        "labels": ["GIC"],
+        "unit": "A"
+      }
+
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Marsal':
+      data_path = os.path.join(data_dir, 'marsal', '2024-05-10', 'gic', sid, f'{sid}_LIN')
+      if not os.path.exists(data_path):
+        raise FileNotFoundError(f"Data directory not found: {data_path}")
+    
+      time_line = []
+      bx_line = []
+      by_line = []
+      bz_line = []
+
+      for item in os.listdir(data_path):
+        with open(os.path.join(data_path, item), "r") as file:
+            for line in file:
+                # Split line by whitespace and convert to float
+                row = line.split()
+                timestamp = f'{row[0]}-{row[1]}-{row[2]}{row[3]}:{row[4]}:{row[5]}'
+                time_line.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
+                bx_line.append(float(row[6]))
+                by_line.append(float(row[7]))
+                bz_line.append(float(row[8]))
+
+      data_path = os.path.join(data_dir, 'marsal', '2024-05-10', 'gic', sid, f'{sid}_REF')
+      if not os.path.exists(data_path):
+        raise FileNotFoundError(f"Data directory not found: {data_path}")
+
+      time_ref = []
+      bx_ref = []
+      by_ref = []
+      bz_ref = []
+
+      for item in os.listdir(data_path):
+        with open(os.path.join(data_path, item), "r") as file:
+            for line in file:
+                # Split line by whitespace and convert to float
+                row = line.split()
+                timestamp = f'{row[0]}-{row[1]}-{row[2]}{row[3]}:{row[4]}:{row[5]}'
+                time_ref.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
+                bx_ref.append(float(row[6]))
+                by_ref.append(float(row[7]))
+                bz_ref.append(float(row[8]))
+
+      print('need to write function to handle DMM data!')
+      exit()
+
+      data = numpy.array(data).reshape(-1, 1)
+      return {
+        "time": numpy.array(corrected_time).flatten(),
+        "data": data,
+        "labels": ["GIC"],
+        "unit": "A"
+      }
+
+    
 
 def _output_error(d, logger):
   msgo = "Not computing modified"
@@ -541,3 +654,7 @@ def _write_pkl(fname, data, logger, indent=''):
   with open(fname, 'wb') as f:
     logger.info(f"{indent}Writing {fname}")
     pickle.dump(data, f)
+
+def _read_dmm(data_line, data_ref, logger):
+  # Reads in DMM data and computes GIC
+  return

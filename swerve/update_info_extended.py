@@ -2,18 +2,19 @@
 # Only used in main.py
 import json
 
-def update_info_extended(sids_only, data, logger=None, CONFIG=None):
+def update_info_extended(sids_only, data, exclude_errors=None, logger=None, CONFIG=None):
   from swerve import read_info_df, infodf2dict
   if CONFIG is None:
     from swerve import config
     CONFIG = config()
-  info_df = read_info_df(extended=True, logger=logger)
+  info_df = read_info_df(extended=True, exclude_errors=exclude_errors, logger=logger)
   for sid in sids_only:
     if 'GIC' in data[sid] and 'measured' in data[sid]['GIC'].keys():
       for data_source in data[sid]['GIC']['measured'].keys():
         error_msg = data[sid]['GIC']['measured'][data_source][sid]['automated_error']
-        logger.info(f"  Adding error for site '{sid}', GIC/'measured/{data_source}: {error_msg}")
-        info_df.loc[(info_df['site_id'] == sid) & (info_df['data_type'] == 'GIC') & (info_df['data_class'] == 'measured'), 'automated_error'] = str(error_msg)
+        if error_msg is not None:
+          logger.info(f"  Adding error for site '{sid}', GIC/'measured/{data_source}: {error_msg}")
+          info_df.loc[(info_df['site_id'] == sid) & (info_df['data_type'] == 'GIC') & (info_df['data_class'] == 'measured'), 'automated_error'] = str(error_msg)
   out_fname = CONFIG['files']['info_extended']
   info_df.to_csv(out_fname, index=False)
   logger.info(f"Wrote {out_fname}")

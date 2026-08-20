@@ -1,0 +1,3 @@
+2026-07-31T10:16:12.956440Z INFO  write_info_csv     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2021-05-12\gic\gic_monitors.csv
+2026-07-31T10:16:12.956440Z INFO  write_info_csv     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2021-05-12\mag\magnetometers.csv
+2026-07-31T10:16:12.983625Z INFO  write_info_csv    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.csv

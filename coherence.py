@@ -6,7 +6,7 @@ info_kwargs = {'extended': False, # Should always be False, no need to use info.
                  'data_type': data_types, # Specify in line 3, only return sites with this data type (e.g., GIC, B)
                  'data_source': None, # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
                  'data_class': 'measured', # If specified, only return sites with this data class (e.g., measured, calculated)
-                 'exclude_errors': True # If True, excludes sites with known data issues (see info.csv 'error' column)
+                 'exclude_errors': 'all' # If specified, excludes sites with known data issues ('all', 'manual', 'automated', or None)
               }
 
 from swerve import cli, config, sids, site_read

@@ -13,6 +13,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
 
   CONFIG = config()
   out_dir = CONFIG['dirs']['processed']
+  event = CONFIG['event']
 
   for data_type in data.keys(): # e.g., GIC, B
 
@@ -21,7 +22,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
       logger.info(f"  Not plotting '{sid}/{data_type}' data type b/c not in requested data_types = {data_types}.")
       continue
 
-    base_dir = f"{out_dir}/sites/{sid.lower().replace(' ', '')}/figures"
+    base_dir = f"{out_dir}/{event}/sites/{sid.lower().replace(' ', '')}/figures"
     dir_raw = os.path.join(base_dir, 'raw')
     dir_original = os.path.join(base_dir, 'original')
     dir_compare = os.path.join(base_dir, 'compare')
@@ -224,20 +225,18 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
-  if 'modified' not in data.keys() or isinstance(data[sid]['manual_error'], str) or ('automated_error' in data[sid].keys() and not isinstance(data[sid]['automated_error'], float) and len(data[sid]['automated_error'])>0):
+  if 'modified' not in data.keys() or ('automated_error' in data[sid].keys() and data[sid]['automated_error'] is not None):
     original = data['original']
-    if not isinstance(data[sid]['automated_error'], float):
+    if data[sid]['automated_error'] is not None:
       ae = data[sid]['automated_error']
       if isinstance(ae, (list, tuple)):
         data[sid]['automated_error'] = ';\n'.join(map(str, ae))
       else:
         data[sid]['automated_error'] = str(ae)
-      if isinstance(data.get(sid, {}).get('manual_error'), str):
+      if isinstance(data[sid]['manual_error'], str):
         suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
       else:
         suptitle = f"Automated Error: {data[sid]['automated_error']}"
-    elif isinstance(data[sid]['manual_error'], str):
-      suptitle = f"Manual Error: {data[sid]['manual_error']}"
     elif 'modified' not in data.keys():
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=[f"({original['unit']})"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
@@ -245,7 +244,7 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
     figures = {}
     figures['error'] = output_figure[0]
     return figures
-  
+
   component_labels1 = data['original']['labels'].copy()
   for idx, label in enumerate(component_labels1):
     component_labels1[idx] = f"{label} original"
@@ -269,6 +268,8 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   modified['modified'] = data['modified'] #TODO: clean up so don't need modified['modified']
 
   kwargs['suptitle'] = f"Modification = {data['modified']['modification']}"
+  if isinstance(data[sid]['manual_error'], str):
+    kwargs['suptitle'] = f"Manual Error: {data[sid]['manual_error']}\n{kwargs['suptitle']}"
   output_figure = _plot_stack(original, modified, **kwargs)
   figures = {}
   for idx in range(original['data'].shape[1]):
@@ -296,7 +297,9 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
                 'MAGE':{'color': 'green', 'lw': 0.4},
                 'OpenGGCM':{'color': 'orange', 'lw': 0.4},} #TODO: set outside of function, remove repetition
   
-  if ('Automated' in suptitle and 'Manual' not in suptitle) or ('Automated' not in suptitle and 'Manual' in suptitle):
+  if ('Automated' not in suptitle and 'Manual' in suptitle):
+    line1_opts = {'color': 'seagreen', 'lw': 1}
+  elif ('Automated' in suptitle and 'Manual' not in suptitle):
     line1_opts = {'color': 'maroon', 'lw': 1}
 
   n_stack = data1['data'].shape[1]

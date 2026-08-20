@@ -1,3 +1,6 @@
+# Written for Appendix of May 2024 storm paper
+# Very similar to main.py, TODO: merge with main.py and remove duplicate code
+
 # For debugging
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 data_types = 'B'   # Read and plot these data types. None => all data types.
@@ -46,6 +49,6 @@ for sid in sids_only:
   utilrsw.print_dict(data[sid], indent=4)
 
 if args['sites'] is None:
-  if info_kwargs['exclude_errors']:
+  if info_kwargs['exclude_errors'] != None:
     # Create table of results
     site_stats_summary(stats, data_types=data_types, crop=crop, logger=logger)

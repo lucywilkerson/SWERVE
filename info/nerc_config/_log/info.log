@@ -1,0 +1,17 @@
+2026-07-31T10:08:33.936033Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.csv
+2026-07-31T10:08:35.004082Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-07-31T10:08:35.004082Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-07-31T10:08:36.503042Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-07-31T10:08:36.503042Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-07-31T10:08:36.504446Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-07-31T10:08:36.504446Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-07-31T10:08:36.505464Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-07-31T10:08:36.505464Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-07-31T10:08:37.103879Z INFO  info Adding geomagnetic coordinates and alpha on date 2021-05-12T03:00:00 to extended info_df
+2026-07-31T10:08:38.853964Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-07-31T10:08:47.569736Z INFO  info Adding nearest voltage to extended info_df
+2026-07-31T10:09:00.716574Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-07-31T10:09:01.572514Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-07-31T10:09:01.763610Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.extended.csv
+2026-07-31T10:09:01.765835Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.extended.json
+2026-07-31T10:09:01.806226Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.extended.json

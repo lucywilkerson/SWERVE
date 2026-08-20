@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 
+#TODO: make tables for only measured or calculated (std, max, mean)
 
 def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill=-99999):
 
@@ -12,7 +13,9 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
     CONFIG = config()
 
     DATA_DIR = os.path.join(CONFIG['dirs']['data'])
-    paper_dir = os.path.join(CONFIG['dirs']['paper'])
+    stats_summary_file = CONFIG['files']['stats_summary']
+    if not os.path.exists(os.path.dirname(stats_summary_file)):
+        os.makedirs(os.path.dirname(stats_summary_file))
 
     info_dict = read_info_dict()
 
@@ -33,10 +36,6 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
             if data_type not in info_dict[sid].keys():
                 continue # Skip if data_type not in info_dict
 
-            data_classes = info_dict[sid][data_type].keys()
-            if not ('measured' in data_classes and 'calculated' in data_classes):
-                continue
-
             # Reading site data
             sid_stats = stats[sid]
             # Setting up row for site
@@ -49,42 +48,48 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
                     data_std = stats[sid][path]['stats']['std'][idx]
                     row['sigma_data'] = f"{data_std:.1f}"
 
-            for data_source in info_dict[sid][data_type]['calculated']:
-                n_sites += 1
-                
-                if data_type == 'GIC' and data_source not in ['GMU', 'TVA']:
-                    continue
-                if data_type == 'B' and data_source not in ['SWMF', 'MAGE', 'OpenGGCM']:
-                    continue
+            data_classes = info_dict[sid][data_type].keys()
+            if ('measured' in data_classes and 'calculated' in data_classes):
 
-                # Calculated std
-                path = f'{data_type}/calculated/{data_source}'
-                calc_std = sid_stats[path]['stats']['std'][idx]
-                # Save to row
-                data_source_lower = data_source.lower()
-                row[f'sigma_{data_source_lower}'] = f"{calc_std:.1f}"
-                # Calculated cc and pe
-                if 'metrics' in sid_stats[path]:
-                    calc_cc = sid_stats[path]['metrics']['cc'][idx]
-                    calc_pe = sid_stats[path]['metrics']['pe'][idx]
+                for data_source in info_dict[sid][data_type]['calculated']:
+                    n_sites += 1
+                    
+                    if data_type == 'GIC' and data_source not in ['GMU', 'TVA']:
+                        continue
+                    if data_type == 'B' and data_source not in ['SWMF', 'MAGE', 'OpenGGCM']:
+                        continue
+
+                    # Calculated std
+                    path = f'{data_type}/calculated/{data_source}'
+                    calc_std = sid_stats[path]['stats']['std'][idx]
                     # Save to row
-                    row[f'cc_{data_source_lower}'] = calc_cc**2
-                    row[f'pe_{data_source_lower}'] = calc_pe
-                    for i in [f'cc_{data_source_lower}', f'pe_{data_source_lower}']:
-                        if np.isnan(row[i]):
-                            row[i] = nan_fill # fill with nan_fill if cc is nan
-                        elif i.startswith('pe') and calc_cc < 0:
-                            row[i] = f"${row[i]:.2f}*$"
-                            n_neg_cc += 1
-                        else:
-                            row[i] = f"${row[i]:.2f}\\phantom{{*}}$"
-                else: #fill with nan_fill if not enough valid data
-                    row[f'cc_{data_source_lower}'] = nan_fill
-                    row[f'pe_{data_source_lower}'] = nan_fill
+                    data_source_lower = data_source.lower()
+                    row[f'sigma_{data_source_lower}'] = f"{calc_std:.1f}"
+                    # Calculated cc and pe
+                    if 'metrics' in sid_stats[path]:
+                        calc_cc = sid_stats[path]['metrics']['cc'][idx]
+                        calc_pe = sid_stats[path]['metrics']['pe'][idx]
+                        # Save to row
+                        row[f'cc_{data_source_lower}'] = calc_cc**2
+                        row[f'pe_{data_source_lower}'] = calc_pe
+                        for i in [f'cc_{data_source_lower}', f'pe_{data_source_lower}']:
+                            if np.isnan(row[i]):
+                                row[i] = nan_fill # fill with nan_fill if cc is nan
+                            elif i.startswith('pe') and calc_cc < 0:
+                                row[i] = f"${row[i]:.2f}*$"
+                                n_neg_cc += 1
+                            else:
+                                row[i] = f"${row[i]:.2f}\\phantom{{*}}$"
+                    else: #fill with nan_fill if not enough valid data
+                        row[f'cc_{data_source_lower}'] = nan_fill
+                        row[f'pe_{data_source_lower}'] = nan_fill
 
             rows.append(row)
 
         df = pd.DataFrame(rows, columns=columns) #create dataframe
+        if df.empty:
+            logger.info(f"No measured and calculated data found for {data_type}. Skipping summary table.")
+            continue
         logger.info(df)
 
         # Add row of mean values
@@ -92,9 +97,12 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
         for col in df.columns:
             if col != 'site_id':
                 mean = _mean_exclude_invalid(df[col], nan_fill=nan_fill)
-                mean_row[col] = f"{mean:.2f}"
-                if col.startswith('sigma'):
-                    mean_row[col] = f"{mean:.1f}"
+                if isinstance(mean, str):
+                    mean_row[col] = mean
+                else:
+                    mean_row[col] = f"{mean:.2f}"
+                    if col.startswith('sigma'):
+                        mean_row[col] = f"{mean:.1f}"
 
         df.loc[len(df)] = mean_row
         #rename columns with LaTeX
@@ -103,33 +111,34 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
         if crop:
             fname = os.path.join(DATA_DIR, "_results", f"{data_type.lower()}_table_cropped")
         else:
-            fname = os.path.join(DATA_DIR, "_results", f"{data_type.lower()}_table")
-        logger.info(f"Writing {data_type} prediction comparison tables to {fname}.{{md,tex}}")
+            fname = stats_summary_file
+        logger.info(f"Writing {data_type} prediction comparison tables to {fname}")
 
         # Markdown
         # Apply nan_remove to each cell before writing to markdown
         df_md = df.map(_nan_remove)
-        logger.info(f"Writing {fname+".md"}")
-        df_md.to_markdown(fname + ".md", index=False, floatfmt=".2f")
-
-        # LaTeX
-        if n_neg_cc > 0:
-            tex_note = f'{n_neg_cc}/{n_sites} sites found with r < 0.'
-            logger.info(tex_note)
-
-        # TODO: Pass nan_fill to _nan_remove
-        formatters = {col: _nan_remove for col in df.columns}
-        df_tex = fix_latex(df, data_type, formatters=formatters)
-        with open(fname + ".tex", "w") as f:
-            logger.info(f"Writing {fname+".tex"}")
-            f.write(df_tex)
-        if crop:
-            fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table_cropped")
-        else:
-            fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table")
-        with open(fname + ".tex", "w") as f:
-            logger.info(f"Writing {fname+".tex"}")
-            f.write(df_tex)
+        logger.info(f"Writing {fname}")
+        df_md.to_markdown(fname, index=False, floatfmt=".2f")
+      
+        if 'paper_dir' in CONFIG['dirs']:
+            # LaTeX
+            if n_neg_cc > 0:
+                tex_note = f'{n_neg_cc}/{n_sites} sites found with r < 0.'
+                logger.info(tex_note)
+            # TODO: Pass nan_fill to _nan_remove
+            formatters = {col: _nan_remove for col in df.columns}
+            df_tex = fix_latex(df, data_type, formatters=formatters)
+            with open(fname + ".tex", "w") as f:
+                logger.info(f"Writing {fname+".tex"}")
+                f.write(df_tex)
+            paper_dir = os.path.join(CONFIG['dirs']['paper'])
+            if crop:
+                fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table_cropped")
+            else:
+                fname = os.path.join(paper_dir, "figures", "_results", f"{data_type.lower()}_table")
+            with open(fname + ".tex", "w") as f:
+                logger.info(f"Writing {fname+".tex"}")
+                f.write(df_tex)
 
     return {data_type: df}
 

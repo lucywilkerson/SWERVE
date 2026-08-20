@@ -1,0 +1,27 @@
+run_config_name: parry_config # for saving info files/logs
+
+event: '2021-10-12' # make all option
+start_time: 2021-10-12 #unclear if these are needed, already included in config.py
+stop_time: 2021-10-13
+
+data_source: ['Parry2024'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+
+data_type: ['GIC'] # If specified, only return sites with this data type (e.g., GIC, B)
+
+data_class: ['measured'] # If specified, only return sites with this data class (e.g., measured, calculated)
+
+exclude_errors: null # If specified, excludes sites with known data issues ('all', 'manual', 'automated', or null)
+
+summary_table: False # If True, creates a summary table of site statistics and metrics
+
+filter_kwargs: # for filter.py, maybe set per event? (filter.yaml with defaults)
+  spike_filt_type: 'median' # 'difference' or 'median' or null
+  low_signal_threshold: 4 # [A]
+  baseline_buffer: 1 # [A]
+  spike_threshold: 40 # [A]
+  median_window: 20 # [number of points]
+  noise_threshold: 4 # [unitless]
+  max_cadence: 60 # [s]
+  max_gap: 600 # [s]
+  max_const: 300 # [s]
+# check for other undocumented kwargs lying abt filter.py

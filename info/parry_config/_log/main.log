@@ -1,0 +1,48 @@
+2026-07-24T15:39:21.883346Z INFO  main Reading 'Ellerslie 1' data
+2026-07-24T15:39:21.891477Z INFO  main   Reading 'GIC/measured/Parry2024' data
+2026-07-24T15:39:22.508783Z INFO  main     Running automated error checks on GIC measured data
+2026-07-24T15:39:26.191481Z INFO  main     Baseline offset of -3.19 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-24T15:39:26.339741Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\GIC_measured_Parry2024.pkl
+2026-07-24T15:39:26.418757Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\_all.pkl
+2026-07-24T15:39:26.524813Z INFO  main Computing stats for 'Ellerslie 1' data
+2026-07-24T15:39:26.655375Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-07-24T15:39:26.655375Z INFO  main   Uniq dts [#]  = 1
+2026-07-24T15:39:26.655375Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-07-24T15:39:26.655375Z INFO  main 
+    std: : [4.122730054818817]
+    ave: : [0.14495858700617292]
+    min: : [-16.156331733333335]
+    max: : [42.2807879]
+    n: 1441
+    n_valid: : [1080]
+    dt_original: : [2000000000]
+2026-07-24T15:39:26.655375Z INFO  main Plotting 'Ellerslie 1' data
+2026-07-24T15:39:26.667283Z INFO  main   Plotting 'Ellerslie 1/GIC/measured/Parry2024' original vs. modified data
+2026-07-24T15:39:28.390439Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.png
+2026-07-24T15:39:29.365325Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.pdf
+2026-07-24T15:39:29.913699Z INFO  main Reading 'Ellerslie 2' data
+2026-07-24T15:39:29.931977Z INFO  main   Reading 'GIC/measured/Parry2024' data
+2026-07-24T15:39:30.533630Z INFO  main     Running automated error checks on GIC measured data
+2026-07-24T15:39:33.147662Z INFO  main     Baseline offset of -3.89 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-07-24T15:39:33.239619Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\GIC_measured_Parry2024.pkl
+2026-07-24T15:39:33.307209Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\_all.pkl
+2026-07-24T15:39:33.349897Z INFO  main Computing stats for 'Ellerslie 2' data
+2026-07-24T15:39:33.414380Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-07-24T15:39:33.414380Z INFO  main   Uniq dts [#]  = 1
+2026-07-24T15:39:33.414380Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-07-24T15:39:33.414380Z INFO  main 
+    std: : [4.184276681054267]
+    ave: : [-0.01830898716049358]
+    min: : [-15.5576997]
+    max: : [43.4732256]
+    n: 1441
+    n_valid: : [1080]
+    dt_original: : [2000000000]
+2026-07-24T15:39:33.421022Z INFO  main Plotting 'Ellerslie 2' data
+2026-07-24T15:39:33.421022Z INFO  main   Plotting 'Ellerslie 2/GIC/measured/Parry2024' original vs. modified data
+2026-07-24T15:39:34.388151Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.png
+2026-07-24T15:39:35.558457Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.pdf
+2026-07-24T15:39:35.819132Z INFO  main Reading 'Alberta DMM' data
+2026-07-24T15:39:35.831289Z INFO  main   Reading 'GIC/measured/Parry2024' data

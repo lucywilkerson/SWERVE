@@ -1,0 +1,4 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Ellerslie 1,53.434,-113.46,GIC,measured,Parry2024,2021-10-12,
+Ellerslie 2,53.434,-113.46,GIC,measured,Parry2024,2021-10-12,
+Alberta DMM,53.47,-113.33,GIC,measured,Parry2024,2021-10-12,

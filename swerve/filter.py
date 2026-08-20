@@ -5,16 +5,17 @@ import pandas as pd
 # determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def filter(data, logger=None, spike_filt_type='both'):
+def filter(data, logger=None):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
     from swerve import config, cadence
     from datetime import timedelta
     CONFIG = config()
-    gic_filter_kwargs = CONFIG['find_errors_kwargs']
+    gic_filter_kwargs = CONFIG['filter_kwargs']
 
     errors = []
+    corrections = ''
 
     data_meas = data['data']
     time_meas = data['time']
@@ -22,11 +23,14 @@ def filter(data, logger=None, spike_filt_type='both'):
     
     # Correcting large, unphysical spikes (> spike_threshold [A])
     spike_threshold = gic_filter_kwargs['spike_threshold']
-    if spike_filt_type == 'difference':
-        data_df['data'] = _diff_spike_filt(data_df['data'], spike_threshold, errors)
+    spike_filt_type = gic_filter_kwargs['spike_filt_type']
+    if spike_filt_type == None:
+        pass
+    elif spike_filt_type == 'difference':
+        data_df['data'], corrections = _diff_spike_filt(data_df['data'], spike_threshold, corrections)
     elif spike_filt_type == 'median':
         median_window = gic_filter_kwargs['median_window']
-        data_df['data'] = _median_spike_filt(data_df['data'], spike_threshold, errors, win=median_window)
+        data_df['data'], corrections = _median_spike_filt(data_df['data'], spike_threshold, corrections, win=median_window)
     else:
         raise ValueError(f"Unknown spike_filt_type: {spike_filt_type}")
 
@@ -35,6 +39,7 @@ def filter(data, logger=None, spike_filt_type='both'):
     baseline_buffer = gic_filter_kwargs['baseline_buffer']
     if median_val > baseline_buffer or median_val < -baseline_buffer:
         data_df['data'] = data_df['data'] - median_val
+        corrections += f"Baseline offset of {median_val:.2f} A corrected. "
 
     data_series = data_df['data']
 
@@ -84,6 +89,14 @@ def filter(data, logger=None, spike_filt_type='both'):
             errors.append(f"Cadence is >= {max_cadence} seconds ({max(dt_array)/1e9} seconds)")
         if any(dt_array >= max_gap*1e9):
             errors.append(f"Data gap detected >= {max_gap/60} minutes ({max(dt_array)/1e9} seconds)")
+        # checking for gaps of NaN values
+        valid_times = crop_time_meas[~np.isnan(crop_data_meas)]
+        if len(valid_times) > 1:
+            time_gaps = np.diff(valid_times)
+            gap_durations = time_gaps.astype('timedelta64[s]').astype(int)
+            max_detected_gap = np.nanmax(gap_durations) if len(gap_durations) > 0 else 0
+            if max_detected_gap >= max_gap:
+                errors.append(f"Data gap detected >= {max_gap/60} minutes ({max_detected_gap} seconds) due to NaN values")
 
     # Remove sites with constant values for more than max_const [s]
     try:
@@ -108,8 +121,16 @@ def filter(data, logger=None, spike_filt_type='both'):
                 error_time = pd.to_datetime(crop_time_meas[start]).round('s')
                 errors.append(f"Data is constant for at least {int(window_s/60)} minutes starting at time {error_time}")
                 break
+    if errors==[]:
+        errors = None
 
-    return data_df, errors
+    # Return data in same simple form as the input: dict with 'data' and 'time'
+    out_data = {
+        'data': np.array(data_df['data']).ravel(),
+        'time': list(data_df.index)
+    }
+
+    return out_data, errors, corrections
 
 def _expand_mask(mask, pre=2, post=8):
     # expands mask to include values before/after detected spike
@@ -125,24 +146,25 @@ def _expand_mask(mask, pre=2, post=8):
                 broad_mask[i-pre:i+post] = True
     return broad_mask
 
-def _diff_spike_filt(data, spike_threshold, errors, diff_window=5, std_window=20, dd_thresh=10, std_thresh=1):
+def _diff_spike_filt(data, spike_threshold, corrections, diff_window=5, std_window=20):
     series = data.squeeze()
     ddat = series.diff() #d/dt proxy
     dddat = ddat.diff().shift(-1) #d^2/dt^2 proxy, shifted to align with the middle point of the 3-point stencil
     d = abs(ddat).rolling(diff_window, center=True).sum() #magnitude of d/dt over a window
     dd = abs(dddat).rolling(diff_window, center=True).sum() #magnitude of d^2/dt^2 over a window
     d_std = abs(series).rolling(std_window, center=True).std() #local variability, helps distinguish spikes from real variation
-    spike_mask = (d > spike_threshold/2) & (dd >= spike_threshold) & (d_std <= spike_threshold/2)
+    spike_mask = (d > spike_threshold) & (dd >= spike_threshold*2) & (d_std <= spike_threshold)
     if spike_mask.any():
         mask = _expand_mask(spike_mask)
         data[mask] = np.nan
-    return data
+        corrections += f"Removed {spike_mask.sum()} spikes. "
+    return data, corrections
 
-def _median_spike_filt(data, spike_threshold, errors, win=20):
+def _median_spike_filt(data, spike_threshold, corrections, win=20):
     data = data.squeeze() if hasattr(data, 'squeeze') else data
     n = data.size
     if n == 0:
-        return data
+        return data, corrections
     # moving window median filter: use window size (win)
     use_iloc = hasattr(data, 'iloc')
     if win % 2 == 0:
@@ -164,4 +186,5 @@ def _median_spike_filt(data, spike_threshold, errors, win=20):
             data.iloc[mask] = np.nan
         else:
             data[mask] = np.nan
-    return data
+        corrections += f"Removed {spike_mask.sum()} spikes. "
+    return data, corrections
