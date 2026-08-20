@@ -4,19 +4,18 @@
       "measured": {
         "Parry2024": {
           "Ellerslie 1": {
-            "geo_lat": 53.44,
+            "geo_lat": 53.434,
             "geo_lon": -113.46,
             "event": "2021-10-12",
             "manual_error": NaN,
-            "interpolated_beta": 0.5719732390647249,
-            "log10_beta": -0.2426242900852953,
-            "mag_lat": 59.96019940566114,
-            "mag_lon": -51.02384615101371,
-            "alpha": 0.987743384427782,
+            "interpolated_beta": 0.5716652189889138,
+            "log10_beta": -0.2428582301413205,
+            "mag_lat": 59.954247380450525,
+            "mag_lon": -51.02115567568779,
+            "alpha": 0.9870675223067424,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (2.6031 A) > 1/4 * std after (4.1819 A)"
+            "US_region": NaN
           }
         }
       }
@@ -27,19 +26,40 @@
       "measured": {
         "Parry2024": {
           "Ellerslie 2": {
-            "geo_lat": 53.44,
+            "geo_lat": 53.434,
             "geo_lon": -113.46,
             "event": "2021-10-12",
             "manual_error": NaN,
-            "interpolated_beta": 0.5719732390647249,
-            "log10_beta": -0.2426242900852953,
-            "mag_lat": 59.96019940566114,
-            "mag_lon": -51.02384615101371,
-            "alpha": 0.987743384427782,
+            "interpolated_beta": 0.5716652189889138,
+            "log10_beta": -0.2428582301413205,
+            "mag_lat": 59.954247380450525,
+            "mag_lon": -51.02115567568779,
+            "alpha": 0.9870675223067424,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (2.6735 A) > 1/4 * std after (4.2387 A)"
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "Alberta DMM": {
+    "GIC": {
+      "measured": {
+        "Parry2024": {
+          "Alberta DMM": {
+            "geo_lat": 53.47,
+            "geo_lon": -113.33,
+            "event": "2021-10-12",
+            "manual_error": NaN,
+            "interpolated_beta": 0.5702206887236462,
+            "log10_beta": -0.2439570296861195,
+            "mag_lat": 60.005790238012054,
+            "mag_lon": -50.885115282366165,
+            "alpha": 0.9929356689168511,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
           }
         }
       }

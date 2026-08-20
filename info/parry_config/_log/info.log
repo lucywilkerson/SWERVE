@@ -1,12 +1,12 @@
-2026-07-24T10:09:24.219012Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.csv
-2026-07-24T10:09:24.293413Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
-2026-07-24T10:09:24.293413Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
-2026-07-24T10:09:25.702985Z INFO  info Adding geomagnetic coordinates and alpha on date 2021-10-11T00:00:00 to extended info_df
-2026-07-24T10:09:25.732443Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
-2026-07-24T10:09:26.587249Z INFO  info Adding nearest voltage to extended info_df
-2026-07-24T10:09:35.784017Z INFO  info Skipping nearest voltage: sites outside of CONUS.
-2026-07-24T10:09:35.786033Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
-2026-07-24T10:09:36.766693Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
-2026-07-24T10:09:36.891969Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.csv
-2026-07-24T10:09:36.892708Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
-2026-07-24T10:09:36.894676Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-07-24T15:37:29.056503Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.csv
+2026-07-24T15:37:29.977696Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-07-24T15:37:29.977696Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-07-24T15:37:31.904129Z INFO  info Adding geomagnetic coordinates and alpha on date 2021-10-12T00:00:00 to extended info_df
+2026-07-24T15:37:31.976962Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-07-24T15:37:35.878119Z INFO  info Adding nearest voltage to extended info_df
+2026-07-24T15:37:45.776483Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-07-24T15:37:45.776483Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-07-24T15:37:46.857939Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-07-24T15:37:46.988691Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.csv
+2026-07-24T15:37:46.988691Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-07-24T15:37:46.992177Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json

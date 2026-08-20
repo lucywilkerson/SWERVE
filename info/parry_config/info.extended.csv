@@ -1,3 +1,4 @@
-site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
-Ellerslie 1,53.44,-113.46,GIC,measured,Parry2024,2021-10-12,,0.5719732390647249,-0.2426242900852953,59.96019940566114,-51.02384615101371,0.987743384427782,,,,Excessive pre-storm noise: std before (2.6031 A) > 1/4 * std after (4.1819 A)
-Ellerslie 2,53.44,-113.46,GIC,measured,Parry2024,2021-10-12,,0.5719732390647249,-0.2426242900852953,59.96019940566114,-51.02384615101371,0.987743384427782,,,,Excessive pre-storm noise: std before (2.6735 A) > 1/4 * std after (4.2387 A)
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region
+Ellerslie 1,53.434,-113.46,GIC,measured,Parry2024,2021-10-12,,0.5716652189889138,-0.2428582301413205,59.954247380450525,-51.02115567568779,0.9870675223067424,,,
+Ellerslie 2,53.434,-113.46,GIC,measured,Parry2024,2021-10-12,,0.5716652189889138,-0.2428582301413205,59.954247380450525,-51.02115567568779,0.9870675223067424,,,
+Alberta DMM,53.47,-113.33,GIC,measured,Parry2024,2021-10-12,,0.5702206887236462,-0.2439570296861195,60.005790238012054,-50.885115282366165,0.9929356689168511,,,
