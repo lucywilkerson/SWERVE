@@ -146,14 +146,14 @@ def _expand_mask(mask, pre=2, post=8):
                 broad_mask[i-pre:i+post] = True
     return broad_mask
 
-def _diff_spike_filt(data, spike_threshold, corrections, diff_window=5, std_window=20, dd_thresh=10, std_thresh=1):
+def _diff_spike_filt(data, spike_threshold, corrections, diff_window=5, std_window=20):
     series = data.squeeze()
     ddat = series.diff() #d/dt proxy
     dddat = ddat.diff().shift(-1) #d^2/dt^2 proxy, shifted to align with the middle point of the 3-point stencil
     d = abs(ddat).rolling(diff_window, center=True).sum() #magnitude of d/dt over a window
     dd = abs(dddat).rolling(diff_window, center=True).sum() #magnitude of d^2/dt^2 over a window
     d_std = abs(series).rolling(std_window, center=True).std() #local variability, helps distinguish spikes from real variation
-    spike_mask = (d > spike_threshold/2) & (dd >= spike_threshold) & (d_std <= spike_threshold/2)
+    spike_mask = (d > spike_threshold) & (dd >= spike_threshold*2) & (d_std <= spike_threshold)
     if spike_mask.any():
         mask = _expand_mask(spike_mask)
         data[mask] = np.nan
