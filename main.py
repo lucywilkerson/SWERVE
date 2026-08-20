@@ -5,7 +5,7 @@
 #   python main.py 'site1,site2,...'
 
 # For debugging
-reparse    = False  # Reparse the data files, even if they already exist (use if site_read.py modified).
+reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 add_errors = True # Add automated error checks to data and update info.extended files.
 
