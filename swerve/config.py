@@ -379,11 +379,11 @@ def config():
       config_dict['nerc_prefix'] = '2015E04'
   
       config_dict['limits']['data'] = [
-        datetime.datetime(2015, 9, 19, 3, 0),
+        datetime.datetime(2015, 9, 19, 22, 0),
         datetime.datetime(2015, 9, 20, 18, 0)
       ]
       config_dict['limits']['plot'] = [
-        datetime.datetime(2015, 9, 19, 1, 0),
+        datetime.datetime(2015, 9, 19, 20, 0),
         datetime.datetime(2015, 9, 20, 18, 0)
       ]
 
@@ -393,11 +393,11 @@ def config():
   
       config_dict['limits']['data'] = [
         datetime.datetime(2015, 12, 20, 3, 0),
-        datetime.datetime(2015, 12, 21, 18, 0)
+        datetime.datetime(2015, 12, 21, 10, 0)
       ]
       config_dict['limits']['plot'] = [
         datetime.datetime(2015, 12, 20, 1, 0),
-        datetime.datetime(2015, 12, 21, 18, 0)
+        datetime.datetime(2015, 12, 21, 10, 0)
       ]
 
   elif event =='2017-05-27':
