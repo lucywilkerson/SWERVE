@@ -225,6 +225,10 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
+  component_labels1 = data['original']['labels'].copy()
+  for idx, label in enumerate(component_labels1):
+    component_labels1[idx] = f"{label} original"
+
   if 'modified' not in data.keys() or ('automated_error' in data[sid].keys() and data[sid]['automated_error'] is not None):
     original = data['original']
     if data[sid]['automated_error'] is not None:
@@ -239,15 +243,11 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
         suptitle = f"Automated Error: {data[sid]['automated_error']}"
     elif 'modified' not in data.keys():
       suptitle = f"Modified Error: {original['error']}"
-    output_figure = _plot_stack(original, None, ylabels=[f"({original['unit']})"], component_labels1=[f"{original['labels'][0]} original"], component_labels2=None,
+    output_figure = _plot_stack(original, None, ylabels=len(component_labels1)*[f"({original['unit']})"], component_labels1=component_labels1, component_labels2=None,
                 suptitle=suptitle, show_plots=show_plots)
     figures = {}
     figures['error'] = output_figure[0]
     return figures
-
-  component_labels1 = data['original']['labels'].copy()
-  for idx, label in enumerate(component_labels1):
-    component_labels1[idx] = f"{label} original"
 
   component_labels2 = {} #TODO: clean up so don't need modified['modified']
   component_labels2['modified'] = data['modified']['labels'].copy()
