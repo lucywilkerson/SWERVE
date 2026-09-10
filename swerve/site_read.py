@@ -7,11 +7,11 @@ import datetime
 
 debug = False  # Set to True to log resampling information.
 
-def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
+def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
 
   Usage:
-    site_read(sid, data_types=None, reparse=False, logger=None):
+    site_read(sid, event, data_types=None, reparse=False, logger=None):
 
   If `data_types` is None, read all data types (e.g, B, GIC) for the site.
 
@@ -25,7 +25,6 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
   from swerve import config, read_info_dict, resample
 
   CONFIG = config()
-  event = CONFIG['event']
 
   if logger is None:
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -39,7 +38,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
   out_dir = CONFIG['dirs']['processed']
   site_all_file = os.path.join(CONFIG['dirs']['data'], out_dir, event, 'sites', sidx, 'data', site_all_file)
 
-  logger.info(f"Reading '{sid}' data")
+  logger.info(f"Reading '{sid}' data for event '{event}'")
 
   if not reparse:
     if os.path.exists(site_all_file):
@@ -76,7 +75,7 @@ def site_read(sid, data_types=None, reparse=False, start=None, stop=None, add_er
 
       for data_source in data_sources.keys():
 
-        logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data")
+        logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data for event '{event}'")
         orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
         if sid in CONFIG['single_phase_sids'] and data_type == 'GIC':
           logger.info(f"    Multiplying GIC data by 3 to account for single-phase transformer.")
@@ -505,7 +504,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
   
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2025':
     from matio import load_from_mat
-    data_file = os.path.join(data_dir, 'parry2025', '2023-04-24', data_type.lower(), '20230424_hallprobe_data.mat')
+    data_file = os.path.join(data_dir, data_source.lower(), '2023-04-24', data_type.lower(), '20230424_hallprobe_data.mat')
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Data file not found: {data_file}")
 
@@ -527,7 +526,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
       from datetime import timedelta
-      data_file = os.path.join(data_dir, 'parry2024', event, data_type.lower(), 'gic-hall', '20211012_GIC_data_89S.csv')
+      data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), '20211012_GIC_data_89S.csv')
       if not os.path.exists(data_file):
           raise FileNotFoundError(f"Data file not found: {data_file}")
   

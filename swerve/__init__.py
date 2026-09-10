@@ -12,7 +12,7 @@ from .regress import regress, write_eqn_and_fname
 from .filter import filter
 from .write_info_csv import write_info_csv
 
-def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=None, key=None, logger=None):
+def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=None, key=None, add_event=False, logger=None):
   from swerve import config, read_info_df
 
   # Handle keywords 'paper' and 'test'
@@ -43,7 +43,32 @@ def sids(extended=True, data_type=None, data_source=None, data_class=None, exclu
     if sid not in info['site_id'].values:
       raise ValueError(f"sid '{sid}' not found in info.csv")
 
+  # Add event to sids if add_event is True and there is only one event in info.csv
+  if add_event:
+    events = list(info['event'].unique())
+    if len(events) == 1:
+      event = events[0]
+      all_sids = [(sid, event) for sid in all_sids]
+    else:
+      raise ValueError(f"Cannot add event to sids because there are multiple events in info.csv. Use sids_and_events() instead.")
+
   return all_sids
+
+def sids_and_events(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=None, key=None, logger=None):
+  # Creates list of tuples (sid, event) for all sids and events in info.csv or info.extended.csv
+  # Uses sids() to get list of sids and then gets events for each sid.
+  sids_list = sids(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=key, logger=logger)
+  info = read_info_df(extended=extended, data_type=data_type, data_source=data_source, data_class=data_class, exclude_errors=exclude_errors, key=key, logger=logger)
+  sid_event_list = []
+  for sid in sids_list:
+    # Get events for this sid
+    info_sid = info[info['site_id'] == sid]
+    events = list(info_sid['event'].unique())
+    for event in events:
+      sid_event_list.append((sid, event))
+
+  return sid_event_list
+
 
 def format_df(df, float_fmt=".2f"):
     """

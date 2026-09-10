@@ -6,8 +6,6 @@
 
 from requests_cache import logger
 
-from info import CONFIG
-
 
 def write_info_csv():
     """
@@ -44,7 +42,7 @@ def write_info_csv():
     for event in events:
         for data_source in data_sources:
             # Check that data is available for given event and data source, if not skip to next event/data source
-            event_exists = _check_event(event, data_source, logger)
+            event_exists = _check_event(event, data_source, data_dir, logger)
             if not event_exists:
                 continue
 
@@ -183,10 +181,10 @@ def _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, d
                     'manual_error': manual_error})
     return info_list
 
-def _check_event(event,data_source,logger):
+def _check_event(event,data_source,data_dir,logger):
     # checks if events are valid for all data sources, if not logger warning
     import os
-    event_folder = os.path.join(CONFIG['dirs']['original'], f'{data_source.lower()}', event)
+    event_folder = os.path.join(data_dir, f'{data_source.lower()}', event)
     if not os.path.exists(event_folder):
         logger.warning(f"   Event {event} not found for data source {data_source}. Skipping...")
         return False

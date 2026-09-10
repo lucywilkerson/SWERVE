@@ -1,5 +1,5 @@
 
-def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
+def site_plot(sid, event, data, data_types=None, logger=None, show_plots=False):
 
   import os
 
@@ -9,11 +9,10 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     from swerve import LOG_KWARGS, logger
     logger = logger(**LOG_KWARGS)
 
-  logger.info(f"Plotting '{sid}' data")
+  logger.info(f"Plotting '{sid}' data for event '{event}'")
 
   CONFIG = config()
   out_dir = CONFIG['dirs']['processed']
-  event = CONFIG['event']
 
   for data_type in data.keys(): # e.g., GIC, B
 
@@ -31,7 +30,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     for data_class in data[data_type].keys():
       for data_source in data[data_type][data_class].keys():
         if 'data_raw' in data[data_type][data_class][data_source]['original']:
-          logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}/raw' data")
+          logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}/raw' data for event '{event}'")
           _plot_raw(data[data_type][data_class][data_source]['original'], sid, show_plots=show_plots)
           fname = f"{data_type}_{data_class}_{data_source}"
           savefig(dir_raw, fname, logger=logger, logger_indent=4)
@@ -51,7 +50,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
           subplot_label = CONFIG['paper_sids'][data_type][style][sid]
         else: subplot_label = None
         if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
-          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
+          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style} for event '{event}'")
           plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
           fname = f"_calculated_all_vs_measured_{style}"
           _save_plots(plots, fname, dir_compare, logger=logger)
@@ -59,7 +58,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
             fname = f"{data_type}_compare_{style}"
             savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
         if len(data[data_type]['calculated'].keys()) > 1: # if multiple calculated sources, plot all vs measured
-          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style}")
+          logger.info(f"  Plotting all '{sid}/{data_type}' calculated vs. measured data as {style} for event '{event}'")
           plots = _plot_measured_vs_calculated(data[data_type], None, sid, style=style, subplot_label=subplot_label, show_plots=show_plots)
           fname = f"_calculated_all_vs_measured_{style}"
           _save_plots(plots, fname, dir_compare, logger=logger)
@@ -67,7 +66,7 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
             fname = f"{data_type}_compare_{style}"
             savefig_paper(paper_dir, fname, logger=logger, logger_indent=4)
         for calculated_source in data[data_type]['calculated'].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
-          logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style}")
+          logger.info(f"  Plotting '{sid}/{data_type}/{calculated_source}' vs. measured data as {style} for event '{event}'")
           plots = _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
           fname = f"_calculated_{calculated_source}_vs_measured_{style}"
           _save_plots(plots, fname, dir_compare, logger=logger)
@@ -76,12 +75,12 @@ def site_plot(sid, data, data_types=None, logger=None, show_plots=False):
     for data_class in data[data_type].keys(): # e.g., measured, calculated
       for data_source in data[data_type][data_class].keys(): # e.g., TVA, NERC, SWMF, OpenGGCM
         if data[data_type][data_class][data_source] is not None:
-          logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}' original vs. modified data")
+          logger.info(f"  Plotting '{sid}/{data_type}/{data_class}/{data_source}' original vs. modified data for event '{event}'")
           plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
           fname = f"{data_type}_{data_class}_{data_source}"
           _save_plots(plots, fname, dir_original, logger=logger)
         else:
-          logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}'")
+          logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}' for event '{event}'")
 
 
 def _plot_raw_mage(data, sid, show_plots=False):
