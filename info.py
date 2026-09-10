@@ -668,6 +668,11 @@ def find_duplicates(info_df):
       if info_df['data_source'].iloc[i] == 'NERC' and 'sid_duplicates' in CONFIG and sid in CONFIG['sid_duplicates']:
         info_df['manual_error'].iloc[i] = f"x Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'"
 
+# Write info.csv if doesn't exist
+if not os.path.exists(CONFIG['files']['info']):
+  from swerve import write_info_csv
+  write_info_csv()
+
 # Read info.csv
 logger.info(f"Reading {CONFIG['files']['info']}")
 info_df = pd.read_csv(CONFIG['files']['info'])
