@@ -91,12 +91,16 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
         data_mod = orig['data'].copy()
         if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
           add_errors = True
-        if add_errors and data_type == 'GIC' and data_class == 'measured':
-          from swerve import filter
-          logger.info('    Running automated error checks on GIC measured data')
-          data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig)
-          data_mod = data_filtered['data']
-          resample_msg = corrections + '\n' + resample_msg
+        if add_errors:
+          if data_type == 'GIC' and data_class == 'measured':
+            from swerve import filter
+            logger.info('    Running automated error checks on GIC measured data')
+            data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig)
+            data_mod = data_filtered['data']
+            resample_msg = corrections + '\n' + resample_msg
+          else:
+            site_info[data_type][data_class][data_source][sid]['automated_error'] = None
+            #TODO: filter for B, DMM data?
         if data_type == 'B' and data_class == 'measured':
             logger.info(f'    Remove baseline then {resample_msg}')
             for i in range(3):
@@ -561,8 +565,31 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       }
 
   if data_type == 'DMM' and data_class == 'measured' and data_source == 'Parry2024':
-        print(f"oh no, DMM data! at {sid}! please write a reader :)")
-        exit()
+        from datetime import timedelta
+        if sid.lower().replace(' ','') == 'albertaline':
+          fname = f'{event.replace("-", "")}USB4.1Hz'
+        elif sid.lower().replace(' ','') == 'albertaref':
+          fname = f'{event.replace("-", "")}USB5.1Hz'
+        data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), fname)
+        if not os.path.exists(data_file):
+            raise FileNotFoundError(f"Data file not found: {data_file}")
+        data  = []
+        time = []
+        with open(data_file, 'r') as csvfile:
+              rows = csv.reader(csvfile, delimiter=',')
+              for row in rows:
+                  split_row = row[0].split()
+                  time.append(datetime.datetime.strptime(split_row[0], '%Y%m%d%H%M%S'))
+                  data_bx = float(split_row[1]) if split_row[1] != '' else numpy.nan
+                  data_by = float(split_row[2]) if split_row[2] != '' else numpy.nan
+                  data_bz = float(split_row[3]) if split_row[3] != '' else numpy.nan
+                  data.append([data_bx, data_by, data_bz])
+        return {
+          "time": numpy.array(time),
+          "data": numpy.array(data),
+          "labels": ["Bx", "By", "Bz"],
+          "unit": "nT"
+        }
 
   if data_type == 'DMM' and data_class == 'measured' and data_source == 'Marsal':
       data_path = os.path.join(data_dir, 'marsal', event, 'gic', sid, f'{sid}_LIN')
