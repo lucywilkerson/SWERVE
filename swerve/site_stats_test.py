@@ -279,7 +279,7 @@ def _test_site(site, metrics, stats, data_types=None):
             assert expected_stat-tolerance <= test_stat <= expected_stat+tolerance, f"{data_type} measured {val} {test_stat} is not equal to expected {expected_stat}"
 
     if data_types is None:
-        data_types = ['GIC', 'B']
+        data_types = ['GIC', 'B', 'DMM']
 
     if 'GIC' in data_types:
         # Read and parse data or use cached data if found and reparse is False.

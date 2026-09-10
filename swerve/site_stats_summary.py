@@ -20,7 +20,7 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
     info_dict = read_info_dict()
 
     if data_types is None:
-        data_types = ['GIC', 'B']
+        data_types = ['GIC', 'B', 'DMM']
 
     for data_type in data_types:
         n_neg_cc = 0
@@ -58,6 +58,8 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
                         continue
                     if data_type == 'B' and data_source not in ['SWMF', 'MAGE', 'OpenGGCM']:
                         continue
+                    if data_type == 'DMM':
+                        continue # Skip DMM for now, as it is not used in the paper
 
                     # Calculated std
                     path = f'{data_type}/calculated/{data_source}'
