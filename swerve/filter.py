@@ -58,24 +58,30 @@ def filter(data, logger=None):
     # Removing noisy sites before storm (std before > 1/noise_threshold * std after)
     storm_start = CONFIG['limits']['data'][0]
     storm_stop = CONFIG['limits']['data'][1]
-    noise_threshold = gic_filter_kwargs['noise_threshold']
-    try:
-        pre_mask = (data_df.index >= data_df.index[0]) & (data_df.index < storm_start)
-        post_mask = (data_df.index >= storm_start) & (data_df.index < storm_stop)
-    except Exception:
-        # Fallback: use POSIX seconds if storm_start is a numeric timestamp
-        time_secs = np.array([t.timestamp() for t in data_df.index])
-        ss = float(storm_start)
-        pre_mask = (time_secs >= ss - 2*3600) & (time_secs < ss)
-        post_mask = (time_secs >= ss) & (time_secs < ss + 2*3600)
-    std_pre = float(np.nanstd(data_df['data'][pre_mask].to_numpy()))
-    std_post = float(np.nanstd(data_df['data'][post_mask].to_numpy()))
-    # if std_pre > 1/noise_threshold * std_post then flag as noisy before storm
-    if std_post == 0.0:
-        if std_pre > 0.0:
-            errors.append("Excessive pre-storm noise: nonzero std before while std after is zero")
-    elif noise_threshold*std_pre > std_post:
-            errors.append(f"Excessive pre-storm noise: std before ({std_pre:.4f} A) > 1/{noise_threshold} * std after ({std_post:.4f} A)")
+    print(f"Storm start: {storm_start}, Storm stop: {storm_stop}")
+    print(f"Data start: {data_df.index[0]}, Data end: {data_df.index[-1]}")
+    exit()
+    if storm_start == data_df.index[0]:
+        logger.warning("Storm start time is the same as the first data point. Cannot check for pre-storm noise.")
+    else:
+        noise_threshold = gic_filter_kwargs['noise_threshold']
+        try:
+            pre_mask = (data_df.index >= data_df.index[0]) & (data_df.index < storm_start)
+            post_mask = (data_df.index >= storm_start) & (data_df.index < storm_stop)
+        except Exception:
+            # Fallback: use POSIX seconds if storm_start is a numeric timestamp
+            time_secs = np.array([t.timestamp() for t in data_df.index])
+            ss = float(storm_start)
+            pre_mask = (time_secs >= ss - 2*3600) & (time_secs < ss)
+            post_mask = (time_secs >= ss) & (time_secs < ss + 2*3600)
+        std_pre = float(np.nanstd(data_df['data'][pre_mask].to_numpy()))
+        std_post = float(np.nanstd(data_df['data'][post_mask].to_numpy()))
+        # if std_pre > 1/noise_threshold * std_post then flag as noisy before storm
+        if std_post == 0.0:
+            if std_pre > 0.0:
+                errors.append("Excessive pre-storm noise: nonzero std before while std after is zero")
+        elif noise_threshold*std_pre > std_post:
+                errors.append(f"Excessive pre-storm noise: std before ({std_pre:.4f} A) > 1/{noise_threshold} * std after ({std_post:.4f} A)")
 
     # Removing any sites with dt >= max_cadence [s] or with gap in data >= max_gap [s]
     from swerve import subset
