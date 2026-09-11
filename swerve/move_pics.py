@@ -1,4 +1,4 @@
-from swerve import config, sids
+from swerve import config, sids, sids_and_events
 
 import shutil
 import os
@@ -8,18 +8,22 @@ import sys
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 data_dir = CONFIG['dirs']['data']
-event_dir = os.path.join(data_dir, 'data_processed', CONFIG['event'])
 
 sids_only = None # Read all sites.
 
-sids_only = sids(key=sids_only, data_type='GIC', data_class='measured')
+if len(CONFIG['event']) > 1:
+    sids_only = sids_and_events(key=sids_only, data_type='GIC', data_class='measured')
+else:
+    sids_only = sids(key=sids_only, data_type='GIC', data_class='measured', add_event=True)
 
-for sid in sids_only:
+for sid, event in sids_only:
+    event_dir = os.path.join(data_dir, 'data_processed', event)
     sid = sid.lower().replace(' ', '')
     # Define source and destination paths
     source_image = os.path.join(event_dir,'sites',sid,'figures','original','GIC_measured_NERC.png')
     if not os.path.isfile(source_image):
-        source_image = os.path.join(event_dir,'sites',sid,'figures','original','GIC_measured_TVA.png')
+        #source_image = os.path.join(event_dir,'sites',sid,'figures','original','GIC_measured_TVA.png')
+        continue
     destination_folder = os.path.join(event_dir,'_all','all_gic')
     new_fname = f'{sid}_GIC_measured.png'
 
