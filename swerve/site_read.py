@@ -529,7 +529,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
-      from datetime import timedelta
+      from datetime import timedelta, datetime, timezone
+      from zoneinfo import ZoneInfo
       data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), '20211012_GIC_data_89S.csv')
       if not os.path.exists(data_file):
           raise FileNotFoundError(f"Data file not found: {data_file}")
@@ -547,7 +548,10 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         next(csvfile)
         rows = csv.reader(csvfile, delimiter=',')
         for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M'))
+          timestamp = datetime.strptime(row[0], '%Y-%m-%d %H:%M')
+          # Time is in MDT (GMD-6), convert to UTC
+          timestamp_utc = timestamp.replace(tzinfo=ZoneInfo("America/Denver")).astimezone(timezone.utc)
+          time.append(timestamp_utc)
           data.append(float(row[data_col]) if row[data_col] != '#VALUE!' else numpy.nan)
 
       # Edit time column to match 0.5Hz measurement frequency described in paper
