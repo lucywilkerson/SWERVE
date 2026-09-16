@@ -90,7 +90,7 @@ def add_geomag(info_df, events):
       c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
       # Get date from event_dict
       event = row['event']
-      date = datetime.strptime(event_dict[event]['data_limits'][0], '%Y-%m-%d %H:%M:%S')
+      date = event_dict[event]['data_limits'][0]
       date = Ticktock([date], 'UTC')
       c.ticks = date
       c = c.convert('MAG', 'sph')

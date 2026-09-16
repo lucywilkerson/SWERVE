@@ -48,9 +48,9 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
         return data
 
   if start is None:
-    start = CONFIG['limits']['data'][0]
+    start = CONFIG['event'][event]['data_limits'][0]
   if stop is None:
-    stop = CONFIG['limits']['data'][1]
+    stop = CONFIG['event'][event]['data_limits'][1]
 
   site_info = read_info_dict(sid=sid)
 
@@ -95,7 +95,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
           if data_type == 'GIC' and data_class == 'measured':
             from swerve import filter
             logger.info('    Running automated error checks on GIC measured data')
-            data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig)
+            data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig, start, stop)
             data_mod = data_filtered['data']
             resample_msg = corrections + '\n' + resample_msg
           else:
@@ -549,8 +549,9 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         rows = csv.reader(csvfile, delimiter=',')
         for row in rows:
           timestamp = datetime.strptime(row[0], '%Y-%m-%d %H:%M')
-          # Time is in MDT (GMD-6), convert to UTC
+          # Time is in MDT (GMD-6), convert to UTC then make timezone naive for consistency
           timestamp_utc = timestamp.replace(tzinfo=ZoneInfo("America/Denver")).astimezone(timezone.utc)
+          timestamp_utc = timestamp_utc.replace(tzinfo=None)
           time.append(timestamp_utc)
           data.append(float(row[data_col]) if row[data_col] != '#VALUE!' else numpy.nan)
 
@@ -569,7 +570,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       }
 
   if data_type == 'DMM' and data_class == 'measured' and data_source == 'Parry2024':
-        from datetime import timedelta
+        from datetime import timedelta, datetime
         if sid.lower().replace(' ','') == 'albertaline':
           fname = f'{event.replace("-", "")}USB4.1Hz'
         elif sid.lower().replace(' ','') == 'albertaref':
@@ -583,7 +584,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
               rows = csv.reader(csvfile, delimiter=',')
               for row in rows:
                   split_row = row[0].split()
-                  time.append(datetime.datetime.strptime(split_row[0], '%Y%m%d%H%M%S'))
+                  time.append(datetime.strptime(split_row[0], '%Y%m%d%H%M%S'))
                   data_bx = float(split_row[1]) if split_row[1] != '' else numpy.nan
                   data_by = float(split_row[2]) if split_row[2] != '' else numpy.nan
                   data_bz = float(split_row[3]) if split_row[3] != '' else numpy.nan

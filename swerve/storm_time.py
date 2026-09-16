@@ -34,15 +34,19 @@ def storm_time(event, test=False):
     df = pandas.concat(dfs, axis=1)
     df.columns = list(parameters_dict.values())
 
-    #find time of max dst before dst drops to min Dst
+    # Find time of max dst before dst drops to min Dst
     min_idx = df['Dst'].idxmin()
     df_before_min = df.loc[:min_idx]
     max_dst_time = df_before_min.loc[df_before_min['Dst'].idxmax(), 'Time']
 
-    #find time of min dst/2 after dst drops to min Dst
+    # Find time of min dst/2 after dst drops to min Dst
     half_min_dst = df.loc[min_idx, 'Dst']/2
     df_after_min = df.loc[min_idx:]
     half_min_dst_time = df_after_min[df_after_min['Dst'] >= half_min_dst]['Time'].iloc[0]
+
+    # Make times timezone naive for consistency
+    max_dst_time = max_dst_time.replace(tzinfo=None)
+    half_min_dst_time = half_min_dst_time.replace(tzinfo=None)
 
     if test:
         #plotting for testing:
@@ -52,12 +56,12 @@ def storm_time(event, test=False):
         plt.figure()
         plt.plot(df['Time'], df['Dst'], color='k')
         plt.axvline(max_dst_time, color='m', linestyle='--', label='Automated data limits')
-        plt.axvline(datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc), color='c', linestyle=':', label='Manual data limits')
-        diff = datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc) - max_dst_time
+        plt.axvline(datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), color='c', linestyle=':', label='Manual data limits')
+        diff = datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M') - max_dst_time
         plt.scatter([], [], facecolors='none', edgecolors='none', label=f'Difference in start: {diff.total_seconds()/3600:.2f} hours')
         plt.axvline(half_min_dst_time, color='m', linestyle='--')
-        plt.axvline(datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc), color='c', linestyle=':')
-        diff = datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc) - half_min_dst_time
+        plt.axvline(datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M'), color='c', linestyle=':')
+        diff = datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M') - half_min_dst_time
         plt.scatter([], [], facecolors='none', edgecolors='none', label=f'Difference in end: {diff.total_seconds()/3600:.2f} hours')
         plt.grid()
         plt.legend()
@@ -84,9 +88,9 @@ if test:
     from datetime import datetime, timezone, timedelta
     for event in events.keys():
         max_dst_time, half_min_dst_time = storm_time(event, test=test)
-        start_diff = datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc) - max_dst_time
+        start_diff = datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M') - max_dst_time
         start_diffs.append(start_diff)
-        end_diff = datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc) - half_min_dst_time
+        end_diff = datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M') - half_min_dst_time
         end_diffs.append(end_diff)
     mean_diff = sum(start_diffs, timedelta(0)) / len(start_diffs)
     print(f'mean difference between data_limits[0] and max_dst_time: {mean_diff.total_seconds()/3600:.2f} hours')

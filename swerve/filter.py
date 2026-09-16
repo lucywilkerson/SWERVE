@@ -5,12 +5,12 @@ import pandas as pd
 # determine if there is an error with the timeseries. If there is, it will log the error and output it
 # will be added to info.py and run before metrics are calculated
 
-def filter(data, logger=None):
+def filter(data, start, stop, logger=None):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
     from swerve import config, cadence
-    from datetime import timedelta
+    from datetime import timedelta, datetime, timezone
     CONFIG = config()
     gic_filter_kwargs = CONFIG['filter_kwargs']
 
@@ -56,18 +56,15 @@ def filter(data, logger=None):
         errors.append(f"Low signal: all GIC values within +/- {low_signal_threshold} A")
 
     # Removing noisy sites before storm (std before > 1/noise_threshold * std after)
-    storm_start = CONFIG['limits']['data'][0]
-    storm_stop = CONFIG['limits']['data'][1]
-    print(f"Storm start: {storm_start}, Storm stop: {storm_stop}")
-    print(f"Data start: {data_df.index[0]}, Data end: {data_df.index[-1]}")
-    exit()
-    if storm_start == data_df.index[0]:
-        logger.warning("Storm start time is the same as the first data point. Cannot check for pre-storm noise.")
+    storm_start = datetime.strptime(start, '%Y-%m-%d %H:%M:%S')     
+    time_diff = storm_start - data_df.index[0]
+    if time_diff < timedelta(hours=1):
+        logger.warning("Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.")
     else:
         noise_threshold = gic_filter_kwargs['noise_threshold']
         try:
-            pre_mask = (data_df.index >= data_df.index[0]) & (data_df.index < storm_start)
-            post_mask = (data_df.index >= storm_start) & (data_df.index < storm_stop)
+            pre_mask = (data_df.index >= data_df.index[0]) & (data_df.index < start)
+            post_mask = (data_df.index >= storm_start) & (data_df.index < stop)
         except Exception:
             # Fallback: use POSIX seconds if storm_start is a numeric timestamp
             time_secs = np.array([t.timestamp() for t in data_df.index])
@@ -85,7 +82,7 @@ def filter(data, logger=None):
 
     # Removing any sites with dt >= max_cadence [s] or with gap in data >= max_gap [s]
     from swerve import subset
-    crop_time_meas, crop_data_meas = subset(data_df.index, data_df['data'], storm_start, storm_stop)
+    crop_time_meas, crop_data_meas = subset(data_df.index, data_df['data'], start, stop)
     dt = cadence(crop_time_meas, logger=logger, logger_indent=2) # returns cadence in ns
     dt_array = (np.array(dt)).astype(np.float64)
     if dt_array.size:

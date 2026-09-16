@@ -131,6 +131,7 @@ def _write_event_dict(conf):
   import json
   import os
   from datetime import timedelta
+  from swerve import storm_time
 
   # Getting events from run config
   events = conf.get('event', None)
@@ -164,9 +165,10 @@ def _write_event_dict(conf):
       from datetime import datetime
       event_dict[event]['data_limits'] = [datetime.strptime(nerc_events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), datetime.strptime(nerc_events[event]['data_limits'][1], '%Y-%m-%dT%H:%M')]
       event_dict[event]['nerc_prefix'] = nerc_events[event]['nerc_prefix']   
-        
+
+    # Determine storm time if not specified    
     else:
-      raise ValueError(f"Unexpected error with event '{event}'.")
+      event_dict[event]['data_limits'] = storm_time(event)
 
     # Set plotting limits (subtract 2 hrs from start time to include pre-storm data)
     event_dict[event]['plot_limits'] = [
