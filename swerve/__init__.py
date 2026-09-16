@@ -7,6 +7,7 @@ from .site_read import site_read
 from .site_plot import site_plot
 from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
+from .storm_time import storm_time
 from .update_info_extended import update_info_extended
 from .regress import regress, write_eqn_and_fname
 from .filter import filter

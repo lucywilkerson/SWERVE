@@ -1,7 +1,7 @@
 test = False # if True, runs tests to compare manually determined storm times
 # to automated determined storm times for NERC storms
 
-def storm_limits(event, test=False):
+def storm_time(event, test=False):
     # Use Dst from HAPI to determine storm start and stop times
     from hapiclient import hapi, hapitime2datetime
     from datetime import datetime, timedelta
@@ -70,7 +70,7 @@ def storm_limits(event, test=False):
         print(f"Saving Dst plot for event {event} to {file_dir}")
         plt.savefig(os.path.join(file_dir, f'{event}_dst.png'), dpi=300, bbox_inches='tight')
         #plt.show()
-        
+
     return [max_dst_time, half_min_dst_time]
 
 if test:
@@ -83,7 +83,7 @@ if test:
     end_diffs = []
     from datetime import datetime, timezone, timedelta
     for event in events.keys():
-        max_dst_time, half_min_dst_time = storm_limits(event, test=test)
+        max_dst_time, half_min_dst_time = storm_time(event, test=test)
         start_diff = datetime.strptime(events[event]['data_limits'][0], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc) - max_dst_time
         start_diffs.append(start_diff)
         end_diff = datetime.strptime(events[event]['data_limits'][1], '%Y-%m-%dT%H:%M').replace(tzinfo=timezone.utc) - half_min_dst_time
