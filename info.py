@@ -78,26 +78,29 @@ def add_beta(info_df, beta_fname, beta_site='OTT'):
       logger.warning(f"    Warning: Could not interpolate beta for site {row['site_id']} at ({row['geo_lat']},{row['geo_lon']})")
 
 # Code for geomag coords and alpha
-def add_geomag(info_df, date):
+def add_geomag(info_df, events):
   from spacepy.time import Ticktock
   import spacepy.coordinates as coord
+  from datetime import datetime
   
-  def get_geomag_coords(row):
+  def get_geomag_coords(row, event_dict):
       Re = 6371.0 #mean Earth radius in km
       alt = 0 #altitude in km, can be set to 0 for surface
       # Geomagnetic coordinate doesn't depend much on altitude, and there is ambiguity in definition of Re
       c = coord.Coords([[(alt+Re)/Re, row['geo_lat'], row['geo_lon']]], 'GEO', 'sph', ['Re', 'deg', 'deg'])
+      # Get date from event_dict
+      event = row['event']
+      date = datetime.strptime(event_dict[event]['data_limits'][0], '%Y-%m-%d %H:%M:%S')
+      date = Ticktock([date], 'UTC')
       c.ticks = date
       c = c.convert('MAG', 'sph')
       return c.data[0][1], c.data[0][2]  # mag_lat, mag_lon
 
-  logger.info(f"Adding geomagnetic coordinates and alpha on date {date} to extended info_df")
-
-  date = Ticktock([date], 'UTC')
+  logger.info(f"Adding geomagnetic coordinates and alpha to extended info_df")
 
   # Test to check geomag calculation, compare values from this function to results from online calculator at one site
   row = info_df.iloc[0]
-  test_stat = get_geomag_coords(row)
+  test_stat = get_geomag_coords(row, events)
   if row['site_id'] == '10052':
     calc_stat = 53.16, -28.995 #calculated via https://geomag.bgs.ac.uk/data_service/models_compass/coord_calc.html 
     dist = np.sqrt((test_stat[0] - calc_stat[0])**2 + (test_stat[1] - calc_stat[1])**2)
@@ -105,7 +108,7 @@ def add_geomag(info_df, date):
     assert dist <= tolerance, f"Calculated geomagnetic coordinates {test_stat} is not within tolerance of expected {calc_stat}"
 
   # Applying the function to create new columns
-  info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row)), axis=1)
+  info_df[['mag_lat', 'mag_lon']] = info_df.apply(lambda row: pd.Series(get_geomag_coords(row, events)), axis=1)
 
   # Calculate alpha and add to info_df
   alpha = .001*np.exp(.115*info_df['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
@@ -678,7 +681,7 @@ logger.info(f"Reading {CONFIG['files']['info']}")
 info_df = pd.read_csv(CONFIG['files']['info'])
 
 add_beta(info_df, CONFIG['files']['beta'], beta_site='OTT')
-add_geomag(info_df, CONFIG['limits']['data'][0].strftime('%Y-%m-%dT%H:%M:%S'))
+add_geomag(info_df, CONFIG['event'])
 add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
