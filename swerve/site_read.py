@@ -95,7 +95,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
           if data_type == 'GIC' and data_class == 'measured':
             from swerve import filter
             logger.info('    Running automated error checks on GIC measured data')
-            data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig, start, stop)
+            data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig, start, stop, logger=logger)
             data_mod = data_filtered['data']
             resample_msg = corrections + '\n' + resample_msg
           else:
@@ -231,7 +231,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'NERC':
-    nerc_prefix = CONFIG['nerc_prefix']
+    nerc_prefix = CONFIG['event'][event]['nerc_prefix']
     fname = f'{nerc_prefix}_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', event, 'gic')
     data = read_nerc(data_dir, fname)
@@ -330,7 +330,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'NERC':
     # TODO: magnetometers.csv indicates if GEO or MAG coordinates
-    nerc_prefix = CONFIG['nerc_prefix']
+    nerc_prefix = CONFIG['event'][event]['nerc_prefix']
     fname = f'{nerc_prefix}_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', event, 'mag')
     data = read_nerc(data_dir, fname)
@@ -529,7 +529,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
-      from datetime import timedelta, datetime, timezone
+      from datetime import timedelta, timezone
       from zoneinfo import ZoneInfo
       data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), '20211012_GIC_data_89S.csv')
       if not os.path.exists(data_file):
@@ -548,7 +548,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         next(csvfile)
         rows = csv.reader(csvfile, delimiter=',')
         for row in rows:
-          timestamp = datetime.strptime(row[0], '%Y-%m-%d %H:%M')
+          timestamp = datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M')
           # Time is in MDT (GMD-6), convert to UTC then make timezone naive for consistency
           timestamp_utc = timestamp.replace(tzinfo=ZoneInfo("America/Denver")).astimezone(timezone.utc)
           timestamp_utc = timestamp_utc.replace(tzinfo=None)
@@ -570,7 +570,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       }
 
   if data_type == 'DMM' and data_class == 'measured' and data_source == 'Parry2024':
-        from datetime import timedelta, datetime
+        from datetime import timedelta
         if sid.lower().replace(' ','') == 'albertaline':
           fname = f'{event.replace("-", "")}USB4.1Hz'
         elif sid.lower().replace(' ','') == 'albertaref':
@@ -584,7 +584,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
               rows = csv.reader(csvfile, delimiter=',')
               for row in rows:
                   split_row = row[0].split()
-                  time.append(datetime.strptime(split_row[0], '%Y%m%d%H%M%S'))
+                  time.append(datetime.datetime.strptime(split_row[0], '%Y%m%d%H%M%S'))
                   data_bx = float(split_row[1]) if split_row[1] != '' else numpy.nan
                   data_by = float(split_row[2]) if split_row[2] != '' else numpy.nan
                   data_bz = float(split_row[3]) if split_row[3] != '' else numpy.nan
