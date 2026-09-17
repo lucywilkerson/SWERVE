@@ -31,8 +31,7 @@ def config():
     import json
     with open(event_dict_file, 'r') as f:
       event_dict = json.load(f)
-  else:
-    event_dict = _write_event_dict(conf)
+  event_dict = _write_event_dict(conf, file_path)
 
   if not os.path.exists(data_dir):
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
@@ -124,7 +123,7 @@ def config():
 
   return config_dict
 
-def _write_event_dict(conf):
+def _write_event_dict(conf, file_path):
   """
   Write event_dict to events_dict.json in the corresponding info directory.
   """
@@ -144,8 +143,24 @@ def _write_event_dict(conf):
   elif events == None or events == []:
     raise ValueError("No event or start_time/stop_time specified in configuration file.")
 
+  # Finding all events with data from sources included in passed configuration file
+  if events == 'all' or events == ['all']:
+    import re
+    data_sources = conf.get('data_source', None)
+    data_dir_orig = os.path.join(file_path, '..', '..', f'SWERVE-data', 'data_original')
+    date_pattern = r"^\d{4}-\d{2}-\d{2}$"
+    unique_events = set()
+    for data_source in data_sources:
+      data_source_dir = os.path.join(data_dir_orig, data_source.lower())
+      if os.path.isdir(data_source_dir):
+        source_events = [subdir for subdir in os.listdir(data_source_dir) if re.match(date_pattern, subdir)]
+        unique_events.update(source_events)
+      else:
+        raise ValueError(f"Data for data_source {data_source} not found at {data_source_dir}.")
+    events = list(unique_events)
+
   # Read in NERC events dict from config_nerc.json file
-  with open(os.path.abspath(os.path.join(os.path.dirname(__file__), 'config_nerc.json')), 'r') as f:
+  with open(os.path.abspath(os.path.join(file_path, 'config_nerc.json')), 'r') as f:
     nerc_events = json.load(f)
 
   # Event dict to hold storm times
@@ -177,7 +192,7 @@ def _write_event_dict(conf):
           ]
 
   # Save event_dict as events_dict.json in corresponding info directory
-  info_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'info', conf.get('run_config_name', 'default')))
+  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
   if not os.path.exists(info_dir):
     os.makedirs(info_dir)
   with open(os.path.join(info_dir, 'events_dict.json'), 'w') as f:
