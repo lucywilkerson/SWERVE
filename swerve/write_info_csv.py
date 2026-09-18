@@ -35,6 +35,12 @@ def write_info_csv():
     data_sources = CONFIG['info_kwargs']['data_source']
     events = CONFIG['event']
 
+    # If not specified, run for all data types/data classes
+    if data_types is None or data_types == []:
+        data_types = ['GIC', 'DMM', 'B']
+    if data_classes is None or data_classes == []:
+        data_classes = ['measured', 'calculated']
+
     data_dir = CONFIG['dirs']['original']
 
     # empty list to hold info
@@ -159,6 +165,45 @@ def write_info_csv():
                                         geo_lat = float(row[1])
                                         geo_lon = float(row[2])
                                         info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
+
+            if data_source == 'Marsal':
+                for data_type in data_types:
+                    if data_type == 'DMM' and 'measured' in data_classes:
+                        data_class = 'measured'
+                        # Find all sources for event
+                        event_dir = os.path.join(data_dir, f'{data_source.lower()}', event, data_type.lower())
+                        if os.path.isdir(event_dir):
+                            event_sids = [subdir for subdir in os.listdir(event_dir)]
+                        else:
+                            logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                            continue
+                        # Add info for event sources
+                        file = os.path.join(data_dir, f'{data_source.lower()}','marsal_2025_info.csv')
+                        with open(file, 'r') as csvfile:
+                            rows = csv.reader(csvfile, delimiter=',')
+                            # skip header
+                            next(rows)
+                            for row in rows:
+                                site_id = row[0]
+                                if site_id.startswith(tuple(event_sids)):
+                                    # Reformatting lat/lon from degrees and minutes to degrees
+                                    geo_lat_raw = row[1]
+                                    lat_val,_ = geo_lat_raw.strip().split()
+                                    lat_deg = float(lat_val[:2])
+                                    lat_min = float(lat_val[2:])
+                                    geo_lat = lat_deg + (lat_min / 60.0)
+                                    geo_lon_raw = row[2]
+                                    lon_val, lon_dir = geo_lon_raw.strip().split()
+                                    lon_deg = float(lon_val[:3])
+                                    lon_min = float(lon_val[3:])
+                                    geo_lon = lon_deg + (lon_min / 60.0)
+                                    if lon_dir in ['W', 'w']:
+                                        geo_lon *= -1
+                                    # Adding to info list
+                                    info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
+                    else:
+                        logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                        continue
 
             if data_source == 'Zhang2020':
                 print('no info yet...')
