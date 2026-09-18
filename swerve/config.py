@@ -31,7 +31,8 @@ def config():
     import json
     with open(event_dict_file, 'r') as f:
       event_dict = json.load(f)
-  event_dict = _write_event_dict(conf, file_path)
+  else:
+    event_dict = _write_event_dict(conf, file_path)
 
   if not os.path.exists(data_dir):
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
