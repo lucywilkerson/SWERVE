@@ -42,7 +42,11 @@ def storm_time(event, test=False):
     # Find time of min dst/2 after dst drops to min Dst
     half_min_dst = df.loc[min_idx, 'Dst']/2
     df_after_min = df.loc[min_idx:]
-    half_min_dst_time = df_after_min[df_after_min['Dst'] >= half_min_dst]['Time'].iloc[0]
+    filtered_df_after_min = df_after_min[df_after_min['Dst'] >= half_min_dst]
+    if not filtered_df_after_min.empty:
+        half_min_dst_time = filtered_df_after_min['Time'].iloc[0]
+    else:
+        half_min_dst_time = df['Time'].iloc[-1]
 
     # Make times timezone naive for consistency
     max_dst_time = max_dst_time.replace(tzinfo=None)
