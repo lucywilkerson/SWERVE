@@ -81,7 +81,7 @@ def write_info_csv():
                 if 'calculated' in data_classes:
                     logger.info(f'   No calculated data for data source {data_source}; skipping.')
 
-            if data_source == 'TVA':
+            elif data_source == 'TVA':
                 # read site names for TVA measured GIC/B and save to csv
                 if 'measured' in data_classes:
                     data_class = 'measured'
@@ -124,7 +124,7 @@ def write_info_csv():
                     else:
                         logger.info(f'   No calculated {data_type} data for data source {data_source}; skipping.')
         
-            if data_source == 'Parry2025':
+            elif data_source == 'Parry2025':
                 # read site names for CAN data from Parry 2025 paper
                 for data_type in data_types:
                     if 'measured' in data_classes:
@@ -147,7 +147,7 @@ def write_info_csv():
                                 geo_lon = float(row[2])
                                 info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
 
-            if data_source == 'Parry2024':
+            elif data_source == 'Parry2024':
                 # read site names for CAN data from Parry 2024 paper
                 for data_type in data_types:
                     if 'measured' in data_classes:
@@ -166,7 +166,7 @@ def write_info_csv():
                                         geo_lon = float(row[2])
                                         info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
 
-            if data_source == 'Marsal':
+            elif data_source == 'Marsal':
                 for data_type in data_types:
                     if data_type == 'DMM' and 'measured' in data_classes:
                         data_class = 'measured'
@@ -205,9 +205,12 @@ def write_info_csv():
                         logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
                         continue
 
-            if data_source == 'Zhang2020':
+            elif data_source == 'Zhang2020':
                 print('no info yet...')
                 exit()
+
+            else:
+                raise ValueError(f"     Data source {data_source} not recognized.")
 
     # compile list into one df
     info_df = pd.DataFrame(info_list)
