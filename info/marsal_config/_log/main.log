@@ -1,0 +1,1126 @@
+2026-09-18T15:30:48.547400Z INFO  main Reading 'CHI line' data for event '2024-05-10'
+2026-09-18T15:30:48.556893Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:30:55.580988Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:30:55.595975Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\chiline\data\_all.pkl
+2026-09-18T15:30:56.340291Z INFO  main Computing stats for 'CHI line' data
+2026-09-18T15:30:56.342811Z INFO  main Plotting 'CHI line' data for event '2024-05-10'
+2026-09-18T15:30:56.357918Z INFO  main   Plotting 'CHI line/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:31:05.828084Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/chiline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:31:07.023585Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/chiline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:31:08.046964Z INFO  main Reading 'CHI line' data for event '2023-09-24'
+2026-09-18T15:31:08.056396Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:31:12.679499Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:31:12.694265Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\chiline\data\_all.pkl
+2026-09-18T15:31:13.302094Z INFO  main Computing stats for 'CHI line' data
+2026-09-18T15:31:13.305747Z INFO  main Plotting 'CHI line' data for event '2023-09-24'
+2026-09-18T15:31:13.317203Z INFO  main   Plotting 'CHI line/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:31:19.985625Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/chiline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:31:21.579289Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/chiline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:31:22.133810Z INFO  main Reading 'CHI line' data for event '2024-04-19'
+2026-09-18T15:31:22.151646Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:31:24.350566Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:31:24.387091Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\chiline\data\_all.pkl
+2026-09-18T15:31:24.593648Z INFO  main Computing stats for 'CHI line' data
+2026-09-18T15:31:24.595664Z INFO  main Plotting 'CHI line' data for event '2024-04-19'
+2026-09-18T15:31:24.613496Z INFO  main   Plotting 'CHI line/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:31:29.475644Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/chiline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:31:30.851602Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/chiline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:31:31.314865Z INFO  main Reading 'CHI line' data for event '2024-08-12'
+2026-09-18T15:31:31.323282Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:31:40.038177Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:31:40.053465Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\chiline\data\_all.pkl
+2026-09-18T15:31:41.030130Z INFO  main Computing stats for 'CHI line' data
+2026-09-18T15:31:41.033152Z INFO  main Plotting 'CHI line' data for event '2024-08-12'
+2026-09-18T15:31:41.043802Z INFO  main   Plotting 'CHI line/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:31:51.826055Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/chiline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:31:52.960129Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/chiline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:31:53.355646Z INFO  main Reading 'CHI line' data for event '2024-08-17'
+2026-09-18T15:31:53.367610Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:31:58.204677Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:31:58.242648Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\chiline\data\_all.pkl
+2026-09-18T15:31:58.956336Z INFO  main Computing stats for 'CHI line' data
+2026-09-18T15:31:58.959358Z INFO  main Plotting 'CHI line' data for event '2024-08-17'
+2026-09-18T15:31:58.969116Z INFO  main   Plotting 'CHI line/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:32:05.877347Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/chiline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:32:07.380657Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/chiline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:32:07.865798Z INFO  main Reading 'CHI line' data for event '2024-03-24'
+2026-09-18T15:32:07.878045Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:32:14.984049Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:32:15.027479Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\chiline\data\_all.pkl
+2026-09-18T15:32:15.749299Z INFO  main Computing stats for 'CHI line' data
+2026-09-18T15:32:15.753888Z INFO  main Plotting 'CHI line' data for event '2024-03-24'
+2026-09-18T15:32:15.764478Z INFO  main   Plotting 'CHI line/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:32:23.927408Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/chiline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:32:25.500540Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/chiline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:32:26.114439Z INFO  main Reading 'CHI ref' data for event '2024-05-10'
+2026-09-18T15:32:26.123600Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:32:32.192949Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:32:32.207999Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\chiref\data\_all.pkl
+2026-09-18T15:32:32.880324Z INFO  main Computing stats for 'CHI ref' data
+2026-09-18T15:32:32.892391Z INFO  main Plotting 'CHI ref' data for event '2024-05-10'
+2026-09-18T15:32:32.901307Z INFO  main   Plotting 'CHI ref/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:32:40.811334Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/chiref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:32:42.296451Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/chiref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:32:42.729901Z INFO  main Reading 'CHI ref' data for event '2023-09-24'
+2026-09-18T15:32:42.734251Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:32:47.568645Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:32:47.581738Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\chiref\data\_all.pkl
+2026-09-18T15:32:48.086236Z INFO  main Computing stats for 'CHI ref' data
+2026-09-18T15:32:48.086236Z INFO  main Plotting 'CHI ref' data for event '2023-09-24'
+2026-09-18T15:32:48.104954Z INFO  main   Plotting 'CHI ref/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:32:54.414906Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/chiref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:32:55.517876Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/chiref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:32:55.915449Z INFO  main Reading 'CHI ref' data for event '2024-04-19'
+2026-09-18T15:32:55.934475Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:32:58.307859Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:32:58.323798Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\chiref\data\_all.pkl
+2026-09-18T15:32:58.601832Z INFO  main Computing stats for 'CHI ref' data
+2026-09-18T15:32:58.609928Z INFO  main Plotting 'CHI ref' data for event '2024-04-19'
+2026-09-18T15:32:58.627126Z INFO  main   Plotting 'CHI ref/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:33:02.604547Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/chiref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:33:03.643430Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/chiref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:33:04.006011Z INFO  main Reading 'CHI ref' data for event '2024-08-12'
+2026-09-18T15:33:04.025898Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:33:13.228361Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:33:13.273471Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\chiref\data\_all.pkl
+2026-09-18T15:33:14.214931Z INFO  main Computing stats for 'CHI ref' data
+2026-09-18T15:33:14.214931Z INFO  main Plotting 'CHI ref' data for event '2024-08-12'
+2026-09-18T15:33:14.228580Z INFO  main   Plotting 'CHI ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:33:23.893193Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/chiref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:33:24.912908Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/chiref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:33:25.414696Z INFO  main Reading 'CHI ref' data for event '2024-08-17'
+2026-09-18T15:33:25.427848Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:33:30.078984Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:33:30.091184Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\chiref\data\_all.pkl
+2026-09-18T15:33:30.513622Z INFO  main Computing stats for 'CHI ref' data
+2026-09-18T15:33:30.517659Z INFO  main Plotting 'CHI ref' data for event '2024-08-17'
+2026-09-18T15:33:30.529890Z INFO  main   Plotting 'CHI ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:33:36.965399Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/chiref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:33:38.242345Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/chiref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:33:38.668660Z INFO  main Reading 'CHI ref' data for event '2024-03-24'
+2026-09-18T15:33:38.676740Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:33:45.335682Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:33:45.344187Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\chiref\data\_all.pkl
+2026-09-18T15:33:46.055869Z INFO  main Computing stats for 'CHI ref' data
+2026-09-18T15:33:46.059904Z INFO  main Plotting 'CHI ref' data for event '2024-03-24'
+2026-09-18T15:33:46.064012Z INFO  main   Plotting 'CHI ref/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:33:54.125618Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/chiref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:33:55.360381Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/chiref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:33:55.828991Z INFO  main Reading 'CUL line' data for event '2024-05-10'
+2026-09-18T15:33:55.840708Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:34:03.166002Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:34:03.207520Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\culline\data\_all.pkl
+2026-09-18T15:34:03.994195Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:34:03.996210Z INFO  main Plotting 'CUL line' data for event '2024-05-10'
+2026-09-18T15:34:04.007196Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:34:12.673041Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:34:13.962991Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:34:14.457700Z INFO  main Reading 'CUL line' data for event '2023-02-26'
+2026-09-18T15:34:14.484198Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-02-26'
+2026-09-18T15:34:21.334709Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:34:21.377243Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-02-26\sites\culline\data\_all.pkl
+2026-09-18T15:34:22.109680Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:34:22.121731Z INFO  main Plotting 'CUL line' data for event '2023-02-26'
+2026-09-18T15:34:22.132632Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2023-02-26'
+2026-09-18T15:34:30.882278Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:34:32.416804Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:34:32.916825Z INFO  main Reading 'CUL line' data for event '2023-09-24'
+2026-09-18T15:34:32.933148Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:34:37.586379Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:34:37.608350Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\culline\data\_all.pkl
+2026-09-18T15:34:38.265823Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:34:38.265823Z INFO  main Plotting 'CUL line' data for event '2023-09-24'
+2026-09-18T15:34:38.278830Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:34:45.149477Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:34:46.575267Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:34:47.048908Z INFO  main Reading 'CUL line' data for event '2024-04-19'
+2026-09-18T15:34:47.058193Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:34:49.293625Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:34:49.331745Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\culline\data\_all.pkl
+2026-09-18T15:34:49.596892Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:34:49.601053Z INFO  main Plotting 'CUL line' data for event '2024-04-19'
+2026-09-18T15:34:49.613228Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:34:54.485086Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:34:55.436263Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:34:55.809794Z INFO  main Reading 'CUL line' data for event '2024-08-12'
+2026-09-18T15:34:55.820036Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:35:05.060280Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:35:05.072365Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\culline\data\_all.pkl
+2026-09-18T15:35:05.977358Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:35:05.981446Z INFO  main Plotting 'CUL line' data for event '2024-08-12'
+2026-09-18T15:35:05.997836Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:35:15.448178Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:35:16.639936Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:35:17.064038Z INFO  main Reading 'CUL line' data for event '2024-08-17'
+2026-09-18T15:35:17.081148Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:35:21.951877Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:35:21.990336Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\culline\data\_all.pkl
+2026-09-18T15:35:22.451422Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:35:22.458674Z INFO  main Plotting 'CUL line' data for event '2024-08-17'
+2026-09-18T15:35:22.491353Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:35:30.483279Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:35:31.623338Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:35:32.126995Z INFO  main Reading 'CUL line' data for event '2023-05-09'
+2026-09-18T15:35:32.141768Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:35:37.549516Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:35:37.564079Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\culline\data\_all.pkl
+2026-09-18T15:35:38.383628Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:35:38.386668Z INFO  main Plotting 'CUL line' data for event '2023-05-09'
+2026-09-18T15:35:38.397516Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:35:45.898302Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:35:47.232343Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:35:47.828348Z INFO  main Reading 'CUL line' data for event '2022-07-23'
+2026-09-18T15:35:47.843145Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:35:50.770089Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:35:51.283795Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\culline\data\DMM_measured_Marsal.pkl
+2026-09-18T15:35:51.664442Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\culline\data\_all.pkl
+2026-09-18T15:35:52.029754Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:35:52.342555Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:35:52.344069Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:35:52.344069Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:35:52.345580Z INFO  main 
+    std: : [11.532427569198049, 22.078269621532, 6.063255736628546]
+    ave: : [25170.562206673974, 400.4151307946164, 37620.40654383965]
+    min: : [25151.71025, 369.9715, 37598.35675]
+    max: : [25223.4627, 448.69304999999997, 37633.99755]
+    n: 1621
+    n_valid: : [1228, 1228, 1228]
+    dt_original: : [1000000000]
+2026-09-18T15:35:52.347624Z INFO  main Plotting 'CUL line' data for event '2022-07-23'
+2026-09-18T15:35:52.357499Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:35:58.267927Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culline/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:36:00.082264Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culline/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:36:01.028374Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culline/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:36:02.945194Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culline/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:36:03.893325Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culline/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:36:05.729574Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culline/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:36:06.285099Z INFO  main Reading 'CUL line' data for event '2023-04-24'
+2026-09-18T15:36:06.297888Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:36:14.772288Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:36:14.808661Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\culline\data\_all.pkl
+2026-09-18T15:36:15.594122Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:36:15.596933Z INFO  main Plotting 'CUL line' data for event '2023-04-24'
+2026-09-18T15:36:15.605521Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:36:25.815091Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:36:26.983430Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:36:27.479335Z INFO  main Reading 'CUL line' data for event '2024-03-24'
+2026-09-18T15:36:27.487467Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:36:35.668705Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:36:35.709620Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\culline\data\_all.pkl
+2026-09-18T15:36:36.524436Z INFO  main Computing stats for 'CUL line' data
+2026-09-18T15:36:36.528719Z INFO  main Plotting 'CUL line' data for event '2024-03-24'
+2026-09-18T15:36:36.539411Z INFO  main   Plotting 'CUL line/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:36:46.163719Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:36:47.397474Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:36:47.933560Z INFO  main Reading 'CUL ref' data for event '2024-05-10'
+2026-09-18T15:36:47.943621Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:36:56.083220Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:36:56.099337Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\culref\data\_all.pkl
+2026-09-18T15:36:56.993316Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:36:56.995396Z INFO  main Plotting 'CUL ref' data for event '2024-05-10'
+2026-09-18T15:36:57.007855Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:37:06.485080Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/culref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:37:07.908607Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/culref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:37:08.440515Z INFO  main Reading 'CUL ref' data for event '2023-02-26'
+2026-09-18T15:37:08.451098Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-02-26'
+2026-09-18T15:37:16.834846Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:37:16.846071Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-02-26\sites\culref\data\_all.pkl
+2026-09-18T15:37:17.800833Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:37:17.803428Z INFO  main Plotting 'CUL ref' data for event '2023-02-26'
+2026-09-18T15:37:17.817549Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2023-02-26'
+2026-09-18T15:37:30.055261Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/culref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:37:31.433389Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/culref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:37:32.063973Z INFO  main Reading 'CUL ref' data for event '2023-09-24'
+2026-09-18T15:37:32.140633Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:37:38.636212Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:37:39.451724Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\culref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:37:40.103460Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\culref\data\_all.pkl
+2026-09-18T15:37:40.717162Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:37:41.441579Z INFO  main   Uniq dts [ns] = [  1000000000 177000000000]
+2026-09-18T15:37:41.443593Z INFO  main   Uniq dts [#]  = 2
+2026-09-18T15:37:41.445138Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:37:41.445138Z INFO  main 
+    std: : [19.713734512850788, 14.815357873297414, 4.701053171426416]
+    ave: : [25517.54811287036, 123.50084101851847, 37275.77056734568]
+    min: : [25483.3862, 96.91023333333332, 37261.631916666665]
+    max: : [25586.256616666666, 154.14283333333333, 37284.52653333334]
+    n: 541
+    n_valid: : [540, 540, 540]
+    dt_original: : [1000000000, 177000000000]
+2026-09-18T15:37:41.448566Z INFO  main Plotting 'CUL ref' data for event '2023-09-24'
+2026-09-18T15:37:41.461354Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:37:50.083641Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:37:51.948135Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:37:53.068328Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:37:54.887264Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:37:56.043399Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:37:58.108172Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/culref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:37:58.688400Z INFO  main Reading 'CUL ref' data for event '2024-04-19'
+2026-09-18T15:37:58.701097Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:38:01.651158Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:38:01.693678Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\culref\data\_all.pkl
+2026-09-18T15:38:01.984719Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:38:01.993733Z INFO  main Plotting 'CUL ref' data for event '2024-04-19'
+2026-09-18T15:38:02.006298Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:38:08.104296Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/culref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:38:09.474550Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/culref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:38:09.930803Z INFO  main Reading 'CUL ref' data for event '2024-08-12'
+2026-09-18T15:38:09.944319Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:38:21.888364Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:38:21.929983Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\culref\data\_all.pkl
+2026-09-18T15:38:23.017045Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:38:23.017045Z INFO  main Plotting 'CUL ref' data for event '2024-08-12'
+2026-09-18T15:38:23.032566Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:38:34.236810Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/culref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:38:35.700893Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/culref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:38:36.262136Z INFO  main Reading 'CUL ref' data for event '2024-08-17'
+2026-09-18T15:38:36.273778Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:38:42.166734Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:38:43.114421Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\culref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:38:43.990931Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\culref\data\_all.pkl
+2026-09-18T15:38:44.572137Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:38:45.216734Z INFO  main   Uniq dts [ns] = [  1000000000 161000000000]
+2026-09-18T15:38:45.216734Z INFO  main   Uniq dts [#]  = 2
+2026-09-18T15:38:45.216734Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:38:45.218782Z INFO  main 
+    std: : [11.600946872069592, 27.96804027874617, 12.425879059255312]
+    ave: : [25605.414083899585, 127.25582818044535, 37263.65440921104]
+    min: : [25572.258966666664, 59.11833333333333, 37235.78088333333]
+    max: : [25637.24805, 181.00006666666667, 37283.882300000005]
+    n: 3181
+    n_valid: : [1766, 1766, 1766]
+    dt_original: : [1000000000, 161000000000]
+2026-09-18T15:38:45.218782Z INFO  main Plotting 'CUL ref' data for event '2024-08-17'
+2026-09-18T15:38:45.235856Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:38:53.547808Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:38:55.576141Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:38:56.822215Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:38:58.580693Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:38:59.804392Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:39:01.774450Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/culref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:39:02.403781Z INFO  main Reading 'CUL ref' data for event '2023-05-09'
+2026-09-18T15:39:02.419831Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:39:08.697653Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:39:08.737302Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\culref\data\_all.pkl
+2026-09-18T15:39:09.409993Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:39:09.413660Z INFO  main Plotting 'CUL ref' data for event '2023-05-09'
+2026-09-18T15:39:09.426667Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:39:17.939312Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/culref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:39:19.118865Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/culref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:39:19.632276Z INFO  main Reading 'CUL ref' data for event '2022-07-23'
+2026-09-18T15:39:19.642527Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:39:22.533415Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:39:23.039442Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\culref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:39:23.585232Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\culref\data\_all.pkl
+2026-09-18T15:39:23.868750Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:39:24.199953Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:39:24.199953Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:39:24.199953Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:39:24.199953Z INFO  main 
+    std: : [11.838316670929547, 21.04349061891428, 5.7512323977531405]
+    ave: : [25586.713873440138, 13.65791003276719, 37187.58069682023]
+    min: : [25568.45826666667, -19.01165, 37175.53201666667]
+    max: : [25640.123483333333, 59.77401666666666, 37200.44008333333]
+    n: 1621
+    n_valid: : [1228, 1228, 1228]
+    dt_original: : [1000000000]
+2026-09-18T15:39:24.205541Z INFO  main Plotting 'CUL ref' data for event '2022-07-23'
+2026-09-18T15:39:24.215794Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:39:29.765552Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:39:31.545693Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:39:32.547761Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:39:34.133440Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:39:35.138318Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:39:36.884435Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/culref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:39:37.437511Z INFO  main Reading 'CUL ref' data for event '2023-04-24'
+2026-09-18T15:39:37.450326Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:39:45.955869Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:39:45.972234Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\culref\data\_all.pkl
+2026-09-18T15:39:46.867151Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:39:46.869192Z INFO  main Plotting 'CUL ref' data for event '2023-04-24'
+2026-09-18T15:39:46.882012Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:39:56.921407Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/culref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:39:58.209009Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/culref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:39:58.757795Z INFO  main Reading 'CUL ref' data for event '2024-03-24'
+2026-09-18T15:39:58.770023Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:40:07.383635Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:40:08.393750Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\culref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:40:09.327871Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\culref\data\_all.pkl
+2026-09-18T15:40:10.199648Z INFO  main Computing stats for 'CUL ref' data
+2026-09-18T15:40:11.158087Z INFO  main   Uniq dts [ns] = [  1000000000 160000000000 162000000000]
+2026-09-18T15:40:11.158087Z INFO  main   Uniq dts [#]  = 3
+2026-09-18T15:40:11.158087Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:40:11.158087Z INFO  main 
+    std: : [34.98726227677164, 31.10402128783235, 9.419478763203724]
+    ave: : [25504.83778720954, 107.9563225805952, 37281.764371757345]
+    min: : [25403.69765, -21.259383333333336, 37250.480149999996]
+    max: : [25611.768099999998, 148.55841666666666, 37307.25338333333]
+    n: 661
+    n_valid: : [659, 659, 659]
+    dt_original: : [1000000000, 160000000000, 162000000000]
+2026-09-18T15:40:11.165713Z INFO  main Plotting 'CUL ref' data for event '2024-03-24'
+2026-09-18T15:40:11.178592Z INFO  main   Plotting 'CUL ref/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:40:21.249480Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:40:23.053780Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:40:24.189558Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:40:26.128482Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:40:27.443345Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:40:29.504948Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/culref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:40:30.123483Z INFO  main Reading 'MAS line' data for event '2024-05-10'
+2026-09-18T15:40:30.140355Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:40:38.879230Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:40:38.916633Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\masline\data\_all.pkl
+2026-09-18T15:40:39.838682Z INFO  main Computing stats for 'MAS line' data
+2026-09-18T15:40:39.843385Z INFO  main Plotting 'MAS line' data for event '2024-05-10'
+2026-09-18T15:40:39.854495Z INFO  main   Plotting 'MAS line/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:40:50.837660Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:40:52.229659Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:40:52.768621Z INFO  main Reading 'MAS line' data for event '2024-08-12'
+2026-09-18T15:40:52.780784Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:41:03.527867Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:41:03.540096Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\masline\data\_all.pkl
+2026-09-18T15:41:04.675569Z INFO  main Computing stats for 'MAS line' data
+2026-09-18T15:41:04.678704Z INFO  main Plotting 'MAS line' data for event '2024-08-12'
+2026-09-18T15:41:04.687607Z INFO  main   Plotting 'MAS line/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:41:15.790799Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/masline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:41:17.567657Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/masline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:41:18.177419Z INFO  main Reading 'MAS line' data for event '2024-08-17'
+2026-09-18T15:41:18.189048Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:41:23.846705Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:41:23.858788Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\masline\data\_all.pkl
+2026-09-18T15:41:24.454663Z INFO  main Computing stats for 'MAS line' data
+2026-09-18T15:41:24.457663Z INFO  main Plotting 'MAS line' data for event '2024-08-17'
+2026-09-18T15:41:24.466644Z INFO  main   Plotting 'MAS line/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:41:32.506224Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/masline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:41:34.047917Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/masline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:41:34.574563Z INFO  main Reading 'MAS ref' data for event '2024-05-10'
+2026-09-18T15:41:34.586685Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:41:44.195197Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:41:45.463465Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\masref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:41:46.443984Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\masref\data\_all.pkl
+2026-09-18T15:41:47.389015Z INFO  main Computing stats for 'MAS ref' data
+2026-09-18T15:41:48.442848Z INFO  main   Uniq dts [ns] = [  1000000000  72000000000  79000000000  98000000000 160000000000
+ 162000000000]
+2026-09-18T15:41:48.443881Z INFO  main   Uniq dts [#]  = 6
+2026-09-18T15:41:48.443881Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:41:48.445432Z INFO  main 
+    std: : [131.1382107853091, 66.11871766801823, 124.55035887840461]
+    ave: : [24985.276714603075, 212.2341007099301, 38103.07709990306]
+    min: : [21303.55742857143, 8.494428571428577, 32514.089428571428]
+    max: : [25349.516233333332, 403.00525, 38190.335933333336]
+    n: 2341
+    n_valid: : [2339, 2339, 2339]
+    dt_original: : [1000000000 nanoseconds, 72000000000 nanoseconds, ..., 160000000000 nanoseconds, 162000000000 nanoseconds] (6 elements)
+2026-09-18T15:41:48.448027Z INFO  main Plotting 'MAS ref' data for event '2024-05-10'
+2026-09-18T15:41:48.461562Z INFO  main   Plotting 'MAS ref/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:41:58.687248Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:42:00.433433Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:42:01.617537Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:42:03.508154Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:42:05.219792Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:42:07.070562Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/masref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:42:07.744446Z INFO  main Reading 'MAS ref' data for event '2024-08-12'
+2026-09-18T15:42:07.753632Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:42:19.382398Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:42:19.392385Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\masref\data\_all.pkl
+2026-09-18T15:42:20.513935Z INFO  main Computing stats for 'MAS ref' data
+2026-09-18T15:42:20.516145Z INFO  main Plotting 'MAS ref' data for event '2024-08-12'
+2026-09-18T15:42:20.528418Z INFO  main   Plotting 'MAS ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:42:33.707391Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/masref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:42:35.358079Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/masref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:42:35.901329Z INFO  main Reading 'MAS ref' data for event '2024-08-17'
+2026-09-18T15:42:35.916640Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:42:41.787585Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:42:41.828186Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\masref\data\_all.pkl
+2026-09-18T15:42:42.427604Z INFO  main Computing stats for 'MAS ref' data
+2026-09-18T15:42:42.429620Z INFO  main Plotting 'MAS ref' data for event '2024-08-17'
+2026-09-18T15:42:42.439761Z INFO  main   Plotting 'MAS ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:42:50.166980Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/masref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:42:51.765558Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/masref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:42:52.270451Z INFO  main Reading 'MNR line' data for event '2024-05-10'
+2026-09-18T15:42:52.285577Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:43:01.505872Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:43:02.807008Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mnrline\data\DMM_measured_Marsal.pkl
+2026-09-18T15:43:03.773611Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mnrline\data\_all.pkl
+2026-09-18T15:43:04.683660Z INFO  main Computing stats for 'MNR line' data
+2026-09-18T15:43:05.735210Z INFO  main   Uniq dts [ns] = [  1000000000 159000000000]
+2026-09-18T15:43:05.735210Z INFO  main   Uniq dts [#]  = 2
+2026-09-18T15:43:05.743579Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:43:05.743579Z INFO  main 
+    std: : [101.75818264804042, 69.27546323704084, 26.177947248227774]
+    ave: : [25462.60446127185, 81.06631729737475, 37553.428445519065]
+    min: : [25239.30201666667, -38.43095, 37493.58051666666]
+    max: : [25795.34488333333, 264.009, 37624.00626666667]
+    n: 2341
+    n_valid: : [2337, 2337, 2337]
+    dt_original: : [1000000000, 159000000000]
+2026-09-18T15:43:05.747351Z INFO  main Plotting 'MNR line' data for event '2024-05-10'
+2026-09-18T15:43:05.756975Z INFO  main   Plotting 'MNR line/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:43:16.303612Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrline/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:43:18.153748Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrline/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:43:19.293503Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrline/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:43:21.093710Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrline/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:43:22.353792Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrline/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:43:24.194060Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrline/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:43:24.835000Z INFO  main Reading 'MNR line' data for event '2024-03-24'
+2026-09-18T15:43:24.843704Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:43:33.451003Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:43:34.486319Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\mnrline\data\DMM_measured_Marsal.pkl
+2026-09-18T15:43:35.413508Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\mnrline\data\_all.pkl
+2026-09-18T15:43:36.340422Z INFO  main Computing stats for 'MNR line' data
+2026-09-18T15:43:37.284256Z INFO  main   Uniq dts [ns] = [  1000000000 159000000000]
+2026-09-18T15:43:37.284768Z INFO  main   Uniq dts [#]  = 2
+2026-09-18T15:43:37.284768Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:43:37.284768Z INFO  main 
+    std: : [32.9381159386087, 25.421075731757824, 7.217444350403761]
+    ave: : [25521.846231524076, 14.971024512664874, 37527.146369285256]
+    min: : [25434.008433333333, -82.31791666666666, 37503.1806]
+    max: : [25626.145916666665, 51.494350000000004, 37543.56081666667]
+    n: 661
+    n_valid: : [659, 659, 659]
+    dt_original: : [1000000000, 159000000000]
+2026-09-18T15:43:37.287853Z INFO  main Plotting 'MNR line' data for event '2024-03-24'
+2026-09-18T15:43:37.300716Z INFO  main   Plotting 'MNR line/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:43:48.543843Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrline/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:43:50.261715Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrline/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:43:51.513544Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrline/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:43:53.425197Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrline/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:43:54.709915Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrline/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:43:56.706706Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrline/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:43:57.303565Z INFO  main Reading 'MNR ref' data for event '2024-05-10'
+2026-09-18T15:43:57.323643Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:44:05.503855Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:44:05.541214Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mnrref\data\_all.pkl
+2026-09-18T15:44:06.357740Z INFO  main Computing stats for 'MNR ref' data
+2026-09-18T15:44:06.359748Z INFO  main Plotting 'MNR ref' data for event '2024-05-10'
+2026-09-18T15:44:06.372146Z INFO  main   Plotting 'MNR ref/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:44:16.625863Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:44:17.984775Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mnrref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:44:18.449952Z INFO  main Reading 'MNR ref' data for event '2024-03-24'
+2026-09-18T15:44:18.458643Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:44:26.834782Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:44:26.847182Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\mnrref\data\_all.pkl
+2026-09-18T15:44:27.792450Z INFO  main Computing stats for 'MNR ref' data
+2026-09-18T15:44:27.794651Z INFO  main Plotting 'MNR ref' data for event '2024-03-24'
+2026-09-18T15:44:27.804578Z INFO  main   Plotting 'MNR ref/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:44:37.463804Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:44:38.785970Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/mnrref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:44:39.302275Z INFO  main Reading 'SAN line' data for event '2024-05-10'
+2026-09-18T15:44:39.312415Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:44:47.564956Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:44:47.603604Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\sanline\data\_all.pkl
+2026-09-18T15:44:48.559072Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:44:48.562107Z INFO  main Plotting 'SAN line' data for event '2024-05-10'
+2026-09-18T15:44:48.570320Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:44:58.353790Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:44:59.890417Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:45:00.460148Z INFO  main Reading 'SAN line' data for event '2023-02-26'
+2026-09-18T15:45:00.492150Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-02-26'
+2026-09-18T15:45:09.003912Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:45:09.017498Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-02-26\sites\sanline\data\_all.pkl
+2026-09-18T15:45:09.915268Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:45:09.915268Z INFO  main Plotting 'SAN line' data for event '2023-02-26'
+2026-09-18T15:45:09.931180Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2023-02-26'
+2026-09-18T15:45:20.067246Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:45:21.808311Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:45:22.453688Z INFO  main Reading 'SAN line' data for event '2021-05-12'
+2026-09-18T15:45:22.467048Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-05-12'
+2026-09-18T15:45:25.713607Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:45:26.228686Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanline\data\DMM_measured_Marsal.pkl
+2026-09-18T15:45:26.562702Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanline\data\_all.pkl
+2026-09-18T15:45:26.883679Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:45:27.235293Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:45:27.236851Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:45:27.236851Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:45:27.236851Z INFO  main 
+    std: : [35.40064726985686, 25.956812082333773, 19.2263543512362]
+    ave: : [23737.0362798508, -805.297654169219, 39069.68350048034]
+    min: : [23637.361533333333, -880.6039, 39019.46125]
+    max: : [23807.645216666668, -760.1324999999999, 39139.629733333335]
+    n: 1321
+    n_valid: : [1079, 1079, 1079]
+    dt_original: : [1000000000]
+2026-09-18T15:45:27.239939Z INFO  main Plotting 'SAN line' data for event '2021-05-12'
+2026-09-18T15:45:27.251861Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2021-05-12'
+2026-09-18T15:45:33.661230Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:45:35.588027Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:45:36.634582Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:45:38.749676Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:45:39.804533Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:45:41.789115Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:45:42.373770Z INFO  main Reading 'SAN line' data for event '2021-11-03'
+2026-09-18T15:45:42.386380Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-11-03'
+2026-09-18T15:45:58.093734Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:45:58.105642Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-03\sites\sanline\data\_all.pkl
+2026-09-18T15:45:59.534012Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:45:59.537198Z INFO  main Plotting 'SAN line' data for event '2021-11-03'
+2026-09-18T15:45:59.547808Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2021-11-03'
+2026-09-18T15:46:16.333894Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:46:18.459854Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:46:19.111813Z INFO  main Reading 'SAN line' data for event '2023-09-24'
+2026-09-18T15:46:19.124007Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:46:25.093712Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:46:25.106478Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\sanline\data\_all.pkl
+2026-09-18T15:46:25.699511Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:46:25.701063Z INFO  main Plotting 'SAN line' data for event '2023-09-24'
+2026-09-18T15:46:25.715756Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:46:33.183841Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:46:34.693970Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:46:35.259920Z INFO  main Reading 'SAN line' data for event '2024-04-19'
+2026-09-18T15:46:35.277145Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:46:38.368335Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:46:38.404345Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\sanline\data\_all.pkl
+2026-09-18T15:46:38.708126Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:46:38.708126Z INFO  main Plotting 'SAN line' data for event '2024-04-19'
+2026-09-18T15:46:38.719445Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:46:44.210330Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:46:45.428217Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:46:45.953865Z INFO  main Reading 'SAN line' data for event '2024-08-12'
+2026-09-18T15:46:45.966352Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:46:58.164095Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:46:58.173630Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\sanline\data\_all.pkl
+2026-09-18T15:46:59.295048Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:46:59.300274Z INFO  main Plotting 'SAN line' data for event '2024-08-12'
+2026-09-18T15:46:59.312802Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:47:11.926861Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:47:13.795215Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:47:14.403987Z INFO  main Reading 'SAN line' data for event '2024-08-17'
+2026-09-18T15:47:14.417138Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:47:19.963910Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:47:20.006663Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\sanline\data\_all.pkl
+2026-09-18T15:47:20.813656Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:47:20.822971Z INFO  main Plotting 'SAN line' data for event '2024-08-17'
+2026-09-18T15:47:20.828053Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:47:28.570899Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:47:30.143034Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:47:30.673894Z INFO  main Reading 'SAN line' data for event '2023-05-09'
+2026-09-18T15:47:30.685144Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:47:36.234690Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:47:36.276954Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\sanline\data\_all.pkl
+2026-09-18T15:47:36.820529Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:47:36.824084Z INFO  main Plotting 'SAN line' data for event '2023-05-09'
+2026-09-18T15:47:36.831959Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:47:44.064041Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:47:45.657873Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:47:46.238831Z INFO  main Reading 'SAN line' data for event '2022-07-23'
+2026-09-18T15:47:46.250240Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:47:49.209676Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:47:49.245011Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\sanline\data\_all.pkl
+2026-09-18T15:47:49.533164Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:47:49.534206Z INFO  main Plotting 'SAN line' data for event '2022-07-23'
+2026-09-18T15:47:49.544709Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:47:55.053649Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:47:56.483762Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:47:57.004042Z INFO  main Reading 'SAN line' data for event '2023-04-24'
+2026-09-18T15:47:57.026305Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:48:02.270120Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:02.306990Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\sanline\data\_all.pkl
+2026-09-18T15:48:03.031446Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:48:03.036062Z INFO  main Plotting 'SAN line' data for event '2023-04-24'
+2026-09-18T15:48:03.044759Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:48:08.514897Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:09.427040Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:09.707884Z INFO  main Reading 'SAN line' data for event '2024-03-24'
+2026-09-18T15:48:09.715491Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:48:13.583854Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:13.583854Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\sanline\data\_all.pkl
+2026-09-18T15:48:13.982500Z INFO  main Computing stats for 'SAN line' data
+2026-09-18T15:48:13.984031Z INFO  main Plotting 'SAN line' data for event '2024-03-24'
+2026-09-18T15:48:13.984031Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:48:17.880589Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/sanline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:18.394103Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/sanline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:18.555674Z INFO  main Reading 'SAN ref' data for event '2024-05-10'
+2026-09-18T15:48:18.559823Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:48:21.608029Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:21.616503Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\sanref\data\_all.pkl
+2026-09-18T15:48:21.951571Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:48:21.951571Z INFO  main Plotting 'SAN ref' data for event '2024-05-10'
+2026-09-18T15:48:21.954084Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:48:25.189673Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:25.838474Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:26.033841Z INFO  main Reading 'SAN ref' data for event '2023-02-26'
+2026-09-18T15:48:26.038114Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-02-26'
+2026-09-18T15:48:29.033886Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:29.037510Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-02-26\sites\sanref\data\_all.pkl
+2026-09-18T15:48:29.449967Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:48:29.449967Z INFO  main Plotting 'SAN ref' data for event '2023-02-26'
+2026-09-18T15:48:29.456738Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2023-02-26'
+2026-09-18T15:48:33.568423Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:34.346087Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:34.524684Z INFO  main Reading 'SAN ref' data for event '2021-05-12'
+2026-09-18T15:48:34.524684Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-05-12'
+2026-09-18T15:48:35.447326Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:35.453932Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanref\data\_all.pkl
+2026-09-18T15:48:35.554375Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:48:35.558169Z INFO  main Plotting 'SAN ref' data for event '2021-05-12'
+2026-09-18T15:48:35.558169Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2021-05-12'
+2026-09-18T15:48:37.646022Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:38.220164Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:38.390341Z INFO  main Reading 'SAN ref' data for event '2021-11-03'
+2026-09-18T15:48:38.393857Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-11-03'
+2026-09-18T15:48:43.373821Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:43.382911Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-03\sites\sanref\data\_all.pkl
+2026-09-18T15:48:44.019281Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:48:44.019281Z INFO  main Plotting 'SAN ref' data for event '2021-11-03'
+2026-09-18T15:48:44.023617Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2021-11-03'
+2026-09-18T15:48:49.229403Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:49.946096Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:50.196787Z INFO  main Reading 'SAN ref' data for event '2023-09-24'
+2026-09-18T15:48:50.201257Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:48:52.566190Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:52.572428Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\sanref\data\_all.pkl
+2026-09-18T15:48:52.831644Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:48:52.831644Z INFO  main Plotting 'SAN ref' data for event '2023-09-24'
+2026-09-18T15:48:52.834853Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:48:56.405516Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:48:56.938850Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:48:57.093826Z INFO  main Reading 'SAN ref' data for event '2024-04-19'
+2026-09-18T15:48:57.097714Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:48:58.023795Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:48:58.030483Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\sanref\data\_all.pkl
+2026-09-18T15:48:58.164081Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:48:58.169034Z INFO  main Plotting 'SAN ref' data for event '2024-04-19'
+2026-09-18T15:48:58.173755Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:49:00.378848Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:00.880364Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:01.055987Z INFO  main Reading 'SAN ref' data for event '2024-08-12'
+2026-09-18T15:49:01.056926Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:49:05.654135Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:05.663667Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\sanref\data\_all.pkl
+2026-09-18T15:49:06.138498Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:49:06.140012Z INFO  main Plotting 'SAN ref' data for event '2024-08-12'
+2026-09-18T15:49:06.141024Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:49:10.554736Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:11.044522Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:11.243894Z INFO  main Reading 'SAN ref' data for event '2024-08-17'
+2026-09-18T15:49:11.247447Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:49:13.135809Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:13.135809Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\sanref\data\_all.pkl
+2026-09-18T15:49:13.418977Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:49:13.423743Z INFO  main Plotting 'SAN ref' data for event '2024-08-17'
+2026-09-18T15:49:13.427019Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:49:16.165654Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:16.613911Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:16.802415Z INFO  main Reading 'SAN ref' data for event '2023-05-09'
+2026-09-18T15:49:16.810524Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:49:18.748224Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:18.759834Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\sanref\data\_all.pkl
+2026-09-18T15:49:18.984048Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:49:18.984048Z INFO  main Plotting 'SAN ref' data for event '2023-05-09'
+2026-09-18T15:49:18.990244Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:49:21.758844Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:22.464931Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:22.637747Z INFO  main Reading 'SAN ref' data for event '2022-07-23'
+2026-09-18T15:49:22.644054Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:49:23.668368Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:49:23.913096Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\sanref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:49:24.061205Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\sanref\data\_all.pkl
+2026-09-18T15:49:24.162283Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:49:24.313829Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:49:24.313829Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:49:24.313829Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:49:24.313829Z INFO  main 
+    std: : [12.19551513365845, 21.331352032407715, 6.702030965266827]
+    ave: : [24878.83088485496, 134.86466039027644, 38477.77651907651]
+    min: : [24859.723016666667, 101.61136666666667, 38463.99806666667]
+    max: : [24987.0703, 181.23951666666667, 38496.521766666665]
+    n: 1621
+    n_valid: : [1228, 1228, 1228]
+    dt_original: : [1000000000]
+2026-09-18T15:49:24.319379Z INFO  main Plotting 'SAN ref' data for event '2022-07-23'
+2026-09-18T15:49:24.325280Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:49:26.503727Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:49:27.383692Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:49:27.827768Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:49:28.479750Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:49:28.946449Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:49:29.553756Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/sanref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:49:29.737935Z INFO  main Reading 'SAN ref' data for event '2023-04-24'
+2026-09-18T15:49:29.743988Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:49:31.853806Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:31.858200Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\sanref\data\_all.pkl
+2026-09-18T15:49:32.103736Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:49:32.106743Z INFO  main Plotting 'SAN ref' data for event '2023-04-24'
+2026-09-18T15:49:32.108789Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:49:35.265439Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:35.870846Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:36.097386Z INFO  main Reading 'SAN ref' data for event '2024-03-24'
+2026-09-18T15:49:36.106118Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:49:39.626533Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:39.635345Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\sanref\data\_all.pkl
+2026-09-18T15:49:40.062225Z INFO  main Computing stats for 'SAN ref' data
+2026-09-18T15:49:40.064770Z INFO  main Plotting 'SAN ref' data for event '2024-03-24'
+2026-09-18T15:49:40.071540Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:49:43.517150Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/sanref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:44.053696Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/sanref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:44.295435Z INFO  main Reading 'TRA line' data for event '2024-05-10'
+2026-09-18T15:49:44.302017Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:49:47.409663Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:47.417017Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\traline\data\_all.pkl
+2026-09-18T15:49:47.856260Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:49:47.858774Z INFO  main Plotting 'TRA line' data for event '2024-05-10'
+2026-09-18T15:49:47.863688Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:49:51.514087Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:49:52.158166Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:49:52.430271Z INFO  main Reading 'TRA line' data for event '2023-02-26'
+2026-09-18T15:49:52.430271Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-02-26'
+2026-09-18T15:49:55.915792Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:49:55.917419Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-02-26\sites\traline\data\_all.pkl
+2026-09-18T15:49:56.309170Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:49:56.309170Z INFO  main Plotting 'TRA line' data for event '2023-02-26'
+2026-09-18T15:49:56.313809Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2023-02-26'
+2026-09-18T15:50:00.093778Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:00.748919Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:00.967473Z INFO  main Reading 'TRA line' data for event '2023-09-24'
+2026-09-18T15:50:00.973092Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:50:03.058698Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:03.064161Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\traline\data\_all.pkl
+2026-09-18T15:50:03.324171Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:03.325196Z INFO  main Plotting 'TRA line' data for event '2023-09-24'
+2026-09-18T15:50:03.325196Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:50:06.396496Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:07.015266Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:07.284594Z INFO  main Reading 'TRA line' data for event '2024-04-19'
+2026-09-18T15:50:07.291005Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:50:08.544051Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:50:08.698709Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\traline\data\DMM_measured_Marsal.pkl
+2026-09-18T15:50:08.798216Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\traline\data\_all.pkl
+2026-09-18T15:50:08.928557Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:09.088296Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:50:09.093764Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:50:09.093764Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:50:09.093764Z INFO  main 
+    std: : [38.25144164388373, 23.22331640772739, 18.596538300224278]
+    ave: : [25552.929377189892, -65.00440273437493, 37435.42509547824]
+    min: : [25463.090366666667, -118.30601666666666, 37399.16405]
+    max: : [25606.564950000004, 13.089933333333333, 37507.28023333333]
+    n: 1921
+    n_valid: : [1408, 1408, 1408]
+    dt_original: : [1000000000]
+2026-09-18T15:50:09.093764Z INFO  main Plotting 'TRA line' data for event '2024-04-19'
+2026-09-18T15:50:09.093764Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:50:11.578052Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traline/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:50:12.403709Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traline/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:50:12.826103Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traline/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:50:13.675991Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traline/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:50:14.124143Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traline/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:50:14.743964Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traline/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:50:15.003738Z INFO  main Reading 'TRA line' data for event '2024-08-12'
+2026-09-18T15:50:15.009740Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:50:20.073985Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:20.080013Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\traline\data\_all.pkl
+2026-09-18T15:50:20.554183Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:20.554183Z INFO  main Plotting 'TRA line' data for event '2024-08-12'
+2026-09-18T15:50:20.563923Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:50:26.546683Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:27.423728Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:27.663659Z INFO  main Reading 'TRA line' data for event '2024-08-17'
+2026-09-18T15:50:27.667638Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:50:29.773862Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:29.779085Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\traline\data\_all.pkl
+2026-09-18T15:50:30.021323Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:30.023148Z INFO  main Plotting 'TRA line' data for event '2024-08-17'
+2026-09-18T15:50:30.026714Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:50:33.311123Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:34.171231Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:34.427050Z INFO  main Reading 'TRA line' data for event '2023-05-09'
+2026-09-18T15:50:34.435556Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:50:36.880793Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:36.886487Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\traline\data\_all.pkl
+2026-09-18T15:50:37.110127Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:37.112800Z INFO  main Plotting 'TRA line' data for event '2023-05-09'
+2026-09-18T15:50:37.112800Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:50:40.305994Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:40.999235Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:41.203079Z INFO  main Reading 'TRA line' data for event '2022-07-23'
+2026-09-18T15:50:41.207592Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:50:42.288611Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:42.293130Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\traline\data\_all.pkl
+2026-09-18T15:50:42.400664Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:42.402675Z INFO  main Plotting 'TRA line' data for event '2022-07-23'
+2026-09-18T15:50:42.406623Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:50:44.574542Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:45.237294Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:45.448410Z INFO  main Reading 'TRA line' data for event '2023-04-24'
+2026-09-18T15:50:45.454483Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:50:47.849828Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:47.856099Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\traline\data\_all.pkl
+2026-09-18T15:50:48.119672Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:48.122185Z INFO  main Plotting 'TRA line' data for event '2023-04-24'
+2026-09-18T15:50:48.125943Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:50:51.597769Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:50:52.189184Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:50:52.400115Z INFO  main Reading 'TRA line' data for event '2024-03-24'
+2026-09-18T15:50:52.406914Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:50:55.351161Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:50:55.356954Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\traline\data\_all.pkl
+2026-09-18T15:50:55.766360Z INFO  main Computing stats for 'TRA line' data
+2026-09-18T15:50:55.768356Z INFO  main Plotting 'TRA line' data for event '2024-03-24'
+2026-09-18T15:50:55.772740Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:50:59.475167Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/traline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:51:00.153243Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/traline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:51:00.374089Z INFO  main Reading 'TRA ref' data for event '2024-05-10'
+2026-09-18T15:51:00.378088Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-05-10'
+2026-09-18T15:51:02.654670Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:51:02.658689Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\traref\data\_all.pkl
+2026-09-18T15:51:02.946594Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:51:02.946594Z INFO  main Plotting 'TRA ref' data for event '2024-05-10'
+2026-09-18T15:51:02.949035Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2024-05-10'
+2026-09-18T15:51:07.525910Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:51:09.428716Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:51:09.897601Z INFO  main Reading 'TRA ref' data for event '2023-02-26'
+2026-09-18T15:51:09.912654Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-02-26'
+2026-09-18T15:51:15.270380Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:51:15.277383Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-02-26\sites\traref\data\_all.pkl
+2026-09-18T15:51:15.947753Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:51:15.950759Z INFO  main Plotting 'TRA ref' data for event '2023-02-26'
+2026-09-18T15:51:15.957766Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2023-02-26'
+2026-09-18T15:51:21.843266Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:51:22.786025Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-02-26/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:51:23.081673Z INFO  main Reading 'TRA ref' data for event '2023-09-24'
+2026-09-18T15:51:23.100610Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-09-24'
+2026-09-18T15:51:26.514803Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:51:26.522356Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-09-24\sites\traref\data\_all.pkl
+2026-09-18T15:51:26.872967Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:51:26.884365Z INFO  main Plotting 'TRA ref' data for event '2023-09-24'
+2026-09-18T15:51:26.895242Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2023-09-24'
+2026-09-18T15:51:31.532379Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:51:32.359010Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-09-24/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:51:32.580459Z INFO  main Reading 'TRA ref' data for event '2024-04-19'
+2026-09-18T15:51:32.593693Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-04-19'
+2026-09-18T15:51:34.364277Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:51:34.381691Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-04-19\sites\traref\data\_all.pkl
+2026-09-18T15:51:34.540830Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:51:34.540830Z INFO  main Plotting 'TRA ref' data for event '2024-04-19'
+2026-09-18T15:51:34.540830Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2024-04-19'
+2026-09-18T15:51:37.584909Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:51:38.371854Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-04-19/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:51:38.626513Z INFO  main Reading 'TRA ref' data for event '2024-08-12'
+2026-09-18T15:51:38.639617Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-12'
+2026-09-18T15:51:45.475372Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:51:45.475372Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-12\sites\traref\data\_all.pkl
+2026-09-18T15:51:46.204247Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:51:46.204247Z INFO  main Plotting 'TRA ref' data for event '2024-08-12'
+2026-09-18T15:51:46.208927Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-12'
+2026-09-18T15:51:53.874468Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:51:54.724232Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-12/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:51:55.044962Z INFO  main Reading 'TRA ref' data for event '2024-08-17'
+2026-09-18T15:51:55.052635Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-08-17'
+2026-09-18T15:51:58.302709Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:51:58.311025Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-08-17\sites\traref\data\_all.pkl
+2026-09-18T15:51:58.819380Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:51:58.821595Z INFO  main Plotting 'TRA ref' data for event '2024-08-17'
+2026-09-18T15:51:58.821595Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2024-08-17'
+2026-09-18T15:52:03.326636Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:52:04.140556Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-08-17/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:52:04.427915Z INFO  main Reading 'TRA ref' data for event '2023-05-09'
+2026-09-18T15:52:04.446107Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:52:07.923104Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:52:07.942478Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\traref\data\_all.pkl
+2026-09-18T15:52:08.246413Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:52:08.248164Z INFO  main Plotting 'TRA ref' data for event '2023-05-09'
+2026-09-18T15:52:08.254906Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:52:13.205875Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:52:14.377777Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:52:14.743888Z INFO  main Reading 'TRA ref' data for event '2022-07-23'
+2026-09-18T15:52:14.753107Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:52:16.442353Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:52:16.442353Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\traref\data\_all.pkl
+2026-09-18T15:52:16.612274Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:52:16.612274Z INFO  main Plotting 'TRA ref' data for event '2022-07-23'
+2026-09-18T15:52:16.612274Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:52:19.747287Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:52:20.720699Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:52:20.999218Z INFO  main Reading 'TRA ref' data for event '2023-04-24'
+2026-09-18T15:52:21.006229Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:52:24.337918Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:52:24.789701Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\traref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:52:25.115236Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\traref\data\_all.pkl
+2026-09-18T15:52:25.452285Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:52:25.837029Z INFO  main   Uniq dts [ns] = [  1000000000 101000000000]
+2026-09-18T15:52:25.837029Z INFO  main   Uniq dts [#]  = 2
+2026-09-18T15:52:25.837029Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:52:25.837029Z INFO  main 
+    std: : [34.32356394332011, 41.95009323645165, 19.888563846797148]
+    ave: : [25628.646225569908, -98.88116571507871, 37326.481369618574]
+    min: : [25561.100183333332, -158.15428333333332, 37278.85298333333]
+    max: : [25727.373000000003, 30.106266666666667, 37381.565833333334]
+    n: 1201
+    n_valid: : [1201, 1201, 1201]
+    dt_original: : [1000000000, 101000000000]
+2026-09-18T15:52:25.837029Z INFO  main Plotting 'TRA ref' data for event '2023-04-24'
+2026-09-18T15:52:25.852752Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:52:30.449430Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:52:31.715925Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:52:32.327766Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:52:33.520151Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:52:34.098314Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:52:35.420040Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/traref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:52:35.786929Z INFO  main Reading 'TRA ref' data for event '2024-03-24'
+2026-09-18T15:52:35.803592Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2024-03-24'
+2026-09-18T15:52:40.571894Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:52:40.578325Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-03-24\sites\traref\data\_all.pkl
+2026-09-18T15:52:41.080200Z INFO  main Computing stats for 'TRA ref' data
+2026-09-18T15:52:41.080200Z INFO  main Plotting 'TRA ref' data for event '2024-03-24'
+2026-09-18T15:52:41.080200Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal' original vs. modified data for event '2024-03-24'
+2026-09-18T15:52:46.901259Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/traref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:52:47.666401Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-03-24/sites/traref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:52:47.976363Z INFO  main Reading 'LUC line' data for event '2021-05-12'
+2026-09-18T15:52:47.989062Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-05-12'
+2026-09-18T15:52:49.588502Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:52:49.591123Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\lucline\data\_all.pkl
+2026-09-18T15:52:49.776975Z INFO  main Computing stats for 'LUC line' data
+2026-09-18T15:52:49.781187Z INFO  main Plotting 'LUC line' data for event '2021-05-12'
+2026-09-18T15:52:49.791617Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal' original vs. modified data for event '2021-05-12'
+2026-09-18T15:52:53.320394Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:52:54.655246Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:52:54.957022Z INFO  main Reading 'LUC line' data for event '2021-11-03'
+2026-09-18T15:52:54.978451Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-11-03'
+2026-09-18T15:53:04.721014Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:53:04.721014Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-03\sites\lucline\data\_all.pkl
+2026-09-18T15:53:05.840570Z INFO  main Computing stats for 'LUC line' data
+2026-09-18T15:53:05.840570Z INFO  main Plotting 'LUC line' data for event '2021-11-03'
+2026-09-18T15:53:05.852979Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal' original vs. modified data for event '2021-11-03'
+2026-09-18T15:53:14.936805Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/lucline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:53:16.657806Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/lucline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:53:17.043874Z INFO  main Reading 'LUC line' data for event '2023-05-09'
+2026-09-18T15:53:17.060189Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:53:20.270568Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:53:20.270568Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\lucline\data\_all.pkl
+2026-09-18T15:53:20.591847Z INFO  main Computing stats for 'LUC line' data
+2026-09-18T15:53:20.591847Z INFO  main Plotting 'LUC line' data for event '2023-05-09'
+2026-09-18T15:53:20.591847Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:53:24.994756Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/lucline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:53:26.098222Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/lucline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:53:26.426656Z INFO  main Reading 'LUC line' data for event '2022-07-23'
+2026-09-18T15:53:26.437379Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:53:27.906511Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:53:27.912482Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\lucline\data\_all.pkl
+2026-09-18T15:53:28.053351Z INFO  main Computing stats for 'LUC line' data
+2026-09-18T15:53:28.053351Z INFO  main Plotting 'LUC line' data for event '2022-07-23'
+2026-09-18T15:53:28.062100Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:53:31.448469Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:53:32.634237Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:53:32.932702Z INFO  main Reading 'LUC line' data for event '2023-04-24'
+2026-09-18T15:53:32.943800Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:53:36.078171Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:53:36.085038Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\lucline\data\_all.pkl
+2026-09-18T15:53:36.407139Z INFO  main Computing stats for 'LUC line' data
+2026-09-18T15:53:36.413450Z INFO  main Plotting 'LUC line' data for event '2023-04-24'
+2026-09-18T15:53:36.422448Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:53:41.032326Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucline/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:53:42.259979Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucline/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:53:42.587762Z INFO  main Reading 'LUC ref' data for event '2021-05-12'
+2026-09-18T15:53:42.595866Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-05-12'
+2026-09-18T15:53:43.827276Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:53:43.833196Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\lucref\data\_all.pkl
+2026-09-18T15:53:44.079681Z INFO  main Computing stats for 'LUC ref' data
+2026-09-18T15:53:44.079681Z INFO  main Plotting 'LUC ref' data for event '2021-05-12'
+2026-09-18T15:53:44.087544Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal' original vs. modified data for event '2021-05-12'
+2026-09-18T15:53:47.103336Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:53:47.994493Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:53:48.263551Z INFO  main Reading 'LUC ref' data for event '2021-11-03'
+2026-09-18T15:53:48.274579Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-11-03'
+2026-09-18T15:53:58.050268Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:53:58.058502Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-03\sites\lucref\data\_all.pkl
+2026-09-18T15:53:59.188621Z INFO  main Computing stats for 'LUC ref' data
+2026-09-18T15:53:59.191800Z INFO  main Plotting 'LUC ref' data for event '2021-11-03'
+2026-09-18T15:53:59.200033Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal' original vs. modified data for event '2021-11-03'
+2026-09-18T15:54:09.855173Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/lucref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:54:11.400071Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-03/sites/lucref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:54:11.797865Z INFO  main Reading 'LUC ref' data for event '2023-05-09'
+2026-09-18T15:54:11.808741Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-05-09'
+2026-09-18T15:54:15.035655Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:54:15.035655Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-05-09\sites\lucref\data\_all.pkl
+2026-09-18T15:54:15.418222Z INFO  main Computing stats for 'LUC ref' data
+2026-09-18T15:54:15.418222Z INFO  main Plotting 'LUC ref' data for event '2023-05-09'
+2026-09-18T15:54:15.429774Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal' original vs. modified data for event '2023-05-09'
+2026-09-18T15:54:20.069456Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/lucref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:54:21.495310Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-05-09/sites/lucref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:54:21.847563Z INFO  main Reading 'LUC ref' data for event '2022-07-23'
+2026-09-18T15:54:21.855708Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2022-07-23'
+2026-09-18T15:54:23.237406Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:54:23.506013Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\lucref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:54:23.817694Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2022-07-23\sites\lucref\data\_all.pkl
+2026-09-18T15:54:23.980368Z INFO  main Computing stats for 'LUC ref' data
+2026-09-18T15:54:24.168653Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:54:24.168653Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:54:24.170664Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:54:24.170664Z INFO  main 
+    std: : [12.596793759734775, 22.479359971319788, 202.26958005396986]
+    ave: : [27261.841656840974, -187.12063031914914, 34030.730789021836]
+    min: : [27225.3799, -221.88363333333334, 27244.7988]
+    max: : [27318.2589, -141.0836666666667, 34059.74375]
+    n: 1621
+    n_valid: : [1128, 1128, 1128]
+    dt_original: : [1000000000]
+2026-09-18T15:54:24.172676Z INFO  main Plotting 'LUC ref' data for event '2022-07-23'
+2026-09-18T15:54:24.180580Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal' original vs. modified data for event '2022-07-23'
+2026-09-18T15:54:27.623559Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:54:29.380855Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:54:29.928983Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:54:31.141667Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:54:31.665891Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:54:32.510729Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2022-07-23/sites/lucref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:54:32.768712Z INFO  main Reading 'LUC ref' data for event '2023-04-24'
+2026-09-18T15:54:32.776993Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2023-04-24'
+2026-09-18T15:54:36.058263Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:54:36.593693Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\lucref\data\DMM_measured_Marsal.pkl
+2026-09-18T15:54:36.974839Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\lucref\data\_all.pkl
+2026-09-18T15:54:37.326480Z INFO  main Computing stats for 'LUC ref' data
+2026-09-18T15:54:37.707135Z INFO  main   Uniq dts [ns] = [  1000000000 162000000000]
+2026-09-18T15:54:37.707135Z INFO  main   Uniq dts [#]  = 2
+2026-09-18T15:54:37.707135Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:54:37.707135Z INFO  main 
+    std: : [30.370421462508904, 41.73303813103457, 15.565644157381008]
+    ave: : [27207.461481844515, -49.902560493239704, 34074.03034138219]
+    min: : [27141.0076, -113.71548333333334, 34043.06748333333]
+    max: : [27305.3239, 61.32065, 34131.48206666667]
+    n: 1201
+    n_valid: : [1201, 1201, 1201]
+    dt_original: : [1000000000, 162000000000]
+2026-09-18T15:54:37.707135Z INFO  main Plotting 'LUC ref' data for event '2023-04-24'
+2026-09-18T15:54:37.719445Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal' original vs. modified data for event '2023-04-24'
+2026-09-18T15:54:42.792299Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucref/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:54:44.043209Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucref/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:54:44.674615Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucref/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:54:46.474511Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucref/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:54:47.278065Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucref/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:54:48.634928Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/lucref/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:54:48.974343Z INFO  main Reading 'VIL line' data for event '2021-05-12'
+2026-09-18T15:54:48.988007Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-05-12'
+2026-09-18T15:54:50.476385Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-18T15:54:50.729858Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\villine\data\DMM_measured_Marsal.pkl
+2026-09-18T15:54:51.013819Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\villine\data\_all.pkl
+2026-09-18T15:54:51.169632Z INFO  main Computing stats for 'VIL line' data
+2026-09-18T15:54:51.356091Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-18T15:54:51.357842Z INFO  main   Uniq dts [#]  = 1
+2026-09-18T15:54:51.357842Z INFO  main   Stats for DMM/measured/Marsal:
+2026-09-18T15:54:51.357842Z INFO  main 
+    std: : [34.281029161770824, 29.593206528969613, 20.84614692770624]
+    ave: : [25204.074805817876, -181.19612160493844, 37901.909501496884]
+    min: : [25104.573516666667, -265.6265333333333, 37849.645416666666]
+    max: : [25267.59485, -137.72344999999999, 37932.13656666667]
+    n: 1321
+    n_valid: : [1080, 1080, 1080]
+    dt_original: : [1000000000]
+2026-09-18T15:54:51.361356Z INFO  main Plotting 'VIL line' data for event '2021-05-12'
+2026-09-18T15:54:51.373769Z INFO  main   Plotting 'VIL line/DMM/measured/Marsal' original vs. modified data for event '2021-05-12'
+2026-09-18T15:54:55.310754Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal_Bx.png
+2026-09-18T15:54:56.335587Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal_Bx.pdf
+2026-09-18T15:54:56.888369Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal_By.png
+2026-09-18T15:54:57.952238Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal_By.pdf
+2026-09-18T15:54:58.497024Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal_Bz.png
+2026-09-18T15:54:59.578199Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal_Bz.pdf
+2026-09-18T15:54:59.897239Z INFO  main Reading 'VIL ref' data for event '2021-05-12'
+2026-09-18T15:54:59.914942Z INFO  main   Reading 'DMM/measured/Marsal' data for event '2021-05-12'
+2026-09-18T15:55:01.605140Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-18T15:55:01.622377Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\vilref\data\_all.pkl
+2026-09-18T15:55:01.789154Z INFO  main Computing stats for 'VIL ref' data
+2026-09-18T15:55:01.789154Z INFO  main Plotting 'VIL ref' data for event '2021-05-12'
+2026-09-18T15:55:01.812181Z INFO  main   Plotting 'VIL ref/DMM/measured/Marsal' original vs. modified data for event '2021-05-12'
+2026-09-18T15:55:05.339969Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/vilref/figures\original\DMM_measured_Marsal.png
+2026-09-18T15:55:06.289701Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/vilref/figures\original\DMM_measured_Marsal.pdf
+2026-09-18T15:55:06.649472Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.csv
+2026-09-18T15:55:06.664495Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-18T15:55:06.664495Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json

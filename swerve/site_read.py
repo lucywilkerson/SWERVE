@@ -597,56 +597,46 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         }
 
   if data_type == 'DMM' and data_class == 'measured' and data_source == 'Marsal':
-      data_path = os.path.join(data_dir, 'marsal', event, 'gic', sid, f'{sid}_LIN')
+      sid_name,sid_type = sid.strip().split()
+      if sid_type == 'line':
+        data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), sid_name, f'{sid_name}_LIN')
+      elif sid_type == 'ref':
+        data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), sid_name, f'{sid_name}_REF')
       if not os.path.exists(data_path):
         raise FileNotFoundError(f"Data directory not found: {data_path}")
     
-      time_line = []
-      bx_line = []
-      by_line = []
-      bz_line = []
+      time = []
+      data =[]
 
       for item in os.listdir(data_path):
         with open(os.path.join(data_path, item), "r") as file:
             for line in file:
+                if line.startswith('\x1a'):
+                  continue
                 # Split line by whitespace and convert to float
                 row = line.split()
                 timestamp = f'{row[0]}-{row[1]}-{row[2]}{row[3]}:{row[4]}:{row[5]}'
-                time_line.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
-                bx_line.append(float(row[6]))
-                by_line.append(float(row[7]))
-                bz_line.append(float(row[8]))
+                time.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
+                data_bx = float(row[6])
+                data_by = float(row[7])
+                data_bz = float(row[8])
+                data.append([data_bx, data_by, data_bz])
 
-      data_path = os.path.join(data_dir, 'marsal', event, 'gic', sid, f'{sid}_REF')
-      if not os.path.exists(data_path):
-        raise FileNotFoundError(f"Data directory not found: {data_path}")
-
-      time_ref = []
-      bx_ref = []
-      by_ref = []
-      bz_ref = []
-
-      for item in os.listdir(data_path):
-        with open(os.path.join(data_path, item), "r") as file:
-            for line in file:
-                # Split line by whitespace and convert to float
-                row = line.split()
-                timestamp = f'{row[0]}-{row[1]}-{row[2]}{row[3]}:{row[4]}:{row[5]}'
-                time_ref.append(datetime.datetime.strptime(timestamp, "%Y-%m-%d%H:%M:%S"))
-                bx_ref.append(float(row[6]))
-                by_ref.append(float(row[7]))
-                bz_ref.append(float(row[8]))
-
-      print('need to write function to handle DMM data!')
-      exit()
-
-      data = numpy.array(data).reshape(-1, 1)
-      return {
-        "time": numpy.array(corrected_time).flatten(),
-        "data": data,
-        "labels": ["GIC"],
-        "unit": "A"
-      }
+      if len(time) != len(numpy.unique(time)):
+        return {
+                  "time": numpy.array(time),
+                  "data": numpy.array(data),
+                  "labels": ["Bx", "By", "Bz"],
+                  "unit": "nT",
+                  "error": 'Duplicate time stamps found'
+                }
+      else:
+        return {
+          "time": numpy.array(time),
+          "data": numpy.array(data),
+          "labels": ["Bx", "By", "Bz"],
+          "unit": "nT"
+        }
   
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Zhang2020':
     data_path = os.path.join(data_dir, 'zhang2020', event)
