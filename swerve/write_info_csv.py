@@ -35,12 +35,6 @@ def write_info_csv():
     data_sources = CONFIG['info_kwargs']['data_source']
     events = CONFIG['event']
 
-    # If not specified, run for all data types/data classes
-    if data_types is None or data_types == []:
-        data_types = ['GIC', 'DMM', 'B']
-    if data_classes is None or data_classes == []:
-        data_classes = ['measured', 'calculated']
-
     data_dir = CONFIG['dirs']['original']
 
     # empty list to hold info
@@ -206,8 +200,28 @@ def write_info_csv():
                         continue
 
             elif data_source == 'Zhang2020':
-                print('no info yet...')
-                exit()
+                # read site names for CHN data from Zhang 2020 paper
+                for data_type in data_types:
+                    if 'measured' in data_classes:
+                        data_class = 'measured'
+                        if data_type == 'GIC':
+                            file_dir = os.path.join(data_dir, f'{data_source.lower()}')
+                            event_dir = os.path.join(file_dir, event, f'{data_type.lower()}')
+                            if not os.path.exists(event_dir):
+                                logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                                continue
+                            file = os.path.join(file_dir, 'zhang_2020_info.csv')
+                        else:
+                            continue
+                        with open(file, 'r') as csvfile:
+                            rows = csv.reader(csvfile, delimiter=',')
+                            # skip header
+                            next(rows)
+                            for row in rows:
+                                site_id = row[0]
+                                geo_lat = float(row[1])
+                                geo_lon = float(row[2])
+                                info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
 
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")

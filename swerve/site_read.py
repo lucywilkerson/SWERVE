@@ -639,8 +639,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         }
   
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Zhang2020':
-    data_path = os.path.join(data_dir, 'zhang2020', event)
-    data_file = next((f for f in os.listdir(data_path) if f.endswith('.txt')), None)
+    data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower())
+    data_file = next((f for f in os.listdir(data_path) if (f.startswith(f'{event.replace('-','')}') and f.endswith('.txt'))), None)
     data_path = os.path.join(data_path, data_file)
     if not os.path.exists(data_path):
         raise FileNotFoundError(f"Data file not found: {data_path}")
@@ -662,8 +662,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
           data.append(float(row[4]) if row[4] != '' else numpy.nan)
 
     return {
-            "time": numpy.array(corrected_time).flatten(),
-            "data": data,
+            "time": numpy.array(time).flatten(),
+            "data": numpy.array(data).reshape(-1, 1),
             "labels": ["GIC"],
             "unit": "A"
           }
