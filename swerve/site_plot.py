@@ -294,7 +294,8 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
                 'modified':{'color': 'orange', 'lw': 0.4},
                 'SWMF':{'color': 'blue', 'lw': 0.4},
                 'MAGE':{'color': 'green', 'lw': 0.4},
-                'OpenGGCM':{'color': 'orange', 'lw': 0.4},} #TODO: set outside of function, remove repetition
+                'OpenGGCM':{'color': 'orange', 'lw': 0.4},
+                'general':{'color': 'gray', 'lw': 0.4}} #TODO: set outside of function, remove repetition
   
   if ('Automated' not in suptitle and 'Manual' in suptitle):
     line1_opts = {'color': 'seagreen', 'lw': 1}
@@ -338,7 +339,10 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
               added_data1 = True
             if component_labels2[source][j]:
               show_legend = True
-              kwargs2 = {'label': component_labels2[source][j], **line2_opts[source]}
+              if source in line2_opts.keys():
+                kwargs2 = {'label': component_labels2[source][j], **line2_opts[source]}
+              else:
+                kwargs2 = {'label': component_labels2[source][j], **line2_opts['general']}
             else:
               kwargs2 = line2_opts[source]
             axes.plot(data2[source]['time'], data2[source]['data'][:, j], **kwargs2) #TODO: fix issue w time for Bx, By, Bz
@@ -352,7 +356,10 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
 
     if style == 'scatter':
       for source in data2.keys():
-        axes.scatter(data1['data'][:, j], data2[source]['data'][:, j], label=component_labels2[source][j], s=1, color=line2_opts[source]['color'])
+        if source in line2_opts.keys():
+          axes.scatter(data1['data'][:, j], data2[source]['data'][:, j], label=component_labels2[source][j], s=1, color=line2_opts[source]['color'])
+        else:
+          axes.scatter(data1['data'][:, j], data2[source]['data'][:, j], label=component_labels2[source][j], s=1, color=line2_opts['general']['color'])
         if fit is not None and fit[source] is True:
           import numpy as np
           line_fit = np.polyfit(data1['data'][:, j],  data2[source]['data'][:, j], 1)
