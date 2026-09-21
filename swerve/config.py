@@ -27,10 +27,14 @@ def config():
 
   # If event_dict.json exists in the corresponding info directory, use it. Otherwise, create it from the run configuration file.
   event_dict_file = os.path.abspath(os.path.join(info_dir, 'events_dict.json'))
-  if os.path.exists(event_dict_file) and not conf.get('reparse_info', False):
+  if os.path.exists(event_dict_file):
     import json
     with open(event_dict_file, 'r') as f:
       event_dict = json.load(f)
+    # Check if *any* event in the list is missing from the dictionary
+    event_list = conf.get("event", [])
+    if any(event not in event_dict for event in event_list):
+      event_dict = _write_event_dict(conf, file_path)
   else:
     event_dict = _write_event_dict(conf, file_path)
 
