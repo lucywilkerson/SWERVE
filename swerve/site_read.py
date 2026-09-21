@@ -667,6 +667,31 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "labels": ["GIC"],
             "unit": "A"
           }
+
+  if data_type == 'GIC' and data_source == 'AlvesRibeiro':
+    data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), 'GIC_estimated_and_observed_storm_sep_2021.txt')
+    if not os.path.exists(data_file):
+        raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    time = []
+    data = []
+
+    with open(data_file, "r") as file:
+        next(file) # Skip the header line
+        for line in file:
+            row = line.split()
+            time.append(datetime.datetime.strptime(f'{row[0]} {row[1]}', "%d/%m/%Y %H:%M"))
+            if data_class == 'calculated':
+              data.append(float(row[2]) if row[2] != '' else numpy.nan)
+            if data_class == 'measured':
+              data.append(float(row[3]) if row[3] != '' else numpy.nan)
+
+    return {
+            "time": numpy.array(time).flatten(),
+            "data": numpy.array(data).reshape(-1, 1),
+            "labels": ["GIC"],
+            "unit": "A"
+          }
     
 
     
