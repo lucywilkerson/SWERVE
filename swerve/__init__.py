@@ -317,6 +317,8 @@ def savefig(base_dir, fname, logger, logger_indent=0, root_dir=None, fmts=['png'
     os.makedirs(base_dir)
   fname = os.path.join(base_dir, fname)
 
+  plt.rcParams['agg.path.chunksize'] = 10000
+
   for fmt in fmts:
     logger.info(f"{logger_indent}Writing {fname}.{fmt}")
     if fmt == 'png':
