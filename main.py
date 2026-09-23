@@ -31,15 +31,13 @@ if len(events) > 1:
 else:
   sids_only = sids(**info_kwargs, key=sids_only, add_event=True, logger=logger)
 
-
-# TODO: If info.extended.csv does not exist, run info.py code.
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
 
 data = {}
 stats = {}
 rows = []
 for sid, event in sids_only:
-  data[sid] = {}
+  data[sid] = {} # TODO: make data[event][sid] instead of data[sid]
 
   # Read and parse data or use cached data if found and reparse is False.
   data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
