@@ -2,6 +2,7 @@
 def site_plot(sid, event, data, data_types=None, logger=None, show_plots=False):
 
   import os
+  from matplotlib import pyplot as plt
 
   from swerve import config, savefig, savefig_paper
 
@@ -82,6 +83,7 @@ def site_plot(sid, event, data, data_types=None, logger=None, show_plots=False):
         else:
           logger.info(f"  No data for '{sid}/{data_type}/{data_class}/{data_source}' for event '{event}'")
 
+  plt.close('all')
 
 def _plot_raw_mage(data, sid, show_plots=False):
   # Special case for MAGE data, plot raw data in a different way
