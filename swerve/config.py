@@ -134,6 +134,7 @@ def _write_event_dict(conf, file_path):
   """
   import json
   import os
+  import datetime
   from datetime import timedelta
   from swerve import storm_time
 
@@ -142,7 +143,6 @@ def _write_event_dict(conf, file_path):
   
   # If no event is specified, use start_time and stop_time from config file to create an event
   if events == None and conf.get('start_time'):
-    from datetime import timedelta
     times = [conf.get('start_time'), conf.get('stop_time')]
     events = [f"{times[0].strftime('%Y-%m-%d')}"]
   elif events == None or events == []:
@@ -182,8 +182,7 @@ def _write_event_dict(conf, file_path):
       
     # If no start_time and stop_time are specified and event is a NERC event, use the data_limits from nerc_events
     elif event in nerc_events:
-      from datetime import datetime
-      event_dict[event]['data_limits'] = [datetime.strptime(nerc_events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), datetime.strptime(nerc_events[event]['data_limits'][1], '%Y-%m-%dT%H:%M')]
+      event_dict[event]['data_limits'] = [datetime.datetime.strptime(nerc_events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), datetime.strptime(nerc_events[event]['data_limits'][1], '%Y-%m-%dT%H:%M')]
       event_dict[event]['nerc_prefix'] = nerc_events[event]['nerc_prefix']   
 
     # Determine storm time if not specified    
