@@ -724,6 +724,32 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "labels": ["GIC"],
             "unit": "A"
           }
+
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Espinosa':
+    import openpyxl
+    data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower())
+    data_file = os.path.join(data_path, 'swe20818-sup-0002-2018sw002094-table_si-s01.xlsx')
+    if not os.path.exists(data_file):
+        raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    time = []
+    data = []
+
+    workbook = openpyxl.load_workbook(data_file)
+    sheet = workbook.active
+    for row in sheet.iter_rows(values_only=True):
+        # Skip header row
+        if row[1].startswith('Time'):
+            continue
+        time.append(datetime.datetime.strptime(f'{row[1]}', "%d-%b-%Y %H:%M:%S"))
+        data.append(float(row[2]))
+    
+    return {
+                "time": numpy.array(time).flatten(),
+                "data": numpy.array(data).reshape(-1, 1),
+                "labels": ["GIC"],
+                "unit": "A"
+              }
     
 
     
