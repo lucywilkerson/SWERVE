@@ -1207,3 +1207,599 @@
 2026-09-24T06:26:00.872931Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_Bx.png
 2026-09-24T06:26:02.851045Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_Bx.pdf
 2026-09-24T06:26:04.092238Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:26:05.914426Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:26:07.188692Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:26:09.271225Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:26:10.839830Z INFO  main Reading 'LUC ref' data for event '2021-05-12'
+2026-09-24T06:26:10.848264Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:26:13.690184Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:26:13.702915Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\lucref\data\_all.pkl
+2026-09-24T06:26:13.955615Z INFO  main Computing stats for 'LUC ref' data
+2026-09-24T06:26:13.955615Z INFO  main Plotting 'LUC ref' data for event '2021-05-12'
+2026-09-24T06:26:13.955615Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:26:29.982651Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucref/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:26:31.507670Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucref/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:26:31.992522Z INFO  main Reading 'LUC ref' data for event '2020-07-24'
+2026-09-24T06:26:32.010908Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-24'
+2026-09-24T06:26:37.596912Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:26:38.478394Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\lucref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:26:39.098145Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\lucref\data\_all.pkl
+2026-09-24T06:26:39.566021Z INFO  main Computing stats for 'LUC ref' data
+2026-09-24T06:26:40.252926Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:26:40.259288Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:26:40.259288Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:26:40.261302Z INFO  main 
+    std: : [19.438981709687166, 19.705401876516213, 8.004941362738156]
+    ave: : [27228.95215369523, 53.463898755504616, 33986.67952071607]
+    min: : [27172.543183333335, 7.694333333333334, 33972.35633333334]
+    max: : [27264.243566666668, 86.21788333333333, 34005.28896666667]
+    n: 1741
+    n_valid: : [1741, 1741, 1741]
+    dt_original: : [1000000000]
+2026-09-24T06:26:40.261302Z INFO  main Plotting 'LUC ref' data for event '2020-07-24'
+2026-09-24T06:26:40.275109Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-24'
+2026-09-24T06:26:57.017365Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:26:58.074755Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:26:58.677098Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:26:59.810827Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:27:00.444831Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:27:01.647240Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:27:02.428002Z INFO  main Reading 'SAN line' data for event '2021-03-24'
+2026-09-24T06:27:02.436886Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-03-24'
+2026-09-24T06:27:10.305445Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:27:11.453432Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\sanline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:27:12.142387Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\sanline\data\_all.pkl
+2026-09-24T06:27:12.906979Z INFO  main Computing stats for 'SAN line' data
+2026-09-24T06:27:13.852645Z INFO  main   Uniq dts [ns] = [  1000000000 101000000000 102000000000]
+2026-09-24T06:27:13.852645Z INFO  main   Uniq dts [#]  = 3
+2026-09-24T06:27:13.854656Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:27:13.854656Z INFO  main 
+    std: : [10.528509528838903, 12.74637316589494, 4.22361813123947]
+    ave: : [23707.84933704984, -777.9455149451114, 39091.86771557343]
+    min: : [23676.43358333333, -804.9162, 39081.96871666667]
+    max: : [23734.7754, -745.0480166666667, 39193.61818333333]
+    n: 2941
+    n_valid: : [2939, 2939, 2939]
+    dt_original: : [1000000000, 101000000000, 102000000000]
+2026-09-24T06:27:13.854656Z INFO  main Plotting 'SAN line' data for event '2021-03-24'
+2026-09-24T06:27:13.867121Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal2021' original vs. modified data for event '2021-03-24'
+2026-09-24T06:27:54.859737Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:27:56.233917Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:27:57.003720Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:27:58.271471Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:27:59.172478Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:28:00.642814Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:28:01.626730Z INFO  main Reading 'SAN line' data for event '2020-07-13'
+2026-09-24T06:28:01.637219Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-13'
+2026-09-24T06:28:04.746937Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:28:04.815525Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-13\sites\sanline\data\_all.pkl
+2026-09-24T06:28:05.093544Z INFO  main Computing stats for 'SAN line' data
+2026-09-24T06:28:05.093544Z INFO  main Plotting 'SAN line' data for event '2020-07-13'
+2026-09-24T06:28:05.093544Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-13'
+2026-09-24T06:28:18.488754Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/sanline/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:28:19.822269Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/sanline/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:28:20.172918Z INFO  main Reading 'SAN line' data for event '2021-05-12'
+2026-09-24T06:28:20.181154Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:28:21.741956Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:28:22.011333Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:28:22.322446Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanline\data\_all.pkl
+2026-09-24T06:28:22.474315Z INFO  main Computing stats for 'SAN line' data
+2026-09-24T06:28:22.663627Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:28:22.663627Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:28:22.663627Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:28:22.663627Z INFO  main 
+    std: : [35.40064726985686, 25.956812082333773, 19.2263543512362]
+    ave: : [23737.0362798508, -805.297654169219, 39069.68350048034]
+    min: : [23637.361533333333, -880.6039, 39019.46125]
+    max: : [23807.645216666668, -760.1324999999999, 39139.629733333335]
+    n: 1321
+    n_valid: : [1079, 1079, 1079]
+    dt_original: : [1000000000]
+2026-09-24T06:28:22.663627Z INFO  main Plotting 'SAN line' data for event '2021-05-12'
+2026-09-24T06:28:22.675892Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:28:34.142879Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:28:35.241882Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:28:35.762754Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:28:36.965720Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:28:37.481034Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:28:38.598086Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:28:39.404189Z INFO  main Reading 'SAN line' data for event '2021-05-26'
+2026-09-24T06:28:39.410248Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-26'
+2026-09-24T06:28:42.555080Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:28:43.032017Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\sanline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:28:43.319055Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\sanline\data\_all.pkl
+2026-09-24T06:28:43.618180Z INFO  main Computing stats for 'SAN line' data
+2026-09-24T06:28:43.999055Z INFO  main   Uniq dts [ns] = [  1000000000 101000000000]
+2026-09-24T06:28:44.005783Z INFO  main   Uniq dts [#]  = 2
+2026-09-24T06:28:44.007803Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:28:44.007803Z INFO  main 
+    std: : [19.749352253907823, 16.959931502674046, 7.270325045453358]
+    ave: : [23789.684734478928, -780.0068222261408, 39056.49018443162]
+    min: : [23711.9144, -821.6797666666666, 39038.08006666667]
+    max: : [23859.68705, -733.0045666666666, 39133.39701666667]
+    n: 1201
+    n_valid: : [1200, 1200, 1200]
+    dt_original: : [1000000000, 101000000000]
+2026-09-24T06:28:44.013764Z INFO  main Plotting 'SAN line' data for event '2021-05-26'
+2026-09-24T06:28:44.025800Z INFO  main   Plotting 'SAN line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-26'
+2026-09-24T06:28:56.282064Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:28:57.464001Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:28:58.070079Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:28:59.118850Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:28:59.686537Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:29:00.812104Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:29:01.656912Z INFO  main Reading 'SAN ref' data for event '2021-03-24'
+2026-09-24T06:29:01.666076Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-03-24'
+2026-09-24T06:29:09.205149Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:29:10.332541Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\sanref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:29:11.068706Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\sanref\data\_all.pkl
+2026-09-24T06:29:11.906578Z INFO  main Computing stats for 'SAN ref' data
+2026-09-24T06:29:12.867264Z INFO  main   Uniq dts [ns] = [  1000000000 101000000000 102000000000]
+2026-09-24T06:29:12.867264Z INFO  main   Uniq dts [#]  = 3
+2026-09-24T06:29:12.867264Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:29:12.867264Z INFO  main 
+    std: : [10.528509528838903, 12.74637316589494, 4.22361813123947]
+    ave: : [23707.84933704984, -777.9455149451114, 39091.86771557343]
+    min: : [23676.43358333333, -804.9162, 39081.96871666667]
+    max: : [23734.7754, -745.0480166666667, 39193.61818333333]
+    n: 2941
+    n_valid: : [2939, 2939, 2939]
+    dt_original: : [1000000000, 101000000000, 102000000000]
+2026-09-24T06:29:12.867264Z INFO  main Plotting 'SAN ref' data for event '2021-03-24'
+2026-09-24T06:29:12.882563Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-03-24'
+2026-09-24T06:29:36.778455Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:29:37.957073Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:29:38.742399Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:29:39.934719Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:29:40.738600Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:29:42.183577Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/sanref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:29:43.196354Z INFO  main Reading 'SAN ref' data for event '2020-07-13'
+2026-09-24T06:29:43.208564Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-13'
+2026-09-24T06:29:46.458108Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:29:46.503661Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-13\sites\sanref\data\_all.pkl
+2026-09-24T06:29:46.814692Z INFO  main Computing stats for 'SAN ref' data
+2026-09-24T06:29:46.816704Z INFO  main Plotting 'SAN ref' data for event '2020-07-13'
+2026-09-24T06:29:46.822477Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-13'
+2026-09-24T06:30:00.586329Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/sanref/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:30:01.897373Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/sanref/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:30:02.224378Z INFO  main Reading 'SAN ref' data for event '2021-05-12'
+2026-09-24T06:30:02.232289Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:30:03.803411Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:30:04.083436Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:30:04.225339Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\sanref\data\_all.pkl
+2026-09-24T06:30:04.367285Z INFO  main Computing stats for 'SAN ref' data
+2026-09-24T06:30:04.562624Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:30:04.562624Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:30:04.562624Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:30:04.562624Z INFO  main 
+    std: : [35.40064726985686, 25.956812082333773, 19.2263543512362]
+    ave: : [23737.0362798508, -805.297654169219, 39069.68350048034]
+    min: : [23637.361533333333, -880.6039, 39019.46125]
+    max: : [23807.645216666668, -760.1324999999999, 39139.629733333335]
+    n: 1321
+    n_valid: : [1079, 1079, 1079]
+    dt_original: : [1000000000]
+2026-09-24T06:30:04.562624Z INFO  main Plotting 'SAN ref' data for event '2021-05-12'
+2026-09-24T06:30:04.573160Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:30:15.858907Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:30:16.960976Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:30:17.493028Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:30:18.652403Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:30:19.218847Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:30:20.335596Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/sanref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:30:21.108075Z INFO  main Reading 'SAN ref' data for event '2021-05-26'
+2026-09-24T06:30:21.125924Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-26'
+2026-09-24T06:30:24.570533Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:30:25.059152Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\sanref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:30:25.396878Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\sanref\data\_all.pkl
+2026-09-24T06:30:25.739801Z INFO  main Computing stats for 'SAN ref' data
+2026-09-24T06:30:26.121190Z INFO  main   Uniq dts [ns] = [  1000000000 101000000000]
+2026-09-24T06:30:26.121190Z INFO  main   Uniq dts [#]  = 2
+2026-09-24T06:30:26.121190Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:30:26.121190Z INFO  main 
+    std: : [19.749352253907823, 16.959931502674046, 7.270325045453358]
+    ave: : [23789.684734478928, -780.0068222261408, 39056.49018443162]
+    min: : [23711.9144, -821.6797666666666, 39038.08006666667]
+    max: : [23859.68705, -733.0045666666666, 39133.39701666667]
+    n: 1201
+    n_valid: : [1200, 1200, 1200]
+    dt_original: : [1000000000, 101000000000]
+2026-09-24T06:30:26.124443Z INFO  main Plotting 'SAN ref' data for event '2021-05-26'
+2026-09-24T06:30:26.129205Z INFO  main   Plotting 'SAN ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-26'
+2026-09-24T06:30:39.056820Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:30:40.146894Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:30:40.784326Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:30:41.958854Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:30:42.553965Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:30:43.766249Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/sanref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:30:44.609439Z INFO  main Reading 'TRA line' data for event '2021-03-24'
+2026-09-24T06:30:44.616994Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-03-24'
+2026-09-24T06:30:52.272601Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:30:52.278203Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\traline\data\_all.pkl
+2026-09-24T06:30:53.046966Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:30:53.049555Z INFO  main Plotting 'TRA line' data for event '2021-03-24'
+2026-09-24T06:30:53.051571Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2021-03-24'
+2026-09-24T06:31:28.973055Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traline/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:31:30.491819Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traline/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:31:31.242781Z INFO  main Reading 'TRA line' data for event '2021-04-23'
+2026-09-24T06:31:31.253030Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-04-23'
+2026-09-24T06:31:37.848936Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:31:37.864870Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-04-23\sites\traline\data\_all.pkl
+2026-09-24T06:31:38.502034Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:31:38.502034Z INFO  main Plotting 'TRA line' data for event '2021-04-23'
+2026-09-24T06:31:38.517937Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2021-04-23'
+2026-09-24T06:31:51.074017Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traline/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:31:51.589625Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traline/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:31:51.730618Z INFO  main Reading 'TRA line' data for event '2020-07-13'
+2026-09-24T06:31:51.738811Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-13'
+2026-09-24T06:31:53.045463Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:31:53.244930Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-13\sites\traline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:31:53.500024Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-13\sites\traline\data\_all.pkl
+2026-09-24T06:31:53.662248Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:31:53.831586Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:31:53.831586Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:31:53.831586Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:31:53.831586Z INFO  main 
+    std: : [11.705154650395345, 19.36421991448045, 7.254693824721127]
+    ave: : [25004.90812693945, 210.20318757145216, 37534.66493429695]
+    min: : [24980.02878333333, 175.65565, 37517.654]
+    max: : [25028.203566666667, 243.1909, 37552.81931666667]
+    n: 2041
+    n_valid: : [2041, 2041, 2041]
+    dt_original: : [1000000000]
+2026-09-24T06:31:53.831586Z INFO  main Plotting 'TRA line' data for event '2020-07-13'
+2026-09-24T06:31:53.831586Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-13'
+2026-09-24T06:32:00.146193Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:32:00.709429Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:32:00.974652Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:32:01.532881Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:32:01.847525Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:32:02.466544Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:32:02.843333Z INFO  main Reading 'TRA line' data for event '2021-05-12'
+2026-09-24T06:32:02.844841Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:32:03.601485Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:32:03.605252Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\traline\data\_all.pkl
+2026-09-24T06:32:03.674961Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:32:03.674961Z INFO  main Plotting 'TRA line' data for event '2021-05-12'
+2026-09-24T06:32:03.683091Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:32:08.565689Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traline/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:32:09.056021Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traline/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:32:09.199980Z INFO  main Reading 'TRA line' data for event '2020-07-24'
+2026-09-24T06:32:09.199980Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-24'
+2026-09-24T06:32:10.597035Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:32:10.802746Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\traline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:32:10.949026Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\traline\data\_all.pkl
+2026-09-24T06:32:11.099070Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:32:11.249939Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:32:11.249939Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:32:11.249939Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:32:11.249939Z INFO  main 
+    std: : [17.33439594698924, 21.18513989481647, 8.86739077290226]
+    ave: : [25011.77550923797, 204.1580699789392, 37531.64465770632]
+    min: : [24964.66085, 152.65706666666668, 37514.07991666666]
+    max: : [25047.140666666666, 239.88861666666668, 37551.64871666666]
+    n: 1741
+    n_valid: : [1741, 1741, 1741]
+    dt_original: : [1000000000]
+2026-09-24T06:32:11.249939Z INFO  main Plotting 'TRA line' data for event '2020-07-24'
+2026-09-24T06:32:11.249939Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-24'
+2026-09-24T06:32:16.789151Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:32:17.314682Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:32:17.537817Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:32:18.104698Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:32:18.372413Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:32:18.947832Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:32:19.314834Z INFO  main Reading 'TRA line' data for event '2021-05-26'
+2026-09-24T06:32:19.315839Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-26'
+2026-09-24T06:32:20.758340Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:32:20.765954Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\traline\data\_all.pkl
+2026-09-24T06:32:20.956615Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:32:20.958633Z INFO  main Plotting 'TRA line' data for event '2021-05-26'
+2026-09-24T06:32:20.958633Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-26'
+2026-09-24T06:32:26.610209Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traline/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:32:27.096036Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traline/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:32:27.228598Z INFO  main Reading 'TRA line' data for event '2021-03-06'
+2026-09-24T06:32:27.228598Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-03-06'
+2026-09-24T06:32:28.631490Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:32:28.862362Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-06\sites\traline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:32:29.017944Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-06\sites\traline\data\_all.pkl
+2026-09-24T06:32:29.175328Z INFO  main Computing stats for 'TRA line' data
+2026-09-24T06:32:29.335849Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:32:29.335849Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:32:29.335849Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:32:29.335849Z INFO  main 
+    std: : [9.358132522344473, 10.625738600277012, 6.260771201481641]
+    ave: : [24974.360303948597, -36.38693132019114, 37605.39682578856]
+    min: : [24946.089, -61.146316666666664, 37585.94395]
+    max: : [25020.674750000002, 2.0675833333333333, 37630.02706666666]
+    n: 2821
+    n_valid: : [2790, 2790, 2790]
+    dt_original: : [1000000000]
+2026-09-24T06:32:29.335849Z INFO  main Plotting 'TRA line' data for event '2021-03-06'
+2026-09-24T06:32:29.335849Z INFO  main   Plotting 'TRA line/DMM/measured/Marsal2021' original vs. modified data for event '2021-03-06'
+2026-09-24T06:32:35.660459Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:32:36.223111Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:32:36.512780Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:32:37.148701Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:32:37.470414Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:32:38.149346Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:32:38.567872Z INFO  main Reading 'TRA ref' data for event '2021-03-24'
+2026-09-24T06:32:38.569742Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-03-24'
+2026-09-24T06:32:42.218305Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:32:42.699171Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:32:43.141773Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\traref\data\_all.pkl
+2026-09-24T06:32:43.584419Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:32:43.966466Z INFO  main   Uniq dts [ns] = [  1000000000 101000000000 102000000000]
+2026-09-24T06:32:43.966466Z INFO  main   Uniq dts [#]  = 3
+2026-09-24T06:32:43.966466Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:32:43.968471Z INFO  main 
+    std: : [11.797864895266974, 12.670775023239075, 5.034169320766156]
+    ave: : [25373.377768674185, -67.61428340347287, 37373.45996690784]
+    min: : [25346.32185, -96.61615, 37360.51203333333]
+    max: : [25407.69946666667, -35.46903333333333, 37396.52295]
+    n: 2941
+    n_valid: : [2939, 2939, 2939]
+    dt_original: : [1000000000, 101000000000, 102000000000]
+2026-09-24T06:32:43.968976Z INFO  main Plotting 'TRA ref' data for event '2021-03-24'
+2026-09-24T06:32:43.972564Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-03-24'
+2026-09-24T06:32:54.107028Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:32:54.650948Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:32:55.035720Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:32:55.611121Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:32:55.973910Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:32:56.617808Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:32:57.010727Z INFO  main Reading 'TRA ref' data for event '2021-04-23'
+2026-09-24T06:32:57.013637Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-04-23'
+2026-09-24T06:32:59.802674Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:33:00.184888Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-04-23\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:33:00.542599Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-04-23\sites\traref\data\_all.pkl
+2026-09-24T06:33:00.937345Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:33:01.250793Z INFO  main   Uniq dts [ns] = [  1000000000 100000000000]
+2026-09-24T06:33:01.250793Z INFO  main   Uniq dts [#]  = 2
+2026-09-24T06:33:01.250793Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:33:01.250793Z INFO  main 
+    std: : [17.28649562771532, 15.508334005377902, 6.973090126115388]
+    ave: : [25403.984975016938, -60.92439478737647, 37355.47849275624]
+    min: : [25358.1161, -99.42261666666667, 37336.781533333335]
+    max: : [25476.4017, -5.3360666666666665, 37386.694233333335]
+    n: 2881
+    n_valid: : [2879, 2879, 2879]
+    dt_original: : [1000000000, 100000000000]
+2026-09-24T06:33:01.250793Z INFO  main Plotting 'TRA ref' data for event '2021-04-23'
+2026-09-24T06:33:01.266754Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-04-23'
+2026-09-24T06:33:08.141043Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:33:08.639875Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:33:09.009302Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:33:09.514897Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:33:09.945424Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:33:10.550081Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:33:10.921341Z INFO  main Reading 'TRA ref' data for event '2020-07-13'
+2026-09-24T06:33:10.924690Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-13'
+2026-09-24T06:33:12.357238Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:33:12.569695Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-13\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:33:12.731359Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-13\sites\traref\data\_all.pkl
+2026-09-24T06:33:12.943538Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:33:13.110207Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:33:13.110207Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:33:13.110207Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:33:13.110207Z INFO  main 
+    std: : [12.014161486075267, 19.627015419863273, 7.07845219929023]
+    ave: : [25448.24425979915, 126.38444007022717, 37290.74714930584]
+    min: : [25423.086133333334, 89.98123333333334, 37273.76116666666]
+    max: : [25471.840116666666, 159.343, 37308.413766666665]
+    n: 2041
+    n_valid: : [2041, 2041, 2041]
+    dt_original: : [1000000000]
+2026-09-24T06:33:13.110207Z INFO  main Plotting 'TRA ref' data for event '2020-07-13'
+2026-09-24T06:33:13.115297Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-13'
+2026-09-24T06:33:18.311536Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:33:18.772798Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:33:19.055446Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:33:19.519197Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:33:19.811976Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:33:20.309021Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-13/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:33:20.636931Z INFO  main Reading 'TRA ref' data for event '2021-05-12'
+2026-09-24T06:33:20.636931Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:33:21.342777Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:33:21.452982Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:33:21.536622Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\traref\data\_all.pkl
+2026-09-24T06:33:21.614844Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:33:21.700253Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:33:21.700253Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:33:21.700253Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:33:21.700253Z INFO  main 
+    std: : [37.56035778076684, 30.288663108502274, 23.623238279414938]
+    ave: : [25408.002135242423, -81.2031491988817, 37347.06448827485]
+    min: : [25291.302766666668, -166.42511666666667, 37272.94971666667]
+    max: : [25483.996900000002, -36.108333333333334, 37385.8845]
+    n: 1321
+    n_valid: : [1079, 1079, 1079]
+    dt_original: : [1000000000]
+2026-09-24T06:33:21.700253Z INFO  main Plotting 'TRA ref' data for event '2021-05-12'
+2026-09-24T06:33:21.710074Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:33:26.323296Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:33:26.760118Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:33:26.981548Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:33:27.450448Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:33:27.714952Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:33:28.233877Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:33:28.548898Z INFO  main Reading 'TRA ref' data for event '2020-07-24'
+2026-09-24T06:33:28.551829Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-24'
+2026-09-24T06:33:29.913296Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:33:30.116208Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:33:30.255019Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\traref\data\_all.pkl
+2026-09-24T06:33:30.389944Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:33:30.560019Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:33:30.560019Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:33:30.560019Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:33:30.560019Z INFO  main 
+    std: : [17.587431189831445, 21.52359518284535, 9.070706262703265]
+    ave: : [25447.550090359924, 152.03314182462194, 37293.53612279342]
+    min: : [25398.96758333333, 100.7075, 37276.04003333334]
+    max: : [25482.99835, 189.06550000000001, 37314.32098333333]
+    n: 1741
+    n_valid: : [1741, 1741, 1741]
+    dt_original: : [1000000000]
+2026-09-24T06:33:30.560019Z INFO  main Plotting 'TRA ref' data for event '2020-07-24'
+2026-09-24T06:33:30.560019Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-24'
+2026-09-24T06:33:35.759222Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:33:36.184872Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:33:36.444309Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:33:36.897533Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:33:37.164836Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:33:37.669331Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:33:38.014465Z INFO  main Reading 'TRA ref' data for event '2021-05-26'
+2026-09-24T06:33:38.014465Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-26'
+2026-09-24T06:33:39.390421Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:33:39.590537Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:33:39.725579Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\traref\data\_all.pkl
+2026-09-24T06:33:39.880019Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:33:40.041939Z INFO  main   Uniq dts [ns] = [  1000000000 100000000000]
+2026-09-24T06:33:40.041939Z INFO  main   Uniq dts [#]  = 2
+2026-09-24T06:33:40.041939Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:33:40.041939Z INFO  main 
+    std: : [22.900623953060244, 15.766687721773357, 9.368908809907758]
+    ave: : [25459.108553712817, -62.12021569256117, 37332.81541443011]
+    min: : [25411.858, -94.19516666666667, 37314.45186666667]
+    max: : [25540.87846666667, -22.223000000000003, 37371.48725]
+    n: 1201
+    n_valid: : [1200, 1200, 1200]
+    dt_original: : [1000000000, 100000000000]
+2026-09-24T06:33:40.042955Z INFO  main Plotting 'TRA ref' data for event '2021-05-26'
+2026-09-24T06:33:40.048008Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-26'
+2026-09-24T06:33:45.624621Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:33:46.080285Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:33:46.332862Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:33:46.856476Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:33:47.145846Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:33:47.758150Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:33:48.130932Z INFO  main Reading 'TRA ref' data for event '2021-03-06'
+2026-09-24T06:33:48.130932Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-03-06'
+2026-09-24T06:33:49.468239Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:33:49.697299Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-06\sites\traref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:33:49.825026Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-06\sites\traref\data\_all.pkl
+2026-09-24T06:33:49.971035Z INFO  main Computing stats for 'TRA ref' data
+2026-09-24T06:33:50.126784Z INFO  main   Uniq dts [ns] = [   1000000000  102000000000 9051000000000]
+2026-09-24T06:33:50.127794Z INFO  main   Uniq dts [#]  = 3
+2026-09-24T06:33:50.127794Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:33:50.127794Z INFO  main 
+    std: : [9.505749160219136, 10.660326902135335, 6.3767853674863275]
+    ave: : [25354.719420254678, -60.60394012626261, 37382.766103108246]
+    min: : [25325.324716666666, -84.92706666666666, 37363.8798]
+    max: : [25401.504433333335, -22.290116666666666, 37410.030999999995]
+    n: 2821
+    n_valid: : [2640, 2640, 2640]
+    dt_original: : [1000000000, 102000000000, 9051000000000]
+2026-09-24T06:33:50.128801Z INFO  main Plotting 'TRA ref' data for event '2021-03-06'
+2026-09-24T06:33:50.130797Z INFO  main   Plotting 'TRA ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-03-06'
+2026-09-24T06:33:55.573626Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:33:56.049964Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:33:56.340138Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traref/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:33:56.797868Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traref/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:33:57.077747Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:33:57.672918Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-06/sites/traref/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:33:58.008600Z INFO  main Reading 'VIL line' data for event '2021-04-23'
+2026-09-24T06:33:58.008600Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-04-23'
+2026-09-24T06:34:00.770945Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:34:01.114648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-04-23\sites\villine\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:34:01.481379Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-04-23\sites\villine\data\_all.pkl
+2026-09-24T06:34:01.823067Z INFO  main Computing stats for 'VIL line' data
+2026-09-24T06:34:02.165584Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:34:02.165584Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:34:02.165584Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:34:02.165584Z INFO  main 
+    std: : [13.450368512637594, 15.911869621678118, 4.717339859046772]
+    ave: : [25199.00527952101, -169.097499514058, 37911.300971983095]
+    min: : [25165.595583333336, -207.3409, 37898.93405]
+    max: : [25249.707083333335, -113.56576666666666, 37929.343166666666]
+    n: 2881
+    n_valid: : [2881, 2881, 2881]
+    dt_original: : [1000000000]
+2026-09-24T06:34:02.165584Z INFO  main Plotting 'VIL line' data for event '2021-04-23'
+2026-09-24T06:34:02.165584Z INFO  main   Plotting 'VIL line/DMM/measured/Marsal2021' original vs. modified data for event '2021-04-23'
+2026-09-24T06:34:09.614746Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/villine/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:34:10.384267Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/villine/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:34:10.873999Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/villine/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:34:11.375673Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/villine/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:34:11.690764Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/villine/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:34:12.288159Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/villine/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:34:12.653798Z INFO  main Reading 'VIL line' data for event '2021-05-12'
+2026-09-24T06:34:12.669858Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:34:13.356509Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:34:13.481107Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\villine\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:34:13.551417Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\villine\data\_all.pkl
+2026-09-24T06:34:13.628011Z INFO  main Computing stats for 'VIL line' data
+2026-09-24T06:34:13.695626Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:34:13.695626Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:34:13.695626Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:34:13.696626Z INFO  main 
+    std: : [34.281029161770824, 29.593206528969613, 20.84614692770624]
+    ave: : [25204.074805817876, -181.19612160493844, 37901.909501496884]
+    min: : [25104.573516666667, -265.6265333333333, 37849.645416666666]
+    max: : [25267.59485, -137.72344999999999, 37932.13656666667]
+    n: 1321
+    n_valid: : [1080, 1080, 1080]
+    dt_original: : [1000000000]
+2026-09-24T06:34:13.696626Z INFO  main Plotting 'VIL line' data for event '2021-05-12'
+2026-09-24T06:34:13.698627Z INFO  main   Plotting 'VIL line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:34:18.036966Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:34:18.487013Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:34:18.729165Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:34:19.154374Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:34:19.389022Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:34:19.878209Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/villine/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:34:20.193559Z INFO  main Reading 'VIL line' data for event '2021-05-26'
+2026-09-24T06:34:20.195067Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-26'
+2026-09-24T06:34:21.504040Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:34:21.705270Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\villine\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:34:21.841955Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\villine\data\_all.pkl
+2026-09-24T06:34:21.996722Z INFO  main Computing stats for 'VIL line' data
+2026-09-24T06:34:22.163337Z INFO  main   Uniq dts [ns] = [   1000000000  125000000000 5459000000000]
+2026-09-24T06:34:22.163337Z INFO  main   Uniq dts [#]  = 3
+2026-09-24T06:34:22.163337Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:34:22.163337Z INFO  main 
+    std: : [18.625126555382195, 16.247827425387424, 7.775466930036685]
+    ave: : [25245.51249049804, -139.57788327078111, 37888.46716601628]
+    min: : [25201.068216666663, -175.50046666666668, 37842.94188333333]
+    max: : [25300.511183333336, -100.05453333333334, 37910.49053333334]
+    n: 1201
+    n_valid: : [1199, 1199, 1199]
+    dt_original: : [1000000000, 125000000000, 5459000000000]
+2026-09-24T06:34:22.163337Z INFO  main Plotting 'VIL line' data for event '2021-05-26'
+2026-09-24T06:34:22.173311Z INFO  main   Plotting 'VIL line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-26'
+2026-09-24T06:34:27.656107Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/villine/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:34:28.149008Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/villine/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:34:28.431633Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/villine/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:34:28.944831Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/villine/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:34:29.223425Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/villine/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:34:29.748635Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/villine/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:34:30.104033Z INFO  main Reading 'VIL ref' data for event '2021-04-23'
+2026-09-24T06:34:30.104033Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-04-23'
+2026-09-24T06:34:32.851862Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:34:32.853871Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-04-23\sites\vilref\data\_all.pkl
+2026-09-24T06:34:33.147046Z INFO  main Computing stats for 'VIL ref' data
+2026-09-24T06:34:33.149052Z INFO  main Plotting 'VIL ref' data for event '2021-04-23'
+2026-09-24T06:34:33.149052Z INFO  main   Plotting 'VIL ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-04-23'
+2026-09-24T06:34:39.623772Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/vilref/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:34:40.079928Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-04-23/sites/vilref/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:34:40.217965Z INFO  main Reading 'VIL ref' data for event '2021-05-12'
+2026-09-24T06:34:40.219970Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:34:40.990130Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:34:40.994998Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\vilref\data\_all.pkl
+2026-09-24T06:34:41.089136Z INFO  main Computing stats for 'VIL ref' data
+2026-09-24T06:34:41.089136Z INFO  main Plotting 'VIL ref' data for event '2021-05-12'
+2026-09-24T06:34:41.089136Z INFO  main   Plotting 'VIL ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:34:45.199804Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/vilref/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:34:45.616389Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/vilref/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:34:45.730126Z INFO  main Reading 'VIL ref' data for event '2021-05-26'
+2026-09-24T06:34:45.741887Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-26'
+2026-09-24T06:34:47.109323Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:34:47.131706Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-26\sites\vilref\data\_all.pkl
+2026-09-24T06:34:47.285485Z INFO  main Computing stats for 'VIL ref' data
+2026-09-24T06:34:47.285485Z INFO  main Plotting 'VIL ref' data for event '2021-05-26'
+2026-09-24T06:34:47.285485Z INFO  main   Plotting 'VIL ref/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-26'
+2026-09-24T06:34:52.406073Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/vilref/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:34:52.873813Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-26/sites/vilref/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:34:53.025141Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.csv
+2026-09-24T06:34:53.025141Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-24T06:34:53.028586Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json

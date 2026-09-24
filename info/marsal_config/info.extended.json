@@ -12,7 +12,7 @@
             "log10_beta": NaN,
             "mag_lat": 39.63523498352263,
             "mag_lon": 77.65069788265116,
-            "alpha": 0.09539746665332932,
+            "alpha": 0.0953974666533293,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -34,7 +34,7 @@
             "log10_beta": NaN,
             "mag_lat": 39.63311775885773,
             "mag_lon": 77.6479147737831,
-            "alpha": 0.09537424202584269,
+            "alpha": 0.0953742420258426,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -54,7 +54,7 @@
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 43.784933637341105,
+            "mag_lat": 43.78493363734111,
             "mag_lon": 82.50601000197399,
             "alpha": 0.1537406925039018,
             "nearest_volt": NaN,
@@ -76,7 +76,7 @@
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 43.786241355841995,
+            "mag_lat": 43.786241355842,
             "mag_lon": 82.5084936169523,
             "alpha": 0.153763814940534,
             "nearest_volt": NaN,
@@ -122,7 +122,7 @@
             "log10_beta": NaN,
             "mag_lat": 42.64329872907063,
             "mag_lon": 81.04270469473433,
-            "alpha": 0.13482523090416654,
+            "alpha": 0.1348252309041665,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -144,7 +144,7 @@
             "log10_beta": NaN,
             "mag_lat": 43.248935587426764,
             "mag_lon": 81.36638250861465,
-            "alpha": 0.14455030703778468,
+            "alpha": 0.1445503070377846,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -166,7 +166,7 @@
             "log10_beta": NaN,
             "mag_lat": 43.24745491061518,
             "mag_lon": 81.36554086831536,
-            "alpha": 0.14452569542016072,
+            "alpha": 0.1445256954201607,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
