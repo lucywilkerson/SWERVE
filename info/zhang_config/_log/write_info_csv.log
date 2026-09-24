@@ -1,0 +1,4 @@
+2026-09-20T02:56:31.335177Z INFO  write_info_csv    Adding sites for event 2016-03-06 from data source Zhang2020 to info.csv.
+2026-09-20T02:56:31.336267Z INFO  write_info_csv    Adding sites for event 2015-03-17 from data source Zhang2020 to info.csv.
+2026-09-20T02:56:31.337828Z INFO  write_info_csv    Adding sites for event 2015-12-14 from data source Zhang2020 to info.csv.
+2026-09-20T02:56:31.352415Z INFO  write_info_csv    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang_config\info.csv

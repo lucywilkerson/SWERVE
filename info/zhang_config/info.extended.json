@@ -1,0 +1,25 @@
+{
+  "Huangmeishan": {
+    "GIC": {
+      "measured": {
+        "Zhang2020": {
+          "Huangmeishan": {
+            "geo_lat": 27.37,
+            "geo_lon": 169.86,
+            "event": "2015-12-14",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 22.618251215287856,
+            "mag_lon": -121.43464433541271,
+            "alpha": 0.0134785413309396,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1313 A) > 1/4 * std after (0.3212 A);\nCadence is >= 60 seconds (60.0 seconds)"
+          }
+        }
+      }
+    }
+  }
+}

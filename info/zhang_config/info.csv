@@ -1,0 +1,4 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Huangmeishan,27.37,169.86,GIC,measured,Zhang2020,2016-03-06,
+Huangmeishan,27.37,169.86,GIC,measured,Zhang2020,2015-03-17,
+Huangmeishan,27.37,169.86,GIC,measured,Zhang2020,2015-12-14,

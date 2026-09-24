@@ -1,0 +1,10 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+Huangmeishan,27.37,169.86,GIC,measured,Zhang2020,2016-03-06,,,,22.625202621491297,-121.4273752194286,0.0134893205426991,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1313 A) > 1/4 * std after (0.3212 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Huangmeishan,27.37,169.86,GIC,measured,Zhang2020,2015-03-17,,,,22.59537676110199,-121.45849272281724,0.0134431317831091,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1313 A) > 1/4 * std after (0.3212 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Huangmeishan,27.37,169.86,GIC,measured,Zhang2020,2015-12-14,,,,22.618251215287856,-121.43464433541271,0.0134785413309396,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1313 A) > 1/4 * std after (0.3212 A);
+Cadence is >= 60 seconds (60.0 seconds)"
