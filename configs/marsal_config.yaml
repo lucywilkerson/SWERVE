@@ -2,7 +2,7 @@ run_config_name: marsal_config # for saving info files/logs
 
 event: 'all' # make all option
 
-data_source: ['Marsal'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+data_source: ['Marsal2021'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 
 data_type: ['GIC','DMM'] # If specified, only return sites with this data type (e.g., GIC, B)
 

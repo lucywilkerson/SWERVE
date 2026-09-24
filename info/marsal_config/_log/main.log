@@ -1124,3 +1124,86 @@
 2026-09-18T15:55:06.649472Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.csv
 2026-09-18T15:55:06.664495Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
 2026-09-18T15:55:06.664495Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-24T06:23:01.441478Z INFO  main Reading 'LUC line' data for event '2020-08-28'
+2026-09-24T06:23:01.484780Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-08-28'
+2026-09-24T06:23:37.788349Z INFO  main Reading 'LUC line' data for event '2020-08-28'
+2026-09-24T06:23:37.797986Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-08-28'
+2026-09-24T06:23:40.829793Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:23:41.416694Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\lucline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:23:41.707993Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\lucline\data\_all.pkl
+2026-09-24T06:23:42.002245Z INFO  main Computing stats for 'LUC line' data
+2026-09-24T06:23:42.394132Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:23:42.394132Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:23:42.394132Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:23:42.394132Z INFO  main 
+    std: : [9.929126058037662, 11.475706075086793, 5.720423357501468]
+    ave: : [27402.452927139002, 146.0124650071106, 33793.330111286574]
+    min: : [27374.188116666668, 117.173, 33767.1696]
+    max: : [27429.81808333333, 173.14823333333334, 33808.48911666667]
+    n: 3421
+    n_valid: : [2076, 2076, 2076]
+    dt_original: : [1000000000]
+2026-09-24T06:23:43.025310Z INFO  main Plotting 'LUC line' data for event '2020-08-28'
+2026-09-24T06:23:43.025310Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal2021' original vs. modified data for event '2020-08-28'
+2026-09-24T06:24:02.039308Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:24:03.832274Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:24:08.438493Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:24:10.369802Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:24:11.397492Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:24:13.072664Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:24:14.451707Z INFO  main Reading 'LUC line' data for event '2021-05-12'
+2026-09-24T06:24:14.455248Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2021-05-12'
+2026-09-24T06:24:17.377160Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-09-24T06:24:17.421319Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-05-12\sites\lucline\data\_all.pkl
+2026-09-24T06:24:17.848855Z INFO  main Computing stats for 'LUC line' data
+2026-09-24T06:24:17.848855Z INFO  main Plotting 'LUC line' data for event '2021-05-12'
+2026-09-24T06:24:17.869370Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal2021' original vs. modified data for event '2021-05-12'
+2026-09-24T06:24:38.042131Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucline/figures\original\DMM_measured_Marsal2021.png
+2026-09-24T06:24:40.287092Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-05-12/sites/lucline/figures\original\DMM_measured_Marsal2021.pdf
+2026-09-24T06:24:40.864140Z INFO  main Reading 'LUC line' data for event '2020-07-24'
+2026-09-24T06:24:40.888389Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-07-24'
+2026-09-24T06:24:46.666610Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:24:47.517421Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\lucline\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:24:47.988502Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-07-24\sites\lucline\data\_all.pkl
+2026-09-24T06:24:48.586564Z INFO  main Computing stats for 'LUC line' data
+2026-09-24T06:24:49.530586Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:24:49.530586Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:24:49.530586Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:24:49.530586Z INFO  main 
+    std: : [17.29217135090778, 19.717300477434495, 7.388752078228991]
+    ave: : [27379.304833141952, 132.0837394792263, 33805.1905537239]
+    min: : [27332.626466666665, 88.64308333333334, 33790.971633333334]
+    max: : [27408.714549999997, 165.02623333333335, 33823.39771666667]
+    n: 1741
+    n_valid: : [1741, 1741, 1741]
+    dt_original: : [1000000000]
+2026-09-24T06:24:49.530586Z INFO  main Plotting 'LUC line' data for event '2020-07-24'
+2026-09-24T06:24:49.539633Z INFO  main   Plotting 'LUC line/DMM/measured/Marsal2021' original vs. modified data for event '2020-07-24'
+2026-09-24T06:25:08.800673Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucline/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:25:09.977377Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucline/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:25:10.597889Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucline/figures\original\DMM_measured_Marsal2021_By.png
+2026-09-24T06:25:11.783648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucline/figures\original\DMM_measured_Marsal2021_By.pdf
+2026-09-24T06:25:12.398577Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucline/figures\original\DMM_measured_Marsal2021_Bz.png
+2026-09-24T06:25:13.578494Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-07-24/sites/lucline/figures\original\DMM_measured_Marsal2021_Bz.pdf
+2026-09-24T06:25:14.396848Z INFO  main Reading 'LUC ref' data for event '2020-08-28'
+2026-09-24T06:25:14.404792Z INFO  main   Reading 'DMM/measured/Marsal2021' data for event '2020-08-28'
+2026-09-24T06:25:22.176297Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T06:25:23.274084Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\lucref\data\DMM_measured_Marsal2021.pkl
+2026-09-24T06:25:24.180932Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\lucref\data\_all.pkl
+2026-09-24T06:25:25.078482Z INFO  main Computing stats for 'LUC ref' data
+2026-09-24T06:25:26.037332Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-24T06:25:26.037332Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T06:25:26.037332Z INFO  main   Stats for DMM/measured/Marsal2021:
+2026-09-24T06:25:26.037332Z INFO  main 
+    std: : [11.052500364640363, 11.120318568570372, 4.634025295918477]
+    ave: : [27226.566522634672, 4.340161341712954, 33995.66968923316]
+    min: : [27181.08426666667, -23.619866666666667, 33970.5299]
+    max: : [27261.948350000002, 28.7032, 34010.52435]
+    n: 3421
+    n_valid: : [3421, 3421, 3421]
+    dt_original: : [1000000000]
+2026-09-24T06:25:26.043068Z INFO  main Plotting 'LUC ref' data for event '2020-08-28'
+2026-09-24T06:25:26.048183Z INFO  main   Plotting 'LUC ref/DMM/measured/Marsal2021' original vs. modified data for event '2020-08-28'
+2026-09-24T06:26:00.872931Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_Bx.png
+2026-09-24T06:26:02.851045Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_Bx.pdf
+2026-09-24T06:26:04.092238Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/lucref/figures\original\DMM_measured_Marsal2021_By.png

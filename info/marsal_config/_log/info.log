@@ -108,3 +108,341 @@
 2026-09-18T00:24:08.545401Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.csv
 2026-09-18T00:24:08.547947Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
 2026-09-18T00:24:08.557088Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-24T05:47:01.970845Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T05:47:02.856608Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-24T05:47:02.856608Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-24T05:47:04.345777Z WARN  info     Warning: Could not interpolate beta for site CHI line at (40.167025333333335,-3.4283451666666664)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site CHI ref at (40.169217,-3.4229776666666667)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site MAS line at (41.175077,0.3272508333333333)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site MAS ref at (41.173462666666666,0.3259615)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site MNR line at (39.90542883333333,4.1837785)
+2026-09-24T05:47:04.348892Z WARN  info     Warning: Could not interpolate beta for site MNR ref at (39.903235333333335,4.181145666666667)
+2026-09-24T05:47:04.353510Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.354465Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.356128Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.356654Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.357676Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.357676Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.357676Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.359199Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.359199Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.359199Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.360572Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T05:47:04.360572Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T05:47:04.361248Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.361248Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.361248Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T05:47:04.361248Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T05:47:04.361248Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T05:47:04.363265Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T05:47:04.363265Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.363265Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.363265Z WARN  info     Warning: Could not interpolate beta for site CHI line at (40.167025333333335,-3.4283451666666664)
+2026-09-24T05:47:04.365143Z WARN  info     Warning: Could not interpolate beta for site CHI ref at (40.169217,-3.4229776666666667)
+2026-09-24T05:47:04.365143Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.365916Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.366899Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.367632Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.367632Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.367632Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.368630Z WARN  info     Warning: Could not interpolate beta for site CHI line at (40.167025333333335,-3.4283451666666664)
+2026-09-24T05:47:04.368630Z WARN  info     Warning: Could not interpolate beta for site CHI ref at (40.169217,-3.4229776666666667)
+2026-09-24T05:47:04.368630Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.369501Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.369501Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.369501Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.371585Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.371585Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.372608Z WARN  info     Warning: Could not interpolate beta for site CHI line at (40.167025333333335,-3.4283451666666664)
+2026-09-24T05:47:04.374573Z WARN  info     Warning: Could not interpolate beta for site CHI ref at (40.169217,-3.4229776666666667)
+2026-09-24T05:47:04.374573Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.375167Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.375701Z WARN  info     Warning: Could not interpolate beta for site MAS line at (41.175077,0.3272508333333333)
+2026-09-24T05:47:04.375701Z WARN  info     Warning: Could not interpolate beta for site MAS ref at (41.173462666666666,0.3259615)
+2026-09-24T05:47:04.375701Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.375701Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.377987Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.378680Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.378680Z WARN  info     Warning: Could not interpolate beta for site CHI line at (40.167025333333335,-3.4283451666666664)
+2026-09-24T05:47:04.380707Z WARN  info     Warning: Could not interpolate beta for site CHI ref at (40.169217,-3.4229776666666667)
+2026-09-24T05:47:04.380707Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.382839Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.383691Z WARN  info     Warning: Could not interpolate beta for site MAS line at (41.175077,0.3272508333333333)
+2026-09-24T05:47:04.383691Z WARN  info     Warning: Could not interpolate beta for site MAS ref at (41.173462666666666,0.3259615)
+2026-09-24T05:47:04.385805Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.387819Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.387819Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.389581Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.389581Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.389581Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.391189Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T05:47:04.392105Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T05:47:04.392105Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.393360Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.393360Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.393360Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.393360Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.393360Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.396715Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T05:47:04.401840Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T05:47:04.402887Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.404226Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.404226Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.407557Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.410005Z WARN  info     Warning: Could not interpolate beta for site CHI line at (40.167025333333335,-3.4283451666666664)
+2026-09-24T05:47:04.410873Z WARN  info     Warning: Could not interpolate beta for site CHI ref at (40.169217,-3.4229776666666667)
+2026-09-24T05:47:04.411285Z WARN  info     Warning: Could not interpolate beta for site CUL line at (40.30739616666666,-0.1113748333333333)
+2026-09-24T05:47:04.411285Z WARN  info     Warning: Could not interpolate beta for site CUL ref at (40.30804633333333,-0.108697)
+2026-09-24T05:47:04.412008Z WARN  info     Warning: Could not interpolate beta for site MNR line at (39.90542883333333,4.1837785)
+2026-09-24T05:47:04.412875Z WARN  info     Warning: Could not interpolate beta for site MNR ref at (39.903235333333335,4.181145666666667)
+2026-09-24T05:47:04.412875Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T05:47:04.412875Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T05:47:04.412875Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T05:47:04.412875Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T05:47:04.911113Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-24T05:48:25.001354Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.003378Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T05:48:25.038917Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.038917Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T05:48:25.038917Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.038917Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T05:48:25.046434Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.046434Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:48:25.047447Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.047447Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T05:48:25.047447Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.047447Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T05:48:25.047447Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.047447Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T05:48:25.051316Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T05:48:25.051316Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T05:48:25.076139Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T05:48:25.105651Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T05:52:53.171966Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.180212Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:52:53.183536Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.184191Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T05:52:53.184191Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.186199Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T05:52:53.187298Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.187298Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T05:52:53.189272Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.189272Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T05:52:53.190435Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.190435Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T05:52:53.191447Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.191447Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T05:52:53.192991Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T05:52:53.192991Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T05:52:53.196173Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T05:52:53.202432Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T05:54:19.286035Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:54:19.286035Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:55:04.882228Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:55:04.882228Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:56:17.495345Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.495345Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:56:17.495345Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.495345Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T05:56:17.495345Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.495345Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T05:56:17.503516Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.504047Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T05:56:17.504047Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.505291Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T05:56:17.505291Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.506309Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T05:56:17.506309Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.506309Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T05:56:17.507888Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:17.507888Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T05:56:55.552332Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.552332Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:56:55.560023Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.560023Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T05:56:55.560765Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.560765Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T05:56:55.560765Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.560765Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T05:56:55.560765Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.560765Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T05:56:55.564400Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.564400Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T05:56:55.567684Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.567684Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T05:56:55.569645Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T05:56:55.569645Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T05:57:22.243973Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.243973Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T05:57:22.253492Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.253492Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T05:57:22.254508Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.254508Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T05:57:22.254508Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.259207Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T05:57:22.259207Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.259207Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T05:57:22.262621Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.262621Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T05:57:22.264746Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.266570Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T05:57:22.266570Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T05:57:22.266570Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T06:00:55.812186Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T06:00:55.812186Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T06:01:25.692331Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T06:01:25.693872Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T06:01:54.592914Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T06:01:54.593962Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T06:04:36.374519Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.374519Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T06:04:36.397860Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.397860Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T06:04:36.411719Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.411719Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T06:04:36.415892Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.415892Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T06:04:36.415892Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.415892Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T06:04:36.426608Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.428244Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T06:04:36.429259Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.429259Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T06:04:36.435450Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T06:04:36.435450Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T06:05:21.462688Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.464014Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T06:05:21.465133Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.465925Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T06:05:21.465925Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.465925Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T06:05:21.473206Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.474297Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T06:05:21.475331Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.475331Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T06:05:21.475331Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.475331Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T06:05:21.476917Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.476917Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T06:05:21.479584Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T06:05:21.479584Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T06:05:21.504468Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T06:05:21.504468Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T06:05:21.628753Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-24T06:05:21.641381Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:22.954800Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.970765Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:22.970765Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T06:05:22.970765Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T06:05:22.970765Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:05:22.972553Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:05:22.972553Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.974841Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:22.976090Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T06:05:22.976090Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T06:05:22.977252Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:05:22.977252Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:05:22.979228Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.979228Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:22.979228Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T06:05:22.979228Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T06:05:22.979228Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T06:05:22.981250Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T06:05:22.981250Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.984036Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:22.987906Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:05:22.987906Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:05:22.990071Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.990071Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:22.990071Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T06:05:22.990071Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T06:05:22.990071Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:05:22.990071Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:05:23.107224Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-24T06:05:23.362787Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-09-24T06:05:30.504441Z INFO  info Adding nearest voltage to extended info_df
+2026-09-24T06:05:40.504174Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-09-24T06:05:40.507659Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-09-24T06:05:43.835762Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-09-24T06:05:43.968812Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.csv
+2026-09-24T06:05:43.968812Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-24T06:05:43.977015Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-24T06:21:52.957330Z INFO  info    Adding sites for event 2020-08-28 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:52.957330Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-08-28. Skipping...
+2026-09-24T06:21:52.985040Z INFO  info    Adding sites for event 2021-03-24 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:52.991698Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-24. Skipping...
+2026-09-24T06:21:52.993710Z INFO  info    Adding sites for event 2021-04-23 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:52.995723Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-04-23. Skipping...
+2026-09-24T06:21:53.004550Z INFO  info    Adding sites for event 2020-07-13 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:53.009873Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-13. Skipping...
+2026-09-24T06:21:53.020934Z INFO  info    Adding sites for event 2021-05-12 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:53.029866Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-12. Skipping...
+2026-09-24T06:21:53.032177Z INFO  info    Adding sites for event 2020-07-24 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:53.034191Z WARN  info    Data type GIC not found for source Marsal2021 and event 2020-07-24. Skipping...
+2026-09-24T06:21:53.034191Z INFO  info    Adding sites for event 2021-05-26 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:53.034191Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-05-26. Skipping...
+2026-09-24T06:21:53.036202Z INFO  info    Adding sites for event 2021-03-06 from data source Marsal2021 to info.csv.
+2026-09-24T06:21:53.036202Z WARN  info    Data type GIC not found for source Marsal2021 and event 2021-03-06. Skipping...
+2026-09-24T06:21:53.093398Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T06:21:53.131303Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.csv
+2026-09-24T06:21:54.063571Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-24T06:21:54.063571Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-24T06:21:55.431512Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T06:21:55.435624Z WARN  info     Warning: Could not interpolate beta for site LUC line at (37.04995133333333,-2.1819095)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site LUC ref at (37.047449,-2.1840116666666667)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site SAN line at (41.873913,1.3325198333333337)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site SAN ref at (41.87557733333333,1.3344913333333333)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site VIL line at (41.173011333333335,0.4080966666666666)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site VIL ref at (41.171434,0.4077203333333333)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site TRA line at (40.52591116666667,0.2636231666666667)
+2026-09-24T06:21:55.443052Z WARN  info     Warning: Could not interpolate beta for site TRA ref at (40.527670666666666,0.2610621666666666)
+2026-09-24T06:21:55.995319Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-24T06:21:56.235996Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-09-24T06:22:03.942394Z INFO  info Adding nearest voltage to extended info_df
+2026-09-24T06:22:14.029995Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-09-24T06:22:14.033824Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-09-24T06:22:17.178566Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-09-24T06:22:17.358294Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.csv
+2026-09-24T06:22:17.358294Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json
+2026-09-24T06:22:17.358294Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\marsal_config\info.extended.json

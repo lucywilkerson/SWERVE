@@ -160,19 +160,24 @@ def write_info_csv():
                                         geo_lon = float(row[2])
                                         info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
 
-            elif data_source == 'Marsal':
+            elif data_source == 'Marsal2025' or data_source == 'Marsal2021':
                 for data_type in data_types:
                     if data_type == 'DMM' and 'measured' in data_classes:
                         data_class = 'measured'
                         # Find all sources for event
                         event_dir = os.path.join(data_dir, f'{data_source.lower()}', event, data_type.lower())
-                        if os.path.isdir(event_dir):
+                        if os.path.isdir(event_dir) and data_source == 'Marsal2025':
                             event_sids = [subdir for subdir in os.listdir(event_dir)]
+                        elif os.path.isdir(event_dir) and data_source == 'Marsal2021':
+                            event_sids = [subdir[:3] for subdir in os.listdir(event_dir)]
                         else:
                             logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
                             continue
                         # Add info for event sources
-                        file = os.path.join(data_dir, f'{data_source.lower()}','marsal_2025_info.csv')
+                        if data_source == 'Marsal2025':
+                            file = os.path.join(data_dir, f'{data_source.lower()}','marsal_2025_info.csv')
+                        if data_source == 'Marsal2021':
+                            file = os.path.join(data_dir, f'{data_source.lower()}','marsal_2021_info.csv')
                         with open(file, 'r') as csvfile:
                             rows = csv.reader(csvfile, delimiter=',')
                             # skip header

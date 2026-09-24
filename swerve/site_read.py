@@ -596,15 +596,22 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
           "unit": "nT"
         }
 
-  if data_type == 'DMM' and data_class == 'measured' and data_source == 'Marsal':
+  if data_type == 'DMM' and data_class == 'measured' and (data_source == 'Marsal2025' or data_source == 'Marsal2021'):
       sid_name,sid_type = sid.strip().split()
-      if sid_type == 'line':
-        data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), sid_name, f'{sid_name}_LIN')
-      elif sid_type == 'ref':
-        data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), sid_name, f'{sid_name}_REF')
+      if data_source == 'Marsal2025':
+        if sid_type == 'line':
+          data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), sid_name, f'{sid_name}_LIN')
+        elif sid_type == 'ref':
+          data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), sid_name, f'{sid_name}_REF')
+      if data_source == 'Marsal2021':
+        if sid_type == 'line':
+          data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), f'{sid_name}_lin')
+        elif sid_type == 'ref':
+          data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), f'{sid_name}_ref')
+
       if not os.path.exists(data_path):
         raise FileNotFoundError(f"Data directory not found: {data_path}")
-    
+
       time = []
       data =[]
 
