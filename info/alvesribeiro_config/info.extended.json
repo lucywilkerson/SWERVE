@@ -1,0 +1,44 @@
+{
+  "Paraimo": {
+    "GIC": {
+      "measured": {
+        "AlvesRibeiro": {
+          "Paraimo": {
+            "geo_lat": 40.47,
+            "geo_lon": -8.48,
+            "event": "2021-09-17",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 43.95974162802101,
+            "mag_lon": 72.06177227880353,
+            "alpha": 0.1568626038094392,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0643 A) > 1/4 * std after (0.1048 A);\nCadence is >= 60 seconds (60.0 seconds)"
+          }
+        }
+      },
+      "calculated": {
+        "AlvesRibeiro": {
+          "Paraimo": {
+            "geo_lat": 40.47,
+            "geo_lon": -8.48,
+            "event": "2021-09-17",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 43.95974162802101,
+            "mag_lon": 72.06177227880353,
+            "alpha": 0.1568626038094392,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  }
+}

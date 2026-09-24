@@ -1,0 +1,14 @@
+2026-09-21T13:35:21.915205Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.csv
+2026-09-21T13:35:22.724623Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-21T13:35:22.724623Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-21T13:35:24.073097Z WARN  info     Warning: Could not interpolate beta for site Paraimo at (40.47,-8.48)
+2026-09-21T13:35:24.075110Z WARN  info     Warning: Could not interpolate beta for site Paraimo at (40.47,-8.48)
+2026-09-21T13:35:24.543409Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-21T13:35:24.595154Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-09-21T13:35:31.144462Z INFO  info Adding nearest voltage to extended info_df
+2026-09-21T13:35:40.806793Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-09-21T13:35:40.818600Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-09-21T13:35:43.485353Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-09-21T13:35:43.630859Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.extended.csv
+2026-09-21T13:35:43.630859Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.extended.json
+2026-09-21T13:35:43.633427Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.extended.json

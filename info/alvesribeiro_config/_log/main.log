@@ -1,0 +1,69 @@
+2026-09-21T13:51:17.825434Z INFO  main Reading 'Paraimo' data for event '2021-09-17'
+2026-09-21T13:51:17.873491Z INFO  main   Reading 'GIC/measured/AlvesRibeiro' data for event '2021-09-17'
+2026-09-21T13:51:18.068628Z INFO  main     Running automated error checks on GIC measured data
+2026-09-21T13:51:18.840181Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-21T13:51:18.840181Z INFO  main     Uniq dts [#]  = 1
+2026-09-21T13:51:18.856422Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-21T13:51:18.892555Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\paraimo\data\GIC_measured_AlvesRibeiro.pkl
+2026-09-21T13:51:18.909379Z INFO  main   Reading 'GIC/calculated/AlvesRibeiro' data for event '2021-09-17'
+2026-09-21T13:51:19.029176Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-21T13:51:19.063731Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\paraimo\data\GIC_calculated_AlvesRibeiro.pkl
+2026-09-21T13:51:19.093898Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\paraimo\data\_all.pkl
+2026-09-21T13:51:19.140186Z INFO  main Computing stats for 'Paraimo' data
+2026-09-21T13:51:19.156828Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-21T13:51:19.156828Z INFO  main   Uniq dts [#]  = 1
+2026-09-21T13:51:19.156828Z INFO  main   Stats for GIC/measured/AlvesRibeiro:
+2026-09-21T13:51:19.167864Z INFO  main 
+    std: : [0.1048096835234467]
+    ave: : [0.06326907856002775]
+    min: : [-0.357701377]
+    max: : [0.402245827]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-09-21T13:51:19.183827Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-21T13:51:19.183827Z INFO  main   Uniq dts [#]  = 1
+2026-09-21T13:51:19.188808Z INFO  main   Stats for GIC/calculated/AlvesRibeiro:
+2026-09-21T13:51:19.188808Z INFO  main 
+    std: : [0.1814737393294626]
+    ave: : [0.001450593047883418]
+    min: : [-0.431622998]
+    max: : [0.68201962]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-09-21T13:51:19.192184Z INFO  main   Metrics for GIC/calculated/AlvesRibeiro:
+2026-09-21T13:51:19.192184Z INFO  main 
+    err_rms: : [0.15062063228931147]
+    err_ave: : [0.06181848551214434]
+    err: : [[0.0761349]]
+         ...
+         [[0.21918627]]
+         (1441 rows, 1 columns)
+    cc: : [0.658582225061682]
+    pe: : [-1.0652190078256978]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-09-21T13:51:19.192184Z INFO  main Plotting 'Paraimo' data for event '2021-09-17'
+2026-09-21T13:51:19.205903Z INFO  main   Plotting 'Paraimo/GIC/AlvesRibeiro' vs. measured data as timeseries for event '2021-09-17'
+2026-09-21T13:51:21.631280Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\compare\_calculated_AlvesRibeiro_vs_measured_timeseries.png
+2026-09-21T13:51:23.114150Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\compare\_calculated_AlvesRibeiro_vs_measured_timeseries.pdf
+2026-09-21T13:51:23.828867Z INFO  main   Plotting 'Paraimo/GIC/AlvesRibeiro' vs. measured data as scatter for event '2021-09-17'
+2026-09-21T13:51:24.650747Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\compare\_calculated_AlvesRibeiro_vs_measured_scatter.png
+2026-09-21T13:51:26.290542Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\compare\_calculated_AlvesRibeiro_vs_measured_scatter.pdf
+2026-09-21T13:51:26.767031Z INFO  main   Plotting 'Paraimo/GIC/measured/AlvesRibeiro' original vs. modified data for event '2021-09-17'
+2026-09-21T13:51:28.515937Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\original\GIC_measured_AlvesRibeiro.png
+2026-09-21T13:51:30.502108Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\original\GIC_measured_AlvesRibeiro.pdf
+2026-09-21T13:51:31.120331Z INFO  main   Plotting 'Paraimo/GIC/calculated/AlvesRibeiro' original vs. modified data for event '2021-09-17'
+2026-09-21T13:51:32.437492Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\original\GIC_calculated_AlvesRibeiro.png
+2026-09-21T13:51:34.425492Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/paraimo/figures\original\GIC_calculated_AlvesRibeiro.pdf
+2026-09-21T13:51:35.193021Z INFO  main   Adding error for site 'Paraimo', GIC/'measured/AlvesRibeiro: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0643 A) > 1/4 * std after (0.1048 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-21T13:51:35.204450Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.extended.csv
+2026-09-21T13:51:35.204450Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.extended.json
+2026-09-21T13:51:35.204450Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\alvesribeiro_config\info.extended.json

@@ -1,0 +1,5 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+Paraimo,40.47,-8.48,GIC,measured,AlvesRibeiro,2021-09-17,,,,43.95974162802101,72.06177227880353,0.1568626038094392,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0643 A) > 1/4 * std after (0.1048 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Paraimo,40.47,-8.48,GIC,calculated,AlvesRibeiro,2021-09-17,,,,43.95974162802101,72.06177227880353,0.1568626038094392,,,,

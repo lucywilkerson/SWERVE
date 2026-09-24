@@ -1,0 +1,3 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Paraimo,40.47,-8.48,GIC,measured,AlvesRibeiro,2021-09-17,
+Paraimo,40.47,-8.48,GIC,calculated,AlvesRibeiro,2021-09-17,
