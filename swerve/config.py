@@ -46,7 +46,9 @@ def config():
       'logger': utilrsw.logger,
       'logger_kwargs': {
         'log_dir': os.path.join(info_dir, '_log'),
-        'console_format': console_format
+        'console_format': console_format,
+        'rm_existing': False,
+        'rm_empty': False
       },
       'limits': {
         'data': None, # Pad or trim data to these limits

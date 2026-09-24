@@ -1,0 +1,29 @@
+2026-09-23T22:01:38.836174Z INFO  info    Adding sites for event 2016-03-06 from data source Blake to info.csv.
+2026-09-23T22:01:38.840306Z INFO  info    Adding sites for event 2015-08-26 from data source Blake to info.csv.
+2026-09-23T22:01:38.840904Z INFO  info    Adding sites for event 2015-10-07 from data source Blake to info.csv.
+2026-09-23T22:01:38.840904Z INFO  info    Adding sites for event 2015-09-07 from data source Blake to info.csv.
+2026-09-23T22:01:38.844407Z INFO  info    Adding sites for event 2015-12-20 from data source Blake to info.csv.
+2026-09-23T22:01:38.888753Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.csv
+2026-09-23T22:01:38.911674Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.csv
+2026-09-23T22:01:39.710680Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-23T22:01:39.710680Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-23T22:01:41.010334Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.012346Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.012346Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.012346Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.012346Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.012346Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.014514Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.014514Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.014514Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.014514Z WARN  info     Warning: Could not interpolate beta for site Woodland at (53.47,-6.57)
+2026-09-23T22:01:41.457561Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-23T22:01:41.653129Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-09-23T22:01:49.341336Z INFO  info Adding nearest voltage to extended info_df
+2026-09-23T22:01:59.187178Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-09-23T22:01:59.189184Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-09-23T22:02:02.559595Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-09-23T22:02:02.704544Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.extended.csv
+2026-09-23T22:02:02.706560Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.extended.json
+2026-09-23T22:02:02.708892Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.extended.json
+2026-09-23T22:02:02.713141Z INFO  info Wrote file 'C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\_log\info.log' (3274 bytes)

@@ -368,8 +368,12 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
           m, b = line_fit
           x_fit = np.array([data1['data'][:, j].min(), data1['data'][:, j].max()])
           y_fit = m * x_fit + b
-          axes.plot(x_fit, y_fit, color=line2_opts[source]['color'], linestyle='--', linewidth=1,
-             label=f"{source} best-fit slope = {m:.2f}")
+          if source in line2_opts.keys():
+            axes.plot(x_fit, y_fit, color=line2_opts[source]['color'], linestyle='--', linewidth=1,
+              label=f"{source} best-fit slope = {m:.2f}")
+          else:
+            axes.plot(x_fit, y_fit, color=line2_opts['general']['color'], linestyle='--', linewidth=1,
+                         label=f"{source} best-fit slope = {m:.2f}")
       axes.set_xlabel(component_labels1[j])
       format_cc_scatter(axes, regression=True) # setting regression = False centers point (0,0) on plot, saves space
       # TODO: switch for format_cc_scatter

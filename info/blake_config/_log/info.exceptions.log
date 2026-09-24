@@ -1,0 +1,12 @@
+[2026-09-24T02:02:02.714879Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\utilrsw\logger.py", line 297, in cleanup
+    os.remove(file)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE\\info\\blake_config\\_log\\info.errors.log'
+
+[2026-09-24T02:02:02.719566Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\utilrsw\logger.py", line 297, in cleanup
+    os.remove(file)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE\\info\\blake_config\\_log\\info.errors.log'
+

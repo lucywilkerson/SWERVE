@@ -1,0 +1,400 @@
+2026-09-23T22:22:20.304505Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:22:20.331911Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:22:20.344898Z INFO  main Wrote file 'C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\_log\main.log' (186 bytes)
+2026-09-23T22:26:52.944803Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:26:52.966738Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:28:26.455907Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:28:26.458417Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:29:01.928461Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:29:01.935328Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:30:08.027627Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:30:08.028626Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:34:17.019510Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:34:17.019510Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:34:17.037157Z INFO  main     Running automated error checks on GIC measured data
+2026-09-23T22:34:17.173530Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-23T22:34:17.173530Z INFO  main     Uniq dts [#]  = 1
+2026-09-23T22:34:17.173530Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:34:17.192519Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\woodland\data\GIC_measured_Blake.pkl
+2026-09-23T22:34:17.195932Z INFO  main   Reading 'GIC/calculated/Blake' data for event '2016-03-06'
+2026-09-23T22:34:17.201648Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:34:17.209119Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\woodland\data\GIC_calculated_Blake.pkl
+2026-09-23T22:34:17.213929Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\woodland\data\_all.pkl
+2026-09-23T22:34:17.219474Z INFO  main Computing stats for 'Woodland' data
+2026-09-23T22:34:17.221477Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:34:17.221477Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:34:17.221477Z INFO  main   Stats for GIC/measured/Blake:
+2026-09-23T22:34:17.221477Z INFO  main 
+    std: : [0.08733295470117014]
+    ave: : [0.00013541024059222684]
+    min: : [-0.4449]
+    max: : [0.7225]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-09-23T22:34:17.224693Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:34:17.224693Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:34:17.224693Z INFO  main   Stats for GIC/calculated/Blake:
+2026-09-23T22:34:17.224693Z INFO  main 
+    std: : [0.10716881164962869]
+    ave: : [7.754472547810016e-05]
+    min: : [-0.5278]
+    max: : [0.8426]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-09-23T22:34:17.229561Z INFO  main   Metrics for GIC/calculated/Blake:
+2026-09-23T22:34:17.229561Z INFO  main 
+    err_rms: : [0.05852636624598596]
+    err_ave: : [5.786551511412674e-05]
+    err: : [[0.0213]]
+         ...
+         [[0.0164]]
+         (1621 rows, 1 columns)
+    cc: : [0.8380301607217684]
+    pe: : [0.550896112929445]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1621 rows, 1 columns)
+    n_valid: : [1621]
+2026-09-23T22:34:19.854612Z INFO  main Plotting 'Woodland' data for event '2016-03-06'
+2026-09-23T22:34:19.860010Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as timeseries for event '2016-03-06'
+2026-09-23T22:34:22.566112Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.png
+2026-09-23T22:34:22.941537Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.pdf
+2026-09-23T22:34:24.703789Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as scatter for event '2016-03-06'
+2026-09-23T22:36:47.796481Z INFO  main Reading 'Woodland' data for event '2016-03-06'
+2026-09-23T22:36:47.805308Z INFO  main   Reading 'GIC/measured/Blake' data for event '2016-03-06'
+2026-09-23T22:36:47.809054Z INFO  main     Running automated error checks on GIC measured data
+2026-09-23T22:36:47.922639Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-23T22:36:47.922639Z INFO  main     Uniq dts [#]  = 1
+2026-09-23T22:36:47.922639Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:36:47.940330Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\woodland\data\GIC_measured_Blake.pkl
+2026-09-23T22:36:47.942878Z INFO  main   Reading 'GIC/calculated/Blake' data for event '2016-03-06'
+2026-09-23T22:36:47.948770Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:36:47.958390Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\woodland\data\GIC_calculated_Blake.pkl
+2026-09-23T22:36:47.965329Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\woodland\data\_all.pkl
+2026-09-23T22:36:47.970343Z INFO  main Computing stats for 'Woodland' data
+2026-09-23T22:36:47.974809Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:36:47.974809Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:36:47.974809Z INFO  main   Stats for GIC/measured/Blake:
+2026-09-23T22:36:47.974809Z INFO  main 
+    std: : [0.08733295470117014]
+    ave: : [0.00013541024059222684]
+    min: : [-0.4449]
+    max: : [0.7225]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-09-23T22:36:47.976812Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:36:47.978256Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:36:47.978256Z INFO  main   Stats for GIC/calculated/Blake:
+2026-09-23T22:36:47.978602Z INFO  main 
+    std: : [0.10716881164962869]
+    ave: : [7.754472547810016e-05]
+    min: : [-0.5278]
+    max: : [0.8426]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-09-23T22:36:47.978602Z INFO  main   Metrics for GIC/calculated/Blake:
+2026-09-23T22:36:47.978602Z INFO  main 
+    err_rms: : [0.05852636624598596]
+    err_ave: : [5.786551511412674e-05]
+    err: : [[0.0213]]
+         ...
+         [[0.0164]]
+         (1621 rows, 1 columns)
+    cc: : [0.8380301607217684]
+    pe: : [0.550896112929445]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1621 rows, 1 columns)
+    n_valid: : [1621]
+2026-09-23T22:36:48.279195Z INFO  main Plotting 'Woodland' data for event '2016-03-06'
+2026-09-23T22:36:48.281198Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as timeseries for event '2016-03-06'
+2026-09-23T22:36:49.495771Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.png
+2026-09-23T22:36:49.871494Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.pdf
+2026-09-23T22:36:50.067313Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as scatter for event '2016-03-06'
+2026-09-23T22:36:50.277517Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.png
+2026-09-23T22:36:50.785737Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.pdf
+2026-09-23T22:36:50.988074Z INFO  main   Plotting 'Woodland/GIC/measured/Blake' original vs. modified data for event '2016-03-06'
+2026-09-23T22:36:52.128632Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\original\GIC_measured_Blake.png
+2026-09-23T22:36:52.541020Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\original\GIC_measured_Blake.pdf
+2026-09-23T22:36:52.638806Z INFO  main   Plotting 'Woodland/GIC/calculated/Blake' original vs. modified data for event '2016-03-06'
+2026-09-23T22:36:53.871559Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\original\GIC_calculated_Blake.png
+2026-09-23T22:36:54.304986Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/woodland/figures\original\GIC_calculated_Blake.pdf
+2026-09-23T22:36:54.416179Z INFO  main Reading 'Woodland' data for event '2015-08-26'
+2026-09-23T22:36:54.416179Z INFO  main   Reading 'GIC/measured/Blake' data for event '2015-08-26'
+2026-09-23T22:36:54.440900Z INFO  main     Running automated error checks on GIC measured data
+2026-09-23T22:36:54.608209Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-23T22:36:54.608209Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-23T22:36:54.608209Z INFO  main     Uniq dts [#]  = 1
+2026-09-23T22:36:54.613000Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:36:54.625699Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-08-26\sites\woodland\data\GIC_measured_Blake.pkl
+2026-09-23T22:36:54.636753Z INFO  main   Reading 'GIC/calculated/Blake' data for event '2015-08-26'
+2026-09-23T22:36:54.640177Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:36:54.654666Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-08-26\sites\woodland\data\GIC_calculated_Blake.pkl
+2026-09-23T22:36:54.661363Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-08-26\sites\woodland\data\_all.pkl
+2026-09-23T22:36:54.666372Z INFO  main Computing stats for 'Woodland' data
+2026-09-23T22:36:54.675554Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:36:54.675554Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:36:54.675554Z INFO  main   Stats for GIC/measured/Blake:
+2026-09-23T22:36:54.675554Z INFO  main 
+    std: : [0.16583767907356517]
+    ave: : [0.0009147345870030946]
+    min: : [-1.0777]
+    max: : [1.3511]
+    n: 4201
+    n_valid: : [4201]
+    dt_original: : [60000000000]
+2026-09-23T22:36:54.677569Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:36:54.677569Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:36:54.677569Z INFO  main   Stats for GIC/calculated/Blake:
+2026-09-23T22:36:54.677569Z INFO  main 
+    std: : [0.06917170247347053]
+    ave: : [8.545584384670337e-05]
+    min: : [-0.382]
+    max: : [0.5386]
+    n: 4201
+    n_valid: : [4201]
+    dt_original: : [60000000000]
+2026-09-23T22:36:54.677569Z INFO  main   Metrics for GIC/calculated/Blake:
+2026-09-23T22:36:54.677569Z INFO  main 
+    err_rms: : [0.12522384677828707]
+    err_ave: : [0.0008292787431563908]
+    err: : [[0.0247]]
+         ...
+         [[-0.0121]]
+         (4201 rows, 1 columns)
+    cc: : [0.7238313400236375]
+    pe: : [0.4298256718788017]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (4201 rows, 1 columns)
+    n_valid: : [4201]
+2026-09-23T22:36:54.682218Z INFO  main Plotting 'Woodland' data for event '2015-08-26'
+2026-09-23T22:36:54.685717Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as timeseries for event '2015-08-26'
+2026-09-23T22:36:55.899996Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.png
+2026-09-23T22:36:56.287419Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.pdf
+2026-09-23T22:36:56.394094Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as scatter for event '2015-08-26'
+2026-09-23T22:36:56.616937Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.png
+2026-09-23T22:36:57.007330Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.pdf
+2026-09-23T22:36:57.160111Z INFO  main   Plotting 'Woodland/GIC/measured/Blake' original vs. modified data for event '2015-08-26'
+2026-09-23T22:36:58.366802Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\original\GIC_measured_Blake.png
+2026-09-23T22:36:58.803524Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\original\GIC_measured_Blake.pdf
+2026-09-23T22:36:58.897784Z INFO  main   Plotting 'Woodland/GIC/calculated/Blake' original vs. modified data for event '2015-08-26'
+2026-09-23T22:37:00.221583Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\original\GIC_calculated_Blake.png
+2026-09-23T22:37:00.673911Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-08-26/sites/woodland/figures\original\GIC_calculated_Blake.pdf
+2026-09-23T22:37:00.808366Z INFO  main Reading 'Woodland' data for event '2015-10-07'
+2026-09-23T22:37:00.814100Z INFO  main   Reading 'GIC/measured/Blake' data for event '2015-10-07'
+2026-09-23T22:37:00.837472Z INFO  main     Running automated error checks on GIC measured data
+2026-09-23T22:37:00.950709Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:00.950709Z INFO  main     Uniq dts [#]  = 1
+2026-09-23T22:37:00.950709Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:37:00.966563Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-10-07\sites\woodland\data\GIC_measured_Blake.pkl
+2026-09-23T22:37:00.972480Z INFO  main   Reading 'GIC/calculated/Blake' data for event '2015-10-07'
+2026-09-23T22:37:00.979227Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:37:00.986482Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-10-07\sites\woodland\data\GIC_calculated_Blake.pkl
+2026-09-23T22:37:00.993545Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-10-07\sites\woodland\data\_all.pkl
+2026-09-23T22:37:01.000212Z INFO  main Computing stats for 'Woodland' data
+2026-09-23T22:37:01.003584Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:01.003584Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:37:01.003584Z INFO  main   Stats for GIC/measured/Blake:
+2026-09-23T22:37:01.004575Z INFO  main 
+    std: : [0.15241698069546977]
+    ave: : [0.0018831131533601374]
+    min: : [-0.8759]
+    max: : [1.3624]
+    n: 1741
+    n_valid: : [1741]
+    dt_original: : [60000000000]
+2026-09-23T22:37:01.006578Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:01.006578Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:37:01.007576Z INFO  main   Stats for GIC/calculated/Blake:
+2026-09-23T22:37:01.007576Z INFO  main 
+    std: : [0.13466042883461815]
+    ave: : [0.0010874210224009198]
+    min: : [-0.6007]
+    max: : [1.6633]
+    n: 1741
+    n_valid: : [1741]
+    dt_original: : [60000000000]
+2026-09-23T22:37:01.007576Z INFO  main   Metrics for GIC/calculated/Blake:
+2026-09-23T22:37:01.007576Z INFO  main 
+    err_rms: : [0.11029526329929482]
+    err_ave: : [0.0007956921309592188]
+    err: : [[-0.0775]]
+         ...
+         [[0.0659]]
+         (1741 rows, 1 columns)
+    cc: : [0.7113426374992549]
+    pe: : [0.4763428772737831]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1741 rows, 1 columns)
+    n_valid: : [1741]
+2026-09-23T22:37:01.010309Z INFO  main Plotting 'Woodland' data for event '2015-10-07'
+2026-09-23T22:37:01.012979Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as timeseries for event '2015-10-07'
+2026-09-23T22:37:01.464344Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.png
+2026-09-23T22:37:01.833658Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.pdf
+2026-09-23T22:37:01.925213Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as scatter for event '2015-10-07'
+2026-09-23T22:37:02.122647Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.png
+2026-09-23T22:37:02.480422Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.pdf
+2026-09-23T22:37:02.607245Z INFO  main   Plotting 'Woodland/GIC/measured/Blake' original vs. modified data for event '2015-10-07'
+2026-09-23T22:37:03.893745Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\original\GIC_measured_Blake.png
+2026-09-23T22:37:04.361787Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\original\GIC_measured_Blake.pdf
+2026-09-23T22:37:04.461036Z INFO  main   Plotting 'Woodland/GIC/calculated/Blake' original vs. modified data for event '2015-10-07'
+2026-09-23T22:37:05.686669Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\original\GIC_calculated_Blake.png
+2026-09-23T22:37:06.111344Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-10-07/sites/woodland/figures\original\GIC_calculated_Blake.pdf
+2026-09-23T22:37:06.220606Z INFO  main Reading 'Woodland' data for event '2015-09-07'
+2026-09-23T22:37:06.225556Z INFO  main   Reading 'GIC/measured/Blake' data for event '2015-09-07'
+2026-09-23T22:37:06.240967Z INFO  main     Running automated error checks on GIC measured data
+2026-09-23T22:37:06.340459Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:06.340459Z INFO  main     Uniq dts [#]  = 1
+2026-09-23T22:37:06.356177Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:37:06.374297Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-09-07\sites\woodland\data\GIC_measured_Blake.pkl
+2026-09-23T22:37:06.374993Z INFO  main   Reading 'GIC/calculated/Blake' data for event '2015-09-07'
+2026-09-23T22:37:06.392965Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:37:06.408209Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-09-07\sites\woodland\data\GIC_calculated_Blake.pkl
+2026-09-23T22:37:06.418023Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-09-07\sites\woodland\data\_all.pkl
+2026-09-23T22:37:06.429421Z INFO  main Computing stats for 'Woodland' data
+2026-09-23T22:37:06.431421Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:06.431421Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:37:06.431421Z INFO  main   Stats for GIC/measured/Blake:
+2026-09-23T22:37:06.435931Z INFO  main 
+    std: : [0.14272972568670564]
+    ave: : [0.002282179992828972]
+    min: : [-0.9164]
+    max: : [0.6537]
+    n: 4201
+    n_valid: : [2789]
+    dt_original: : [60000000000]
+2026-09-23T22:37:06.438164Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:06.438164Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:37:06.439751Z INFO  main   Stats for GIC/calculated/Blake:
+2026-09-23T22:37:06.439751Z INFO  main 
+    std: : [0.07319007875127015]
+    ave: : [9.637863033345286e-05]
+    min: : [-0.6158]
+    max: : [0.4575]
+    n: 4201
+    n_valid: : [2789]
+    dt_original: : [60000000000]
+2026-09-23T22:37:06.442756Z INFO  main   Metrics for GIC/calculated/Blake:
+2026-09-23T22:37:06.442756Z INFO  main 
+    err_rms: : [0.12968911523982565]
+    err_ave: : [0.002185801362495519]
+    err: : [[-0.0348]]
+         ...
+         [[0.0018]]
+         (2789 rows, 1 columns)
+    cc: : [0.4266576741699037]
+    pe: : [0.17438382534699448]
+    valid: : [[ True]]
+           ...
+           [[False]]
+           (4201 rows, 1 columns)
+    n_valid: : [2789]
+2026-09-23T22:37:06.443757Z INFO  main Plotting 'Woodland' data for event '2015-09-07'
+2026-09-23T22:37:06.452756Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as timeseries for event '2015-09-07'
+2026-09-23T22:37:09.218870Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.png
+2026-09-23T22:37:10.055629Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.pdf
+2026-09-23T22:37:10.335886Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as scatter for event '2015-09-07'
+2026-09-23T22:37:10.848254Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.png
+2026-09-23T22:37:11.652366Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.pdf
+2026-09-23T22:37:12.000149Z INFO  main   Plotting 'Woodland/GIC/measured/Blake' original vs. modified data for event '2015-09-07'
+2026-09-23T22:37:15.104779Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\original\GIC_measured_Blake.png
+2026-09-23T22:37:16.302789Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\original\GIC_measured_Blake.pdf
+2026-09-23T22:37:16.590165Z INFO  main   Plotting 'Woodland/GIC/calculated/Blake' original vs. modified data for event '2015-09-07'
+2026-09-23T22:37:19.747484Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\original\GIC_calculated_Blake.png
+2026-09-23T22:37:20.758132Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-09-07/sites/woodland/figures\original\GIC_calculated_Blake.pdf
+2026-09-23T22:37:21.072647Z INFO  main Reading 'Woodland' data for event '2015-12-20'
+2026-09-23T22:37:21.090665Z INFO  main   Reading 'GIC/measured/Blake' data for event '2015-12-20'
+2026-09-23T22:37:21.135109Z INFO  main     Running automated error checks on GIC measured data
+2026-09-23T22:37:21.572336Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:21.572336Z INFO  main     Uniq dts [#]  = 1
+2026-09-23T22:37:21.575336Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:37:21.590817Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-20\sites\woodland\data\GIC_measured_Blake.pkl
+2026-09-23T22:37:21.597385Z INFO  main   Reading 'GIC/calculated/Blake' data for event '2015-12-20'
+2026-09-23T22:37:21.605479Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-23T22:37:21.620623Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-20\sites\woodland\data\GIC_calculated_Blake.pkl
+2026-09-23T22:37:21.631759Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-20\sites\woodland\data\_all.pkl
+2026-09-23T22:37:21.643248Z INFO  main Computing stats for 'Woodland' data
+2026-09-23T22:37:21.650426Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:21.650426Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:37:21.650426Z INFO  main   Stats for GIC/measured/Blake:
+2026-09-23T22:37:21.650426Z INFO  main 
+    std: : [0.15121936828354793]
+    ave: : [-0.0029703498056635196]
+    min: : [-0.7951]
+    max: : [0.6789]
+    n: 1801
+    n_valid: : [1801]
+    dt_original: : [60000000000]
+2026-09-23T22:37:21.657175Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-23T22:37:21.657175Z INFO  main   Uniq dts [#]  = 1
+2026-09-23T22:37:21.657175Z INFO  main   Stats for GIC/calculated/Blake:
+2026-09-23T22:37:21.657175Z INFO  main 
+    std: : [0.13554520088923705]
+    ave: : [-0.00017012770682953854]
+    min: : [-0.5666]
+    max: : [0.6548]
+    n: 1801
+    n_valid: : [1801]
+    dt_original: : [60000000000]
+2026-09-23T22:37:21.658170Z INFO  main   Metrics for GIC/calculated/Blake:
+2026-09-23T22:37:21.659485Z INFO  main 
+    err_rms: : [0.11746758840367326]
+    err_ave: : [-0.0028002220988339794]
+    err: : [[0.0111]]
+         ...
+         [[0.0437]]
+         (1801 rows, 1 columns)
+    cc: : [0.6695839845369541]
+    pe: : [0.3965778238786979]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1801 rows, 1 columns)
+    n_valid: : [1801]
+2026-09-23T22:37:21.664506Z INFO  main Plotting 'Woodland' data for event '2015-12-20'
+2026-09-23T22:37:21.668507Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as timeseries for event '2015-12-20'
+2026-09-23T22:37:22.654736Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.png
+2026-09-23T22:37:23.311929Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\compare\_calculated_Blake_vs_measured_timeseries.pdf
+2026-09-23T22:37:23.572862Z INFO  main   Plotting 'Woodland/GIC/Blake' vs. measured data as scatter for event '2015-12-20'
+2026-09-23T22:37:23.976700Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.png
+2026-09-23T22:37:24.533491Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\compare\_calculated_Blake_vs_measured_scatter.pdf
+2026-09-23T22:37:24.822596Z INFO  main   Plotting 'Woodland/GIC/measured/Blake' original vs. modified data for event '2015-12-20'
+2026-09-23T22:37:27.490975Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\original\GIC_measured_Blake.png
+2026-09-23T22:37:28.501055Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\original\GIC_measured_Blake.pdf
+2026-09-23T22:37:28.861785Z INFO  main   Plotting 'Woodland/GIC/calculated/Blake' original vs. modified data for event '2015-12-20'
+2026-09-23T22:37:32.080615Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\original\GIC_calculated_Blake.png
+2026-09-23T22:37:33.336834Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-20/sites/woodland/figures\original\GIC_calculated_Blake.pdf
+2026-09-23T22:37:33.629212Z INFO  main   Adding error for site 'Woodland', GIC/'measured/Blake: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-23T22:37:33.636513Z INFO  main   Adding error for site 'Woodland', GIC/'measured/Blake: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-23T22:37:33.640531Z INFO  main   Adding error for site 'Woodland', GIC/'measured/Blake: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-23T22:37:33.644385Z INFO  main   Adding error for site 'Woodland', GIC/'measured/Blake: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-23T22:37:33.646399Z INFO  main   Adding error for site 'Woodland', GIC/'measured/Blake: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-23T22:37:33.669551Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.extended.csv
+2026-09-23T22:37:33.669551Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.extended.json
+2026-09-23T22:37:33.683497Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\blake_config\info.extended.json

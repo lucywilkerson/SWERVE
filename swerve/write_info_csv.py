@@ -250,6 +250,33 @@ def write_info_csv():
                                 data_class = 'calculated'
                                 info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
 
+            elif data_source == 'Blake':
+                # read site names for IRL data from Blake 2018 paper
+                for data_type in data_types:
+                    if data_type == 'GIC':
+                        file_dir = os.path.join(data_dir, f'{data_source.lower()}')
+                        event_dir = os.path.join(file_dir, event, f'{data_type.lower()}')
+                        if not os.path.exists(event_dir):
+                            logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                            continue
+                        file = os.path.join(file_dir, 'blake_2018_info.csv')
+                    else:
+                        continue
+                    with open(file, 'r') as csvfile:
+                        rows = csv.reader(csvfile, delimiter=',')
+                        # skip header
+                        next(rows)
+                        for row in rows:
+                            site_id = row[0]
+                            geo_lat = float(row[1])
+                            geo_lon = float(row[2])
+                            if 'measured' in data_classes:
+                                data_class = 'measured'
+                                info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
+                            if 'calculated' in data_classes:
+                                data_class = 'calculated'
+                                info_list = _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event)
+
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")
 

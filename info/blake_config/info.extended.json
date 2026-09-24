@@ -1,0 +1,44 @@
+{
+  "Woodland": {
+    "GIC": {
+      "measured": {
+        "Blake": {
+          "Woodland": {
+            "geo_lat": 53.47,
+            "geo_lon": -6.57,
+            "event": "2015-12-20",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 56.37102073704052,
+            "mag_lon": 79.20760702926097,
+            "alpha": 0.6537123250681449,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);\nCadence is >= 60 seconds (60.0 seconds)"
+          }
+        }
+      },
+      "calculated": {
+        "Blake": {
+          "Woodland": {
+            "geo_lat": 53.47,
+            "geo_lon": -6.57,
+            "event": "2015-12-20",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 56.37102073704052,
+            "mag_lon": 79.20760702926097,
+            "alpha": 0.6537123250681449,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  }
+}

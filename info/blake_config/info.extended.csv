@@ -1,0 +1,21 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+Woodland,53.47,-6.57,GIC,measured,Blake,2016-03-06,,,,56.36837646094707,79.19321489409099,0.6535135667646423,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Woodland,53.47,-6.57,GIC,calculated,Blake,2016-03-06,,,,56.36837646094707,79.19321489409099,0.6535135667646423,,,,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-08-26,,,,56.37498807906097,79.2292530763507,0.6540106456598103,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-08-26,,,,56.37498807906097,79.2292530763507,0.6540106456598103,,,,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-10-07,,,,56.37355159336631,79.22140819562527,0.6539026147354721,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-10-07,,,,56.37355159336631,79.22140819562527,0.6539026147354721,,,,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-09-07,,,,56.37457716209089,79.22700814125112,0.6539797408216421,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-09-07,,,,56.37457716209089,79.22700814125112,0.6539797408216421,,,,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-12-20,,,,56.37102073704052,79.20760702926097,0.6537123250681449,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0597 A) > 1/4 * std after (0.1513 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-12-20,,,,56.37102073704052,79.20760702926097,0.6537123250681449,,,,

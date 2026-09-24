@@ -1,0 +1,70 @@
+[2026-09-24T02:22:20.338473Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 43, in <module>
+    data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 79, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 700, in _site_read_orig
+    raise FileNotFoundError(f"Data file not found: {data_path}")
+FileNotFoundError: Data file not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\blake\2016-03-06\gic
+
+[2026-09-24T02:22:20.346071Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\utilrsw\logger.py", line 297, in cleanup
+    os.remove(file)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE\\info\\blake_config\\_log\\main.errors.log'
+
+[2026-09-24T02:26:52.969262Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 43, in <module>
+    data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 79, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 700, in _site_read_orig
+    raise FileNotFoundError(f"Data file not found: {data_path}")
+FileNotFoundError: Data file not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\blake\2016-03-06\gic
+
+[2026-09-24T02:28:26.461416Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 43, in <module>
+    data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 79, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 699, in _site_read_orig
+    if not os.path.exists(data_file):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: _path_exists: path should be string, bytes, os.PathLike or integer, not generator
+
+[2026-09-24T02:30:08.032399Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 43, in <module>
+    data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 79, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 701, in _site_read_orig
+    raise FileNotFoundError(f"Data file not found: {data_path}")
+FileNotFoundError: Data file not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\blake\2016-03-06\gic\gic_dataset_5_03-2016.txt
+
+[2026-09-24T02:34:24.787954Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    site_plot(sid, event, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_plot.py", line 71, in site_plot
+    plots = _plot_measured_vs_calculated(data[data_type], calculated_source, sid, style=style, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_plot.py", line 221, in _plot_measured_vs_calculated
+    output_figures = _plot_stack(measured_modified, calculated, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_plot.py", line 371, in _plot_stack
+    axes.plot(x_fit, y_fit, color=line2_opts[source]['color'], linestyle='--', linewidth=1,
+                                  ~~~~~~~~~~^^^^^^^^
+KeyError: 'Blake'
+

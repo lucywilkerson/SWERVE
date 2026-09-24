@@ -1,0 +1,11 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Woodland,53.47,-6.57,GIC,measured,Blake,2016-03-06,
+Woodland,53.47,-6.57,GIC,calculated,Blake,2016-03-06,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-08-26,
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-08-26,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-10-07,
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-10-07,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-09-07,
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-09-07,
+Woodland,53.47,-6.57,GIC,measured,Blake,2015-12-20,
+Woodland,53.47,-6.57,GIC,calculated,Blake,2015-12-20,

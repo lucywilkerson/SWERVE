@@ -692,6 +692,38 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "labels": ["GIC"],
             "unit": "A"
           }
+
+  if data_type == 'GIC' and data_source == "Blake":
+    data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower())
+    data_file = next((f for f in os.listdir(data_path) if (f.startswith('gic_dataset_') and f.endswith('.txt'))), None)
+    data_path = os.path.join(data_path, data_file)
+    if not os.path.exists(data_path):
+      raise FileNotFoundError(f"Data file not found: {data_path}")
+
+    data = []
+
+    with open(data_path, "r") as file:
+      for line in file:
+        # Remove header lines
+        if line.startswith('M'):
+            continue
+        # Split line by whitespace and convert to float
+        row = line.split()
+        if data_class == 'measured':
+          data.append(float(row[0]))
+        if data_class == 'calculated':
+          data.append(float(row[1]))
+
+    start_time = datetime.datetime.strptime(f'{event}', "%Y-%m-%d")
+    cadence = datetime.timedelta(minutes=1) # given data cadence
+    time = [start_time + (i * cadence) for i in range(len(data))]
+
+    return {
+            "time": numpy.array(time).flatten(),
+            "data": numpy.array(data).reshape(-1, 1),
+            "labels": ["GIC"],
+            "unit": "A"
+          }
     
 
     
