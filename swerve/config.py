@@ -33,7 +33,7 @@ def config():
       event_dict = json.load(f)
     # Check if *any* event in the list is missing from the dictionary
     event_list = conf.get("event", [])
-    if any(event not in event_dict for event in event_list):
+    if any(event not in event_dict for event in event_list) and event_list != 'all':
       event_dict = _write_event_dict(conf, file_path)
   else:
     event_dict = _write_event_dict(conf, file_path)
@@ -182,7 +182,7 @@ def _write_event_dict(conf, file_path):
       
     # If no start_time and stop_time are specified and event is a NERC event, use the data_limits from nerc_events
     elif event in nerc_events:
-      event_dict[event]['data_limits'] = [datetime.datetime.strptime(nerc_events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), datetime.strptime(nerc_events[event]['data_limits'][1], '%Y-%m-%dT%H:%M')]
+      event_dict[event]['data_limits'] = [datetime.datetime.strptime(nerc_events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), datetime.datetime.strptime(nerc_events[event]['data_limits'][1], '%Y-%m-%dT%H:%M')]
       event_dict[event]['nerc_prefix'] = nerc_events[event]['nerc_prefix']   
 
     # Determine storm time if not specified    
