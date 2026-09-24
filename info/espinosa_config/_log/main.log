@@ -1,0 +1,33 @@
+2026-09-24T02:31:56.630788Z INFO  main Reading 'Itumbiara' data for event '2013-10-08'
+2026-09-24T02:31:56.664413Z INFO  main   Reading 'GIC/measured/Espinosa' data for event '2013-10-08'
+2026-09-24T02:35:24.763446Z INFO  main Reading 'Itumbiara' data for event '2013-10-08'
+2026-09-24T02:35:24.769503Z INFO  main   Reading 'GIC/measured/Espinosa' data for event '2013-10-08'
+2026-09-24T02:35:29.362372Z INFO  main     Running automated error checks on GIC measured data
+2026-09-24T02:35:29.523472Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-24T02:35:29.523971Z INFO  main     Uniq dts [#]  = 1
+2026-09-24T02:35:29.523971Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-24T02:35:29.558023Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2013-10-08\sites\itumbiara\data\GIC_measured_Espinosa.pkl
+2026-09-24T02:35:29.569903Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2013-10-08\sites\itumbiara\data\_all.pkl
+2026-09-24T02:35:29.573932Z INFO  main Computing stats for 'Itumbiara' data
+2026-09-24T02:35:29.580029Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-24T02:35:29.580029Z INFO  main   Uniq dts [#]  = 1
+2026-09-24T02:35:29.580029Z INFO  main   Stats for GIC/measured/Espinosa:
+2026-09-24T02:35:29.580029Z INFO  main 
+    std: : [1.0876567259047727]
+    ave: : [-0.7124439244663355]
+    min: : [-2.67245]
+    max: : [3.7915]
+    n: 781
+    n_valid: : [203]
+    dt_original: : [60000000000]
+2026-09-24T02:35:30.256778Z INFO  main Plotting 'Itumbiara' data for event '2013-10-08'
+2026-09-24T02:35:30.263254Z INFO  main   Plotting 'Itumbiara/GIC/measured/Espinosa' original vs. modified data for event '2013-10-08'
+2026-09-24T02:35:33.637209Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2013-10-08/sites/itumbiara/figures\original\GIC_measured_Espinosa.png
+2026-09-24T02:35:34.739545Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2013-10-08/sites/itumbiara/figures\original\GIC_measured_Espinosa.pdf
+2026-09-24T02:35:37.939859Z INFO  main   Adding error for site 'Itumbiara', GIC/'measured/Espinosa: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3005 A) > 1/4 * std after (1.0877 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-09-24T02:35:37.951651Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.extended.csv
+2026-09-24T02:35:37.953890Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.extended.json
+2026-09-24T02:35:37.953890Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.extended.json

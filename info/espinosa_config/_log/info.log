@@ -1,0 +1,24 @@
+2026-09-24T02:26:18.387880Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:26:18.409410Z INFO  info Wrote file 'C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\_log\info.log' (119 bytes)
+2026-09-24T02:26:56.210371Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:27:35.877421Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:27:35.886746Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:29:14.379529Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:29:14.383484Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:30:08.565175Z INFO  info    Adding sites for event 2013-10-08 from data source Espinosa to info.csv.
+2026-09-24T02:30:08.569395Z WARN  info    Data type DMM not found for source Espinosa and event 2013-10-08. Skipping...
+2026-09-24T02:30:08.569395Z WARN  info    Data type B not found for source Espinosa and event 2013-10-08. Skipping...
+2026-09-24T02:30:08.593516Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:30:08.599672Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.csv
+2026-09-24T02:30:09.501492Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-24T02:30:09.501492Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-24T02:30:10.906532Z WARN  info     Warning: Could not interpolate beta for site Itumbiara at (-18.41,-49.22)
+2026-09-24T02:30:11.407387Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-24T02:30:11.476060Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-09-24T02:30:18.770535Z INFO  info Adding nearest voltage to extended info_df
+2026-09-24T02:30:29.038881Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-09-24T02:30:29.038881Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-09-24T02:30:32.162514Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-09-24T02:30:32.303237Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.extended.csv
+2026-09-24T02:30:32.303237Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.extended.json
+2026-09-24T02:30:32.306509Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\espinosa_config\info.extended.json

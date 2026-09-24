@@ -1,0 +1,13 @@
+[2026-09-24T06:31:56.669136Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 43, in <module>
+    data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 85, in site_read
+    if _output_error(orig, logger):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 733, in _output_error
+    if 'error' in d:
+       ^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+

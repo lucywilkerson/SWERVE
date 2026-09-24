@@ -1,0 +1,25 @@
+{
+  "Itumbiara": {
+    "GIC": {
+      "measured": {
+        "Espinosa": {
+          "Itumbiara": {
+            "geo_lat": -18.41,
+            "geo_lon": -49.22,
+            "event": "2013-10-08",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": -9.41037024260433,
+            "mag_lon": 22.351778107943883,
+            "alpha": 0.0003388517516897,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3005 A) > 1/4 * std after (1.0877 A);\nCadence is >= 60 seconds (60.0 seconds)"
+          }
+        }
+      }
+    }
+  }
+}

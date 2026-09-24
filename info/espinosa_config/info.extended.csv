@@ -1,0 +1,4 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+Itumbiara,-18.41,-49.22,GIC,measured,Espinosa,2013-10-08,,,,-9.41037024260433,22.351778107943883,0.0003388517516897,,,,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3005 A) > 1/4 * std after (1.0877 A);
+Cadence is >= 60 seconds (60.0 seconds)"
