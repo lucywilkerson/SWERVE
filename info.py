@@ -5,6 +5,8 @@ import numpy as np
 
 from swerve import config, subset, infodf2dict
 
+reparse_info = True # If true, rewrites info.csv before writing info.extended.csv and info.extended.json
+
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
@@ -672,7 +674,7 @@ def find_duplicates(info_df):
         info_df['manual_error'].iloc[i] = f"x Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'"
 
 # Write info.csv if doesn't exist
-if not os.path.exists(CONFIG['files']['info']):
+if not os.path.exists(CONFIG['files']['info']) or reparse_info:
   from swerve import write_info_csv
   write_info_csv()
 
