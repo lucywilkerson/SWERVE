@@ -231,7 +231,11 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'NERC':
-    nerc_prefix = CONFIG['event'][event]['nerc_prefix']
+    import json
+    config_nerc = CONFIG['files']['config_nerc']
+    with open(config_nerc, 'r') as f:
+      nerc_events = json.load(f)
+    nerc_prefix = nerc_events[event]['nerc_prefix']
     fname = f'{nerc_prefix}_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', event, 'gic')
     data = read_nerc(data_dir, fname)
@@ -330,7 +334,11 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'NERC':
     # TODO: magnetometers.csv indicates if GEO or MAG coordinates
-    nerc_prefix = CONFIG['event'][event]['nerc_prefix']
+    import json
+    config_nerc = CONFIG['files']['config_nerc']
+    with open(config_nerc, 'r') as f:
+      nerc_events = json.load(f)
+    nerc_prefix = nerc_events[event]['nerc_prefix']
     fname = f'{nerc_prefix}_{sid}.csv'
     data_dir = os.path.join(data_dir, 'nerc', event, 'mag')
     data = read_nerc(data_dir, fname)
@@ -511,10 +519,11 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), f'{event.replace("-", "")}_hallprobe_data.mat')
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Data file not found: {data_file}")
-
+    
+    logger.info(f"    Reading {data_file}")
     load_data = load_from_mat(data_file)
 
-    time = pandas.to_datetime(load_data['time_GIC'])
+    time = pandas.to_datetime(load_data['time_GIC']).to_pydatetime()
     if sid.lower().replace(' ','') == 'alberta1':
       data = load_data['Sub1_GIC']
     elif sid.lower().replace(' ','') == 'alberta2':
@@ -542,6 +551,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         data_col = 1
       elif sid.lower().replace(' ','') == 'ellerslie2':
         data_col = 2
+
+      logger.info(f"    Reading {data_file}")
 
       with open(data_file, 'r') as csvfile:
         next(csvfile)  # Skip header rows
@@ -580,6 +591,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             raise FileNotFoundError(f"Data file not found: {data_file}")
         data  = []
         time = []
+        logger.info(f"    Reading {data_file}")
         with open(data_file, 'r') as csvfile:
               rows = csv.reader(csvfile, delimiter=',')
               for row in rows:
@@ -616,6 +628,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       data =[]
 
       for item in os.listdir(data_path):
+        logger.info(f"    Reading {os.path.join(data_path, item)}")
         with open(os.path.join(data_path, item), "r") as file:
             for line in file:
                 if line.startswith('\x1a'):
@@ -652,6 +665,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     if not os.path.exists(data_path):
         raise FileNotFoundError(f"Data file not found: {data_path}")
 
+    logger.info(f"    Reading {data_path}")
     time = []
     data = []
 
@@ -680,6 +694,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Data file not found: {data_file}")
 
+    logger.info(f"    Reading {data_file}")
+
     time = []
     data = []
 
@@ -706,6 +722,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     data_path = os.path.join(data_path, data_file)
     if not os.path.exists(data_path):
       raise FileNotFoundError(f"Data file not found: {data_path}")
+
+    logger.info(f"    Reading {data_path}")
 
     data = []
 
@@ -738,6 +756,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     data_file = os.path.join(data_path, 'swe20818-sup-0002-2018sw002094-table_si-s01.xlsx')
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    logger.info(f"    Reading {data_file}")
 
     time = []
     data = []
