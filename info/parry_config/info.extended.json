@@ -43,6 +43,72 @@
       }
     }
   },
+  "FCHP": {
+    "B": {
+      "measured": {
+        "Parry2025": {
+          "FCHP": {
+            "geo_lat": 58.769,
+            "geo_lon": 248.894,
+            "event": "2023-04-24",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 65.39788023284949,
+            "mag_lon": -50.757814515488214,
+            "alpha": 1.8459627328018757,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "MCMU": {
+    "B": {
+      "measured": {
+        "Parry2025": {
+          "MCMU": {
+            "geo_lat": 56.657,
+            "geo_lon": 248.79,
+            "event": "2023-04-24",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 63.33036171097439,
+            "mag_lon": -49.75222077811513,
+            "alpha": 1.455335295590097,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "MSTK": {
+    "B": {
+      "measured": {
+        "Parry2025": {
+          "MSTK": {
+            "geo_lat": 53.351,
+            "geo_lon": 247.026,
+            "event": "2021-11-04",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 59.93200338480462,
+            "mag_lon": -50.4170188703752,
+            "alpha": 0.9845457716241441,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
   "Ellerslie 1": {
     "GIC": {
       "measured": {

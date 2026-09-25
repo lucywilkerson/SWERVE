@@ -537,6 +537,32 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       "unit": "A"
     }
 
+  if data_type == 'B' and data_class == 'measured' and data_source == 'Parry2025':
+    data_file = os.path.join(data_dir, data_source.lower(), event, 'mag', f'{event.replace('-','')}{sid.upper()}.F01')
+    if not os.path.exists(data_file):
+        raise FileNotFoundError(f"Data file not found: {data_file}")
+    logger.info(f"    Reading {data_file}")
+    time = []
+    data = []
+    with open(data_file, 'r', encoding="utf-8") as f:
+      rows = f.readlines()
+      for row in rows:
+        if row.startswith(f'{sid.upper()}'):
+            continue
+        split_row = row.split()
+        time.append(datetime.datetime.strptime(split_row[0], '%Y%m%d%H%M%S'))
+        data_bx = float(split_row[1])
+        data_by = float(split_row[2])
+        data_bz = float(split_row[3])
+        data.append([data_bx, data_by, data_bz])
+
+    return {
+              "time": numpy.array(time),
+              "data": numpy.array(data),
+              "labels": ["Bx", "By", "Bz"],
+              "unit": "nT"
+            }
+
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2024':
       from datetime import timedelta, timezone
       from zoneinfo import ZoneInfo

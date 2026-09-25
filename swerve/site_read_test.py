@@ -199,6 +199,21 @@ def _test_Parry2025_GIC_measured():
     raw_start_data = [-2.049549818000000]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
+def _test_Parry2025_B_measured():
+    data_source = 'Parry2025'
+    data_type = 'B'
+    data_class = 'measured'
+    sid = 'FCHP'
+    event = '2023-04-24'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('20230424000000', '%Y%m%d%H%M%S')
+    raw_start_data = numpy.array([11332.991,3537.687,56488.975])
+    assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
+
 def _test_TVA_GIC_measured():
     data_source = 'TVA'
     data_type = 'GIC'
@@ -280,6 +295,7 @@ if run_tests:
     _test_Parry2024_GIC_measured()
 
     _test_Parry2025_GIC_measured()
+    _test_Parry2025_B_measured()
 
     _test_TVA_GIC_measured()
     _test_TVA_B_measured()

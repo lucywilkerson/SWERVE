@@ -129,6 +129,12 @@ def write_info_csv():
                                 logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
                                 continue
                             file = os.path.join(file_dir, 'parry_2025_info.csv')
+                        elif data_type == 'B':
+                            file_dir = os.path.join(data_dir, f'{data_source.lower()}', event, 'mag')
+                            if not os.path.exists(file_dir):
+                                logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                                continue
+                            file = os.path.join(file_dir, 'parry_2025_info.csv')
                         else:
                             continue
                         with open(file, 'r') as csvfile:

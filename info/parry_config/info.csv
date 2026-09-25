@@ -1,1 +1,13 @@
-
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Alberta 1,53.45,-144.45,GIC,measured,Parry2025,2023-04-24,
+Alberta 2,53.45,-113.48,GIC,measured,Parry2025,2023-04-24,
+FCHP,58.769,248.894,B,measured,Parry2025,2023-04-24,
+MCMU,56.657,248.79,B,measured,Parry2025,2023-04-24,
+MSTK,53.351,247.026,B,measured,Parry2025,2023-04-24,
+Ellerslie 1,53.434,-113.46,GIC,measured,Parry2024,2021-10-12,
+Ellerslie 2,53.434,-113.46,GIC,measured,Parry2024,2021-10-12,
+Alberta line,53.47,-113.33,DMM,measured,Parry2024,2021-10-12,
+Alberta ref,53.47,-113.33,DMM,measured,Parry2024,2021-10-12,
+Alberta line,53.47,-113.33,DMM,measured,Parry2024,2021-09-26,
+Alberta ref,53.47,-113.33,DMM,measured,Parry2024,2021-09-26,
+MSTK,53.351,247.026,B,measured,Parry2025,2021-11-04,
