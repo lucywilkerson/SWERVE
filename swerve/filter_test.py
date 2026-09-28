@@ -9,10 +9,13 @@ import json
 import utilrsw
 from swerve import config
 CONFIG = config()
-logger = utilrsw.logger(rm_existing=False,
-        rm_empty= False)
 if 'filter_kwargs' in CONFIG.keys():
     filter_kwargs = CONFIG['filter_kwargs']
+else:
+    import os
+    file_path = os.path.dirname(os.path.abspath(__file__))
+    logger = utilrsw.logger(log_dir=os.path.join(file_path, '..', 'test_logs'), rm_existing=False,
+        rm_empty= False)
 
 def _test_dict():
     # Returns dictionary with all test configuration information
