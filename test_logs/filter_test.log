@@ -1,0 +1,136 @@
+2026-09-25T15:36:43.614530Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-25T15:37:29.508636Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-25T15:37:29.511046Z INFO  filter_test   Reading cached file with all data for site 'test_spike': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-09-25T15:37:29.542256Z INFO  filter_test Testing filter for test_spike GIC...
+2026-09-25T15:46:55.852861Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-25T15:46:55.852861Z INFO  filter_test   Reading cached file with all data for site 'test_spike': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-09-25T15:46:55.882847Z INFO  filter_test Testing filter for test_spike GIC...
+2026-09-25T15:50:12.016758Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-25T15:50:12.016758Z INFO  filter_test   Reading cached file with all data for site 'test_spike': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-09-25T15:50:12.042044Z INFO  filter_test Testing filter for test_spike GIC...
+2026-09-25T15:53:21.535027Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-25T15:53:21.535027Z INFO  filter_test   Reading cached file with all data for site 'test_spike': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-09-25T15:53:21.558440Z INFO  filter_test Testing filter for test_spike GIC...
+2026-09-25T15:53:27.136290Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:53:27.136290Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-25T15:53:27.136290Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-25T15:53:33.243634Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_spike_GIC_filtered.png
+2026-09-25T15:53:33.394413Z INFO  filter_test Reading 'test_offset' data for event '2024-05-10'
+2026-09-25T15:53:33.394413Z INFO  filter_test   Reading cached file with all data for site 'test_offset': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_offset\data\_all.pkl
+2026-09-25T15:53:33.432529Z INFO  filter_test Testing filter for test_offset GIC...
+2026-09-25T15:53:38.521532Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:53:38.521532Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-25T15:53:38.521532Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-25T15:53:39.016560Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_offset_GIC_filtered.png
+2026-09-25T15:53:39.420644Z INFO  filter_test Reading 'test_both' data for event '2024-05-10'
+2026-09-25T15:53:39.436391Z INFO  filter_test   Reading cached file with all data for site 'test_both': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_both\data\_all.pkl
+2026-09-25T15:53:39.469916Z INFO  filter_test Testing filter for test_both GIC...
+2026-09-25T15:53:44.347386Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:53:44.347386Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-25T15:53:44.347386Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-25T15:53:44.859638Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_both_GIC_filtered.png
+2026-09-25T15:53:44.993766Z INFO  filter_test Reading 'test_low_val' data for event '2024-05-10'
+2026-09-25T15:53:44.993766Z INFO  filter_test   Reading cached file with all data for site 'test_low_val': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_low_val\data\_all.pkl
+2026-09-25T15:53:45.058420Z INFO  filter_test Testing filter for test_low_val GIC...
+2026-09-25T15:53:50.548548Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:53:50.548548Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-25T15:53:50.548548Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-25T15:53:51.121110Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_low_val_GIC_filtered.png
+2026-09-25T15:53:51.841862Z INFO  filter_test Reading 'test_long_break' data for event '2024-05-10'
+2026-09-25T15:53:51.841862Z INFO  filter_test   Reading cached file with all data for site 'test_long_break': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_long_break\data\_all.pkl
+2026-09-25T15:53:51.907963Z INFO  filter_test Testing filter for test_long_break GIC...
+2026-09-25T15:53:56.966954Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:53:56.966954Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-25T15:53:56.966954Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-25T15:53:57.400080Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_long_break_GIC_filtered.png
+2026-09-25T15:53:57.844425Z INFO  filter_test Reading 'test_cadence' data for event '2024-05-10'
+2026-09-25T15:53:57.844425Z INFO  filter_test   Reading cached file with all data for site 'test_cadence': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_cadence\data\_all.pkl
+2026-09-25T15:53:57.861341Z INFO  filter_test Testing filter for test_cadence GIC...
+2026-09-25T15:53:57.870277Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:53:57.870277Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-25T15:53:57.870277Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-25T15:53:57.953797Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_cadence_GIC_filtered.png
+2026-09-28T12:57:21.473164Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-28T12:57:21.473164Z INFO  filter_test   Reading cached file with all data for site 'test_spike': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-09-28T12:57:21.508590Z INFO  filter_test Testing filter for test_spike GIC...
+2026-09-28T12:57:28.151029Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:57:28.151029Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:57:28.151029Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:57:31.864486Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_spike_GIC_filtered.png
+2026-09-28T12:57:32.064739Z INFO  filter_test Reading 'test_offset' data for event '2024-05-10'
+2026-09-28T12:57:32.064739Z INFO  filter_test   Reading cached file with all data for site 'test_offset': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_offset\data\_all.pkl
+2026-09-28T12:57:32.114408Z INFO  filter_test Testing filter for test_offset GIC...
+2026-09-28T12:57:39.324957Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:57:39.324957Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:57:39.324957Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:57:39.799191Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_offset_GIC_filtered.png
+2026-09-28T12:57:40.226191Z INFO  filter_test Reading 'test_both' data for event '2024-05-10'
+2026-09-28T12:57:40.226191Z INFO  filter_test   Reading cached file with all data for site 'test_both': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_both\data\_all.pkl
+2026-09-28T12:57:40.275332Z INFO  filter_test Testing filter for test_both GIC...
+2026-09-28T12:57:46.074947Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:57:46.074947Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:57:46.074947Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:57:46.586887Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_both_GIC_filtered.png
+2026-09-28T12:57:46.710679Z INFO  filter_test Reading 'test_low_val' data for event '2024-05-10'
+2026-09-28T12:57:46.710679Z INFO  filter_test   Reading cached file with all data for site 'test_low_val': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_low_val\data\_all.pkl
+2026-09-28T12:57:46.772300Z INFO  filter_test Testing filter for test_low_val GIC...
+2026-09-28T12:57:52.676353Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:57:52.676353Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:57:52.676353Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:57:53.240696Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_low_val_GIC_filtered.png
+2026-09-28T12:57:53.975932Z INFO  filter_test Reading 'test_long_break' data for event '2024-05-10'
+2026-09-28T12:57:53.975932Z INFO  filter_test   Reading cached file with all data for site 'test_long_break': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_long_break\data\_all.pkl
+2026-09-28T12:57:54.019742Z INFO  filter_test Testing filter for test_long_break GIC...
+2026-09-28T12:57:59.927593Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:57:59.927593Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:57:59.927593Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:58:00.474471Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_long_break_GIC_filtered.png
+2026-09-28T12:58:00.968684Z INFO  filter_test Reading 'test_cadence' data for event '2024-05-10'
+2026-09-28T12:58:00.968684Z INFO  filter_test   Reading cached file with all data for site 'test_cadence': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_cadence\data\_all.pkl
+2026-09-28T12:58:00.989095Z INFO  filter_test Testing filter for test_cadence GIC...
+2026-09-28T12:58:01.002552Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:58:01.003569Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:58:01.003569Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:58:01.087906Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_cadence_GIC_filtered.png
+2026-09-28T12:58:35.973575Z INFO  filter_test Reading 'test_spike' data for event '2024-05-10'
+2026-09-28T12:58:35.973575Z INFO  filter_test   Reading cached file with all data for site 'test_spike': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_spike\data\_all.pkl
+2026-09-28T12:58:35.999114Z INFO  filter_test Testing filter for test_spike GIC...
+2026-09-28T12:58:41.350221Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:58:41.350221Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:58:41.350221Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:58:42.166612Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_spike_GIC_filtered.png
+2026-09-28T12:58:42.326931Z INFO  filter_test Reading 'test_offset' data for event '2024-05-10'
+2026-09-28T12:58:42.326931Z INFO  filter_test   Reading cached file with all data for site 'test_offset': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_offset\data\_all.pkl
+2026-09-28T12:58:42.346755Z INFO  filter_test Testing filter for test_offset GIC...
+2026-09-28T12:58:47.438554Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:58:47.454259Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:58:47.454259Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:58:47.888406Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_offset_GIC_filtered.png
+2026-09-28T12:58:48.256531Z INFO  filter_test Reading 'test_both' data for event '2024-05-10'
+2026-09-28T12:58:48.256531Z INFO  filter_test   Reading cached file with all data for site 'test_both': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_both\data\_all.pkl
+2026-09-28T12:58:48.282327Z INFO  filter_test Testing filter for test_both GIC...
+2026-09-28T12:58:53.212594Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:58:53.212594Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:58:53.212594Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:58:53.714669Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_both_GIC_filtered.png
+2026-09-28T12:58:53.829142Z INFO  filter_test Reading 'test_low_val' data for event '2024-05-10'
+2026-09-28T12:58:53.829142Z INFO  filter_test   Reading cached file with all data for site 'test_low_val': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_low_val\data\_all.pkl
+2026-09-28T12:58:53.873806Z INFO  filter_test Testing filter for test_low_val GIC...
+2026-09-28T12:58:59.209908Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:58:59.209908Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:58:59.209908Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:58:59.814971Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_low_val_GIC_filtered.png
+2026-09-28T12:59:00.594446Z INFO  filter_test Reading 'test_long_break' data for event '2024-05-10'
+2026-09-28T12:59:00.594446Z INFO  filter_test   Reading cached file with all data for site 'test_long_break': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_long_break\data\_all.pkl
+2026-09-28T12:59:00.621940Z INFO  filter_test Testing filter for test_long_break GIC...
+2026-09-28T12:59:06.235496Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:59:06.235496Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:59:06.235496Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:59:06.776132Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_long_break_GIC_filtered.png
+2026-09-28T12:59:07.278956Z INFO  filter_test Reading 'test_cadence' data for event '2024-05-10'
+2026-09-28T12:59:07.278956Z INFO  filter_test   Reading cached file with all data for site 'test_cadence': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\test_cadence\data\_all.pkl
+2026-09-28T12:59:07.278956Z INFO  filter_test Testing filter for test_cadence GIC...
+2026-09-28T12:59:07.278956Z WARN  filter_test Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T12:59:07.278956Z INFO  filter_test     Uniq dts [ns] = []
+2026-09-28T12:59:07.294724Z INFO  filter_test     Uniq dts [#]  = 0
+2026-09-28T12:59:07.385046Z INFO  filter_test Saving plot to C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\test\figures\test_cadence_GIC_filtered.png

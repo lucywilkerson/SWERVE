@@ -1,0 +1,168 @@
+[2026-09-25T18:23:31.842030Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 279, in <module>
+    _test_AlvesRibeiro_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 25, in _test_AlvesRibeiro_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 199, in _site_read_orig
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 11, in config
+    raise ValueError("No run configuration specified.")
+ValueError: No run configuration specified.
+
+[2026-09-25T18:23:31.842030Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\utilrsw\logger.py", line 297, in cleanup
+    os.remove(file)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'site_read_test.log'
+
+[2026-09-25T18:31:10.429287Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 280, in <module>
+    _test_AlvesRibeiro_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 26, in _test_AlvesRibeiro_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 199, in _site_read_orig
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 11, in config
+    raise ValueError("No run configuration specified.")
+ValueError: No run configuration specified.
+
+[2026-09-25T19:05:38.291230Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 279, in <module>
+    _test_AlvesRibeiro_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 25, in _test_AlvesRibeiro_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 199, in _site_read_orig
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 11, in config
+    raise ValueError("No run configuration specified.")
+ValueError: No run configuration specified.
+
+[2026-09-25T19:09:08.888377Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 279, in <module>
+    _test_AlvesRibeiro_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 25, in _test_AlvesRibeiro_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 199, in _site_read_orig
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 21, in config
+    'data': data_dir,
+            ^^^^^^^^
+UnboundLocalError: cannot access local variable 'data_dir' where it is not associated with a value
+
+[2026-09-25T19:09:36.828060Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 279, in <module>
+    _test_AlvesRibeiro_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 25, in _test_AlvesRibeiro_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 199, in _site_read_orig
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 20, in config
+    with open(run_config_file) as f:
+              ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'run_config_file' where it is not associated with a value
+
+[2026-09-25T19:10:31.291614Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 279, in <module>
+    _test_AlvesRibeiro_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 25, in _test_AlvesRibeiro_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 199, in _site_read_orig
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 20, in config
+    with open(run_config_file) as f:
+              ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'run_config_file' where it is not associated with a value
+
+[2026-09-25T19:11:05.365319Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 292, in <module>
+    _test_NERC_B_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 146, in _test_NERC_B_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 338, in _site_read_orig
+    data_file = next((f for f in os.listdir(data_path) if f.endswith(f'{sid}.csv')), None)
+                                 ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_original\\nerc\\2024-05-10\\b'
+
+[2026-09-25T19:12:04.311404Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 292, in <module>
+    _test_NERC_B_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 146, in _test_NERC_B_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 338, in _site_read_orig
+    data_file = next((f for f in os.listdir(data_path) if f.endswith(f'{sid}.csv')), None)
+                                 ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_original\\nerc\\2024-05-10\\b'
+
+[2026-09-25T19:12:57.221868Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 292, in <module>
+    _test_NERC_B_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 146, in _test_NERC_B_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 339, in _site_read_orig
+    data = read_nerc(data_dir, data_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 168, in read_nerc
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\2024E04_50100.csv
+
+[2026-09-25T19:14:51.746600Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 291, in <module>
+    _test_NERC_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 131, in _test_NERC_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 236, in _site_read_orig
+    data = read_nerc(data_path, data_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 165, in read_nerc
+    file = os.path.join(data_dir, fname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen ntpath>", line 149, in join
+  File "<frozen genericpath>", line 164, in _check_arg_types
+TypeError: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+

@@ -1,0 +1,181 @@
+[2026-09-25T19:20:18.385395Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 14, in <module>
+    filter_kwargs = CONFIG['filter_kwargs']
+                    ~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'filter_kwargs'
+
+[2026-09-25T19:24:13.435696Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 304, in <module>
+    test_dict = _test_dict()
+                ^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 22, in _test_dict
+    limits = CONFIG['limits']['data']
+             ~~~~~~^^^^^^^^^^
+KeyError: 'limits'
+
+[2026-09-25T19:30:38.481642Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 305, in <module>
+    test_dict = _test_dict()
+                ^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 65, in _test_dict
+    'start_time':limits[0]-timedelta(hours=3),
+                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'str' and 'datetime.timedelta'
+
+[2026-09-25T19:33:29.816803Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 308, in <module>
+    _test_site(test_name, data_types=test_info.keys(), plot=True, logger=logger)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 273, in _test_site
+    gic_data = site_read(site, data_types='GIC', logger=logger, reparse=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: site_read() missing 1 required positional argument: 'event'
+
+[2026-09-25T19:36:43.614530Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    _test_site(test_name, data_types=test_info.keys(), plot=True, logger=logger)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 279, in _test_site
+    gic_data = site_read(site, event, data_types='GIC', logger=logger, reparse=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read.py", line 51, in site_read
+    start = CONFIG['event'][event]['data_limits'][0]
+            ~~~~~~^^^^^^^^^
+KeyError: 'event'
+
+[2026-09-25T19:37:29.543253Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    _test_site(test_name, data_types=test_info.keys(), plot=True, logger=logger)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 282, in _test_site
+    filtered_data, errors, corrections = test_data(orig_data, 'GIC')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 273, in test_data
+    filtered_data, errors, corrections = filter(data, logger=logger)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: filter() missing 2 required positional arguments: 'start' and 'stop'
+
+[2026-09-25T19:44:00.387985Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    test_limits = [test_dict[test_name][test_info]['config']['start_time'], test_dict[test_name][test_info]['config']['start_time']]
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: unhashable type: 'dict'
+
+[2026-09-25T19:44:58.799550Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 315, in <module>
+    test_limits = [test_dict[test_name][test_info]['config']['start_time'], test_dict[test_name][test_info]['config']['start_time']]
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: unhashable type: 'dict'
+
+[2026-09-25T19:45:22.547454Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    print(test_dict['test_name'].keys())
+          ~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'test_name'
+
+[2026-09-25T19:45:34.436926Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 315, in <module>
+    test_limits = [test_dict[test_name][test_info]['config']['start_time'], test_dict[test_name][test_info]['config']['start_time']]
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: unhashable type: 'dict'
+
+[2026-09-25T19:46:08.875253Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    test_limits = [test_dict[test_name][test_info.keys()]['config']['start_time'], test_dict[test_name][test_info]['config']['start_time']]
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'dict_keys'
+
+[2026-09-25T19:46:21.165325Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    test_limits = [test_dict[test_name][test_info.keys()[0]]['config']['start_time'], test_dict[test_name][test_info]['config']['start_time']]
+                                        ~~~~~~~~~~~~~~~~^^^
+TypeError: 'dict_keys' object is not subscriptable
+
+[2026-09-25T19:46:33.673969Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 314, in <module>
+    test_limits = [test_dict[test_name]['GIC']['config']['start_time'], test_dict[test_name][test_info]['config']['start_time']]
+                                                                        ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: unhashable type: 'dict'
+
+[2026-09-25T19:46:55.886561Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 315, in <module>
+    _test_site(test_name, test_limits, data_types=test_info.keys(), plot=True, logger=logger)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 282, in _test_site
+    filtered_data, errors, corrections = test_data(orig_data, 'GIC')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 273, in test_data
+    filtered_data, errors, corrections = filter(data, test_limits[0], test_limits[1], logger=logger)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter.py", line 15, in filter
+    gic_filter_kwargs = CONFIG['filter_kwargs']
+                        ~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'filter_kwargs'
+
+[2026-09-25T19:50:17.416920Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 315, in <module>
+    _test_site(test_name, test_limits, data_types=test_info.keys(), plot=True, logger=logger)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 282, in _test_site
+    filtered_data, errors, corrections = test_data(orig_data, 'GIC')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 273, in test_data
+    filtered_data, errors, corrections = filter(data, test_limits[0], test_limits[1], logger=logger)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter.py", line 71, in filter
+    storm_start = datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not datetime.datetime
+
+[2026-09-25T19:51:28.267257Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 312, in <module>
+    test_dict = _test_dict()
+                ^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter_test.py", line 66, in _test_dict
+    'start_time':limits[0]-timedelta(hours=3),
+                 ~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'str' and 'datetime.timedelta'
+
