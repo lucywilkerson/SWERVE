@@ -10,8 +10,10 @@ import utilrsw
 
 run_tests = True
 
-logger = utilrsw.logger(rm_existing=False,
-        rm_empty= False)
+import os
+file_path = os.path.dirname(os.path.abspath(__file__))
+logger = utilrsw.logger(log_dir=os.path.join(file_path, '..', 'test_logs'), rm_existing=False,
+    rm_empty= False)
 
 # Test functions for all readers in site_read!
 
