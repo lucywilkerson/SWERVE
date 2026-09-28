@@ -1,4 +1,4 @@
-def config():
+def config(dirs_only=False): #TODO: dirs_only option
   import os
   import datetime
   import yaml
@@ -8,7 +8,8 @@ def config():
   from swerve.cli import cli
   args = cli('config.py')
   if args['run_config'] is None:
-    raise ValueError("No run configuration specified.")
+    dirs_only = True
+    #raise ValueError("No run configuration specified.")
   else:
     # Use run configuration from command line argument if provided.
     run_config_file = os.path.abspath(os.path.join('configs', args['run_config']))
@@ -16,15 +17,25 @@ def config():
 
   console_format = u'%(message)s'
 
-  with open(run_config_file) as f:
-    conf = yaml.safe_load(f)
-
   file_path = os.path.dirname(os.path.abspath(__file__)) # Path of this script.
-  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
   data_dir = os.path.abspath(os.path.join(file_path, '..', '..', f'SWERVE-data'))
-
   common_dir = os.path.abspath(os.path.join(file_path, '..', '..', 'SWERVE-common')) # Common data directory for all events.
 
+  if dirs_only:
+    config_dict =  {
+          'dirs': {
+            'data': data_dir,
+            'original': os.path.join(data_dir, 'data_original'),
+            'processed': os.path.join(data_dir, 'data_processed'),
+          },
+        }
+    return config_dict
+
+  with open(run_config_file) as f:
+      conf = yaml.safe_load(f)
+      
+  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
+  
   # If event_dict.json exists in the corresponding info directory, use it. Otherwise, create it from the run configuration file.
   event_dict_file = os.path.abspath(os.path.join(info_dir, 'events_dict.json'))
   if os.path.exists(event_dict_file):

@@ -1,8 +1,8 @@
 # Usage:
-#   python main.py
-#   python main.py paper
-#   python main.py test
-#   python main.py 'site1,site2,...'
+#   python main.py -h
+#   python main.py --sites paper
+#   python main.py --run_config test_config.yaml --sites test
+#   python main.py --sites 'site1,site2,...'
 
 # For debugging
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).

@@ -2,21 +2,26 @@
 #   python -m swerve.filter_test
 
 run_tests   = True  # Run tests
-write_tests = True # Write test timeseries 
+write_tests = False # Write test timeseries 
 
 from datetime import timedelta
 import json
+import utilrsw
 from swerve import config
 CONFIG = config()
-logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
-filter_kwargs = CONFIG['filter_kwargs']
+logger = utilrsw.logger(rm_existing=False,
+        rm_empty= False)
+if 'filter_kwargs' in CONFIG.keys():
+    filter_kwargs = CONFIG['filter_kwargs']
 
 def _test_dict():
     # Returns dictionary with all test configuration information
 
-    from swerve import config
-    CONFIG = config()
-    limits = CONFIG['limits']['data']
+    if 'limits' in CONFIG.keys():
+        limits = CONFIG['limits']['data']
+    else:
+        from datetime import datetime
+        limits = [datetime.strptime("2024-05-10T15:00", "%Y-%m-%dT%H:%M"), datetime.strptime("2024-05-12T06:00", "%Y-%m-%dT%H:%M")]
 
     return {
                 'test_spike':{
@@ -246,7 +251,7 @@ def _write_timeseries(test_name, start_time, stop_time, value_range, data_type, 
         plt.show()
 
 
-def _test_site(site, data_types=None, plot=False, logger=logger):
+def _test_site(site, test_limits, data_types=None, plot=False, logger=logger):
     """
     Tests the filtering method and plots the original and filtered data for visual inspection.
     Args:
@@ -257,18 +262,24 @@ def _test_site(site, data_types=None, plot=False, logger=logger):
 
     from swerve import site_read, filter
 
+    if 'event' in CONFIG.keys():
+        events = CONFIG['event']
+    else:
+        events = ['2024-05-10']
+
     def test_data(data, data_type):
         # Test filtering
         logger.info(f"Testing filter for {site} {data_type}...")
-        filtered_data, errors, corrections = filter(data, logger=logger)
+        filtered_data, errors, corrections = filter(data, test_limits[0], test_limits[1], logger=logger)
         return filtered_data, errors, corrections
 
     if 'GIC' in data_types:
-        # Read and parse data or use cached data if found and reparse is False.
-        gic_data = site_read(site, data_types='GIC', logger=logger, reparse=True)
-        # Get original test GIC data 
-        orig_data = gic_data['GIC']['measured']['TEST']['original']
-        filtered_data, errors, corrections = test_data(orig_data, 'GIC')    
+        for event in events:
+            # Read and parse data or use cached data if found and reparse is False.
+            gic_data = site_read(site, event, data_types='GIC', logger=logger)
+            # Get original test GIC data 
+            orig_data = gic_data['GIC']['measured']['TEST']['original']
+            filtered_data, errors, corrections = test_data(orig_data, 'GIC')    
     
     # Plot filtered data and original data for visual inspection
     if plot:
@@ -300,4 +311,7 @@ if __name__ == "__main__":
     if run_tests:
         test_dict = _test_dict()
         for test_name, test_info in test_dict.items():
-            _test_site(test_name, data_types=test_info.keys(), plot=True, logger=logger)
+            start = str(test_dict[test_name]['GIC']['config']['start_time'])
+            stop = str(test_dict[test_name]['GIC']['config']['start_time'])
+            test_limits = [start, stop]
+            _test_site(test_name, test_limits, data_types=test_info.keys(), plot=True, logger=logger)

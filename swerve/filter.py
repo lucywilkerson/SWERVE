@@ -12,7 +12,19 @@ def filter(data, start, stop, logger=None):
     from swerve import config, cadence
     from datetime import timedelta, datetime, timezone
     CONFIG = config()
-    gic_filter_kwargs = CONFIG['filter_kwargs']
+    if 'filter_kwargs' in CONFIG:
+        gic_filter_kwargs = CONFIG['filter_kwargs']
+    else: # Set defaults
+        gic_filter_kwargs = {'spike_filt_type': 'median', # 'difference' or 'median' or null
+                        'low_signal_threshold': 4, # [A]
+                        'baseline_buffer': 1, # [A]
+                        'spike_threshold': 40, # [A]
+                        'median_window': 20, # [number of points]
+                        'noise_threshold': 4, # [unitless]
+                        'max_cadence': 60, # [s]
+                        'max_gap': 600, # [s]
+                        'max_const': 300 # [s]
+        }
 
     errors = []
     corrections = ''

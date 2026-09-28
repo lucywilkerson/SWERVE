@@ -5,13 +5,13 @@ import pandas
 import pickle
 import datetime
 
-from swerve import config
-from swerve.site_read import _site_read_orig
+from swerve import _site_read_orig
+import utilrsw
 
 run_tests = True
 
-CONFIG = config()
-logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+logger = utilrsw.logger(rm_existing=False,
+        rm_empty= False)
 
 # Test functions for all readers in site_read!
 
