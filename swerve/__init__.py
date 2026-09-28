@@ -4,7 +4,7 @@ from .subset import subset
 from .cadence import cadence
 from .resample import resample
 from .read.site_read import site_read
-from .read.orig_read import _site_read_orig
+from .read.orig_readers import _site_read_orig
 from .read.output_error import _output_error
 from .read.write_pkl import _write_pkl
 from .site_plot import site_plot
@@ -12,7 +12,6 @@ from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
 from .storm_time import storm_time
 from .update_info_extended import update_info_extended
-from .regress import regress, write_eqn_and_fname
 from .filter import filter
 from .write_info_csv import write_info_csv
 
