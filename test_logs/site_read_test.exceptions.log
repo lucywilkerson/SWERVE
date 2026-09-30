@@ -166,3 +166,36 @@ Traceback (most recent call last):
   File "<frozen genericpath>", line 164, in _check_arg_types
 TypeError: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
 
+[2026-09-29T22:13:01.324385Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 315, in <module>
+    _test_Bailey_GIC_calculated()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 73, in _test_Bailey_GIC_calculated
+    read_start_time = read_data['time'][0]
+                      ~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-09-29T22:14:21.590502Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 315, in <module>
+    _test_Bailey_GIC_calculated()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 73, in _test_Bailey_GIC_calculated
+    read_start_time = read_data['time'][0]
+                      ~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-09-29T22:15:43.838560Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 315, in <module>
+    _test_Bailey_GIC_calculated()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 73, in _test_Bailey_GIC_calculated
+    read_start_time = read_data['time'][0]
+                      ~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
