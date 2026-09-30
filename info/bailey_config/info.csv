@@ -1,0 +1,5 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Austria SS1,48.13,16.42,GIC,measured,Bailey,2017-09-04,
+Austria SS1,48.13,16.42,GIC,calculated,Bailey,2017-09-04,
+Austria SS5,48.26,13.08,GIC,measured,Bailey,2017-09-04,
+Austria SS5,48.26,13.08,GIC,calculated,Bailey,2017-09-04,

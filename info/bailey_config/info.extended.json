@@ -1,0 +1,86 @@
+{
+  "Austria SS1": {
+    "GIC": {
+      "measured": {
+        "Bailey": {
+          "Austria SS1": {
+            "geo_lat": 48.13,
+            "geo_lon": 16.42,
+            "event": "2017-09-04",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 47.405582945487104,
+            "mag_lon": 99.58568149262148,
+            "alpha": 0.2331406777947628,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
+          }
+        }
+      },
+      "calculated": {
+        "Bailey": {
+          "Austria SS1": {
+            "geo_lat": 48.13,
+            "geo_lon": 16.42,
+            "event": "2017-09-04",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 47.405582945487104,
+            "mag_lon": 99.58568149262148,
+            "alpha": 0.2331406777947628,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "Austria SS5": {
+    "GIC": {
+      "measured": {
+        "Bailey": {
+          "Austria SS5": {
+            "geo_lat": 48.26,
+            "geo_lon": 13.08,
+            "event": "2017-09-04",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 48.07962850596335,
+            "mag_lon": 96.42424227602446,
+            "alpha": 0.2519315133580148,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Cadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2017-09-04 00:30:00"
+          }
+        }
+      },
+      "calculated": {
+        "Bailey": {
+          "Austria SS5": {
+            "geo_lat": 48.26,
+            "geo_lon": 13.08,
+            "event": "2017-09-04",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 48.07962850596335,
+            "mag_lon": 96.42424227602446,
+            "alpha": 0.2519315133580148,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  }
+}

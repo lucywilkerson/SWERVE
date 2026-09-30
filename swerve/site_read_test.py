@@ -47,6 +47,36 @@ def _test_AlvesRibeiro_GIC_calculated():
     raw_start_data = [0.040223038]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
+def _test_Bailey_GIC_measured():
+    data_source = 'Bailey'
+    data_type = 'GIC'
+    data_class = 'measured'
+    sid = 'Austria SS1'
+    event = '2017-09-04'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2017-09-04 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = [0.0]
+    assert read_start_time == raw_start_time and read_start_data == raw_start_data
+
+def _test_Bailey_GIC_calculated():
+    data_source = 'Bailey'
+    data_type = 'GIC'
+    data_class = 'calculated'
+    sid = 'Austria SS1'
+    event = '2017-09-04'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2017-09-04 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = [1.2851413]
+    assert read_start_time == raw_start_time and read_start_data == raw_start_data
+
 def _test_Blake_GIC_measured():
     data_source = 'Blake'
     data_type = 'GIC'
@@ -280,6 +310,9 @@ def _test_Zhang2020_GIC_measured():
 if run_tests:
     _test_AlvesRibeiro_GIC_measured()
     _test_AlvesRibeiro_GIC_calculated()
+
+    _test_Bailey_GIC_measured()
+    _test_Bailey_GIC_calculated()
 
     _test_Blake_GIC_measured()
     _test_Blake_GIC_calculated()

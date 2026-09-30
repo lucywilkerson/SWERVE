@@ -1,0 +1,139 @@
+2026-09-29T18:18:32.010360Z INFO  main Reading 'Austria SS1' data for event '2017-09-04'
+2026-09-29T18:18:32.020537Z INFO  main   Reading 'GIC/measured/Bailey' data for event '2017-09-04'
+2026-09-29T18:18:32.026309Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\bailey\2017-09-04\gic\gic_1and5_meas_sept2017.csv
+2026-09-29T18:18:32.227793Z INFO  main     Running automated error checks on GIC measured data
+2026-09-29T18:18:33.579989Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-29T18:18:33.579989Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-29T18:18:33.579989Z INFO  main     Uniq dts [#]  = 1
+2026-09-29T18:18:33.598816Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-29T18:18:33.660075Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2017-09-04\sites\austriass1\data\GIC_measured_Bailey.pkl
+2026-09-29T18:18:33.680295Z INFO  main   Reading 'GIC/calculated/Bailey' data for event '2017-09-04'
+2026-09-29T18:18:33.689113Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\bailey\2017-09-04\gic\gic_1_pred_sept2017.csv
+2026-09-29T18:18:33.705322Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-29T18:18:33.721911Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2017-09-04\sites\austriass1\data\GIC_calculated_Bailey.pkl
+2026-09-29T18:18:33.725541Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2017-09-04\sites\austriass1\data\_all.pkl
+2026-09-29T18:18:33.751681Z INFO  main Computing stats for 'Austria SS1' data
+2026-09-29T18:18:33.785303Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-29T18:18:33.785303Z INFO  main   Uniq dts [#]  = 1
+2026-09-29T18:18:33.785303Z INFO  main   Stats for GIC/measured/Bailey:
+2026-09-29T18:18:33.785303Z INFO  main 
+    std: : [0.27952777486787694]
+    ave: : [0.05982406183798125]
+    min: : [-0.7679919282646523]
+    max: : [0.7688291490645746]
+    n: 421
+    n_valid: : [421]
+    dt_original: : [60000000000]
+2026-09-29T18:18:33.785303Z INFO  main   Uniq dts [ns] = [900000000000]
+2026-09-29T18:18:33.785303Z INFO  main   Uniq dts [#]  = 1
+2026-09-29T18:18:33.785303Z INFO  main   Stats for GIC/calculated/Bailey:
+2026-09-29T18:18:33.785303Z INFO  main 
+    std: : [0.23591926632960775]
+    ave: : [0.9009249275862068]
+    min: : [0.6498356]
+    max: : [1.3283875]
+    n: 421
+    n_valid: : [29]
+    dt_original: : [900000000000]
+2026-09-29T18:18:33.794442Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-09-29T18:18:33.794442Z INFO  main   Metrics for GIC/calculated/Bailey:
+2026-09-29T18:18:33.794442Z INFO  main 
+    err_rms: : [0.969772947592243]
+    err_ave: : [-0.8663532778825913]
+    err: : [[-2.08655717]]
+         ...
+         [[-0.24117936]]
+         (29 rows, 1 columns)
+    cc: : [-0.40845081088736246]
+    pe: : [-10.982965022062992]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (421 rows, 1 columns)
+    n_valid: : [29]
+2026-09-29T18:18:34.621525Z INFO  main Plotting 'Austria SS1' data for event '2017-09-04'
+2026-09-29T18:18:34.636121Z INFO  main   Plotting 'Austria SS1/GIC/Bailey' vs. measured data as timeseries for event '2017-09-04'
+2026-09-29T18:18:39.238452Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\compare\_calculated_Bailey_vs_measured_timeseries.png
+2026-09-29T18:18:40.128591Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\compare\_calculated_Bailey_vs_measured_timeseries.pdf
+2026-09-29T18:18:43.255661Z INFO  main   Plotting 'Austria SS1/GIC/Bailey' vs. measured data as scatter for event '2017-09-04'
+2026-09-29T18:18:43.788110Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\compare\_calculated_Bailey_vs_measured_scatter.png
+2026-09-29T18:18:45.061450Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\compare\_calculated_Bailey_vs_measured_scatter.pdf
+2026-09-29T18:18:45.376275Z INFO  main   Plotting 'Austria SS1/GIC/measured/Bailey' original vs. modified data for event '2017-09-04'
+2026-09-29T18:18:48.482671Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\original\GIC_measured_Bailey.png
+2026-09-29T18:18:49.472330Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\original\GIC_measured_Bailey.pdf
+2026-09-29T18:18:49.712468Z INFO  main   Plotting 'Austria SS1/GIC/calculated/Bailey' original vs. modified data for event '2017-09-04'
+2026-09-29T18:18:52.455736Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\original\GIC_calculated_Bailey.png
+2026-09-29T18:18:53.396180Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass1/figures\original\GIC_calculated_Bailey.pdf
+2026-09-29T18:18:53.678678Z INFO  main Reading 'Austria SS5' data for event '2017-09-04'
+2026-09-29T18:18:53.693968Z INFO  main   Reading 'GIC/measured/Bailey' data for event '2017-09-04'
+2026-09-29T18:18:53.703243Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\bailey\2017-09-04\gic\gic_1and5_meas_sept2017.csv
+2026-09-29T18:18:53.908832Z INFO  main     Running automated error checks on GIC measured data
+2026-09-29T18:18:55.214903Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-29T18:18:55.214903Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-09-29T18:18:55.214903Z INFO  main     Uniq dts [#]  = 1
+2026-09-29T18:18:55.243293Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-29T18:18:55.292269Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2017-09-04\sites\austriass5\data\GIC_measured_Bailey.pkl
+2026-09-29T18:18:55.321574Z INFO  main   Reading 'GIC/calculated/Bailey' data for event '2017-09-04'
+2026-09-29T18:18:55.327606Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\bailey\2017-09-04\gic\gic_5_pred_sept2017.csv
+2026-09-29T18:18:55.375601Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-29T18:18:55.389242Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2017-09-04\sites\austriass5\data\GIC_calculated_Bailey.pkl
+2026-09-29T18:18:55.398900Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2017-09-04\sites\austriass5\data\_all.pkl
+2026-09-29T18:18:55.426061Z INFO  main Computing stats for 'Austria SS5' data
+2026-09-29T18:18:55.458721Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-09-29T18:18:55.458721Z INFO  main   Uniq dts [#]  = 1
+2026-09-29T18:18:55.460731Z INFO  main   Stats for GIC/measured/Bailey:
+2026-09-29T18:18:55.460731Z INFO  main 
+    std: : [0.0]
+    ave: : [0.0]
+    min: : [0.0]
+    max: : [0.0]
+    n: 421
+    n_valid: : [421]
+    dt_original: : [60000000000]
+2026-09-29T18:18:55.465666Z INFO  main   Uniq dts [ns] = [900000000000]
+2026-09-29T18:18:55.465666Z INFO  main   Uniq dts [#]  = 1
+2026-09-29T18:18:55.466572Z INFO  main   Stats for GIC/calculated/Bailey:
+2026-09-29T18:18:55.467704Z INFO  main 
+    std: : [0.1776253210453451]
+    ave: : [0.49694374999999996]
+    min: : [0.32128122]
+    max: : [1.0373988]
+    n: 421
+    n_valid: : [29]
+    dt_original: : [900000000000]
+2026-09-29T18:18:55.468925Z INFO  main   Metrics for GIC/calculated/Bailey:
+2026-09-29T18:18:55.468925Z INFO  main 
+    err_rms: : [0.5277346353429196]
+    err_ave: : [-0.4969437499999999]
+    err: : [[-1.0373988]]
+         ...
+         [[-0.4916308]]
+         (29 rows, 1 columns)
+    cc: : [nan]
+    pe: : [nan]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (421 rows, 1 columns)
+    n_valid: : [29]
+2026-09-29T18:18:55.468925Z INFO  main Plotting 'Austria SS5' data for event '2017-09-04'
+2026-09-29T18:18:55.476734Z INFO  main   Plotting 'Austria SS5/GIC/Bailey' vs. measured data as timeseries for event '2017-09-04'
+2026-09-29T18:18:58.362955Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\compare\_calculated_Bailey_vs_measured_timeseries.png
+2026-09-29T18:18:59.062815Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\compare\_calculated_Bailey_vs_measured_timeseries.pdf
+2026-09-29T18:18:59.271178Z INFO  main   Plotting 'Austria SS5/GIC/Bailey' vs. measured data as scatter for event '2017-09-04'
+2026-09-29T18:18:59.783339Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\compare\_calculated_Bailey_vs_measured_scatter.png
+2026-09-29T18:19:00.655571Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\compare\_calculated_Bailey_vs_measured_scatter.pdf
+2026-09-29T18:19:00.924933Z INFO  main   Plotting 'Austria SS5/GIC/measured/Bailey' original vs. modified data for event '2017-09-04'
+2026-09-29T18:19:04.091782Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\original\GIC_measured_Bailey.png
+2026-09-29T18:19:05.092168Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\original\GIC_measured_Bailey.pdf
+2026-09-29T18:19:05.339981Z INFO  main   Plotting 'Austria SS5/GIC/calculated/Bailey' original vs. modified data for event '2017-09-04'
+2026-09-29T18:19:08.303523Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\original\GIC_calculated_Bailey.png
+2026-09-29T18:19:09.304245Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2017-09-04/sites/austriass5/figures\original\GIC_calculated_Bailey.pdf
+2026-09-29T18:19:09.574060Z INFO  main   Adding error for site 'Austria SS1', GIC/'measured/Bailey: Cadence is >= 60 seconds (60.0 seconds)
+2026-09-29T18:19:09.582411Z INFO  main   Adding error for site 'Austria SS5', GIC/'measured/Bailey: Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2017-09-04 00:30:00
+2026-09-29T18:19:09.590887Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.extended.csv
+2026-09-29T18:19:09.590887Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.extended.json
+2026-09-29T18:19:09.593016Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.extended.json

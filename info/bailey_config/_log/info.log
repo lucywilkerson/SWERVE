@@ -1,0 +1,40 @@
+2026-09-29T17:52:06.339003Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:52:06.362657Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:52:48.035434Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:52:48.039978Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:54:10.257326Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:54:10.257326Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:54:45.748225Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:54:45.748225Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:55:54.980190Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:55:54.985646Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:57:33.573885Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:57:33.573885Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:58:28.530757Z INFO  info    Adding sites for event 2017-09-04 from data source Bailey to info.csv.
+2026-09-29T17:58:28.530757Z WARN  info    Data type GIC not found for source Bailey and event 2017-09-04. Skipping...
+2026-09-29T17:58:28.530757Z WARN  info    Data type DMM not found for source Bailey and event 2017-09-04. Skipping...
+2026-09-29T17:58:28.530757Z WARN  info    Data type B not found for source Bailey and event 2017-09-04. Skipping...
+2026-09-29T17:58:28.540904Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T17:58:28.546217Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T18:00:10.523537Z INFO  info    Adding sites for event 2017-09-04 from data source Bailey to info.csv.
+2026-09-29T18:00:59.492968Z INFO  info    Adding sites for event 2017-09-04 from data source Bailey to info.csv.
+2026-09-29T18:01:25.660571Z INFO  info    Adding sites for event 2017-09-04 from data source Bailey to info.csv.
+2026-09-29T18:01:25.688152Z WARN  info    Data type DMM not found for source Bailey and event 2017-09-04. Skipping...
+2026-09-29T18:01:25.688152Z WARN  info    Data type B not found for source Bailey and event 2017-09-04. Skipping...
+2026-09-29T18:01:25.772740Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T18:01:25.810266Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.csv
+2026-09-29T18:01:34.910672Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-09-29T18:01:34.910672Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-09-29T18:01:36.250454Z WARN  info     Warning: Could not interpolate beta for site Austria SS1 at (48.13,16.42)
+2026-09-29T18:01:36.251971Z WARN  info     Warning: Could not interpolate beta for site Austria SS1 at (48.13,16.42)
+2026-09-29T18:01:36.252806Z WARN  info     Warning: Could not interpolate beta for site Austria SS5 at (48.26,13.08)
+2026-09-29T18:01:36.252806Z WARN  info     Warning: Could not interpolate beta for site Austria SS5 at (48.26,13.08)
+2026-09-29T18:01:37.000312Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-09-29T18:01:37.105781Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-09-29T18:01:44.339810Z INFO  info Adding nearest voltage to extended info_df
+2026-09-29T18:01:54.786245Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-09-29T18:01:54.786245Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-09-29T18:01:57.632279Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-09-29T18:01:57.780969Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.extended.csv
+2026-09-29T18:01:57.786975Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.extended.json
+2026-09-29T18:01:57.786975Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\bailey_config\info.extended.json
