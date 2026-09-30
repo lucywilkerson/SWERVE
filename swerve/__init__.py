@@ -3,17 +3,24 @@ from .config import config
 from .subset import subset
 from .cadence import cadence
 from .resample import resample
+from .util import _write_pkl
+
+def update_info_extended(sids_only, data, exclude_errors=None, logger=None, CONFIG=None):
+  from .util import update_info_extended as update_info_extended_impl
+  return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+
+def write_info_csv():
+  from .util import write_info_csv as write_info_csv_impl
+  return write_info_csv_impl()
+
 from .read.site_read import site_read
 from .read.orig_readers import _site_read_orig
 from .read.output_error import _output_error
-from .read.write_pkl import _write_pkl
 from .site_plot import site_plot
 from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
 from .storm_time import storm_time
-from .update_info_extended import update_info_extended
 from .filter import filter
-from .write_info_csv import write_info_csv
 
 def sids(extended=True, data_type=None, data_source=None, data_class=None, exclude_errors=None, key=None, add_event=False, logger=None):
   from swerve import config, read_info_df

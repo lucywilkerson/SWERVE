@@ -4,7 +4,7 @@ import pickle
 
 from .orig_readers import _site_read_orig
 from .output_error import _output_error
-from .write_pkl import _write_pkl
+from .. import _write_pkl
 
 def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
