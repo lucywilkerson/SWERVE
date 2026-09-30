@@ -153,6 +153,21 @@ def _test_Marsal2025_DMM_measured():
     raw_start_data = numpy.array([25750.733,31.041,37277.206])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
+def _test_Nahayo_GIC_measured():
+    data_source = 'Nahayo'
+    data_type = 'GIC'
+    data_class = 'measured'
+    sid = 'Grassridge'
+    event = '2003-10-29'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2003-10-29 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = [0.12]
+    assert read_start_time == raw_start_time and numpy.isclose(read_start_data[0], raw_start_data)
+
 def _test_NERC_GIC_measured():
     data_source = 'NERC'
     data_type = 'GIC'
@@ -322,6 +337,8 @@ if run_tests:
     _test_Marsal2021_DMM_measured()
 
     _test_Marsal2025_DMM_measured()
+
+    _test_Nahayo_GIC_measured()
 
     _test_NERC_GIC_measured()
     _test_NERC_B_measured()

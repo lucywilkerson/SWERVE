@@ -344,6 +344,25 @@ def write_info_csv():
                                     info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, 'calculated', data_source, event)
                     else:
                         logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+
+            elif data_source == 'Nahayo':
+                for data_type in data_types:
+                    if 'calculated' in data_classes:
+                        logger.info(f"   No calculated {data_type} data for Nahayo. Skipping...")
+                    if data_type == 'GIC' and 'measured' in data_classes:
+                        file_dir = os.path.join(data_dir, data_source.lower())
+                        event_dir = os.path.join(file_dir, event, data_type.lower())
+                        if not os.path.exists(event_dir):
+                            logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                            continue
+                        file = os.path.join(file_dir, event, 'nahayo_2022_info.csv')
+                        with open(file, 'r') as csvfile:
+                            rows = csv.reader(csvfile, delimiter=',')
+                            next(rows)
+                            for row in rows:
+                                info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, 'measured', data_source, event)
+                    else:
+                        logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")
 

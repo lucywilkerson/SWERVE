@@ -1,0 +1,6 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+Grassridge,-33.7,25.6,GIC,measured,Nahayo,2003-10-29,,,,-34.39747253187781,90.38149505315891,1.9145083336201665e-05,,,,"Excessive pre-storm noise: std before (0.4912 A) > 1/4 * std after (1.6904 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+Matimba,-23.7,27.6,GIC,measured,Nahayo,2015-03-17,,,,-25.057284653503928,95.86274382453288,5.604570641559105e-05,,,,"Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2015-03-17 11:38:00"

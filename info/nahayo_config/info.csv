@@ -1,0 +1,3 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error
+Grassridge,-33.7,25.6,GIC,measured,Nahayo,2003-10-29,
+Matimba,-23.7,27.6,GIC,measured,Nahayo,2015-03-17,
