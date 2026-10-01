@@ -15,7 +15,8 @@
             "alpha": 0.5823226762563027,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2023-04-24 08:08:54"
           }
         }
       }
@@ -34,10 +35,11 @@
             "log10_beta": -0.2416083629576306,
             "mag_lat": 59.918332234548814,
             "mag_lon": -50.96361598010127,
-            "alpha": 0.9829991023503157,
+            "alpha": 0.9829991023503156,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -55,11 +57,12 @@
             "interpolated_beta": NaN,
             "log10_beta": NaN,
             "mag_lat": 65.39788023284949,
-            "mag_lon": -50.757814515488214,
-            "alpha": 1.8459627328018757,
+            "mag_lon": -50.75781451548821,
+            "alpha": 1.845962732801876,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -81,7 +84,8 @@
             "alpha": 1.455335295590097,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -100,10 +104,11 @@
             "log10_beta": NaN,
             "mag_lat": 59.93200338480462,
             "mag_lon": -50.4170188703752,
-            "alpha": 0.9845457716241441,
+            "alpha": 0.984545771624144,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -122,10 +127,11 @@
             "log10_beta": -0.2428582301413205,
             "mag_lat": 59.95423825156533,
             "mag_lon": -51.02113933632316,
-            "alpha": 0.9870664860622849,
+            "alpha": 0.9870664860622848,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -144,10 +150,11 @@
             "log10_beta": -0.2428582301413205,
             "mag_lat": 59.95423825156533,
             "mag_lon": -51.02113933632316,
-            "alpha": 0.9870664860622849,
+            "alpha": 0.9870664860622848,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -164,12 +171,13 @@
             "manual_error": NaN,
             "interpolated_beta": 0.5702206887236462,
             "log10_beta": -0.2439570296861195,
-            "mag_lat": 60.007194445166945,
+            "mag_lat": 60.00719444516695,
             "mag_lon": -50.88762206152392,
             "alpha": 0.9930960249115756,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }
@@ -186,12 +194,13 @@
             "manual_error": NaN,
             "interpolated_beta": 0.5702206887236462,
             "log10_beta": -0.2439570296861195,
-            "mag_lat": 60.007194445166945,
+            "mag_lat": 60.00719444516695,
             "mag_lon": -50.88762206152392,
             "alpha": 0.9930960249115756,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN
+            "US_region": NaN,
+            "automated_error": NaN
           }
         }
       }

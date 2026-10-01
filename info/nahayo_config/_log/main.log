@@ -58,3 +58,63 @@ Data is constant for at least 5 minutes starting at time 2015-03-17 11:38:00
 2026-09-30T04:17:55.330387Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\nahayo_config\info.extended.csv
 2026-09-30T04:17:55.330387Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nahayo_config\info.extended.json
 2026-09-30T04:17:55.333951Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nahayo_config\info.extended.json
+2026-10-01T15:37:30.066851Z INFO  main Reading 'Grassridge' data for event '2003-10-29'
+2026-10-01T15:37:30.080728Z INFO  main   Reading 'GIC/measured/Nahayo' data for event '2003-10-29'
+2026-10-01T15:37:30.081728Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nahayo\2003-10-29\gic\nahayo_etal_data_event1.csv
+2026-10-01T15:37:30.125705Z INFO  main     Running automated error checks on GIC measured data
+2026-10-01T15:37:30.307019Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-01T15:37:30.307019Z INFO  main     Uniq dts [#]  = 1
+2026-10-01T15:37:30.307019Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:37:30.342282Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2003-10-29\sites\grassridge\data\GIC_measured_Nahayo.pkl
+2026-10-01T15:37:30.349597Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2003-10-29\sites\grassridge\data\_all.pkl
+2026-10-01T15:37:30.355351Z INFO  main Computing stats for 'Grassridge' data
+2026-10-01T15:37:30.361426Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-01T15:37:30.361426Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:37:30.361426Z INFO  main   Stats for GIC/measured/Nahayo:
+2026-10-01T15:37:30.361426Z INFO  main 
+    std: : [1.690143042483634]
+    ave: : [-0.004104927330733797]
+    min: : [-13.23]
+    max: : [10.09]
+    n: 2821
+    n_valid: : [2821]
+    dt_original: : [60000000000]
+2026-10-01T15:37:32.895710Z INFO  main Plotting 'Grassridge' data for event '2003-10-29'
+2026-10-01T15:37:32.895710Z INFO  main   Plotting 'Grassridge/GIC/measured/Nahayo' original vs. modified data for event '2003-10-29'
+2026-10-01T15:37:36.352907Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2003-10-29/sites/grassridge/figures\original\GIC_measured_Nahayo.png
+2026-10-01T15:37:36.862096Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2003-10-29/sites/grassridge/figures\original\GIC_measured_Nahayo.pdf
+2026-10-01T15:37:38.629145Z INFO  main Reading 'Matimba' data for event '2015-03-17'
+2026-10-01T15:37:38.629145Z INFO  main   Reading 'GIC/measured/Nahayo' data for event '2015-03-17'
+2026-10-01T15:37:38.637075Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nahayo\2015-03-17\gic\nahayo_etal_data_event2.csv
+2026-10-01T15:37:38.656429Z INFO  main     Running automated error checks on GIC measured data
+2026-10-01T15:37:38.784073Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-01T15:37:38.784073Z INFO  main     Uniq dts [#]  = 1
+2026-10-01T15:37:38.797212Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:37:38.807210Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\matimba\data\GIC_measured_Nahayo.pkl
+2026-10-01T15:37:38.811697Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\matimba\data\_all.pkl
+2026-10-01T15:37:38.817215Z INFO  main Computing stats for 'Matimba' data
+2026-10-01T15:37:38.820259Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-01T15:37:38.820259Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:37:38.820259Z INFO  main   Stats for GIC/measured/Nahayo:
+2026-10-01T15:37:38.820259Z INFO  main 
+    std: : [0.5816192270581687]
+    ave: : [0.05158771473191047]
+    min: : [-3.4]
+    max: : [2.7]
+    n: 1921
+    n_valid: : [1921]
+    dt_original: : [60000000000]
+2026-10-01T15:37:38.821262Z INFO  main Plotting 'Matimba' data for event '2015-03-17'
+2026-10-01T15:37:38.823958Z INFO  main   Plotting 'Matimba/GIC/measured/Nahayo' original vs. modified data for event '2015-03-17'
+2026-10-01T15:37:40.123436Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-03-17/sites/matimba/figures\original\GIC_measured_Nahayo.png
+2026-10-01T15:37:40.602787Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-03-17/sites/matimba/figures\original\GIC_measured_Nahayo.pdf
+2026-10-01T15:37:40.728483Z INFO  main   Adding error for site 'Grassridge', GIC/'measured/Nahayo: Excessive pre-storm noise: std before (0.4912 A) > 1/4 * std after (1.6904 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-01T15:37:40.729482Z INFO  main   Adding error for site 'Matimba', GIC/'measured/Nahayo: Low signal: all GIC values within +/- 4 A;
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2015-03-17 11:38:00
+2026-10-01T15:37:40.744001Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\nahayo_config\info.extended.csv
+2026-10-01T15:37:40.744001Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nahayo_config\info.extended.json
+2026-10-01T15:37:40.745382Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nahayo_config\info.extended.json

@@ -37,17 +37,18 @@ data = {}
 stats = {}
 rows = []
 for sid, event in sids_only:
-  data[sid] = {} # TODO: make data[event][sid] instead of data[sid]
+  data.setdefault(event, {})
+  stats.setdefault(event, {})
 
   # Read and parse data or use cached data if found and reparse is False.
-  data[sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+  data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
 
-  # Add stats and metrics to data in data[sid] and returns what was added.
-  stats[sid] = site_stats(sid, data[sid], data_types=data_types, logger=logger)
+  # Add stats and metrics to data[event][sid] and return what was added.
+  stats[event][sid] = site_stats(sid, data[event][sid], data_types=data_types, logger=logger)
 
-  utilrsw.print_dict(data[sid], indent=4)
+  utilrsw.print_dict(data[event][sid], indent=4)
 
-  site_plot(sid, event, data[sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
 if args['sites'] is None:
   import utilrsw
@@ -59,6 +60,9 @@ if args['sites'] is None:
     # Write data from all sites to a single file.
     utilrsw.write(CONFIG['files']['all'], data, logger=logger)
 
-if CONFIG['main_kwargs']['summary_table']:
+if CONFIG['main_kwargs']['summary_table'] and len(events) == 1:
     # Create table of results
-    site_stats_summary(stats, data_types=data_types, logger=logger)
+  event = next(iter(events))
+  site_stats_summary(stats[event], data_types=data_types, logger=logger)
+elif CONFIG['main_kwargs']['summary_table']:
+  logger.info("Skipping summary table because multiple events were requested.")
