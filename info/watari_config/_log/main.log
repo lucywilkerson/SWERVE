@@ -1,0 +1,482 @@
+2026-10-02T16:19:42.881033Z INFO  main Reading 'Memanbetsu' data for event '2006-11-28'
+2026-10-02T16:19:42.894610Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-11-28'
+2026-10-02T16:19:42.898610Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\gic\20061128.txt
+2026-10-02T16:19:42.929960Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\gic\20061129.txt
+2026-10-02T16:19:42.972543Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\gic\20061130.txt
+2026-10-02T16:19:43.025745Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\gic\20061201.txt
+2026-10-02T16:19:43.619733Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:19:58.518490Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:19:58.518490Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:19:58.720791Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:19:59.105667Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-11-28\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:19:59.532547Z INFO  main   Reading 'B/measured/Watari' data for event '2006-11-28'
+2026-10-02T16:19:59.538893Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\mag\mmb20061128dsec.sec
+2026-10-02T16:20:00.123955Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\mag\mmb20061129dsec.sec
+2026-10-02T16:20:00.727999Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\mag\mmb20061130dsec.sec
+2026-10-02T16:20:01.355759Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-28\mag\mmb20061201dsec.sec
+2026-10-02T16:20:02.109035Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:20:02.524202Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-11-28\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:20:02.882097Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-11-28\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:20:03.687925Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:20:04.001722Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:20:04.002728Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:20:04.002728Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:20:04.002728Z INFO  main 
+    std: : [0.23691675286423033]
+    ave: : [0.13776136875281403]
+    min: : [-0.4975]
+    max: : [1.7388333333333332]
+    n: 2221
+    n_valid: : [2221]
+    dt_original: : [1000000000]
+2026-10-02T16:20:04.327993Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:20:04.327993Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:20:04.327993Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:20:04.327993Z INFO  main 
+    std: : [31.39169714189653, 12.221256794211282, 5.2488735607322, 20.509019060634483]
+    ave: : [-13.634566486569357, -8.369406348491793, 4.295318925405529, 31.147540958721127]
+    min: : [-96.68566666666817, -36.81100000000013, -7.133333333337457, 2.4702677383824327]
+    max: : [29.10366666666511, 46.16716666666652, 20.136666666663466, 97.31879544852849]
+    n: 2221
+    n_valid: : [2221, 2221, 2221, 2221]
+    dt_original: : [1000000000]
+2026-10-02T16:20:06.567826Z INFO  main Plotting 'Memanbetsu' data for event '2006-11-28'
+2026-10-02T16:20:06.570824Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-11-28'
+2026-10-02T16:20:10.969431Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:20:11.477997Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:20:12.945640Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-11-28'
+2026-10-02T16:20:19.257106Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:20:19.631849Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:20:19.968253Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:20:20.358175Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:20:20.743248Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:20:21.091313Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-28/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:20:21.397864Z INFO  main Reading 'Memanbetsu' data for event '2006-04-02'
+2026-10-02T16:20:21.397864Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-04-02'
+2026-10-02T16:20:21.404517Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060402.txt
+2026-10-02T16:20:21.441700Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060403.txt
+2026-10-02T16:20:21.487661Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060404.txt
+2026-10-02T16:20:21.534231Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060405.txt
+2026-10-02T16:20:21.577345Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060406.txt
+2026-10-02T16:20:21.616326Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060407.txt
+2026-10-02T16:20:21.654853Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060408.txt
+2026-10-02T16:20:21.688309Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060409.txt
+2026-10-02T16:20:21.720924Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060410.txt
+2026-10-02T16:20:21.760122Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060411.txt
+2026-10-02T16:20:21.792749Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060412.txt
+2026-10-02T16:20:21.834141Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060413.txt
+2026-10-02T16:20:21.867270Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060414.txt
+2026-10-02T16:20:21.920626Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060415.txt
+2026-10-02T16:20:21.962378Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060416.txt
+2026-10-02T16:20:22.012698Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\gic\20060417.txt
+2026-10-02T16:20:24.189979Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:21:17.069229Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:21:17.069229Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:21:17.695421Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:21:19.241499Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-04-02\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:21:20.995989Z INFO  main   Reading 'B/measured/Watari' data for event '2006-04-02'
+2026-10-02T16:21:20.995989Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060402dsec.sec
+2026-10-02T16:21:21.529101Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060403dsec.sec
+2026-10-02T16:21:22.077191Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060404dsec.sec
+2026-10-02T16:21:22.657431Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060405dsec.sec
+2026-10-02T16:21:23.206119Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060406dsec.sec
+2026-10-02T16:21:23.985026Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060407dsec.sec
+2026-10-02T16:21:24.593006Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060408dsec.sec
+2026-10-02T16:21:25.141626Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060409dsec.sec
+2026-10-02T16:21:25.710766Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060410dsec.sec
+2026-10-02T16:21:26.227707Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060411dsec.sec
+2026-10-02T16:21:26.982465Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060412dsec.sec
+2026-10-02T16:21:27.578759Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060413dsec.sec
+2026-10-02T16:21:28.148603Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060414dsec.sec
+2026-10-02T16:21:28.692923Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060415dsec.sec
+2026-10-02T16:21:29.289133Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060416dsec.sec
+2026-10-02T16:21:29.883986Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-04-02\mag\mmb20060417dsec.sec
+2026-10-02T16:21:30.883018Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:21:32.252197Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-04-02\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:21:33.956167Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-04-02\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:21:37.300404Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:21:38.508404Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:21:38.508404Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:21:38.510420Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:21:38.510420Z INFO  main 
+    std: : [0.10150455307104074]
+    ave: : [0.037653533111357745]
+    min: : [-0.25]
+    max: : [0.3525]
+    n: 901
+    n_valid: : [901]
+    dt_original: : [1000000000]
+2026-10-02T16:21:39.746784Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:21:39.746784Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:21:39.748799Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:21:39.748799Z INFO  main 
+    std: : [7.404623497792036, 6.811339945394562, 2.203311858567892, 7.638066091671403]
+    ave: : [8.642240843508677, -32.80160728819824, 7.20826378098641, 34.547504035022946]
+    min: : [-10.43999999999869, -46.17549999999996, 3.0695000000023964, 19.855050197904905]
+    max: : [32.43566666666842, -19.702333333333307, 11.319666666669097, 49.4277322143064]
+    n: 901
+    n_valid: : [901, 901, 901, 901]
+    dt_original: : [1000000000]
+2026-10-02T16:21:39.752823Z INFO  main Plotting 'Memanbetsu' data for event '2006-04-02'
+2026-10-02T16:21:39.755510Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-04-02'
+2026-10-02T16:21:45.485169Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:21:46.048497Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:21:46.222422Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-04-02'
+2026-10-02T16:21:59.680588Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:22:00.166467Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:22:01.111984Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:22:01.661368Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:22:02.674819Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:22:03.178105Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-04-02/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:22:03.658581Z INFO  main Reading 'Memanbetsu' data for event '2006-08-05'
+2026-10-02T16:22:03.665074Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-08-05'
+2026-10-02T16:22:03.670260Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\gic\20060805.txt
+2026-10-02T16:22:03.708652Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\gic\20060806.txt
+2026-10-02T16:22:03.744083Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\gic\20060807.txt
+2026-10-02T16:22:03.779172Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\gic\20060808.txt
+2026-10-02T16:22:04.373771Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:22:17.747292Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:22:17.747292Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:22:18.192554Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:22:18.535097Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-08-05\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:22:19.142833Z INFO  main   Reading 'B/measured/Watari' data for event '2006-08-05'
+2026-10-02T16:22:19.150533Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\mag\mmb20060805dsec.sec
+2026-10-02T16:22:19.694267Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\mag\mmb20060806dsec.sec
+2026-10-02T16:22:20.347915Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\mag\mmb20060807dsec.sec
+2026-10-02T16:22:20.875546Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-05\mag\mmb20060808dsec.sec
+2026-10-02T16:22:21.636507Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:22:22.002230Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-08-05\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:22:22.413248Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-08-05\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:22:23.303832Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:22:23.647192Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:22:23.647192Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:22:23.647192Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:22:23.647192Z INFO  main 
+    std: : [0.2268961242776509]
+    ave: : [-0.010249810749432252]
+    min: : [-0.7543333333333333]
+    max: : [1.2776666666666665]
+    n: 1321
+    n_valid: : [1321]
+    dt_original: : [1000000000]
+2026-10-02T16:22:23.954708Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:22:23.954708Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:22:23.954708Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:22:23.954708Z INFO  main 
+    std: : [20.669721602137002, 16.55194822902106, 8.843284847311647, 16.426259842860773]
+    ave: : [-4.461971360081039, -8.255315039111792, 13.51506585919847, 22.79388424671769]
+    min: : [-57.73333333333364, -56.31383333333334, -4.284499999999146, 0.39993684158580317]
+    max: : [38.70733333333313, 45.07016666666667, 28.08600000000103, 62.99065200055645]
+    n: 1321
+    n_valid: : [1321, 1321, 1321, 1321]
+    dt_original: : [1000000000]
+2026-10-02T16:22:23.956240Z INFO  main Plotting 'Memanbetsu' data for event '2006-08-05'
+2026-10-02T16:22:23.956240Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-08-05'
+2026-10-02T16:22:26.401645Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:22:26.870266Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:22:26.974550Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-08-05'
+2026-10-02T16:22:33.507027Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:22:33.851644Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:22:34.206332Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:22:34.540727Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:22:34.923794Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:22:35.273827Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-05/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:22:35.549148Z INFO  main Reading 'Memanbetsu' data for event '2006-08-17'
+2026-10-02T16:22:35.549148Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-08-17'
+2026-10-02T16:22:35.560460Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\gic\20060817.txt
+2026-10-02T16:22:35.590887Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\gic\20060818.txt
+2026-10-02T16:22:35.625897Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\gic\20060819.txt
+2026-10-02T16:22:35.653108Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\gic\20060820.txt
+2026-10-02T16:22:35.685931Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\gic\20060821.txt
+2026-10-02T16:22:36.378918Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:22:53.032561Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:22:53.032561Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:22:53.370455Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:22:53.852158Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-08-17\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:22:54.466638Z INFO  main   Reading 'B/measured/Watari' data for event '2006-08-17'
+2026-10-02T16:22:54.477598Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\mag\mmb20060817dsec.sec
+2026-10-02T16:22:55.024685Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\mag\mmb20060818dsec.sec
+2026-10-02T16:22:55.735718Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\mag\mmb20060819dsec.sec
+2026-10-02T16:22:56.299968Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\mag\mmb20060820dsec.sec
+2026-10-02T16:22:56.982743Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-08-17\mag\mmb20060821dsec.sec
+2026-10-02T16:22:57.703600Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:22:58.189193Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-08-17\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:22:58.782007Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-08-17\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:22:59.781240Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:23:00.192580Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:23:00.192580Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:23:00.192580Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:23:00.192580Z INFO  main 
+    std: : [0.2386156702630794]
+    ave: : [-0.013758353169355546]
+    min: : [-0.9696666666666667]
+    max: : [1.4605]
+    n: 3781
+    n_valid: : [3781]
+    dt_original: : [1000000000]
+2026-10-02T16:23:00.592828Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:23:00.592828Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:23:00.592828Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:23:00.592828Z INFO  main 
+    std: : [16.815076267207917, 22.682691333192576, 4.981527164930012, 14.62203580536045]
+    ave: : [7.23133465573366, -11.642508287049393, 3.0542997002571406, 27.77317825008252]
+    min: : [-55.90466666666768, -66.76450000000008, -10.966499999998147, 1.5429130728758063]
+    max: : [39.908333333332486, 70.37583333333322, 19.626166666668237, 70.47301877783254]
+    n: 3781
+    n_valid: : [3781, 3781, 3781, 3781]
+    dt_original: : [1000000000]
+2026-10-02T16:23:00.594831Z INFO  main Plotting 'Memanbetsu' data for event '2006-08-17'
+2026-10-02T16:23:00.597506Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-08-17'
+2026-10-02T16:23:03.381893Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:23:03.872988Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:23:03.993060Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-08-17'
+2026-10-02T16:23:13.917759Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:23:14.300833Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:23:14.751905Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:23:15.125443Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:23:15.579473Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:23:15.916946Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-08-17/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:23:16.212007Z INFO  main Reading 'Memanbetsu' data for event '2006-11-07'
+2026-10-02T16:23:16.224049Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-11-07'
+2026-10-02T16:23:16.232399Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\gic\20061107.txt
+2026-10-02T16:23:16.282934Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\gic\20061108.txt
+2026-10-02T16:23:16.328670Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\gic\20061109.txt
+2026-10-02T16:23:16.359873Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\gic\20061110.txt
+2026-10-02T16:23:16.386350Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\gic\20061111.txt
+2026-10-02T16:23:16.436086Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\gic\20061112.txt
+2026-10-02T16:23:17.283517Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:23:37.717901Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:23:37.717901Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:23:38.071178Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:23:38.570941Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-11-07\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:23:39.454397Z INFO  main   Reading 'B/measured/Watari' data for event '2006-11-07'
+2026-10-02T16:23:39.458116Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\mag\mmb20061107dsec.sec
+2026-10-02T16:23:40.007572Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\mag\mmb20061108dsec.sec
+2026-10-02T16:23:40.686315Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\mag\mmb20061109dsec.sec
+2026-10-02T16:23:41.228046Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\mag\mmb20061110dsec.sec
+2026-10-02T16:23:41.812745Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\mag\mmb20061111dsec.sec
+2026-10-02T16:23:42.526634Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-11-07\mag\mmb20061112dsec.sec
+2026-10-02T16:23:43.296088Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:23:43.843175Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-11-07\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:23:44.534389Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-11-07\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:23:45.808508Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:23:46.267895Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:23:46.267895Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:23:46.267895Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:23:46.267895Z INFO  main 
+    std: : [0.2659681852267481]
+    ave: : [0.06607996832937452]
+    min: : [-0.9]
+    max: : [0.4515]
+    n: 421
+    n_valid: : [421]
+    dt_original: : [1000000000]
+2026-10-02T16:23:46.742609Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:23:46.742609Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:23:46.742609Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:23:46.742609Z INFO  main 
+    std: : [8.71377684520331, 17.992434460006205, 4.709016875624229, 14.181898964339581]
+    ave: : [23.100772367380266, -23.0696623119555, 3.6478709422037534, 35.55917488266338]
+    min: : [-3.7399999999979627, -62.467666666666524, -2.1839999999971043, 15.14041503004719]
+    max: : [40.39783333333435, -4.002999999999869, 14.63033333333539, 72.91027695748122]
+    n: 421
+    n_valid: : [421, 421, 421, 421]
+    dt_original: : [1000000000]
+2026-10-02T16:23:46.742609Z INFO  main Plotting 'Memanbetsu' data for event '2006-11-07'
+2026-10-02T16:23:46.747482Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-11-07'
+2026-10-02T16:23:50.837236Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:23:51.353627Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:23:51.502609Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-11-07'
+2026-10-02T16:24:02.771193Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:24:03.117712Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:24:03.608655Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:24:04.011506Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:24:04.531696Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:24:04.908025Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-11-07/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:24:05.247100Z INFO  main Reading 'Memanbetsu' data for event '2006-12-14'
+2026-10-02T16:24:05.249104Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-12-14'
+2026-10-02T16:24:05.252100Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-12-14\gic\20061214.txt
+2026-10-02T16:24:05.279602Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-12-14\gic\20061215.txt
+2026-10-02T16:24:05.615158Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:24:12.164169Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:24:12.165167Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:24:12.478639Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:24:12.695228Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-12-14\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:24:12.907899Z INFO  main   Reading 'B/measured/Watari' data for event '2006-12-14'
+2026-10-02T16:24:12.907899Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-12-14\mag\mmb20061214dsec.sec
+2026-10-02T16:24:13.559816Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-12-14\mag\mmb20061215dsec.sec
+2026-10-02T16:24:14.281456Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:24:14.461384Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-12-14\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:24:14.676552Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-12-14\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:24:15.168813Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:24:15.375510Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:24:15.375510Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:24:15.375510Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:24:15.375510Z INFO  main 
+    std: : [0.6610316349594728]
+    ave: : [0.12466830683825388]
+    min: : [-3.548]
+    max: : [1.9118333333333333]
+    n: 1321
+    n_valid: : [1321]
+    dt_original: : [1000000000]
+2026-10-02T16:24:15.544193Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:24:15.544716Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:24:15.544716Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:24:15.544716Z INFO  main 
+    std: : [69.49319608858501, 44.52300475293345, 8.946492988187844, 61.61276457174435]
+    ave: : [-68.65491937925918, -9.286193666414258, 1.6923846833186824, 88.40915814296523]
+    min: : [-182.002500000001, -168.77266666666662, -15.753166666668887, 0.45607085155083704]
+    max: : [97.74466666666576, 71.3433333333334, 26.707666666664228, 192.83615488152608]
+    n: 1321
+    n_valid: : [1321, 1321, 1321, 1321]
+    dt_original: : [1000000000]
+2026-10-02T16:24:15.546977Z INFO  main Plotting 'Memanbetsu' data for event '2006-12-14'
+2026-10-02T16:24:15.546977Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-12-14'
+2026-10-02T16:24:17.381155Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:24:17.790152Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:24:17.899374Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-12-14'
+2026-10-02T16:24:22.756279Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:24:23.072220Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:24:23.361761Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:24:23.694998Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:24:23.980725Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:24:24.319054Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-12-14/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:24:24.593688Z INFO  main Reading 'Memanbetsu' data for event '2007-11-18'
+2026-10-02T16:24:24.593688Z INFO  main   Reading 'GIC/measured/Watari' data for event '2007-11-18'
+2026-10-02T16:24:24.603705Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\gic\20071118.txt
+2026-10-02T16:24:24.636921Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\gic\20071119.txt
+2026-10-02T16:24:24.662509Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\gic\20071120.txt
+2026-10-02T16:24:24.700796Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\gic\20071121.txt
+2026-10-02T16:24:24.738335Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\gic\20071122.txt
+2026-10-02T16:24:25.411303Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:24:41.745342Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:24:41.746744Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:24:42.066863Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:24:42.491369Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2007-11-18\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:24:43.166151Z INFO  main   Reading 'B/measured/Watari' data for event '2007-11-18'
+2026-10-02T16:24:43.166151Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\mag\mmb20071118dsec.sec
+2026-10-02T16:24:43.717466Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\mag\mmb20071119dsec.sec
+2026-10-02T16:24:44.386991Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\mag\mmb20071120dsec.sec
+2026-10-02T16:24:44.954599Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\mag\mmb20071121dsec.sec
+2026-10-02T16:24:45.672435Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2007-11-18\mag\mmb20071122dsec.sec
+2026-10-02T16:24:46.403958Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:24:46.861294Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2007-11-18\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:24:47.338457Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2007-11-18\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:24:48.274923Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:24:48.674355Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:24:48.674355Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:24:48.674355Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:24:48.674355Z INFO  main 
+    std: : [0.28622825958855774]
+    ave: : [-0.07480140935297887]
+    min: : [-1.1168333333333333]
+    max: : [1.2278333333333333]
+    n: 1561
+    n_valid: : [1561]
+    dt_original: : [1000000000]
+2026-10-02T16:24:49.088979Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:24:49.088979Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:24:49.088979Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:24:49.089984Z INFO  main 
+    std: : [27.31376236493449, 13.940471633264002, 4.335541557659569, 12.860956212282655]
+    ave: : [-1.9163976083707062, -13.092536515054277, -0.06427866751758944, 30.824646403930714]
+    min: : [-77.70616666666629, -47.310499999999806, -7.879499999996551, 2.205483378840486]
+    max: : [49.28700000000008, 34.456833333333485, 13.406666666670086, 84.487616748555]
+    n: 1561
+    n_valid: : [1561, 1561, 1561, 1561]
+    dt_original: : [1000000000]
+2026-10-02T16:24:49.092978Z INFO  main Plotting 'Memanbetsu' data for event '2007-11-18'
+2026-10-02T16:24:49.097690Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2007-11-18'
+2026-10-02T16:24:51.446314Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:24:51.883156Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:24:51.998914Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2007-11-18'
+2026-10-02T16:25:01.675802Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:25:02.060812Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:25:02.498067Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:25:02.935972Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:25:03.424083Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:25:03.793879Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2007-11-18/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:25:04.142726Z INFO  main Reading 'Memanbetsu' data for event '2006-07-25'
+2026-10-02T16:25:04.142726Z INFO  main   Reading 'GIC/measured/Watari' data for event '2006-07-25'
+2026-10-02T16:25:04.142726Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\gic\20060725.txt
+2026-10-02T16:25:04.183914Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\gic\20060726.txt
+2026-10-02T16:25:04.211172Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\gic\20060727.txt
+2026-10-02T16:25:04.251336Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\gic\20060728.txt
+2026-10-02T16:25:04.284836Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\gic\20060729.txt
+2026-10-02T16:25:04.997489Z INFO  main     Running automated error checks on GIC measured data
+2026-10-02T16:25:21.613770Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-02T16:25:21.613770Z INFO  main     Uniq dts [#]  = 1
+2026-10-02T16:25:21.986298Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:25:22.400052Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-07-25\sites\memanbetsu\data\GIC_measured_Watari.pkl
+2026-10-02T16:25:23.133566Z INFO  main   Reading 'B/measured/Watari' data for event '2006-07-25'
+2026-10-02T16:25:23.133566Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\mag\mmb20060725dsec.sec
+2026-10-02T16:25:23.712135Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\mag\mmb20060726dsec.sec
+2026-10-02T16:25:24.355769Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\mag\mmb20060727dsec.sec
+2026-10-02T16:25:24.933722Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\mag\mmb20060728dsec.sec
+2026-10-02T16:25:25.624828Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\watari\2006-07-25\mag\mmb20060729dsec.sec
+2026-10-02T16:25:26.316632Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-02T16:25:26.740302Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-07-25\sites\memanbetsu\data\B_measured_Watari.pkl
+2026-10-02T16:25:27.271570Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2006-07-25\sites\memanbetsu\data\_all.pkl
+2026-10-02T16:25:28.283726Z INFO  main Computing stats for 'Memanbetsu' data
+2026-10-02T16:25:28.657091Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:25:28.657091Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:25:28.657091Z INFO  main   Stats for GIC/measured/Watari:
+2026-10-02T16:25:28.657091Z INFO  main 
+    std: : [0.18758078332956912]
+    ave: : [-0.06200529500756432]
+    min: : [-0.40549999999999997]
+    max: : [0.272]
+    n: 661
+    n_valid: : [661]
+    dt_original: : [1000000000]
+2026-10-02T16:25:29.038775Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-02T16:25:29.038775Z INFO  main   Uniq dts [#]  = 1
+2026-10-02T16:25:29.038775Z INFO  main   Stats for B/measured/Watari:
+2026-10-02T16:25:29.038775Z INFO  main 
+    std: : [12.492641065803205, 32.32248348120051, 6.836741296033186, 19.375374513656034]
+    ave: : [18.03653378719187, -22.813299293999147, 5.257838880484138, 40.880094171877154]
+    min: : [0.26183333333422826, -68.14016666666687, -5.061999999999898, 0.7288432754250599]
+    max: : [39.22083333333412, 19.684166666666517, 16.642999999999788, 71.33930014066961]
+    n: 661
+    n_valid: : [661, 661, 661, 661]
+    dt_original: : [1000000000]
+2026-10-02T16:25:29.053443Z INFO  main Plotting 'Memanbetsu' data for event '2006-07-25'
+2026-10-02T16:25:29.057160Z INFO  main   Plotting 'Memanbetsu/GIC/measured/Watari' original vs. modified data for event '2006-07-25'
+2026-10-02T16:25:31.881922Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\GIC_measured_Watari.png
+2026-10-02T16:25:32.366913Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\GIC_measured_Watari.pdf
+2026-10-02T16:25:32.486646Z INFO  main   Plotting 'Memanbetsu/B/measured/Watari' original vs. modified data for event '2006-07-25'
+2026-10-02T16:25:42.439322Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\B_measured_Watari_Bx.png
+2026-10-02T16:25:42.819302Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\B_measured_Watari_Bx.pdf
+2026-10-02T16:25:43.212781Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\B_measured_Watari_By.png
+2026-10-02T16:25:43.620204Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\B_measured_Watari_By.pdf
+2026-10-02T16:25:44.089051Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\B_measured_Watari_Bz.png
+2026-10-02T16:25:44.470762Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2006-07-25/sites/memanbetsu/figures\original\B_measured_Watari_Bz.pdf
+2026-10-02T16:25:44.814145Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1084 A) > 1/4 * std after (0.2373 A);
+Data is constant for at least 5 minutes starting at time 2006-11-29 11:30:43
+2026-10-02T16:25:44.820329Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1216 A) > 1/4 * std after (0.1020 A)
+2026-10-02T16:25:44.822335Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1119 A) > 1/4 * std after (0.2275 A)
+2026-10-02T16:25:44.822842Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1103 A) > 1/4 * std after (0.2389 A);
+Data is constant for at least 5 minutes starting at time 2006-08-18 09:11:00
+2026-10-02T16:25:44.822842Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1056 A) > 1/4 * std after (0.2667 A)
+2026-10-02T16:25:44.822842Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A
+2026-10-02T16:25:44.824850Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.0914 A) > 1/4 * std after (0.2867 A)
+2026-10-02T16:25:44.824850Z INFO  main   Adding error for site 'Memanbetsu', GIC/'measured/Watari: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1255 A) > 1/4 * std after (0.1879 A)
+2026-10-02T16:25:44.834389Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\watari_config\info.extended.csv
+2026-10-02T16:25:44.834389Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\watari_config\info.extended.json
+2026-10-02T16:25:44.834389Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\watari_config\info.extended.json

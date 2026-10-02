@@ -290,8 +290,7 @@ def write_info_csv():
                             for row in rows:
                                 info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
 
-            elif data_source in ['AlvesRibeiro', 'Blake']:
-                info_name = 'alvesribeiro_2023_info.csv' if data_source == 'AlvesRibeiro' else 'blake_2018_info.csv'
+            elif data_source == 'AlvesRibeiro':
                 for data_type in data_types:
                     if data_type != 'GIC':
                         continue
@@ -300,7 +299,25 @@ def write_info_csv():
                     if not os.path.exists(event_dir):
                         logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
                         continue
-                    file = os.path.join(file_dir, info_name)
+                    file = os.path.join(file_dir, 'alvesribeiro_2023_info.csv')
+                    with open(file, 'r') as csvfile:
+                        rows = csv.reader(csvfile, delimiter=',')
+                        next(rows)
+                        for row in rows:
+                            for data_class in ['measured', 'calculated']:
+                                if data_class in data_classes:
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+
+            elif data_source == 'Blake':
+                for data_type in data_types:
+                    if data_type != 'GIC':
+                        continue
+                    file_dir = os.path.join(data_dir, data_source.lower())
+                    event_dir = os.path.join(file_dir, event, data_type.lower())
+                    if not os.path.exists(event_dir):
+                        logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                        continue
+                    file = os.path.join(file_dir, 'blake_2018_info.csv')
                     with open(file, 'r') as csvfile:
                         rows = csv.reader(csvfile, delimiter=',')
                         next(rows)
@@ -363,6 +380,30 @@ def write_info_csv():
                             next(rows)
                             for row in rows:
                                 info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, 'measured', data_source, event)
+                    else:
+                        logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+
+            elif data_source == 'Watari':
+                for data_type in data_types:
+                    if 'calculated' in data_classes:
+                        logger.info(f"   No calculated {data_type} data for Watari. Skipping...")
+                    if 'measured' in data_classes:
+                        data_class = 'measured'
+                        file_dir = os.path.join(data_dir, data_source.lower())
+                        if data_type == 'GIC':
+                            event_dir = os.path.join(file_dir, event, data_type.lower())
+                        if data_type == 'B':
+                            event_dir = os.path.join(file_dir, event, 'mag')
+                        if not os.path.exists(event_dir):
+                            logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                            continue
+                        file = os.path.join(file_dir, 'watari_2009_info.csv')
+                        with open(file, 'r') as csvfile:
+                            rows = csv.reader(csvfile, delimiter=',')
+                            next(rows)
+                            for row in rows:
+                                if row[3] == data_type:
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
                     else:
                         logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
             else:

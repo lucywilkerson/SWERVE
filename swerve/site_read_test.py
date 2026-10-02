@@ -306,6 +306,39 @@ def _test_TVA_GIC_calculated():
     raw_start_data = [0.193325]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
+def _test_Watari_GIC_measured():
+    from datetime import timezone
+    from zoneinfo import ZoneInfo
+    data_source = 'Watari'
+    data_type = 'GIC'
+    data_class = 'measured'
+    sid = 'Memanbetsu'
+    event = '2006-11-28'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time_utc = datetime.datetime.strptime('11/28/2006 12:00:00 AM', '%m/%d/%Y %I:%M:%S %p').replace(tzinfo=ZoneInfo("Asia/Tokyo")).astimezone(timezone.utc)
+    raw_start_time = raw_start_time_utc.replace(tzinfo=None)
+    raw_start_data = [0.32]
+    assert read_start_time == raw_start_time and read_start_data == raw_start_data
+
+def _test_Watari_B_measured():
+    data_source = 'Watari'
+    data_type = 'B'
+    data_class = 'measured'
+    sid = 'Memanbetsu'
+    event = '2006-11-28'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('11/28/2006 12:00:00 AM', '%m/%d/%Y %I:%M:%S %p')
+    raw_start_data = numpy.array([25890.83,-3968.39,42075.16])
+    assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
+
 def _test_Zhang2020_GIC_measured():
     data_source = 'Zhang2020'
     data_type = 'GIC'
@@ -352,5 +385,8 @@ if run_tests:
     _test_TVA_GIC_measured()
     _test_TVA_B_measured()
     _test_TVA_GIC_calculated()
+
+    _test_Watari_GIC_measured()
+    _test_Watari_B_measured()
 
     _test_Zhang2020_GIC_measured()

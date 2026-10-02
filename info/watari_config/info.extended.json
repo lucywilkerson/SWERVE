@@ -1,0 +1,46 @@
+{
+  "Memanbetsu": {
+    "GIC": {
+      "measured": {
+        "Watari": {
+          "Memanbetsu": {
+            "geo_lat": 43.83,
+            "geo_lon": 144.22,
+            "event": "2006-07-25",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.36679308848465,
+            "mag_lon": -148.54376815051555,
+            "alpha": 0.0583921349456096,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1255 A) > 1/4 * std after (0.1879 A)"
+          }
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "Watari": {
+          "Memanbetsu": {
+            "geo_lat": 43.91,
+            "geo_lon": 144.189,
+            "event": "2006-07-25",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 35.443283670103604,
+            "mag_lon": -148.58349777639634,
+            "alpha": 0.0589080422487148,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  }
+}

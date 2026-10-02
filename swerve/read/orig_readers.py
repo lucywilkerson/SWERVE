@@ -740,3 +740,66 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "unit": "A"
           }
 
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Watari':
+    from datetime import timezone
+    from zoneinfo import ZoneInfo
+    data_path = os.path.join(data_dir, data_source.lower(), event, data_type.lower())
+    if not os.path.exists(data_path):
+      raise FileNotFoundError(f"Data dir not found: {data_path}")
+
+    data = []
+
+    for item in os.listdir(data_path):
+      logger.info(f"    Reading {os.path.join(data_path, item)}")
+      with open(os.path.join(data_path, item), "r") as file:
+        for line in file:
+          if line.startswith('\x1a'):
+            continue
+          row = line.split(',')
+          data.append(float(row[0]))
+
+    # Creating time array and converting from JST to UTC
+    time = []
+    start_time = datetime.datetime.strptime(f'{event}', "%Y-%m-%d")
+    cadence = datetime.timedelta(seconds=1) # given data cadence
+    time_jst = [start_time + (i * cadence) for i in range(len(data))]
+    for timestamp in time_jst:
+      timestamp_utc = timestamp.replace(tzinfo=ZoneInfo("Asia/Tokyo")).astimezone(timezone.utc)
+      timestamp_utc = timestamp_utc.replace(tzinfo=None)
+      time.append(timestamp_utc)
+
+    return {
+            "time": numpy.array(time).flatten(),
+            "data": numpy.array(data).reshape(-1, 1),
+            "labels": ["GIC"],
+            "unit": "A"
+          }
+
+  if data_type == 'B' and data_class == 'measured' and data_source == 'Watari':
+    data_path = os.path.join(data_dir, data_source.lower(), event, 'mag')
+    if not os.path.exists(data_path):
+      raise FileNotFoundError(f"Data dir not found: {data_path}")
+
+    time = []
+    data = []
+
+    for item in os.listdir(data_path):
+      logger.info(f"    Reading {os.path.join(data_path, item)}")
+      with open(os.path.join(data_path, item), "r") as file:
+        for line in file:
+          if line.startswith(' ') or line.startswith('DATE'):
+            continue
+          row = line.split()
+          time.append(datetime.datetime.strptime(f'{row[0]} {row[1]}', '%Y-%m-%d %H:%M:%S.%f'))
+          data.append([float(row[3]), float(row[4]), float(row[5])])
+
+    return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["Bx", "By", "Bz"],
+            "unit": "nT"
+          }
+
+    
+
+
