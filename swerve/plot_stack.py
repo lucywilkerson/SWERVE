@@ -14,7 +14,7 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 DATA_DIR = CONFIG['dirs']['data']
 
-base_dir = 'data_processed\summary'
+base_dir = 'data_processed/summary'
 
 limits = CONFIG['limits']
 
@@ -30,13 +30,15 @@ def read(all_file, sid=None):
 
   return info_dict, info_df, data
 
-def stack_plot_config(axes, data_with_offset, units, offset=40):
+def stack_plot_config(axes, data_with_offset, units, offset=40, sites_plotted=None):
   plt.grid()
   plt.gca().yaxis.set_major_locator(plt.MultipleLocator(offset))
   #plt.legend(loc='upper right')
   plt.gca().yaxis.set_ticklabels([])  # Remove y-tick labels
   plt.gca().set_xlim(limits['plot'][0], limits['plot'][1])
-  plt.gca().set_ylim(-offset, max(data_with_offset)+10)
+  if sites_plotted is not None and numpy.all(numpy.isnan(data_with_offset)):
+    data_with_offset = [sites_plotted*offset]
+  plt.gca().set_ylim(-offset, numpy.nanmax(data_with_offset)+10)
 
   axes.spines['top'].set_visible(False)
   axes.spines['right'].set_visible(False)
