@@ -41,7 +41,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
           if device_id_last is not None:
             raise ValueError(f"Multiple device ids found in {file}")
           device_id_last = device_id
-        time_p = datetime.datetime.strptime(row[1], '%m/%d/%Y %I:%M:%S %p')
+        time_p = parse_datetime(row[1])
         time.append(time_p)
         cols = []
         for i in range(2, len(row)):
@@ -60,7 +60,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
 
     return ret
 
-  from swerve import config
+  from swerve import config, parse_datetime
   CONFIG = config()
   data_dir = CONFIG['dirs']['original']
 
@@ -77,14 +77,17 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
     file = os.path.join(data_dir, fname)
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
-      raise FileNotFoundError(f"File not found: {file}")
+      fname = f'{sid}_event_{event.replace("-", "")[:6]}.csv'
+      file = os.path.join(data_dir, fname)
+      if not os.path.exists(file):
+        raise FileNotFoundError(f"File not found: {file}")
     with open(file, 'r') as csvfile:
       rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
-          if row[0] == 'Timestamp': #skip header row if applicable
+          if row[0] == 'Timestamp' or row[0] == 'timestamp': #skip header row if applicable
             continue
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
-          data.append(float(row[1]))
+          time.append(parse_datetime(row[0]))
+          data.append(float(row[1]) if row[1] != '' else numpy.nan)
 
     # Reshape to 2D array with a single column
     data = numpy.array(data).reshape(-1, 1)
@@ -161,7 +164,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       rows = csv.reader(csvfile, delimiter = ',')
       next(rows)  # Skip header row.
       for row in rows:
-        time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+        time.append(parse_datetime(row[0]))
         #data.append([float(row[2]), float(row[3]), float(row[4])])
         data.append([float(row[2])])
 
@@ -185,7 +188,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       rows = csv.reader(csvfile, delimiter = ',')
       next(rows)  # Skip header row.
       for row in rows:
-        time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+        time.append(parse_datetime(row[0]))
         data.append([float(row[1]), float(row[2]), float(row[3])])
 
     data = numpy.array(data)

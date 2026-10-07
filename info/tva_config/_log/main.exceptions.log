@@ -1,0 +1,187 @@
+[2026-10-06T19:26:45.421420Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 80, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2014-09-11\gic\GIC-measured\gic-sullivan_20140911.csv
+
+[2026-10-06T19:32:25.330871Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 80, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2014-09-11\gic\GIC-measured\gic-sullivan_20140911.csv
+
+[2026-10-06T19:36:59.111391Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 89, in _site_read_orig
+    time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\_strptime.py", line 653, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\_strptime.py", line 432, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data 'timestamp' does not match format '%Y-%m-%d %H:%M:%S'
+
+[2026-10-06T19:41:36.367333Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 111, in _site_read_orig
+    time.append(parse_datetime(row[0]))
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 46, in parse_datetime
+    raise ValueError(f"Unrecognized datetime format: {value!r}")
+ValueError: Unrecognized datetime format: 'timestamp'
+
+[2026-10-06T19:46:58.848128Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 83, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2016-02-17\gic\GIC-measured\gic-bradley_event_20160217.csv
+
+[2026-10-06T19:53:17.493087Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 90, in _site_read_orig
+    data.append(float(row[1]))
+                ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-06T20:03:29.297580Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 90, in _site_read_orig
+    data.append(float(row[1]))
+                ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-06T20:05:10.849175Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 90, in _site_read_orig
+    data.append(float(row[1]))
+                ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-06T20:06:11.003966Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 91, in _site_read_orig
+    data.append(float(row[1]))
+                ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-06T20:13:16.008863Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 185, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\mag\raccoonmountain_mag_20240509.csv
+
+[2026-10-06T20:27:47.605067Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 185, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\mag\raccoonmountain_mag_20240509.csv
+
+[2026-10-06T20:37:33.937974Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 185, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\mag\raccoonmountain_mag_20240509.csv
+
+[2026-10-06T20:52:01.551767Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 46, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 78, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 185, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\mag\raccoonmountain_mag_20240509.csv
+
+[2026-10-06T21:19:57.997709Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 72, in <module>
+    from swerve import plot_maps, plot_sw_and_indices, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot_maps.py", line 432, in <module>
+    with open(CONFIG['files']['cc'], 'rb') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\_results\\cc.pkl'
+
+[2026-10-06T21:19:58.013628Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 72, in <module>
+    from swerve import plot_maps, plot_sw_and_indices, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot_maps.py", line 432, in <module>
+    with open(CONFIG['files']['cc'], 'rb') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\_results\\cc.pkl'
+

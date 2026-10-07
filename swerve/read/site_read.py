@@ -4,7 +4,7 @@ import pickle
 
 from .orig_readers import _site_read_orig
 from .output_error import _output_error
-from .. import _write_pkl
+from .. import write_pkl
 
 def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
@@ -51,7 +51,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
   if stop is None:
     stop = CONFIG['event'][event]['data_limits'][1]
 
-  site_info = read_info_dict(sid=sid)
+  site_info = read_info_dict(sid=sid, event=event, logger=logger)
 
   for data_type in site_info.keys(): # e.g., GIC, B
 
@@ -132,9 +132,9 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
 
         file_name = f'{data_type}_{data_class}_{data_source}.pkl'
         file_name = os.path.join(CONFIG['dirs']['processed'], event, 'sites', sidx, 'data', file_name)
-        _write_pkl(file_name, site_info[data_type][data_class], logger, indent= ' '*4)
+        write_pkl(file_name, site_info[data_type][data_class], logger, indent= ' '*4)
 
-  _write_pkl(site_all_file, site_info, logger, indent=' '*2)
+  write_pkl(site_all_file, site_info, logger, indent=' '*2)
 
   return site_info
 

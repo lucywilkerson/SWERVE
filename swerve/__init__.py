@@ -3,7 +3,7 @@ from .config import config
 from .subset import subset
 from .cadence import cadence
 from .resample import resample
-from .util import _write_pkl
+from .util import write_pkl, parse_datetime
 
 def update_info_extended(sids_only, data, exclude_errors=None, logger=None, CONFIG=None):
   from .util import update_info_extended as update_info_extended_impl
@@ -161,9 +161,21 @@ def infodf2dict(info_df, logger):
 
   return info_dict
 
-def read_info_dict(sid=None):
+def read_info_dict(sid=None, event=None, logger=None):
   import json
   CONFIG = config()
+
+  if event is not None:
+    if sid is None:
+      raise ValueError("sid is required when filtering info by event")
+    info_df = read_info_df(extended=True)
+    info_df = info_df[(info_df['site_id'] == sid) & (info_df['event'] == event)]
+    if info_df.empty:
+      raise ValueError(f"sid '{sid}' not found for event '{event}' in {CONFIG['files']['info_extended']}")
+    if logger is None:
+      logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+    return infodf2dict(info_df, logger)[sid]
+
   info_file = CONFIG['files']['info_extended_json']
   with open(info_file, 'r') as f:
     info_dict = json.load(f)

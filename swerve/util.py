@@ -75,7 +75,30 @@ def move_pics():
             print(f"An error occurred: {error}")
 
 
-def _write_pkl(fname, data, logger, indent=''):
+def parse_datetime(value):
+    import datetime
+    if value is None:
+      raise ValueError("Datetime value is None")
+
+    formats = [
+      '%m/%d/%Y %I:%M:%S %p',
+      '%m/%d/%Y %H:%M:%S',
+      '%m/%d/%Y %I:%M:%S',
+      '%Y-%m-%d %H:%M:%S',
+      '%Y/%m/%d %H:%M:%S',
+      '%Y-%m-%d %I:%M:%S %p',
+      '%Y-%m-%d %H:%M:%S.%f',
+    ]
+
+    for fmt in formats:
+      try:
+        return datetime.datetime.strptime(value, fmt)
+      except ValueError:
+        continue
+
+    raise ValueError(f"Unrecognized datetime format: {value!r}")
+
+def write_pkl(fname, data, logger, indent=''):
     from swerve import config
 
     CONFIG = config()
@@ -186,26 +209,50 @@ def write_info_csv():
                     data_class = 'measured'
                     for data_type in data_types:
                         if data_type == 'GIC':
-                            file_dir = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), 'GIC-measured')
+                            file_dir = os.path.join(data_dir, data_source.lower())
                             file = os.path.join(file_dir, 'GIC_monitors.dat')
                             if not os.path.exists(file):
                                 raise FileNotFoundError(f"File not found: {file}")
+                            event_dir = os.path.join(file_dir, event, f'{data_type.lower()}', 'GIC-measured')
+                            # Getting event sites from file names
+                            event_sites = [os.path.splitext(f)[0].split('_', 1)[0].removeprefix('gic-') for f in os.listdir(event_dir) if os.path.isfile(os.path.join(event_dir, f))]
                             with open(file, 'r') as csvfile:
                                 rows = csv.reader(csvfile, delimiter=',')
                                 next(rows)
                                 for row in rows:
+                                    # Deal with special case for Widows Creek 1 (originally just Widows Creek until second monitor was added)
+                                    if row[0] == 'Widows Creek 1' and 'widowscreek' in event_sites:
+                                        row[0] = 'Widows Creek'
+                                    # Handle special case for Paradise sites during the 2024-05-10 event
+                                    if event == '2024-05-10' and row[0] == 'Paradise':
+                                        for paradise_site in ('Paradise 2', 'Paradise 3'):
+                                            if paradise_site.lower().replace(' ', '') in event_sites:
+                                                info_list = _add_info_row(info_list, paradise_site, float(row[2]), float(row[3]), data_type, data_class, data_source, event)
+                                        continue
+                                    # Check for what events the passed site has
+                                    if row[0].lower().replace(' ', '') not in event_sites:
+                                        print(f"   Site {row[0]} not found in event sites for event {event}; skipping.")
+                                        continue
                                     info_list = _add_info_row(info_list, row[0], float(row[2]), float(row[3]), data_type, data_class, data_source, event)
                         elif data_type == 'B':
                             file_dir = os.path.join(data_dir, data_source.lower(), event, 'mag')
+                            if not os.path.exists(file_dir):
+                                logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                                continue
                             file = os.path.join(file_dir, 'TVAmagmetadata.dat')
                             if not os.path.exists(file):
                                 raise FileNotFoundError(f"File not found: {file}")
+                            # Getting event sites from file names
+                            event_sites = [os.path.splitext(f)[0].split('_', 1)[0] for f in os.listdir(file_dir) if (os.path.isfile(os.path.join(file_dir, f)) and f.endswith('.csv'))]
                             with open(file, 'r') as csvfile:
                                 rows = csv.reader(csvfile, delimiter=',')
                                 for row in rows:
+                                    if row[0].lower().replace(' ', '') not in event_sites:
+                                        print(f"   Site {row[0]} not found in event sites for event {event}; skipping.")
+                                        continue
                                     info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
                         else:
-                            raise ValueError(f"Data type not recognized: {data_type}. Valid options are 'GIC' and 'B'.")
+                            logger.warning(f'   Data type {data_type} not available for data source {data_source}. Skipping...')
                 if 'calculated' in data_classes:
                     data_class = 'calculated'
                     if 'GIC' not in data_types:

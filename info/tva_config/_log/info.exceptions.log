@@ -1,0 +1,66 @@
+[2026-10-06T18:46:24.898632Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util.py", line 192, in write_info_csv
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\gic\GIC-measured\GIC_monitors.dat
+
+[2026-10-06T18:46:24.945428Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util.py", line 192, in write_info_csv
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\gic\GIC-measured\GIC_monitors.dat
+
+[2026-10-06T18:48:26.540956Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util.py", line 208, in write_info_csv
+    raise ValueError(f"Data type not recognized: {data_type}. Valid options are 'GIC' and 'B'.")
+ValueError: Data type not recognized: DMM. Valid options are 'GIC' and 'B'.
+
+[2026-10-06T18:48:26.542967Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util.py", line 208, in write_info_csv
+    raise ValueError(f"Data type not recognized: {data_type}. Valid options are 'GIC' and 'B'.")
+ValueError: Data type not recognized: DMM. Valid options are 'GIC' and 'B'.
+
+[2026-10-06T18:49:43.423028Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util.py", line 202, in write_info_csv
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\mag\TVAmagmetadata.dat
+
+[2026-10-06T18:49:43.449680Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util.py", line 202, in write_info_csv
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-03-17\mag\TVAmagmetadata.dat
+

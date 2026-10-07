@@ -1,0 +1,10 @@
+2026-10-06T17:02:30.091954Z INFO  logger Reading 'Paradise' data for event '2015-06-22'
+2026-10-06T17:02:30.100245Z INFO  logger   Reading 'GIC/measured/TVA' data for event '2015-06-22'
+2026-10-06T17:02:30.102255Z INFO  logger     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\tva\2015-06-22\gic\GIC-measured\gic-paradise_20150622.csv
+2026-10-06T17:02:31.439777Z INFO  logger     Running automated error checks on GIC measured data
+2026-10-06T17:02:34.902523Z INFO  logger     Uniq dts [ns] = [ 2000000000  4000000000 50000000000 54000000000 58000000000]
+2026-10-06T17:02:34.902523Z INFO  logger     Uniq dts [#]  = 5
+2026-10-06T17:02:34.952349Z INFO  logger     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-06T17:02:35.079195Z INFO  logger     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-06-22\sites\paradise\data\GIC_measured_TVA.pkl
+2026-10-06T17:02:35.185340Z INFO  logger   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-06-22\sites\paradise\data\_all.pkl

@@ -1,0 +1,566 @@
+{
+  "Sullivan": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Sullivan": {
+            "geo_lat": 36.4419,
+            "geo_lon": -82.2791,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 1.3050919687734381,
+            "log10_beta": 0.11564111713288588,
+            "mag_lat": 45.92914993160911,
+            "mag_lon": -11.186237000052142,
+            "alpha": 0.1967339369700283,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Bradley": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Bradley": {
+            "geo_lat": 35.0425,
+            "geo_lon": -84.9587,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 1.0815509992037882,
+            "log10_beta": 0.034047002878745763,
+            "mag_lat": 44.432611567182406,
+            "mag_lon": -14.178834825224314,
+            "alpha": 0.16562899715676685,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Montgomery": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Montgomery": {
+            "geo_lat": 36.5949,
+            "geo_lon": -87.2533,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 1.0349744841285202,
+            "log10_beta": 0.014929642992181141,
+            "mag_lat": 45.879545124270614,
+            "mag_lon": -16.93544282305314,
+            "alpha": 0.1956148528025351,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Southaven": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Southaven": {
+            "geo_lat": 34.9939,
+            "geo_lon": -90.0497,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6304573135603162,
+            "log10_beta": -0.2003443129176818,
+            "mag_lat": 43.7124196175502,
+            "mag_lon": -19.815666250038625,
+            "alpha": 0.15246396240427898,
+            "nearest_volt": 500.0,
+            "power_pool": "MISO",
+            "US_region": "Central"
+          }
+        }
+      }
+    }
+  },
+  "Shelby": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Shelby": {
+            "geo_lat": 35.3859,
+            "geo_lon": -89.8042,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6428864352302863,
+            "log10_beta": -0.19186573766483497,
+            "mag_lat": 44.53862357042658,
+            "mag_lon": -19.747172895601558,
+            "alpha": 0.16766060213341888,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Weakley": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Weakley": {
+            "geo_lat": 36.2752,
+            "geo_lon": -88.8347,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 0.9126381392221878,
+            "log10_beta": -0.03970138598233974,
+            "mag_lat": 45.47937337941736,
+            "mag_lon": -18.7235913770723,
+            "alpha": 0.18681670306490902,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Paradise": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Paradise": {
+            "geo_lat": 37.2587,
+            "geo_lon": -86.9781,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6772767922631994,
+            "log10_beta": -0.1692338057825545,
+            "mag_lat": 46.5554561560242,
+            "mag_lon": -16.676210885972946,
+            "alpha": 0.21142650794651308,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "Paradise": {
+            "geo_lat": 37.2561,
+            "geo_lon": -86.9986,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6847104353831177,
+            "log10_beta": -0.1644930531831135,
+            "mag_lat": 46.12242852306816,
+            "mag_lon": -16.538806856232302,
+            "alpha": 0.20115570907144523,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "East Point": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "East Point": {
+            "geo_lat": 34.1946,
+            "geo_lon": -86.7474,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 1.1659938399411667,
+            "log10_beta": 0.066696256009079,
+            "mag_lat": 43.07684458700692,
+            "mag_lon": -16.01539978878294,
+            "alpha": 0.14171771088739554,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Widows Creek": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Widows Creek": {
+            "geo_lat": 34.8859,
+            "geo_lon": -85.7554,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 0.7869561046938021,
+            "log10_beta": -0.10404949130157161,
+            "mag_lat": 44.242509283959976,
+            "mag_lon": -15.079167775026718,
+            "alpha": 0.162047348570585,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Bull Run": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Bull Run": {
+            "geo_lat": 36.0193,
+            "geo_lon": -84.1575,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 0.5554131998087664,
+            "log10_beta": -0.2553838031309736,
+            "mag_lat": 45.440152910100664,
+            "mag_lon": -13.326388782747719,
+            "alpha": 0.1859759909860816,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "Bull Run": {
+            "geo_lat": 36.0252,
+            "geo_lon": -84.1468,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.5547525505882388,
+            "log10_beta": -0.25590069233371654,
+            "mag_lat": 45.009992746279465,
+            "mag_lon": -13.184541869260102,
+            "alpha": 0.17699989968497923,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Rutherford": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Rutherford": {
+            "geo_lat": 35.8275,
+            "geo_lon": -86.5986,
+            "event": "2015-10-07",
+            "manual_error": NaN,
+            "interpolated_beta": 0.7616738866511537,
+            "log10_beta": -0.1182309335725758,
+            "mag_lat": 45.14468645181345,
+            "mag_lon": -16.118249653145263,
+            "alpha": 0.17976293264320725,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Raccoon Mountain": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Raccoon Mountain": {
+            "geo_lat": 35.0571,
+            "geo_lon": -85.3872,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.9440325305561166,
+            "log10_beta": -0.025013040026512386,
+            "mag_lat": 43.99548113403329,
+            "mag_lon": -14.534299601082818,
+            "alpha": 0.15750864260044903,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "Raccoon Mountain": {
+            "geo_lat": 35.0571,
+            "geo_lon": -85.3872,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.9440325305561166,
+            "log10_beta": -0.025013040026512386,
+            "mag_lat": 43.99548113403329,
+            "mag_lon": -14.534299601082818,
+            "alpha": 0.15750864260044903,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Union": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Union": {
+            "geo_lat": 34.378,
+            "geo_lon": -88.8578,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6530342400019656,
+            "log10_beta": -0.1850640471260476,
+            "mag_lat": 43.16013829269418,
+            "mag_lon": -18.414698742606205,
+            "alpha": 0.14308171543489387,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    },
+    "B": {
+      "measured": {
+        "TVA": {
+          "Union": {
+            "geo_lat": 34.375,
+            "geo_lon": -88.8567,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.65263229354328,
+            "log10_beta": -0.18533144026213144,
+            "mag_lat": 43.157199435516986,
+            "mag_lon": -18.4132049540914,
+            "alpha": 0.14303336648203938,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Johnsonville": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Johnsonville": {
+            "geo_lat": 36.029,
+            "geo_lon": -87.985,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 1.039608708631705,
+            "log10_beta": 0.0168699088578835,
+            "mag_lat": 44.85120033717951,
+            "mag_lon": -17.56361242729462,
+            "alpha": 0.17379701517475926,
+            "nearest_volt": 161.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Gleason": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Gleason": {
+            "geo_lat": 36.246,
+            "geo_lon": -88.612,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.9440160013915433,
+            "log10_beta": -0.02502064420070957,
+            "mag_lat": 45.03695158941748,
+            "mag_lon": -18.29637538636625,
+            "alpha": 0.17754949813679852,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Paradise 2": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Paradise 2": {
+            "geo_lat": 37.2587,
+            "geo_lon": -86.9781,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6772767922631994,
+            "log10_beta": -0.1692338057825545,
+            "mag_lat": 46.12595619391967,
+            "mag_lon": -16.51551820845174,
+            "alpha": 0.2012373309067097,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Paradise 3": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Paradise 3": {
+            "geo_lat": 37.2587,
+            "geo_lon": -86.9781,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.6772767922631994,
+            "log10_beta": -0.1692338057825545,
+            "mag_lat": 46.12595619391967,
+            "mag_lon": -16.51551820845174,
+            "alpha": 0.2012373309067097,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Widows Creek 2": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Widows Creek 2": {
+            "geo_lat": 34.8859,
+            "geo_lon": -85.7554,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.7869561046938021,
+            "log10_beta": -0.10404949130157161,
+            "mag_lat": 43.8095236295197,
+            "mag_lon": -14.940744870122675,
+            "alpha": 0.15417606327420727,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Pinhook": {
+    "GIC": {
+      "measured": {
+        "TVA": {
+          "Pinhook": {
+            "geo_lat": 36.0465,
+            "geo_lon": -86.6059,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.7895845317566931,
+            "log10_beta": -0.10260136823927364,
+            "mag_lat": 44.93228977049967,
+            "mag_lon": -15.99344057134212,
+            "alpha": 0.17542530216440394,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Ackerman": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "Ackerman": {
+            "geo_lat": 33.3749,
+            "geo_lon": -89.2104,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.35089899218663945,
+            "log10_beta": -0.4548178791154853,
+            "mag_lat": 42.14097909633173,
+            "mag_lon": -18.728363129562208,
+            "alpha": 0.12725750041843423,
+            "nearest_volt": 161.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Watts Bar": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "Watts Bar": {
+            "geo_lat": 35.6091,
+            "geo_lon": -84.7831,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.8951166757313451,
+            "log10_beta": -0.04812035203190292,
+            "mag_lat": 44.570538978314964,
+            "mag_lon": -13.88376393689458,
+            "alpha": 0.16827709278346784,
+            "nearest_volt": 161.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  },
+  "Lagoon Creek": {
+    "B": {
+      "measured": {
+        "TVA": {
+          "Lagoon Creek": {
+            "geo_lat": 35.6475,
+            "geo_lon": -89.3907,
+            "event": "2024-05-10",
+            "manual_error": NaN,
+            "interpolated_beta": 0.7051250220372007,
+            "log10_beta": -0.15173387369358834,
+            "mag_lat": 44.39973032990042,
+            "mag_lon": -19.12844066644183,
+            "alpha": 0.16500387986188014,
+            "nearest_volt": 500.0,
+            "power_pool": "SERTP",
+            "US_region": "East"
+          }
+        }
+      }
+    }
+  }
+}
