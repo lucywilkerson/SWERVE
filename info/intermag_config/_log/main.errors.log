@@ -1,0 +1,7 @@
+2026-10-07T01:08:59.409964Z ERROR main     Not computing modified b/c all data values are NaN
+2026-10-07T01:14:39.706757Z ERROR main     Not computing modified due to error: All data values are NaN
+2026-10-07T01:24:55.469819Z ERROR main     Not computing modified due to error: All data values are NaN
+2026-10-07T01:27:16.725131Z ERROR main     Not computing modified due to error: All data values are NaN
+2026-10-07T01:28:07.327251Z ERROR main     Not computing modified due to error: All data values are NaN
+2026-10-07T01:29:29.986478Z ERROR main     Not computing modified due to error: All data values are NaN
+2026-10-07T01:38:34.210962Z ERROR main     Not computing modified due to error: All data values are NaN

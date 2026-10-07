@@ -143,11 +143,11 @@ def update_info_extended(sids_only, data, exclude_errors=None, logger=None, CONF
 def write_info_csv():
     """Write the configured site metadata to info.csv."""
     import pandas as pd
-    from swerve import config
+    from swerve import config, read_intermag_info
 
     def _check_event(event, data_source, data_dir, logger):
         event_folder = os.path.join(data_dir, data_source.lower(), event)
-        if not os.path.exists(event_folder):
+        if not os.path.exists(event_folder) and data_source != 'INTERMAG':
             logger.warning(f"   Event {event} not found for data source {data_source}. Skipping...")
             return False
         logger.info(f"   Adding sites for event {event} from data source {data_source} to info.csv.")
@@ -181,7 +181,21 @@ def write_info_csv():
         for data_source in data_sources:
             if not _check_event(event, data_source, data_dir, logger):
                 continue
-            if data_source == 'NERC':
+            if data_source == 'INTERMAG':
+                if 'measured' in data_classes and 'B' in data_types:
+                    data_class = 'measured'
+                    data_type = 'B'
+                    start, stop = CONFIG['event'][event]['data_limits']
+                    source_sites = read_intermag_info(start, stop, logger=logger)
+                    for site_id, geo_lat, geo_lon in zip(
+                            source_sites['sites'], source_sites['lat'], source_sites['lon']):
+                        info_list = _add_info_row(
+                            info_list, site_id, geo_lat, geo_lon,
+                            data_type, data_class, data_source, event)
+                else:
+                    logger.info(f'   Only measured B data for data source {data_source}; skipping.')
+
+            elif data_source == 'NERC':
                 if 'measured' in data_classes:
                     data_class = 'measured'
                     for data_type in data_types:

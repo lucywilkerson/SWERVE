@@ -154,6 +154,10 @@ def _write_event_dict(conf, file_path):
 
   # Getting events from run config
   events = conf.get('event', None)
+
+  # Must have an event or start_time/stop_time specified if INTERMAG is the only data source
+  if conf.get('data_source') == ['INTERMAG'] and not conf.get('event') and not conf.get('start_time'):
+    raise ValueError("For INTERMAG data source, either an event or start_time/stop_time must be specified.")
   
   # If no event is specified, use start_time and stop_time from config file to create an event
   if events == None and conf.get('start_time'):

@@ -803,6 +803,28 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "unit": "nT"
           }
 
-    
+  if data_type == 'B' and data_class == 'measured' and data_source == 'INTERMAG':
+    from swerve import read_intermag
 
+    start, stop = CONFIG['event'][event]['data_limits']
+    # Read INTERMAG data
+    intermag_df, source_sites = read_intermag(start, stop, sid=sid, logger=logger)
+    if intermag_df.empty:
+      raise ValueError(f"No INTERMAG data found for site {sid} during event {event}")
 
+    # Check if all data values are NaN
+    if numpy.all(numpy.isnan(intermag_df[['X', 'Y', 'Z']].to_numpy())):
+      return {
+            "time": intermag_df['Timestamp'].to_numpy(),
+            "data": intermag_df[['X', 'Y', 'Z']].to_numpy(),
+            "labels": ["Bx", "By", "Bz"],
+            "unit": "nT",
+            "error": "All data values are NaN"
+          }
+    else:
+      return {
+        "time": intermag_df['Timestamp'].to_numpy(),
+        "data": intermag_df[['X', 'Y', 'Z']].to_numpy(),
+        "labels": ["Bx", "By", "Bz"],
+        "unit": "nT"
+      }

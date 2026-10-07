@@ -1,0 +1,57 @@
+[2026-10-07T05:02:46.749987Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 107, in site_read
+    first_valid_idx = numpy.where(~numpy.isnan(orig["data"][:, i]))[0][0]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+[2026-10-07T05:05:47.010946Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 107, in site_read
+    first_valid_idx = numpy.where(~numpy.isnan(orig["data"][:, i]))[0][0]
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+[2026-10-07T05:08:59.417870Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 85, in site_read
+    site_info[data_type][data_class][data_source][sid]['automated_error'] = orig['error']
+                                                                            ~~~~^^^^^^^^^
+KeyError: 'error'
+
+[2026-10-07T05:14:46.421560Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 72, in <module>
+    from swerve import plot_maps, plot_sw_and_indices, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot_sw_and_indices.py", line 253, in <module>
+    start = limits_plot[0].strftime('%Y-%m-%dT%H:%M:%SZ')
+            ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-10-07T05:14:46.426349Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 72, in <module>
+    from swerve import plot_maps, plot_sw_and_indices, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot_sw_and_indices.py", line 253, in <module>
+    start = limits_plot[0].strftime('%Y-%m-%dT%H:%M:%SZ')
+            ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-10-07T05:14:46.428511Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 72, in <module>
+    from swerve import plot_maps, plot_sw_and_indices, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot_sw_and_indices.py", line 253, in <module>
+    start = limits_plot[0].strftime('%Y-%m-%dT%H:%M:%SZ')
+            ~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
