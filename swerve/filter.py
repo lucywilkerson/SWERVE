@@ -9,8 +9,8 @@ def filter(data, start, stop, logger=None):
     """low_signal_threshold, baseline_buffer, spike_threshold, and std_limit in [A]
        max_cadence, max_gap, and max_constant in [s]
        Returns a list of detected error messages (empty list if none)."""
-    from swerve import config, cadence
-    from datetime import timedelta, datetime, timezone
+    from swerve import cadence, config, parse_datetime
+    from datetime import timedelta
     CONFIG = config()
     if 'filter_kwargs' in CONFIG:
         gic_filter_kwargs = CONFIG['filter_kwargs']
@@ -68,7 +68,7 @@ def filter(data, start, stop, logger=None):
         errors.append(f"Low signal: all GIC values within +/- {low_signal_threshold} A")
 
     # Removing noisy sites before storm (std before > 1/noise_threshold * std after)
-    storm_start = datetime.strptime(start, '%Y-%m-%d %H:%M:%S')     
+    storm_start = parse_datetime(start)
     time_diff = storm_start - data_df.index[0]
     if time_diff < timedelta(hours=1):
         logger.warning("Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.")

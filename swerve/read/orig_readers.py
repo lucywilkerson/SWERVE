@@ -244,7 +244,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         site = row[0]
         if site not in sites:
           sites[site] = {"time": [], "data": [], "data_raw": []}
-        sites[site]["time"].append(datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S'))
+        sites[site]["time"].append(parse_datetime(row[1]))
         # Header is
         # site,time,dBn,dBt,dBp,dBr,glon,glat,mlon,mlat
         # column #s:
@@ -334,7 +334,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       next(csvfile)  # Skip header row
       rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+          time.append(parse_datetime(row[0]))
           data.append(float(row[1]) if row[1] != '' else numpy.nan)
 
     # Reshape to 2D array with a single column
@@ -362,7 +362,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       next(csvfile)  # Skip header row
       rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+          time.append(parse_datetime(row[0]))
           data.append([float(row[1]), float(row[2]), float(row[3])])
 
     return {
@@ -676,7 +676,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
       next(csvfile)  # Skip header row
       rows = csv.reader(csvfile, delimiter=',')
       for row in rows:
-        time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+        time.append(parse_datetime(row[0]))
         if sid == 'Austria SS1':
           data.append(float(row[1]))
         if sid == 'Austria SS5':
@@ -703,7 +703,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         next(csvfile)  # Skip header row
         rows = csv.reader(csvfile, delimiter=',')
         for row in rows:
-          time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+          time.append(parse_datetime(row[0]))
           data.append(float(row[2]))
       
       return {
@@ -733,7 +733,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         # Skip header rows
         if row[0].startswith('#'):
           continue
-        time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S'))
+        time.append(parse_datetime(row[0]))
         data.append(float(row[8]))
 
     return {
@@ -793,7 +793,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
           if line.startswith(' ') or line.startswith('DATE'):
             continue
           row = line.split()
-          time.append(datetime.datetime.strptime(f'{row[0]} {row[1]}', '%Y-%m-%d %H:%M:%S.%f'))
+          time.append(parse_datetime(f'{row[0]} {row[1]}'))
           data.append([float(row[3]), float(row[4]), float(row[5])])
 
     return {
