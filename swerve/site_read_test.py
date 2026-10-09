@@ -1,8 +1,5 @@
 import os
-import csv
 import numpy
-import pandas
-import pickle
 import datetime
 
 from swerve import _site_read_orig
@@ -17,7 +14,7 @@ logger = utilrsw.logger(log_dir=os.path.join(file_path, '..', 'test_logs'), rm_e
 
 # Test functions for all readers in site_read!
 
-def _test_AlvesRibeiro_GIC_measured():
+def test_AlvesRibeiro_GIC_measured():
     data_source = 'AlvesRibeiro'
     data_type = 'GIC'
     data_class = 'measured'
@@ -32,7 +29,7 @@ def _test_AlvesRibeiro_GIC_measured():
     raw_start_data = [0.075586081]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_AlvesRibeiro_GIC_calculated():
+def test_AlvesRibeiro_GIC_calculated():
     data_source = 'AlvesRibeiro'
     data_type = 'GIC'
     data_class = 'calculated'
@@ -47,7 +44,7 @@ def _test_AlvesRibeiro_GIC_calculated():
     raw_start_data = [0.040223038]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Bailey_GIC_measured():
+def test_Bailey_GIC_measured():
     data_source = 'Bailey'
     data_type = 'GIC'
     data_class = 'measured'
@@ -62,7 +59,7 @@ def _test_Bailey_GIC_measured():
     raw_start_data = [0.0]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Bailey_GIC_calculated():
+def test_Bailey_GIC_calculated():
     data_source = 'Bailey'
     data_type = 'GIC'
     data_class = 'calculated'
@@ -77,7 +74,7 @@ def _test_Bailey_GIC_calculated():
     raw_start_data = [1.2851413]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Blake_GIC_measured():
+def test_Blake_GIC_measured():
     data_source = 'Blake'
     data_type = 'GIC'
     data_class = 'measured'
@@ -92,7 +89,7 @@ def _test_Blake_GIC_measured():
     raw_start_data = [0.0333]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Blake_GIC_calculated():
+def test_Blake_GIC_calculated():
     data_source = 'Blake'
     data_type = 'GIC'
     data_class = 'calculated'
@@ -107,7 +104,7 @@ def _test_Blake_GIC_calculated():
     raw_start_data = [0.0037]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Espinosa_GIC_measured():
+def test_Espinosa_GIC_measured():
     data_source = 'Espinosa'
     data_type = 'GIC'
     data_class = 'measured'
@@ -123,7 +120,7 @@ def _test_Espinosa_GIC_measured():
     # Using numpy.isclose because Excel file reader adds small diff
     assert read_start_time == raw_start_time and numpy.isclose(read_start_data[0], raw_start_data)
 
-def _test_Marsal2021_DMM_measured():
+def test_Marsal2021_DMM_measured():
     data_source = 'Marsal2021'
     data_type = 'DMM'
     data_class = 'measured'
@@ -138,7 +135,7 @@ def _test_Marsal2021_DMM_measured():
     raw_start_data = numpy.array([24983.567,-35.650,37609.175])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_Marsal2025_DMM_measured():
+def test_Marsal2025_DMM_measured():
     data_source = 'Marsal2025'
     data_type = 'DMM'
     data_class = 'measured'
@@ -153,7 +150,7 @@ def _test_Marsal2025_DMM_measured():
     raw_start_data = numpy.array([25750.733,31.041,37277.206])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_Nahayo_GIC_measured():
+def test_Nahayo_GIC_measured():
     data_source = 'Nahayo'
     data_type = 'GIC'
     data_class = 'measured'
@@ -168,7 +165,7 @@ def _test_Nahayo_GIC_measured():
     raw_start_data = [0.12]
     assert read_start_time == raw_start_time and numpy.isclose(read_start_data[0], raw_start_data)
 
-def _test_NERC_GIC_measured():
+def test_NERC_GIC_measured():
     data_source = 'NERC'
     data_type = 'GIC'
     data_class = 'measured'
@@ -183,7 +180,7 @@ def _test_NERC_GIC_measured():
     raw_start_data = 1.55
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_NERC_B_measured():
+def test_NERC_B_measured():
     data_source = 'NERC'
     data_type = 'B'
     data_class = 'measured'
@@ -198,7 +195,7 @@ def _test_NERC_B_measured():
     raw_start_data = numpy.array([23829.33,-671.19,40090.02])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_Parry2024_DMM_measured():
+def test_Parry2024_DMM_measured():
     data_source = 'Parry2024'
     data_type = 'DMM'
     data_class = 'measured'
@@ -213,7 +210,7 @@ def _test_Parry2024_DMM_measured():
     raw_start_data = numpy.array([16005.519,-68.122,55409.691])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_Parry2024_GIC_measured():
+def test_Parry2024_GIC_measured():
     from datetime import timezone
     from zoneinfo import ZoneInfo
     data_source = 'Parry2024'
@@ -231,7 +228,7 @@ def _test_Parry2024_GIC_measured():
     raw_start_data = [-5.517001]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Parry2025_GIC_measured():
+def test_Parry2025_GIC_measured():
     data_source = 'Parry2025'
     data_type = 'GIC'
     data_class = 'measured'
@@ -246,7 +243,7 @@ def _test_Parry2025_GIC_measured():
     raw_start_data = [-2.049549818000000]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Parry2025_B_measured():
+def test_Parry2025_B_measured():
     data_source = 'Parry2025'
     data_type = 'B'
     data_class = 'measured'
@@ -261,7 +258,7 @@ def _test_Parry2025_B_measured():
     raw_start_data = numpy.array([11332.991,3537.687,56488.975])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_TVA_GIC_measured():
+def test_TVA_GIC_measured():
     data_source = 'TVA'
     data_type = 'GIC'
     data_class = 'measured'
@@ -276,7 +273,7 @@ def _test_TVA_GIC_measured():
     raw_start_data = [-0.2]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_TVA_B_measured():
+def test_TVA_B_measured():
     data_source = 'TVA'
     data_type = 'B'
     data_class = 'measured'
@@ -291,7 +288,7 @@ def _test_TVA_B_measured():
     raw_start_data = numpy.array([15609.5,-1063.38,46980.79])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_TVA_GIC_calculated():
+def test_TVA_GIC_calculated():
     data_source = 'TVA'
     data_type = 'GIC'
     data_class = 'calculated'
@@ -306,7 +303,7 @@ def _test_TVA_GIC_calculated():
     raw_start_data = [0.193325]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Watari_GIC_measured():
+def test_Watari_GIC_measured():
     from datetime import timezone
     from zoneinfo import ZoneInfo
     data_source = 'Watari'
@@ -324,7 +321,7 @@ def _test_Watari_GIC_measured():
     raw_start_data = [0.32]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
-def _test_Watari_B_measured():
+def test_Watari_B_measured():
     data_source = 'Watari'
     data_type = 'B'
     data_class = 'measured'
@@ -339,7 +336,7 @@ def _test_Watari_B_measured():
     raw_start_data = numpy.array([25890.83,-3968.39,42075.16])
     assert read_start_time == raw_start_time and numpy.array_equal(read_start_data, raw_start_data)
 
-def _test_Zhang2020_GIC_measured():
+def test_Zhang2020_GIC_measured():
     data_source = 'Zhang2020'
     data_type = 'GIC'
     data_class = 'measured'
@@ -356,37 +353,37 @@ def _test_Zhang2020_GIC_measured():
 
 
 if run_tests:
-    _test_AlvesRibeiro_GIC_measured()
-    _test_AlvesRibeiro_GIC_calculated()
+    test_AlvesRibeiro_GIC_measured()
+    test_AlvesRibeiro_GIC_calculated()
 
-    _test_Bailey_GIC_measured()
-    _test_Bailey_GIC_calculated()
+    test_Bailey_GIC_measured()
+    test_Bailey_GIC_calculated()
 
-    _test_Blake_GIC_measured()
-    _test_Blake_GIC_calculated()
+    test_Blake_GIC_measured()
+    test_Blake_GIC_calculated()
 
-    _test_Espinosa_GIC_measured()
+    test_Espinosa_GIC_measured()
 
-    _test_Marsal2021_DMM_measured()
+    test_Marsal2021_DMM_measured()
 
-    _test_Marsal2025_DMM_measured()
+    test_Marsal2025_DMM_measured()
 
-    _test_Nahayo_GIC_measured()
+    test_Nahayo_GIC_measured()
 
-    _test_NERC_GIC_measured()
-    _test_NERC_B_measured()
+    test_NERC_GIC_measured()
+    test_NERC_B_measured()
 
-    _test_Parry2024_DMM_measured()
-    _test_Parry2024_GIC_measured()
+    test_Parry2024_DMM_measured()
+    test_Parry2024_GIC_measured()
 
-    _test_Parry2025_GIC_measured()
-    _test_Parry2025_B_measured()
+    test_Parry2025_GIC_measured()
+    test_Parry2025_B_measured()
 
-    _test_TVA_GIC_measured()
-    _test_TVA_B_measured()
-    _test_TVA_GIC_calculated()
+    test_TVA_GIC_measured()
+    test_TVA_B_measured()
+    test_TVA_GIC_calculated()
 
-    _test_Watari_GIC_measured()
-    _test_Watari_B_measured()
+    test_Watari_GIC_measured()
+    test_Watari_B_measured()
 
-    _test_Zhang2020_GIC_measured()
+    test_Zhang2020_GIC_measured()
