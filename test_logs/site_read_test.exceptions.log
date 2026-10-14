@@ -1,0 +1,52 @@
+[2026-10-13T18:37:16.746288Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 380, in <module>
+    test_Caraballo2023_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 114, in test_Caraballo2023_GIC_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 860, in _site_read_orig
+    data.append([float(row[data_index])])
+                 ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-13T18:39:00.302006Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 380, in <module>
+    test_Caraballo2023_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 120, in test_Caraballo2023_GIC_measured
+    assert read_start_time == raw_start_time and read_start_data == raw_start_data
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[2026-10-13T18:39:56.027402Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 381, in <module>
+    test_Caraballo2023_GIC_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 120, in test_Caraballo2023_GIC_measured
+    assert read_start_time == raw_start_time
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[2026-10-14T15:00:10.543431Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 414, in <module>
+    test_Caraballo2023_B_measured()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\site_read_test.py", line 130, in test_Caraballo2023_B_measured
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 896, in _site_read_orig
+    time.append(parse_datetime(f'{row[0]}'))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\parse_datetime.py", line 22, in parse_datetime
+    raise ValueError(f"Unrecognized datetime format: {value!r}")
+ValueError: Unrecognized datetime format: 'date'
+
