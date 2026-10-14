@@ -1,0 +1,1640 @@
+2026-10-13T14:13:27.369596Z INFO  main Reading 'Laguna Verde' data for event '2021-08-01'
+2026-10-13T14:13:27.392966Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T14:27:45.127632Z INFO  main Reading 'Laguna Verde' data for event '2021-08-01'
+2026-10-13T14:27:45.149379Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T14:28:56.971005Z INFO  main Reading 'Laguna Verde' data for event '2021-08-01'
+2026-10-13T14:28:56.988974Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T14:30:01.544659Z INFO  main Reading 'Laguna Verde' data for event '2021-08-01'
+2026-10-13T14:30:01.562757Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:02:21.164589Z INFO  main Reading 'Laguna Verde' data for event '2021-08-01'
+2026-10-13T15:02:21.185379Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:02:21.194051Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:04:57.027859Z INFO  main Reading 'LAV' data for event '2021-08-01'
+2026-10-13T15:04:57.044653Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:04:57.054316Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:05:16.590968Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-13T15:05:16.620212Z INFO  main     Running automated error checks on GIC measured data
+2026-10-13T15:05:16.979222Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-13T15:05:16.979222Z INFO  main     Uniq dts [#]  = 1
+2026-10-13T15:05:16.979222Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-13T15:05:17.025622Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-13T15:05:17.042830Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\_all.pkl
+2026-10-13T15:05:17.051609Z INFO  main Computing stats for 'LAV' data
+2026-10-13T15:05:17.058392Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-13T15:05:17.058392Z INFO  main   Uniq dts [#]  = 1
+2026-10-13T15:05:17.058392Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-13T15:05:17.065071Z INFO  main 
+    std: : [1.4253856378193592]
+    ave: : [0.028474351271833818]
+    min: : [-3.4798953906504946]
+    max: : [2.7222948676037504]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-13T15:05:17.761889Z INFO  main Plotting 'LAV' data for event '2021-08-01'
+2026-10-13T15:05:17.772454Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-13T15:05:20.917289Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-13T15:05:22.155456Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-13T15:05:25.248329Z INFO  main Reading 'QRP' data for event '2021-08-01'
+2026-10-13T15:05:25.283356Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:05:25.288855Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:05:56.262885Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-13T15:05:56.297866Z INFO  main     Running automated error checks on GIC measured data
+2026-10-13T15:05:56.983145Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-13T15:05:56.983145Z INFO  main     Uniq dts [#]  = 1
+2026-10-13T15:05:56.988387Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-13T15:05:57.028351Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-13T15:05:57.053121Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\_all.pkl
+2026-10-13T15:05:57.055136Z INFO  main Computing stats for 'QRP' data
+2026-10-13T15:05:57.069150Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-13T15:05:57.069150Z INFO  main   Uniq dts [#]  = 1
+2026-10-13T15:05:57.069150Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-13T15:05:57.069150Z INFO  main 
+    std: : [2.7023708491864573]
+    ave: : [2.2574654056007413]
+    min: : [-5.982392592371799]
+    max: : [8.660869887523395]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-13T15:05:57.086105Z INFO  main Plotting 'QRP' data for event '2021-08-01'
+2026-10-13T15:05:57.102814Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-13T15:05:58.986898Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-13T15:06:00.307319Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-13T15:06:00.608615Z INFO  main Reading 'TUC' data for event '2021-08-01'
+2026-10-13T15:06:00.640561Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:19:31.306779Z INFO  main Reading 'LAV' data for event '2021-08-01'
+2026-10-13T15:19:31.334151Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:19:31.342250Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:19:51.274114Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-13T15:19:51.296167Z INFO  main     Running automated error checks on GIC measured data
+2026-10-13T15:19:51.627549Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-13T15:19:51.627549Z INFO  main     Uniq dts [#]  = 1
+2026-10-13T15:19:51.635854Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-13T15:19:51.671489Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-13T15:19:51.687564Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\_all.pkl
+2026-10-13T15:19:51.694452Z INFO  main Computing stats for 'LAV' data
+2026-10-13T15:19:51.704990Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-13T15:19:51.704990Z INFO  main   Uniq dts [#]  = 1
+2026-10-13T15:19:51.704990Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-13T15:19:51.704990Z INFO  main 
+    std: : [1.4253856378193592]
+    ave: : [0.028474351271833818]
+    min: : [-3.4798953906504946]
+    max: : [2.7222948676037504]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-13T15:19:56.460565Z INFO  main Plotting 'LAV' data for event '2021-08-01'
+2026-10-13T15:19:56.477987Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-13T15:20:01.712229Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-13T15:20:03.061634Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-13T15:20:06.277547Z INFO  main Reading 'QRP' data for event '2021-08-01'
+2026-10-13T15:20:06.300780Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:20:06.307589Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:20:26.438607Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-13T15:20:26.461739Z INFO  main     Running automated error checks on GIC measured data
+2026-10-13T15:20:26.817794Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-13T15:20:26.817794Z INFO  main     Uniq dts [#]  = 1
+2026-10-13T15:20:26.824121Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-13T15:20:26.853566Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-13T15:20:26.869607Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\_all.pkl
+2026-10-13T15:20:26.876170Z INFO  main Computing stats for 'QRP' data
+2026-10-13T15:20:26.885890Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-13T15:20:26.885890Z INFO  main   Uniq dts [#]  = 1
+2026-10-13T15:20:26.885890Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-13T15:20:26.885890Z INFO  main 
+    std: : [2.7023708491864573]
+    ave: : [2.2574654056007413]
+    min: : [-5.982392592371799]
+    max: : [8.660869887523395]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-13T15:20:26.899937Z INFO  main Plotting 'QRP' data for event '2021-08-01'
+2026-10-13T15:20:26.906894Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-13T15:20:28.356946Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-13T15:20:29.672309Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-13T15:20:29.987801Z INFO  main Reading 'TUC' data for event '2021-08-01'
+2026-10-13T15:20:30.008225Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:24:00.171971Z INFO  main Reading 'LAV' data for event '2021-08-01'
+2026-10-13T15:24:00.189749Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:24:00.195550Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:24:20.398700Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-13T15:24:20.419891Z INFO  main     Running automated error checks on GIC measured data
+2026-10-13T15:24:20.790242Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-13T15:24:20.792261Z INFO  main     Uniq dts [#]  = 1
+2026-10-13T15:24:20.798208Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-13T15:24:20.825621Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-13T15:24:20.838470Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\_all.pkl
+2026-10-13T15:24:20.848914Z INFO  main Computing stats for 'LAV' data
+2026-10-13T15:24:20.855473Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-13T15:24:20.857488Z INFO  main   Uniq dts [#]  = 1
+2026-10-13T15:24:20.857488Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-13T15:24:20.857488Z INFO  main 
+    std: : [1.4253856378193592]
+    ave: : [0.028474351271833818]
+    min: : [-3.4798953906504946]
+    max: : [2.7222948676037504]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-13T15:24:21.665306Z INFO  main Plotting 'LAV' data for event '2021-08-01'
+2026-10-13T15:24:21.671945Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-13T15:24:23.499662Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-13T15:24:24.897289Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-13T15:24:25.555147Z INFO  main Reading 'QRP' data for event '2021-08-01'
+2026-10-13T15:24:25.576673Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-13T15:24:25.586269Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-13T15:24:46.767142Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-13T15:24:46.785770Z INFO  main     Running automated error checks on GIC measured data
+2026-10-13T15:24:47.153502Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-13T15:24:47.153502Z INFO  main     Uniq dts [#]  = 1
+2026-10-13T15:24:47.159828Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-13T15:24:47.192266Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-13T15:24:47.210284Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\_all.pkl
+2026-10-13T15:24:47.216321Z INFO  main Computing stats for 'QRP' data
+2026-10-13T15:24:47.226566Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-13T15:24:47.228581Z INFO  main   Uniq dts [#]  = 1
+2026-10-13T15:24:47.228581Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-13T15:24:47.229813Z INFO  main 
+    std: : [2.7023708491864573]
+    ave: : [2.2574654056007413]
+    min: : [-5.982392592371799]
+    max: : [8.660869887523395]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-13T15:24:47.242466Z INFO  main Plotting 'QRP' data for event '2021-08-01'
+2026-10-13T15:24:47.248835Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-13T15:24:48.732900Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-13T15:24:50.151581Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-13T15:24:50.478096Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (1.2579 A) > 1/4 * std after (1.4268 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-13T15:24:50.508998Z INFO  main   Adding error for site 'QRP', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (2.5573 A) > 1/4 * std after (2.7015 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-13T15:24:50.534507Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-13T15:24:50.537335Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-13T15:24:50.538655Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T02:03:17.470166Z INFO  main Reading 'LAV' data for event '2021-08-01'
+2026-10-14T02:03:17.504373Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-14T02:03:17.517918Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T02:03:39.856476Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-14T02:03:39.876245Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T02:03:40.311976Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T02:03:40.311976Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T02:03:40.317995Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T02:03:40.348830Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T02:03:40.358022Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\_all.pkl
+2026-10-14T02:03:40.368082Z INFO  main Computing stats for 'LAV' data
+2026-10-14T02:03:40.375620Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T02:03:40.375620Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T02:03:40.375620Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T02:03:40.378043Z INFO  main 
+    std: : [1.4253856378193592]
+    ave: : [0.028474351271833818]
+    min: : [-3.4798953906504946]
+    max: : [2.7222948676037504]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-14T02:03:41.233358Z INFO  main Plotting 'LAV' data for event '2021-08-01'
+2026-10-14T02:03:41.239777Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-14T02:03:43.287748Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T02:03:44.814902Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T02:03:45.649569Z INFO  main Reading 'QRP' data for event '2021-08-01'
+2026-10-14T02:03:45.672258Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-14T02:03:45.677437Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T02:04:17.057032Z INFO  main Reading 'LAV' data for event '2021-08-01'
+2026-10-14T02:04:17.075263Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-14T02:04:17.083508Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T02:04:40.356871Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-14T02:04:40.373734Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T02:04:40.935070Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T02:04:40.935070Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T02:04:40.937662Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T02:04:40.974279Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T02:04:40.982434Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-08-01'
+2026-10-14T02:04:40.989005Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T02:05:01.360888Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-14T02:05:01.377392Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T02:05:01.393746Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T02:05:01.406986Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\lav\data\_all.pkl
+2026-10-14T02:05:01.417989Z INFO  main Computing stats for 'LAV' data
+2026-10-14T02:05:01.424899Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T02:05:01.424899Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T02:05:01.424899Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T02:05:01.427487Z INFO  main 
+    std: : [1.4253856378193592]
+    ave: : [0.028474351271833818]
+    min: : [-3.4798953906504946]
+    max: : [2.7222948676037504]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-14T02:05:01.434991Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T02:05:01.434991Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T02:05:01.434991Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T02:05:01.434991Z INFO  main 
+    std: : [0.8028355615328576]
+    ave: : [-0.6608939708939708]
+    min: : [-2.26]
+    max: : [0.97]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-14T02:05:01.437845Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T02:05:01.440963Z INFO  main 
+    err_rms: : [1.5133989380784796]
+    err_ave: : [0.6893683221658046]
+    err: : [[2.1641762]]
+         ...
+         [[0.27308924]]
+         (481 rows, 1 columns)
+    cc: : [0.3762490860709511]
+    pe: : [-0.12730671179414554]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (481 rows, 1 columns)
+    n_valid: : [481]
+2026-10-14T02:05:02.161396Z INFO  main Plotting 'LAV' data for event '2021-08-01'
+2026-10-14T02:05:02.168920Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-08-01'
+2026-10-14T02:05:06.029175Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T02:05:06.932374Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T02:05:07.498699Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as scatter for event '2021-08-01'
+2026-10-14T02:05:07.970227Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T02:05:09.337183Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T02:05:09.635166Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-14T02:05:11.152580Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T02:05:12.772541Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T02:05:13.092585Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-14T02:05:14.237471Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T02:05:15.241559Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/lav/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T02:05:15.606084Z INFO  main Reading 'QRP' data for event '2021-08-01'
+2026-10-14T02:05:15.630166Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-08-01'
+2026-10-14T02:05:15.644220Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T02:05:34.604596Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-14T02:05:34.618578Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T02:05:34.816682Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T02:05:34.818688Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T02:05:34.821635Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T02:05:34.834809Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T02:05:34.838786Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-08-01'
+2026-10-14T02:05:34.843575Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T02:05:52.071778Z INFO  main     Cropping original data to 2021-08-01T13:30:00.000000000 through 2021-08-03T21:30:00.000000000 before filtering.
+2026-10-14T02:05:52.092087Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T02:05:52.111712Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T02:05:52.125869Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-08-01\sites\qrp\data\_all.pkl
+2026-10-14T02:05:52.140228Z INFO  main Computing stats for 'QRP' data
+2026-10-14T02:05:52.142288Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T02:05:52.142288Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T02:05:52.142288Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T02:05:52.150877Z INFO  main 
+    std: : [2.7023708491864573]
+    ave: : [2.2574654056007413]
+    min: : [-5.982392592371799]
+    max: : [8.660869887523395]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-14T02:05:52.161105Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T02:05:52.161105Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T02:05:52.161105Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T02:05:52.161105Z INFO  main 
+    std: : [0.2602478609545983]
+    ave: : [0.5250311850311851]
+    min: : [0.06]
+    max: : [1.01]
+    n: 481
+    n_valid: : [481]
+    dt_original: : [60000000000]
+2026-10-14T02:05:52.161105Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T02:05:52.161105Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T02:05:52.161105Z INFO  main 
+    err_rms: : [3.327966315407076]
+    err_ave: : [1.7324342205695562]
+    err: : [[2.14785546]]
+         ...
+         [[-1.00690845]]
+         (481 rows, 1 columns)
+    cc: : [-0.5001479335176224]
+    pe: : [-0.9731218064077138]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (481 rows, 1 columns)
+    n_valid: : [481]
+2026-10-14T02:05:52.180718Z INFO  main Plotting 'QRP' data for event '2021-08-01'
+2026-10-14T02:05:52.191038Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-08-01'
+2026-10-14T02:05:55.088296Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T02:05:55.991561Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T02:05:56.236779Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as scatter for event '2021-08-01'
+2026-10-14T02:05:56.745354Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T02:05:57.630554Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T02:05:57.960685Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-14T02:05:59.255598Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T02:06:00.435978Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T02:06:00.745482Z INFO  main   Plotting 'QRP/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-08-01'
+2026-10-14T02:06:02.043242Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T02:06:03.018104Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-08-01/sites/qrp/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T02:06:03.308532Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (1.2579 A) > 1/4 * std after (1.4268 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T02:06:03.314393Z INFO  main   Adding error for site 'QRP', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (2.5573 A) > 1/4 * std after (2.7015 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T02:06:03.322836Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T02:06:03.322836Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T02:06:03.326349Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:04:40.840880Z INFO  main Reading 'LAV' data for event '2021-09-17'
+2026-10-14T11:04:40.861890Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:04:40.871050Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:05:00.527351Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:05:00.551727Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:05:01.030523Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:05:01.030523Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:05:01.046369Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:05:01.082734Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T11:05:01.092495Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:05:01.098793Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:05:19.776839Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:05:19.795858Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:05:19.822154Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T11:05:19.849678Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\_all.pkl
+2026-10-14T11:05:19.868660Z INFO  main Computing stats for 'LAV' data
+2026-10-14T11:05:19.883286Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:05:19.883286Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:05:19.885299Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T11:05:19.887413Z INFO  main 
+    std: : [1.3931623323846987]
+    ave: : [0.22691648731550046]
+    min: : [-3.63497057862041]
+    max: : [3.589203988231392]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:05:19.898282Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:05:19.898282Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:05:19.898282Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T11:05:19.900301Z INFO  main 
+    std: : [1.3524937391344078]
+    ave: : [-0.28822345593337956]
+    min: : [-3.17]
+    max: : [3.34]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:05:19.903884Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T11:05:19.906244Z INFO  main 
+    err_rms: : [1.4152784756862236]
+    err_ave: : [0.51513994324888]
+    err: : [[-0.90782772]]
+         ...
+         [[0.85148905]]
+         (1441 rows, 1 columns)
+    cc: : [0.539340264998011]
+    pe: : [-0.03200156538879795]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T11:05:20.683424Z INFO  main Plotting 'LAV' data for event '2021-09-17'
+2026-10-14T11:05:20.698479Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T11:05:26.478384Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T11:05:27.368650Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T11:05:31.526895Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T11:05:32.099696Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T11:05:33.590848Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T11:05:33.924704Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:05:37.150444Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T11:05:38.511463Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T11:05:38.785528Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:05:41.963296Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T11:05:43.007611Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T11:05:43.372739Z INFO  main Reading 'QRP' data for event '2021-09-17'
+2026-10-14T11:05:43.394341Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:05:43.401513Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:06:03.737098Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:06:03.756341Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:06:04.170119Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:06:04.172182Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:06:04.176716Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:06:04.204695Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T11:06:04.219351Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:06:04.231603Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:06:20.744024Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:06:20.754612Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:06:20.773621Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T11:06:20.785919Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\_all.pkl
+2026-10-14T11:06:20.796253Z INFO  main Computing stats for 'QRP' data
+2026-10-14T11:06:20.804225Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:06:20.804225Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:06:20.806241Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T11:06:20.806241Z INFO  main 
+    std: : [5.1673632860527325]
+    ave: : [0.44576111836927074]
+    min: : [-15.940107466513512]
+    max: : [19.971130626653636]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:06:20.812163Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:06:20.812163Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:06:20.812163Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T11:06:20.812163Z INFO  main 
+    std: : [0.5780002177942343]
+    ave: : [0.23136710617626652]
+    min: : [-0.49]
+    max: : [2.11]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:06:20.814179Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T11:06:20.814179Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T11:06:20.814179Z INFO  main 
+    err_rms: : [5.419308970312502]
+    err_ave: : [0.214394012193004]
+    err: : [[0.05910799]]
+         ...
+         [[-0.33858331]]
+         (1441 rows, 1 columns)
+    cc: : [-0.38289565857403113]
+    pe: : [0.0559752236485489]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T11:06:20.828118Z INFO  main Plotting 'QRP' data for event '2021-09-17'
+2026-10-14T11:06:20.834069Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T11:06:22.816473Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T11:06:23.751475Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T11:06:24.020614Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T11:06:24.606021Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T11:06:25.585011Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T11:06:25.945583Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:06:29.186347Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T11:06:30.265773Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T11:06:30.532446Z INFO  main   Plotting 'QRP/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:06:34.006951Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T11:06:35.035872Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T11:06:35.337294Z INFO  main Reading 'TUC' data for event '2021-09-17'
+2026-10-14T11:06:35.362651Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:06:35.369816Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\mag\tuc_magnetic_field.csv
+2026-10-14T11:06:43.177141Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:06:43.187080Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:06:43.223169Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\B_measured_Caraballo2023.pkl
+2026-10-14T11:06:43.242634Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\_all.pkl
+2026-10-14T11:06:43.251952Z INFO  main Computing stats for 'TUC' data
+2026-10-14T11:06:43.267907Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:06:43.267907Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:06:43.267907Z INFO  main   Stats for B/measured/Caraballo2023:
+2026-10-14T11:06:43.267907Z INFO  main 
+    std: : [24.895860691691617, 19.32198929311033, 5.980234383678276, 24.16623627102283]
+    ave: : [-19.92532269257399, 3.089264399722264, -3.6226301179753757, 28.56043090100154]
+    min: : [-82.93000000000029, -56.720000000000255, -19.06999999999971, 0.550363516232498]
+    max: : [13.930000000000291, 48.63999999999987, 4.639999999999418, 94.06003189452814]
+    n: 1441
+    n_valid: : [1441, 1441, 1441, 1441]
+    dt_original: : [60000000000]
+2026-10-14T11:06:43.284258Z INFO  main Plotting 'TUC' data for event '2021-09-17'
+2026-10-14T11:06:43.291341Z INFO  main   Plotting 'TUC/B/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:06:52.436208Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.png
+2026-10-14T11:06:53.326974Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.pdf
+2026-10-14T11:06:53.779744Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.png
+2026-10-14T11:06:54.687363Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.pdf
+2026-10-14T11:06:55.157703Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.png
+2026-10-14T11:06:56.028846Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.pdf
+2026-10-14T11:06:56.753702Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (0.5272 A) > 1/4 * std after (1.3936 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2021-09-17 02:44:00
+2026-10-14T11:06:56.758399Z INFO  main   Adding error for site 'QRP', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (1.9195 A) > 1/4 * std after (5.1691 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T11:06:56.763376Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T11:06:56.763376Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:06:56.765389Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:39:52.641259Z INFO  main Reading 'LAV' data for event '2021-09-17'
+2026-10-14T11:39:52.665765Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:39:52.670673Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:40:00.546068Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:40:00.565777Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:40:00.729471Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:00.729471Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:40:00.746484Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:00.765341Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T11:40:00.765341Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:40:00.777608Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:40:08.359942Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:40:08.383844Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:08.396658Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T11:40:08.404001Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\_all.pkl
+2026-10-14T11:40:08.408802Z INFO  main Computing stats for 'LAV' data
+2026-10-14T11:40:08.416328Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:08.416328Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:08.416328Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T11:40:08.417328Z INFO  main 
+    std: : [1.3931623323846987]
+    ave: : [0.22691648731550046]
+    min: : [-3.63497057862041]
+    max: : [3.589203988231392]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:40:08.418328Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:08.418328Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:08.418328Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T11:40:08.418328Z INFO  main 
+    std: : [1.3524937391344078]
+    ave: : [-0.28822345593337956]
+    min: : [-3.17]
+    max: : [3.34]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:40:08.423027Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T11:40:08.423027Z INFO  main 
+    err_rms: : [1.4152784756862236]
+    err_ave: : [0.51513994324888]
+    err: : [[-0.90782772]]
+         ...
+         [[0.85148905]]
+         (1441 rows, 1 columns)
+    cc: : [0.539340264998011]
+    pe: : [-0.03200156538879795]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T11:40:08.686965Z INFO  main Plotting 'LAV' data for event '2021-09-17'
+2026-10-14T11:40:08.686965Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T11:40:10.906148Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T11:40:11.288310Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T11:40:13.280096Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T11:40:13.509426Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T11:40:14.192332Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T11:40:14.318247Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:40:15.578135Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T11:40:16.115524Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T11:40:16.217236Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:40:17.420538Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T11:40:17.833978Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T11:40:17.954428Z INFO  main Reading 'LAV' data for event '2024-05-10'
+2026-10-14T11:40:17.967843Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:40:17.969433Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:40:18.071331Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:40:18.071331Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:40:18.235324Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:18.235324Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:40:18.235324Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:18.259984Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T11:40:18.268394Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:40:18.270407Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:40:18.369232Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:40:18.369232Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:18.384001Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T11:40:18.395439Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\_all.pkl
+2026-10-14T11:40:18.402303Z INFO  main Computing stats for 'LAV' data
+2026-10-14T11:40:18.413073Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:18.413073Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:18.413073Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T11:40:18.413073Z INFO  main 
+    std: : [6.108421798778353]
+    ave: : [-1.5060070482699701]
+    min: : [-28.75]
+    max: : [19.95]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:40:18.418358Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:18.420912Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:18.421816Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T11:40:18.421816Z INFO  main 
+    std: : [6.228027755971448]
+    ave: : [-0.4926228107646305]
+    min: : [-62.59]
+    max: : [28.08]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:40:18.421816Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T11:40:18.422821Z INFO  main 
+    err_rms: : [8.135255863827915]
+    err_ave: : [-1.0133842375053397]
+    err: : [[-3.855]]
+         ...
+         [[2.585]]
+         (2341 rows, 1 columns)
+    cc: : [0.14385807187770192]
+    pe: : [-0.7737172778285211]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T11:40:18.434204Z INFO  main Plotting 'LAV' data for event '2024-05-10'
+2026-10-14T11:40:18.437745Z INFO  main   Plotting 'LAV/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T11:40:19.670958Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T11:40:20.098284Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T11:40:20.201575Z INFO  main   Plotting 'LAV/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T11:40:20.410641Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T11:40:20.784597Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T11:40:20.926718Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:40:22.188021Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T11:40:22.701915Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T11:40:22.821253Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:40:24.125963Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T11:40:24.590314Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T11:40:24.693667Z INFO  main Reading 'QRP' data for event '2021-09-17'
+2026-10-14T11:40:24.709471Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:40:24.715061Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:40:32.571710Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:40:32.590880Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:40:32.751607Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:32.751607Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:40:32.751607Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:32.775621Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T11:40:32.775621Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:40:32.786115Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:40:40.559224Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:40:40.575155Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:40.600368Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T11:40:40.608060Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\_all.pkl
+2026-10-14T11:40:40.618942Z INFO  main Computing stats for 'QRP' data
+2026-10-14T11:40:40.621970Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:40.621970Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:40.621970Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T11:40:40.621970Z INFO  main 
+    std: : [5.1673632860527325]
+    ave: : [0.44576111836927074]
+    min: : [-15.940107466513512]
+    max: : [19.971130626653636]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:40:40.634937Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:40.634937Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:40.634937Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T11:40:40.634937Z INFO  main 
+    std: : [0.5780002177942343]
+    ave: : [0.23136710617626652]
+    min: : [-0.49]
+    max: : [2.11]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:40:40.637776Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T11:40:40.637776Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T11:40:40.637776Z INFO  main 
+    err_rms: : [5.419308970312502]
+    err_ave: : [0.214394012193004]
+    err: : [[0.05910799]]
+         ...
+         [[-0.33858331]]
+         (1441 rows, 1 columns)
+    cc: : [-0.38289565857403113]
+    pe: : [0.0559752236485489]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T11:40:40.647959Z INFO  main Plotting 'QRP' data for event '2021-09-17'
+2026-10-14T11:40:40.651696Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T11:40:41.785779Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T11:40:42.141222Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T11:40:42.261548Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T11:40:42.489997Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T11:40:42.866451Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T11:40:43.025434Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:40:44.257388Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T11:40:44.742869Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T11:40:44.859225Z INFO  main   Plotting 'QRP/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:40:46.171224Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T11:40:46.608747Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T11:40:46.735935Z INFO  main Reading 'TUC' data for event '2021-09-17'
+2026-10-14T11:40:46.745686Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:40:46.751451Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\mag\tuc_magnetic_field.csv
+2026-10-14T11:40:49.790057Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:40:49.790057Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:49.816416Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\B_measured_Caraballo2023.pkl
+2026-10-14T11:40:49.827891Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\_all.pkl
+2026-10-14T11:40:49.830907Z INFO  main Computing stats for 'TUC' data
+2026-10-14T11:40:49.836387Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:49.836387Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:49.836387Z INFO  main   Stats for B/measured/Caraballo2023:
+2026-10-14T11:40:49.836387Z INFO  main 
+    std: : [24.895860691691617, 19.32198929311033, 5.980234383678276, 24.16623627102283]
+    ave: : [-19.92532269257399, 3.089264399722264, -3.6226301179753757, 28.56043090100154]
+    min: : [-82.93000000000029, -56.720000000000255, -19.06999999999971, 0.550363516232498]
+    max: : [13.930000000000291, 48.63999999999987, 4.639999999999418, 94.06003189452814]
+    n: 1441
+    n_valid: : [1441, 1441, 1441, 1441]
+    dt_original: : [60000000000]
+2026-10-14T11:40:49.844151Z INFO  main Plotting 'TUC' data for event '2021-09-17'
+2026-10-14T11:40:49.847664Z INFO  main   Plotting 'TUC/B/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:40:53.420301Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.png
+2026-10-14T11:40:53.801858Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.pdf
+2026-10-14T11:40:53.980631Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.png
+2026-10-14T11:40:54.352406Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.pdf
+2026-10-14T11:40:54.552861Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.png
+2026-10-14T11:40:54.962139Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.pdf
+2026-10-14T11:40:55.242316Z INFO  main Reading 'MZT' data for event '2024-05-10'
+2026-10-14T11:40:55.253248Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:40:55.255783Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:40:55.349239Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:40:55.350240Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:40:55.544299Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:55.546052Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:40:55.548245Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:55.560515Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T11:40:55.564032Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:40:55.570110Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:40:55.659388Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:40:55.659388Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:40:55.674767Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T11:40:55.685069Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\_all.pkl
+2026-10-14T11:40:55.693203Z INFO  main Computing stats for 'MZT' data
+2026-10-14T11:40:55.702054Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:55.702054Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:55.702054Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T11:40:55.702054Z INFO  main 
+    std: : [0.9407224253584586]
+    ave: : [0.47032340168019365]
+    min: : [-3.7625]
+    max: : [4.515]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:40:55.702054Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:40:55.702054Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:40:55.702054Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T11:40:55.702054Z INFO  main 
+    std: : [1.2344135049614435]
+    ave: : [-0.0043912857753097]
+    min: : [-11.41]
+    max: : [14.69]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:40:55.712570Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T11:40:55.712570Z INFO  main 
+    err_rms: : [1.1237630252516453]
+    err_ave: : [0.47471468745550344]
+    err: : [[0.9775]]
+         ...
+         [[-0.22916667]]
+         (2341 rows, 1 columns)
+    cc: : [0.5904229658635913]
+    pe: : [-0.4270082470732348]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T11:40:55.722507Z INFO  main Plotting 'MZT' data for event '2024-05-10'
+2026-10-14T11:40:55.724500Z INFO  main   Plotting 'MZT/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T11:41:19.221498Z INFO  main Reading 'LAV' data for event '2021-09-17'
+2026-10-14T11:41:19.228148Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:41:19.233794Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:41:27.420260Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:41:27.434702Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:41:27.589272Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:41:27.589272Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:41:27.589272Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:41:27.605361Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T11:41:27.608360Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:41:27.616988Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:41:36.067190Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:41:36.087050Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:41:36.101823Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T11:41:36.106888Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\_all.pkl
+2026-10-14T11:41:36.114029Z INFO  main Computing stats for 'LAV' data
+2026-10-14T11:41:36.118665Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:41:36.118665Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:41:36.118665Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T11:41:36.118665Z INFO  main 
+    std: : [1.3931623323846987]
+    ave: : [0.22691648731550046]
+    min: : [-3.63497057862041]
+    max: : [3.589203988231392]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:41:36.123561Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:41:36.123561Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:41:36.123561Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T11:41:36.123561Z INFO  main 
+    std: : [1.3524937391344078]
+    ave: : [-0.28822345593337956]
+    min: : [-3.17]
+    max: : [3.34]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:41:36.124563Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T11:41:36.124563Z INFO  main 
+    err_rms: : [1.4152784756862236]
+    err_ave: : [0.51513994324888]
+    err: : [[-0.90782772]]
+         ...
+         [[0.85148905]]
+         (1441 rows, 1 columns)
+    cc: : [0.539340264998011]
+    pe: : [-0.03200156538879795]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T11:41:36.436534Z INFO  main Plotting 'LAV' data for event '2021-09-17'
+2026-10-14T11:41:36.436534Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T11:41:37.909422Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T11:41:38.284876Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T11:41:38.505746Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T11:41:38.709518Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T11:41:39.228834Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T11:41:39.360056Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:41:40.582365Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T11:41:41.064987Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T11:41:41.240945Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:41:43.187962Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T11:41:44.192458Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T11:41:44.379129Z INFO  main Reading 'LAV' data for event '2024-05-10'
+2026-10-14T11:41:44.390954Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:41:44.394961Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:41:44.495360Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:41:44.495360Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:41:44.721416Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:41:44.721416Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:41:44.721416Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:41:44.747570Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T11:41:44.756217Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:41:44.760216Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:41:44.880857Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:41:44.880857Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:41:44.895234Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T11:41:44.904236Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\_all.pkl
+2026-10-14T11:41:44.912901Z INFO  main Computing stats for 'LAV' data
+2026-10-14T11:41:44.917895Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:41:44.917895Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:41:44.917895Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T11:41:44.917895Z INFO  main 
+    std: : [6.108421798778353]
+    ave: : [-1.5060070482699701]
+    min: : [-28.75]
+    max: : [19.95]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:41:44.924897Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:41:44.925904Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:41:44.925904Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T11:41:44.926482Z INFO  main 
+    std: : [6.228027755971448]
+    ave: : [-0.4926228107646305]
+    min: : [-62.59]
+    max: : [28.08]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:41:44.926482Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T11:41:44.927541Z INFO  main 
+    err_rms: : [8.135255863827915]
+    err_ave: : [-1.0133842375053397]
+    err: : [[-3.855]]
+         ...
+         [[2.585]]
+         (2341 rows, 1 columns)
+    cc: : [0.14385807187770192]
+    pe: : [-0.7737172778285211]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T11:41:44.936536Z INFO  main Plotting 'LAV' data for event '2024-05-10'
+2026-10-14T11:41:44.940045Z INFO  main   Plotting 'LAV/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T11:41:46.093288Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T11:41:46.488942Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T11:41:46.587944Z INFO  main   Plotting 'LAV/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T11:41:46.801188Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T11:41:47.156436Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T11:41:47.302413Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:41:48.530296Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T11:41:49.039374Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T11:41:49.135783Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:41:50.960137Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T11:41:51.414205Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T11:41:51.533989Z INFO  main Reading 'QRP' data for event '2021-09-17'
+2026-10-14T11:41:51.542867Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:41:51.544867Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:42:05.697690Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:42:05.714000Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:42:06.218036Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:42:06.218036Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:42:06.226086Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:42:06.259015Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T11:42:06.267082Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:42:06.279214Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T11:42:26.618023Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:42:26.633378Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:42:26.651450Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T11:42:26.663070Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\_all.pkl
+2026-10-14T11:42:26.679552Z INFO  main Computing stats for 'QRP' data
+2026-10-14T11:42:26.689085Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:42:26.689085Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:42:26.689085Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T11:42:26.689085Z INFO  main 
+    std: : [5.1673632860527325]
+    ave: : [0.44576111836927074]
+    min: : [-15.940107466513512]
+    max: : [19.971130626653636]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:42:26.698392Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:42:26.698392Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:42:26.698392Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T11:42:26.699400Z INFO  main 
+    std: : [0.5780002177942343]
+    ave: : [0.23136710617626652]
+    min: : [-0.49]
+    max: : [2.11]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T11:42:26.699400Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T11:42:26.700401Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T11:42:26.701418Z INFO  main 
+    err_rms: : [5.419308970312502]
+    err_ave: : [0.214394012193004]
+    err: : [[0.05910799]]
+         ...
+         [[-0.33858331]]
+         (1441 rows, 1 columns)
+    cc: : [-0.38289565857403113]
+    pe: : [0.0559752236485489]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T11:42:26.726348Z INFO  main Plotting 'QRP' data for event '2021-09-17'
+2026-10-14T11:42:26.734033Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T11:42:29.403639Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T11:42:30.181083Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T11:42:30.405429Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T11:42:30.877736Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T11:42:31.672704Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T11:42:31.931756Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:42:34.666747Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T11:42:35.621612Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T11:42:35.851254Z INFO  main   Plotting 'QRP/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:42:38.988476Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T11:42:39.900352Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T11:42:40.152536Z INFO  main Reading 'TUC' data for event '2021-09-17'
+2026-10-14T11:42:40.166120Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T11:42:40.170120Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\mag\tuc_magnetic_field.csv
+2026-10-14T11:42:48.941744Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T11:42:48.951257Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:42:48.997705Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\B_measured_Caraballo2023.pkl
+2026-10-14T11:42:49.016865Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\_all.pkl
+2026-10-14T11:42:49.025558Z INFO  main Computing stats for 'TUC' data
+2026-10-14T11:42:49.043768Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:42:49.043768Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:42:49.044767Z INFO  main   Stats for B/measured/Caraballo2023:
+2026-10-14T11:42:49.044767Z INFO  main 
+    std: : [24.895860691691617, 19.32198929311033, 5.980234383678276, 24.16623627102283]
+    ave: : [-19.92532269257399, 3.089264399722264, -3.6226301179753757, 28.56043090100154]
+    min: : [-82.93000000000029, -56.720000000000255, -19.06999999999971, 0.550363516232498]
+    max: : [13.930000000000291, 48.63999999999987, 4.639999999999418, 94.06003189452814]
+    n: 1441
+    n_valid: : [1441, 1441, 1441, 1441]
+    dt_original: : [60000000000]
+2026-10-14T11:42:49.057730Z INFO  main Plotting 'TUC' data for event '2021-09-17'
+2026-10-14T11:42:49.063254Z INFO  main   Plotting 'TUC/B/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T11:42:58.923897Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.png
+2026-10-14T11:42:59.459415Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.pdf
+2026-10-14T11:42:59.778759Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.png
+2026-10-14T11:43:00.391309Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.pdf
+2026-10-14T11:43:00.778848Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.png
+2026-10-14T11:43:01.521604Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.pdf
+2026-10-14T11:43:02.144476Z INFO  main Reading 'MZT' data for event '2024-05-10'
+2026-10-14T11:43:02.163100Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:43:02.168606Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:43:02.415238Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:43:02.416738Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:43:02.991538Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:43:02.992851Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:43:02.997367Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:43:03.020811Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T11:43:03.035563Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:43:03.040409Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:43:03.266215Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:43:03.267216Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:43:03.286607Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T11:43:03.301353Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\_all.pkl
+2026-10-14T11:43:03.443070Z INFO  main Computing stats for 'MZT' data
+2026-10-14T11:43:03.452521Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:43:03.453796Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:43:03.454859Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T11:43:03.454859Z INFO  main 
+    std: : [0.9407224253584586]
+    ave: : [0.47032340168019365]
+    min: : [-3.7625]
+    max: : [4.515]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:43:03.466299Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:43:03.466299Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:43:03.466299Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T11:43:03.466299Z INFO  main 
+    std: : [1.2344135049614435]
+    ave: : [-0.0043912857753097]
+    min: : [-11.41]
+    max: : [14.69]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:43:03.467589Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T11:43:03.468981Z INFO  main 
+    err_rms: : [1.1237630252516453]
+    err_ave: : [0.47471468745550344]
+    err: : [[0.9775]]
+         ...
+         [[-0.22916667]]
+         (2341 rows, 1 columns)
+    cc: : [0.5904229658635913]
+    pe: : [-0.4270082470732348]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T11:43:03.488083Z INFO  main Plotting 'MZT' data for event '2024-05-10'
+2026-10-14T11:43:03.492145Z INFO  main   Plotting 'MZT/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T11:43:06.686104Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T11:43:07.784687Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T11:43:08.050271Z INFO  main   Plotting 'MZT/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T11:43:08.441363Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T11:43:09.257641Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T11:43:09.698224Z INFO  main   Plotting 'MZT/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:43:12.574033Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T11:43:13.374592Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T11:43:13.551337Z INFO  main   Plotting 'MZT/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:43:15.604959Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T11:43:16.727957Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T11:43:17.091781Z INFO  main Reading 'RMY' data for event '2024-05-10'
+2026-10-14T11:43:17.114881Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:43:17.123442Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:43:17.594359Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:43:17.596363Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T11:43:18.069037Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T11:43:18.070039Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T11:43:18.078618Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:43:18.113643Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\rmy\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T11:43:18.131643Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T11:43:18.141647Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T11:43:18.442307Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T11:43:18.443317Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T11:43:18.478824Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\rmy\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T11:43:18.501640Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\rmy\data\_all.pkl
+2026-10-14T11:43:18.533738Z INFO  main Computing stats for 'RMY' data
+2026-10-14T11:43:18.555070Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:43:18.556072Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:43:18.556072Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T11:43:18.557073Z INFO  main 
+    std: : [1.3721065654119367]
+    ave: : [0.3642541901751387]
+    min: : [-5.060420366666667]
+    max: : [6.44749984]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:43:18.576045Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T11:43:18.576045Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T11:43:18.576045Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T11:43:18.577065Z INFO  main 
+    std: : [1.8165236158677525]
+    ave: : [-0.12138829560017085]
+    min: : [-18.06]
+    max: : [18.53]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T11:43:18.578059Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T11:43:18.579189Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T11:43:18.579189Z INFO  main 
+    err_rms: : [2.4296593473108254]
+    err_ave: : [0.4856424857753095]
+    err: : [[-0.2875002]]
+         ...
+         [[0.142498]]
+         (2341 rows, 1 columns)
+    cc: : [-0.0972855475767105]
+    pe: : [-1.5264335403792404]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T11:43:18.625850Z INFO  main Plotting 'RMY' data for event '2024-05-10'
+2026-10-14T11:43:18.635073Z INFO  main   Plotting 'RMY/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T11:43:21.769285Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T11:43:22.524485Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T11:43:22.752056Z INFO  main   Plotting 'RMY/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T11:43:23.188269Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T11:43:24.007555Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T11:43:24.462867Z INFO  main   Plotting 'RMY/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:43:27.502383Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T11:43:28.380239Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T11:43:28.635102Z INFO  main   Plotting 'RMY/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T11:43:32.815773Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T11:43:34.102067Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T11:43:34.423210Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (0.5272 A) > 1/4 * std after (1.3936 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2021-09-17 02:44:00
+2026-10-14T11:43:34.428136Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2025: Excessive pre-storm noise: std before (3.3972 A) > 1/4 * std after (6.1095 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-10 15:41:00
+2026-10-14T11:43:34.429561Z INFO  main   Adding error for site 'QRP', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (1.9195 A) > 1/4 * std after (5.1691 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T11:43:34.430561Z INFO  main   Adding error for site 'MZT', GIC/'measured/Caraballo2025: Excessive pre-storm noise: std before (0.2427 A) > 1/4 * std after (0.9408 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-10 16:23:00
+2026-10-14T11:43:34.431562Z INFO  main   Adding error for site 'RMY', GIC/'measured/Caraballo2025: Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T11:43:34.440350Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T11:43:34.440350Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:43:34.441822Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T14:38:54.211652Z INFO  main Reading 'LAV' data for event '2021-09-17'
+2026-10-14T14:38:54.231669Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T14:38:54.237362Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T14:39:14.099676Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T14:39:14.133017Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T14:39:14.603301Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T14:39:14.603301Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T14:39:14.623471Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:39:14.655342Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T14:39:14.671345Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T14:39:14.678638Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T14:39:32.935967Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T14:39:32.958667Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:39:32.993189Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T14:39:33.006247Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\lav\data\_all.pkl
+2026-10-14T14:39:33.023818Z INFO  main Computing stats for 'LAV' data
+2026-10-14T14:39:33.036611Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:39:33.036611Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:39:33.036611Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T14:39:33.038909Z INFO  main 
+    std: : [1.3931623323846987]
+    ave: : [0.22691648731550046]
+    min: : [-3.63497057862041]
+    max: : [3.589203988231392]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T14:39:33.043462Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:39:33.043462Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:39:33.051144Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T14:39:33.051144Z INFO  main 
+    std: : [1.3524937391344078]
+    ave: : [-0.28822345593337956]
+    min: : [-3.17]
+    max: : [3.34]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T14:39:33.052473Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T14:39:33.056705Z INFO  main 
+    err_rms: : [1.4152784756862236]
+    err_ave: : [0.51513994324888]
+    err: : [[-0.90782772]]
+         ...
+         [[0.85148905]]
+         (1441 rows, 1 columns)
+    cc: : [0.539340264998011]
+    pe: : [-0.03200156538879795]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T14:39:38.795754Z INFO  main Plotting 'LAV' data for event '2021-09-17'
+2026-10-14T14:39:38.801623Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T14:39:46.366732Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T14:39:47.257008Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T14:39:51.022346Z INFO  main   Plotting 'LAV/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T14:39:51.518299Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T14:39:52.864040Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T14:39:53.162351Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T14:39:56.060614Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T14:39:57.316787Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T14:39:57.619320Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T14:40:00.671728Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T14:40:01.766097Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/lav/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T14:40:02.042274Z INFO  main Reading 'LAV' data for event '2024-05-10'
+2026-10-14T14:40:02.065533Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:40:02.077380Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:40:02.328603Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:40:02.344166Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T14:40:02.737379Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T14:40:02.737379Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T14:40:02.752952Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:40:02.780419Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T14:40:02.792202Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:40:02.801259Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:40:03.018924Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:40:03.018924Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:40:03.052835Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T14:40:03.064101Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\lav\data\_all.pkl
+2026-10-14T14:40:03.094789Z INFO  main Computing stats for 'LAV' data
+2026-10-14T14:40:03.107424Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:40:03.107424Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:40:03.107424Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T14:40:03.109704Z INFO  main 
+    std: : [6.108421798778353]
+    ave: : [-1.5060070482699701]
+    min: : [-28.75]
+    max: : [19.95]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:40:03.123486Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:40:03.123486Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:40:03.125074Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T14:40:03.125074Z INFO  main 
+    std: : [6.228027755971448]
+    ave: : [-0.4926228107646305]
+    min: : [-62.59]
+    max: : [28.08]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:40:03.125074Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T14:40:03.125074Z INFO  main 
+    err_rms: : [8.135255863827915]
+    err_ave: : [-1.0133842375053397]
+    err: : [[-3.855]]
+         ...
+         [[2.585]]
+         (2341 rows, 1 columns)
+    cc: : [0.14385807187770192]
+    pe: : [-0.7737172778285211]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T14:40:03.147253Z INFO  main Plotting 'LAV' data for event '2024-05-10'
+2026-10-14T14:40:03.164805Z INFO  main   Plotting 'LAV/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T14:40:06.134595Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T14:40:07.041818Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T14:40:07.273862Z INFO  main   Plotting 'LAV/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T14:40:07.792505Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T14:40:08.672388Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T14:40:09.080261Z INFO  main   Plotting 'LAV/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:40:12.036919Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T14:40:13.238018Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T14:40:13.491791Z INFO  main   Plotting 'LAV/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:40:16.663091Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T14:40:17.697304Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/lav/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T14:40:17.963393Z INFO  main Reading 'QRP' data for event '2021-09-17'
+2026-10-14T14:40:17.986516Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T14:40:17.998556Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T14:40:34.773904Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T14:40:34.786200Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T14:40:35.074679Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T14:40:35.074679Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T14:40:35.082400Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:40:35.098664Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_measured_Caraballo2023.pkl
+2026-10-14T14:40:35.104859Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021-09-17'
+2026-10-14T14:40:35.112434Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-14T14:40:53.657907Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T14:40:53.677324Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:40:53.708468Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\GIC_calculated_Caraballo2023.pkl
+2026-10-14T14:40:53.727499Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\qrp\data\_all.pkl
+2026-10-14T14:40:53.741029Z INFO  main Computing stats for 'QRP' data
+2026-10-14T14:40:53.756723Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:40:53.756723Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:40:53.756723Z INFO  main   Stats for GIC/measured/Caraballo2023:
+2026-10-14T14:40:53.756723Z INFO  main 
+    std: : [5.1673632860527325]
+    ave: : [0.44576111836927074]
+    min: : [-15.940107466513512]
+    max: : [19.971130626653636]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T14:40:53.776444Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:40:53.776444Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:40:53.776444Z INFO  main   Stats for GIC/calculated/Caraballo2023:
+2026-10-14T14:40:53.776444Z INFO  main 
+    std: : [0.5780002177942343]
+    ave: : [0.23136710617626652]
+    min: : [-0.49]
+    max: : [2.11]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-10-14T14:40:53.783216Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T14:40:53.783216Z INFO  main   Metrics for GIC/calculated/Caraballo2023:
+2026-10-14T14:40:53.783216Z INFO  main 
+    err_rms: : [5.419308970312502]
+    err_ave: : [0.214394012193004]
+    err: : [[0.05910799]]
+         ...
+         [[-0.33858331]]
+         (1441 rows, 1 columns)
+    cc: : [-0.38289565857403113]
+    pe: : [0.0559752236485489]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (1441 rows, 1 columns)
+    n_valid: : [1441]
+2026-10-14T14:40:53.808182Z INFO  main Plotting 'QRP' data for event '2021-09-17'
+2026-10-14T14:40:53.819756Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as timeseries for event '2021-09-17'
+2026-10-14T14:40:57.156839Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.png
+2026-10-14T14:40:58.099348Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_timeseries.pdf
+2026-10-14T14:40:58.372665Z INFO  main   Plotting 'QRP/GIC/Caraballo2023' vs. measured data as scatter for event '2021-09-17'
+2026-10-14T14:40:58.989290Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.png
+2026-10-14T14:40:59.892482Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\compare\_calculated_Caraballo2023_vs_measured_scatter.pdf
+2026-10-14T14:41:00.243460Z INFO  main   Plotting 'QRP/GIC/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T14:41:03.261296Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.png
+2026-10-14T14:41:04.483953Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_measured_Caraballo2023.pdf
+2026-10-14T14:41:04.754688Z INFO  main   Plotting 'QRP/GIC/calculated/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T14:41:07.680973Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.png
+2026-10-14T14:41:08.683246Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/qrp/figures\original\GIC_calculated_Caraballo2023.pdf
+2026-10-14T14:41:08.954624Z INFO  main Reading 'TUC' data for event '2021-09-17'
+2026-10-14T14:41:08.976686Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021-09-17'
+2026-10-14T14:41:08.984585Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\mag\tuc_magnetic_field.csv
+2026-10-14T14:41:16.330499Z INFO  main     Cropping original data to 2021-09-16T02:30:00.000000000 through 2021-09-19T02:30:00.000000000 before filtering.
+2026-10-14T14:41:16.346165Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:41:16.379591Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\B_measured_Caraballo2023.pkl
+2026-10-14T14:41:16.402104Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\tuc\data\_all.pkl
+2026-10-14T14:41:16.409075Z INFO  main Computing stats for 'TUC' data
+2026-10-14T14:41:16.420294Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:16.420294Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:41:16.420294Z INFO  main   Stats for B/measured/Caraballo2023:
+2026-10-14T14:41:16.420294Z INFO  main 
+    std: : [24.895860691691617, 19.32198929311033, 5.980234383678276, 24.16623627102283]
+    ave: : [-19.92532269257399, 3.089264399722264, -3.6226301179753757, 28.56043090100154]
+    min: : [-82.93000000000029, -56.720000000000255, -19.06999999999971, 0.550363516232498]
+    max: : [13.930000000000291, 48.63999999999987, 4.639999999999418, 94.06003189452814]
+    n: 1441
+    n_valid: : [1441, 1441, 1441, 1441]
+    dt_original: : [60000000000]
+2026-10-14T14:41:16.435058Z INFO  main Plotting 'TUC' data for event '2021-09-17'
+2026-10-14T14:41:16.444876Z INFO  main   Plotting 'TUC/B/measured/Caraballo2023' original vs. modified data for event '2021-09-17'
+2026-10-14T14:41:21.560394Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.png
+2026-10-14T14:41:21.811810Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bx.pdf
+2026-10-14T14:41:21.952194Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.png
+2026-10-14T14:41:22.321081Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_By.pdf
+2026-10-14T14:41:22.553993Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.png
+2026-10-14T14:41:23.284365Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/tuc/figures\original\B_measured_Caraballo2023_Bz.pdf
+2026-10-14T14:41:24.061706Z INFO  main Reading 'MZT' data for event '2024-05-10'
+2026-10-14T14:41:24.095191Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:41:24.101248Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:41:24.623258Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:41:24.623258Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T14:41:25.570918Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:25.570918Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T14:41:25.575314Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:41:25.639123Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T14:41:25.660572Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:41:25.669997Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:41:26.094524Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:41:26.094524Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:41:26.136144Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T14:41:26.161810Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\mzt\data\_all.pkl
+2026-10-14T14:41:26.199899Z INFO  main Computing stats for 'MZT' data
+2026-10-14T14:41:26.221098Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:26.221098Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:41:26.221098Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T14:41:26.224545Z INFO  main 
+    std: : [0.9407224253584586]
+    ave: : [0.47032340168019365]
+    min: : [-3.7625]
+    max: : [4.515]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:41:26.242913Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:26.246009Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:41:26.246009Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T14:41:26.246009Z INFO  main 
+    std: : [1.2344135049614435]
+    ave: : [-0.0043912857753097]
+    min: : [-11.41]
+    max: : [14.69]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:41:26.248711Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T14:41:26.248711Z INFO  main 
+    err_rms: : [1.1237630252516453]
+    err_ave: : [0.47471468745550344]
+    err: : [[0.9775]]
+         ...
+         [[-0.22916667]]
+         (2341 rows, 1 columns)
+    cc: : [0.5904229658635913]
+    pe: : [-0.4270082470732348]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T14:41:26.290647Z INFO  main Plotting 'MZT' data for event '2024-05-10'
+2026-10-14T14:41:26.296552Z INFO  main   Plotting 'MZT/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T14:41:31.252660Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T14:41:32.667213Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T14:41:33.129146Z INFO  main   Plotting 'MZT/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T14:41:33.911495Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T14:41:35.392208Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T14:41:35.980809Z INFO  main   Plotting 'MZT/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:41:40.549348Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T14:41:42.432720Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T14:41:42.901115Z INFO  main   Plotting 'MZT/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:41:47.718390Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T14:41:49.155432Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/mzt/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T14:41:49.557385Z INFO  main Reading 'RMY' data for event '2024-05-10'
+2026-10-14T14:41:49.583690Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:41:49.596012Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:41:49.981890Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:41:49.981890Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T14:41:51.036036Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:51.038032Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T14:41:51.042036Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:41:51.087629Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\rmy\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T14:41:51.106943Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:41:51.118947Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:41:51.504023Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:41:51.506021Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:41:51.548023Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\rmy\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T14:41:51.582197Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\rmy\data\_all.pkl
+2026-10-14T14:41:51.622317Z INFO  main Computing stats for 'RMY' data
+2026-10-14T14:41:51.642674Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:51.644674Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:41:51.645688Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T14:41:51.646702Z INFO  main 
+    std: : [1.3721065654119367]
+    ave: : [0.3642541901751387]
+    min: : [-5.060420366666667]
+    max: : [6.44749984]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:41:51.667298Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:41:51.667298Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:41:51.669303Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T14:41:51.669303Z INFO  main 
+    std: : [1.8165236158677525]
+    ave: : [-0.12138829560017085]
+    min: : [-18.06]
+    max: : [18.53]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:41:51.671306Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T14:41:51.673305Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T14:41:51.673305Z INFO  main 
+    err_rms: : [2.4296593473108254]
+    err_ave: : [0.4856424857753095]
+    err: : [[-0.2875002]]
+         ...
+         [[0.142498]]
+         (2341 rows, 1 columns)
+    cc: : [-0.0972855475767105]
+    pe: : [-1.5264335403792404]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T14:41:51.716879Z INFO  main Plotting 'RMY' data for event '2024-05-10'
+2026-10-14T14:41:51.726881Z INFO  main   Plotting 'RMY/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T14:41:56.312092Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T14:41:57.684398Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T14:41:58.116053Z INFO  main   Plotting 'RMY/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T14:41:59.035228Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T14:42:00.348342Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T14:42:00.960371Z INFO  main   Plotting 'RMY/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:42:05.750845Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T14:42:07.246777Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T14:42:07.621835Z INFO  main   Plotting 'RMY/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:42:12.868906Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T14:42:14.447881Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/rmy/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T14:42:14.972388Z INFO  main Reading 'QRO' data for event '2024-05-10'
+2026-10-14T14:42:15.012657Z INFO  main   Reading 'GIC/measured/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:42:15.027045Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:42:15.440816Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:42:15.442838Z INFO  main     Running automated error checks on GIC measured data
+2026-10-14T14:42:16.242676Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-10-14T14:42:16.242676Z INFO  main     Uniq dts [#]  = 1
+2026-10-14T14:42:16.253255Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:42:16.305986Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\qro\data\GIC_measured_Caraballo2025.pkl
+2026-10-14T14:42:16.320527Z INFO  main   Reading 'GIC/calculated/Caraballo2025' data for event '2024-05-10'
+2026-10-14T14:42:16.335969Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2025\2024-05-10\gic\evt20240510.csv
+2026-10-14T14:42:16.755021Z INFO  main     Cropping original data to 2024-05-10T00:00:00.000000000 through 2024-05-13T06:00:00.000000000 before filtering.
+2026-10-14T14:42:16.756779Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-14T14:42:16.800809Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\qro\data\GIC_calculated_Caraballo2025.pkl
+2026-10-14T14:42:16.832527Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2024-05-10\sites\qro\data\_all.pkl
+2026-10-14T14:42:16.871674Z INFO  main Computing stats for 'QRO' data
+2026-10-14T14:42:16.888230Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:42:16.896433Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:42:16.896433Z INFO  main   Stats for GIC/measured/Caraballo2025:
+2026-10-14T14:42:16.896433Z INFO  main 
+    std: : [12.992865356961184]
+    ave: : [2.539927296070054]
+    min: : [-57.397341207142865]
+    max: : [69.8750153]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:42:16.921008Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-10-14T14:42:16.921008Z INFO  main   Uniq dts [#]  = 1
+2026-10-14T14:42:16.921008Z INFO  main   Stats for GIC/calculated/Caraballo2025:
+2026-10-14T14:42:16.925120Z INFO  main 
+    std: : [2.541944187244759]
+    ave: : [0.2788808201623237]
+    min: : [-11.4]
+    max: : [19.75]
+    n: 2341
+    n_valid: : [2341]
+    dt_original: : [60000000000]
+2026-10-14T14:42:16.925120Z WARN  main   Multiplying measured data by -1 before computing pe.
+2026-10-14T14:42:16.925120Z INFO  main   Metrics for GIC/calculated/Caraballo2025:
+2026-10-14T14:42:16.927135Z INFO  main 
+    err_rms: : [13.485847530115151]
+    err_ave: : [2.2610464759077304]
+    err: : [[7.6000132]]
+         ...
+         [[-2.7250006]]
+         (2341 rows, 1 columns)
+    cc: : [-0.022401607710916975]
+    pe: : [-0.07657774421100916]
+    valid: : [[ True]]
+           ...
+           [[ True]]
+           (2341 rows, 1 columns)
+    n_valid: : [2341]
+2026-10-14T14:42:16.975199Z INFO  main Plotting 'QRO' data for event '2024-05-10'
+2026-10-14T14:42:16.986918Z INFO  main   Plotting 'QRO/GIC/Caraballo2025' vs. measured data as timeseries for event '2024-05-10'
+2026-10-14T14:42:21.737944Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.png
+2026-10-14T14:42:23.117710Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\compare\_calculated_Caraballo2025_vs_measured_timeseries.pdf
+2026-10-14T14:42:23.519081Z INFO  main   Plotting 'QRO/GIC/Caraballo2025' vs. measured data as scatter for event '2024-05-10'
+2026-10-14T14:42:24.369329Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.png
+2026-10-14T14:42:25.794845Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\compare\_calculated_Caraballo2025_vs_measured_scatter.pdf
+2026-10-14T14:42:26.440275Z INFO  main   Plotting 'QRO/GIC/measured/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:42:31.550283Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\original\GIC_measured_Caraballo2025.png
+2026-10-14T14:42:33.410452Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\original\GIC_measured_Caraballo2025.pdf
+2026-10-14T14:42:33.811517Z INFO  main   Plotting 'QRO/GIC/calculated/Caraballo2025' original vs. modified data for event '2024-05-10'
+2026-10-14T14:42:38.974214Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\original\GIC_calculated_Caraballo2025.png
+2026-10-14T14:42:40.638737Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2024-05-10/sites/qro/figures\original\GIC_calculated_Caraballo2025.pdf
+2026-10-14T14:42:41.102970Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (0.5272 A) > 1/4 * std after (1.3936 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2021-09-17 02:44:00
+2026-10-14T14:42:41.110554Z INFO  main   Adding error for site 'LAV', GIC/'measured/Caraballo2025: Excessive pre-storm noise: std before (3.3972 A) > 1/4 * std after (6.1095 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-10 15:41:00
+2026-10-14T14:42:41.114677Z INFO  main   Adding error for site 'QRP', GIC/'measured/Caraballo2023: Excessive pre-storm noise: std before (1.9195 A) > 1/4 * std after (5.1691 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T14:42:41.117509Z INFO  main   Adding error for site 'MZT', GIC/'measured/Caraballo2025: Excessive pre-storm noise: std before (0.2427 A) > 1/4 * std after (0.9408 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-10 16:23:00
+2026-10-14T14:42:41.123595Z INFO  main   Adding error for site 'RMY', GIC/'measured/Caraballo2025: Cadence is >= 60 seconds (60.0 seconds)
+2026-10-14T14:42:41.125609Z INFO  main   Adding error for site 'QRO', GIC/'measured/Caraballo2025: Excessive pre-storm noise: std before (7.7144 A) > 1/4 * std after (12.9953 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-12 02:09:00
+2026-10-14T14:42:41.170916Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T14:42:41.173655Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T14:42:41.177682Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json

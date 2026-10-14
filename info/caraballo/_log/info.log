@@ -1,0 +1,155 @@
+2026-10-13T14:12:42.098583Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-08-01.
+2026-10-13T14:12:42.225549Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-13T14:12:42.261689Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-13T14:12:50.952169Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-13T14:12:50.952169Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-13T14:12:52.185236Z WARN  info     Warning: Could not interpolate beta for site Laguna Verde at (19.72,-96.41)
+2026-10-13T14:12:52.185236Z WARN  info     Warning: Could not interpolate beta for site Queretaro Potencia at (20.53,-100.49)
+2026-10-13T14:12:52.620091Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-13T14:12:52.684766Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-13T14:12:59.755517Z INFO  info Adding nearest voltage to extended info_df
+2026-10-13T14:13:09.656173Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-13T14:13:09.671849Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-13T14:13:12.422979Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-13T14:13:12.568447Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-13T14:13:12.582992Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-13T14:13:12.582992Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-13T15:04:19.233940Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-08-01.
+2026-10-13T15:04:19.344339Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-13T15:04:19.369127Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-13T15:04:28.218132Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-13T15:04:28.218132Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-13T15:04:29.378137Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-13T15:04:29.378137Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-13T15:04:30.012165Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-13T15:04:30.086414Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-13T15:04:37.424691Z INFO  info Adding nearest voltage to extended info_df
+2026-10-13T15:04:47.617932Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-13T15:04:47.617932Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-13T15:04:50.322215Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-13T15:04:50.458226Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-13T15:04:50.459219Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-13T15:04:50.461063Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T02:03:51.044806Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-08-01.
+2026-10-14T02:03:51.098150Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T02:03:51.106517Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T02:03:58.311178Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-14T02:03:58.311178Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-14T02:03:59.066036Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T02:03:59.066036Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T02:03:59.066036Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T02:03:59.066036Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T02:03:59.473721Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-14T02:03:59.515351Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-14T02:04:01.931321Z INFO  info Adding nearest voltage to extended info_df
+2026-10-14T02:04:09.468023Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-14T02:04:09.468023Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-14T02:04:10.601432Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-14T02:04:10.742055Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T02:04:10.743074Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T02:04:10.745271Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:02:50.750817Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-09-17.
+2026-10-14T11:02:50.780205Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T11:02:50.851362Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T11:02:50.884139Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T11:03:03.555692Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-14T11:03:03.555692Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-14T11:03:05.110549Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:03:05.112563Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:03:05.112563Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T11:03:05.112563Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T11:03:05.712870Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-14T11:03:05.783502Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-14T11:04:01.993726Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-09-17.
+2026-10-14T11:04:02.001535Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T11:04:02.031748Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T11:04:02.039319Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T11:04:02.985054Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-14T11:04:02.985054Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-14T11:04:04.548819Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:04:04.550834Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:04:04.550834Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T11:04:04.550834Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T11:04:04.654104Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-14T11:04:04.709360Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-14T11:04:13.196215Z INFO  info Adding nearest voltage to extended info_df
+2026-10-14T11:04:23.722083Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-14T11:04:23.724097Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-14T11:04:27.928064Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-14T11:04:28.086169Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T11:04:28.087367Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:04:28.089551Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:37:11.205611Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-09-17.
+2026-10-14T11:37:11.238465Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T11:37:11.241772Z WARN  info    Event 2021-09-17 not found for data source Caraballo2025. Skipping...
+2026-10-14T11:37:11.241772Z INFO  info    Checking annual data from source Caraballo2023 for event 2024-05-10.
+2026-10-14T11:37:11.241772Z WARN  info    Data type GIC not found for source Caraballo2023 and event 2024-05-10. Skipping...
+2026-10-14T11:37:11.241772Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T11:37:11.241772Z WARN  info    Data type B not found for source Caraballo2023 and event 2024-05-10. Skipping...
+2026-10-14T11:37:11.241772Z INFO  info    Adding sites for event 2024-05-10 from data source Caraballo2025 to info.csv.
+2026-10-14T11:39:11.397319Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-09-17.
+2026-10-14T11:39:11.463155Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T11:39:11.493675Z WARN  info    Event 2021-09-17 not found for data source Caraballo2025. Skipping...
+2026-10-14T11:39:11.493675Z INFO  info    Checking annual data from source Caraballo2023 for event 2024-05-10.
+2026-10-14T11:39:11.493675Z WARN  info    Data type GIC not found for source Caraballo2023 and event 2024-05-10. Skipping...
+2026-10-14T11:39:11.493675Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T11:39:11.493675Z WARN  info    Data type B not found for source Caraballo2023 and event 2024-05-10. Skipping...
+2026-10-14T11:39:11.493675Z INFO  info    Adding sites for event 2024-05-10 from data source Caraballo2025 to info.csv.
+2026-10-14T11:39:11.523818Z INFO  info    No B data is available for Caraballo2025. Skipping...
+2026-10-14T11:39:11.576986Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T11:39:11.591763Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T11:39:17.608021Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-14T11:39:17.608021Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site MZT at (23.19,-106.35)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site MZT at (23.19,-106.35)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site RMY at (20.83,-86.93)
+2026-10-14T11:39:18.105481Z WARN  info     Warning: Could not interpolate beta for site RMY at (20.83,-86.93)
+2026-10-14T11:39:18.732612Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-14T11:39:18.791379Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-14T11:39:24.257793Z INFO  info Adding nearest voltage to extended info_df
+2026-10-14T11:39:28.967621Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-14T11:39:28.967621Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-14T11:39:30.613230Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-14T11:39:30.742988Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T11:39:30.742988Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T11:39:30.750863Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T14:33:42.272658Z INFO  info    Checking annual data from source Caraballo2023 for event 2021-09-17.
+2026-10-14T14:33:42.363981Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T14:33:42.402755Z WARN  info    Event 2021-09-17 not found for data source Caraballo2025. Skipping...
+2026-10-14T14:33:42.402755Z INFO  info    Checking annual data from source Caraballo2023 for event 2024-05-10.
+2026-10-14T14:33:42.402755Z WARN  info    Data type GIC not found for source Caraballo2023 and event 2024-05-10. Skipping...
+2026-10-14T14:33:42.402755Z INFO  info    No calculated B data for Caraballo2023. Skipping...
+2026-10-14T14:33:42.402755Z WARN  info    Data type B not found for source Caraballo2023 and event 2024-05-10. Skipping...
+2026-10-14T14:33:42.402755Z INFO  info    Adding sites for event 2024-05-10 from data source Caraballo2025 to info.csv.
+2026-10-14T14:33:42.406659Z INFO  info    No B data is available for Caraballo2025. Skipping...
+2026-10-14T14:33:42.489297Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T14:33:42.523504Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.csv
+2026-10-14T14:33:52.658828Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-14T14:33:52.658828Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-14T14:33:54.089167Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T14:33:54.089167Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T14:33:54.089167Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site QRP at (20.53,-100.49)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site MZT at (23.19,-106.35)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site MZT at (23.19,-106.35)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site LAV at (19.72,-96.41)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site RMY at (20.83,-86.93)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site RMY at (20.83,-86.93)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site QRO at (20.64,-100.44)
+2026-10-14T14:33:54.097782Z WARN  info     Warning: Could not interpolate beta for site QRO at (20.64,-100.44)
+2026-10-14T14:33:54.786842Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-14T14:33:54.902494Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-14T14:34:02.622489Z INFO  info Adding nearest voltage to extended info_df
+2026-10-14T14:34:12.544228Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-14T14:34:12.544228Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-14T14:34:15.569569Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-14T14:34:15.706474Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
+2026-10-14T14:34:15.706474Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-14T14:34:15.706474Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json

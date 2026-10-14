@@ -1,0 +1,23 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+LAV,19.72,-96.41,GIC,measured,Caraballo2023,2021-09-17,,,,28.20331371838976,-25.473251019686312,0.0256201993537421,,,,"Excessive pre-storm noise: std before (0.5272 A) > 1/4 * std after (1.3936 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2021-09-17 02:44:00"
+LAV,19.72,-96.41,GIC,calculated,Caraballo2023,2021-09-17,,,,28.20331371838976,-25.473251019686312,0.0256201993537421,,,,
+QRP,20.53,-100.49,GIC,measured,Caraballo2023,2021-09-17,,,,28.703623235376035,-29.89042334964706,0.0271375037141425,,,,"Excessive pre-storm noise: std before (1.9195 A) > 1/4 * std after (5.1691 A);
+Cadence is >= 60 seconds (60.0 seconds)"
+QRP,20.53,-100.49,GIC,calculated,Caraballo2023,2021-09-17,,,,28.703623235376035,-29.89042334964706,0.0271375037141425,,,,
+TUC,32.1745,-110.7337,B,measured,Caraballo2023,2021-09-17,,0.9111539901822128,-0.0404082185980436,39.30522808195197,-42.41325268314451,0.0918448949134403,,WestConnect,West,
+MZT,23.19,-106.35,GIC,measured,Caraballo2025,2024-05-10,,,,30.725286386831307,-36.396087018238696,0.0342404582442472,,,,"Excessive pre-storm noise: std before (0.2427 A) > 1/4 * std after (0.9408 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-10 16:23:00"
+MZT,23.19,-106.35,GIC,calculated,Caraballo2025,2024-05-10,,,,30.725286386831307,-36.396087018238696,0.0342404582442472,,,,
+LAV,19.72,-96.41,GIC,measured,Caraballo2025,2024-05-10,,,,28.08391271799284,-25.46534014821051,0.0252708096933141,,,,"Excessive pre-storm noise: std before (3.3972 A) > 1/4 * std after (6.1095 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-10 15:41:00"
+LAV,19.72,-96.41,GIC,calculated,Caraballo2025,2024-05-10,,,,28.08391271799284,-25.46534014821051,0.0252708096933141,,,,
+RMY,20.83,-86.93,GIC,measured,Caraballo2025,2024-05-10,,,,29.7203800877148,-15.398767906249152,0.0305035695163118,,,,Cadence is >= 60 seconds (60.0 seconds)
+RMY,20.83,-86.93,GIC,calculated,Caraballo2025,2024-05-10,,,,29.7203800877148,-15.398767906249152,0.0305035695163118,,,,
+QRO,20.64,-100.44,GIC,measured,Caraballo2025,2024-05-10,,,,28.7022483052735,-29.834484326977133,0.0271332131537187,,,,"Excessive pre-storm noise: std before (7.7144 A) > 1/4 * std after (12.9953 A);
+Cadence is >= 60 seconds (60.0 seconds);
+Data is constant for at least 5 minutes starting at time 2024-05-12 02:09:00"
+QRO,20.64,-100.44,GIC,calculated,Caraballo2025,2024-05-10,,,,28.7022483052735,-29.834484326977133,0.0271332131537187,,,,

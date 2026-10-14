@@ -1,0 +1,873 @@
+2026-09-17T03:44:12.399592Z INFO  main Reading 'Ellerslie 1' data for event '2021-10-12'
+2026-09-17T03:44:14.672889Z INFO  main   Reading 'GIC/measured/Parry2024' data for event '2021-10-12'
+2026-09-17T03:44:17.257459Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T03:07:46.051685Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-09-25T03:07:46.079096Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T03:07:47.090370Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T03:07:47.205025Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T03:07:50.235215Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T03:07:50.235215Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T03:07:50.235215Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T03:07:50.299124Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:07:50.412089Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-09-25T03:07:50.486536Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-09-25T03:07:50.543038Z INFO  main Computing stats for 'Alberta 1' data
+2026-09-25T03:07:50.631111Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T03:07:50.631111Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T03:07:50.631111Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T03:07:50.631111Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T03:07:55.001907Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-09-25T03:07:55.016677Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T03:08:00.155867Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-09-25T03:08:01.264105Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-09-25T03:08:04.348827Z INFO  main Reading 'Alberta 2' data for event '2023-04-24'
+2026-09-25T03:08:04.385928Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T03:08:04.385928Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T03:08:04.464255Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T03:08:06.872608Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T03:08:06.872608Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T03:08:06.872608Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T03:08:06.905193Z INFO  main     Baseline offset of -3.98 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:08:07.013371Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta2\data\GIC_measured_Parry2025.pkl
+2026-09-25T03:08:07.173733Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta2\data\_all.pkl
+2026-09-25T03:08:07.233846Z INFO  main Computing stats for 'Alberta 2' data
+2026-09-25T03:08:07.317343Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T03:08:07.317343Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T03:08:07.317343Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T03:08:07.329695Z INFO  main 
+    std: : [13.85825988449204]
+    ave: : [0.08710102707239598]
+    min: : [-54.70751517183333]
+    max: : [98.90051235016668]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T03:08:07.329695Z INFO  main Plotting 'Alberta 2' data for event '2023-04-24'
+2026-09-25T03:08:07.337866Z INFO  main   Plotting 'Alberta 2/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T03:08:11.407341Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta2/figures\original\GIC_measured_Parry2025.png
+2026-09-25T03:08:12.285531Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta2/figures\original\GIC_measured_Parry2025.pdf
+2026-09-25T03:08:12.537906Z INFO  main Reading 'FCHP' data for event '2023-04-24'
+2026-09-25T03:08:12.554579Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T03:08:12.588976Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424FCHP.F01
+2026-09-25T03:08:13.618149Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:08:13.859991Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\fchp\data\B_measured_Parry2025.pkl
+2026-09-25T03:08:14.002329Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\fchp\data\_all.pkl
+2026-09-25T03:08:14.129736Z INFO  main Computing stats for 'FCHP' data
+2026-09-25T03:08:14.316322Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:08:14.316322Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:08:14.316322Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T03:08:14.316322Z INFO  main 
+    std: : [191.68754466691072, 151.78253850120964, 160.74736404328618, 213.45178096701906]
+    ave: : [-260.01010900582224, -150.4883610222401, 69.19442717082156, 323.34928642218824]
+    min: : [-1144.7011, -729.2873833333332, -616.935349999999, 5.37404768634224]
+    max: : [47.33636666666683, 122.84450000000011, 725.7692666666677, 1211.2129462305252]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T03:08:14.325503Z INFO  main Plotting 'FCHP' data for event '2023-04-24'
+2026-09-25T03:08:14.336581Z INFO  main   Plotting 'FCHP/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T03:08:22.922023Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bx.png
+2026-09-25T03:08:23.788888Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bx.pdf
+2026-09-25T03:08:24.303393Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_By.png
+2026-09-25T03:08:25.180840Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_By.pdf
+2026-09-25T03:08:25.661628Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bz.png
+2026-09-25T03:08:26.517445Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bz.pdf
+2026-09-25T03:08:27.165487Z INFO  main Reading 'MCMU' data for event '2023-04-24'
+2026-09-25T03:08:27.172510Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T03:08:27.205380Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424MCMU.F01
+2026-09-25T03:08:28.420984Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:08:28.627861Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mcmu\data\B_measured_Parry2025.pkl
+2026-09-25T03:08:28.882076Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mcmu\data\_all.pkl
+2026-09-25T03:08:29.029084Z INFO  main Computing stats for 'MCMU' data
+2026-09-25T03:08:29.219888Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:08:29.219888Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:08:29.219888Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T03:08:29.219888Z INFO  main 
+    std: : [227.95800971941588, 166.99029055534123, 154.80983919166653, 217.94371974321103]
+    ave: : [-268.73645299750257, -140.79139535109627, -28.0031357202299, 352.8733673776528]
+    min: : [-1301.9991833333338, -892.9120500000001, -962.8025999999968, 4.76744041696711]
+    max: : [449.75549999999953, 269.53108333333324, 401.4138166666699, 1462.1113030332856]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T03:08:29.219888Z INFO  main Plotting 'MCMU' data for event '2023-04-24'
+2026-09-25T03:08:29.219888Z INFO  main   Plotting 'MCMU/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T03:08:37.140222Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bx.png
+2026-09-25T03:08:38.060733Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bx.pdf
+2026-09-25T03:08:38.573286Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_By.png
+2026-09-25T03:08:39.437068Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_By.pdf
+2026-09-25T03:08:39.877182Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bz.png
+2026-09-25T03:08:40.672580Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bz.pdf
+2026-09-25T03:08:41.293111Z INFO  main Reading 'MSTK' data for event '2023-04-24'
+2026-09-25T03:08:41.298945Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T03:08:41.306113Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424MSTK.F01
+2026-09-25T03:08:42.641991Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:08:42.938292Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mstk\data\B_measured_Parry2025.pkl
+2026-09-25T03:08:43.100108Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mstk\data\_all.pkl
+2026-09-25T03:08:43.371393Z INFO  main Computing stats for 'MSTK' data
+2026-09-25T03:08:43.564436Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:08:43.564436Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:08:43.564436Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T03:08:43.564436Z INFO  main 
+    std: : [203.80790702800698, 117.19772551243254, 136.96819137404668, 155.54146307129065]
+    ave: : [-98.2740965723, -26.240209852900346, -113.44870466278248, 203.9021924316179]
+    min: : [-750.2766499999993, -629.0830666666667, -894.3281333333349, 2.971911592354977]
+    max: : [726.7726166666675, 348.0628666666666, 158.1630999999988, 839.971415413341]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T03:08:43.564436Z INFO  main Plotting 'MSTK' data for event '2023-04-24'
+2026-09-25T03:08:43.571542Z INFO  main   Plotting 'MSTK/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T03:08:50.611969Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bx.png
+2026-09-25T03:08:51.422292Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bx.pdf
+2026-09-25T03:08:51.901548Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_By.png
+2026-09-25T03:08:52.774207Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_By.pdf
+2026-09-25T03:08:53.227822Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bz.png
+2026-09-25T03:08:54.009210Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bz.pdf
+2026-09-25T03:08:54.623055Z INFO  main Reading 'MSTK' data for event '2021-11-04'
+2026-09-25T03:08:54.631366Z INFO  main   Reading 'B/measured/Parry2025' data for event '2021-11-04'
+2026-09-25T03:08:54.673889Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2021-11-04\mag\20211104MSTK.F01
+2026-09-25T03:08:56.066219Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:08:56.366619Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-04\sites\mstk\data\B_measured_Parry2025.pkl
+2026-09-25T03:08:56.573951Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-04\sites\mstk\data\_all.pkl
+2026-09-25T03:08:56.812565Z INFO  main Computing stats for 'MSTK' data
+2026-09-25T03:08:56.987231Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:08:57.003007Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:08:57.003007Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T03:08:57.003007Z INFO  main 
+    std: : [333.48521473485584, 148.791050685168, 193.59374923009568, 345.1996440160563]
+    ave: : [-229.42456883152937, -64.93437087149603, -92.88579264502117, 266.7985186635349]
+    min: : [-1742.6770666666669, -653.8203333333333, -1080.6069000000032, 1.8778250588776288]
+    max: : [119.35353333333299, 188.30213333333333, 366.1157666666637, 1743.2708536211862]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T03:08:57.003007Z INFO  main Plotting 'MSTK' data for event '2021-11-04'
+2026-09-25T03:08:57.019387Z INFO  main   Plotting 'MSTK/B/measured/Parry2025' original vs. modified data for event '2021-11-04'
+2026-09-25T03:09:04.496950Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bx.png
+2026-09-25T03:09:05.216402Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bx.pdf
+2026-09-25T03:09:05.687898Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_By.png
+2026-09-25T03:09:06.532037Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_By.pdf
+2026-09-25T03:09:06.987350Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bz.png
+2026-09-25T03:09:07.766778Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bz.pdf
+2026-09-25T03:09:08.375427Z INFO  main Reading 'Ellerslie 1' data for event '2021-10-12'
+2026-09-25T03:09:08.389569Z INFO  main   Reading 'GIC/measured/Parry2024' data for event '2021-10-12'
+2026-09-25T03:09:08.394458Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\gic\20211012_GIC_data_89S.csv
+2026-09-25T03:09:09.246478Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T03:09:11.773625Z INFO  main     Uniq dts [ns] = [2000000000]
+2026-09-25T03:09:11.773625Z INFO  main     Uniq dts [#]  = 1
+2026-09-25T03:09:11.808963Z INFO  main     Baseline offset of -3.19 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:09:11.959655Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\GIC_measured_Parry2024.pkl
+2026-09-25T03:09:12.260627Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\_all.pkl
+2026-09-25T03:09:12.335461Z INFO  main Computing stats for 'Ellerslie 1' data
+2026-09-25T03:09:12.434500Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-09-25T03:09:12.434500Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:09:12.434500Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-09-25T03:09:12.434500Z INFO  main 
+    std: : [4.000628700780791]
+    ave: : [0.0675860161757107]
+    min: : [-16.156331733333335]
+    max: : [42.2807879]
+    n: 1801
+    n_valid: : [1290]
+    dt_original: : [2000000000]
+2026-09-25T03:09:12.434500Z INFO  main Plotting 'Ellerslie 1' data for event '2021-10-12'
+2026-09-25T03:09:12.452188Z INFO  main   Plotting 'Ellerslie 1/GIC/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-09-25T03:09:15.180786Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.png
+2026-09-25T03:09:16.092528Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.pdf
+2026-09-25T03:09:16.364368Z INFO  main Reading 'Ellerslie 2' data for event '2021-10-12'
+2026-09-25T03:09:16.371957Z INFO  main   Reading 'GIC/measured/Parry2024' data for event '2021-10-12'
+2026-09-25T03:09:16.379921Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\gic\20211012_GIC_data_89S.csv
+2026-09-25T03:09:17.093036Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T03:09:19.532825Z INFO  main     Uniq dts [ns] = [2000000000]
+2026-09-25T03:09:19.532825Z INFO  main     Uniq dts [#]  = 1
+2026-09-25T03:09:19.565060Z INFO  main     Baseline offset of -3.89 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:09:19.708648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\GIC_measured_Parry2024.pkl
+2026-09-25T03:09:19.953881Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\_all.pkl
+2026-09-25T03:09:20.038355Z INFO  main Computing stats for 'Ellerslie 2' data
+2026-09-25T03:09:20.123366Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-09-25T03:09:20.123366Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:09:20.123366Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-09-25T03:09:20.123366Z INFO  main 
+    std: : [4.07580042607414]
+    ave: : [-0.15667735346253206]
+    min: : [-15.5576997]
+    max: : [43.4732256]
+    n: 1801
+    n_valid: : [1290]
+    dt_original: : [2000000000]
+2026-09-25T03:09:20.139198Z INFO  main Plotting 'Ellerslie 2' data for event '2021-10-12'
+2026-09-25T03:09:20.148317Z INFO  main   Plotting 'Ellerslie 2/GIC/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-09-25T03:09:22.698961Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.png
+2026-09-25T03:09:23.503425Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.pdf
+2026-09-25T03:09:23.687929Z INFO  main Reading 'Alberta line' data for event '2021-10-12'
+2026-09-25T03:09:23.694991Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-10-12'
+2026-09-25T03:09:23.706115Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\dmm\20211012USB4.1Hz
+2026-09-25T03:09:24.660067Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:09:24.942620Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaline\data\DMM_measured_Parry2024.pkl
+2026-09-25T03:09:25.092400Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaline\data\_all.pkl
+2026-09-25T03:09:25.247872Z INFO  main Computing stats for 'Alberta line' data
+2026-09-25T03:09:25.445216Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:09:25.445216Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:09:25.445216Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-09-25T03:09:25.447229Z INFO  main 
+    std: : [196.5804072470657, 62.70153533680099, 121.12786430528963]
+    ave: : [15965.27871388887, -44.728342390180906, 55237.27297200241]
+    min: : [14866.220933333334, -337.03141666666664, 54681.37808333334]
+    max: : [16379.609433333333, 248.41786666666667, 55467.21621666666]
+    n: 1801
+    n_valid: : [1290, 1290, 1290]
+    dt_original: : [1000000000]
+2026-09-25T03:09:25.448303Z INFO  main Plotting 'Alberta line' data for event '2021-10-12'
+2026-09-25T03:09:25.456989Z INFO  main   Plotting 'Alberta line/DMM/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-09-25T03:09:33.478732Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.png
+2026-09-25T03:09:34.164815Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-09-25T03:09:34.528742Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_By.png
+2026-09-25T03:09:35.327359Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_By.pdf
+2026-09-25T03:09:35.788321Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.png
+2026-09-25T03:09:36.886806Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-09-25T03:09:37.581072Z INFO  main Reading 'Alberta line' data for event '2021-09-26'
+2026-09-25T03:09:37.587042Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-09-26'
+2026-09-25T03:09:37.608312Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-09-26\dmm\20210926USB4.1Hz
+2026-09-25T03:09:38.821842Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:09:39.035826Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaline\data\DMM_measured_Parry2024.pkl
+2026-09-25T03:09:39.308026Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaline\data\_all.pkl
+2026-09-25T03:09:39.447407Z INFO  main Computing stats for 'Alberta line' data
+2026-09-25T03:09:39.633844Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:09:39.633844Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:09:39.633844Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-09-25T03:09:39.633844Z INFO  main 
+    std: : [1.428016308700375, 2.1590964835435464, 1.2706771599387765]
+    ave: : [15965.601957198227, -32.62067192691032, 55351.380814894794]
+    min: : [15961.174483333334, -36.09363333333333, 55348.75353333333]
+    max: : [15971.052183333335, -27.178066666666666, 55355.05986666667]
+    n: 301
+    n_valid: : [301, 301, 301]
+    dt_original: : [1000000000]
+2026-09-25T03:09:39.635853Z INFO  main Plotting 'Alberta line' data for event '2021-09-26'
+2026-09-25T03:09:39.641501Z INFO  main   Plotting 'Alberta line/DMM/measured/Parry2024' original vs. modified data for event '2021-09-26'
+2026-09-25T03:09:48.642791Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.png
+2026-09-25T03:09:49.659724Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-09-25T03:09:50.119837Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_By.png
+2026-09-25T03:09:51.118587Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_By.pdf
+2026-09-25T03:09:51.655692Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.png
+2026-09-25T03:09:52.696424Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-09-25T03:09:53.500320Z INFO  main Reading 'Alberta ref' data for event '2021-10-12'
+2026-09-25T03:09:53.509351Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-10-12'
+2026-09-25T03:09:53.517133Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\dmm\20211012USB5.1Hz
+2026-09-25T03:09:54.973450Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:09:55.286449Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaref\data\DMM_measured_Parry2024.pkl
+2026-09-25T03:09:55.444982Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaref\data\_all.pkl
+2026-09-25T03:09:55.674952Z INFO  main Computing stats for 'Alberta ref' data
+2026-09-25T03:09:55.852381Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:09:55.852381Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:09:55.852381Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-09-25T03:09:55.852381Z INFO  main 
+    std: : [201.93126086003326, 59.281988569208984, 119.45368850156756]
+    ave: : [14089.202811072328, -1551.0050048578798, 55287.32939478037]
+    min: : [12997.574383333333, -1863.4118, 54667.84046666666]
+    max: : [14517.761999999999, -1264.0214666666666, 55606.345]
+    n: 1801
+    n_valid: : [1290, 1290, 1290]
+    dt_original: : [1000000000]
+2026-09-25T03:09:55.868150Z INFO  main Plotting 'Alberta ref' data for event '2021-10-12'
+2026-09-25T03:09:55.868817Z INFO  main   Plotting 'Alberta ref/DMM/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-09-25T03:10:04.521796Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.png
+2026-09-25T03:10:05.611915Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-09-25T03:10:06.141523Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_By.png
+2026-09-25T03:10:07.220325Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_By.pdf
+2026-09-25T03:10:07.730676Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.png
+2026-09-25T03:10:08.777633Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-09-25T03:10:09.448271Z INFO  main Reading 'Alberta ref' data for event '2021-09-26'
+2026-09-25T03:10:09.456837Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-09-26'
+2026-09-25T03:10:09.509993Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-09-26\dmm\20210926USB5.1Hz
+2026-09-25T03:10:10.794213Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T03:10:10.956587Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaref\data\DMM_measured_Parry2024.pkl
+2026-09-25T03:10:11.108754Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaref\data\_all.pkl
+2026-09-25T03:10:11.386817Z INFO  main Computing stats for 'Alberta ref' data
+2026-09-25T03:10:11.577215Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T03:10:11.577215Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T03:10:11.577215Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-09-25T03:10:11.577215Z INFO  main 
+    std: : [3.6350254645445372, 6.09947069414816, 1.420870701030697]
+    ave: : [14192.860629125145, -1472.641735935769, 55367.22872153934]
+    min: : [14183.801283333334, -1483.9283666666668, 55364.50648333333]
+    max: : [14198.577566666667, -1462.8140333333333, 55371.10101666666]
+    n: 301
+    n_valid: : [301, 301, 301]
+    dt_original: : [1000000000]
+2026-09-25T03:10:11.577215Z INFO  main Plotting 'Alberta ref' data for event '2021-09-26'
+2026-09-25T03:10:11.577215Z INFO  main   Plotting 'Alberta ref/DMM/measured/Parry2024' original vs. modified data for event '2021-09-26'
+2026-09-25T03:10:20.423903Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.png
+2026-09-25T03:10:21.578144Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-09-25T03:10:22.056213Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_By.png
+2026-09-25T03:10:23.024943Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_By.pdf
+2026-09-25T03:10:23.521085Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.png
+2026-09-25T03:10:24.530780Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-09-25T03:10:25.347815Z INFO  main   Adding error for site 'Alberta 1', GIC/'measured/Parry2025: Data is constant for at least 5 minutes starting at time 2023-04-24 08:08:54
+2026-09-25T03:10:25.415246Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.csv
+2026-09-25T03:10:25.415246Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-09-25T03:10:25.420095Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-09-25T14:13:09.922140Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-09-25T14:13:09.951828Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T14:13:11.055455Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T14:13:11.175590Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T14:13:14.613936Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T14:13:14.613936Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T14:13:14.613936Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T14:13:14.681589Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T14:13:14.814272Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-09-25T14:13:14.886726Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-09-25T14:13:14.942732Z INFO  main Computing stats for 'Alberta 1' data
+2026-09-25T14:13:15.028700Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T14:13:15.028700Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T14:13:15.028700Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T14:13:15.028700Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T14:13:19.382717Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-09-25T14:13:19.392909Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T14:13:23.814760Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-09-25T14:13:24.261100Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-09-25T14:13:26.082305Z INFO  main Reading 'Alberta 2' data for event '2023-04-24'
+2026-09-25T14:13:26.098273Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T14:13:26.105503Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T14:13:26.171457Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T14:13:32.826816Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T14:13:32.842692Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T14:13:32.842692Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T14:13:32.913212Z INFO  main     Baseline offset of -3.98 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T14:13:33.095572Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta2\data\GIC_measured_Parry2025.pkl
+2026-09-25T14:13:33.348838Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta2\data\_all.pkl
+2026-09-25T14:13:33.455327Z INFO  main Computing stats for 'Alberta 2' data
+2026-09-25T14:13:33.573375Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T14:13:33.573375Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T14:13:33.573375Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T14:13:33.573375Z INFO  main 
+    std: : [13.85825988449204]
+    ave: : [0.08710102707239598]
+    min: : [-54.70751517183333]
+    max: : [98.90051235016668]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T14:13:33.589168Z INFO  main Plotting 'Alberta 2' data for event '2023-04-24'
+2026-09-25T14:13:33.599140Z INFO  main   Plotting 'Alberta 2/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T14:13:37.288277Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta2/figures\original\GIC_measured_Parry2025.png
+2026-09-25T14:13:38.459049Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta2/figures\original\GIC_measured_Parry2025.pdf
+2026-09-25T14:13:38.822155Z INFO  main Reading 'FCHP' data for event '2023-04-24'
+2026-09-25T14:13:38.835473Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T14:13:38.847165Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424FCHP.F01
+2026-09-25T14:13:40.714733Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T14:13:41.057539Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\fchp\data\B_measured_Parry2025.pkl
+2026-09-25T14:13:41.236735Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\fchp\data\_all.pkl
+2026-09-25T14:13:41.434457Z INFO  main Computing stats for 'FCHP' data
+2026-09-25T14:13:41.699733Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T14:13:41.699733Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T14:13:41.699733Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T14:13:41.701744Z INFO  main 
+    std: : [191.68754466691072, 151.78253850120964, 160.74736404328618, 213.45178096701906]
+    ave: : [-260.01010900582224, -150.4883610222401, 69.19442717082156, 323.34928642218824]
+    min: : [-1144.7011, -729.2873833333332, -616.935349999999, 5.37404768634224]
+    max: : [47.33636666666683, 122.84450000000011, 725.7692666666677, 1211.2129462305252]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T14:13:41.701744Z INFO  main Plotting 'FCHP' data for event '2023-04-24'
+2026-09-25T14:13:41.714689Z INFO  main   Plotting 'FCHP/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T14:13:52.712854Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bx.png
+2026-09-25T14:13:53.772293Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bx.pdf
+2026-09-25T14:13:54.288891Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_By.png
+2026-09-25T14:13:55.318989Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_By.pdf
+2026-09-25T14:13:55.978215Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bz.png
+2026-09-25T14:13:57.079050Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bz.pdf
+2026-09-25T14:13:57.935961Z INFO  main Reading 'MCMU' data for event '2023-04-24'
+2026-09-25T14:13:57.949180Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T14:13:57.959038Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424MCMU.F01
+2026-09-25T14:13:59.677361Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T14:14:00.053371Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mcmu\data\B_measured_Parry2025.pkl
+2026-09-25T14:14:00.349008Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mcmu\data\_all.pkl
+2026-09-25T14:14:00.503414Z INFO  main Computing stats for 'MCMU' data
+2026-09-25T14:14:00.750330Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T14:14:00.750330Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T14:14:00.750330Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T14:14:00.750330Z INFO  main 
+    std: : [227.95800971941588, 166.99029055534123, 154.80983919166653, 217.94371974321103]
+    ave: : [-268.73645299750257, -140.79139535109627, -28.0031357202299, 352.8733673776528]
+    min: : [-1301.9991833333338, -892.9120500000001, -962.8025999999968, 4.76744041696711]
+    max: : [449.75549999999953, 269.53108333333324, 401.4138166666699, 1462.1113030332856]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T14:14:00.759275Z INFO  main Plotting 'MCMU' data for event '2023-04-24'
+2026-09-25T14:14:00.768175Z INFO  main   Plotting 'MCMU/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T14:14:10.760121Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bx.png
+2026-09-25T14:14:11.610278Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bx.pdf
+2026-09-25T14:14:12.093988Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_By.png
+2026-09-25T14:14:12.994830Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_By.pdf
+2026-09-25T14:14:13.536347Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bz.png
+2026-09-25T14:14:14.367319Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bz.pdf
+2026-09-25T14:14:14.982241Z INFO  main Reading 'MSTK' data for event '2023-04-24'
+2026-09-25T14:14:14.989988Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T14:14:14.997079Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424MSTK.F01
+2026-09-25T14:14:16.305888Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T14:14:16.501315Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mstk\data\B_measured_Parry2025.pkl
+2026-09-25T14:14:16.635648Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mstk\data\_all.pkl
+2026-09-25T14:14:16.867828Z INFO  main Computing stats for 'MSTK' data
+2026-09-25T14:14:17.068336Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-09-25T14:14:17.068336Z INFO  main   Uniq dts [#]  = 1
+2026-09-25T14:14:17.068336Z INFO  main   Stats for B/measured/Parry2025:
+2026-09-25T14:14:17.068336Z INFO  main 
+    std: : [203.80790702800698, 117.19772551243254, 136.96819137404668, 155.54146307129065]
+    ave: : [-98.2740965723, -26.240209852900346, -113.44870466278248, 203.9021924316179]
+    min: : [-750.2766499999993, -629.0830666666667, -894.3281333333349, 2.971911592354977]
+    max: : [726.7726166666675, 348.0628666666666, 158.1630999999988, 839.971415413341]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-09-25T14:14:17.068336Z INFO  main Plotting 'MSTK' data for event '2023-04-24'
+2026-09-25T14:14:17.075289Z INFO  main   Plotting 'MSTK/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T14:14:42.071074Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-09-25T14:14:42.079369Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T14:14:42.207959Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T14:14:42.256422Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T14:14:45.070005Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T14:14:45.085919Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T14:14:45.085919Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T14:14:45.126935Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T14:14:45.212286Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-09-25T14:14:45.269602Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-09-25T14:14:45.330883Z INFO  main Computing stats for 'Alberta 1' data
+2026-09-25T14:14:45.420383Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T14:14:45.434563Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T14:14:45.435919Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T14:14:45.437126Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T14:14:46.040476Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-09-25T14:14:46.057959Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T14:14:49.162876Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-09-25T14:14:50.254088Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-09-25T15:17:17.198168Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-09-25T15:17:17.210009Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T15:17:17.276198Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T15:17:17.294127Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T15:17:18.902671Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T15:17:18.902671Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T15:17:18.918422Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T15:17:18.942534Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T15:17:19.009506Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-09-25T15:17:19.032239Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-09-25T15:17:19.058409Z INFO  main Computing stats for 'Alberta 1' data
+2026-09-25T15:17:19.091559Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T15:17:19.106482Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T15:17:19.106482Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T15:17:19.107245Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T15:17:21.478602Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-09-25T15:17:21.478602Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T15:17:24.363467Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-09-25T15:17:24.866115Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-09-25T16:41:01.398677Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-09-25T16:41:01.435683Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-25T16:41:01.586799Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-25T16:41:01.637589Z INFO  main     Running automated error checks on GIC measured data
+2026-09-25T16:41:06.539139Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-25T16:41:06.543662Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T16:41:06.543662Z INFO  main     Uniq dts [#]  = 2
+2026-09-25T16:41:06.597337Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-25T16:41:06.744515Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-09-25T16:41:06.816608Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-09-25T16:41:06.876731Z INFO  main Computing stats for 'Alberta 1' data
+2026-09-25T16:41:06.974414Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-25T16:41:06.974414Z INFO  main   Uniq dts [#]  = 2
+2026-09-25T16:41:06.974414Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-25T16:41:06.974414Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-25T16:41:11.103887Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-09-25T16:41:11.110911Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-25T16:41:17.608973Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-09-25T16:41:18.856546Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-09-28T14:10:21.326238Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-09-28T14:10:21.341816Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-09-28T14:10:24.025988Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-09-28T14:10:24.088203Z INFO  main     Running automated error checks on GIC measured data
+2026-09-28T14:10:25.790059Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-09-28T14:10:25.790059Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-09-28T14:10:25.790059Z INFO  main     Uniq dts [#]  = 2
+2026-09-28T14:10:25.816367Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-09-28T14:10:25.896371Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-09-28T14:10:25.926331Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-09-28T14:10:25.959323Z INFO  main Computing stats for 'Alberta 1' data
+2026-09-28T14:10:25.993440Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-09-28T14:10:25.993440Z INFO  main   Uniq dts [#]  = 2
+2026-09-28T14:10:25.993440Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-09-28T14:10:25.993440Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-09-28T14:10:28.517416Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-09-28T14:10:28.531187Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-09-28T14:10:31.981202Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-09-28T14:10:32.468737Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-10-01T15:38:17.251920Z INFO  main Reading 'Alberta 1' data for event '2023-04-24'
+2026-10-01T15:38:17.274829Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-10-01T15:38:20.004662Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-10-01T15:38:20.053781Z INFO  main     Running automated error checks on GIC measured data
+2026-10-01T15:38:21.731586Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-10-01T15:38:21.731586Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-10-01T15:38:21.731586Z INFO  main     Uniq dts [#]  = 2
+2026-10-01T15:38:21.762819Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:21.852177Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\GIC_measured_Parry2025.pkl
+2026-10-01T15:38:21.887963Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta1\data\_all.pkl
+2026-10-01T15:38:21.913451Z INFO  main Computing stats for 'Alberta 1' data
+2026-10-01T15:38:21.950682Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-10-01T15:38:21.950682Z INFO  main   Uniq dts [#]  = 2
+2026-10-01T15:38:21.950682Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-10-01T15:38:21.950682Z INFO  main 
+    std: : [8.059078698803795]
+    ave: : [-0.7824246916604697]
+    min: : [-56.702659226]
+    max: : [32.79311199266667]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-10-01T15:38:22.219840Z INFO  main Plotting 'Alberta 1' data for event '2023-04-24'
+2026-10-01T15:38:22.222654Z INFO  main   Plotting 'Alberta 1/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-10-01T15:38:23.596358Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.png
+2026-10-01T15:38:24.088222Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta1/figures\original\GIC_measured_Parry2025.pdf
+2026-10-01T15:38:24.293896Z INFO  main Reading 'Alberta 2' data for event '2023-04-24'
+2026-10-01T15:38:24.296893Z INFO  main   Reading 'GIC/measured/Parry2025' data for event '2023-04-24'
+2026-10-01T15:38:24.298902Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\gic\20230424_hallprobe_data.mat
+2026-10-01T15:38:24.311610Z INFO  main     Running automated error checks on GIC measured data
+2026-10-01T15:38:25.984140Z WARN  main Storm start time is less than 1 hr before the first data point. Cannot check for pre-storm noise.
+2026-10-01T15:38:25.985899Z INFO  main     Uniq dts [ns] = [2000000000 4000000000]
+2026-10-01T15:38:25.985899Z INFO  main     Uniq dts [#]  = 2
+2026-10-01T15:38:26.001773Z INFO  main     Baseline offset of -3.98 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:26.059613Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta2\data\GIC_measured_Parry2025.pkl
+2026-10-01T15:38:26.096152Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\alberta2\data\_all.pkl
+2026-10-01T15:38:26.127040Z INFO  main Computing stats for 'Alberta 2' data
+2026-10-01T15:38:26.165525Z INFO  main   Uniq dts [ns] = [2000000000 4000000000]
+2026-10-01T15:38:26.165525Z INFO  main   Uniq dts [#]  = 2
+2026-10-01T15:38:26.165525Z INFO  main   Stats for GIC/measured/Parry2025:
+2026-10-01T15:38:26.165525Z INFO  main 
+    std: : [13.85825988449204]
+    ave: : [0.08710102707239598]
+    min: : [-54.70751517183333]
+    max: : [98.90051235016668]
+    n: 1201
+    n_valid: : [1201]
+    dt_original: : [2000000000, 4000000000]
+2026-10-01T15:38:26.165525Z INFO  main Plotting 'Alberta 2' data for event '2023-04-24'
+2026-10-01T15:38:26.174797Z INFO  main   Plotting 'Alberta 2/GIC/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-10-01T15:38:27.483112Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta2/figures\original\GIC_measured_Parry2025.png
+2026-10-01T15:38:27.889115Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/alberta2/figures\original\GIC_measured_Parry2025.pdf
+2026-10-01T15:38:28.009357Z INFO  main Reading 'FCHP' data for event '2023-04-24'
+2026-10-01T15:38:28.020700Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-10-01T15:38:28.027263Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424FCHP.F01
+2026-10-01T15:38:28.656910Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:28.771673Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\fchp\data\B_measured_Parry2025.pkl
+2026-10-01T15:38:28.839807Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\fchp\data\_all.pkl
+2026-10-01T15:38:28.906874Z INFO  main Computing stats for 'FCHP' data
+2026-10-01T15:38:29.006684Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:38:29.006684Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:38:29.006684Z INFO  main   Stats for B/measured/Parry2025:
+2026-10-01T15:38:29.006684Z INFO  main 
+    std: : [191.68754466691072, 151.78253850120964, 160.74736404328618, 213.45178096701906]
+    ave: : [-260.01010900582224, -150.4883610222401, 69.19442717082156, 323.34928642218824]
+    min: : [-1144.7011, -729.2873833333332, -616.935349999999, 5.37404768634224]
+    max: : [47.33636666666683, 122.84450000000011, 725.7692666666677, 1211.2129462305252]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-10-01T15:38:29.006684Z INFO  main Plotting 'FCHP' data for event '2023-04-24'
+2026-10-01T15:38:29.006684Z INFO  main   Plotting 'FCHP/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-10-01T15:38:33.042525Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bx.png
+2026-10-01T15:38:33.419198Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bx.pdf
+2026-10-01T15:38:33.609450Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_By.png
+2026-10-01T15:38:33.991998Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_By.pdf
+2026-10-01T15:38:34.203006Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bz.png
+2026-10-01T15:38:34.560597Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/fchp/figures\original\B_measured_Parry2025_Bz.pdf
+2026-10-01T15:38:34.842272Z INFO  main Reading 'MCMU' data for event '2023-04-24'
+2026-10-01T15:38:34.842272Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-10-01T15:38:34.842272Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424MCMU.F01
+2026-10-01T15:38:35.421462Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:35.516765Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mcmu\data\B_measured_Parry2025.pkl
+2026-10-01T15:38:35.599663Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mcmu\data\_all.pkl
+2026-10-01T15:38:35.681116Z INFO  main Computing stats for 'MCMU' data
+2026-10-01T15:38:35.751378Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:38:35.751378Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:38:35.751378Z INFO  main   Stats for B/measured/Parry2025:
+2026-10-01T15:38:35.751378Z INFO  main 
+    std: : [227.95800971941588, 166.99029055534123, 154.80983919166653, 217.94371974321103]
+    ave: : [-268.73645299750257, -140.79139535109627, -28.0031357202299, 352.8733673776528]
+    min: : [-1301.9991833333338, -892.9120500000001, -962.8025999999968, 4.76744041696711]
+    max: : [449.75549999999953, 269.53108333333324, 401.4138166666699, 1462.1113030332856]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-10-01T15:38:35.751378Z INFO  main Plotting 'MCMU' data for event '2023-04-24'
+2026-10-01T15:38:35.751378Z INFO  main   Plotting 'MCMU/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-10-01T15:38:39.832684Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bx.png
+2026-10-01T15:38:40.176624Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bx.pdf
+2026-10-01T15:38:40.389279Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_By.png
+2026-10-01T15:38:40.760862Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_By.pdf
+2026-10-01T15:38:40.952620Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bz.png
+2026-10-01T15:38:41.282757Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mcmu/figures\original\B_measured_Parry2025_Bz.pdf
+2026-10-01T15:38:41.552252Z INFO  main Reading 'MSTK' data for event '2023-04-24'
+2026-10-01T15:38:41.552252Z INFO  main   Reading 'B/measured/Parry2025' data for event '2023-04-24'
+2026-10-01T15:38:41.567257Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2023-04-24\mag\20230424MSTK.F01
+2026-10-01T15:38:42.154929Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:42.260248Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mstk\data\B_measured_Parry2025.pkl
+2026-10-01T15:38:42.333900Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2023-04-24\sites\mstk\data\_all.pkl
+2026-10-01T15:38:42.405957Z INFO  main Computing stats for 'MSTK' data
+2026-10-01T15:38:42.488717Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:38:42.488717Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:38:42.488717Z INFO  main   Stats for B/measured/Parry2025:
+2026-10-01T15:38:42.488717Z INFO  main 
+    std: : [203.80790702800698, 117.19772551243254, 136.96819137404668, 155.54146307129065]
+    ave: : [-98.2740965723, -26.240209852900346, -113.44870466278248, 203.9021924316179]
+    min: : [-750.2766499999993, -629.0830666666667, -894.3281333333349, 2.971911592354977]
+    max: : [726.7726166666675, 348.0628666666666, 158.1630999999988, 839.971415413341]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-10-01T15:38:42.488717Z INFO  main Plotting 'MSTK' data for event '2023-04-24'
+2026-10-01T15:38:42.488717Z INFO  main   Plotting 'MSTK/B/measured/Parry2025' original vs. modified data for event '2023-04-24'
+2026-10-01T15:38:46.500336Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bx.png
+2026-10-01T15:38:46.871985Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bx.pdf
+2026-10-01T15:38:47.067074Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_By.png
+2026-10-01T15:38:47.461973Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_By.pdf
+2026-10-01T15:38:47.681071Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bz.png
+2026-10-01T15:38:48.043671Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2023-04-24/sites/mstk/figures\original\B_measured_Parry2025_Bz.pdf
+2026-10-01T15:38:48.302528Z INFO  main Reading 'MSTK' data for event '2021-11-04'
+2026-10-01T15:38:48.302528Z INFO  main   Reading 'B/measured/Parry2025' data for event '2021-11-04'
+2026-10-01T15:38:48.311979Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2025\2021-11-04\mag\20211104MSTK.F01
+2026-10-01T15:38:48.924187Z INFO  main     Remove baseline then Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:49.037860Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-04\sites\mstk\data\B_measured_Parry2025.pkl
+2026-10-01T15:38:49.131096Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-11-04\sites\mstk\data\_all.pkl
+2026-10-01T15:38:49.195553Z INFO  main Computing stats for 'MSTK' data
+2026-10-01T15:38:49.288574Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:38:49.288574Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:38:49.288574Z INFO  main   Stats for B/measured/Parry2025:
+2026-10-01T15:38:49.288574Z INFO  main 
+    std: : [333.48521473485584, 148.791050685168, 193.59374923009568, 345.1996440160563]
+    ave: : [-229.42456883152937, -64.93437087149603, -92.88579264502117, 266.7985186635349]
+    min: : [-1742.6770666666669, -653.8203333333333, -1080.6069000000032, 1.8778250588776288]
+    max: : [119.35353333333299, 188.30213333333333, 366.1157666666637, 1743.2708536211862]
+    n: 1201
+    n_valid: : [1201, 1201, 1201, 1201]
+    dt_original: : [1000000000]
+2026-10-01T15:38:49.288574Z INFO  main Plotting 'MSTK' data for event '2021-11-04'
+2026-10-01T15:38:49.294166Z INFO  main   Plotting 'MSTK/B/measured/Parry2025' original vs. modified data for event '2021-11-04'
+2026-10-01T15:38:53.343506Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bx.png
+2026-10-01T15:38:53.702059Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bx.pdf
+2026-10-01T15:38:53.915170Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_By.png
+2026-10-01T15:38:54.286525Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_By.pdf
+2026-10-01T15:38:54.494851Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bz.png
+2026-10-01T15:38:54.820148Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-11-04/sites/mstk/figures\original\B_measured_Parry2025_Bz.pdf
+2026-10-01T15:38:55.091392Z INFO  main Reading 'Ellerslie 1' data for event '2021-10-12'
+2026-10-01T15:38:55.107065Z INFO  main   Reading 'GIC/measured/Parry2024' data for event '2021-10-12'
+2026-10-01T15:38:55.116779Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\gic\20211012_GIC_data_89S.csv
+2026-10-01T15:38:55.476877Z INFO  main     Running automated error checks on GIC measured data
+2026-10-01T15:38:57.229294Z INFO  main     Uniq dts [ns] = [2000000000]
+2026-10-01T15:38:57.229294Z INFO  main     Uniq dts [#]  = 1
+2026-10-01T15:38:57.248792Z INFO  main     Baseline offset of -3.19 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:38:57.299937Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\GIC_measured_Parry2024.pkl
+2026-10-01T15:38:57.351954Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie1\data\_all.pkl
+2026-10-01T15:38:57.383230Z INFO  main Computing stats for 'Ellerslie 1' data
+2026-10-01T15:38:57.416168Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-10-01T15:38:57.416168Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:38:57.416168Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-10-01T15:38:57.416168Z INFO  main 
+    std: : [4.000628700780791]
+    ave: : [0.0675860161757107]
+    min: : [-16.156331733333335]
+    max: : [42.2807879]
+    n: 1801
+    n_valid: : [1290]
+    dt_original: : [2000000000]
+2026-10-01T15:38:57.429394Z INFO  main Plotting 'Ellerslie 1' data for event '2021-10-12'
+2026-10-01T15:38:57.433236Z INFO  main   Plotting 'Ellerslie 1/GIC/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-10-01T15:38:58.826624Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.png
+2026-10-01T15:38:59.231218Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie1/figures\original\GIC_measured_Parry2024.pdf
+2026-10-01T15:38:59.348187Z INFO  main Reading 'Ellerslie 2' data for event '2021-10-12'
+2026-10-01T15:38:59.364327Z INFO  main   Reading 'GIC/measured/Parry2024' data for event '2021-10-12'
+2026-10-01T15:38:59.368016Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\gic\20211012_GIC_data_89S.csv
+2026-10-01T15:38:59.646665Z INFO  main     Running automated error checks on GIC measured data
+2026-10-01T15:39:01.403267Z INFO  main     Uniq dts [ns] = [2000000000]
+2026-10-01T15:39:01.403267Z INFO  main     Uniq dts [#]  = 1
+2026-10-01T15:39:01.429044Z INFO  main     Baseline offset of -3.89 A corrected. 
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:39:01.504922Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\GIC_measured_Parry2024.pkl
+2026-10-01T15:39:01.555152Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\ellerslie2\data\_all.pkl
+2026-10-01T15:39:01.586826Z INFO  main Computing stats for 'Ellerslie 2' data
+2026-10-01T15:39:01.634746Z INFO  main   Uniq dts [ns] = [2000000000]
+2026-10-01T15:39:01.634746Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:39:01.634746Z INFO  main   Stats for GIC/measured/Parry2024:
+2026-10-01T15:39:01.634746Z INFO  main 
+    std: : [4.07580042607414]
+    ave: : [-0.15667735346253206]
+    min: : [-15.5576997]
+    max: : [43.4732256]
+    n: 1801
+    n_valid: : [1290]
+    dt_original: : [2000000000]
+2026-10-01T15:39:01.634746Z INFO  main Plotting 'Ellerslie 2' data for event '2021-10-12'
+2026-10-01T15:39:01.644524Z INFO  main   Plotting 'Ellerslie 2/GIC/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-10-01T15:39:02.987149Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.png
+2026-10-01T15:39:03.393211Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/ellerslie2/figures\original\GIC_measured_Parry2024.pdf
+2026-10-01T15:39:03.507693Z INFO  main Reading 'Alberta line' data for event '2021-10-12'
+2026-10-01T15:39:03.507693Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-10-12'
+2026-10-01T15:39:03.507693Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\dmm\20211012USB4.1Hz
+2026-10-01T15:39:04.138596Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:39:04.257859Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaline\data\DMM_measured_Parry2024.pkl
+2026-10-01T15:39:04.342790Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaline\data\_all.pkl
+2026-10-01T15:39:04.449848Z INFO  main Computing stats for 'Alberta line' data
+2026-10-01T15:39:04.538620Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:39:04.539724Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:39:04.539724Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-10-01T15:39:04.539724Z INFO  main 
+    std: : [196.5804072470657, 62.70153533680099, 121.12786430528963]
+    ave: : [15965.27871388887, -44.728342390180906, 55237.27297200241]
+    min: : [14866.220933333334, -337.03141666666664, 54681.37808333334]
+    max: : [16379.609433333333, 248.41786666666667, 55467.21621666666]
+    n: 1801
+    n_valid: : [1290, 1290, 1290]
+    dt_original: : [1000000000]
+2026-10-01T15:39:04.542713Z INFO  main Plotting 'Alberta line' data for event '2021-10-12'
+2026-10-01T15:39:04.542713Z INFO  main   Plotting 'Alberta line/DMM/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-10-01T15:39:08.975611Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.png
+2026-10-01T15:39:09.427914Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-10-01T15:39:09.645781Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_By.png
+2026-10-01T15:39:10.112292Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_By.pdf
+2026-10-01T15:39:10.336176Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.png
+2026-10-01T15:39:10.818756Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-10-01T15:39:11.120376Z INFO  main Reading 'Alberta line' data for event '2021-09-26'
+2026-10-01T15:39:11.120376Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-09-26'
+2026-10-01T15:39:11.135804Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-09-26\dmm\20210926USB4.1Hz
+2026-10-01T15:39:11.795181Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:39:11.884314Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaline\data\DMM_measured_Parry2024.pkl
+2026-10-01T15:39:11.963468Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaline\data\_all.pkl
+2026-10-01T15:39:12.085701Z INFO  main Computing stats for 'Alberta line' data
+2026-10-01T15:39:12.166439Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:39:12.166439Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:39:12.166439Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-10-01T15:39:12.167437Z INFO  main 
+    std: : [1.428016308700375, 2.1590964835435464, 1.2706771599387765]
+    ave: : [15965.601957198227, -32.62067192691032, 55351.380814894794]
+    min: : [15961.174483333334, -36.09363333333333, 55348.75353333333]
+    max: : [15971.052183333335, -27.178066666666666, 55355.05986666667]
+    n: 301
+    n_valid: : [301, 301, 301]
+    dt_original: : [1000000000]
+2026-10-01T15:39:12.168439Z INFO  main Plotting 'Alberta line' data for event '2021-09-26'
+2026-10-01T15:39:12.169441Z INFO  main   Plotting 'Alberta line/DMM/measured/Parry2024' original vs. modified data for event '2021-09-26'
+2026-10-01T15:39:16.823094Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.png
+2026-10-01T15:39:17.260959Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-10-01T15:39:17.474136Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_By.png
+2026-10-01T15:39:17.921440Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_By.pdf
+2026-10-01T15:39:18.132734Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.png
+2026-10-01T15:39:18.630831Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaline/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-10-01T15:39:18.959658Z INFO  main Reading 'Alberta ref' data for event '2021-10-12'
+2026-10-01T15:39:18.964125Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-10-12'
+2026-10-01T15:39:18.967723Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-10-12\dmm\20211012USB5.1Hz
+2026-10-01T15:39:19.629782Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:39:19.761745Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaref\data\DMM_measured_Parry2024.pkl
+2026-10-01T15:39:19.845342Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-10-12\sites\albertaref\data\_all.pkl
+2026-10-01T15:39:19.996050Z INFO  main Computing stats for 'Alberta ref' data
+2026-10-01T15:39:20.081712Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:39:20.081712Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:39:20.082712Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-10-01T15:39:20.082712Z INFO  main 
+    std: : [201.93126086003326, 59.281988569208984, 119.45368850156756]
+    ave: : [14089.202811072328, -1551.0050048578798, 55287.32939478037]
+    min: : [12997.574383333333, -1863.4118, 54667.84046666666]
+    max: : [14517.761999999999, -1264.0214666666666, 55606.345]
+    n: 1801
+    n_valid: : [1290, 1290, 1290]
+    dt_original: : [1000000000]
+2026-10-01T15:39:20.083712Z INFO  main Plotting 'Alberta ref' data for event '2021-10-12'
+2026-10-01T15:39:20.085711Z INFO  main   Plotting 'Alberta ref/DMM/measured/Parry2024' original vs. modified data for event '2021-10-12'
+2026-10-01T15:39:24.441448Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.png
+2026-10-01T15:39:24.911508Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-10-01T15:39:25.143420Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_By.png
+2026-10-01T15:39:25.638198Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_By.pdf
+2026-10-01T15:39:25.851496Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.png
+2026-10-01T15:39:26.302780Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-10-12/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-10-01T15:39:26.626623Z INFO  main Reading 'Alberta ref' data for event '2021-09-26'
+2026-10-01T15:39:26.630071Z INFO  main   Reading 'DMM/measured/Parry2024' data for event '2021-09-26'
+2026-10-01T15:39:26.636084Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\parry2024\2021-09-26\dmm\20210926USB5.1Hz
+2026-10-01T15:39:27.253083Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-01T15:39:27.338648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaref\data\DMM_measured_Parry2024.pkl
+2026-10-01T15:39:27.423148Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-26\sites\albertaref\data\_all.pkl
+2026-10-01T15:39:27.538210Z INFO  main Computing stats for 'Alberta ref' data
+2026-10-01T15:39:27.628121Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-01T15:39:27.629121Z INFO  main   Uniq dts [#]  = 1
+2026-10-01T15:39:27.629121Z INFO  main   Stats for DMM/measured/Parry2024:
+2026-10-01T15:39:27.629121Z INFO  main 
+    std: : [3.6350254645445372, 6.09947069414816, 1.420870701030697]
+    ave: : [14192.860629125145, -1472.641735935769, 55367.22872153934]
+    min: : [14183.801283333334, -1483.9283666666668, 55364.50648333333]
+    max: : [14198.577566666667, -1462.8140333333333, 55371.10101666666]
+    n: 301
+    n_valid: : [301, 301, 301]
+    dt_original: : [1000000000]
+2026-10-01T15:39:27.630119Z INFO  main Plotting 'Alberta ref' data for event '2021-09-26'
+2026-10-01T15:39:27.632126Z INFO  main   Plotting 'Alberta ref/DMM/measured/Parry2024' original vs. modified data for event '2021-09-26'
+2026-10-01T15:39:32.496829Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.png
+2026-10-01T15:39:33.016156Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bx.pdf
+2026-10-01T15:39:33.246640Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_By.png
+2026-10-01T15:39:33.696604Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_By.pdf
+2026-10-01T15:39:33.926860Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.png
+2026-10-01T15:39:34.379232Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-26/sites/albertaref/figures\original\DMM_measured_Parry2024_Bz.pdf
+2026-10-01T15:39:34.704258Z INFO  main   Adding error for site 'Alberta 1', GIC/'measured/Parry2025: Data is constant for at least 5 minutes starting at time 2023-04-24 08:08:54
+2026-10-01T15:39:34.738390Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.csv
+2026-10-01T15:39:34.738390Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-10-01T15:39:34.741476Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json

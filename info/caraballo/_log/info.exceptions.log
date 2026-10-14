@@ -1,0 +1,24 @@
+[2026-10-14T15:37:11.253357Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 455, in write_info_csv
+    with open(file, 'r') as csvfile:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_original\\caraballo2025\\2024-05-10\\gic\\caraballo_2025_info.csv'
+
+[2026-10-14T15:37:11.277438Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 455, in write_info_csv
+    with open(file, 'r') as csvfile:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_original\\caraballo2025\\2024-05-10\\gic\\caraballo_2025_info.csv'
+
