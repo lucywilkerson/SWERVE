@@ -10,6 +10,10 @@ install_requires = [
     "statsmodels",
     "h5py",
     "hapiclient",
+    "mat-io",
+    "openpyxl",
+    "PyYAML",
+    "scipy",
     "spacepy",
     "datetick @ git+https://github.com/rweigel/datetick",
     "utilrsw @ git+https://github.com/rweigel/utilrsw"
