@@ -104,6 +104,54 @@ def test_Blake_GIC_calculated():
     raw_start_data = [0.0037]
     assert read_start_time == raw_start_time and read_start_data == raw_start_data
 
+def test_Caraballo2023_GIC_measured():
+    data_source = 'Caraballo2023'
+    data_type = 'GIC'
+    data_class = 'measured'
+    sid = 'LAV'
+    event = '2021-09-17'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][372960]
+    read_start_data = read_data['data'][372960]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2021-09-17 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = [0.19736842105262903]
+    assert read_start_time == raw_start_time
+    assert read_start_data == raw_start_data
+
+def test_Caraballo2023_B_measured():
+    data_source = 'Caraballo2023'
+    data_type = 'B'
+    data_class = 'measured'
+    sid = 'TUC'
+    event = '2021-08-01'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][5760]
+    read_start_data = read_data['data'][5760]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2021-08-01 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = [23817.75,3693.37,40169.58]
+    assert read_start_time == raw_start_time 
+    assert numpy.array_equal(read_start_data, raw_start_data)
+
+def test_Caraballo2023_GIC_calculated():
+    data_source = 'Caraballo2023'
+    data_type = 'GIC'
+    data_class = 'calculated'
+    sid = 'LAV'
+    event = '2021-09-17'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][372960]
+    read_start_data = read_data['data'][372960]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2021-09-17 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = [0.54]
+    assert read_start_time == raw_start_time
+    assert read_start_data == raw_start_data
+
 def test_Espinosa_GIC_measured():
     data_source = 'Espinosa'
     data_type = 'GIC'
@@ -361,6 +409,10 @@ if run_tests:
 
     test_Blake_GIC_measured()
     test_Blake_GIC_calculated()
+
+    test_Caraballo2023_GIC_measured()
+    test_Caraballo2023_B_measured()
+    test_Caraballo2023_GIC_calculated()
 
     test_Espinosa_GIC_measured()
 
