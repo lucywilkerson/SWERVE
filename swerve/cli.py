@@ -22,8 +22,8 @@ def cli(script, defs=False):
       "help": "Type of error removed (manual or automated)",
       "default": 'manual'
     },
-    "run_config": {
-      "help": "Run configuration file",
+    "config": {
+      "help": "Configuration file for run. Assumes stored in configs directory.",
       "default": None
     }
 

@@ -7,12 +7,12 @@ def config(dirs_only=False): #TODO: dirs_only option
 
   from swerve.cli import cli
   args = cli('config.py')
-  if args['run_config'] is None:
+  if args['config'] is None:
     dirs_only = True
     #raise ValueError("No run configuration specified.")
   else:
     # Use run configuration from command line argument if provided.
-    run_config_file = os.path.abspath(os.path.join('configs', args['run_config']))
+    run_config_file = os.path.abspath(os.path.join('configs', args['config']))
     print(f"Using run configuration '{run_config_file}' from command line argument.")
 
   console_format = u'%(message)s'
@@ -34,7 +34,8 @@ def config(dirs_only=False): #TODO: dirs_only option
   with open(run_config_file) as f:
       conf = yaml.safe_load(f)
       
-  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
+  default_run_config_name = os.path.splitext(os.path.basename(args['config']))[0]
+  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', default_run_config_name)))
   
   # If event_dict.json exists in the corresponding info directory, use it. Otherwise, create it from the run configuration file.
   event_dict_file = os.path.abspath(os.path.join(info_dir, 'events_dict.json'))
