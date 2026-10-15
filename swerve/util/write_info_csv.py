@@ -1,18 +1,117 @@
 import csv
+import datetime
 import os
+import re
+
+
+_DATA_RANGE_CACHE = {} # To save the date range of each annual data file to avoid re-reading
+_ANNUAL_DATA_SOURCES = {'Caraballo2023', 'Hubert', 'Hughes'}
+
+
+def _source_available(data_source, data_dir, logger):
+    if data_source == 'INTERMAG':
+        return True
+
+    source_dir = os.path.join(data_dir, data_source.lower())
+    if not os.path.isdir(source_dir):
+        logger.warning(f"   Data directory {source_dir} not found for data source {data_source}. Skipping...")
+        return False
+    return True
+
+
+def _event_available(event, data_source, data_dir, logger):
+    event_folder = os.path.join(data_dir, data_source.lower(), event)
+    if not os.path.isdir(event_folder):
+        logger.warning(f"   Event {event} not found for data source {data_source}. Skipping...")
+        return False
+    logger.info(f"   Adding sites for event {event} from data source {data_source} to info.csv.")
+    return True
+
+
+def _event_overlaps_data(event, data_file, events, logger):
+    # Used for large, annual data files to parse if passed event is within available data
+    import pandas as pd
+
+    if not os.path.exists(data_file):
+        raise ValueError(f"   Data file {data_file} not found.")
+
+
+    if data_file not in _DATA_RANGE_CACHE:
+        # Read first data row
+        with open(data_file, 'r', newline='') as csvfile:
+            rows = csv.reader(csvfile)
+            next(rows)
+            first_row = next(rows, None)
+        # Read last data row
+        with open(data_file, 'rb') as csvfile:
+            csvfile.seek(0, os.SEEK_END)
+            file_size = csvfile.tell()
+            read_size = min(file_size, 8192)
+            csvfile.seek(-read_size, os.SEEK_END)
+            lines = csvfile.read().decode('utf-8').splitlines()
+            last_line = next((line for line in reversed(lines) if line.strip()), None)
+
+        if first_row is None or last_line is None:
+            logger.warning(f"   No data rows found in {data_file}. Skipping...")
+            return False
+        last_row = next(csv.reader([last_line]))
+        dates = pd.to_datetime([first_row[0], last_row[0]], errors='coerce').dropna()
+        if len(dates) != 2:
+            logger.warning(f"   Could not determine the date range in {data_file}. Skipping...")
+            return False
+        _DATA_RANGE_CACHE[data_file] = (dates.min(), dates.max())
+
+    # Using start/stop times for config to determine if event overlaps w annual dataset
+    event_start, event_stop = events[event]['data_limits']
+    available_start, available_stop = _DATA_RANGE_CACHE[data_file]
+    if pd.Timestamp(event_stop) < available_start or pd.Timestamp(event_start) > available_stop:
+        logger.warning(
+            f"   Event {event} does not overlap {available_start} through "
+            f"{available_stop} for {os.path.basename(data_file)}. Skipping..."
+        )
+        return False
+    return True
+
+
+def _hubert_sites_for_event(source_dir, event, events):
+    import json
+    # Define start/stop from event
+    event_start, event_stop = events[event]['data_limits']
+    event_start = event_start.date() if hasattr(event_start, 'date') else datetime.date.fromisoformat(event_start[:10])
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+    # Read Hübert site names from JSON file
+    event_sites = set()
+    site_names_file = os.path.join(source_dir, 'hubert_site_names.json')
+    with open(site_names_file, 'r') as jsonfile:
+        site_names = json.load(jsonfile)
+    # Check for available event data for each site
+    for site_id, site_info in site_names.items():
+        site_number = site_info.get('number')
+        if site_number is None:
+            continue
+        file_pattern = re.compile(rf'^{site_id}([RU])_(\d{{4}}_\d{{2}}_\d{{2}})\.xyz$')
+        # Looking for Hübert data within event date range
+        for year in range(event_start.year, event_stop.year + 1):
+            site_dir = os.path.join(source_dir, str(year), 'dmm', str(site_number))
+            if not os.path.isdir(site_dir):
+                continue
+            for filename in os.listdir(site_dir):
+                match = file_pattern.match(filename)
+                if match is None:
+                    continue
+                file_date = datetime.datetime.strptime(match.group(2), '%Y_%m_%d').date()
+                if event_start <= file_date <= event_stop:
+                    site_type = 'ref' if match.group(1) == 'R' else 'line'
+                    event_sites.add(f"{site_id} {site_type}")
+    # Return the set of sites with available data for the event
+    return event_sites
+
+
 
 def write_info_csv():
     """Write the configured site metadata to info.csv."""
     import pandas as pd
     from swerve import config, read_intermag_info
-
-    def _check_event(event, data_source, data_dir, logger):
-        event_folder = os.path.join(data_dir, data_source.lower(), event)
-        if not os.path.exists(event_folder) and data_source != 'INTERMAG':
-            logger.warning(f"   Event {event} not found for data source {data_source}. Skipping...")
-            return False
-        logger.info(f"   Adding sites for event {event} from data source {data_source} to info.csv.")
-        return True
 
     def _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event, manual_error=None):
         if manual_error is None:
@@ -40,8 +139,13 @@ def write_info_csv():
     info_list = []
     for event in events:
         for data_source in data_sources:
-            if not _check_event(event, data_source, data_dir, logger):
+            if not _source_available(data_source, data_dir, logger):
                 continue
+            if (data_source not in _ANNUAL_DATA_SOURCES and data_source != 'INTERMAG'
+                    and not _event_available(event, data_source, data_dir, logger)):
+                continue
+            if data_source in _ANNUAL_DATA_SOURCES:
+                logger.info(f"   Checking annual data from source {data_source} for event {event}.")
             if data_source == 'INTERMAG':
                 if 'measured' in data_classes and 'B' in data_types:
                     data_class = 'measured'
@@ -328,6 +432,94 @@ def write_info_csv():
                                     info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
                     else:
                         logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+
+            elif data_source == 'Caraballo2025':
+                for data_type in data_types:
+                    if data_type == 'B':
+                        logger.info(f"   No B data is available for {data_source}. Skipping...")
+                    if data_type == 'GIC':
+                        event_dir = os.path.join(data_dir, data_source.lower(), event, 'gic')
+                        if not os.path.exists(event_dir):
+                            logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                            continue
+                        file = os.path.join(data_dir, data_source.lower(), 'caraballo_2025_info.csv')
+                        with open(file, 'r') as csvfile:
+                            rows = csv.reader(csvfile, delimiter=',')
+                            next(rows)
+                            for row in rows:
+                                if 'measured' in data_classes:
+                                    data_class = 'measured'
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+                                if 'calculated' in data_classes:
+                                    data_class = 'calculated'
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+
+
+            elif data_source == 'Caraballo2023':
+                for data_type in data_types:
+                    if data_type == 'GIC':
+                        file_dir = os.path.join(data_dir, data_source.lower())
+                        data_type_dir = os.path.join(file_dir, event[:4], data_type.lower())
+                        if not os.path.exists(data_type_dir):
+                            logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                            continue
+                        data_file = os.path.join(data_type_dir, 'gic_2021ultproc.csv')
+                        if not _event_overlaps_data(event, data_file, events, logger):
+                            continue
+                        file = os.path.join(file_dir, 'caraballo_2023_info.csv')
+                        with open(file, 'r') as csvfile:
+                            rows = csv.reader(csvfile, delimiter=',')
+                            next(rows)
+                            for row in rows:
+                                if row[3] != data_type:
+                                    continue
+                                if 'measured' in data_classes:
+                                    data_class = 'measured'
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+                                if 'calculated' in data_classes:
+                                    data_class = 'calculated'
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+                    if data_type == 'B':
+                        if 'INTERMAG' in data_sources:
+                            logger.info(f"   {data_source} B data is duplicate of INTERMAG data at site TUC. Skipping...")
+                            continue
+                        if 'calculated' in data_classes:
+                            logger.info(f"   No calculated {data_type} data for {data_source}. Skipping...")
+                        if 'measured' in data_classes:
+                            data_class = 'measured'
+                            file_dir = os.path.join(data_dir, data_source.lower())
+                            data_type_dir = os.path.join(file_dir, event[:4], 'mag')
+                            if not os.path.exists(data_type_dir):
+                                logger.warning(f"   Data type {data_type} not found for source {data_source} and event {event}. Skipping...")
+                                continue
+                            data_file = os.path.join(data_type_dir, 'tuc_magnetic_field.csv')
+                            if not _event_overlaps_data(event, data_file, events, logger):
+                                continue
+                            file = os.path.join(file_dir, 'caraballo_2023_info.csv')
+                            with open(file, 'r') as csvfile:
+                                rows = csv.reader(csvfile, delimiter=',')
+                                next(rows)
+                                for row in rows:
+                                    if row[3] != data_type:
+                                        continue
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+
+            elif data_source == 'Hubert':
+                if 'DMM' not in data_types or 'measured' not in data_classes:
+                    logger.info(f"   Only measured DMM data are available for data source {data_source}; skipping.")
+                    continue
+                file_dir = os.path.join(data_dir, data_source.lower())
+                event_sites = _hubert_sites_for_event(file_dir, event, events)
+                file = os.path.join(file_dir, 'hubert_2024_info.csv')
+                with open(file, 'r') as csvfile:
+                    rows = csv.reader(csvfile, delimiter=',')
+                    next(rows)
+                    for row in rows:
+                        if row[0] in event_sites:
+                            info_list = _add_info_row(
+                                info_list, row[0], float(row[1]), float(row[2]),
+                                'DMM', 'measured', data_source, event)
+
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")
 
