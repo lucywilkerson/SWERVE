@@ -1,17 +1,17 @@
-**Space Weather Event Response Validation & Evaluation Hub (SWERVE Hub)** 
+**Space Weather Event Response Validation & Evaluation (SWERVE)** 
 
 ## Overview
 This repository is part of the [ChronoStorm project](https://chronostorm.vercel.app), funded by the U.S. National Science Foundation (NSF) under grant [#2434136](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2434136). The project aims to collect and analyze perishable operational data from critical infrastructure sectors during significant space weather events, particularly during the solar maximum of Solar Cycle 25.
 
-SWERVE Hub provides a centralized environment for validating and comparing space weather metrics for the May 2024 ("Gannon Storm"), including magnetic field variations, geoelectric field responses, and geomagnetically induced currents (GICs). This hub offers validated, cross-referenced data and tools for researchers and infrastructure stakeholders interested in space weather assessment.
+SWERVE provides a centralized environment for validating and comparing space weather metrics for over 75 solar storms between 2003 and 2026, including magnetic field variations and geomagnetically induced currents (GICs). This repository offers validated, cross-referenced data and tools for researchers and infrastructure stakeholders interested in space weather assessment.
 
 ## Project Background
 In May 2024, Earth experienced a series of extreme space weather events, collectively referred to as the "Gannon Storm." These events included multiple Earth-directed coronal mass ejections (CMEs), triggering intense geomagnetic storms between May 10–12, 2024. 
 
-The storm provided a rare opportunity to observe rapid fluctuations in Earth's magnetic field and to measure the resulting geoelectric fields and GICs, which pose risks to critical infrastructure, especially electrical power systems. The SWERVE Hub supports research into how different measurement and modeling approaches quantitatively compare in capturing these phenomena.
+The storm provided a rare opportunity to observe rapid fluctuations in Earth's magnetic field and to measure the resulting geoelectric fields and GICs, which pose risks to critical infrastructure, especially electrical power systems. SWERVE supports research into how different measurement and modeling approaches quantitatively compare in capturing these phenomena.
 
 ## Repository Contents
-- **Data Files**: Magnetic field data, geoelectric field estimates, and GIC measurements from various sources during the May 2024 storm.
+- **Data Files**: Magnetic field data, geoelectric field estimates, and GIC measurements from various sources.
 - **Analysis Scripts**: Code for preprocessing, analyzing, and visualizing the storm response across physical domains.
 - **Documentation**: Descriptions of data sources, validation methodology, and results from comparative analyses.
 
@@ -44,7 +44,7 @@ This repository is licensed under the MIT License. See `LICENSE` for details.
 
 ```
 git clone https://github.com/lucywilkerson/SWERVE
-git clone --depth 1 https://github.com/lucywilkerson/SWERVE-2024-05-10
+git clone --depth 1 https://github.com/lucywilkerson/SWERVE-data
 git clone --depth 1 https://github.com/lucywilkerson/SWERVE-common
 cd SWERVE
 pip install -e .
@@ -65,27 +65,23 @@ pip install -e .
 See stdout for files read and written.
 
 ```
-python info.py
-python main.py # generates all figures for all sites, see instructions below to generate for specific sites
-python regression.py
-python plot_maps.py
-python plot_imf.py
-python plot_stack.py # requires full main.py to be run first
-python plot_voltage.py
+python info.py --config example.yaml # defines storm start/stop and creates info.csv, info.extended.csv, and info.extended.json with all site information
+python main.py --config example.yaml # reads data for all sites, applies filters, generates all figures for all sites, and updates info.extended.csv/.json, see instructions below to generate for specific sites
 ```
 
 To generate plots for just one site (e. g., Bull Run):
 ```
-python main.py --site 'Bull Run'
-# Can also use 'paper' to create paper figures:
-# python main.py --site paper
-# Or 'test' to create figures for test data:
-# python main.py --site test
+python main.py --config example.yaml --sites 'Bull Run'
+# Can also use 'test' to create figures for test data:
+# python main.py --config test.yaml --sites test
 ```
 
-Uses 10 May 2024 storm data by default. To change event (e. g., 2024-10-10):
-```
-info.py --event 2024-10-10
-main.py --event 2024-10-10
-regression.py --event 2024-10-10
-```
+Config file (.yaml) in the configs subdirectory is used to define:
+- run config name (names subdir for info files and log files, default is same as config file name)
+- event (e.g. ['2015-03-17','2024-05-10']; if 'all', runs all events for given data source/type/class; if not specified, must have storm start/stop specified)
+- start/stop time (optional, must be provided together)
+- data source (e.g. ['TVA','INTERMAG','Watari'])
+- data type (e.g. ['GIC','B','DMM']; if not defined, runs all)
+- data class (e.g. ['measured','calculated']; if not defined, runs all)
+- main.py keyword arguments (exclude errors, summary table, etc.)
+- filter keyword arguments (for GIC measured data filtering)
