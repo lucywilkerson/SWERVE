@@ -374,12 +374,15 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
   
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2025':
     from matio import load_from_mat
+    import warnings
     data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), f'{event.replace("-", "")}_hallprobe_data.mat')
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Data file not found: {data_file}")
     
     logger.info(f"    Reading {data_file}")
-    load_data = load_from_mat(data_file)
+    with warnings.catch_warnings():
+      warnings.simplefilter("ignore")
+      load_data = load_from_mat(data_file)
 
     time = pandas.to_datetime(load_data['time_GIC']).to_pydatetime()
     if sid.lower().replace(' ','') == 'alberta1':
