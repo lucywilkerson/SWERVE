@@ -176,9 +176,10 @@ def _diff_spike_filt(data, spike_threshold, corrections, diff_window=5, std_wind
     return data, corrections
 
 def _median_spike_filt(data, spike_threshold, corrections, win=20):
-    data = data.squeeze() if hasattr(data, 'squeeze') else data
-    n = data.size
-    if n == 0:
+    if not isinstance(data, pd.Series):
+        data = np.asarray(data).reshape(-1)
+    n = len(data)
+    if n < 2:
         return data, corrections
     # moving window median filter: use window size (win)
     use_iloc = hasattr(data, 'iloc')
