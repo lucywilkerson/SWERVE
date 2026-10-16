@@ -1,7 +1,7 @@
 # Usage:
 #   python main.py -h
 #   python main.py --sites paper
-#   python main.py --run_config test_config.yaml --sites test
+#   python main.py --config test.yaml --sites test
 #   python main.py --sites 'site1,site2,...'
 
 # For debugging
@@ -9,6 +9,7 @@ reparse    = True  # Reparse the data files, even if they already exist (use if 
 show_plots = False  # Show interactive plots as generated.
 add_errors = True # Add automated error checks to data and update info.extended files.
 
+import os
 import utilrsw
 from swerve import cli, config, sids, sids_and_events, site_read, site_plot, site_stats, site_stats_summary
 
@@ -17,6 +18,12 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 info_kwargs = CONFIG['info_kwargs']
 data_types = info_kwargs['data_type']
 events = CONFIG['event']
+
+# Ensure info file exists
+info_file = CONFIG['files']['info']
+if not os.path.exists(info_file):
+  import runpy
+  runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
 
 args = cli('main.py')
 if args['sites'] is None:
