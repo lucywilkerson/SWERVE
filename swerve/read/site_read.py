@@ -4,6 +4,7 @@ import pickle
 
 from .orig_readers import _site_read_orig
 from .output_error import _output_error
+from .full_site_read import _site_read_full
 from .. import write_pkl
 
 def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
@@ -27,6 +28,15 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
 
   if logger is None:
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
+
+  if event == 'full':
+    limits = CONFIG['event']['full']['data_limits']
+    if limits is not None:
+      if start is None:
+        start = limits[0]
+      if stop is None:
+        stop = limits[1]
+    return _site_read_full(sid, data_types, reparse, start, stop, logger, CONFIG)
 
   resample_kwargs = {}
   if debug:
@@ -75,7 +85,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
       for data_source in data_sources.keys():
 
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data for event '{event}'")
-        orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+        orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger, start=start, stop=stop)
         if sid in CONFIG['single_phase_sids'] and data_type == 'GIC':
           logger.info(f"    Multiplying GIC data by 3 to account for single-phase transformer.")
           orig['data'] = orig['data'] * 3
@@ -137,4 +147,3 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
   write_pkl(site_all_file, site_info, logger, indent=' '*2)
 
   return site_info
-

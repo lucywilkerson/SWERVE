@@ -136,7 +136,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
       "unit": "A"
     }
 
-  if data_type == 'GIC' and data_class == 'calculated' and data_source == 'GMU':
+  if data_type == 'GIC' and data_class == 'calculated' and data_source == 'Bor':
     from swerve import read_info_df, read_info_dict
 
     extended_df = read_info_df(extended=True)
@@ -1018,15 +1018,6 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
           data_by = float(row[3])
           data_bz = float(row[4])
           data.append([data_bx, data_by, data_bz])
-
-    if numpy.all(numpy.isnan(numpy.array(data))):
-      return {
-            "time": numpy.array(time),
-            "data": numpy.array(data),
-            "labels": ["Bx", "By", "Bz"],
-            "unit": "nT",
-            "error": "All data values are NaN"
-          }
 
     return {
             "time": numpy.array(time),
