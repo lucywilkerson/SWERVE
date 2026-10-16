@@ -6,6 +6,7 @@ def config(dirs_only=False): #TODO: dirs_only option
   import utilrsw
 
   from swerve.cli import cli
+  from swerve.util.write_event_dict import write_event_dict
   args = cli('config.py')
   if args['config'] is None:
     dirs_only = True
@@ -45,10 +46,13 @@ def config(dirs_only=False): #TODO: dirs_only option
       event_dict = json.load(f)
     # Check if *any* event in the list is missing from the dictionary
     event_list = conf.get("event", [])
-    if any(event not in event_dict for event in event_list) and event_list != 'all':
-      event_dict = _write_event_dict(conf, file_path)
+    configured_events = event_list if isinstance(event_list, list) else [event_list]
+    missing_event = any(str(event) not in event_dict for event in configured_events)
+    dynamic_event = configured_events in (['all'], ['full'])
+    if dynamic_event or missing_event:
+      event_dict = write_event_dict(conf, file_path)
   else:
-    event_dict = _write_event_dict(conf, file_path)
+    event_dict = write_event_dict(conf, file_path)
 
   if not os.path.exists(data_dir):
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
@@ -142,83 +146,3 @@ def config(dirs_only=False): #TODO: dirs_only option
     }
 
   return config_dict
-
-def _write_event_dict(conf, file_path):
-  """
-  Write event_dict to events_dict.json in the corresponding info directory.
-  """
-  import json
-  import os
-  import datetime
-  from datetime import timedelta
-  from swerve import storm_time
-
-  # Getting events from run config
-  events = conf.get('event', None)
-
-  # Must have an event or start_time/stop_time specified if INTERMAG is the only data source
-  if conf.get('data_source') == ['INTERMAG'] and not conf.get('event') and not conf.get('start_time'):
-    raise ValueError("For INTERMAG data source, either an event or start_time/stop_time must be specified.")
-  
-  # If no event is specified, use start_time and stop_time from config file to create an event
-  if events == None and conf.get('start_time'):
-    times = [conf.get('start_time'), conf.get('stop_time')]
-    events = [f"{times[0].strftime('%Y-%m-%d')}"]
-  elif events == None or events == []:
-    raise ValueError("No event or start_time/stop_time specified in configuration file.")
-
-  # Finding all events with data from sources included in passed configuration file
-  if events == 'all' or events == ['all']:
-    import re
-    data_sources = conf.get('data_source', None)
-    data_dir_orig = os.path.join(file_path, '..', '..', f'SWERVE-data', 'data_original')
-    date_pattern = r"^\d{4}-\d{2}-\d{2}$"
-    unique_events = set()
-    for data_source in data_sources:
-      data_source_dir = os.path.join(data_dir_orig, data_source.lower())
-      if os.path.isdir(data_source_dir):
-        source_events = [subdir for subdir in os.listdir(data_source_dir) if re.match(date_pattern, subdir)]
-        unique_events.update(source_events)
-      else:
-        raise ValueError(f"Data for data_source {data_source} not found at {data_source_dir}.")
-    events = list(unique_events)
-
-  # Read in NERC events dict from config_nerc.json file
-  with open(os.path.abspath(os.path.join(file_path, 'config_nerc.json')), 'r') as f:
-    nerc_events = json.load(f)
-
-  # Event dict to hold storm times
-    event_dict = {event: {'data_limits': None, 'plot_limits': None, 'nerc_prefix': None} for event in events}
-
-  for event in events:
-    # Define data limits based on start_time and stop_time in config file
-    if conf.get('start_time') and conf.get('stop_time'):
-      times = [conf.get('start_time'), conf.get('stop_time')]
-      for i, time in enumerate(times):
-        if type(time) == datetime.date:
-          times[i] = datetime.datetime.combine(time, datetime.time.min)
-      event_dict[event]['data_limits'] = times
-      
-    # If no start_time and stop_time are specified and event is a NERC event, use the data_limits from nerc_events
-    elif event in nerc_events:
-      event_dict[event]['data_limits'] = [datetime.datetime.strptime(nerc_events[event]['data_limits'][0], '%Y-%m-%dT%H:%M'), datetime.datetime.strptime(nerc_events[event]['data_limits'][1], '%Y-%m-%dT%H:%M')]
-      event_dict[event]['nerc_prefix'] = nerc_events[event]['nerc_prefix']   
-
-    # Determine storm time if not specified    
-    else:
-      event_dict[event]['data_limits'] = storm_time(event)
-
-    # Set plotting limits (subtract 2 hrs from start time to include pre-storm data)
-    event_dict[event]['plot_limits'] = [
-            event_dict[event]['data_limits'][0] - timedelta(hours=2),
-            event_dict[event]['data_limits'][1]
-          ]
-
-  # Save event_dict as events_dict.json in corresponding info directory
-  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
-  if not os.path.exists(info_dir):
-    os.makedirs(info_dir)
-  with open(os.path.join(info_dir, 'events_dict.json'), 'w') as f:
-    json.dump(event_dict, f, indent=4, default=str)
-
-  return event_dict
