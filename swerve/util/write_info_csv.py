@@ -380,9 +380,6 @@ def write_info_csv():
                                     data_class = 'calculated'
                                     info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
                     if data_type == 'B':
-                        if 'INTERMAG' in data_sources:
-                            logger.info(f"   {data_source} B data is duplicate of INTERMAG data at site TUC. Skipping...")
-                            continue
                         if 'calculated' in data_classes:
                             logger.info(f"   No calculated {data_type} data for {data_source}. Skipping...")
                         if 'measured' in data_classes:
