@@ -5,122 +5,13 @@ import re
 
 
 _DATA_RANGE_CACHE = {} # To save the date range of each annual data file to avoid re-reading
-_ANNUAL_DATA_SOURCES = {'Caraballo2023', 'Hubert', 'Hughes'}
 
-
-def _source_available(data_source, data_dir, logger):
-    if data_source == 'INTERMAG':
-        return True
-
-    source_dir = os.path.join(data_dir, data_source.lower())
-    if not os.path.isdir(source_dir):
-        logger.warning(f"   Data directory {source_dir} not found for data source {data_source}. Skipping...")
-        return False
-    return True
-
-
-def _event_available(event, data_source, data_dir, logger):
-    event_folder = os.path.join(data_dir, data_source.lower(), event)
-    if not os.path.isdir(event_folder):
-        logger.warning(f"   Event {event} not found for data source {data_source}. Skipping...")
-        return False
-    logger.info(f"   Adding sites for event {event} from data source {data_source} to info.csv.")
-    return True
-
-
-def _event_overlaps_data(event, data_file, events, logger):
-    # Used for large, annual data files to parse if passed event is within available data
-    import pandas as pd
-
-    if not os.path.exists(data_file):
-        raise ValueError(f"   Data file {data_file} not found.")
-
-
-    if data_file not in _DATA_RANGE_CACHE:
-        # Read first data row
-        with open(data_file, 'r', newline='') as csvfile:
-            rows = csv.reader(csvfile)
-            next(rows)
-            first_row = next(rows, None)
-        # Read last data row
-        with open(data_file, 'rb') as csvfile:
-            csvfile.seek(0, os.SEEK_END)
-            file_size = csvfile.tell()
-            read_size = min(file_size, 8192)
-            csvfile.seek(-read_size, os.SEEK_END)
-            lines = csvfile.read().decode('utf-8').splitlines()
-            last_line = next((line for line in reversed(lines) if line.strip()), None)
-
-        if first_row is None or last_line is None:
-            logger.warning(f"   No data rows found in {data_file}. Skipping...")
-            return False
-        last_row = next(csv.reader([last_line]))
-        dates = pd.to_datetime([first_row[0], last_row[0]], errors='coerce').dropna()
-        if len(dates) != 2:
-            logger.warning(f"   Could not determine the date range in {data_file}. Skipping...")
-            return False
-        _DATA_RANGE_CACHE[data_file] = (dates.min(), dates.max())
-
-    # Using start/stop times for config to determine if event overlaps w annual dataset
-    event_start, event_stop = events[event]['data_limits']
-    available_start, available_stop = _DATA_RANGE_CACHE[data_file]
-    if pd.Timestamp(event_stop) < available_start or pd.Timestamp(event_start) > available_stop:
-        logger.warning(
-            f"   Event {event} does not overlap {available_start} through "
-            f"{available_stop} for {os.path.basename(data_file)}. Skipping..."
-        )
-        return False
-    return True
-
-
-def _hubert_sites_for_event(source_dir, event, events):
-    import json
-    # Define start/stop from event
-    event_start, event_stop = events[event]['data_limits']
-    event_start = event_start.date() if hasattr(event_start, 'date') else datetime.date.fromisoformat(event_start[:10])
-    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
-    # Read Hübert site names from JSON file
-    event_sites = set()
-    site_names_file = os.path.join(source_dir, 'hubert_site_names.json')
-    with open(site_names_file, 'r') as jsonfile:
-        site_names = json.load(jsonfile)
-    # Check for available event data for each site
-    for site_id, site_info in site_names.items():
-        site_number = site_info.get('number')
-        if site_number is None:
-            continue
-        file_pattern = re.compile(rf'^{site_id}([RU])_(\d{{4}}_\d{{2}}_\d{{2}})\.xyz$')
-        # Looking for Hübert data within event date range
-        for year in range(event_start.year, event_stop.year + 1):
-            site_dir = os.path.join(source_dir, str(year), 'dmm', str(site_number))
-            if not os.path.isdir(site_dir):
-                continue
-            for filename in os.listdir(site_dir):
-                match = file_pattern.match(filename)
-                if match is None:
-                    continue
-                file_date = datetime.datetime.strptime(match.group(2), '%Y_%m_%d').date()
-                if event_start <= file_date <= event_stop:
-                    site_type = 'ref' if match.group(1) == 'R' else 'line'
-                    event_sites.add(f"{site_id} {site_type}")
-    # Return the set of sites with available data for the event
-    return event_sites
-
-
-def _hughes_files(source_dir):
-    files = {}
-    file_pattern = re.compile(r'^Node_(\d+)_.*\.csv$')
-    for root, _, filenames in os.walk(source_dir):
-        for filename in filenames:
-            match = file_pattern.match(filename)
-            if match is not None:
-                files[f"Node {match.group(1)}"] = os.path.join(root, filename)
-    return files
 
 def write_info_csv():
     """Write the configured site metadata to info.csv."""
     import pandas as pd
     from swerve import config, read_intermag_info
+    from .source_catalog import ANNUAL_SOURCES as ANNUAL_SOURCES
 
     def _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event, manual_error=None):
         if manual_error is None:
@@ -150,10 +41,10 @@ def write_info_csv():
         for data_source in data_sources:
             if not _source_available(data_source, data_dir, logger):
                 continue
-            if (data_source not in _ANNUAL_DATA_SOURCES and data_source != 'INTERMAG'
+            if (data_source not in ANNUAL_SOURCES and data_source != 'INTERMAG'
                     and not _event_available(event, data_source, data_dir, logger)):
                 continue
-            if data_source in _ANNUAL_DATA_SOURCES:
+            if data_source in ANNUAL_SOURCES:
                 logger.info(f"   Checking annual data from source {data_source} for event {event}.")
             if data_source == 'INTERMAG':
                 if 'measured' in data_classes and 'B' in data_types:
@@ -560,3 +451,111 @@ def write_info_csv():
     logger.info(f'   Saving info to {info_fname}')
     info_df.to_csv(info_fname, index=False)
 
+def _source_available(data_source, data_dir, logger):
+    if data_source == 'INTERMAG':
+        return True
+
+    source_dir = os.path.join(data_dir, data_source.lower())
+    if not os.path.isdir(source_dir):
+        logger.warning(f"   Data directory {source_dir} not found for data source {data_source}. Skipping...")
+        return False
+    return True
+
+
+def _event_available(event, data_source, data_dir, logger):
+    event_folder = os.path.join(data_dir, data_source.lower(), event)
+    if not os.path.isdir(event_folder):
+        logger.warning(f"   Event {event} not found for data source {data_source}. Skipping...")
+        return False
+    logger.info(f"   Adding sites for event {event} from data source {data_source} to info.csv.")
+    return True
+
+
+def _event_overlaps_data(event, data_file, events, logger):
+    # Used for large, annual data files to parse if passed event is within available data
+    import pandas as pd
+
+    if not os.path.exists(data_file):
+        raise ValueError(f"   Data file {data_file} not found.")
+
+
+    if data_file not in _DATA_RANGE_CACHE:
+        # Read first data row
+        with open(data_file, 'r', newline='') as csvfile:
+            rows = csv.reader(csvfile)
+            next(rows)
+            first_row = next(rows, None)
+        # Read last data row
+        with open(data_file, 'rb') as csvfile:
+            csvfile.seek(0, os.SEEK_END)
+            file_size = csvfile.tell()
+            read_size = min(file_size, 8192)
+            csvfile.seek(-read_size, os.SEEK_END)
+            lines = csvfile.read().decode('utf-8').splitlines()
+            last_line = next((line for line in reversed(lines) if line.strip()), None)
+
+        if first_row is None or last_line is None:
+            logger.warning(f"   No data rows found in {data_file}. Skipping...")
+            return False
+        last_row = next(csv.reader([last_line]))
+        dates = pd.to_datetime([first_row[0], last_row[0]], errors='coerce').dropna()
+        if len(dates) != 2:
+            logger.warning(f"   Could not determine the date range in {data_file}. Skipping...")
+            return False
+        _DATA_RANGE_CACHE[data_file] = (dates.min(), dates.max())
+
+    # Using start/stop times for config to determine if event overlaps w annual dataset
+    event_start, event_stop = events[event]['data_limits']
+    available_start, available_stop = _DATA_RANGE_CACHE[data_file]
+    if pd.Timestamp(event_stop) < available_start or pd.Timestamp(event_start) > available_stop:
+        logger.warning(
+            f"   Event {event} does not overlap {available_start} through "
+            f"{available_stop} for {os.path.basename(data_file)}. Skipping..."
+        )
+        return False
+    return True
+
+
+def _hubert_sites_for_event(source_dir, event, events):
+    import json
+    # Define start/stop from event
+    event_start, event_stop = events[event]['data_limits']
+    event_start = event_start.date() if hasattr(event_start, 'date') else datetime.date.fromisoformat(event_start[:10])
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+    # Read Hübert site names from JSON file
+    event_sites = set()
+    site_names_file = os.path.join(source_dir, 'hubert_site_names.json')
+    with open(site_names_file, 'r') as jsonfile:
+        site_names = json.load(jsonfile)
+    # Check for available event data for each site
+    for site_id, site_info in site_names.items():
+        site_number = site_info.get('number')
+        if site_number is None:
+            continue
+        file_pattern = re.compile(rf'^{site_id}([RU])_(\d{{4}}_\d{{2}}_\d{{2}})\.xyz$')
+        # Looking for Hübert data within event date range
+        for year in range(event_start.year, event_stop.year + 1):
+            site_dir = os.path.join(source_dir, f'{year}', 'dmm', f'{site_number}')
+            if not os.path.isdir(site_dir):
+                continue
+            for filename in os.listdir(site_dir):
+                match = file_pattern.match(filename)
+                if match is None:
+                    continue
+                file_date = datetime.datetime.strptime(match.group(2), '%Y_%m_%d').date()
+                if event_start <= file_date <= event_stop:
+                    site_type = 'ref' if match.group(1) == 'R' else 'line'
+                    event_sites.add(f"{site_id} {site_type}")
+    # Return the set of sites with available data for the event
+    return event_sites
+
+
+def _hughes_files(source_dir):
+    files = {}
+    file_pattern = re.compile(r'^Node_(\d+)_.*\.csv$')
+    for root, _, filenames in os.walk(source_dir):
+        for filename in filenames:
+            match = file_pattern.match(filename)
+            if match is not None:
+                files[f"Node {match.group(1)}"] = os.path.join(root, filename)
+    return files
