@@ -10,17 +10,27 @@ def write_event_dict(conf, file_path):
   from .source_catalog import EVENT_PARTITIONED_SOURCES, source_partitions
 
   events = conf.get('event', None)
+  start_time = conf.get('start_time')
+  stop_time = conf.get('stop_time')
   data_sources = conf.get('data_source') or []
   if isinstance(data_sources, str):
     data_sources = [data_sources]
 
-  if data_sources == ['INTERMAG'] and not conf.get('event') and not conf.get('start_time'):
+  def as_datetime(value):
+    if isinstance(value, datetime.datetime):
+      return value
+    if isinstance(value, datetime.date):
+      return datetime.datetime.combine(value, datetime.time.min)
+    if isinstance(value, str):
+      return datetime.datetime.fromisoformat(value)
+    return value
+
+  if data_sources == ['INTERMAG'] and not conf.get('event') and start_time is None:
     raise ValueError("For INTERMAG data source, either an event or start_time/stop_time must be specified.")
 
-  if events == None and conf.get('start_time') and conf.get('stop_time'):
-    times = [conf.get('start_time'), conf.get('stop_time')]
-    events = [f"{times[0].strftime('%Y-%m-%d')}"]
-  elif events == None or events == []:
+  if events is None and start_time is not None:
+    events = [as_datetime(start_time).strftime('%Y-%m-%d')]
+  elif events is None or events == []:
     raise ValueError("No event or start_time/stop_time specified in configuration file.")
 
   if events == 'all' or events == ['all']:
@@ -40,7 +50,7 @@ def write_event_dict(conf, file_path):
     events = sorted(unique_events)
 
   elif events == 'full' or events == ['full']:
-    if 'INTERMAG' in data_sources and not (conf.get('start_time') and conf.get('stop_time')):
+    if 'INTERMAG' in data_sources and not (start_time is not None and stop_time is not None):
       raise ValueError("event='full' with INTERMAG requires start_time and stop_time.")
     events = ['full']
 
@@ -61,12 +71,8 @@ def write_event_dict(conf, file_path):
         "or set start_time and stop_time without an event for a custom interval."
       )
 
-    if conf.get('start_time') and conf.get('stop_time'):
-      times = [conf.get('start_time'), conf.get('stop_time')]
-      for i, time in enumerate(times):
-        if type(time) == datetime.date:
-          times[i] = datetime.datetime.combine(time, datetime.time.min)
-      event_dict[event]['data_limits'] = times
+    if start_time is not None and stop_time is not None:
+      event_dict[event]['data_limits'] = [as_datetime(start_time), as_datetime(stop_time)]
 
     elif event == 'full':
       continue
