@@ -48,8 +48,8 @@ def config(dirs_only=False): #TODO: dirs_only option
     event_list = conf.get("event", [])
     configured_events = event_list if isinstance(event_list, list) else [event_list]
     missing_event = any(str(event) not in event_dict for event in configured_events)
-    dynamic_event = configured_events in (['all'], ['full'])
-    if dynamic_event or missing_event:
+    dynamic_event = configured_events == ['all'] or configured_events == ['full']
+    if missing_event and not dynamic_event:
       event_dict = write_event_dict(conf, file_path)
   else:
     event_dict = write_event_dict(conf, file_path)
