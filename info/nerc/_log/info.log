@@ -154,3 +154,81 @@
 2026-10-10T23:43:14.287560Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.extended.csv
 2026-10-10T23:43:14.288508Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.extended.json
 2026-10-10T23:43:14.310212Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc_config\info.extended.json
+2026-10-15T01:28:04.992609Z INFO  info    Adding sites for event 2025-11-06 from data source NERC to info.csv.
+2026-10-15T01:28:04.992609Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2025-11-06\gic\gic_monitors.csv
+2026-10-15T01:28:05.020743Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2025-11-06\mag\magnetometers.csv
+2026-10-15T01:28:05.044252Z INFO  info    Adding sites for event 2025-11-12 from data source NERC to info.csv.
+2026-10-15T01:28:05.046335Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2025-11-12\gic\gic_monitors.csv
+2026-10-15T01:28:05.048348Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2025-11-12\mag\magnetometers.csv
+2026-10-15T01:28:05.050362Z INFO  info    Adding sites for event 2025-12-03 from data source NERC to info.csv.
+2026-10-15T01:28:05.050362Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2025-12-03\gic\gic_monitors.csv
+2026-10-15T01:28:05.054727Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2025-12-03\mag\magnetometers.csv
+2026-10-15T01:28:05.141989Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.csv
+2026-10-15T01:28:05.175250Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.csv
+2026-10-15T01:28:16.085888Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-15T01:28:16.091923Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10698 at (26.1,-98.1)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-10-15T01:28:17.353276Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-10-15T01:28:17.361326Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-10-15T01:28:17.361326Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
+2026-10-15T01:28:17.361326Z WARN  info     Warning: Could not interpolate beta for site 10698 at (26.1,-98.1)
+2026-10-15T01:28:17.361326Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-10-15T01:28:17.361326Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-10-15T01:28:17.364067Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-10-15T01:28:17.364067Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-10-15T01:28:17.364067Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-10-15T01:28:17.364067Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-10-15T01:28:17.364067Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
+2026-10-15T01:28:17.899787Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-15T01:28:25.572104Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-15T01:28:35.851826Z INFO  info Adding nearest voltage to extended info_df
+2026-10-15T01:28:57.752928Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-15T01:28:59.134844Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-15T01:28:59.541684Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.extended.csv
+2026-10-15T01:28:59.541684Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.extended.json
+2026-10-15T01:28:59.725905Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.extended.json
+2026-10-16T04:08:47.047568Z INFO  info    Adding sites for event 2026-01-19 from data source NERC to info.csv.
+2026-10-16T04:08:47.047568Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2026-01-19\gic\gic_monitors.csv
+2026-10-16T04:08:47.063980Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2026-01-19\mag\magnetometers.csv
+2026-10-16T04:08:47.065971Z INFO  info    Adding sites for event 2026-03-20 from data source NERC to info.csv.
+2026-10-16T04:08:47.065971Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2026-03-20\gic\gic_monitors.csv
+2026-10-16T04:08:47.068970Z INFO  info     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\nerc\2026-03-20\mag\magnetometers.csv
+2026-10-16T04:08:47.133268Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.csv
+2026-10-16T04:08:47.155786Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.csv
+2026-10-16T04:08:52.824076Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T04:08:52.824076Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10698 at (26.1,-98.1)
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-10-16T04:08:53.341053Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10698 at (26.1,-98.1)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10513 at (26.1,-97.6)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10515 at (26.1,-97.6)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10538 at (26.3,-98.2)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10539 at (26.3,-98.2)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10548 at (26.2,-98.2)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10549 at (26.2,-98.2)
+2026-10-16T04:08:53.345270Z WARN  info     Warning: Could not interpolate beta for site 10565 at (26.1,-98.2)
+2026-10-16T04:08:53.714492Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T04:08:55.596897Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T04:09:00.931023Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T04:09:07.298544Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T04:09:07.666993Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T04:09:07.754922Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.extended.csv
+2026-10-16T04:09:07.754922Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.extended.json
+2026-10-16T04:09:07.783047Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\nerc\info.extended.json

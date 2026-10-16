@@ -1,11 +1,11 @@
 run_config_name: nerc # for saving info files/logs
 
-event: ['2025-09-15', '2025-09-30'] 
+event: ['2026-01-19', '2026-03-20'] 
 # No start/stop time needed for NERC, preset in config.py
 
 data_source: ['NERC'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 
-data_type: ['GIC'] # If specified, only return sites with this data type (e.g., GIC, B)
+data_type: ['GIC','B'] # If specified, only return sites with this data type (e.g., GIC, B)
 
 data_class: ['measured'] # If specified, only return sites with this data class (e.g., measured, calculated)
 

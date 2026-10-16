@@ -1,0 +1,32 @@
+[2026-10-15T05:58:24.067070Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 138, in site_read
+    data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig, start, stop, logger=logger)
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter.py", line 45, in filter
+    data_df['data'], corrections = _median_spike_filt(data_df['data'], spike_threshold, corrections, win=median_window)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter.py", line 192, in _median_spike_filt
+    window = data.iloc[start:end] if use_iloc else data[start:end]
+                                                   ~~~~^^^^^^^^^^^
+IndexError: invalid index to scalar variable.
+
+[2026-10-15T06:00:04.364967Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 45, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 138, in site_read
+    data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig, start, stop, logger=logger)
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter.py", line 45, in filter
+    data_df['data'], corrections = _median_spike_filt(data_df['data'], spike_threshold, corrections, win=median_window)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\filter.py", line 192, in _median_spike_filt
+    window = data.iloc[start:end] if use_iloc else data[start:end]
+                                                   ~~~~^^^^^^^^^^^
+IndexError: invalid index to scalar variable.
+
