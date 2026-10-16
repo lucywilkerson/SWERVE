@@ -11,6 +11,7 @@ def parse_datetime(value):
       '%Y/%m/%d %H:%M:%S',
       '%Y-%m-%d %I:%M:%S %p',
       '%Y-%m-%d %H:%M:%S.%f',
+      '%Y-%m-%d/%H:%M:%S',
     ]
 
     for fmt in formats:
