@@ -1,14 +1,42 @@
 
+def _long_original_series(data):
+  import numpy as np
+
+  max_duration = np.timedelta64(7, 'D')
+  for data_type, data_classes in data.items():
+    for data_class, data_sources in data_classes.items():
+      for data_source, source_data in data_sources.items():
+        if source_data is None or 'original' not in source_data:
+          continue
+        time = np.asarray(source_data['original'].get('time', []), dtype='datetime64[ns]')
+        valid_time = time[~np.isnat(time)]
+        if valid_time.size > 1:
+          duration = valid_time.max() - valid_time.min()
+          if duration > max_duration:
+            duration_days = float(duration / np.timedelta64(1, 'D'))
+            return data_type, data_class, data_source, duration_days
+  return None
+
+
 def site_plot(sid, event, data, data_types=None, logger=None, show_plots=False):
 
   import os
-  from matplotlib import pyplot as plt
-
-  from swerve import config, savefig, savefig_paper
 
   if logger is None:
     from swerve import LOG_KWARGS, logger
     logger = logger(**LOG_KWARGS)
+
+  long_series = _long_original_series(data)
+  if long_series is not None:
+    data_type, data_class, data_source, duration_days = long_series
+    logger.warning(
+      f"Skipping all plots for '{sid}' during '{event}': original "
+      f"{data_type}/{data_class}/{data_source} data span {duration_days:.1f} days."
+    )
+    return
+
+  from matplotlib import pyplot as plt
+  from swerve import config, savefig, savefig_paper
 
   logger.info(f"Plotting '{sid}' data for event '{event}'")
 

@@ -17,7 +17,7 @@ from .read.site_read import site_read
 from .read.read_intermag import read_intermag, read_intermag_info
 from .read.orig_readers import _site_read_orig
 from .read.output_error import _output_error
-from .site_plot import site_plot
+from .plot.site_plot import site_plot
 from .site_stats import site_stats
 from .site_stats_summary import site_stats_summary
 from .storm_time import storm_time

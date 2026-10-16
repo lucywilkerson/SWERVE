@@ -1,18 +1,15 @@
 import os
-import pickle
 
 import numpy as np
 import pandas as pd
-import geopandas as gpd
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
-from shapely.geometry import box
 from scipy.interpolate import LinearNDInterpolator
 
-from swerve import config, read_info_df, savefig
+from swerve import config, savefig
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -20,14 +17,6 @@ logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 out_dir = '_map'
 
 state = True # Show political boundaries if True
-
-# Set types of maps to produce
-map_cc  = False
-map_std = False
-map_beta = False
-map_sites = False
-map_location = True
-map_transmission = False
 
 crs = ccrs.PlateCarree()
 transform = ccrs.PlateCarree()
@@ -70,7 +59,8 @@ def add_symbols(ax, df, transform, markersize):
                 markersize=markersize,
                 transform=transform)
 
-def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, patch=False):
+def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, patch=False,
+                 date='2024-05-11T00:00:00'):
   # Create a figure and axes with a specific projection
   fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
   # Adding map features and symbols for locations
@@ -99,7 +89,7 @@ def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, 
 
         # Convert geographic to geomagnetic coordinates
         geo_c = coord.Coords(coords_geo, 'GEO', 'sph', units=['Re', 'deg', 'deg'])
-        geo_c.ticks = Ticktock(['2024-05-11T00:00:00'] * coords_geo.shape[0], 'UTC')
+        geo_c.ticks = Ticktock([date] * coords_geo.shape[0], 'UTC')
 
         # Convert the coordinates to the geomagnetic (MAG) system
         mag_c = geo_c.convert('MAG', 'sph')
@@ -127,7 +117,7 @@ def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, 
   # Save map
   savefig(out_dir, out_name, logger)
 
-def cc_vs_dist_map(cc_df):
+def cc_vs_dist_map(info_df, cc_df):
 
     def add_pair_lines(ax, site_1_id, site_2_id, color='k'):
         # function to draw lines between pairs
@@ -211,8 +201,6 @@ def std_map(info_df, cc_df):
     # plotting map w lines
     for idx_1, row_1 in info_df.iterrows():
         site_id = row_1['site_id']
-        if site_id not in sites:
-            continue
         site_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
         site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
         for idx_2, row_2 in cc_df.iterrows():
@@ -291,8 +279,6 @@ def site_maps(info_df, cc_df):
     # Plotting maps and cc plots for each site
     for idx_1, row in info_df.iterrows():
         site_1_id = row['site_id']
-        if site_1_id not in sites:
-            continue
 
         # Create a figure and axes with a specific projection
         _, axs = plt.subplots(2, figsize=(10, 8), subplot_kw={'projection': projection})
@@ -384,7 +370,7 @@ def transmission_map(info_df, gdf, cc_df, std=False):
         gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
         ].apply(lambda x: list(x.geoms)[0])
         # Get rid of erroneous 1MV and low power line voltages
-        gdf = gdf[(trans_lines_gdf["VOLTAGE"] >= 200)]
+        gdf = gdf[(gdf["VOLTAGE"] >= 200)]
         # Plot the lines
         for idx, row in gdf.iterrows():
             x, y = row['geometry'].xy
@@ -394,8 +380,6 @@ def transmission_map(info_df, gdf, cc_df, std=False):
         # plotting standard deviation
         for idx_1, row_1 in info_df.iterrows():
             site_id = row_1['site_id']
-            if site_id not in sites:
-                continue
             site_lat = info_df.loc[info_df['site_id'] == site_id, 'geo_lat'].values[0]
             site_lon = info_df.loc[info_df['site_id'] == site_id, 'geo_lon'].values[0]
             if stdev == True:
@@ -423,104 +407,3 @@ def transmission_map(info_df, gdf, cc_df, std=False):
     else:
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
         savefig(out_dir, 'transmission_map', logger)
-
-info_df = read_info_df(data_class='measured', exclude_errors=True)
-
-sites = info_df['site_id'].tolist()
-
-# Read in cc data
-with open(CONFIG['files']['cc'], 'rb') as file:
-  print(f"Reading {CONFIG['files']['cc']}")
-  cc_rows = pickle.load(file)
-cc_df = pd.DataFrame(cc_rows)
-cc_df.reset_index(drop=True, inplace=True)
-
-if map_location:
-    USA_extent = [-125, -67, 25.5, 49.5]
-    TVA_extent = [-91, -82, 33, 38]
-    location_map(info_df, USA_extent, 5, out_dir, 'map', mag_lat=True, patch=True)
-    location_map(info_df, TVA_extent, 13, out_dir, 'map_zoom_TVA', patch=True)
-
-if map_beta:
-    beta_maps()
-
-if map_cc:
-    cc_vs_dist_map(cc_df)
-
-if map_std:
-    std_map(info_df, cc_df)
-
-if map_sites:
-    site_maps(info_df, cc_df)
-
-if map_transmission:
-    trans_lines_fname = CONFIG['files']['shape_files']['electric_power']
-    # US Transmission lines
-    print(f"Reading {trans_lines_fname}")
-    trans_lines_gdf = gpd.read_file(trans_lines_fname)
-    trans_lines_gdf.rename({"ID":"line_id"}, inplace=True, axis=1)
-
-    transmission_map(info_df, trans_lines_gdf, cc_df)
-    transmission_map(info_df, trans_lines_gdf, cc_df, std=True)
-
-
-# TODO: Get this working and plot zoom of TVA with labeled high voltage lines
-exit()
-##################################################################
-# stuff from messing w voltage (ie just TVA)
-
-# Translating geometries
-trans_lines_gdf = trans_lines_gdf.to_crs("EPSG:4326")
-# Translate MultiLineString to LineString geometries, taking only the first LineString
-trans_lines_gdf.loc[
-trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
-] = trans_lines_gdf.loc[
-trans_lines_gdf["geometry"].apply(lambda x: x.geom_type) == "MultiLineString", "geometry"
-].apply(lambda x: list(x.geoms)[0])
-
-# Setting up map
-fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
-add_features(ax, state)
-# Set the extent of the map (TVA)
-ax.set_extent(TVA_extent, crs=crs)
-
-voltages = trans_lines_gdf["VOLTAGE"].unique()
-#order voltages from lowest to highest
-voltages = sorted(voltages)
-
-for voltage in voltages:
-    if voltage < 200 or voltage > 765:
-        continue
-    trans_lines_plot = trans_lines_gdf[(trans_lines_gdf["VOLTAGE"] == voltage)]
-    # Plot the lines
-    if voltage == 765:
-        color = 'r'
-    elif voltage == 500:
-        color = 'g'
-    elif voltage == 345:
-        color = 'b'
-    #elif voltage == 230:
-        #color = 'y'
-    else:
-        continue
-    legend_switch = True
-    for idx, row in trans_lines_plot.iterrows():
-        x, y = row['geometry'].xy
-        if legend_switch:
-            label = f"{voltage} kV"
-            legend_switch = False
-        else:
-            label = None
-        ax.plot(x, y, color=color, linewidth=2,transform=transform, label=label) 
-
-
-#adding locations!!
-
-TVA_sites = ['Bull Run', 'Montgomery', 'Union', 'Widows Creek'] # For testing
-TVA_df = info_df[info_df['site_id'].isin(TVA_sites)]
-
-add_symbols(ax, TVA_df, transform, 13)
-
-ax.legend(loc='upper left')
-savefig(out_dir, 'trans_lines_TVA', logger)
-plt.close()
