@@ -828,3 +828,89 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
         "labels": ["Bx", "By", "Bz"],
         "unit": "nT"
       }
+
+  if data_type == 'GIC' and (data_source == 'Caraballo2023' or data_source == 'Caraballo2025'):
+    if data_source == 'Caraballo2023':
+      data_path = os.path.join(data_dir, data_source.lower(), '2021', 'gic')
+      data_file = os.path.join(data_path, f"gic_2021ultproc.csv")
+    if data_source == 'Caraballo2025':
+      data_path = os.path.join(data_dir, data_source.lower(), event, 'gic')
+      data_file = os.path.join(data_path, f"evt{event.replace('-', '')}.csv")
+    if not os.path.exists(data_file):
+      raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    logger.info(f"    Reading {data_file}")
+
+    data = []
+    time = []
+
+    if data_class == 'measured':
+      data_label = 'observed'
+    if data_class == 'calculated':
+      data_label = 'estimated'
+    data_index = None
+    with open(data_file, "r") as file:
+      for line in file:
+        row = line.strip().split(',')
+        if line.startswith('Date'):
+          # find columns that match sid
+          for row_name in row:
+            if row_name.startswith(sid) and row_name.endswith(data_label):
+              data_index = row.index(row_name)
+          continue
+        time.append(parse_datetime(f'{row[0]}'))
+        data.append([float(row[data_index])] if row[data_index] != '' else [numpy.nan])
+
+    if numpy.all(numpy.isnan(numpy.array(data))):
+      return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["GIC"],
+            "unit": "A",
+            "error": "All data values are NaN"
+          }
+
+    return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["GIC"],
+            "unit": "A"
+          }
+
+  if data_type == 'B' and data_class == 'measured' and data_source == 'Caraballo2023':
+    data_path = os.path.join(data_dir, data_source.lower(), '2021', 'mag')
+    data_file = os.path.join(data_path, f"tuc_magnetic_field.csv")
+    if not os.path.exists(data_file):
+      raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    logger.info(f"    Reading {data_file}")
+
+    data = []
+    time = []
+
+    with open(data_file, "r") as file:
+      for line in file:
+        row = line.strip().split(',')
+        if line.startswith('date'):
+          continue
+        time.append(parse_datetime(f'{row[0]}'))
+        bx = float(row[1]) if row[1] != '' else numpy.nan
+        by = float(row[2]) if row[2] != '' else numpy.nan
+        bz = float(row[3]) if row[3] != '' else numpy.nan
+        data.append([bx, by, bz])
+
+    if numpy.all(numpy.isnan(numpy.array(data))):
+      return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["Bx", "By", "Bz"],
+            "unit": "nT",
+            "error": "All data values are NaN"
+          }
+
+    return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["Bx", "By", "Bz"],
+            "unit": "nT"
+          }
