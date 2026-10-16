@@ -1,0 +1,37 @@
+[2026-10-16T13:10:12.051809Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 52, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 169, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger, start=start, stop=stop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 974, in _site_read_orig
+    site_number = name_json[sid.split(' ')[0]]['site_number']
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'site_number'
+
+[2026-10-16T13:10:57.651866Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 52, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 169, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger, start=start, stop=stop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 1001, in _site_read_orig
+    raise FileNotFoundError(
+FileNotFoundError: No data files found for TRO line from 2021-09-17 through 2021-09-18
+
+[2026-10-16T13:11:26.241200Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 52, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 169, in site_read
+    orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger, start=start, stop=stop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 1001, in _site_read_orig
+    raise FileNotFoundError(
+FileNotFoundError: No data files found for WHI line from 2018-08-25 through 2018-08-26
+

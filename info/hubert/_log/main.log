@@ -1,0 +1,369 @@
+2026-10-16T09:10:12.023560Z INFO  main Reading 'TRO line' data for event '2021-09-17'
+2026-10-16T09:10:12.037740Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-09-17'
+2026-10-16T09:10:57.637115Z INFO  main Reading 'TRO line' data for event '2021-09-17'
+2026-10-16T09:10:57.646004Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-09-17'
+2026-10-16T09:11:26.224642Z INFO  main Reading 'WHI line' data for event '2018-08-25'
+2026-10-16T09:11:26.238200Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2018-08-25'
+2026-10-16T09:14:16.175356Z INFO  main Reading 'WHI line' data for event '2018-08-25'
+2026-10-16T09:14:16.192731Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2018-08-25'
+2026-10-16T09:14:16.197876Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2018\dmm\134025\WHIU_2018_08_25.xyz
+2026-10-16T09:14:17.734861Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2018\dmm\134025\WHIU_2018_08_26.xyz
+2026-10-16T09:14:19.499140Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:14:19.681391Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-08-25\sites\whiline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:14:19.818910Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-08-25\sites\whiline\data\_all.pkl
+2026-10-16T09:14:19.990775Z INFO  main Computing stats for 'WHI line' data
+2026-10-16T09:14:20.149025Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:14:20.149025Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:14:20.149025Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:14:20.149025Z INFO  main 
+    std: : [70.97949499836535, 59.05151509659083, 55.69298734115179]
+    ave: : [46733.73924639127, 94.16958882966907, 17587.593038085735]
+    min: : [46483.03799999999, -13.812333333333333, 17422.414166666666]
+    max: : [46817.377, 290.7703333333333, 17678.607166666665]
+    n: 1501
+    n_valid: : [1501, 1501, 1501]
+    dt_original: : [1000000000]
+2026-10-16T09:14:20.701052Z INFO  main Plotting 'WHI line' data for event '2018-08-25'
+2026-10-16T09:14:20.701052Z INFO  main   Plotting 'WHI line/DMM/measured/Hubert' original vs. modified data for event '2018-08-25'
+2026-10-16T09:14:26.790406Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:14:27.260305Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:14:29.832581Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:14:30.349628Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:14:30.616067Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:14:31.134194Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:14:31.454513Z INFO  main Reading 'WHI ref' data for event '2018-08-25'
+2026-10-16T09:14:31.468708Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2018-08-25'
+2026-10-16T09:14:31.472098Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2018\dmm\134025\WHIR_2018_08_25.xyz
+2026-10-16T09:14:33.125406Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2018\dmm\134025\WHIR_2018_08_26.xyz
+2026-10-16T09:14:34.884677Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:14:35.085870Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-08-25\sites\whiref\data\DMM_measured_Hubert.pkl
+2026-10-16T09:14:35.287162Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-08-25\sites\whiref\data\_all.pkl
+2026-10-16T09:14:35.439999Z INFO  main Computing stats for 'WHI ref' data
+2026-10-16T09:14:35.597533Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:14:35.597533Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:14:35.597533Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:14:35.597533Z INFO  main 
+    std: : [68.95963598840761, 60.12395744799317, 57.49624116378061]
+    ave: : [46698.930028758594, 53.401575727292915, 17791.716175105477]
+    min: : [46481.21533333333, -84.51383333333334, 17612.366166666667]
+    max: : [46778.129, 251.33466666666666, 17918.86866666667]
+    n: 1501
+    n_valid: : [1501, 1501, 1501]
+    dt_original: : [1000000000]
+2026-10-16T09:14:35.753320Z INFO  main Plotting 'WHI ref' data for event '2018-08-25'
+2026-10-16T09:14:35.756917Z INFO  main   Plotting 'WHI ref/DMM/measured/Hubert' original vs. modified data for event '2018-08-25'
+2026-10-16T09:14:40.891398Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiref/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:14:41.364556Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiref/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:14:41.614512Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiref/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:14:42.066635Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiref/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:14:42.423058Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiref/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:14:42.869408Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-08-25/sites/whiref/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:14:43.162830Z INFO  main Reading 'BUD line' data for event '2020-08-28'
+2026-10-16T09:14:43.177981Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2020-08-28'
+2026-10-16T09:14:43.194762Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171372\BUDU_2020_08_28.xyz
+2026-10-16T09:14:44.714139Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171372\BUDU_2020_08_29.xyz
+2026-10-16T09:14:46.191238Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171372\BUDU_2020_08_30.xyz
+2026-10-16T09:14:47.911361Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:14:48.203466Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\budline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:14:48.475723Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\budline\data\_all.pkl
+2026-10-16T09:14:48.752468Z INFO  main Computing stats for 'BUD line' data
+2026-10-16T09:14:48.979543Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:14:48.979543Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:14:48.979543Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:14:48.979543Z INFO  main 
+    std: : [49.82221924969969, 37.52925496543203, 24.619724659371578]
+    ave: : [19956.65780741497, 1374.3185552957257, 44126.49997013537]
+    min: : [19875.144166666665, 1297.8846666666666, 44063.516833333335]
+    max: : [20075.385166666667, 1442.835, 44164.21483333334]
+    n: 3421
+    n_valid: : [3421, 3421, 3421]
+    dt_original: : [1000000000]
+2026-10-16T09:14:49.207795Z INFO  main Plotting 'BUD line' data for event '2020-08-28'
+2026-10-16T09:14:49.207795Z INFO  main   Plotting 'BUD line/DMM/measured/Hubert' original vs. modified data for event '2020-08-28'
+2026-10-16T09:14:54.942119Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/budline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:14:55.416642Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/budline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:14:55.697307Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/budline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:14:56.157284Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/budline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:14:56.469000Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/budline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:14:56.953050Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/budline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:14:57.285119Z INFO  main Reading 'DAL line' data for event '2020-08-28'
+2026-10-16T09:14:57.297946Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2020-08-28'
+2026-10-16T09:14:57.341147Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171373\DALU_2020_08_28.xyz
+2026-10-16T09:14:59.940032Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171373\DALU_2020_08_29.xyz
+2026-10-16T09:15:05.574312Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171373\DALU_2020_08_30.xyz
+2026-10-16T09:15:10.446137Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:15:11.438553Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\dalline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:15:11.916059Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\dalline\data\_all.pkl
+2026-10-16T09:15:12.382851Z INFO  main Computing stats for 'DAL line' data
+2026-10-16T09:15:12.999289Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:15:12.999289Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:15:12.999289Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:15:13.001299Z INFO  main 
+    std: : [19972.16531310699, 19957.1994804234, 19954.582496457577]
+    ave: : [6434.028273750357, 7163.516398080484, 7437.510901295904]
+    min: : [1811.9959999999999, 2457.8035, 2734.340166666667]
+    max: : [999999.0, 999999.0, 999999.0]
+    n: 3421
+    n_valid: : [3421, 3421, 3421]
+    dt_original: : [1000000000]
+2026-10-16T09:15:13.820764Z INFO  main Plotting 'DAL line' data for event '2020-08-28'
+2026-10-16T09:15:13.826840Z INFO  main   Plotting 'DAL line/DMM/measured/Hubert' original vs. modified data for event '2020-08-28'
+2026-10-16T09:15:23.855757Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:15:24.284356Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:15:24.609025Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:15:25.029068Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:15:25.343762Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:15:25.886754Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:15:26.249270Z INFO  main Reading 'DAL line' data for event '2021-03-24'
+2026-10-16T09:15:26.258714Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-03-24'
+2026-10-16T09:15:26.285421Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171373\DALU_2021_03_24.xyz
+2026-10-16T09:15:28.124506Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171373\DALU_2021_03_25.xyz
+2026-10-16T09:15:29.829501Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171373\DALU_2021_03_26.xyz
+2026-10-16T09:15:31.664650Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:15:31.993892Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\dalline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:15:32.243249Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\dalline\data\_all.pkl
+2026-10-16T09:15:32.504710Z INFO  main Computing stats for 'DAL line' data
+2026-10-16T09:15:32.719847Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:15:32.719847Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:15:32.719847Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:15:32.719847Z INFO  main 
+    std: : [12.53865593712222, 19.081811058171898, 12.472002905853499]
+    ave: : [17540.19455366653, -158.02966190638116, 46546.0759415731]
+    min: : [17509.368166666667, -215.7775, 46486.6095]
+    max: : [17583.684, -101.86266666666667, 46569.258499999996]
+    n: 2941
+    n_valid: : [2941, 2941, 2941]
+    dt_original: : [1000000000]
+2026-10-16T09:15:32.960907Z INFO  main Plotting 'DAL line' data for event '2021-03-24'
+2026-10-16T09:15:32.960907Z INFO  main   Plotting 'DAL line/DMM/measured/Hubert' original vs. modified data for event '2021-03-24'
+2026-10-16T09:15:39.576089Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:15:40.060483Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:15:40.398989Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:15:40.898765Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:15:41.271667Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:15:41.791167Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:15:42.113308Z INFO  main Reading 'EAS line' data for event '2020-08-28'
+2026-10-16T09:15:42.132199Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2020-08-28'
+2026-10-16T09:15:42.159900Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171374\EASU_2020_08_28.xyz
+2026-10-16T09:15:43.884492Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171374\EASU_2020_08_29.xyz
+2026-10-16T09:15:45.595065Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171374\EASU_2020_08_30.xyz
+2026-10-16T09:15:47.345559Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:15:47.664365Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\easline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:15:47.940356Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\easline\data\_all.pkl
+2026-10-16T09:15:48.195144Z INFO  main Computing stats for 'EAS line' data
+2026-10-16T09:15:48.435443Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:15:48.435443Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:15:48.435443Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:15:48.435443Z INFO  main 
+    std: : [14.066680495903558, 15.259915084515011, 10.225446311368058]
+    ave: : [16960.538263519462, 0.06958905778037172, 47034.59478242229]
+    min: : [16929.042666666668, -70.18466666666667, 47004.676166666664]
+    max: : [16999.2915, 88.83316666666666, 47071.16883333333]
+    n: 3421
+    n_valid: : [3421, 3421, 3421]
+    dt_original: : [1000000000]
+2026-10-16T09:15:48.672074Z INFO  main Plotting 'EAS line' data for event '2020-08-28'
+2026-10-16T09:15:48.672074Z INFO  main   Plotting 'EAS line/DMM/measured/Hubert' original vs. modified data for event '2020-08-28'
+2026-10-16T09:15:54.544348Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:15:54.919077Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:15:55.206985Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:15:55.577486Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:15:55.882532Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:15:56.257569Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:15:56.567412Z INFO  main Reading 'EAS line' data for event '2021-03-24'
+2026-10-16T09:15:56.591312Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-03-24'
+2026-10-16T09:15:56.608688Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171374\EASU_2021_03_24.xyz
+2026-10-16T09:15:58.399936Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171374\EASU_2021_03_25.xyz
+2026-10-16T09:16:00.185892Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171374\EASU_2021_03_26.xyz
+2026-10-16T09:16:02.116096Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:16:02.429791Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\easline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:16:02.739399Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\easline\data\_all.pkl
+2026-10-16T09:16:03.020257Z INFO  main Computing stats for 'EAS line' data
+2026-10-16T09:16:03.291263Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:16:03.291263Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:16:03.291263Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:16:03.292264Z INFO  main 
+    std: : [18.893073797305167, 18.946030881599203, 14.874131504153791]
+    ave: : [16951.155544939396, 69.70456494389667, 47011.009763969196]
+    min: : [16912.701833333333, -5.379166666666666, 46947.633499999996]
+    max: : [16999.122, 147.93466666666666, 47042.66383333333]
+    n: 2941
+    n_valid: : [2941, 2941, 2941]
+    dt_original: : [1000000000]
+2026-10-16T09:16:03.553059Z INFO  main Plotting 'EAS line' data for event '2021-03-24'
+2026-10-16T09:16:03.557330Z INFO  main   Plotting 'EAS line/DMM/measured/Hubert' original vs. modified data for event '2021-03-24'
+2026-10-16T09:16:10.101427Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:16:10.637029Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:16:10.949385Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:16:11.540545Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:16:11.877445Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:16:12.414375Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:16:12.826280Z INFO  main Reading 'DAL ref' data for event '2020-08-28'
+2026-10-16T09:16:12.835653Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2020-08-28'
+2026-10-16T09:16:12.870018Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171373\DALR_2020_08_28.xyz
+2026-10-16T09:16:14.709529Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171373\DALR_2020_08_29.xyz
+2026-10-16T09:16:16.531292Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171373\DALR_2020_08_30.xyz
+2026-10-16T09:16:18.455050Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:16:18.772206Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\dalref\data\DMM_measured_Hubert.pkl
+2026-10-16T09:16:19.030318Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\dalref\data\_all.pkl
+2026-10-16T09:16:19.291373Z INFO  main Computing stats for 'DAL ref' data
+2026-10-16T09:16:19.530313Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:16:19.530313Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:16:19.530313Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:16:19.530313Z INFO  main 
+    std: : [14.31269334520019, 16.478823195245, 9.55000070099387]
+    ave: : [17756.26244007601, 415.64682587937284, 46078.707098362946]
+    min: : [17721.4785, 368.64099999999996, 46053.5235]
+    max: : [17812.427666666666, 476.12533333333334, 46118.551499999994]
+    n: 3421
+    n_valid: : [3421, 3421, 3421]
+    dt_original: : [1000000000]
+2026-10-16T09:16:19.774573Z INFO  main Plotting 'DAL ref' data for event '2020-08-28'
+2026-10-16T09:16:19.774573Z INFO  main   Plotting 'DAL ref/DMM/measured/Hubert' original vs. modified data for event '2020-08-28'
+2026-10-16T09:16:26.152405Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalref/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:16:26.650574Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalref/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:16:26.983757Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalref/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:16:27.463802Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalref/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:16:27.785370Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalref/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:16:28.279632Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/dalref/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:16:28.631190Z INFO  main Reading 'DAL ref' data for event '2021-03-24'
+2026-10-16T09:16:28.631190Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-03-24'
+2026-10-16T09:16:28.643048Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171373\DALR_2021_03_24.xyz
+2026-10-16T09:16:30.486469Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171373\DALR_2021_03_25.xyz
+2026-10-16T09:16:32.274609Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171373\DALR_2021_03_26.xyz
+2026-10-16T09:16:34.140782Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:16:34.473468Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\dalref\data\DMM_measured_Hubert.pkl
+2026-10-16T09:16:34.721716Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\dalref\data\_all.pkl
+2026-10-16T09:16:35.012574Z INFO  main Computing stats for 'DAL ref' data
+2026-10-16T09:16:35.244457Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:16:35.244457Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:16:35.244457Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:16:35.244457Z INFO  main 
+    std: : [21149.32717305658, 21521.85115423009, 20539.62093462003]
+    ave: : [18408.111514620872, 1116.2924006007004, 46694.52351031391]
+    min: : [17762.043833333333, 427.93766666666664, 46035.919]
+    max: : [999999.0, 999999.0, 999999.0]
+    n: 2941
+    n_valid: : [2941, 2941, 2941]
+    dt_original: : [1000000000]
+2026-10-16T09:16:35.509588Z INFO  main Plotting 'DAL ref' data for event '2021-03-24'
+2026-10-16T09:16:35.509588Z INFO  main   Plotting 'DAL ref/DMM/measured/Hubert' original vs. modified data for event '2021-03-24'
+2026-10-16T09:16:41.526075Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalref/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:16:41.907536Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalref/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:16:42.187858Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalref/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:16:42.620821Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalref/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:16:42.948699Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalref/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:16:43.361268Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/dalref/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:16:43.668736Z INFO  main Reading 'EAS ref' data for event '2020-08-28'
+2026-10-16T09:16:43.683566Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2020-08-28'
+2026-10-16T09:16:43.686572Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171374\EASR_2020_08_28.xyz
+2026-10-16T09:16:45.636495Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171374\EASR_2020_08_29.xyz
+2026-10-16T09:16:47.331006Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2020\dmm\171374\EASR_2020_08_30.xyz
+2026-10-16T09:16:49.229140Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:16:49.537539Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\easref\data\DMM_measured_Hubert.pkl
+2026-10-16T09:16:49.827083Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2020-08-28\sites\easref\data\_all.pkl
+2026-10-16T09:16:50.124901Z INFO  main Computing stats for 'EAS ref' data
+2026-10-16T09:16:50.357891Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:16:50.357891Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:16:50.358884Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:16:50.358884Z INFO  main 
+    std: : [14.065954656398288, 15.867331431106578, 10.590328964895994]
+    ave: : [17068.140701841552, 967.7659378836601, 47264.38605782912]
+    min: : [17034.701666666668, 930.7175000000001, 47232.206666666665]
+    max: : [17124.09, 1028.9636666666668, 47302.71916666666]
+    n: 3421
+    n_valid: : [3421, 3421, 3421]
+    dt_original: : [1000000000]
+2026-10-16T09:16:50.590986Z INFO  main Plotting 'EAS ref' data for event '2020-08-28'
+2026-10-16T09:16:50.594986Z INFO  main   Plotting 'EAS ref/DMM/measured/Hubert' original vs. modified data for event '2020-08-28'
+2026-10-16T09:16:57.097378Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easref/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:16:57.606618Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easref/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:16:57.910401Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easref/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:16:58.405584Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easref/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:16:58.750835Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easref/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:16:59.304331Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2020-08-28/sites/easref/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:16:59.668149Z INFO  main Reading 'EAS ref' data for event '2021-03-24'
+2026-10-16T09:16:59.680248Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-03-24'
+2026-10-16T09:16:59.684319Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171374\EASR_2021_03_24.xyz
+2026-10-16T09:17:01.589175Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171374\EASR_2021_03_25.xyz
+2026-10-16T09:17:03.403216Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\171374\EASR_2021_03_26.xyz
+2026-10-16T09:17:05.200294Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:17:05.523378Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\easref\data\DMM_measured_Hubert.pkl
+2026-10-16T09:17:05.791401Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-03-24\sites\easref\data\_all.pkl
+2026-10-16T09:17:06.057414Z INFO  main Computing stats for 'EAS ref' data
+2026-10-16T09:17:06.293726Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:17:06.293726Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:17:06.293726Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:17:06.293726Z INFO  main 
+    std: : [15.885115311195541, 18.68071316655566, 14.460983886035855]
+    ave: : [17034.44778703384, 1039.6039679814148, 47267.06275716863]
+    min: : [17003.212, 974.9843333333333, 47199.13916666667]
+    max: : [17086.971999999998, 1087.5168333333334, 47297.784499999994]
+    n: 2941
+    n_valid: : [2941, 2941, 2941]
+    dt_original: : [1000000000]
+2026-10-16T09:17:06.526678Z INFO  main Plotting 'EAS ref' data for event '2021-03-24'
+2026-10-16T09:17:06.542351Z INFO  main   Plotting 'EAS ref/DMM/measured/Hubert' original vs. modified data for event '2021-03-24'
+2026-10-16T09:17:12.841960Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easref/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:17:13.343548Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easref/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:17:13.651003Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easref/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:17:14.164999Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easref/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:17:14.495772Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easref/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:17:15.059438Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-03-24/sites/easref/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:17:15.438017Z INFO  main Reading 'TRO line' data for event '2021-09-17'
+2026-10-16T09:17:15.446017Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-09-17'
+2026-10-16T09:17:15.466017Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\182191\TROU_2021_09_17.xyz
+2026-10-16T09:17:17.364856Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\182191\TROU_2021_09_18.xyz
+2026-10-16T09:17:19.195763Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:17:19.392327Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\troline\data\DMM_measured_Hubert.pkl
+2026-10-16T09:17:19.636259Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\troline\data\_all.pkl
+2026-10-16T09:17:19.803595Z INFO  main Computing stats for 'TRO line' data
+2026-10-16T09:17:19.979385Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:17:19.979385Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:17:19.980428Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:17:19.980428Z INFO  main 
+    std: : [15.616428499176784, 21.070034294516848, 14.8623692256523]
+    ave: : [20073.310158107764, 1776.3849934073523, 44090.59317071486]
+    min: : [20017.040166666666, 1731.6899999999998, 44058.703499999996]
+    max: : [20102.90216666667, 1839.9625, 44120.12016666667]
+    n: 1441
+    n_valid: : [1441, 1441, 1441]
+    dt_original: : [1000000000]
+2026-10-16T09:17:20.139758Z INFO  main Plotting 'TRO line' data for event '2021-09-17'
+2026-10-16T09:17:20.142752Z INFO  main   Plotting 'TRO line/DMM/measured/Hubert' original vs. modified data for event '2021-09-17'
+2026-10-16T09:17:25.752524Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troline/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:17:26.205100Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troline/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:17:26.449519Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troline/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:17:26.948366Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troline/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:17:27.205767Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troline/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:17:27.701057Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troline/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:17:28.054333Z INFO  main Reading 'TRO ref' data for event '2021-09-17'
+2026-10-16T09:17:28.074756Z INFO  main   Reading 'DMM/measured/Hubert' data for event '2021-09-17'
+2026-10-16T09:17:28.078719Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\182191\TROR_2021_09_17.xyz
+2026-10-16T09:17:29.829511Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hubert\2021\dmm\182191\TROR_2021_09_18.xyz
+2026-10-16T09:17:31.744984Z INFO  main     Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T09:17:31.940886Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\troref\data\DMM_measured_Hubert.pkl
+2026-10-16T09:17:32.183077Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2021-09-17\sites\troref\data\_all.pkl
+2026-10-16T09:17:32.345707Z INFO  main Computing stats for 'TRO ref' data
+2026-10-16T09:17:32.531201Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T09:17:32.531201Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T09:17:32.531201Z INFO  main   Stats for DMM/measured/Hubert:
+2026-10-16T09:17:32.532201Z INFO  main 
+    std: : [14.976316963646735, 21.594808948024887, 13.027501811518617]
+    ave: : [18609.49304429796, -183.91685091371752, 45655.99819280588]
+    min: : [18554.3405, -227.605, 45633.186499999996]
+    max: : [18635.257833333333, -107.92866666666667, 45685.89683333333]
+    n: 1441
+    n_valid: : [1441, 1441, 1441]
+    dt_original: : [1000000000]
+2026-10-16T09:17:32.683364Z INFO  main Plotting 'TRO ref' data for event '2021-09-17'
+2026-10-16T09:17:32.686881Z INFO  main   Plotting 'TRO ref/DMM/measured/Hubert' original vs. modified data for event '2021-09-17'
+2026-10-16T09:17:38.111275Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troref/figures\original\DMM_measured_Hubert_Bx.png
+2026-10-16T09:17:38.571379Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troref/figures\original\DMM_measured_Hubert_Bx.pdf
+2026-10-16T09:17:38.816164Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troref/figures\original\DMM_measured_Hubert_By.png
+2026-10-16T09:17:39.295456Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troref/figures\original\DMM_measured_Hubert_By.pdf
+2026-10-16T09:17:39.579613Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troref/figures\original\DMM_measured_Hubert_Bz.png
+2026-10-16T09:17:40.063433Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2021-09-17/sites/troref/figures\original\DMM_measured_Hubert_Bz.pdf
+2026-10-16T09:17:40.513829Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T09:17:40.513829Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T09:17:40.515531Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json

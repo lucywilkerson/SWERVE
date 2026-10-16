@@ -4,7 +4,7 @@ import numpy
 import pandas
 import datetime
 
-def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
+def _site_read_orig(sid, data_type, data_class, data_source, event, logger, start=None, stop=None):
 
   """Read data from site
 
@@ -964,4 +964,73 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "data": numpy.array(data).reshape(-1, 1),
             "labels": ["GIC"],
             "unit": "A"
+          }
+
+  if data_type == 'DMM' and data_class == 'measured' and data_source == 'Hubert':
+    import json
+    import re
+    # Find site number and define file
+    name_json = json.load(open(os.path.join(data_dir, data_source.lower(), 'hubert_site_names.json')))
+    site_number = name_json[sid.split(' ')[0]]['number']
+    if sid.endswith('line'):
+      file_pattern = re.compile(rf'^{sid.split(' ')[0]}U_(\d{{4}}_\d{{2}}_\d{{2}})\.xyz$')
+    elif sid.endswith('ref'):
+      file_pattern = re.compile(rf'^{sid.split(' ')[0]}R_(\d{{4}}_\d{{2}}_\d{{2}})\.xyz$')
+    # Find data files within start/stop
+    if start is not None and stop is not None:
+      # Define start/stop from event
+      event_start = start.date() if hasattr(start, 'date') else datetime.date.fromisoformat(start[:10])
+      event_stop = stop.date() if hasattr(stop, 'date') else datetime.date.fromisoformat(stop[:10])
+    else:
+      event_start = datetime.date.fromisoformat(event[:10])
+      event_stop = event_start
+    data_files = []
+    for year in range(event_start.year, event_stop.year + 1):
+      data_path = os.path.join(data_dir, data_source.lower(), f'{year}', 'dmm', f'{site_number}')
+      if not os.path.isdir(data_path):
+        continue
+      for filename in os.listdir(data_path):
+        match = file_pattern.match(filename)
+        if match is None:
+          continue
+        file_date = datetime.datetime.strptime(match.group(1), '%Y_%m_%d').date()
+        if event_start <= file_date <= event_stop:
+          data_files.append(os.path.join(data_path, filename))
+
+    if not data_files:
+      raise FileNotFoundError(
+        f"No data files found for {sid} from {event_start} through {event_stop}"
+      )
+
+    time = []
+    data = []
+
+    for data_file in sorted(data_files):
+      logger.info(f"    Reading {data_file}")
+      with open(data_file, 'r') as file:
+        for line in file:
+          # Skip header
+          if line.startswith('U') or line.startswith('R'):
+            continue
+          row = line.strip().split()
+          time.append(parse_datetime(f'{row[0]} {row[1]}'))
+          data_bx = float(row[2])
+          data_by = float(row[3])
+          data_bz = float(row[4])
+          data.append([data_bx, data_by, data_bz])
+
+    if numpy.all(numpy.isnan(numpy.array(data))):
+      return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["Bx", "By", "Bz"],
+            "unit": "nT",
+            "error": "All data values are NaN"
+          }
+
+    return {
+            "time": numpy.array(time),
+            "data": numpy.array(data),
+            "labels": ["Bx", "By", "Bz"],
+            "unit": "nT"
           }

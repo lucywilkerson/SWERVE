@@ -1,0 +1,169 @@
+2026-10-16T08:09:27.212667Z INFO  info    Checking annual data from source Hubert for event 2018-08-25.
+2026-10-16T08:09:27.252733Z INFO  info    Checking annual data from source Hubert for event 2020-08-28.
+2026-10-16T08:09:27.352915Z INFO  info    Checking annual data from source Hubert for event 2022-07-23.
+2026-10-16T08:09:27.397835Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:09:27.416690Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:09:32.987722Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T08:09:32.987722Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:09:33.569563Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:09:33.841475Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T08:09:33.897179Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T08:09:38.513274Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T08:09:43.395880Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T08:09:43.395880Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T08:09:45.099523Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T08:09:45.182012Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T08:09:45.182012Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:09:45.186856Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:12:00.199971Z INFO  info    Checking annual data from source Hubert for event 2018-08-25.
+2026-10-16T08:12:00.230532Z INFO  info    Checking annual data from source Hubert for event 2020-08-28.
+2026-10-16T08:12:00.317159Z INFO  info    Checking annual data from source Hubert for event 2021-09-17.
+2026-10-16T08:12:00.366695Z INFO  info    Checking annual data from source Hubert for event 2022-04-09.
+2026-10-16T08:12:00.375267Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:12:00.380471Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:12:00.935268Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T08:12:00.935660Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-16T08:12:01.437415Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-16T08:12:01.493258Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T08:12:01.528501Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T08:12:02.094422Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T08:12:06.628027Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T08:12:06.629025Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T08:12:07.043989Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T08:12:07.106545Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T08:12:07.107547Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:12:07.108545Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:16:24.880761Z INFO  info    Checking annual data from source Hubert for event 2018-08-25.
+2026-10-16T08:16:24.883086Z INFO  info    Checking annual data from source Hubert for event 2020-08-28.
+2026-10-16T08:16:24.897498Z INFO  info    Checking annual data from source Hubert for event 2021-03-24.
+2026-10-16T08:16:24.908483Z INFO  info    Checking annual data from source Hubert for event 2021-09-17.
+2026-10-16T08:16:24.916620Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:16:24.916620Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:16:25.262797Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T08:16:25.262797Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-16T08:16:25.725767Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-16T08:16:25.759030Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T08:16:25.815686Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T08:16:26.305596Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T08:16:30.738666Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T08:16:30.738666Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T08:16:31.260068Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T08:16:31.308840Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T08:16:31.308840Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:16:31.312651Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:24:03.503866Z INFO  info    Checking annual data from source Hubert for event 2018-08-25.
+2026-10-16T08:24:03.590043Z INFO  info    Checking annual data from source Hubert for event 2020-08-28.
+2026-10-16T08:24:03.644653Z INFO  info    Checking annual data from source Hubert for event 2021-03-24.
+2026-10-16T08:24:03.682179Z INFO  info    Checking annual data from source Hubert for event 2021-09-17.
+2026-10-16T08:24:03.747243Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:24:03.774238Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:24:11.176113Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T08:24:11.176113Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-16T08:24:12.441551Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-16T08:24:12.972981Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T08:24:13.099316Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T08:24:19.011417Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T08:24:24.512932Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T08:24:24.513936Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T08:24:25.941859Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T08:24:26.003497Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T08:24:26.004494Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:24:26.005496Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:29:40.091869Z INFO  info    Checking annual data from source Hubert for event 2018-08-25.
+2026-10-16T08:29:40.111281Z INFO  info    Checking annual data from source Hubert for event 2020-08-28.
+2026-10-16T08:29:40.124650Z INFO  info    Checking annual data from source Hubert for event 2021-03-24.
+2026-10-16T08:29:40.130853Z INFO  info    Checking annual data from source Hubert for event 2021-09-17.
+2026-10-16T08:29:40.144265Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:29:40.146669Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T08:29:40.486035Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T08:29:40.486035Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-16T08:29:40.947754Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-16T08:29:41.012072Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T08:29:41.087897Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T08:29:41.515030Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T08:29:46.030696Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T08:29:46.032737Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T08:29:46.580487Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T08:29:46.617965Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T08:29:46.617965Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T08:29:46.617965Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T09:02:07.727585Z INFO  info    Checking annual data from source Hubert for event 2018-08-25.
+2026-10-16T09:02:07.800954Z INFO  info    Checking annual data from source Hubert for event 2020-08-28.
+2026-10-16T09:02:07.826065Z INFO  info    Checking annual data from source Hubert for event 2021-03-24.
+2026-10-16T09:02:07.844426Z INFO  info    Checking annual data from source Hubert for event 2021-09-17.
+2026-10-16T09:02:07.911586Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T09:02:07.925894Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-16T09:02:15.392348Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T09:02:15.392348Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-16T09:02:15.895539Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-16T09:02:16.699618Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T09:02:16.778929Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T09:02:23.925894Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T09:02:29.157533Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T09:02:29.159539Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T09:02:31.430512Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T09:02:31.501402Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-16T09:02:31.502552Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-16T09:02:31.503098Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
