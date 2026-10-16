@@ -107,6 +107,15 @@ def _hubert_sites_for_event(source_dir, event, events):
     return event_sites
 
 
+def _hughes_files(source_dir):
+    files = {}
+    file_pattern = re.compile(r'^Node_(\d+)_.*\.csv$')
+    for root, _, filenames in os.walk(source_dir):
+        for filename in filenames:
+            match = file_pattern.match(filename)
+            if match is not None:
+                files[f"Node {match.group(1)}"] = os.path.join(root, filename)
+    return files
 
 def write_info_csv():
     """Write the configured site metadata to info.csv."""
@@ -520,6 +529,28 @@ def write_info_csv():
                                 info_list, row[0], float(row[1]), float(row[2]),
                                 'DMM', 'measured', data_source, event)
 
+            elif data_source == 'Hughes':
+                import json
+                if 'GIC' not in data_types or 'measured' not in data_classes:
+                    logger.info(f"   Only measured GIC data are available for data source {data_source}; skipping.")
+                    continue
+                file_dir = os.path.join(data_dir, data_source.lower())
+                name_json = json.load(open(os.path.join(file_dir, 'hughes_site_names.json')))
+                event_sites = set()
+                for node, data_file in sorted(_hughes_files(file_dir).items()):
+                    if _event_overlaps_data(event, data_file, events, logger):
+                        site_id = [key for key, value in name_json.items() if value.get("node") == float(node[-1])]
+                        if site_id:
+                            event_sites.add(site_id[0])
+                info_file = os.path.join(file_dir, 'hughes_2018_info.csv')
+                with open(info_file, 'r') as csvfile:
+                    rows = csv.reader(csvfile, delimiter=',')
+                    next(rows)
+                    for row in rows:
+                        if row[0] in event_sites:
+                            info_list = _add_info_row(
+                                info_list, row[0], float(row[1]), float(row[2]),
+                                'GIC', 'measured', data_source, event)
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")
 

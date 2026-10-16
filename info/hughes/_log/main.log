@@ -1,0 +1,899 @@
+2026-10-15T22:08:39.248015Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-15T22:08:39.267443Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T22:08:39.275329Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T22:10:18.906912Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-15T22:10:18.927860Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T22:10:18.932566Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:04:05.546257Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-15T23:04:05.561738Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:04:05.567614Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:04:11.389804Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:04:28.768827Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-15T23:04:28.768827Z INFO  main     Uniq dts [#]  = 1
+2026-10-15T23:04:29.036187Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:04:29.791800Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\GIC_measured_Hughes.pkl
+2026-10-15T23:04:30.366960Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\_all.pkl
+2026-10-15T23:04:31.004849Z INFO  main Computing stats for 'Node 1' data
+2026-10-15T23:04:31.629472Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-15T23:04:31.629472Z INFO  main   Uniq dts [#]  = 1
+2026-10-15T23:04:31.631480Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:04:31.631480Z INFO  main 
+    std: : [0.15708217157377105]
+    ave: : [0.036339154576392634]
+    min: : [-0.7636666666666667]
+    max: : [1.1095]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-15T23:04:38.293073Z INFO  main Plotting 'Node 1' data for event '2018-09-01'
+2026-10-15T23:04:38.293073Z INFO  main   Plotting 'Node 1/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:04:48.712051Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:04:49.954398Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:45:19.296838Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-15T23:45:19.327149Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:45:19.336481Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:45:27.541800Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:46:01.995473Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-15T23:46:01.995473Z INFO  main     Uniq dts [#]  = 1
+2026-10-15T23:46:02.365528Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:46:03.241888Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\GIC_measured_Hughes.pkl
+2026-10-15T23:46:03.790814Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\_all.pkl
+2026-10-15T23:46:04.397087Z INFO  main Computing stats for 'Node 1' data
+2026-10-15T23:46:05.041919Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-15T23:46:05.041919Z INFO  main   Uniq dts [#]  = 1
+2026-10-15T23:46:05.041919Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:46:05.041919Z INFO  main 
+    std: : [0.15708217157377105]
+    ave: : [0.036339154576392634]
+    min: : [-0.7636666666666667]
+    max: : [1.1095]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-15T23:46:12.154739Z INFO  main Plotting 'Node 1' data for event '2018-09-01'
+2026-10-15T23:46:12.170564Z INFO  main   Plotting 'Node 1/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:46:23.981739Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:46:25.465595Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:46:30.403666Z INFO  main Reading 'Node 2' data for event '2018-09-01'
+2026-10-15T23:46:30.427198Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:46:30.435511Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:47:03.708318Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:47:35.461517Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-15T23:47:35.461517Z INFO  main     Uniq dts [#]  = 1
+2026-10-15T23:47:35.853358Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:47:36.578231Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\GIC_measured_Hughes.pkl
+2026-10-15T23:47:37.196181Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\_all.pkl
+2026-10-15T23:47:37.904964Z INFO  main Computing stats for 'Node 2' data
+2026-10-15T23:47:38.542654Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-15T23:47:38.543445Z INFO  main   Uniq dts [#]  = 1
+2026-10-15T23:47:38.543445Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:47:38.543445Z INFO  main 
+    std: : [0.1820519171754908]
+    ave: : [-0.029106573526777712]
+    min: : [-0.3816666666666667]
+    max: : [0.46266666666666667]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-15T23:47:39.159672Z INFO  main Plotting 'Node 2' data for event '2018-09-01'
+2026-10-15T23:47:39.175330Z INFO  main   Plotting 'Node 2/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:47:45.361650Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:47:46.809984Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:47:47.204620Z INFO  main Reading 'Node 3' data for event '2018-09-01'
+2026-10-15T23:47:47.242872Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:47:47.255764Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:48:21.568304Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:48:55.363392Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-15T23:48:55.363392Z INFO  main     Uniq dts [#]  = 1
+2026-10-15T23:48:55.855243Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:48:56.691717Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node3\data\GIC_measured_Hughes.pkl
+2026-10-15T23:48:57.315872Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node3\data\_all.pkl
+2026-10-15T23:48:58.082359Z INFO  main Computing stats for 'Node 3' data
+2026-10-15T23:48:58.808136Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-15T23:48:58.808136Z INFO  main   Uniq dts [#]  = 1
+2026-10-15T23:48:58.808136Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:48:58.808136Z INFO  main 
+    std: : [0.07033414402675724]
+    ave: : [0.014682070571377399]
+    min: : [-0.46199999999999997]
+    max: : [0.21366666666666667]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-15T23:48:59.580916Z INFO  main Plotting 'Node 3' data for event '2018-09-01'
+2026-10-15T23:48:59.580916Z INFO  main   Plotting 'Node 3/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:49:06.877930Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node3/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:49:08.476936Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node3/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:49:08.914069Z INFO  main Reading 'Node 4' data for event '2018-09-01'
+2026-10-15T23:49:08.929455Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:49:08.937020Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:49:39.498074Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:50:08.964528Z INFO  main     Uniq dts [ns] = [    1000000000 12899000000000]
+2026-10-15T23:50:08.966537Z INFO  main     Uniq dts [#]  = 2
+2026-10-15T23:50:09.390334Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:50:10.066926Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node4\data\GIC_measured_Hughes.pkl
+2026-10-15T23:50:10.580318Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node4\data\_all.pkl
+2026-10-15T23:50:11.220911Z INFO  main Computing stats for 'Node 4' data
+2026-10-15T23:50:11.789119Z INFO  main   Uniq dts [ns] = [    1000000000     2000000000 12899000000000 26977000000000]
+2026-10-15T23:50:11.791126Z INFO  main   Uniq dts [#]  = 4
+2026-10-15T23:50:11.791126Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:50:11.791126Z INFO  main 
+    std: : [0.13296700759403698]
+    ave: : [0.030563631705185015]
+    min: : [-0.9836666666666667]
+    max: : [0.5518333333333333]
+    n: 1861
+    n_valid: : [1647]
+    dt_original: : [1000000000, 2000000000, 12899000000000, 26977000000000]
+2026-10-15T23:50:12.354983Z INFO  main Plotting 'Node 4' data for event '2018-09-01'
+2026-10-15T23:50:12.362158Z INFO  main   Plotting 'Node 4/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:50:17.985273Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node4/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:50:19.304885Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node4/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:50:19.649603Z INFO  main Reading 'Node 5' data for event '2018-09-01'
+2026-10-15T23:50:19.674512Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:50:19.682685Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:50:49.044571Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:51:17.361204Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-15T23:51:17.361204Z INFO  main     Uniq dts [#]  = 2
+2026-10-15T23:51:17.792997Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:51:18.544911Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node5\data\GIC_measured_Hughes.pkl
+2026-10-15T23:51:19.283094Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node5\data\_all.pkl
+2026-10-15T23:51:20.072953Z INFO  main Computing stats for 'Node 5' data
+2026-10-15T23:51:20.722669Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-15T23:51:20.722669Z INFO  main   Uniq dts [#]  = 2
+2026-10-15T23:51:20.722669Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:51:20.722669Z INFO  main 
+    std: : [0.13497951520003879]
+    ave: : [-0.009807218948563587]
+    min: : [-0.8963333333333333]
+    max: : [0.4708333333333333]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000, 2000000000]
+2026-10-15T23:51:21.367412Z INFO  main Plotting 'Node 5' data for event '2018-09-01'
+2026-10-15T23:51:21.369458Z INFO  main   Plotting 'Node 5/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:51:27.133842Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node5/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:51:28.379608Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node5/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:51:28.730556Z INFO  main Reading 'Node 6' data for event '2018-09-01'
+2026-10-15T23:51:28.759776Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:51:28.761867Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:51:57.403737Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:52:24.645126Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-15T23:52:24.645126Z INFO  main     Uniq dts [#]  = 1
+2026-10-15T23:52:25.126692Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:52:25.865668Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node6\data\GIC_measured_Hughes.pkl
+2026-10-15T23:52:26.504460Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node6\data\_all.pkl
+2026-10-15T23:52:27.264612Z INFO  main Computing stats for 'Node 6' data
+2026-10-15T23:52:27.921855Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-15T23:52:27.921855Z INFO  main   Uniq dts [#]  = 2
+2026-10-15T23:52:27.923867Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:52:27.923867Z INFO  main 
+    std: : [0.3208771839933358]
+    ave: : [-0.008246104245029556]
+    min: : [-2.7640000000000002]
+    max: : [1.2486666666666666]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000, 2000000000]
+2026-10-15T23:52:28.550084Z INFO  main Plotting 'Node 6' data for event '2018-09-01'
+2026-10-15T23:52:28.554944Z INFO  main   Plotting 'Node 6/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:52:34.565295Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node6/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:52:36.049533Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node6/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:52:36.460842Z INFO  main Reading 'Node 7' data for event '2018-09-01'
+2026-10-15T23:52:36.476893Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-15T23:52:36.487852Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-15T23:53:07.592901Z INFO  main     Running automated error checks on GIC measured data
+2026-10-15T23:54:17.020988Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-15T23:54:17.020988Z INFO  main     Uniq dts [#]  = 1
+2026-10-15T23:54:17.495150Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-15T23:54:18.346016Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node7\data\GIC_measured_Hughes.pkl
+2026-10-15T23:54:18.998255Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node7\data\_all.pkl
+2026-10-15T23:54:19.792923Z INFO  main Computing stats for 'Node 7' data
+2026-10-15T23:54:20.456393Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-15T23:54:20.456393Z INFO  main   Uniq dts [#]  = 1
+2026-10-15T23:54:20.456393Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-15T23:54:20.456393Z INFO  main 
+    std: : [0.3740095441098694]
+    ave: : [-0.003350214938205265]
+    min: : [-1.4738333333333336]
+    max: : [2.1753333333333336]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-15T23:54:21.107010Z INFO  main Plotting 'Node 7' data for event '2018-09-01'
+2026-10-15T23:54:21.107010Z INFO  main   Plotting 'Node 7/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-15T23:54:28.394648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node7/figures\original\GIC_measured_Hughes.png
+2026-10-15T23:54:29.898306Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node7/figures\original\GIC_measured_Hughes.pdf
+2026-10-15T23:54:30.329885Z INFO  main   Adding error for site 'Node 1', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.2579 A) > 1/4 * std after (0.1655 A)
+2026-10-15T23:54:30.340982Z INFO  main   Adding error for site 'Node 2', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1689 A) > 1/4 * std after (0.1839 A)
+2026-10-15T23:54:30.344709Z INFO  main   Adding error for site 'Node 3', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1348 A) > 1/4 * std after (0.0771 A)
+2026-10-15T23:54:30.349654Z INFO  main   Adding error for site 'Node 4', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1221 A) > 1/4 * std after (0.1373 A);
+Data gap detected >= 10.0 minutes (12899.0 seconds);
+Data gap detected >= 10.0 minutes (12899 seconds) due to NaN values
+2026-10-15T23:54:30.352096Z INFO  main   Adding error for site 'Node 5', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1509 A) > 1/4 * std after (0.1408 A)
+2026-10-15T23:54:30.354172Z INFO  main   Adding error for site 'Node 6', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3399 A) > 1/4 * std after (0.3348 A)
+2026-10-15T23:54:30.358634Z INFO  main   Adding error for site 'Node 7', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3577 A) > 1/4 * std after (0.3803 A)
+2026-10-15T23:54:30.408740Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-15T23:54:30.408740Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-15T23:54:30.408740Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:27:28.915349Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-16T01:27:28.933209Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:27:28.939315Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:27:31.710915Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:27:42.090192Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:27:42.090192Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:27:42.224889Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:27:42.528968Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\GIC_measured_Hughes.pkl
+2026-10-16T01:27:42.799940Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\_all.pkl
+2026-10-16T01:27:43.149073Z INFO  main Computing stats for 'Node 1' data
+2026-10-16T01:27:43.412041Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:27:43.412041Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:27:43.412041Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:27:43.412041Z INFO  main 
+    std: : [0.15708217157377105]
+    ave: : [0.036339154576392634]
+    min: : [-0.7636666666666667]
+    max: : [1.1095]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-16T01:27:47.808168Z INFO  main Plotting 'Node 1' data for event '2018-09-01'
+2026-10-16T01:27:47.815923Z INFO  main   Plotting 'Node 1/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:27:53.206024Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:27:53.797721Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:27:56.800605Z INFO  main Reading 'Node 2' data for event '2018-09-01'
+2026-10-16T01:27:56.816784Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:27:56.818873Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:28:09.887944Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:28:23.496065Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:28:23.496065Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:28:23.762210Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:28:24.126813Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\GIC_measured_Hughes.pkl
+2026-10-16T01:28:24.486805Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\_all.pkl
+2026-10-16T01:28:24.947381Z INFO  main Computing stats for 'Node 2' data
+2026-10-16T01:28:25.254468Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:28:25.254468Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:28:25.254468Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:28:25.254468Z INFO  main 
+    std: : [0.1820519171754908]
+    ave: : [-0.029106573526777712]
+    min: : [-0.3816666666666667]
+    max: : [0.46266666666666667]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-16T01:28:25.650324Z INFO  main Plotting 'Node 2' data for event '2018-09-01'
+2026-10-16T01:28:25.657541Z INFO  main   Plotting 'Node 2/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:28:28.740404Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:28:29.419137Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:28:29.602261Z INFO  main Reading 'Node 3' data for event '2018-09-01'
+2026-10-16T01:28:29.612988Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:28:29.618415Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:28:45.823853Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:31:53.271905Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-16T01:31:53.281683Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:31:53.284151Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:31:56.182083Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:32:07.481814Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:32:07.482814Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:32:07.623271Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:32:07.949578Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\GIC_measured_Hughes.pkl
+2026-10-16T01:32:08.207155Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\_all.pkl
+2026-10-16T01:32:08.509588Z INFO  main Computing stats for 'Node 1' data
+2026-10-16T01:32:08.758038Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:32:08.758038Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:32:08.758038Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:32:08.758038Z INFO  main 
+    std: : [0.15708217157377105]
+    ave: : [0.036339154576392634]
+    min: : [-0.7636666666666667]
+    max: : [1.1095]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-16T01:32:09.403797Z INFO  main Plotting 'Node 1' data for event '2018-09-01'
+2026-10-16T01:32:09.405307Z INFO  main   Plotting 'Node 1/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:32:11.941550Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:32:12.523346Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:32:12.808783Z INFO  main Reading 'Node 2' data for event '2018-09-01'
+2026-10-16T01:32:12.816326Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:32:12.818377Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:32:27.140784Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:32:39.199962Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:32:39.200962Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:32:39.385015Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:32:39.689602Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\GIC_measured_Hughes.pkl
+2026-10-16T01:32:39.988140Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\_all.pkl
+2026-10-16T01:32:40.405168Z INFO  main Computing stats for 'Node 2' data
+2026-10-16T01:32:40.674061Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:32:40.674061Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:32:40.675300Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:32:40.675300Z INFO  main 
+    std: : [0.1820519171754908]
+    ave: : [-0.029106573526777712]
+    min: : [-0.3816666666666667]
+    max: : [0.46266666666666667]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-16T01:32:40.942070Z INFO  main Plotting 'Node 2' data for event '2018-09-01'
+2026-10-16T01:32:40.942070Z INFO  main   Plotting 'Node 2/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:32:43.636903Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:32:44.232904Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:32:44.370770Z INFO  main Reading 'Node 3' data for event '2018-09-01'
+2026-10-16T01:32:44.388320Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:32:44.393691Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:32:59.617823Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:33:15.272588Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:33:15.272588Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:33:15.656767Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:33:16.230588Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node3\data\GIC_measured_Hughes.pkl
+2026-10-16T01:33:16.701108Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node3\data\_all.pkl
+2026-10-16T01:33:17.311702Z INFO  main Computing stats for 'Node 3' data
+2026-10-16T01:33:17.830118Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:33:17.830118Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:33:17.830118Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:33:17.830118Z INFO  main 
+    std: : [0.07033414402675724]
+    ave: : [0.014682070571377399]
+    min: : [-0.46199999999999997]
+    max: : [0.21366666666666667]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-16T01:33:18.297896Z INFO  main Plotting 'Node 3' data for event '2018-09-01'
+2026-10-16T01:33:18.297896Z INFO  main   Plotting 'Node 3/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:33:22.178575Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node3/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:33:23.128236Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node3/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:33:23.407228Z INFO  main Reading 'Node 4' data for event '2018-09-01'
+2026-10-16T01:33:23.419459Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:33:23.424223Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:33:37.501412Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:33:50.604496Z INFO  main     Uniq dts [ns] = [    1000000000 12899000000000]
+2026-10-16T01:33:50.604496Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T01:33:50.826576Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:33:51.078223Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node4\data\GIC_measured_Hughes.pkl
+2026-10-16T01:33:51.339438Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node4\data\_all.pkl
+2026-10-16T01:33:51.865191Z INFO  main Computing stats for 'Node 4' data
+2026-10-16T01:33:52.081030Z INFO  main   Uniq dts [ns] = [    1000000000     2000000000 12899000000000 26977000000000]
+2026-10-16T01:33:52.081030Z INFO  main   Uniq dts [#]  = 4
+2026-10-16T01:33:52.081030Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:33:52.081030Z INFO  main 
+    std: : [0.13296700759403698]
+    ave: : [0.030563631705185015]
+    min: : [-0.9836666666666667]
+    max: : [0.5518333333333333]
+    n: 1861
+    n_valid: : [1647]
+    dt_original: : [1000000000, 2000000000, 12899000000000, 26977000000000]
+2026-10-16T01:33:52.295667Z INFO  main Plotting 'Node 4' data for event '2018-09-01'
+2026-10-16T01:33:52.295667Z INFO  main   Plotting 'Node 4/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:33:54.749737Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node4/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:33:55.290974Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node4/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:33:55.504600Z INFO  main Reading 'Node 5' data for event '2018-09-01'
+2026-10-16T01:33:55.530724Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:33:55.534633Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:34:09.398061Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:34:23.270154Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:34:23.270154Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T01:34:23.527907Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:34:23.822112Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node5\data\GIC_measured_Hughes.pkl
+2026-10-16T01:34:24.107816Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node5\data\_all.pkl
+2026-10-16T01:34:24.479992Z INFO  main Computing stats for 'Node 5' data
+2026-10-16T01:34:24.729024Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:34:24.729024Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T01:34:24.729024Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:34:24.729024Z INFO  main 
+    std: : [0.13497951520003879]
+    ave: : [-0.009807218948563587]
+    min: : [-0.8963333333333333]
+    max: : [0.4708333333333333]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T01:34:24.983653Z INFO  main Plotting 'Node 5' data for event '2018-09-01'
+2026-10-16T01:34:24.983653Z INFO  main   Plotting 'Node 5/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:34:27.692983Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node5/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:34:28.521136Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node5/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:34:28.732577Z INFO  main Reading 'Node 6' data for event '2018-09-01'
+2026-10-16T01:34:28.749226Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:34:28.753712Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:34:42.873662Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:34:59.505671Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:34:59.506671Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:34:59.889947Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:35:00.432896Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node6\data\GIC_measured_Hughes.pkl
+2026-10-16T01:35:00.879353Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node6\data\_all.pkl
+2026-10-16T01:35:01.442924Z INFO  main Computing stats for 'Node 6' data
+2026-10-16T01:35:01.948082Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:35:01.948082Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T01:35:01.948082Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:35:01.948082Z INFO  main 
+    std: : [0.3208771839933358]
+    ave: : [-0.008246104245029556]
+    min: : [-2.7640000000000002]
+    max: : [1.2486666666666666]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T01:35:02.414806Z INFO  main Plotting 'Node 6' data for event '2018-09-01'
+2026-10-16T01:35:02.423159Z INFO  main   Plotting 'Node 6/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:35:06.072676Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node6/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:35:06.756450Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node6/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:35:06.916898Z INFO  main Reading 'Node 7' data for event '2018-09-01'
+2026-10-16T01:35:06.926455Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:35:06.928451Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:35:23.864864Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:35:37.450154Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:35:37.450154Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:35:37.644482Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:35:37.967142Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node7\data\GIC_measured_Hughes.pkl
+2026-10-16T01:35:38.311950Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node7\data\_all.pkl
+2026-10-16T01:35:38.795259Z INFO  main Computing stats for 'Node 7' data
+2026-10-16T01:35:39.085515Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:35:39.086518Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:35:39.086518Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:35:39.086518Z INFO  main 
+    std: : [0.3740095441098694]
+    ave: : [-0.003350214938205265]
+    min: : [-1.4738333333333336]
+    max: : [2.1753333333333336]
+    n: 1861
+    n_valid: : [1861]
+    dt_original: : [1000000000]
+2026-10-16T01:35:39.388129Z INFO  main Plotting 'Node 7' data for event '2018-09-01'
+2026-10-16T01:35:39.393258Z INFO  main   Plotting 'Node 7/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:35:42.000409Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node7/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:35:42.598875Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node7/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:35:42.756465Z INFO  main   Adding error for site 'Node 1', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.2579 A) > 1/4 * std after (0.1655 A)
+2026-10-16T01:35:42.756465Z INFO  main   Adding error for site 'Node 2', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1689 A) > 1/4 * std after (0.1839 A)
+2026-10-16T01:35:42.763109Z INFO  main   Adding error for site 'Node 3', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1348 A) > 1/4 * std after (0.0771 A)
+2026-10-16T01:35:42.764666Z INFO  main   Adding error for site 'Node 4', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1221 A) > 1/4 * std after (0.1373 A);
+Data gap detected >= 10.0 minutes (12899.0 seconds);
+Data gap detected >= 10.0 minutes (12899 seconds) due to NaN values
+2026-10-16T01:35:42.765672Z INFO  main   Adding error for site 'Node 5', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1509 A) > 1/4 * std after (0.1408 A)
+2026-10-16T01:35:42.765672Z INFO  main   Adding error for site 'Node 6', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3399 A) > 1/4 * std after (0.3348 A)
+2026-10-16T01:35:42.766671Z INFO  main   Adding error for site 'Node 7', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3577 A) > 1/4 * std after (0.3803 A)
+2026-10-16T01:35:42.767673Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-16T01:35:42.772624Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:35:42.776441Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:41:17.121760Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-16T01:41:17.137820Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:41:17.151291Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:41:40.296257Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-16T01:41:40.319381Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:41:40.336459Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:41:44.641781Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:44:50.950600Z INFO  main Reading 'Node 1' data for event '2018-09-01'
+2026-10-16T01:44:50.964347Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:44:50.980288Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:44:55.634205Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:45:16.849454Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:45:16.849454Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:45:17.114084Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:45:17.689592Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\GIC_measured_Hughes.pkl
+2026-10-16T01:45:18.343063Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node1\data\_all.pkl
+2026-10-16T01:45:18.869225Z INFO  main Computing stats for 'Node 1' data
+2026-10-16T01:45:19.302392Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:45:19.302392Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:45:19.302392Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:45:19.302392Z INFO  main 
+    std: : [0.5232649495887918]
+    ave: : [0.0014176068969507603]
+    min: : [-3.5881666666666665]
+    max: : [17.4965]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000]
+2026-10-16T01:45:20.018395Z INFO  main Plotting 'Node 1' data for event '2018-09-01'
+2026-10-16T01:45:20.018395Z INFO  main   Plotting 'Node 1/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:45:22.234094Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:45:22.873769Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node1/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:45:23.220660Z INFO  main Reading 'Node 2' data for event '2018-09-01'
+2026-10-16T01:45:23.228116Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:45:23.232332Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:45:36.752228Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:46:06.937205Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:46:06.937205Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T01:46:07.337723Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:46:07.938869Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\GIC_measured_Hughes.pkl
+2026-10-16T01:46:08.549443Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node2\data\_all.pkl
+2026-10-16T01:46:09.179226Z INFO  main Computing stats for 'Node 2' data
+2026-10-16T01:46:09.685596Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:46:09.685596Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T01:46:09.685596Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:46:09.685596Z INFO  main 
+    std: : [0.19360620790644836]
+    ave: : [0.003979910208620796]
+    min: : [-0.48133333333333334]
+    max: : [0.5401666666666667]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T01:46:10.090331Z INFO  main Plotting 'Node 2' data for event '2018-09-01'
+2026-10-16T01:46:10.106106Z INFO  main   Plotting 'Node 2/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:46:12.058694Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:46:12.629369Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node2/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:46:12.788815Z INFO  main Reading 'Node 3' data for event '2018-09-01'
+2026-10-16T01:46:12.809828Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:46:12.813956Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:46:28.798978Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:46:49.805631Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:46:49.805631Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T01:46:50.176987Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:46:50.763094Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node3\data\GIC_measured_Hughes.pkl
+2026-10-16T01:46:51.582802Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node3\data\_all.pkl
+2026-10-16T01:46:52.153512Z INFO  main Computing stats for 'Node 3' data
+2026-10-16T01:46:52.590504Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:46:52.592518Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T01:46:52.592518Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:46:52.592518Z INFO  main 
+    std: : [0.10867000371650533]
+    ave: : [-0.00564519362124239]
+    min: : [-0.5185]
+    max: : [0.5543333333333333]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T01:46:53.005825Z INFO  main Plotting 'Node 3' data for event '2018-09-01'
+2026-10-16T01:46:53.005825Z INFO  main   Plotting 'Node 3/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:46:55.227522Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node3/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:46:55.907118Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node3/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:46:56.107589Z INFO  main Reading 'Node 4' data for event '2018-09-01'
+2026-10-16T01:46:56.121817Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:46:56.126517Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:47:09.162668Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:47:29.992234Z INFO  main     Uniq dts [ns] = [    1000000000     2000000000 12899000000000 15025000000000
+ 20523000000000 26977000000000]
+2026-10-16T01:47:30.069186Z INFO  main     Uniq dts [#]  = 6
+2026-10-16T01:47:30.339600Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:47:30.945534Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node4\data\GIC_measured_Hughes.pkl
+2026-10-16T01:47:31.549353Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node4\data\_all.pkl
+2026-10-16T01:47:32.086583Z INFO  main Computing stats for 'Node 4' data
+2026-10-16T01:47:32.487841Z INFO  main   Uniq dts [ns] = [    1000000000     2000000000  9686000000000 12899000000000
+ 15025000000000 20523000000000 26977000000000]
+2026-10-16T01:47:32.488840Z INFO  main   Uniq dts [#]  = 7
+2026-10-16T01:47:32.488840Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:47:32.488840Z INFO  main 
+    std: : [0.1175572602732859]
+    ave: : [0.030322732880957146]
+    min: : [-0.9836666666666667]
+    max: : [0.5518333333333333]
+    n: 5761
+    n_valid: : [4509]
+    dt_original: : [1000000000 nanoseconds, 2000000000 nanoseconds, ..., 20523000000000 nanoseconds, 26977000000000 nanoseconds] (7 elements)
+2026-10-16T01:47:32.868138Z INFO  main Plotting 'Node 4' data for event '2018-09-01'
+2026-10-16T01:47:32.873211Z INFO  main   Plotting 'Node 4/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:47:36.620936Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node4/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:47:37.232992Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node4/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:47:37.382554Z INFO  main Reading 'Node 5' data for event '2018-09-01'
+2026-10-16T01:47:37.410654Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:47:37.421698Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:47:53.710475Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:48:15.511868Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:48:15.511868Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T01:48:15.854272Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:48:16.465553Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node5\data\GIC_measured_Hughes.pkl
+2026-10-16T01:48:17.255600Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node5\data\_all.pkl
+2026-10-16T01:48:18.036907Z INFO  main Computing stats for 'Node 5' data
+2026-10-16T01:48:18.510337Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:48:18.511883Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T01:48:18.511883Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:48:18.511883Z INFO  main 
+    std: : [0.13946125324085618]
+    ave: : [0.002009572451424296]
+    min: : [-0.8963333333333333]
+    max: : [0.5021666666666667]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T01:48:18.971041Z INFO  main Plotting 'Node 5' data for event '2018-09-01'
+2026-10-16T01:48:18.974041Z INFO  main   Plotting 'Node 5/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:48:21.688167Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node5/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:48:22.304998Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node5/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:48:22.456741Z INFO  main Reading 'Node 6' data for event '2018-09-01'
+2026-10-16T01:48:22.468708Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:48:22.471717Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:48:36.497513Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:48:57.709737Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:48:57.709737Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T01:48:58.090930Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:48:58.705228Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node6\data\GIC_measured_Hughes.pkl
+2026-10-16T01:48:59.513184Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node6\data\_all.pkl
+2026-10-16T01:49:00.237210Z INFO  main Computing stats for 'Node 6' data
+2026-10-16T01:49:00.712548Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T01:49:00.712548Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T01:49:00.712548Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:49:00.712548Z INFO  main 
+    std: : [0.3237777798809493]
+    ave: : [0.006503688350559032]
+    min: : [-2.7640000000000002]
+    max: : [1.2486666666666666]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T01:49:01.186407Z INFO  main Plotting 'Node 6' data for event '2018-09-01'
+2026-10-16T01:49:01.188416Z INFO  main   Plotting 'Node 6/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:49:03.447182Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node6/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:49:04.133103Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node6/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:49:04.299201Z INFO  main Reading 'Node 7' data for event '2018-09-01'
+2026-10-16T01:49:04.311957Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T01:49:04.315253Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T01:49:32.325102Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T01:49:55.775143Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T01:49:55.775143Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T01:49:56.139979Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T01:49:56.714929Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node7\data\GIC_measured_Hughes.pkl
+2026-10-16T01:49:57.606376Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\node7\data\_all.pkl
+2026-10-16T01:49:58.368891Z INFO  main Computing stats for 'Node 7' data
+2026-10-16T01:49:58.851742Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T01:49:58.851742Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T01:49:58.851742Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T01:49:58.851742Z INFO  main 
+    std: : [0.3909558625799943]
+    ave: : [0.011760197882312097]
+    min: : [-1.7811666666666668]
+    max: : [2.1753333333333336]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000]
+2026-10-16T01:49:59.333572Z INFO  main Plotting 'Node 7' data for event '2018-09-01'
+2026-10-16T01:49:59.337116Z INFO  main   Plotting 'Node 7/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T01:50:01.519756Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node7/figures\original\GIC_measured_Hughes.png
+2026-10-16T01:50:02.162819Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/node7/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T01:50:02.313869Z INFO  main   Adding error for site 'Node 1', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.2602 A) > 1/4 * std after (0.5527 A)
+2026-10-16T01:50:02.313869Z INFO  main   Adding error for site 'Node 2', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1675 A) > 1/4 * std after (0.1950 A)
+2026-10-16T01:50:02.329139Z INFO  main   Adding error for site 'Node 3', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1355 A) > 1/4 * std after (0.1134 A)
+2026-10-16T01:50:02.330845Z INFO  main   Adding error for site 'Node 4', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1223 A) > 1/4 * std after (0.1225 A);
+Data gap detected >= 10.0 minutes (26977.0 seconds);
+Data gap detected >= 10.0 minutes (26977 seconds) due to NaN values
+2026-10-16T01:50:02.332371Z INFO  main   Adding error for site 'Node 5', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.1513 A) > 1/4 * std after (0.1441 A)
+2026-10-16T01:50:02.336546Z INFO  main   Adding error for site 'Node 6', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3374 A) > 1/4 * std after (0.3342 A)
+2026-10-16T01:50:02.338559Z INFO  main   Adding error for site 'Node 7', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.3634 A) > 1/4 * std after (0.4002 A)
+2026-10-16T01:50:02.351620Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-16T01:50:02.351620Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:50:02.351620Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T03:42:18.533998Z INFO  main Reading 'Bu' data for event '2018-09-01'
+2026-10-16T03:42:18.542005Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:43:53.224058Z INFO  main Reading 'Bu' data for event '2018-09-01'
+2026-10-16T03:43:53.234049Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:45:09.471007Z INFO  main Reading 'Bu' data for event '2018-09-01'
+2026-10-16T03:45:09.480892Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:45:09.484335Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:45:23.708001Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:45:42.912000Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:45:42.912000Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T03:45:43.166106Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:45:43.811595Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\bu\data\GIC_measured_Hughes.pkl
+2026-10-16T03:45:44.483711Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\bu\data\_all.pkl
+2026-10-16T03:45:45.082452Z INFO  main Computing stats for 'Bu' data
+2026-10-16T03:45:45.564956Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:45:45.564956Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T03:45:45.564956Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:45:45.564956Z INFO  main 
+    std: : [0.10867000371650533]
+    ave: : [-0.00564519362124239]
+    min: : [-0.5185]
+    max: : [0.5543333333333333]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T03:45:46.264160Z INFO  main Plotting 'Bu' data for event '2018-09-01'
+2026-10-16T03:45:46.264160Z INFO  main   Plotting 'Bu/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:45:49.910915Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/bu/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:45:50.549773Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/bu/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:45:52.816039Z INFO  main Reading 'Me' data for event '2018-09-01'
+2026-10-16T03:45:52.826956Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:45:52.830199Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:46:06.886248Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:46:26.659830Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T03:46:26.659830Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T03:46:27.035991Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:46:27.585330Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\me\data\GIC_measured_Hughes.pkl
+2026-10-16T03:46:28.280153Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\me\data\_all.pkl
+2026-10-16T03:46:28.962528Z INFO  main Computing stats for 'Me' data
+2026-10-16T03:46:29.393062Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T03:46:29.393062Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T03:46:29.393062Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:46:29.393062Z INFO  main 
+    std: : [0.3909558625799943]
+    ave: : [0.011760197882312097]
+    min: : [-1.7811666666666668]
+    max: : [2.1753333333333336]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000]
+2026-10-16T03:46:29.846904Z INFO  main Plotting 'Me' data for event '2018-09-01'
+2026-10-16T03:46:29.848913Z INFO  main   Plotting 'Me/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:46:31.955643Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/me/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:46:32.659227Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/me/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:46:32.822397Z INFO  main Reading 'Mo' data for event '2018-09-01'
+2026-10-16T03:46:32.836104Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:46:32.839555Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:46:46.762794Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:47:09.089573Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:47:09.089573Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T03:47:09.488244Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:47:10.145892Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\mo\data\GIC_measured_Hughes.pkl
+2026-10-16T03:47:10.994145Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\mo\data\_all.pkl
+2026-10-16T03:47:11.722776Z INFO  main Computing stats for 'Mo' data
+2026-10-16T03:47:12.239897Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:47:12.239897Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T03:47:12.239897Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:47:12.239897Z INFO  main 
+    std: : [0.13946125324085618]
+    ave: : [0.002009572451424296]
+    min: : [-0.8963333333333333]
+    max: : [0.5021666666666667]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T03:47:12.691307Z INFO  main Plotting 'Mo' data for event '2018-09-01'
+2026-10-16T03:47:12.692307Z INFO  main   Plotting 'Mo/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:47:14.908882Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/mo/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:47:15.473470Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/mo/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:47:15.645191Z INFO  main Reading 'Pa' data for event '2018-09-01'
+2026-10-16T03:47:15.662816Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:47:15.664870Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:47:29.512216Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:47:49.501137Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:47:49.501137Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T03:47:49.843445Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:47:50.460635Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\pa\data\GIC_measured_Hughes.pkl
+2026-10-16T03:47:51.227856Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\pa\data\_all.pkl
+2026-10-16T03:47:51.901537Z INFO  main Computing stats for 'Pa' data
+2026-10-16T03:47:52.364025Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:47:52.364025Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T03:47:52.364025Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:47:52.364025Z INFO  main 
+    std: : [0.3237777798809493]
+    ave: : [0.006503688350559032]
+    min: : [-2.7640000000000002]
+    max: : [1.2486666666666666]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T03:47:52.827345Z INFO  main Plotting 'Pa' data for event '2018-09-01'
+2026-10-16T03:47:52.846358Z INFO  main   Plotting 'Pa/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:47:55.314258Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/pa/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:47:55.997792Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/pa/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:47:56.164843Z INFO  main Reading 'Sh' data for event '2018-09-01'
+2026-10-16T03:47:56.170208Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:47:56.172769Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:48:10.601912Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:48:30.332403Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:48:30.332403Z INFO  main     Uniq dts [#]  = 2
+2026-10-16T03:48:30.708725Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:48:31.353212Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\sh\data\GIC_measured_Hughes.pkl
+2026-10-16T03:48:32.164454Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\sh\data\_all.pkl
+2026-10-16T03:48:32.867980Z INFO  main Computing stats for 'Sh' data
+2026-10-16T03:48:33.355877Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-16T03:48:33.355877Z INFO  main   Uniq dts [#]  = 2
+2026-10-16T03:48:33.355877Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:48:33.355877Z INFO  main 
+    std: : [0.19360620790644836]
+    ave: : [0.003979910208620796]
+    min: : [-0.48133333333333334]
+    max: : [0.5401666666666667]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-16T03:48:33.786499Z INFO  main Plotting 'Sh' data for event '2018-09-01'
+2026-10-16T03:48:33.787889Z INFO  main   Plotting 'Sh/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:48:36.043650Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/sh/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:48:36.664588Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/sh/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:48:36.824391Z INFO  main Reading 'Vi' data for event '2018-09-01'
+2026-10-16T03:48:36.833756Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:48:36.836759Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:48:41.284931Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:49:00.665403Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-16T03:49:00.665403Z INFO  main     Uniq dts [#]  = 1
+2026-10-16T03:49:01.008482Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:49:01.608758Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\vi\data\GIC_measured_Hughes.pkl
+2026-10-16T03:49:02.417784Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\vi\data\_all.pkl
+2026-10-16T03:49:03.169531Z INFO  main Computing stats for 'Vi' data
+2026-10-16T03:49:03.710345Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-16T03:49:03.711351Z INFO  main   Uniq dts [#]  = 1
+2026-10-16T03:49:03.711351Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:49:03.711351Z INFO  main 
+    std: : [0.5232649495887918]
+    ave: : [0.0014176068969507603]
+    min: : [-3.5881666666666665]
+    max: : [17.4965]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000]
+2026-10-16T03:49:04.199268Z INFO  main Plotting 'Vi' data for event '2018-09-01'
+2026-10-16T03:49:04.199268Z INFO  main   Plotting 'Vi/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:49:06.417093Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/vi/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:49:07.032951Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/vi/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:49:07.198205Z INFO  main Reading 'We' data for event '2018-09-01'
+2026-10-16T03:49:07.211338Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-16T03:49:07.213852Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-16T03:49:20.837402Z INFO  main     Running automated error checks on GIC measured data
+2026-10-16T03:49:36.783289Z INFO  main     Uniq dts [ns] = [    1000000000     2000000000 12899000000000 15025000000000
+ 20523000000000 26977000000000]
+2026-10-16T03:49:36.783289Z INFO  main     Uniq dts [#]  = 6
+2026-10-16T03:49:37.088993Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-16T03:49:37.604378Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\we\data\GIC_measured_Hughes.pkl
+2026-10-16T03:49:38.262528Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\we\data\_all.pkl
+2026-10-16T03:49:38.760594Z INFO  main Computing stats for 'We' data
+2026-10-16T03:49:39.176502Z INFO  main   Uniq dts [ns] = [    1000000000     2000000000  9686000000000 12899000000000
+ 15025000000000 20523000000000 26977000000000]
+2026-10-16T03:49:39.178246Z INFO  main   Uniq dts [#]  = 7
+2026-10-16T03:49:39.178246Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-16T03:49:39.178246Z INFO  main 
+    std: : [0.1175572602732859]
+    ave: : [0.030322732880957146]
+    min: : [-0.9836666666666667]
+    max: : [0.5518333333333333]
+    n: 5761
+    n_valid: : [4509]
+    dt_original: : [1000000000 nanoseconds, 2000000000 nanoseconds, ..., 20523000000000 nanoseconds, 26977000000000 nanoseconds] (7 elements)
+2026-10-16T03:49:39.572063Z INFO  main Plotting 'We' data for event '2018-09-01'
+2026-10-16T03:49:39.587268Z INFO  main   Plotting 'We/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-16T03:49:41.684623Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/we/figures\original\GIC_measured_Hughes.png
+2026-10-16T03:49:42.303979Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/we/figures\original\GIC_measured_Hughes.pdf
+2026-10-16T03:49:42.486133Z INFO  main   Adding error for site 'Bu', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1355 A) > 1/4 * std after (0.1134 A)
+2026-10-16T03:49:42.488140Z INFO  main   Adding error for site 'Me', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.3634 A) > 1/4 * std after (0.4002 A)
+2026-10-16T03:49:42.488140Z INFO  main   Adding error for site 'Mo', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.1513 A) > 1/4 * std after (0.1441 A)
+2026-10-16T03:49:42.493589Z INFO  main   Adding error for site 'Pa', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3374 A) > 1/4 * std after (0.3342 A)
+2026-10-16T03:49:42.494873Z INFO  main   Adding error for site 'Sh', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1675 A) > 1/4 * std after (0.1950 A)
+2026-10-16T03:49:42.494873Z INFO  main   Adding error for site 'Vi', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.2602 A) > 1/4 * std after (0.5527 A)
+2026-10-16T03:49:42.495872Z INFO  main   Adding error for site 'We', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1223 A) > 1/4 * std after (0.1225 A);
+Data gap detected >= 10.0 minutes (26977.0 seconds);
+Data gap detected >= 10.0 minutes (26977 seconds) due to NaN values
+2026-10-16T03:49:42.500205Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-16T03:49:42.500205Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T03:49:42.503662Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json

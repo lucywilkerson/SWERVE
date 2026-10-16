@@ -1,0 +1,166 @@
+[2026-10-16T07:26:56.304859Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 683, in <module>
+    info_df = pd.read_csv(CONFIG['files']['info'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1898, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "parsers.pyx", line 581, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+
+[2026-10-16T07:26:56.343759Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 683, in <module>
+    info_df = pd.read_csv(CONFIG['files']['info'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\readers.py", line 1898, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "parsers.pyx", line 581, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+
+[2026-10-16T07:30:06.167602Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 542, in write_info_csv
+    print(name_json['node'])
+          ~~~~~~~~~^^^^^^^^
+KeyError: 'node'
+
+[2026-10-16T07:30:06.170516Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 542, in write_info_csv
+    print(name_json['node'])
+          ~~~~~~~~~^^^^^^^^
+KeyError: 'node'
+
+[2026-10-16T07:35:41.420667Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 543, in write_info_csv
+    print([key for key, value in name_json.items() if float(value.get("node")) == site_id[-1]])
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+
+[2026-10-16T07:35:41.445948Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 543, in write_info_csv
+    print([key for key, value in name_json.items() if float(value.get("node")) == site_id[-1]])
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+
+[2026-10-16T07:37:33.502597Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 552, in write_info_csv
+    info_list, row[0], float(row[1]), float(row[2]),
+                       ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-16T07:37:33.505591Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 552, in write_info_csv
+    info_list, row[0], float(row[1]), float(row[2]),
+                       ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-16T07:38:04.167013Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 553, in write_info_csv
+    info_list, row[0], float(row[1]), float(row[2]),
+                       ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-16T07:38:04.169541Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 553, in write_info_csv
+    info_list, row[0], float(row[1]), float(row[2]),
+                       ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-16T07:40:09.019758Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 553, in write_info_csv
+    info_list, row[0], float(row[1]), float(row[2]),
+                       ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+
+[2026-10-16T07:40:09.108404Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 679, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 553, in write_info_csv
+    info_list, row[0], float(row[1]), float(row[2]),
+                       ^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+

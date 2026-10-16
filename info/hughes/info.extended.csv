@@ -1,0 +1,14 @@
+site_id,geo_lat,geo_lon,data_type,data_class,data_source,event,manual_error,interpolated_beta,log10_beta,mag_lat,mag_lon,alpha,nearest_volt,power_pool,US_region,automated_error
+Bu,36.0193,-84.1575,GIC,measured,Hughes,2018-09-01,,0.5554131998087664,-0.2553838031309736,45.28551003201103,-13.244746177962131,0.1826978423800584,500.0,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1355 A) > 1/4 * std after (0.1134 A)"
+Me,37.26,-86.98,GIC,measured,Hughes,2018-09-01,,0.6770870532702755,-0.1693554903630157,46.40479886053122,-16.585710861321154,0.2077949692843975,500.0,SERTP,East,Excessive pre-storm noise: std before (0.3634 A) > 1/4 * std after (0.4002 A)
+Mo,36.5949,-87.2533,GIC,measured,Hughes,2018-09-01,,1.0349744841285202,0.0149296429921811,45.727916739239134,-16.843213983296394,0.1922334319604471,500.0,SERTP,East,Excessive pre-storm noise: std before (0.1513 A) > 1/4 * std after (0.1441 A)
+Pa,39.07,-78.28,GIC,measured,Hughes,2018-09-01,,2.0819957805336418,0.3184798450146648,48.50119031145398,-6.587134603714783,0.2644459508533149,138.0,PJM,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3374 A) > 1/4 * std after (0.3342 A)"
+Sh,35.3859,-89.8042,GIC,measured,Hughes,2018-09-01,,0.6428864352302863,-0.1918657376648349,44.38976180768165,-19.65018980564009,0.1648148310865592,500.0,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1675 A) > 1/4 * std after (0.1950 A)"
+Vi,34.04,-117.32,GIC,measured,Hughes,2018-09-01,,1.3264738473017137,0.1226986918724236,40.48464167133017,-49.97664329392941,0.1051863766300002,230.0,CAISO,West,Excessive pre-storm noise: std before (0.2602 A) > 1/4 * std after (0.5527 A)
+We,36.2752,-88.8347,GIC,measured,Hughes,2018-09-01,,0.9126381392221878,-0.0397013859823397,45.32946216900647,-18.62734603709919,0.183623625561314,500.0,SERTP,East,"Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1223 A) > 1/4 * std after (0.1225 A);
+Data gap detected >= 10.0 minutes (26977.0 seconds);
+Data gap detected >= 10.0 minutes (26977 seconds) due to NaN values"

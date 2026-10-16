@@ -914,3 +914,54 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger):
             "labels": ["Bx", "By", "Bz"],
             "unit": "nT"
           }
+
+  if data_type == 'GIC' and data_class == 'measured' and data_source == 'Hughes':
+    import json
+    # Find node #
+    name_json = json.load(open(os.path.join(data_dir, data_source.lower(), 'hughes_site_names.json')))
+    sid_node = name_json[sid]['node']
+    # Read data
+    data_path = os.path.join(data_dir, data_source.lower(), '2018', 'gic')
+    data_file = os.path.join(data_path, f"Node_{sid_node}_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv")
+    if not os.path.exists(data_file):
+      raise FileNotFoundError(f"Data file not found: {data_file}")
+
+    logger.info(f"    Reading {data_file}")
+
+    time = []
+    data = []
+
+    read_start = None
+    read_stop = None
+    if start is not None and stop is not None:
+      read_start = datetime.datetime.fromisoformat(str(start)) - datetime.timedelta(days=1)
+      read_stop = datetime.datetime.fromisoformat(str(stop)) + datetime.timedelta(days=1)
+      read_start = read_start.strftime('%Y-%m-%d/%H:%M:%S')
+      read_stop = read_stop.strftime('%Y-%m-%d/%H:%M:%S')
+
+    with open(data_file, 'r') as csvfile:
+        next(csvfile)  # Skip header row
+        rows = csv.reader(csvfile, delimiter=',')
+        for row in rows:
+            if read_start is not None and row[0] < read_start:
+              continue
+            if read_stop is not None and row[0] > read_stop:
+              break
+            time.append(datetime.datetime.strptime(row[0], '%Y-%m-%d/%H:%M:%S'))
+            data.append(float(row[1]) if row[1] != '' else numpy.nan)
+
+    if numpy.all(numpy.isnan(numpy.array(data))):
+      return {
+            "time": numpy.array(time),
+            "data": numpy.array(data).reshape(-1, 1),
+            "labels": ["GIC"],
+            "unit": "A",
+            "error": "All data values are NaN"
+          }
+
+    return {
+            "time": numpy.array(time),
+            "data": numpy.array(data).reshape(-1, 1),
+            "labels": ["GIC"],
+            "unit": "A"
+          }

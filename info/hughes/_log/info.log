@@ -1,0 +1,105 @@
+2026-10-15T22:02:42.113433Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-15T22:02:42.440129Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-15T22:02:42.480062Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-15T22:02:54.750703Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-15T22:02:54.750703Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-15T22:02:55.965555Z WARN  info     Warning: Could not interpolate beta for site Node 1 at (nan,nan)
+2026-10-15T22:02:55.965555Z WARN  info     Warning: Could not interpolate beta for site Node 2 at (nan,nan)
+2026-10-15T22:02:55.965555Z WARN  info     Warning: Could not interpolate beta for site Node 3 at (nan,nan)
+2026-10-15T22:02:55.965555Z WARN  info     Warning: Could not interpolate beta for site Node 4 at (nan,nan)
+2026-10-15T22:02:55.969610Z WARN  info     Warning: Could not interpolate beta for site Node 5 at (nan,nan)
+2026-10-15T22:02:55.969610Z WARN  info     Warning: Could not interpolate beta for site Node 6 at (nan,nan)
+2026-10-15T22:02:55.969610Z WARN  info     Warning: Could not interpolate beta for site Node 7 at (nan,nan)
+2026-10-15T22:02:56.603747Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-15T22:02:56.776007Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-15T22:03:06.261665Z INFO  info Adding nearest voltage to extended info_df
+2026-10-15T22:03:16.409042Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-15T22:03:16.409042Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-15T22:03:20.268050Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-15T22:03:20.714643Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-15T22:03:20.714643Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-15T22:03:20.716086Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:29:03.974197Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T01:29:04.080650Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T01:29:04.107713Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T01:29:12.348587Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T01:29:12.348587Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 1 at (nan,nan)
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 2 at (nan,nan)
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 3 at (nan,nan)
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 4 at (nan,nan)
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 5 at (nan,nan)
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 6 at (nan,nan)
+2026-10-16T01:29:12.901160Z WARN  info     Warning: Could not interpolate beta for site Node 7 at (nan,nan)
+2026-10-16T01:29:13.504777Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T01:29:13.607466Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T01:29:16.703961Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T01:31:40.762923Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T01:31:40.777038Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T01:31:40.779768Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T01:31:41.015535Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T01:31:41.015535Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 1 at (nan,nan)
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 2 at (nan,nan)
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 3 at (nan,nan)
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 4 at (nan,nan)
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 5 at (nan,nan)
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 6 at (nan,nan)
+2026-10-16T01:31:41.461125Z WARN  info     Warning: Could not interpolate beta for site Node 7 at (nan,nan)
+2026-10-16T01:31:41.498395Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T01:31:41.539704Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T01:31:41.939468Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T01:31:46.588978Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T01:31:46.588978Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T01:31:47.151123Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T01:31:47.201216Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-16T01:31:47.201216Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:31:47.203247Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:41:20.978678Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T01:41:21.023444Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T01:41:21.027615Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T01:41:21.840054Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T01:41:21.842060Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 1 at (nan,nan)
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 2 at (nan,nan)
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 3 at (nan,nan)
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 4 at (nan,nan)
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 5 at (nan,nan)
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 6 at (nan,nan)
+2026-10-16T01:41:22.344972Z WARN  info     Warning: Could not interpolate beta for site Node 7 at (nan,nan)
+2026-10-16T01:41:22.455523Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T01:41:22.516404Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T01:41:23.106104Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T01:41:27.884943Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T01:41:27.884943Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T01:41:28.374147Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T01:41:28.430625Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-16T01:41:28.430625Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T01:41:28.430625Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T03:26:56.116506Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:26:56.289329Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T03:26:56.300159Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T03:29:44.294134Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:30:06.163889Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:34:06.675324Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:34:30.920890Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:34:44.150890Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:34:53.921555Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:35:41.416602Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:36:25.374342Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:37:33.299313Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:38:04.158583Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:40:08.784705Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:41:26.823423Z INFO  info    Checking annual data from source Hughes for event 2018-09-01.
+2026-10-16T03:41:26.884174Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T03:41:26.909760Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.csv
+2026-10-16T03:41:32.911211Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T03:41:32.911211Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T03:41:33.875441Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T03:41:33.960063Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T03:41:38.512206Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T03:41:44.723055Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T03:41:45.122148Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T03:41:45.177394Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-16T03:41:45.177394Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-16T03:41:45.178940Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
