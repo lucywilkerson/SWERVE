@@ -8,10 +8,12 @@
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 add_errors = True # Add automated error checks to data and update info.extended files.
+summary_plots = False # Create and save plots for full run (e.g. map, stack plots, OMNI data)
 
 import os
 import utilrsw
-from swerve import cli, config, sids, sids_and_events, site_read, site_plot, site_stats, site_stats_summary
+from swerve import cli, config, sids, site_read, site_plot, site_stats, site_stats_summary
+#from swerve.plot import plot_maps, plot_stack
 
 CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
@@ -33,10 +35,7 @@ else:
   sids_only = args['sites'].split(',')
 
 # Get actual site IDs to process and validate given ones.
-if len(events) > 1:
-  sids_only = sids_and_events(**info_kwargs, key=sids_only, logger=logger)
-else:
-  sids_only = sids(**info_kwargs, key=sids_only, add_event=True, logger=logger)
+sids_only = sids(**info_kwargs, key=sids_only, add_event=True, logger=logger)
 
 # data = read_info_dict() # Read info dictionary from info.extended.json file.
 
@@ -49,6 +48,10 @@ for sid, event in sids_only:
 
   # Read and parse data or use cached data if found and reparse is False.
   data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+
+  if CONFIG['event'][event].get('event_type', 'event') == 'annual':
+    logger.info(f"Skipping statistics and plots for annual data from '{sid}', {event}.")
+    continue
 
   # Add stats and metrics to data[event][sid] and return what was added.
   stats[event][sid] = site_stats(sid, data[event][sid], data_types=data_types, logger=logger)
@@ -68,8 +71,15 @@ if args['sites'] is None:
     utilrsw.write(CONFIG['files']['all'], data, logger=logger)
 
 if CONFIG['main_kwargs']['summary_table'] and len(events) == 1:
-    # Create table of results
   event = next(iter(events))
-  site_stats_summary(stats[event], data_types=data_types, logger=logger)
+  if CONFIG['event'][event].get('event_type', 'event') == 'annual':
+    logger.info("Skipping summary table because the configured event is annual data.")
+  else:
+    # Create table of results
+    site_stats_summary(stats[event], data_types=data_types, logger=logger)
 elif CONFIG['main_kwargs']['summary_table']:
   logger.info("Skipping summary table because multiple events were requested.")
+
+#if summary_plots:
+#  from swerve.plot import plot_sw_and_indices
+
