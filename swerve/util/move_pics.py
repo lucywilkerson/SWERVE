@@ -4,15 +4,11 @@ import shutil
 
 def move_pics():
     """Collect configured NERC measured-GIC plots into each event summary directory."""
-    from swerve import config, sids, sids_and_events
+    from swerve import config, sids
 
     CONFIG = config()
     data_dir = CONFIG['dirs']['data']
-    sids_only = None
-    if len(CONFIG['event']) > 1:
-        sids_only = sids_and_events(key=sids_only, data_type='GIC', data_class='measured')
-    else:
-        sids_only = sids(key=sids_only, data_type='GIC', data_class='measured', add_event=True)
+    sids_only = sids(data_type='GIC', data_class='measured', add_event=True)
 
     for sid, event in sids_only:
         event_dir = os.path.join(data_dir, 'data_processed', event)
