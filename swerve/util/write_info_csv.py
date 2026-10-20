@@ -11,7 +11,7 @@ def write_info_csv():
     """Write the configured site metadata to info.csv."""
     import pandas as pd
     from swerve import config, read_intermag_info
-    from .source_catalog import ANNUAL_SOURCES as ANNUAL_SOURCES
+    from .source_catalog import ANNUAL_SOURCES, source_partitions
 
     def _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event, manual_error=None):
         if manual_error is None:
@@ -38,9 +38,17 @@ def write_info_csv():
 
     info_list = []
     for event in events:
+        # Checking data availability for each source and event combination
         for data_source in data_sources:
             if not _source_available(data_source, data_dir, logger):
                 continue
+            if events[event].get('event_type') == 'annual':
+                if data_source not in ANNUAL_SOURCES:
+                    logger.info(f"   Skipping non-annual source {data_source} for annual event {event}.")
+                    continue
+                if str(event) not in source_partitions(data_dir, data_source):
+                    logger.info(f"   Annual source {data_source} has no data for {event}. Skipping...")
+                    continue
             if (data_source not in ANNUAL_SOURCES and data_source != 'INTERMAG'
                     and not _event_available(event, data_source, data_dir, logger)):
                 continue

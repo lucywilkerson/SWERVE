@@ -874,11 +874,11 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
           }
 
     return {
-            "time": numpy.array(time),
-            "data": numpy.array(data),
-            "labels": ["GIC"],
-            "unit": "A"
-          }
+          "time": numpy.array(time),
+          "data": numpy.array(data),
+          "labels": ["GIC"],
+          "unit": "A"
+        }
 
   if data_type == 'B' and data_class == 'measured' and data_source == 'Caraballo2023':
     data_path = os.path.join(data_dir, data_source.lower(), '2021', 'mag')
@@ -912,14 +912,15 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
           }
 
     return {
-            "time": numpy.array(time),
-            "data": numpy.array(data),
-            "labels": ["Bx", "By", "Bz"],
-            "unit": "nT"
-          }
+          "time": numpy.array(time),
+          "data": numpy.array(data),
+          "labels": ["Bx", "By", "Bz"],
+          "unit": "nT"
+        }
 
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Hughes':
     import json
+    import pandas
     # Find node #
     name_json = json.load(open(os.path.join(data_dir, data_source.lower(), 'hughes_site_names.json')))
     sid_node = name_json[sid]['node']
@@ -944,7 +945,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
 
     with open(data_file, 'r') as csvfile:
         next(csvfile)  # Skip header row
-        rows = csv.reader(csvfile, delimiter=',')
+        rows = pandas.read_csv(csvfile, delimiter=',').values
         for row in rows:
             if read_start is not None and row[0] < read_start:
               continue
@@ -963,11 +964,11 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
           }
 
     return {
-            "time": numpy.array(time),
-            "data": numpy.array(data).reshape(-1, 1),
-            "labels": ["GIC"],
-            "unit": "A"
-          }
+          "time": numpy.array(time),
+          "data": numpy.array(data).reshape(-1, 1),
+          "labels": ["GIC"],
+          "unit": "A"
+        }
 
   if data_type == 'DMM' and data_class == 'measured' and data_source == 'Hubert':
     import json
@@ -984,6 +985,9 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
       # Define start/stop from event
       event_start = start.date() if hasattr(start, 'date') else datetime.date.fromisoformat(start[:10])
       event_stop = stop.date() if hasattr(stop, 'date') else datetime.date.fromisoformat(stop[:10])
+    elif CONFIG['event'].get(str(event), {}).get('event_type') == 'annual':
+      event_start = datetime.date(int(event), 1, 1)
+      event_stop = datetime.date(int(event), 12, 31)
     else:
       event_start = datetime.date.fromisoformat(event[:10])
       event_stop = event_start
@@ -1023,8 +1027,8 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
           data.append([data_bx, data_by, data_bz])
 
     return {
-            "time": numpy.array(time),
-            "data": numpy.array(data),
-            "labels": ["Bx", "By", "Bz"],
-            "unit": "nT"
-          }
+          "time": numpy.array(time),
+          "data": numpy.array(data),
+          "labels": ["Bx", "By", "Bz"],
+          "unit": "nT"
+        }

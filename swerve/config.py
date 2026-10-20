@@ -34,6 +34,9 @@ def config(dirs_only=False): #TODO: dirs_only option
 
   with open(run_config_file) as f:
       conf = yaml.safe_load(f)
+
+  configured_event = conf.get('event')
+  event_request = 'all' if configured_event == 'all' or configured_event == ['all'] else None
       
   default_run_config_name = os.path.splitext(os.path.basename(args['config']))[0]
   info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', default_run_config_name)))
@@ -48,17 +51,17 @@ def config(dirs_only=False): #TODO: dirs_only option
     event_list = conf.get("event", [])
     configured_events = event_list if isinstance(event_list, list) else [event_list]
     missing_event = any(str(event) not in event_dict for event in configured_events)
-    dynamic_event = configured_events == ['all'] or configured_events == ['full']
-    if missing_event and not dynamic_event:
-      event_dict = write_event_dict(conf, file_path)
+    if missing_event:
+      event_dict = write_event_dict(conf, file_path, data_dir)
   else:
-    event_dict = write_event_dict(conf, file_path)
+    event_dict = write_event_dict(conf, file_path, data_dir)
 
   if not os.path.exists(data_dir):
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")
 
   config_dict =  {
       'event': event_dict, # Dict of event info
+      'event_request': event_request,
       'logger': utilrsw.logger,
       'logger_kwargs': {
         'log_dir': os.path.join(info_dir, '_log'),
