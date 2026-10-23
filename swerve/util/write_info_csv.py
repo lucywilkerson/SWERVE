@@ -510,6 +510,8 @@ def _event_overlaps_data(event, data_file, events, logger):
         _DATA_RANGE_CACHE[data_file] = (dates.min(), dates.max())
 
     # Using start/stop times for config to determine if event overlaps w annual dataset
+    if events[event]['event_type'] == 'annual':
+        return True
     event_start, event_stop = events[event]['data_limits']
     available_start, available_stop = _DATA_RANGE_CACHE[data_file]
     if pd.Timestamp(event_stop) < available_start or pd.Timestamp(event_start) > available_stop:

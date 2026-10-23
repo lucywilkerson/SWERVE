@@ -7,6 +7,16 @@ from .output_error import _output_error
 from ..util.source_catalog import ANNUAL_SOURCES
 from .. import write_pkl
 
+def _read_cached_pickle(file_name, logger, indent=''):
+  try:
+    with open(file_name, 'rb') as file_handle:
+      return pickle.load(file_handle)
+  except FileNotFoundError:
+    return None
+  except (EOFError, pickle.UnpicklingError) as error:
+    logger.warning(f"{indent}Ignoring invalid cache file '{file_name}': {error}")
+    return None
+
 def _non_event_file(processed_dir, year, sid, data_type, data_class, data_source):
   sidx = sid.lower().replace(' ', '')
   file_name = f'{data_type}_{data_class}_{data_source}.pkl'
@@ -94,9 +104,9 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
   if not reparse and not is_annual_event:
     if os.path.exists(site_all_file):
       logger.info(f"  Reading cached file with all data for site '{sid}': {site_all_file}")
-      with open(site_all_file, 'rb') as f:
-        data = pickle.load(f)
-        return data
+    data = _read_cached_pickle(site_all_file, logger, indent='  ')
+    if data is not None:
+      return data
 
   if start is None:
     start = CONFIG['event'][event]['data_limits'][0]
@@ -129,11 +139,13 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data for event '{event}'")
         if is_annual_event:
           non_event_file = _non_event_file(CONFIG['dirs']['processed'], event, sid, data_type, data_class, data_source)
-          if not reparse and os.path.exists(non_event_file):
-            logger.info(f"    Reading cached non-event data for site '{sid}': {non_event_file}")
-            with open(non_event_file, 'rb') as f:
-              orig = pickle.load(f)
+          if not reparse:
+            if os.path.exists(non_event_file):
+              logger.info(f"    Reading cached non-event data for site '{sid}': {non_event_file}")
+            orig = _read_cached_pickle(non_event_file, logger, indent='    ')
           else:
+            orig = None
+          if orig is None:
             logger.info(f"    Reading complete '{data_type}/{data_class}/{data_source}' data for {sid}, {event}")
             orig = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
             write_pkl(non_event_file, orig, logger, indent='    ')
@@ -141,17 +153,20 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
             logger.info(f"    Multiplying GIC data by 3 to account for single-phase transformer.")
             orig['data'] = orig['data'] * 3
           site_info[data_type][data_class][data_source]['original'] = orig
+          site_info[data_type][data_class][data_source][sid]['automated_error'] = None
           continue
 
         start_year = str(start)[:4]
         stop_year = str(stop)[:4]
         non_event_file = _non_event_file(CONFIG['dirs']['processed'], start_year, sid, data_type, data_class, data_source)
         if (not reparse and data_source in ANNUAL_SOURCES
-                and start_year == stop_year and os.path.exists(non_event_file)):
-          logger.info(f"    Reading cached non-event data for site '{sid}': {non_event_file}")
-          with open(non_event_file, 'rb') as f:
-            orig = pickle.load(f)
+                and start_year == stop_year):
+          if os.path.exists(non_event_file):
+            logger.info(f"    Reading cached non-event data for site '{sid}': {non_event_file}")
+          orig = _read_cached_pickle(non_event_file, logger, indent='    ')
         else:
+          orig = None
+        if orig is None:
           orig = _site_read_orig(
             sid, data_type, data_class, data_source, event, logger,
             start=start if data_source in ANNUAL_SOURCES else None,

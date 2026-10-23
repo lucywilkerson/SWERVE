@@ -1,7 +1,6 @@
 import os
 import csv
 import numpy
-import pandas
 import datetime
 
 def _site_read_orig(sid, data_type, data_class, data_source, event, logger, start=None, stop=None):
@@ -203,6 +202,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
     return {**data, "labels": ["B_N", "B_E", "B_v"], "unit": "nT"}
 
   if data_type == 'B' and data_class == 'calculated' and data_source in ['SWMF', 'OpenGGCM']:
+    import pandas
 
     sid = sid.replace(' ','')
     data_dir = os.path.join(data_dir, data_source.lower(), event, sid.lower())
@@ -374,6 +374,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
   
   if data_type == 'GIC' and data_class == 'measured' and data_source == 'Parry2025':
     from matio import load_from_mat
+    import pandas
     import warnings
     data_file = os.path.join(data_dir, data_source.lower(), event, data_type.lower(), f'{event.replace("-", "")}_hallprobe_data.mat')
     if not os.path.exists(data_file):
