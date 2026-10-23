@@ -5,9 +5,18 @@ import numpy as np
 
 from swerve import config, subset, infodf2dict
 
+reparse_events = True # If true, rewrites events_dict.json before writing info.extended.csv and info.extended.json
 reparse_info = True # If true, rewrites info.csv before writing info.extended.csv and info.extended.json
 
 CONFIG = config()
+# Delete existing info.csv and/or events_dict.json if reparse
+if reparse_info:
+   if os.path.exists(CONFIG['files']['info']):
+       os.remove(CONFIG['files']['info'])
+if reparse_events:
+   if os.path.exists(CONFIG['files']['events_dict']):
+       os.remove(CONFIG['files']['events_dict'])
+   CONFIG = config()
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
 """
@@ -83,7 +92,6 @@ def add_beta(info_df, beta_fname, beta_site='OTT'):
 def add_geomag(info_df, events):
   from spacepy.time import Ticktock
   import spacepy.coordinates as coord
-  from datetime import datetime
   
   def get_geomag_coords(row, event_dict):
       Re = 6371.0 #mean Earth radius in km
@@ -674,13 +682,13 @@ def find_duplicates(info_df):
         info_df['manual_error'].iloc[i] = f"x Duplicate of TVA site '{CONFIG['sid_duplicates'][sid]}'"
 
 # Write info.csv if doesn't exist
-if not os.path.exists(CONFIG['files']['info']) or reparse_info:
+if not os.path.exists(CONFIG['files']['info']):
   from swerve import write_info_csv
   write_info_csv()
 
 # Read info.csv
 logger.info(f"Reading {CONFIG['files']['info']}")
-info_df = pd.read_csv(CONFIG['files']['info'])
+info_df = pd.read_csv(CONFIG['files']['info'], dtype={'event': str})
 
 add_beta(info_df, CONFIG['files']['beta'], beta_site='OTT')
 add_geomag(info_df, CONFIG['event'])
