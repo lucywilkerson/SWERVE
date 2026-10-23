@@ -109,6 +109,7 @@ def config(dirs_only=False): #TODO: dirs_only option
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, 'data_processed', 'all.pkl'),
+          'events_dict': os.path.join(info_dir, 'events_dict.json'),
           'info': os.path.join(info_dir, 'info.csv'),
           'info_json': os.path.join(info_dir, 'info.json'),
           'info_extended': os.path.join(info_dir, 'info.extended.csv'),
