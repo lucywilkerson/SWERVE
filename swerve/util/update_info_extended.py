@@ -12,7 +12,7 @@ def update_info_extended(sids_only, data, exclude_errors=None, logger=None, CONF
         site_data = data[event][sid]
         if 'GIC' in site_data and 'measured' in site_data['GIC'].keys():
             for data_source in site_data['GIC']['measured'].keys():
-                error_msg = site_data['GIC']['measured'][data_source][sid]['automated_error']
+                error_msg = site_data['GIC']['measured'][data_source]['automated_error']
                 if error_msg is not None:
                     logger.info(f"  Adding error for site '{sid}', GIC/'measured/{data_source}: {error_msg}")
                     mask = ((info_df['site_id'] == sid)

@@ -7,62 +7,6 @@ from .output_error import _output_error
 from ..util.source_catalog import ANNUAL_SOURCES
 from .. import write_pkl
 
-def _read_cached_pickle(file_name, logger, indent=''):
-  try:
-    with open(file_name, 'rb') as file_handle:
-      return pickle.load(file_handle)
-  except FileNotFoundError:
-    return None
-  except (EOFError, pickle.UnpicklingError) as error:
-    logger.warning(f"{indent}Ignoring invalid cache file '{file_name}': {error}")
-    return None
-
-def _non_event_file(processed_dir, year, sid, data_type, data_class, data_source):
-  sidx = sid.lower().replace(' ', '')
-  file_name = f'{data_type}_{data_class}_{data_source}.pkl'
-  return os.path.join(processed_dir, 'non-event', str(year), sidx, file_name)
-
-def _crop_original(orig, start, stop, logger, exact_window=False):
-  time = numpy.asarray(orig['time'], dtype='datetime64[ns]')
-  valid_time = time[~numpy.isnat(time)]
-  if valid_time.size == 0:
-    cropped = orig.copy()
-    cropped['error'] = "No valid time stamps found in original data"
-    return cropped
-
-  storm_start = numpy.datetime64(start, 'ns')
-  storm_stop = numpy.datetime64(stop, 'ns')
-  original_start = valid_time.min()
-  original_stop = valid_time.max()
-
-  max_duration = numpy.timedelta64(7, 'D')
-  if original_stop - original_start <= max_duration:
-    return orig
-
-  if exact_window:
-    crop_start = storm_start
-    crop_stop = storm_stop
-  else:
-    buffer = numpy.timedelta64(1, 'D')
-    crop_start = storm_start - buffer if storm_start - original_start > buffer else original_start
-    crop_stop = storm_stop + buffer if original_stop - storm_stop > buffer else original_stop
-  if crop_start == original_start and crop_stop == original_stop:
-    return orig
-
-  mask = ((time >= numpy.datetime64(crop_start, 'ns')) &
-          (time <= numpy.datetime64(crop_stop, 'ns')))
-
-  logger.info(f"    Cropping original data to {crop_start} through {crop_stop} before filtering.")
-  cropped = orig.copy()
-  cropped['time'] = numpy.asarray(orig['time'])[mask]
-  cropped['data'] = numpy.asarray(orig['data'])[mask]
-  if 'data_raw' in orig:
-    cropped['data_raw'] = numpy.asarray(orig['data_raw'])[mask]
-  if not mask.any():
-    cropped['error'] = f"No original data found from {crop_start} through {crop_stop}"
-  return cropped
-
-
 def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
 
@@ -153,7 +97,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
             logger.info(f"    Multiplying GIC data by 3 to account for single-phase transformer.")
             orig['data'] = orig['data'] * 3
           site_info[data_type][data_class][data_source]['original'] = orig
-          site_info[data_type][data_class][data_source][sid]['automated_error'] = None
+          site_info[data_type][data_class][data_source]['automated_error'] = None
           continue
 
         start_year = str(start)[:4]
@@ -180,23 +124,23 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
         site_info[data_type][data_class][data_source]['original'] = orig
         # Check returned data object
         if _output_error(orig, logger):
-          site_info[data_type][data_class][data_source][sid]['automated_error'] = orig['error']
+          site_info[data_type][data_class][data_source]['automated_error'] = orig['error']
           continue
         
         #TODO: Make resampling optional setting in config file
         resample_msg = "Resample to 1m aves and NaN pad or trim to start/stop."
         data_mod = orig['data'].copy()
-        if 'automated_error' not in site_info[data_type][data_class][data_source][sid].keys():
+        if 'automated_error' not in site_info[data_type][data_class][data_source].keys():
           add_errors = True
         if add_errors:
           if data_type == 'GIC' and data_class == 'measured':
             from swerve import filter
             logger.info('    Running automated error checks on GIC measured data')
-            data_filtered, site_info[data_type][data_class][data_source][sid]['automated_error'], corrections = filter(orig, start, stop, logger=logger)
+            data_filtered, site_info[data_type][data_class][data_source]['automated_error'], corrections = filter(orig, start, stop, logger=logger)
             data_mod = data_filtered['data']
             resample_msg = corrections + '\n' + resample_msg
           else:
-            site_info[data_type][data_class][data_source][sid]['automated_error'] = None
+            site_info[data_type][data_class][data_source]['automated_error'] = None
             #TODO: filter for B, DMM data?
         if data_type == 'B' and data_class == 'measured':
             logger.info(f'    Remove baseline then {resample_msg}')
@@ -237,3 +181,57 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
 
   return site_info
 
+def _read_cached_pickle(file_name, logger, indent=''):
+  try:
+    with open(file_name, 'rb') as file_handle:
+      return pickle.load(file_handle)
+  except FileNotFoundError:
+    return None
+  except (EOFError, pickle.UnpicklingError) as error:
+    logger.warning(f"{indent}Ignoring invalid cache file '{file_name}': {error}")
+    return None
+
+def _non_event_file(processed_dir, year, sid, data_type, data_class, data_source):
+  sidx = sid.lower().replace(' ', '')
+  file_name = f'{data_type}_{data_class}_{data_source}.pkl'
+  return os.path.join(processed_dir, 'non-event', str(year), sidx, file_name)
+
+def _crop_original(orig, start, stop, logger, exact_window=False):
+  time = numpy.asarray(orig['time'], dtype='datetime64[ns]')
+  valid_time = time[~numpy.isnat(time)]
+  if valid_time.size == 0:
+    cropped = orig.copy()
+    cropped['error'] = "No valid time stamps found in original data"
+    return cropped
+
+  storm_start = numpy.datetime64(start, 'ns')
+  storm_stop = numpy.datetime64(stop, 'ns')
+  original_start = valid_time.min()
+  original_stop = valid_time.max()
+
+  max_duration = numpy.timedelta64(7, 'D')
+  if original_stop - original_start <= max_duration:
+    return orig
+
+  if exact_window:
+    crop_start = storm_start
+    crop_stop = storm_stop
+  else:
+    buffer = numpy.timedelta64(1, 'D')
+    crop_start = storm_start - buffer if storm_start - original_start > buffer else original_start
+    crop_stop = storm_stop + buffer if original_stop - storm_stop > buffer else original_stop
+  if crop_start == original_start and crop_stop == original_stop:
+    return orig
+
+  mask = ((time >= numpy.datetime64(crop_start, 'ns')) &
+          (time <= numpy.datetime64(crop_stop, 'ns')))
+
+  logger.info(f"    Cropping original data to {crop_start} through {crop_stop} before filtering.")
+  cropped = orig.copy()
+  cropped['time'] = numpy.asarray(orig['time'])[mask]
+  cropped['data'] = numpy.asarray(orig['data'])[mask]
+  if 'data_raw' in orig:
+    cropped['data_raw'] = numpy.asarray(orig['data_raw'])[mask]
+  if not mask.any():
+    cropped['error'] = f"No original data found from {crop_start} through {crop_stop}"
+  return cropped

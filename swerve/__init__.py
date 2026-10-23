@@ -146,7 +146,7 @@ def infodf2dict(info_df, logger):
       # Remove keys that are a part of dict structure (so redundant).
       site_metadata.pop(key, None)
 
-    info_dict[site][data_type][data_class][data_source][site] = site_metadata
+    info_dict[site][data_type][data_class][data_source] = site_metadata
 
   return info_dict
 
@@ -182,7 +182,7 @@ def read_info_df(extended=False, data_type=None, data_source=None, data_class=No
   CONFIG = config()
   file = CONFIG['files']['info_extended'] if extended else CONFIG['files']['info']
   print(f"    Reading {file}")
-  info_df = pandas.read_csv(file)
+  info_df = pandas.read_csv(file, dtype={'event': str})
   info_df['site_id'] = info_df['site_id'].astype(str)
 
   if key == 'paper_sids' or key == 'test_sids':
