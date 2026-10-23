@@ -32,6 +32,8 @@ def catalog():
     for dataset in datasets:
         for variant in ("original", "modified"):
             ids.append(f"{dataset.source}/{dataset.site}/{dataset.quantity}/{dataset.kind}/{variant}")
+    import utilrsw
+    utilrsw.write('catalog.json', ids)
     return ids
 
 def importance(entry: dict) -> tuple:
