@@ -1,4 +1,70 @@
 {
+  "ASB line": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "ASB line": {
+            "geo_lat": 55.848491,
+            "geo_lon": -2.360845,
+            "event": "2019",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 57.93023467978598,
+            "mag_lon": 84.54054315040185,
+            "alpha": 0.7820956034902511,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "ILD line": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "ILD line": {
+            "geo_lat": 55.4825113,
+            "geo_lon": -1.9822085,
+            "event": "2018",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 57.52528291725092,
+            "mag_lon": 84.79717246497937,
+            "alpha": 0.7465088972167125,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "KNA line": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "KNA line": {
+            "geo_lat": 54.302096,
+            "geo_lon": -1.314834,
+            "event": "2019",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 56.27719131777649,
+            "mag_lon": 84.78231599327847,
+            "alpha": 0.6466964386922407,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
   "WHI line": {
     "DMM": {
       "measured": {
@@ -6,13 +72,79 @@
           "WHI line": {
             "geo_lat": 55.882456,
             "geo_lon": -2.58699,
-            "event": "2018-08-25",
+            "event": "2019",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 58.00243777031595,
-            "mag_lon": 84.35656826712419,
-            "alpha": 0.7886166570977343,
+            "mag_lat": 57.99973907096348,
+            "mag_lon": 84.33039209602782,
+            "alpha": 0.7883719475574402,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "ASB ref": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "ASB ref": {
+            "geo_lat": 55.847938,
+            "geo_lon": -2.365684,
+            "event": "2019",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 57.930497925958576,
+            "mag_lon": 84.53534540472141,
+            "alpha": 0.782119280471175,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "ILD ref": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "ILD ref": {
+            "geo_lat": 55.4816269,
+            "geo_lon": -1.9860199,
+            "event": "2018",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 57.52506456285962,
+            "mag_lon": 84.79284487767394,
+            "alpha": 0.7464901520500437,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "KNA ref": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "KNA ref": {
+            "geo_lat": 54.302347,
+            "geo_lon": -1.319507,
+            "event": "2019",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 56.278197563047705,
+            "mag_lon": 84.77772876841837,
+            "alpha": 0.646771277574102,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -28,13 +160,13 @@
           "WHI ref": {
             "geo_lat": 55.884003,
             "geo_lon": -2.590714,
-            "event": "2018-08-25",
+            "event": "2019",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 58.00452788644729,
-            "mag_lon": 84.35365222594329,
-            "alpha": 0.7888062344261338,
+            "mag_lat": 58.00182820488433,
+            "mag_lon": 84.32747376902445,
+            "alpha": 0.7885613769882348,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -43,20 +175,20 @@
       }
     }
   },
-  "BUD line": {
+  "BRA line": {
     "DMM": {
       "measured": {
         "Hubert": {
-          "BUD line": {
-            "geo_lat": 50.763149,
-            "geo_lon": -4.425513,
-            "event": "2020-08-28",
+          "BRA line": {
+            "geo_lat": 52.637299,
+            "geo_lon": 1.065817,
+            "event": "2019",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 53.358008535487,
-            "mag_lon": 79.86169807081298,
-            "alpha": 0.4622800986846627,
+            "mag_lat": 54.28648663401678,
+            "mag_lon": 86.36865477780704,
+            "alpha": 0.5143716007540636,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -72,13 +204,13 @@
           "DAL line": {
             "geo_lat": 55.7057862,
             "geo_lon": -4.7912722,
-            "event": "2021-03-24",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 58.1735763836344,
-            "mag_lon": 81.80908127010271,
-            "alpha": 0.8042911127013418,
+            "mag_lat": 58.17488677456453,
+            "mag_lon": 81.82869856352886,
+            "alpha": 0.8044123244487275,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -94,13 +226,57 @@
           "EAS line": {
             "geo_lat": 55.706125,
             "geo_lon": -4.149695,
-            "event": "2021-03-24",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 58.07064822547481,
-            "mag_lon": 82.46524635487376,
-            "alpha": 0.7948270516785965,
+            "mag_lat": 58.07183133448761,
+            "mag_lon": 82.48481497032934,
+            "alpha": 0.7949352012462843,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "TOP line": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "TOP line": {
+            "geo_lat": 52.002528,
+            "geo_lon": 0.506644,
+            "event": "2020",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 53.76014927240565,
+            "mag_lon": 85.45652533514881,
+            "alpha": 0.48416084037014867,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "BRA ref": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "BRA ref": {
+            "geo_lat": 52.6386832,
+            "geo_lon": 1.065473,
+            "event": "2019",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 54.28787570624742,
+            "mag_lon": 86.36895183411525,
+            "alpha": 0.5144537747375468,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -116,13 +292,13 @@
           "DAL ref": {
             "geo_lat": 55.7040588,
             "geo_lon": -4.7882232,
-            "event": "2021-03-24",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 58.17143052477687,
-            "mag_lon": 81.81126862695244,
-            "alpha": 0.8040926592399577,
+            "mag_lat": 58.17274049180446,
+            "mag_lon": 81.83088450495629,
+            "alpha": 0.8042138018747019,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -138,13 +314,57 @@
           "EAS ref": {
             "geo_lat": 55.706651,
             "geo_lon": -4.15213,
-            "event": "2021-03-24",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 58.0715444603685,
-            "mag_lon": 82.4630447541835,
-            "alpha": 0.7949089763502775,
+            "mag_lat": 58.07272799667581,
+            "mag_lon": 82.48261391882237,
+            "alpha": 0.7950171761314364,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "TOP ref": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "TOP ref": {
+            "geo_lat": 52.001681,
+            "geo_lon": 0.507867,
+            "event": "2020",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 53.75913315653182,
+            "mag_lon": 85.45737415586237,
+            "alpha": 0.48410426787128535,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN
+          }
+        }
+      }
+    }
+  },
+  "BUD line": {
+    "DMM": {
+      "measured": {
+        "Hubert": {
+          "BUD line": {
+            "geo_lat": 50.763149,
+            "geo_lon": -4.425513,
+            "event": "2020",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 53.36290294129688,
+            "mag_lon": 79.90982421734822,
+            "alpha": 0.4625403693614255,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -160,13 +380,13 @@
           "TRO line": {
             "geo_lat": 53.22362,
             "geo_lon": -3.7144,
-            "event": "2021-09-17",
+            "event": "2022",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 55.61237743746647,
-            "mag_lon": 81.61344731462928,
-            "alpha": 0.5990969303505264,
+            "mag_lat": 55.61064856209163,
+            "mag_lon": 81.59047449114803,
+            "alpha": 0.5989778293388376,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN
@@ -182,13 +402,13 @@
           "TRO ref": {
             "geo_lat": 53.22537,
             "geo_lon": -3.71513,
-            "event": "2021-09-17",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 55.61418055692694,
-            "mag_lon": 81.61353152222654,
-            "alpha": 0.599221171214685,
+            "mag_lat": 55.618387584697345,
+            "mag_lon": 81.66970642704636,
+            "alpha": 0.5995111494683664,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN

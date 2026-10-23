@@ -167,3 +167,148 @@
 2026-10-16T09:02:31.501402Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
 2026-10-16T09:02:31.502552Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
 2026-10-16T09:02:31.503098Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-22T01:59:28.457965Z INFO  info    Checking annual data from source Hubert for event 2018.
+2026-10-22T01:59:28.566776Z INFO  info    Checking annual data from source Hubert for event 2019.
+2026-10-22T01:59:28.735353Z INFO  info    Checking annual data from source Hubert for event 2020.
+2026-10-22T01:59:28.885851Z INFO  info    Checking annual data from source Hubert for event 2021.
+2026-10-22T01:59:28.973984Z INFO  info    Checking annual data from source Hubert for event 2022.
+2026-10-22T01:59:29.089102Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-22T01:59:29.124777Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-22T01:59:40.932349Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-22T01:59:40.932349Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site ASB line at (55.848491,-2.360845)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site ILD line at (55.4825113,-1.9822085)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site KNA line at (54.302096,-1.314834)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site ASB ref at (55.847938,-2.365684)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site ILD ref at (55.4816269,-1.9860199)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site KNA ref at (54.302347,-1.319507)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site ASB line at (55.848491,-2.360845)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site BRA line at (52.637299,1.065817)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site KNA line at (54.302096,-1.314834)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site TOP line at (52.002528,0.506644)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site ASB ref at (55.847938,-2.365684)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site BRA ref at (52.6386832,1.065473)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T01:59:42.293642Z WARN  info     Warning: Could not interpolate beta for site KNA ref at (54.302347,-1.319507)
+2026-10-22T01:59:42.305118Z WARN  info     Warning: Could not interpolate beta for site TOP ref at (52.001681,0.507867)
+2026-10-22T01:59:42.305118Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-22T01:59:42.305118Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-22T01:59:42.305118Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T01:59:42.305118Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T01:59:42.305118Z WARN  info     Warning: Could not interpolate beta for site TOP line at (52.002528,0.506644)
+2026-10-22T01:59:42.307056Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T01:59:42.307604Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T01:59:42.307604Z WARN  info     Warning: Could not interpolate beta for site TOP ref at (52.001681,0.507867)
+2026-10-22T01:59:42.307604Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T01:59:42.307604Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T01:59:42.307604Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-22T01:59:42.307604Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T01:59:42.310395Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T01:59:42.310395Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-22T01:59:42.310395Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-22T01:59:43.161803Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-22T01:59:43.766458Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-22T01:59:52.130373Z INFO  info Adding nearest voltage to extended info_df
+2026-10-22T01:59:57.048489Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-22T01:59:57.048489Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-22T01:59:58.863400Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-22T01:59:58.950727Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-22T01:59:58.951728Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-22T01:59:58.952736Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-22T18:13:51.745973Z INFO  info    Checking annual data from source Hubert for event non-event.
+2026-10-22T18:15:28.590661Z INFO  info    Checking annual data from source Hubert for event non-event.
+2026-10-22T18:18:21.716701Z INFO  info    Checking annual data from source Hubert for event non-event.
+2026-10-22T18:18:48.696610Z INFO  info    Checking annual data from source Hubert for event non-event.
+2026-10-22T18:19:03.009355Z INFO  info    Checking annual data from source Hubert for event non-event.
+2026-10-22T18:19:03.124511Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-22T18:19:03.128833Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-22T18:19:03.517858Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-22T18:19:03.517858Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site ASB line at (55.848491,-2.360845)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site BRA line at (52.637299,1.065817)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site ILD line at (55.4825113,-1.9822085)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site KNA line at (54.302096,-1.314834)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site TOP line at (52.002528,0.506644)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-22T18:19:04.000118Z WARN  info     Warning: Could not interpolate beta for site ASB ref at (55.847938,-2.365684)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site BRA ref at (52.6386832,1.065473)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site ILD ref at (55.4816269,-1.9860199)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site KNA ref at (54.302347,-1.319507)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site TOP ref at (52.001681,0.507867)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-22T18:19:04.004298Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-22T18:19:04.034074Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-22T18:19:04.166233Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-22T18:19:04.615680Z INFO  info Adding nearest voltage to extended info_df
+2026-10-22T18:19:08.917376Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-22T18:19:08.918375Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-22T18:19:09.352739Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-22T18:19:09.396238Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-22T18:19:09.396238Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-22T18:19:09.396238Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-22T22:16:21.352638Z INFO  info    Checking annual data from source Hubert for event 2018.
+2026-10-22T22:16:21.414895Z INFO  info    Checking annual data from source Hubert for event 2019.
+2026-10-22T22:16:21.532004Z INFO  info    Checking annual data from source Hubert for event 2020.
+2026-10-22T22:16:21.616577Z INFO  info    Checking annual data from source Hubert for event 2021.
+2026-10-22T22:16:21.672552Z INFO  info    Checking annual data from source Hubert for event 2022.
+2026-10-22T22:16:21.731782Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-22T22:16:21.759507Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.csv
+2026-10-22T22:16:28.413095Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-22T22:16:28.413095Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site ASB line at (55.848491,-2.360845)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site ILD line at (55.4825113,-1.9822085)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site KNA line at (54.302096,-1.314834)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site ASB ref at (55.847938,-2.365684)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site ILD ref at (55.4816269,-1.9860199)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site KNA ref at (54.302347,-1.319507)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site ASB line at (55.848491,-2.360845)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site BRA line at (52.637299,1.065817)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site KNA line at (54.302096,-1.314834)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TOP line at (52.002528,0.506644)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site WHI line at (55.882456,-2.58699)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site ASB ref at (55.847938,-2.365684)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site BRA ref at (52.6386832,1.065473)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site KNA ref at (54.302347,-1.319507)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TOP ref at (52.001681,0.507867)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site WHI ref at (55.884003,-2.590714)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site BUD line at (50.763149,-4.425513)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TOP line at (52.002528,0.506644)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TOP ref at (52.001681,0.507867)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site DAL line at (55.7057862,-4.7912722)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site EAS line at (55.706125,-4.149695)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site DAL ref at (55.7040588,-4.7882232)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site EAS ref at (55.706651,-4.15213)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TRO ref at (53.22537,-3.71513)
+2026-10-22T22:16:28.908370Z WARN  info     Warning: Could not interpolate beta for site TRO line at (53.22362,-3.7144)
+2026-10-22T22:16:29.393590Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-22T22:16:29.697456Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-22T22:16:34.881077Z INFO  info Adding nearest voltage to extended info_df
+2026-10-22T22:16:39.819892Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-22T22:16:39.819892Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-22T22:16:41.552900Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-22T22:16:41.601220Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.csv
+2026-10-22T22:16:41.601220Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json
+2026-10-22T22:16:41.615867Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hubert\info.extended.json

@@ -6,17 +6,16 @@
           "Bu": {
             "geo_lat": 36.0193,
             "geo_lon": -84.1575,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
             "interpolated_beta": 0.5554131998087664,
             "log10_beta": -0.2553838031309736,
-            "mag_lat": 45.28551003201103,
-            "mag_lon": -13.244746177962131,
-            "alpha": 0.1826978423800584,
+            "mag_lat": 45.32100020890656,
+            "mag_lon": -13.263563820099007,
+            "alpha": 0.18344502366024906,
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1355 A) > 1/4 * std after (0.1134 A)"
+            "US_region": "East"
           }
         }
       }
@@ -29,17 +28,16 @@
           "Me": {
             "geo_lat": 37.26,
             "geo_lon": -86.98,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
             "interpolated_beta": 0.6770870532702755,
-            "log10_beta": -0.1693554903630157,
-            "mag_lat": 46.40479886053122,
-            "mag_lon": -16.585710861321154,
-            "alpha": 0.2077949692843975,
+            "log10_beta": -0.16935549036301575,
+            "mag_lat": 46.439652742667604,
+            "mag_lon": -16.607083170197598,
+            "alpha": 0.20862952375353894,
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.3634 A) > 1/4 * std after (0.4002 A)"
+            "US_region": "East"
           }
         }
       }
@@ -52,17 +50,16 @@
           "Mo": {
             "geo_lat": 36.5949,
             "geo_lon": -87.2533,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
             "interpolated_beta": 1.0349744841285202,
-            "log10_beta": 0.0149296429921811,
-            "mag_lat": 45.727916739239134,
-            "mag_lon": -16.843213983296394,
-            "alpha": 0.1922334319604471,
+            "log10_beta": 0.014929642992181141,
+            "mag_lat": 45.76271666232022,
+            "mag_lon": -16.864453890418982,
+            "alpha": 0.19300428990923077,
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": "Excessive pre-storm noise: std before (0.1513 A) > 1/4 * std after (0.1441 A)"
+            "US_region": "East"
           }
         }
       }
@@ -75,17 +72,16 @@
           "Pa": {
             "geo_lat": 39.07,
             "geo_lon": -78.28,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
             "interpolated_beta": 2.0819957805336418,
-            "log10_beta": 0.3184798450146648,
-            "mag_lat": 48.50119031145398,
-            "mag_lon": -6.587134603714783,
-            "alpha": 0.2644459508533149,
+            "log10_beta": 0.31847984501466486,
+            "mag_lat": 48.5375866416665,
+            "mag_lon": -6.602411389142532,
+            "alpha": 0.2655551296585107,
             "nearest_volt": 138.0,
             "power_pool": "PJM",
-            "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.3374 A) > 1/4 * std after (0.3342 A)"
+            "US_region": "East"
           }
         }
       }
@@ -98,17 +94,16 @@
           "Sh": {
             "geo_lat": 35.3859,
             "geo_lon": -89.8042,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
             "interpolated_beta": 0.6428864352302863,
-            "log10_beta": -0.1918657376648349,
-            "mag_lat": 44.38976180768165,
-            "mag_lon": -19.65018980564009,
-            "alpha": 0.1648148310865592,
+            "log10_beta": -0.19186573766483497,
+            "mag_lat": 44.42392790595278,
+            "mag_lon": -19.672518748112697,
+            "alpha": 0.16546367911391546,
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1675 A) > 1/4 * std after (0.1950 A)"
+            "US_region": "East"
           }
         }
       }
@@ -121,17 +116,16 @@
           "Vi": {
             "geo_lat": 34.04,
             "geo_lon": -117.32,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
-            "interpolated_beta": 1.3264738473017137,
-            "log10_beta": 0.1226986918724236,
-            "mag_lat": 40.48464167133017,
-            "mag_lon": -49.97664329392941,
-            "alpha": 0.1051863766300002,
+            "interpolated_beta": 1.3264738473017135,
+            "log10_beta": 0.12269869187242365,
+            "mag_lat": 40.507173049113064,
+            "mag_lon": -50.01036636926617,
+            "alpha": 0.10545927934636959,
             "nearest_volt": 230.0,
             "power_pool": "CAISO",
-            "US_region": "West",
-            "automated_error": "Excessive pre-storm noise: std before (0.2602 A) > 1/4 * std after (0.5527 A)"
+            "US_region": "West"
           }
         }
       }
@@ -144,17 +138,16 @@
           "We": {
             "geo_lat": 36.2752,
             "geo_lon": -88.8347,
-            "event": "2018-09-01",
+            "event": "2018",
             "manual_error": NaN,
             "interpolated_beta": 0.9126381392221878,
-            "log10_beta": -0.0397013859823397,
-            "mag_lat": 45.32946216900647,
-            "mag_lon": -18.62734603709919,
-            "alpha": 0.183623625561314,
+            "log10_beta": -0.03970138598233974,
+            "mag_lat": 45.36386878535782,
+            "mag_lon": -18.64950546775894,
+            "alpha": 0.18435161963911065,
             "nearest_volt": 500.0,
             "power_pool": "SERTP",
-            "US_region": "East",
-            "automated_error": "Low signal: all GIC values within +/- 4 A;\nExcessive pre-storm noise: std before (0.1223 A) > 1/4 * std after (0.1225 A);\nData gap detected >= 10.0 minutes (26977.0 seconds);\nData gap detected >= 10.0 minutes (26977 seconds) due to NaN values"
+            "US_region": "East"
           }
         }
       }

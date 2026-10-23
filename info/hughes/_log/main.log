@@ -897,3 +897,489 @@ Data gap detected >= 10.0 minutes (26977 seconds) due to NaN values
 2026-10-16T03:49:42.500205Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
 2026-10-16T03:49:42.500205Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
 2026-10-16T03:49:42.503662Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-20T11:51:27.549700Z INFO  main Reading 'Bu' data for event '2018-09-01'
+2026-10-20T11:51:27.587722Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T11:51:27.630598Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T11:52:48.449882Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T11:53:49.970304Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T11:53:49.977105Z INFO  main     Uniq dts [#]  = 2
+2026-10-20T11:53:50.671693Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T11:53:52.204961Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\bu\data\GIC_measured_Hughes.pkl
+2026-10-20T11:53:53.475487Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\bu\data\_all.pkl
+2026-10-20T11:53:54.728683Z INFO  main Computing stats for 'Bu' data
+2026-10-20T11:53:56.029930Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T11:53:56.029930Z INFO  main   Uniq dts [#]  = 2
+2026-10-20T11:53:56.029930Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T11:53:56.029930Z INFO  main 
+    std: : [0.10867000371650533]
+    ave: : [-0.00564519362124239]
+    min: : [-0.5185]
+    max: : [0.5543333333333333]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-20T11:54:03.669448Z INFO  main Plotting 'Bu' data for event '2018-09-01'
+2026-10-20T11:54:03.678038Z INFO  main   Plotting 'Bu/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T11:54:13.558562Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/bu/figures\original\GIC_measured_Hughes.png
+2026-10-20T11:54:15.240062Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/bu/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T11:54:19.939316Z INFO  main Reading 'Me' data for event '2018-09-01'
+2026-10-20T11:54:19.971221Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T11:54:19.980904Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T11:55:32.767674Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T11:56:27.826587Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-20T11:56:27.826587Z INFO  main     Uniq dts [#]  = 1
+2026-10-20T11:56:28.975963Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T11:56:30.331650Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\me\data\GIC_measured_Hughes.pkl
+2026-10-20T11:56:31.668376Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\me\data\_all.pkl
+2026-10-20T11:56:32.860308Z INFO  main Computing stats for 'Me' data
+2026-10-20T11:56:33.986055Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-20T11:56:33.986055Z INFO  main   Uniq dts [#]  = 1
+2026-10-20T11:56:33.986055Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T11:56:33.988596Z INFO  main 
+    std: : [0.3909558625799943]
+    ave: : [0.011760197882312097]
+    min: : [-1.7811666666666668]
+    max: : [2.1753333333333336]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000]
+2026-10-20T11:56:35.136207Z INFO  main Plotting 'Me' data for event '2018-09-01'
+2026-10-20T11:56:35.136207Z INFO  main   Plotting 'Me/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T11:56:39.748416Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/me/figures\original\GIC_measured_Hughes.png
+2026-10-20T11:56:41.319954Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/me/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T11:56:41.715298Z INFO  main Reading 'Mo' data for event '2018-09-01'
+2026-10-20T11:56:41.744791Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T11:56:41.760994Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T11:57:56.356748Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T11:58:47.446309Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T11:58:47.446309Z INFO  main     Uniq dts [#]  = 2
+2026-10-20T11:58:48.869820Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T11:58:50.511418Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\mo\data\GIC_measured_Hughes.pkl
+2026-10-20T11:58:51.964031Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\mo\data\_all.pkl
+2026-10-20T11:58:53.259679Z INFO  main Computing stats for 'Mo' data
+2026-10-20T11:58:54.425205Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T11:58:54.425205Z INFO  main   Uniq dts [#]  = 2
+2026-10-20T11:58:54.425205Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T11:58:54.425205Z INFO  main 
+    std: : [0.13946125324085618]
+    ave: : [0.002009572451424296]
+    min: : [-0.8963333333333333]
+    max: : [0.5021666666666667]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-20T11:58:55.649693Z INFO  main Plotting 'Mo' data for event '2018-09-01'
+2026-10-20T11:58:55.649693Z INFO  main   Plotting 'Mo/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T11:59:00.937653Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/mo/figures\original\GIC_measured_Hughes.png
+2026-10-20T11:59:02.428422Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/mo/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T11:59:02.820877Z INFO  main Reading 'Pa' data for event '2018-09-01'
+2026-10-20T11:59:02.841973Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T11:59:02.860767Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T12:00:07.240265Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T12:01:14.382697Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T12:01:14.382697Z INFO  main     Uniq dts [#]  = 2
+2026-10-20T12:01:15.693813Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T12:01:17.376370Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\pa\data\GIC_measured_Hughes.pkl
+2026-10-20T12:01:18.879276Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\pa\data\_all.pkl
+2026-10-20T12:01:20.235089Z INFO  main Computing stats for 'Pa' data
+2026-10-20T12:01:21.566075Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T12:01:21.566075Z INFO  main   Uniq dts [#]  = 2
+2026-10-20T12:01:21.566075Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T12:01:21.566075Z INFO  main 
+    std: : [0.3237777798809493]
+    ave: : [0.006503688350559032]
+    min: : [-2.7640000000000002]
+    max: : [1.2486666666666666]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-20T12:01:22.977987Z INFO  main Plotting 'Pa' data for event '2018-09-01'
+2026-10-20T12:01:22.990642Z INFO  main   Plotting 'Pa/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T12:01:28.589603Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/pa/figures\original\GIC_measured_Hughes.png
+2026-10-20T12:01:30.427323Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/pa/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T12:01:30.904177Z INFO  main Reading 'Sh' data for event '2018-09-01'
+2026-10-20T12:01:30.926740Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T12:01:30.936960Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T12:02:40.307078Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T12:03:45.809990Z INFO  main     Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T12:03:45.809990Z INFO  main     Uniq dts [#]  = 2
+2026-10-20T12:03:47.354574Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T12:03:49.207365Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\sh\data\GIC_measured_Hughes.pkl
+2026-10-20T12:03:50.722821Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\sh\data\_all.pkl
+2026-10-20T12:03:52.192442Z INFO  main Computing stats for 'Sh' data
+2026-10-20T12:03:53.554117Z INFO  main   Uniq dts [ns] = [1000000000 2000000000]
+2026-10-20T12:03:53.554117Z INFO  main   Uniq dts [#]  = 2
+2026-10-20T12:03:53.554117Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T12:03:53.556251Z INFO  main 
+    std: : [0.19360620790644836]
+    ave: : [0.003979910208620796]
+    min: : [-0.48133333333333334]
+    max: : [0.5401666666666667]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000, 2000000000]
+2026-10-20T12:03:54.884312Z INFO  main Plotting 'Sh' data for event '2018-09-01'
+2026-10-20T12:03:54.895609Z INFO  main   Plotting 'Sh/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T12:04:01.099340Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/sh/figures\original\GIC_measured_Hughes.png
+2026-10-20T12:04:02.762527Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/sh/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T12:04:03.297535Z INFO  main Reading 'Vi' data for event '2018-09-01'
+2026-10-20T12:04:03.340290Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T12:04:03.347743Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T12:05:15.101367Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T12:06:09.884935Z INFO  main     Uniq dts [ns] = [1000000000]
+2026-10-20T12:06:09.884935Z INFO  main     Uniq dts [#]  = 1
+2026-10-20T12:06:11.292409Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T12:06:12.824726Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\vi\data\GIC_measured_Hughes.pkl
+2026-10-20T12:06:14.334429Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\vi\data\_all.pkl
+2026-10-20T12:06:15.561072Z INFO  main Computing stats for 'Vi' data
+2026-10-20T12:06:16.782280Z INFO  main   Uniq dts [ns] = [1000000000]
+2026-10-20T12:06:16.782280Z INFO  main   Uniq dts [#]  = 1
+2026-10-20T12:06:16.782280Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T12:06:16.782280Z INFO  main 
+    std: : [0.5232649495887918]
+    ave: : [0.0014176068969507603]
+    min: : [-3.5881666666666665]
+    max: : [17.4965]
+    n: 5761
+    n_valid: : [5761]
+    dt_original: : [1000000000]
+2026-10-20T12:06:17.940681Z INFO  main Plotting 'Vi' data for event '2018-09-01'
+2026-10-20T12:06:17.943743Z INFO  main   Plotting 'Vi/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T12:06:22.867502Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/vi/figures\original\GIC_measured_Hughes.png
+2026-10-20T12:06:24.326577Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/vi/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T12:06:24.710227Z INFO  main Reading 'We' data for event '2018-09-01'
+2026-10-20T12:06:24.745886Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018-09-01'
+2026-10-20T12:06:24.760204Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-20T12:07:35.350180Z INFO  main     Running automated error checks on GIC measured data
+2026-10-20T12:08:24.097585Z INFO  main     Uniq dts [ns] = [    1000000000     2000000000 12899000000000 15025000000000
+ 20523000000000 26977000000000]
+2026-10-20T12:08:24.099605Z INFO  main     Uniq dts [#]  = 6
+2026-10-20T12:08:25.327780Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-10-20T12:08:26.768698Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\we\data\GIC_measured_Hughes.pkl
+2026-10-20T12:08:27.948600Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2018-09-01\sites\we\data\_all.pkl
+2026-10-20T12:08:28.892806Z INFO  main Computing stats for 'We' data
+2026-10-20T12:08:29.941316Z INFO  main   Uniq dts [ns] = [    1000000000     2000000000  9686000000000 12899000000000
+ 15025000000000 20523000000000 26977000000000]
+2026-10-20T12:08:29.941316Z INFO  main   Uniq dts [#]  = 7
+2026-10-20T12:08:29.941316Z INFO  main   Stats for GIC/measured/Hughes:
+2026-10-20T12:08:29.941316Z INFO  main 
+    std: : [0.1175572602732859]
+    ave: : [0.030322732880957146]
+    min: : [-0.9836666666666667]
+    max: : [0.5518333333333333]
+    n: 5761
+    n_valid: : [4509]
+    dt_original: : [1000000000 nanoseconds, 2000000000 nanoseconds, ..., 20523000000000 nanoseconds, 26977000000000 nanoseconds] (7 elements)
+2026-10-20T12:08:30.912980Z INFO  main Plotting 'We' data for event '2018-09-01'
+2026-10-20T12:08:30.918464Z INFO  main   Plotting 'We/GIC/measured/Hughes' original vs. modified data for event '2018-09-01'
+2026-10-20T12:08:35.477648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/we/figures\original\GIC_measured_Hughes.png
+2026-10-20T12:08:36.995243Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2018-09-01/sites/we/figures\original\GIC_measured_Hughes.pdf
+2026-10-20T12:08:37.437564Z INFO  main   Adding error for site 'Bu', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1355 A) > 1/4 * std after (0.1134 A)
+2026-10-20T12:08:37.445908Z INFO  main   Adding error for site 'Me', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.3634 A) > 1/4 * std after (0.4002 A)
+2026-10-20T12:08:37.452770Z INFO  main   Adding error for site 'Mo', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.1513 A) > 1/4 * std after (0.1441 A)
+2026-10-20T12:08:37.452770Z INFO  main   Adding error for site 'Pa', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.3374 A) > 1/4 * std after (0.3342 A)
+2026-10-20T12:08:37.452770Z INFO  main   Adding error for site 'Sh', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1675 A) > 1/4 * std after (0.1950 A)
+2026-10-20T12:08:37.459996Z INFO  main   Adding error for site 'Vi', GIC/'measured/Hughes: Excessive pre-storm noise: std before (0.2602 A) > 1/4 * std after (0.5527 A)
+2026-10-20T12:08:37.463319Z INFO  main   Adding error for site 'We', GIC/'measured/Hughes: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1223 A) > 1/4 * std after (0.1225 A);
+Data gap detected >= 10.0 minutes (26977.0 seconds);
+Data gap detected >= 10.0 minutes (26977 seconds) due to NaN values
+2026-10-20T12:08:37.528912Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-20T12:08:37.528912Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-20T12:08:37.531759Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-21T02:17:55.843296Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-21T02:17:55.852011Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:17:55.853011Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Bu, 2018
+2026-10-21T02:17:55.855504Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:21:10.863516Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\bu\GIC_measured_Hughes.pkl
+2026-10-21T02:22:18.658915Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-21T02:22:18.730513Z INFO  main Reading 'Me' data for event '2018'
+2026-10-21T02:22:18.840229Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:22:18.841605Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Me, 2018
+2026-10-21T02:22:18.851266Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:25:27.922482Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\me\GIC_measured_Hughes.pkl
+2026-10-21T02:26:32.864355Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-21T02:26:32.915908Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-21T02:26:33.019589Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:26:33.020861Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Mo, 2018
+2026-10-21T02:26:33.029769Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:29:39.901416Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\mo\GIC_measured_Hughes.pkl
+2026-10-21T02:30:45.659750Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-21T02:30:45.707452Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-21T02:30:45.795398Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:30:45.796440Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Pa, 2018
+2026-10-21T02:30:45.805307Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:33:52.876438Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\pa\GIC_measured_Hughes.pkl
+2026-10-21T02:34:58.843783Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-21T02:34:58.910070Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-21T02:34:59.027522Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:34:59.028842Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Sh, 2018
+2026-10-21T02:34:59.038519Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:38:06.221404Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\sh\GIC_measured_Hughes.pkl
+2026-10-21T02:39:06.651267Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-21T02:39:06.735228Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-21T02:39:06.840611Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:39:06.840611Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Vi, 2018
+2026-10-21T02:39:06.842128Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:42:55.685648Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\vi\GIC_measured_Hughes.pkl
+2026-10-21T02:44:36.742813Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-21T02:44:36.813946Z INFO  main Reading 'We' data for event '2018'
+2026-10-21T02:44:36.943740Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T02:44:36.952220Z INFO  main     Reading complete 'GIC/measured/Hughes' data for We, 2018
+2026-10-21T02:44:36.968737Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-21T02:47:45.264465Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\we\GIC_measured_Hughes.pkl
+2026-10-21T02:48:55.359573Z INFO  main Skipping statistics and plots for annual data from 'We', 2018.
+2026-10-21T10:43:57.200166Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-21T10:43:57.226273Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:43:57.226746Z INFO  main     Reading cached non-event data for site 'Bu': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\bu\GIC_measured_Hughes.pkl
+2026-10-21T10:44:31.056025Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-21T10:44:31.320400Z INFO  main Reading 'Me' data for event '2018'
+2026-10-21T10:44:31.495400Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:44:31.496485Z INFO  main     Reading cached non-event data for site 'Me': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\me\GIC_measured_Hughes.pkl
+2026-10-21T10:44:48.060046Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-21T10:44:48.076888Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-21T10:44:48.104831Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:44:48.104831Z INFO  main     Reading cached non-event data for site 'Mo': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\mo\GIC_measured_Hughes.pkl
+2026-10-21T10:45:27.356555Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-21T10:45:27.392807Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-21T10:45:27.512424Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:45:27.515911Z INFO  main     Reading cached non-event data for site 'Pa': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\pa\GIC_measured_Hughes.pkl
+2026-10-21T10:46:41.911222Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-21T10:46:42.030580Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-21T10:46:42.292811Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:46:42.304060Z INFO  main     Reading cached non-event data for site 'Sh': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\sh\GIC_measured_Hughes.pkl
+2026-10-21T10:50:05.223838Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-21T10:50:05.308749Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-21T10:50:05.508514Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:50:05.509522Z INFO  main     Reading cached non-event data for site 'Vi': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\vi\GIC_measured_Hughes.pkl
+2026-10-21T10:55:35.946367Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-21T10:55:36.038138Z INFO  main Reading 'We' data for event '2018'
+2026-10-21T10:55:36.227236Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-21T10:55:36.229519Z INFO  main     Reading cached non-event data for site 'We': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\we\GIC_measured_Hughes.pkl
+2026-10-21T11:06:23.818609Z INFO  main Skipping statistics and plots for annual data from 'We', 2018.
+2026-10-21T11:06:24.284158Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-21T11:06:24.284158Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-21T11:06:24.284158Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-22T14:58:38.294773Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-22T14:58:38.321637Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T14:58:38.321637Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Bu, 2018
+2026-10-22T14:58:38.342278Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T15:11:48.764935Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\bu\GIC_measured_Hughes.pkl
+2026-10-22T15:14:29.657657Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-22T15:14:29.745390Z INFO  main Reading 'Me' data for event '2018'
+2026-10-22T15:14:29.931657Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T15:14:29.934902Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Me, 2018
+2026-10-22T15:14:29.953015Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T15:50:23.432204Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\me\GIC_measured_Hughes.pkl
+2026-10-22T15:51:22.747377Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-22T15:51:22.767958Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-22T15:51:22.874349Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T15:51:22.874349Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Mo, 2018
+2026-10-22T15:51:22.890279Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T15:54:26.345956Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\mo\GIC_measured_Hughes.pkl
+2026-10-22T15:55:20.436427Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-22T15:55:20.472235Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-22T15:55:20.551264Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T15:55:20.551264Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Pa, 2018
+2026-10-22T15:55:20.559474Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T15:58:24.558889Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\pa\GIC_measured_Hughes.pkl
+2026-10-22T15:59:22.033515Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-22T15:59:22.083695Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-22T15:59:22.166852Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T15:59:22.166852Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Sh, 2018
+2026-10-22T15:59:22.186908Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:02:27.113306Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\sh\GIC_measured_Hughes.pkl
+2026-10-22T16:03:22.972201Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-22T16:03:22.980345Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-22T16:03:23.045785Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:03:23.046796Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Vi, 2018
+2026-10-22T16:03:23.052748Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:06:58.506607Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\vi\GIC_measured_Hughes.pkl
+2026-10-22T16:08:04.819489Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-22T16:08:04.880684Z INFO  main Reading 'We' data for event '2018'
+2026-10-22T16:08:05.053921Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:08:05.053921Z INFO  main     Reading complete 'GIC/measured/Hughes' data for We, 2018
+2026-10-22T16:08:05.071935Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:11:05.880593Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\we\GIC_measured_Hughes.pkl
+2026-10-22T16:13:11.229901Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-22T16:13:11.236709Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:13:11.237414Z INFO  main     Reading cached non-event data for site 'Bu': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\bu\GIC_measured_Hughes.pkl
+2026-10-22T16:13:17.802127Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-22T16:13:17.804132Z INFO  main Reading 'Me' data for event '2018'
+2026-10-22T16:13:17.821911Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:13:17.822916Z INFO  main     Reading cached non-event data for site 'Me': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\me\GIC_measured_Hughes.pkl
+2026-10-22T16:13:27.404721Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-22T16:13:27.431686Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-22T16:13:27.477565Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:13:27.477565Z INFO  main     Reading cached non-event data for site 'Mo': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\mo\GIC_measured_Hughes.pkl
+2026-10-22T16:13:35.688232Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-22T16:13:35.690236Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-22T16:13:35.702508Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:13:35.702508Z INFO  main     Reading cached non-event data for site 'Pa': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\pa\GIC_measured_Hughes.pkl
+2026-10-22T16:13:54.283720Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-22T16:13:54.306435Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-22T16:13:54.355708Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:13:54.355708Z INFO  main     Reading cached non-event data for site 'Sh': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\sh\GIC_measured_Hughes.pkl
+2026-10-22T16:14:43.723884Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-22T16:14:43.771366Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-22T16:14:43.851682Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:14:43.859583Z INFO  main     Reading cached non-event data for site 'Vi': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\vi\GIC_measured_Hughes.pkl
+2026-10-22T16:16:15.199234Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-22T16:16:15.250184Z INFO  main Reading 'We' data for event '2018'
+2026-10-22T16:16:15.343477Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:16:15.346478Z INFO  main     Reading cached non-event data for site 'We': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\we\GIC_measured_Hughes.pkl
+2026-10-22T16:30:02.477380Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-22T16:30:02.495555Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:30:02.496554Z INFO  main     Reading cached non-event data for site 'Bu': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\bu\GIC_measured_Hughes.pkl
+2026-10-22T16:30:32.728765Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-22T16:30:32.800696Z INFO  main Reading 'Me' data for event '2018'
+2026-10-22T16:30:32.913986Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:30:32.915000Z INFO  main     Reading cached non-event data for site 'Me': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\me\GIC_measured_Hughes.pkl
+2026-10-22T16:30:50.748009Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-22T16:30:50.787407Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-22T16:30:50.917077Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:30:50.920820Z INFO  main     Reading cached non-event data for site 'Mo': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\mo\GIC_measured_Hughes.pkl
+2026-10-22T16:31:16.274873Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-22T16:31:16.305933Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-22T16:31:16.373670Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:31:16.374671Z INFO  main     Reading cached non-event data for site 'Pa': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\pa\GIC_measured_Hughes.pkl
+2026-10-22T16:31:57.599869Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-22T16:31:57.669977Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-22T16:31:57.737884Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:31:57.739722Z INFO  main     Reading cached non-event data for site 'Sh': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\sh\GIC_measured_Hughes.pkl
+2026-10-22T16:33:23.408827Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-22T16:33:23.454857Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-22T16:33:23.555355Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:33:23.561356Z INFO  main     Reading cached non-event data for site 'Vi': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\vi\GIC_measured_Hughes.pkl
+2026-10-22T16:37:04.924602Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-22T16:37:04.980486Z INFO  main Reading 'We' data for event '2018'
+2026-10-22T16:37:05.119899Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:37:05.121963Z INFO  main     Reading cached non-event data for site 'We': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\we\GIC_measured_Hughes.pkl
+2026-10-22T16:40:42.327294Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-22T16:40:42.339588Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:40:42.339588Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Bu, 2018
+2026-10-22T16:40:42.359892Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:43:57.115795Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\bu\GIC_measured_Hughes.pkl
+2026-10-22T16:44:49.182597Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-22T16:44:49.209972Z INFO  main Reading 'Me' data for event '2018'
+2026-10-22T16:44:49.267862Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:44:49.267862Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Me, 2018
+2026-10-22T16:44:49.278675Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:47:48.192461Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\me\GIC_measured_Hughes.pkl
+2026-10-22T16:48:42.281749Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-22T16:48:42.296926Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-22T16:48:42.362895Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:48:42.362895Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Mo, 2018
+2026-10-22T16:48:42.370584Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:51:40.158544Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\mo\GIC_measured_Hughes.pkl
+2026-10-22T16:52:33.205816Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-22T16:52:33.227503Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-22T16:52:33.292897Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:52:33.292897Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Pa, 2018
+2026-10-22T16:52:33.301688Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:55:35.224138Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\pa\GIC_measured_Hughes.pkl
+2026-10-22T16:56:29.901599Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-22T16:56:29.933066Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-22T16:56:30.010151Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T16:56:30.010151Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Sh, 2018
+2026-10-22T16:56:30.017149Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T16:59:29.801124Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\sh\GIC_measured_Hughes.pkl
+2026-10-22T17:00:23.877627Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-22T17:00:23.877627Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-22T17:00:23.978565Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T17:00:23.979565Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Vi, 2018
+2026-10-22T17:00:23.985565Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T17:03:50.058081Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\vi\GIC_measured_Hughes.pkl
+2026-10-22T17:04:48.583164Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-22T17:04:48.612236Z INFO  main Reading 'We' data for event '2018'
+2026-10-22T17:04:48.806612Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-22T17:04:48.806612Z INFO  main     Reading complete 'GIC/measured/Hughes' data for We, 2018
+2026-10-22T17:04:48.850729Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-22T17:07:50.728055Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\we\GIC_measured_Hughes.pkl
+2026-10-22T17:09:01.603735Z INFO  main Skipping statistics and plots for annual data from 'We', 2018.
+2026-10-22T17:09:01.835339Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.csv
+2026-10-22T17:09:01.835339Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-22T17:09:01.835339Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\hughes\info.extended.json
+2026-10-22T17:57:57.747399Z INFO  main Reading 'Bu' data for event 'non-event'
+2026-10-22T18:13:29.442239Z INFO  main Reading 'Bu' data for event 'non-event'
+2026-10-22T18:13:29.451667Z INFO  main   Reading 'GIC/measured/Hughes' data for event 'non-event'
+2026-10-22T18:13:29.452691Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Bu, non-event
+2026-10-22T18:13:29.454682Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T01:33:06.456809Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-23T01:33:06.471679Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T01:33:06.471679Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Bu, 2018
+2026-10-23T01:33:06.474188Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_3_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T01:36:14.711956Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\bu\GIC_measured_Hughes.pkl
+2026-10-23T01:37:03.773165Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-23T01:37:03.788857Z INFO  main Reading 'Me' data for event '2018'
+2026-10-23T01:37:03.841978Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T01:37:03.842978Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Me, 2018
+2026-10-23T01:37:03.856016Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_7_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T01:40:06.945874Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\me\GIC_measured_Hughes.pkl
+2026-10-23T01:40:59.025519Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-23T01:40:59.042170Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-23T01:40:59.122926Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T01:40:59.122926Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Mo, 2018
+2026-10-23T01:40:59.130799Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_5_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T01:44:02.418390Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\mo\GIC_measured_Hughes.pkl
+2026-10-23T01:44:55.572778Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-23T01:44:55.595090Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-23T01:44:55.644910Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T01:44:55.644910Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Pa, 2018
+2026-10-23T01:44:55.644910Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_6_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T01:47:54.343112Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\pa\GIC_measured_Hughes.pkl
+2026-10-23T01:48:46.298496Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-23T01:48:46.326915Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-23T01:48:46.376700Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T01:48:46.376700Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Sh, 2018
+2026-10-23T01:48:46.376700Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T01:51:46.088441Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\sh\GIC_measured_Hughes.pkl
+2026-10-23T02:20:16.669752Z INFO  main Reading 'Bu' data for event '2018'
+2026-10-23T02:20:16.690350Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:20:16.690861Z INFO  main     Reading cached non-event data for site 'Bu': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\bu\GIC_measured_Hughes.pkl
+2026-10-23T02:20:24.888389Z INFO  main Skipping statistics and plots for annual data from 'Bu', 2018.
+2026-10-23T02:20:24.898880Z INFO  main Reading 'Me' data for event '2018'
+2026-10-23T02:20:24.906793Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:20:24.906793Z INFO  main     Reading cached non-event data for site 'Me': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\me\GIC_measured_Hughes.pkl
+2026-10-23T02:20:32.888233Z INFO  main Skipping statistics and plots for annual data from 'Me', 2018.
+2026-10-23T02:20:32.888233Z INFO  main Reading 'Mo' data for event '2018'
+2026-10-23T02:20:32.909272Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:20:32.910256Z INFO  main     Reading cached non-event data for site 'Mo': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\mo\GIC_measured_Hughes.pkl
+2026-10-23T02:20:41.882169Z INFO  main Skipping statistics and plots for annual data from 'Mo', 2018.
+2026-10-23T02:20:41.899017Z INFO  main Reading 'Pa' data for event '2018'
+2026-10-23T02:20:41.916998Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:20:41.927400Z INFO  main     Reading cached non-event data for site 'Pa': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\pa\GIC_measured_Hughes.pkl
+2026-10-23T02:20:55.401751Z INFO  main Skipping statistics and plots for annual data from 'Pa', 2018.
+2026-10-23T02:20:55.435863Z INFO  main Reading 'Sh' data for event '2018'
+2026-10-23T02:20:55.491146Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:20:55.493826Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Sh, 2018
+2026-10-23T02:20:55.610314Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_2_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T02:25:07.934584Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\sh\GIC_measured_Hughes.pkl
+2026-10-23T02:28:02.585302Z INFO  main Skipping statistics and plots for annual data from 'Sh', 2018.
+2026-10-23T02:28:02.650402Z INFO  main Reading 'Vi' data for event '2018'
+2026-10-23T02:28:02.761465Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:28:02.762473Z INFO  main     Reading complete 'GIC/measured/Hughes' data for Vi, 2018
+2026-10-23T02:28:02.770626Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_1_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T02:32:17.468794Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\vi\GIC_measured_Hughes.pkl
+2026-10-23T02:33:35.959888Z INFO  main Skipping statistics and plots for annual data from 'Vi', 2018.
+2026-10-23T02:33:36.024248Z INFO  main Reading 'We' data for event '2018'
+2026-10-23T02:33:36.125906Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T02:33:36.125906Z INFO  main     Reading complete 'GIC/measured/Hughes' data for We, 2018
+2026-10-23T02:33:36.142932Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T02:36:36.063917Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\we\GIC_measured_Hughes.pkl
+2026-10-23T07:13:55.948473Z INFO  main Reading 'We' data for event '2018'
+2026-10-23T07:13:55.957546Z INFO  main   Reading 'GIC/measured/Hughes' data for event '2018'
+2026-10-23T07:13:55.958615Z INFO  main     Reading complete 'GIC/measured/Hughes' data for We, 2018
+2026-10-23T07:13:55.977437Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\hughes\2018\gic\Node_4_anon_gic_qdc_median_wdy10_wmin1800_fm3_wgic.csv
+2026-10-23T07:17:00.576469Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2018\we\GIC_measured_Hughes.pkl
+2026-10-23T07:17:58.187859Z INFO  main Skipping statistics and plots for annual data from 'We', 2018.

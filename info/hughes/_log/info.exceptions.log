@@ -164,3 +164,184 @@ Traceback (most recent call last):
                        ^^^^^^^^^^^^^
 ValueError: could not convert string to float: ''
 
+[2026-10-21T06:01:35.764343Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 28, in <module>
+    runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 686, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 105, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 95, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~^^^^^^^
+KeyError: np.int64(2018)
+
+[2026-10-21T06:01:35.766350Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 28, in <module>
+    runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 686, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 105, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 95, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~^^^^^^^
+KeyError: np.int64(2018)
+
+[2026-10-21T06:12:00.333674Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 80, in site_read
+    event_type = CONFIG['event'][event].get('event_type', 'event')
+                 ~~~~~~~~~~~~~~~^^^^^^^
+KeyError: np.int64(2018)
+
+[2026-10-21T06:12:00.334676Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 80, in site_read
+    event_type = CONFIG['event'][event].get('event_type', 'event')
+                 ~~~~~~~~~~~~~~~^^^^^^^
+KeyError: np.int64(2018)
+
+[2026-10-21T06:48:55.524539Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 68, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source][sid]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
+[2026-10-21T06:48:56.000929Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 68, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source][sid]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
+[2026-10-22T21:26:34.371943Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 17, in <module>
+    if os.path.exists(CONFIG['files']['events_dict']):
+                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'events_dict'
+
+[2026-10-22T21:28:57.169229Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 686, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 31, in write_info_csv
+    CONFIG = config()
+             ^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\config.py", line 57, in config
+    event_dict = write_event_dict(conf, file_path, data_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_event_dict.py", line 70, in write_event_dict
+    year = int(event)
+           ^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'non-event'
+
+[2026-10-22T21:31:13.151321Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 686, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 437, in write_info_csv
+    if _event_overlaps_data(event, data_file, events, logger):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 513, in _event_overlaps_data
+    event_start, event_stop = events[event]['data_limits']
+    ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 0)
+
+[2026-10-22T21:31:13.154322Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 686, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 437, in write_info_csv
+    if _event_overlaps_data(event, data_file, events, logger):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 513, in _event_overlaps_data
+    event_start, event_stop = events[event]['data_limits']
+    ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 0)
+
+[2026-10-22T21:32:54.611426Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 693, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 112, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 102, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+[2026-10-22T21:32:54.624843Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 693, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 112, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 102, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+[2026-10-22T22:06:22.325932Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 692, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 111, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 101, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+[2026-10-22T22:06:22.325932Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 692, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 111, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 101, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+

@@ -53,3 +53,30 @@
 2026-09-28T14:58:42.149217Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.csv
 2026-09-28T14:58:42.149217Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
 2026-09-28T14:58:42.152041Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry_config\info.extended.json
+2026-10-16T11:57:00.558365Z INFO  info    Adding sites for event 2021-09-26 from data source Parry2024 to info.csv.
+2026-10-16T11:57:00.599211Z WARN  info    Event 2021-09-26 not found for data source Parry2025. Skipping...
+2026-10-16T11:57:00.599211Z INFO  info    Adding sites for event 2021-10-12 from data source Parry2024 to info.csv.
+2026-10-16T11:57:00.645124Z WARN  info    Event 2021-10-12 not found for data source Parry2025. Skipping...
+2026-10-16T11:57:00.645124Z WARN  info    Event 2021-11-04 not found for data source Parry2024. Skipping...
+2026-10-16T11:57:00.645124Z INFO  info    Adding sites for event 2021-11-04 from data source Parry2025 to info.csv.
+2026-10-16T11:57:00.645124Z WARN  info    Data type GIC not found for source Parry2025 and event 2021-11-04. Skipping...
+2026-10-16T11:57:00.667120Z WARN  info    Event 2023-04-24 not found for data source Parry2024. Skipping...
+2026-10-16T11:57:00.667120Z INFO  info    Adding sites for event 2023-04-24 from data source Parry2025 to info.csv.
+2026-10-16T11:57:00.808240Z INFO  info    Saving info to C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry\info.csv
+2026-10-16T11:57:00.849750Z INFO  info Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry\info.csv
+2026-10-16T11:57:12.272356Z INFO  info Adding interpolated OTT beta and log10 beta columns to extended info_df
+2026-10-16T11:57:12.272356Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\pulkkinen\waveforms_All.mat
+2026-10-16T11:57:13.775611Z WARN  info     Warning: Could not interpolate beta for site MSTK at (53.351,247.026)
+2026-10-16T11:57:13.775611Z WARN  info     Warning: Could not interpolate beta for site Alberta 1 at (53.45,-144.45)
+2026-10-16T11:57:13.775611Z WARN  info     Warning: Could not interpolate beta for site FCHP at (58.769,248.894)
+2026-10-16T11:57:13.775611Z WARN  info     Warning: Could not interpolate beta for site MCMU at (56.657,248.79)
+2026-10-16T11:57:13.775611Z WARN  info     Warning: Could not interpolate beta for site MSTK at (53.351,247.026)
+2026-10-16T11:57:14.369898Z INFO  info Adding geomagnetic coordinates and alpha to extended info_df
+2026-10-16T11:57:14.517763Z WARN  info Simulation file C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\gmu\gic_mean_df_1.csv does not exist. Skipping add_sim_site.
+2026-10-16T11:57:23.738154Z INFO  info Adding nearest voltage to extended info_df
+2026-10-16T11:57:34.167072Z INFO  info Skipping nearest voltage: sites outside of CONUS.
+2026-10-16T11:57:34.167072Z INFO  info   Reading C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf.geojson
+2026-10-16T11:57:37.696135Z INFO  info   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-common\nerc_gdf\nerc_gdf_mapped.csv
+2026-10-16T11:57:37.884917Z INFO  info Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry\info.extended.csv
+2026-10-16T11:57:37.884917Z INFO  info Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry\info.extended.json
+2026-10-16T11:57:37.888956Z INFO  info Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\parry\info.extended.json

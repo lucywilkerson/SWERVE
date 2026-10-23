@@ -1638,3 +1638,32 @@ Data is constant for at least 5 minutes starting at time 2024-05-12 02:09:00
 2026-10-14T14:42:41.170916Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.csv
 2026-10-14T14:42:41.173655Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
 2026-10-14T14:42:41.177682Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo_config\info.extended.json
+2026-10-23T07:22:38.697900Z INFO  main Reading 'LAV' data for event '2021'
+2026-10-23T07:22:38.711515Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021'
+2026-10-23T07:22:38.713515Z INFO  main     Reading complete 'GIC/measured/Caraballo2023' data for LAV, 2021
+2026-10-23T07:22:38.717376Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-23T07:22:47.662803Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2021\lav\GIC_measured_Caraballo2023.pkl
+2026-10-23T07:22:48.236070Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021'
+2026-10-23T07:22:48.236070Z INFO  main     Reading complete 'GIC/calculated/Caraballo2023' data for LAV, 2021
+2026-10-23T07:22:48.246493Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-23T07:22:56.733665Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2021\lav\GIC_calculated_Caraballo2023.pkl
+2026-10-23T07:22:57.245065Z INFO  main Skipping statistics and plots for annual data from 'LAV', 2021.
+2026-10-23T07:22:57.245065Z INFO  main Reading 'QRP' data for event '2021'
+2026-10-23T07:22:57.259533Z INFO  main   Reading 'GIC/measured/Caraballo2023' data for event '2021'
+2026-10-23T07:22:57.259533Z INFO  main     Reading complete 'GIC/measured/Caraballo2023' data for QRP, 2021
+2026-10-23T07:22:57.266140Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-23T07:23:14.214633Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2021\qrp\GIC_measured_Caraballo2023.pkl
+2026-10-23T07:23:15.130349Z INFO  main   Reading 'GIC/calculated/Caraballo2023' data for event '2021'
+2026-10-23T07:23:15.130349Z INFO  main     Reading complete 'GIC/calculated/Caraballo2023' data for QRP, 2021
+2026-10-23T07:23:15.130349Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\gic\gic_2021ultproc.csv
+2026-10-23T07:23:27.038190Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2021\qrp\GIC_calculated_Caraballo2023.pkl
+2026-10-23T07:23:27.587227Z INFO  main Skipping statistics and plots for annual data from 'QRP', 2021.
+2026-10-23T07:23:27.587227Z INFO  main Reading 'TUC' data for event '2021'
+2026-10-23T07:23:27.602286Z INFO  main   Reading 'B/measured/Caraballo2023' data for event '2021'
+2026-10-23T07:23:27.603801Z INFO  main     Reading complete 'B/measured/Caraballo2023' data for TUC, 2021
+2026-10-23T07:23:27.605816Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\caraballo2023\2021\mag\tuc_magnetic_field.csv
+2026-10-23T07:23:30.797470Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\non-event\2021\tuc\B_measured_Caraballo2023.pkl
+2026-10-23T07:23:30.988699Z INFO  main Skipping statistics and plots for annual data from 'TUC', 2021.
+2026-10-23T07:23:31.001545Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo\info.extended.csv
+2026-10-23T07:23:31.001545Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo\info.extended.json
+2026-10-23T07:23:31.006204Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\caraballo\info.extended.json

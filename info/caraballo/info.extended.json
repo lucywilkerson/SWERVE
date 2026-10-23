@@ -6,34 +6,16 @@
           "LAV": {
             "geo_lat": 19.72,
             "geo_lon": -96.41,
-            "event": "2021-09-17",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 28.20331371838976,
-            "mag_lon": -25.473251019686312,
-            "alpha": 0.0256201993537421,
+            "mag_lat": 28.23528220441662,
+            "mag_lon": -25.475496688010704,
+            "alpha": 0.0257145621873637,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (0.5272 A) > 1/4 * std after (1.3936 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2021-09-17 02:44:00"
-          }
-        },
-        "Caraballo2025": {
-          "LAV": {
-            "geo_lat": 19.72,
-            "geo_lon": -96.41,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 28.08391271799284,
-            "mag_lon": -25.46534014821051,
-            "alpha": 0.0252708096933141,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (3.3972 A) > 1/4 * std after (6.1095 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 15:41:00"
+            "US_region": NaN
           }
         }
       },
@@ -42,34 +24,16 @@
           "LAV": {
             "geo_lat": 19.72,
             "geo_lon": -96.41,
-            "event": "2021-09-17",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 28.20331371838976,
-            "mag_lon": -25.473251019686312,
-            "alpha": 0.0256201993537421,
+            "mag_lat": 28.23528220441662,
+            "mag_lon": -25.475496688010704,
+            "alpha": 0.0257145621873637,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
-          }
-        },
-        "Caraballo2025": {
-          "LAV": {
-            "geo_lat": 19.72,
-            "geo_lon": -96.41,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 28.08391271799284,
-            "mag_lon": -25.46534014821051,
-            "alpha": 0.0252708096933141,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
+            "US_region": NaN
           }
         }
       }
@@ -82,17 +46,16 @@
           "QRP": {
             "geo_lat": 20.53,
             "geo_lon": -100.49,
-            "event": "2021-09-17",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 28.703623235376035,
-            "mag_lon": -29.89042334964706,
-            "alpha": 0.0271375037141425,
+            "mag_lat": 28.734399311232664,
+            "mag_lon": -29.894155888886576,
+            "alpha": 0.0272337202562227,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (1.9195 A) > 1/4 * std after (5.1691 A);\nCadence is >= 60 seconds (60.0 seconds)"
+            "US_region": NaN
           }
         }
       },
@@ -101,17 +64,16 @@
           "QRP": {
             "geo_lat": 20.53,
             "geo_lon": -100.49,
-            "event": "2021-09-17",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": NaN,
             "log10_beta": NaN,
-            "mag_lat": 28.703623235376035,
-            "mag_lon": -29.89042334964706,
-            "alpha": 0.0271375037141425,
+            "mag_lat": 28.734399311232664,
+            "mag_lon": -29.894155888886576,
+            "alpha": 0.0272337202562227,
             "nearest_volt": NaN,
             "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
+            "US_region": NaN
           }
         }
       }
@@ -124,143 +86,16 @@
           "TUC": {
             "geo_lat": 32.1745,
             "geo_lon": -110.7337,
-            "event": "2021-09-17",
+            "event": "2021",
             "manual_error": NaN,
             "interpolated_beta": 0.9111539901822128,
             "log10_beta": -0.0404082185980436,
-            "mag_lat": 39.30522808195197,
-            "mag_lon": -42.41325268314451,
-            "alpha": 0.0918448949134403,
+            "mag_lat": 39.33165621823275,
+            "mag_lon": -42.4266463568187,
+            "alpha": 0.0921244578079474,
             "nearest_volt": NaN,
             "power_pool": "WestConnect",
-            "US_region": "West",
-            "automated_error": NaN
-          }
-        }
-      }
-    }
-  },
-  "MZT": {
-    "GIC": {
-      "measured": {
-        "Caraballo2025": {
-          "MZT": {
-            "geo_lat": 23.19,
-            "geo_lon": -106.35,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 30.725286386831307,
-            "mag_lon": -36.396087018238696,
-            "alpha": 0.0342404582442472,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (0.2427 A) > 1/4 * std after (0.9408 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-10 16:23:00"
-          }
-        }
-      },
-      "calculated": {
-        "Caraballo2025": {
-          "MZT": {
-            "geo_lat": 23.19,
-            "geo_lon": -106.35,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 30.725286386831307,
-            "mag_lon": -36.396087018238696,
-            "alpha": 0.0342404582442472,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
-          }
-        }
-      }
-    }
-  },
-  "RMY": {
-    "GIC": {
-      "measured": {
-        "Caraballo2025": {
-          "RMY": {
-            "geo_lat": 20.83,
-            "geo_lon": -86.93,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 29.7203800877148,
-            "mag_lon": -15.398767906249152,
-            "alpha": 0.0305035695163118,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Cadence is >= 60 seconds (60.0 seconds)"
-          }
-        }
-      },
-      "calculated": {
-        "Caraballo2025": {
-          "RMY": {
-            "geo_lat": 20.83,
-            "geo_lon": -86.93,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 29.7203800877148,
-            "mag_lon": -15.398767906249152,
-            "alpha": 0.0305035695163118,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
-          }
-        }
-      }
-    }
-  },
-  "QRO": {
-    "GIC": {
-      "measured": {
-        "Caraballo2025": {
-          "QRO": {
-            "geo_lat": 20.64,
-            "geo_lon": -100.44,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 28.7022483052735,
-            "mag_lon": -29.834484326977133,
-            "alpha": 0.0271332131537187,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Excessive pre-storm noise: std before (7.7144 A) > 1/4 * std after (12.9953 A);\nCadence is >= 60 seconds (60.0 seconds);\nData is constant for at least 5 minutes starting at time 2024-05-12 02:09:00"
-          }
-        }
-      },
-      "calculated": {
-        "Caraballo2025": {
-          "QRO": {
-            "geo_lat": 20.64,
-            "geo_lon": -100.44,
-            "event": "2024-05-10",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 28.7022483052735,
-            "mag_lon": -29.834484326977133,
-            "alpha": 0.0271332131537187,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
+            "US_region": "West"
           }
         }
       }

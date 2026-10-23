@@ -1,0 +1,120 @@
+[2026-10-22T22:13:51.745973Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 531, in _hubert_sites_for_event
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+                                                                                                   ~~~~~~~~~~^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-10-22T22:13:51.808331Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 531, in _hubert_sites_for_event
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+                                                                                                   ~~~~~~~~~~^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-10-22T22:15:28.590660Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 531, in _hubert_sites_for_event
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+                                                                                                   ~~~~~~~~~~^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-10-22T22:15:28.593588Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 531, in _hubert_sites_for_event
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+                                                                                                   ~~~~~~~~~~^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+[2026-10-22T22:18:21.717176Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 534, in _hubert_sites_for_event
+    event_start = event_start.date() if hasattr(event_start, 'date') else datetime.date.fromisoformat(event_start[:10])
+                                                                                                      ~~~~~~~~~~~^^^^^
+TypeError: 'datetime.date' object is not subscriptable
+
+[2026-10-22T22:18:21.720778Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 534, in _hubert_sites_for_event
+    event_start = event_start.date() if hasattr(event_start, 'date') else datetime.date.fromisoformat(event_start[:10])
+                                                                                                      ~~~~~~~~~~~^^^^^
+TypeError: 'datetime.date' object is not subscriptable
+
+[2026-10-22T22:18:48.696610Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 535, in _hubert_sites_for_event
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+                                                                                                   ~~~~~~~~~~^^^^^
+TypeError: 'datetime.date' object is not subscriptable
+
+[2026-10-22T22:18:48.699860Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 417, in write_info_csv
+    event_sites = _hubert_sites_for_event(file_dir, event, events)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 535, in _hubert_sites_for_event
+    event_stop = event_stop.date() if hasattr(event_stop, 'date') else datetime.date.fromisoformat(event_stop[:10])
+                                                                                                   ~~~~~~~~~~^^^^^
+TypeError: 'datetime.date' object is not subscriptable
+

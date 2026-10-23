@@ -1,41 +1,18 @@
 {
-  "Alberta 1": {
-    "GIC": {
+  "Alberta line": {
+    "DMM": {
       "measured": {
-        "Parry2025": {
-          "Alberta 1": {
-            "geo_lat": 53.45,
-            "geo_lon": -144.45,
-            "event": "2023-04-24",
+        "Parry2024": {
+          "Alberta line": {
+            "geo_lat": 53.47,
+            "geo_lon": -113.33,
+            "event": "2021-10-12",
             "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 55.3654323534873,
-            "mag_lon": -84.49390524068458,
-            "alpha": 0.5823226762563027,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": "Data is constant for at least 5 minutes starting at time 2023-04-24 08:08:54"
-          }
-        }
-      }
-    }
-  },
-  "Alberta 2": {
-    "GIC": {
-      "measured": {
-        "Parry2025": {
-          "Alberta 2": {
-            "geo_lat": 53.45,
-            "geo_lon": -113.48,
-            "event": "2023-04-24",
-            "manual_error": NaN,
-            "interpolated_beta": 0.5733127985946018,
-            "log10_beta": -0.2416083629576306,
-            "mag_lat": 59.918332234548814,
-            "mag_lon": -50.96361598010127,
-            "alpha": 0.9829991023503156,
+            "interpolated_beta": 0.5702206887236462,
+            "log10_beta": -0.2439570296861195,
+            "mag_lat": 60.005781083717295,
+            "mag_lon": -50.885098942104,
+            "alpha": 0.9929346236104356,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
@@ -45,66 +22,20 @@
       }
     }
   },
-  "FCHP": {
-    "B": {
+  "Alberta ref": {
+    "DMM": {
       "measured": {
-        "Parry2025": {
-          "FCHP": {
-            "geo_lat": 58.769,
-            "geo_lon": 248.894,
-            "event": "2023-04-24",
+        "Parry2024": {
+          "Alberta ref": {
+            "geo_lat": 53.47,
+            "geo_lon": -113.33,
+            "event": "2021-10-12",
             "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 65.39788023284949,
-            "mag_lon": -50.75781451548821,
-            "alpha": 1.845962732801876,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
-          }
-        }
-      }
-    }
-  },
-  "MCMU": {
-    "B": {
-      "measured": {
-        "Parry2025": {
-          "MCMU": {
-            "geo_lat": 56.657,
-            "geo_lon": 248.79,
-            "event": "2023-04-24",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 63.33036171097439,
-            "mag_lon": -49.75222077811513,
-            "alpha": 1.455335295590097,
-            "nearest_volt": NaN,
-            "power_pool": NaN,
-            "US_region": NaN,
-            "automated_error": NaN
-          }
-        }
-      }
-    }
-  },
-  "MSTK": {
-    "B": {
-      "measured": {
-        "Parry2025": {
-          "MSTK": {
-            "geo_lat": 53.351,
-            "geo_lon": 247.026,
-            "event": "2021-11-04",
-            "manual_error": NaN,
-            "interpolated_beta": NaN,
-            "log10_beta": NaN,
-            "mag_lat": 59.93200338480462,
-            "mag_lon": -50.4170188703752,
-            "alpha": 0.984545771624144,
+            "interpolated_beta": 0.5702206887236462,
+            "log10_beta": -0.2439570296861195,
+            "mag_lat": 60.005781083717295,
+            "mag_lon": -50.885098942104,
+            "alpha": 0.9929346236104356,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
@@ -160,20 +91,20 @@
       }
     }
   },
-  "Alberta line": {
-    "DMM": {
+  "MSTK": {
+    "B": {
       "measured": {
-        "Parry2024": {
-          "Alberta line": {
-            "geo_lat": 53.47,
-            "geo_lon": -113.33,
-            "event": "2021-09-26",
+        "Parry2025": {
+          "MSTK": {
+            "geo_lat": 53.351,
+            "geo_lon": 247.026,
+            "event": "2023-04-24",
             "manual_error": NaN,
-            "interpolated_beta": 0.5702206887236462,
-            "log10_beta": -0.2439570296861195,
-            "mag_lat": 60.00719444516695,
-            "mag_lon": -50.88762206152392,
-            "alpha": 0.9930960249115756,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 59.88437669933648,
+            "mag_lon": -50.334092885924,
+            "alpha": 0.9791680870854336,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,
@@ -183,20 +114,89 @@
       }
     }
   },
-  "Alberta ref": {
-    "DMM": {
+  "Alberta 1": {
+    "GIC": {
       "measured": {
-        "Parry2024": {
-          "Alberta ref": {
-            "geo_lat": 53.47,
-            "geo_lon": -113.33,
-            "event": "2021-09-26",
+        "Parry2025": {
+          "Alberta 1": {
+            "geo_lat": 53.45,
+            "geo_lon": -144.45,
+            "event": "2023-04-24",
             "manual_error": NaN,
-            "interpolated_beta": 0.5702206887236462,
-            "log10_beta": -0.2439570296861195,
-            "mag_lat": 60.00719444516695,
-            "mag_lon": -50.88762206152392,
-            "alpha": 0.9930960249115756,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 55.365431326836486,
+            "mag_lon": -84.49389442472733,
+            "alpha": 0.5823226075044708,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": "Data is constant for at least 5 minutes starting at time 2023-04-24 08:08:54"
+          }
+        }
+      }
+    }
+  },
+  "Alberta 2": {
+    "GIC": {
+      "measured": {
+        "Parry2025": {
+          "Alberta 2": {
+            "geo_lat": 53.45,
+            "geo_lon": -113.48,
+            "event": "2023-04-24",
+            "manual_error": NaN,
+            "interpolated_beta": 0.5733127985946018,
+            "log10_beta": -0.2416083629576306,
+            "mag_lat": 59.91832674381919,
+            "mag_lon": -50.963606215552495,
+            "alpha": 0.9829984816515488,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "FCHP": {
+    "B": {
+      "measured": {
+        "Parry2025": {
+          "FCHP": {
+            "geo_lat": 58.769,
+            "geo_lon": 248.894,
+            "event": "2023-04-24",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 65.39787471906828,
+            "mag_lon": -50.75780185281507,
+            "alpha": 1.8459615623052663,
+            "nearest_volt": NaN,
+            "power_pool": NaN,
+            "US_region": NaN,
+            "automated_error": NaN
+          }
+        }
+      }
+    }
+  },
+  "MCMU": {
+    "B": {
+      "measured": {
+        "Parry2025": {
+          "MCMU": {
+            "geo_lat": 56.657,
+            "geo_lon": 248.79,
+            "event": "2023-04-24",
+            "manual_error": NaN,
+            "interpolated_beta": NaN,
+            "log10_beta": NaN,
+            "mag_lat": 63.330356085587184,
+            "mag_lon": -49.75220954719324,
+            "alpha": 1.455334354105578,
             "nearest_volt": NaN,
             "power_pool": NaN,
             "US_region": NaN,

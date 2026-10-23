@@ -1,0 +1,37 @@
+[2026-10-16T16:02:06.160375Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 16, in <module>
+    from swerve.plot import plot_maps, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_stack.py", line 306, in <module>
+    info_dict, info_df, data_all = read(CONFIG['files']['all'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_stack.py", line 28, in read
+    with open(all_file, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_processed\\all.pkl'
+
+[2026-10-16T16:02:06.160375Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 16, in <module>
+    from swerve.plot import plot_maps, plot_stack
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_stack.py", line 306, in <module>
+    info_dict, info_df, data_all = read(CONFIG['files']['all'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_stack.py", line 28, in read
+    with open(all_file, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_processed\\all.pkl'
+
+[2026-10-20T17:49:33.260852Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 155, in site_read
+    orig = _site_read_orig(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 387, in _site_read_orig
+    time = pandas.to_datetime(load_data['time_GIC']).to_pydatetime()
+           ^^^^^^
+UnboundLocalError: cannot access local variable 'pandas' where it is not associated with a value
+

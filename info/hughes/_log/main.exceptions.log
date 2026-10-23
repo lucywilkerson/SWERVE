@@ -54,3 +54,104 @@ Traceback (most recent call last):
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_original\\hughes_site_names.json'
 
+[2026-10-21T06:01:35.766350Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 28, in <module>
+    runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 686, in <module>
+    add_geomag(info_df, CONFIG['event'])
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 105, in add_geomag
+    test_stat = get_geomag_coords(row, events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 95, in get_geomag_coords
+    date = event_dict[event]['data_limits'][0]
+           ~~~~~~~~~~^^^^^^^
+KeyError: np.int64(2018)
+
+[2026-10-21T06:03:28.827876Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 80, in site_read
+    event_type = CONFIG['event'][event].get('event_type', 'event')
+                 ~~~~~~~~~~~~~~~^^^^^^^
+KeyError: '2018-09-01'
+
+[2026-10-21T06:12:00.334676Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 80, in site_read
+    event_type = CONFIG['event'][event].get('event_type', 'event')
+                 ~~~~~~~~~~~~~~~^^^^^^^
+KeyError: np.int64(2018)
+
+[2026-10-21T06:48:56.000929Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 68, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source][sid]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
+[2026-10-22T20:16:20.649365Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 135, in site_read
+    orig = pickle.load(f)
+           ^^^^^^^^^^^^^^
+EOFError: Ran out of input
+
+[2026-10-22T20:37:12.625341Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 135, in site_read
+    orig = pickle.load(f)
+           ^^^^^^^^^^^^^^
+EOFError: Ran out of input
+
+[2026-10-22T21:57:57.747398Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 102, in site_read
+    start = CONFIG['event'][event]['data_limits'][0]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+[2026-10-23T05:52:23.159734Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 151, in site_read
+    write_pkl(non_event_file, orig, logger, indent='    ')
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_pkl.py", line 13, in write_pkl
+    pickle.dump(data, file_handle)
+MemoryError
+
+[2026-10-23T06:36:45.797373Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 151, in site_read
+    write_pkl(non_event_file, orig, logger, indent='    ')
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_pkl.py", line 13, in write_pkl
+    pickle.dump(data, file_handle)
+OSError: [Errno 28] No space left on device
+
