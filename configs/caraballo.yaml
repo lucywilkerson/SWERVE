@@ -1,6 +1,6 @@
 run_config_name: caraballo # for saving info files/logs
 
-event: ['2021-09-17', '2024-05-10'] # make all option
+event: 'all'
 
 data_source: ['Caraballo2023', 'Caraballo2025'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 

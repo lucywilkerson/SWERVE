@@ -1,6 +1,6 @@
 run_config_name: hubert # for saving info files/logs
 
-event: ['2018-08-25', '2020-08-28', '2021-03-24', '2021-09-17']
+event: 'all'
 
 data_source: ['Hubert'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 
