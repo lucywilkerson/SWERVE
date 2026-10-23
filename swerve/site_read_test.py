@@ -168,6 +168,38 @@ def test_Espinosa_GIC_measured():
     # Using numpy.isclose because Excel file reader adds small diff
     assert read_start_time == raw_start_time and numpy.isclose(read_start_data[0], raw_start_data)
 
+def test_Hubert_DMM_measured():
+    data_source = 'Hubert'
+    data_type = 'DMM'
+    data_class = 'measured'
+    sid = 'DAL line'
+    event = '2021-03-24'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2021-03-24 00:00:00', '%Y-%m-%d %H:%M:%S')
+    raw_start_data = numpy.array([17539.78, -170.32, 46544.28])
+    assert read_start_time == raw_start_time
+    assert numpy.array_equal(read_start_data, raw_start_data)
+
+def test_Hughes_GIC_measured():
+    data_source = 'Hughes'
+    data_type = 'GIC'
+    data_class = 'measured'
+    sid = 'Bu'  # Replace with actual site ID
+    event = '2018-09-01'
+    # Reading in one site
+    read_data = _site_read_orig(sid, data_type, data_class, data_source, event, logger)
+    read_start_time = read_data['time'][0]
+    read_start_data = read_data['data'][0]
+    # Comparing to values in site file
+    raw_start_time = datetime.datetime.strptime('2018-09-01/00:00:00', '%Y-%m-%d/%H:%M:%S')
+    raw_start_data = [-0.0100]
+    assert read_start_time == raw_start_time 
+    assert read_start_data == raw_start_data
+
 def test_Marsal2021_DMM_measured():
     data_source = 'Marsal2021'
     data_type = 'DMM'
@@ -415,6 +447,10 @@ if run_tests:
     test_Caraballo2023_GIC_calculated()
 
     test_Espinosa_GIC_measured()
+
+    test_Hubert_DMM_measured()
+
+    test_Hughes_GIC_measured()
 
     test_Marsal2021_DMM_measured()
 
