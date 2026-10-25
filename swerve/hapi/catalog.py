@@ -1,183 +1,76 @@
-"""Build HAPI catalog files from a SWERVE-data checkout."""
+"""List the HAPI IDs available in SWERVE's native cache files."""
 
-from __future__ import annotations
-
-import hashlib
 import json
-import sys
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from pickle import UnpicklingError
+import sys
 
-import pandas as pd
+from .swerve_to_numpy import _root, _read_series
+from ..util.source_catalog import ANNUAL_SOURCES, DATE_PARTITION_PATTERN, YEAR_PARTITION_PATTERN, source_kind
 
-from .inventory import discover
-from .layout import FILL, ISO, KINDS, QUANTITY_NAMES, SOURCES, UNITS, Dataset
-from .readers import read
 
-READ_ERRORS = (OSError, ValueError, KeyError, OverflowError)
-SWERVE_DATA_URL = "https://github.com/lucywilkerson/SWERVE-data"
-PROVIDERS = {
-    "NERC": "the NERC GMD data portal",
-    "TVA": "the Tennessee Valley Authority",
-    "GMU": "the George Mason University C-SWIM simulation",
-    "SWMF": "the Space Weather Modeling Framework",
-    "OpenGGCM": "OpenGGCM",
-    "MAGE": "the MAGE model",
-}
+def catalog(*, data_root=None, output=Path(__file__).resolve().parents[2] / "catalog.json"):
+    """Return IDs: source/site/type/class/{original,modified}; write them as JSON.
 
-def catalog():
-    """Return list of dataset IDs of form "data_source/site_id/data_type/data_class/{original,modified}"."""
-    datasets = discover()
-    ids = []
-    for dataset in datasets:
+    Each ID spans its available event or annual partitions. Only variants with
+    cached records are listed. Pass output=None to return without writing.
+    """
+    directory = _root(data_root) / "data_processed"
+    if not directory.is_dir():
+        raise FileNotFoundError(f"Processed SWERVE data not found: {directory}")
+    ids = set()
+    paths = sorted(directory.glob("*/sites/*/data/*.pkl")) + sorted(directory.glob("non-event/*/*/*.pkl"))
+    for path in paths:
+        if path.name == "_all.pkl":
+            continue
+        parts = path.stem.split("_", 2)
+        if len(parts) != 3:
+            continue
+        data_type, data_class, source = parts
+        relative = path.relative_to(directory).parts
+        annual = relative[0] == "non-event"
+        partition = relative[1] if annual else relative[0]
+        pattern = YEAR_PARTITION_PATTERN if annual else DATE_PARTITION_PATTERN
+        if not pattern.fullmatch(partition):
+            continue
+        site = path.parent.name if annual else path.parent.parent.name
+        try:
+            source_kind(source)
+        except ValueError as error:
+            print(f"Skipping {path}: {error}", file=sys.stderr)
+            continue
+        if data_type not in ("GIC", "B", "DMM") or data_class not in ("measured", "calculated"):
+            continue
         for variant in ("original", "modified"):
-            ids.append(f"{dataset.source}/{dataset.site}/{dataset.quantity}/{dataset.kind}/{variant}")
-    import utilrsw
-    utilrsw.write('catalog.json', ids)
+            if annual != (source in ANNUAL_SOURCES and variant == "original"):
+                continue
+            try:
+                item = _read_series(path, source, data_type, data_class, variant == "modified")
+                if item is not None and not item[0].empty:
+                    ids.add(f"{source}/{site}/{data_type}/{data_class}/{variant}")
+            except (OSError, ValueError, TypeError, EOFError, UnpicklingError) as error:
+                print(f"Skipping {variant} in {path}: {error}", file=sys.stderr)
+    def importance(identifier):
+        source, site, quantity, kind, variant = identifier.split("/")
+        sources = ("NERC", "TVA", "Bor", "GMU", "SWMF", "OpenGGCM", "MAGE")
+        return (kind != "measured", {"GIC": 0, "B": 1, "DMM": 2}.get(quantity, 3),
+                sources.index(source) if source in sources else len(sources), source.lower(), site, variant != "original")
+    ids = sorted(ids, key=importance)
+    if output is not None:
+        Path(output).write_text(json.dumps(ids, indent=2) + "\n")
     return ids
 
-def importance(entry: dict) -> tuple:
-    """Catalog order: measured before calculated, GIC before B, source order, newest storm first, then site."""
-    content = entry["info"]["additionalMetadata"][0]["content"]
-    return (
-        KINDS.index(content["dataClass"]),
-        list(UNITS).index(content["dataType"]),
-        SOURCES.index(content["source"]) if content["source"] in SOURCES else len(SOURCES),
-        content["source"].lower(),
-        tuple(-int(part) for part in content["event"].split("-")),
-        entry["id"],
-    )
 
+def catalog_all(*, data_root=None, output=Path(__file__).resolve().parents[2] / "catalog-all.json"):
+    """Return IDs with metadata; write JSON unless output=None.
 
-def describe(dataset: Dataset, data: pd.DataFrame, cadence: str | None, max_gap: float | None) -> str:
-    start, stop = data.index[0].strftime(ISO), data.index[-1].strftime(ISO)
-    if cadence is not None:
-        spacing = f"at a uniform {cadence} cadence"
-    elif max_gap is not None:
-        spacing = f"with irregular spacing (largest gap {max_gap:g} s)"
-    else:
-        spacing = "as a single record"
-    if dataset.product == "processed":
-        provenance = "Values are SWERVE's stored modified arrays; see additionalMetadata for the recorded modification and site quality flags. No further resampling or filtering is applied by this reader."
-    else:
-        provenance = (f"Values are as provided by {PROVIDERS[dataset.source]}, at the original cadence and baseline, "
-                      "without resampling, filtering, or component sums.")
-    return (
-        f"{dataset.kind.capitalize()} {QUANTITY_NAMES[dataset.quantity]} at {dataset.source} site {dataset.site} "
-        f"during the {dataset.event} geomagnetic storm: {len(data)} records from {start} to {stop} {spacing}. "
-        f"{provenance} Read from SWERVE-data {', '.join(dataset.files)}."
-    )
-
-
-def metadata(dataset: Dataset, data: pd.DataFrame, details: dict, timezone: str) -> dict:
-    """HAPI ``info`` response for one dataset; non-HAPI metadata goes in ``additionalMetadata``."""
-    parameters = [{"name": "Time", "type": "isotime", "length": 27, "units": "UTC", "fill": None}]
-    parameters += [{"name": name, "type": "double", "units": dataset.unit, "fill": FILL} for name in data.columns]
-    content = {
-        "source": dataset.source,
-        "siteId": dataset.site,
-        "dataType": dataset.quantity,
-        "dataClass": dataset.kind,
-        "dataProduct": dataset.product,
-        "event": dataset.event,
-        "sourceTimeZone": timezone,
-        "records": len(data),
-        "fillCounts": {name: int(count) for name, count in data.isna().sum().items()},
-        **dataset.details,
-        **details,
-        "sourceFiles": list(dataset.files),
-    }
-    if dataset.location is not None:
-        content["location"] = dict(zip(("latitude", "longitude"), dataset.location))
-    cadence, max_gap = None, None
-    steps = data.index.to_series().diff().dropna().dt.total_seconds()
-    if not steps.empty:
-        max_gap = float(steps.max())
-        content["maxGapSeconds"] = max_gap
-        if steps.nunique() == 1:
-            seconds = f"{steps.iloc[0]:.6f}".rstrip("0").rstrip(".")
-            cadence = f"PT{seconds}S"
-    info = {
-        "startDate": data.index[0].strftime(ISO),
-        "stopDate": data.index[-1].strftime(ISO),
-        "description": describe(dataset, data, cadence, max_gap),
-        "parameters": parameters,
-        "additionalMetadata": [{"name": "SWERVE", "content": content, "aboutURL": SWERVE_DATA_URL}],
-    }
-    if cadence is not None:
-        info["cadence"] = cadence
-    return {"id": dataset.id, "title": dataset.title, "info": info}
-
-
-def build(root: Path, timezone: str, output: Path, only_events=None, only_sources=None, workers=4, log=None, product="original") -> int:
-    """Write catalog.json, catalog-all.json, and catalog-report.json. Returns 0 if any dataset was included."""
-    log = sys.stderr if log is None else log
-    datasets, notes = discover(root, only_events, only_sources, product=product)
-
-    def inspect(dataset):
-        try:
-            data, details = read(dataset, root, timezone)
-            return metadata(dataset, data, details, timezone), None
-        except READ_ERRORS as error:
-            return None, {"id": dataset.id, "reason": str(error)}
-
-    catalog, excluded = [], []
-    # Only metadata is retained; at most `workers` source frames are in memory.
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        for number, (entry, error) in enumerate(pool.map(inspect, datasets), 1):
-            if entry is not None:
-                catalog.append(entry)
-            else:
-                excluded.append(error)
-            if number % 100 == 0:
-                print(f"Checked {number}/{len(datasets)} datasets", file=log, flush=True)
-    catalog.sort(key=importance)
-
-    per_event = {}
-    for entry in catalog:
-        per_event.setdefault(entry["info"]["additionalMetadata"][0]["content"]["event"], {"included": 0, "excluded": 0})["included"] += 1
-    for error in excluded:
-        per_event.setdefault(error["id"].rsplit("/", 1)[1], {"included": 0, "excluded": 0})["excluded"] += 1
-    report = {
-        "dataRoot": str(root),
-        "sourceTimeZone": timezone,
-        "dataProduct": product,
-        "candidates": len(datasets),
-        "included": len(catalog),
-        "events": dict(sorted(per_event.items())),
-        "excluded": excluded,
-        "notes": notes,
-    }
-    outputs = {
-        "catalog.json": [{"id": entry["id"], "title": entry["title"]} for entry in catalog],
-        "catalog-all.json": catalog,
-    }
-    report["files"] = {name: hashlib.sha256(encode(value).encode()).hexdigest() for name, value in outputs.items()}
-    outputs["catalog-report.json"] = report
-    write(output, outputs)
-    print(f"Wrote {len(catalog)} datasets; excluded {len(excluded)}; {len(notes)} notes. Report: {output / 'catalog-report.json'}", file=log)
-    return 0 if catalog else 1
-
-
-def encode(value) -> str:
-    return json.dumps(value, indent=2, allow_nan=False) + "\n"
-
-
-def write(output: Path, outputs: dict) -> None:
-    """Publish the files in two phases.
-
-    Every file is serialised and written to a ``.json.tmp`` neighbour first; only
-    then is each one renamed into place. Each rename is atomic, so a reader never
-    sees a partial file, but a crash between renames can leave files from two
-    builds side by side. ``catalog-report.json`` therefore records the SHA-256 of
-    the two catalog files it was built with, and is renamed last.
+    Build when the caches change. Deployment can load the JSON once and reuse
+    its metadata instead of rebuilding it for each request.
     """
-    encoded = {name: encode(value) for name, value in outputs.items()}
-    output.mkdir(parents=True, exist_ok=True)
-    temporaries = {}
-    for name, content in encoded.items():
-        temporary = (output / name).with_suffix(".json.tmp")
-        temporary.write_text(content)
-        temporaries[name] = temporary
-    for name, temporary in temporaries.items():
-        temporary.replace(output / name)
+    from .info import info
+
+    ids = catalog(data_root=data_root, output=None)
+    entries = [{"id": identifier, "info": info(identifier, data_root=data_root)} for identifier in ids]
+    if output is not None:
+        Path(output).write_text(json.dumps(entries, indent=2, allow_nan=False) + "\n")
+    return entries
