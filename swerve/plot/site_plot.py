@@ -209,7 +209,7 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
       if label =='B_H': label = '$\\Delta B_H$'
 
       if style == 'timeseries':
-        if source == 'GMU':
+        if source == 'Bor':
           component_labels2[source][idx] = f"Ref"
         elif source == 'OpenGGCM':
           component_labels2[source][idx] = f"GGCM"
@@ -221,7 +221,7 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
           ylabels.append(f"Calculated {label} {source} ({unit})")
         else:
           ylabels.append(f"Calculated {label} ({unit})")
-        if source == 'GMU':
+        if source == 'Bor':
           component_labels2[source][idx] = f"Ref    {metrics}"
         elif source == 'OpenGGCM':
           component_labels2[source][idx] = f"GGCM {metrics}"
@@ -320,7 +320,7 @@ def _plot_stack(data1, data2, ylabels, component_labels1, component_labels2, fit
 
   line1_opts = {'color': 'black', 'lw': 1}
   line2_opts = {'TVA':{'color': 'blue', 'lw': 0.4},
-                'GMU':{'color': 'green', 'lw': 0.4},
+                'Bor':{'color': 'green', 'lw': 0.4},
                 'modified':{'color': 'orange', 'lw': 0.4},
                 'SWMF':{'color': 'blue', 'lw': 0.4},
                 'MAGE':{'color': 'green', 'lw': 0.4},

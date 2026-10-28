@@ -104,8 +104,8 @@ def config(dirs_only=False): #TODO: dirs_only option
           'swmf': {
             'bcwind': os.path.join(data_dir, 'data_original', 'imf_data', 'Dean_IMF.txt')
           },
-          'gmu': {
-            'sim_file': os.path.join(data_dir, 'data_original', 'gmu', 'gic_mean_df_1.csv')
+          'bor': {
+            'sim_file': os.path.join(data_dir, 'data_original', 'bor', '2024-05-10', 'gic', 'gic_mean_df_1.csv')
           },
           'cc': os.path.join(data_dir, '_results', 'cc.pkl'),
           'all': os.path.join(data_dir, 'data_processed', 'all.pkl'),

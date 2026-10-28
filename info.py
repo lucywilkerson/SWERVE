@@ -124,7 +124,7 @@ def add_geomag(info_df, events):
   alpha = .001*np.exp(.115*info_df['mag_lat']) #from eqn 3 https://www.nerc.com/pa/Stand/Reliability%20Standards/TPL-007-3.pdf
   info_df['alpha'] = alpha
 
-# Code for GMU simulation sites
+# Code for Bor simulation sites
 def add_sim_site(info_df, sim_file, update_csv=False):
 
   """
@@ -145,18 +145,18 @@ def add_sim_site(info_df, sim_file, update_csv=False):
         else:
           continue
 
-        mask = (info_df['data_source'] == 'GMU') & (info_df['site_id'] == min_dist_row[f'{site_type}_site'])
+        mask = (info_df['data_source'] == 'Bor') & (info_df['site_id'] == min_dist_row[f'{site_type}_site'])
         info_df.loc[mask, 'nearest_sim_site'] = int(min_dist_row['sim_site'])
 
-  logger.info("Adding GMU simulation sites to extended info_df")
+  logger.info("Adding Bor simulation sites to extended info_df")
 
   sim_dir = os.path.dirname(sim_file)
 
   logger.info(f"  Reading: {sim_file}")
   site_df = pd.read_csv(sim_file)
 
-  no_gmu_df = info_df[info_df['data_source'] != 'GMU']
-  meas_df = no_gmu_df[no_gmu_df['data_class'] == 'measured']
+  no_bor_df = info_df[info_df['data_source'] != 'Bor']
+  meas_df = no_bor_df[no_bor_df['data_class'] == 'measured']
 
   # Find associated TVA/NERC sites for all simulation sites
   output_data = []
@@ -222,8 +222,8 @@ def add_sim_site(info_df, sim_file, update_csv=False):
 
   output_df = pd.DataFrame(output_data)
 
-  if update_csv: # Add GMU sites to info.csv
-    # adding GMU simulation sites to info.csv
+  if update_csv: # Add Bor sites to info.csv
+    # adding Bor simulation sites to info.csv
     def add_info(info_df, output_df, data_source=['tva','nerc']):
       for site_type in data_source:
         for site in output_df[f'{site_type}_site'].unique():
@@ -239,7 +239,7 @@ def add_sim_site(info_df, sim_file, update_csv=False):
             'geo_lon': min_dist_row[f'{site_type}_lon'],
             'data_type': 'GIC',
             'data_class': 'calculated',
-            'data_source': 'GMU',
+            'data_source': 'Bor',
             'manual_error': np.nan
           }])
           info_df = pd.concat([info_df, new_row], ignore_index=True)
@@ -247,7 +247,7 @@ def add_sim_site(info_df, sim_file, update_csv=False):
           info_df = info_df[[col for col in info_df.columns if col in new_row.columns]]
       return info_df
 
-    new_info_df = add_info(no_gmu_df, output_df)
+    new_info_df = add_info(no_bor_df, output_df)
 
     output_fname = config()['files']['info']
     new_info_df.to_csv(output_fname, index=False)
@@ -692,7 +692,7 @@ info_df = pd.read_csv(CONFIG['files']['info'], dtype={'event': str})
 
 add_beta(info_df, CONFIG['files']['beta'], beta_site='OTT')
 add_geomag(info_df, CONFIG['event'])
-add_sim_site(info_df, CONFIG['files']['gmu']['sim_file'], update_csv=False)
+add_sim_site(info_df, CONFIG['files']['bor']['sim_file'], update_csv=False)
 add_voltage(info_df, CONFIG['files']['shape']['transmission_lines'])
 info_df = add_power_pool(info_df, CONFIG['files']['nerc_gdf'])
 #TODO: skip add_power_pool for sites outside US - no power pool info

@@ -92,7 +92,7 @@ def infodf2dict(info_df, logger):
   Bull Run,36.0193,-84.1575,GIC,measured,TVA,
   Bull Run,36.0193,-84.1575,GIC,calculated,TVA,"error message"
   Bull Run,36.0193,-84.1575,GIC,calculated,MAGE,
-  Bull Run,36.0193,-84.1575,GIC,calculated,GMU,
+  Bull Run,36.0193,-84.1575,GIC,calculated,Bor,
   Bull Run,36.0193,-84.1575,B,measured,TVA,
   Bull Run,36.0193,-84.1575,B,calculated,SWMF,
   Bull Run,36.0193,-84.1575,B,calculated,MAGE,
@@ -103,7 +103,7 @@ def infodf2dict(info_df, logger):
     "Bull Run": {
       "GIC": {
         "measured": "TVA",
-        "calculated": ["TVA", "GMU, "MAGE"]
+        "calculated": ["TVA", "Bor", "MAGE"]
       },
       "B": {
         "calculated": ["SWMF", "MAGE"]

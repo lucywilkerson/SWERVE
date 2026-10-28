@@ -54,7 +54,7 @@ def site_stats_summary(stats, data_types=None, logger=None, crop=False, nan_fill
                 for data_source in info_dict[sid][data_type]['calculated']:
                     n_sites += 1
                     
-                    if data_type == 'GIC' and data_source not in ['GMU', 'TVA']:
+                    if data_type == 'GIC' and data_source not in ['Bor', 'TVA']:
                         continue
                     if data_type == 'B' and data_source not in ['SWMF', 'MAGE', 'OpenGGCM']:
                         continue
@@ -165,11 +165,11 @@ def _column_names(data_type):
             'site_id': 'Site ID',
             'sigma_data': r'$\sigma$ (A)',
             'sigma_tva': r'$\sigma_\text{TVA}$',
-            'sigma_gmu': r'$\sigma_\text{Ref}$',
+            'sigma_bor': r'$\sigma_\text{Ref}$',
             'cc_tva': r'$\text{r}^2_\text{TVA}$',
-            'cc_gmu': r'$\text{r}^2_\text{Ref}$',
+            'cc_bor': r'$\text{r}^2_\text{Ref}$',
             'pe_tva': r'$\text{pe}_\text{TVA}$',
-            'pe_gmu': r'$\text{pe}_\text{Ref}$'
+            'pe_bor': r'$\text{pe}_\text{Ref}$'
         },
         'B': {
                 'site_id':'Site ID',

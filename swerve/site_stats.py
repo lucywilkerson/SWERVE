@@ -45,7 +45,7 @@ def site_stats(sid, data, data_types=None, logger=None):
           continue
         data_measured = data[data_type]['measured'][data_source_measured]['modified']['data']
 
-      for data_source_calculated in data[data_type]['calculated'].keys(): # e.g., TVA, GMU, NERC, SWMF, OpenGGCM
+      for data_source_calculated in data[data_type]['calculated'].keys(): # e.g., TVA, Bor, NERC, SWMF, OpenGGCM
         if 'modified' in data[data_type]['calculated'][data_source_calculated]:
           if 'error' in data[data_type]['calculated'][data_source_calculated]['modified']:
             logger.warning(f"  Skipping stats for {data_type} due to error in calculated modified data.")
