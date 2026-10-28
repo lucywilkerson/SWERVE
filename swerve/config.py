@@ -52,9 +52,9 @@ def config(dirs_only=False): #TODO: dirs_only option
     configured_events = event_list if isinstance(event_list, list) else [event_list]
     missing_event = any(str(event) not in event_dict for event in configured_events)
     if missing_event and configured_event != 'all':
-      event_dict = write_event_dict(conf, file_path, data_dir)
+      event_dict = write_event_dict(conf, data_dir, info_dir)
   else:
-    event_dict = write_event_dict(conf, file_path, data_dir)
+    event_dict = write_event_dict(conf, data_dir, info_dir)
 
   if not os.path.exists(data_dir):
     raise FileNotFoundError(f"Data directory '{data_dir}' does not exist. Please check the path or download the data.")

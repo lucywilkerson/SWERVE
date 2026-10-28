@@ -1,4 +1,4 @@
-def write_event_dict(conf, file_path, data_dir):
+def write_event_dict(conf, data_dir, info_dir):
   """Write events_dict.json for a run configuration."""
   import datetime
   import json
@@ -92,7 +92,6 @@ def write_event_dict(conf, file_path, data_dir):
       event_dict[event]['data_limits'][1],
     ]
 
-  info_dir = os.path.abspath(os.path.join(file_path, '..', 'info', conf.get('run_config_name', 'default')))
   os.makedirs(info_dir, exist_ok=True)
   with open(os.path.join(info_dir, 'events_dict.json'), 'w') as file_handle:
     json.dump(event_dict, file_handle, indent=4, default=str)
