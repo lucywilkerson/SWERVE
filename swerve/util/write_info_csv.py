@@ -36,6 +36,10 @@ def write_info_csv():
     events = CONFIG['event']
     data_dir = CONFIG['dirs']['original']
 
+    if not data_sources:
+        from .source_catalog import ANNUAL_SOURCES, EVENT_PARTITIONED_SOURCES, CONTINUOUS_SOURCES
+        data_sources = list(ANNUAL_SOURCES) + list(EVENT_PARTITIONED_SOURCES) + list(CONTINUOUS_SOURCES)
+
     info_list = []
     for event in events:
         # Checking data availability for each source and event combination
@@ -79,7 +83,8 @@ def write_info_csv():
                             file_dir = os.path.join(data_dir, data_source.lower(), event, 'mag')
                             file = os.path.join(file_dir, 'magnetometers.csv')
                         else:
-                            raise ValueError(f"Data type not recognized: {data_type}. Valid options are 'GIC' and 'B'.")
+                            logger.info(f"   Data type {data_type} not available for data source {data_source}; skipping.")
+                            continue
                         logger.info(f"    Reading {file}")
                         if not os.path.exists(file):
                             raise FileNotFoundError(f"File not found: {file}")
@@ -447,6 +452,57 @@ def write_info_csv():
                             info_list = _add_info_row(
                                 info_list, row[0], float(row[1]), float(row[2]),
                                 'GIC', 'measured', data_source, event)
+
+            elif data_source == 'Bor':
+                if 'GIC' not in data_types and 'calculated' not in data_classes:
+                    logger.info(f"   Only calculated GIC data are available for data source {data_source}; skipping.")
+                    continue
+                file_dir = os.path.join(data_dir, data_source.lower(), event, 'gic')
+                file = os.path.join(file_dir, 'gic_mean_df_1.csv')
+                if not os.path.exists(file):
+                    logger.info(f"   Site info file {file} not found for data source {data_source}; skipping.")
+                    continue
+                with open(file, 'r') as csvfile:
+                    rows = csv.reader(csvfile, delimiter=',')
+                    next(rows)
+                    for row in rows:
+                        info_list = _add_info_row(
+                            info_list, row[0], float(row[2]), float(row[3]),
+                            'GIC', 'calculated', data_source, event)
+                        
+            elif data_source == 'MAGE':
+                if 'B' not in data_types and 'calculated' not in data_classes:
+                    logger.info(f"   Only calculated B data are available for data source {data_source}; skipping.")
+                    continue
+                file_dir = os.path.join(data_dir, data_source.lower(), event, 'mag')
+                file = os.path.join(file_dir, 'TVA_mg_loc_MAGE_GIC_proxy', 'mag_locations.csv')
+                if not os.path.exists(file):
+                    logger.info(f"   Site info file {file} not found for data source {data_source}; skipping.")
+                    continue
+                with open(file, 'r') as csvfile:
+                    rows = csv.reader(csvfile, delimiter=',')
+                    next(rows)
+                    for row in rows:
+                        info_list = _add_info_row(
+                            info_list, row[0], float(row[1]), float(row[2]),
+                            'B', 'calculated', data_source, event)
+
+            elif data_source == 'OpenGGCM' or data_source == 'SWMF':
+                if 'B' not in data_types and 'calculated' not in data_classes:
+                    logger.info(f"   Only calculated B data are available for data source {data_source}; skipping.")
+                    continue
+                file_dir = os.path.join(data_dir, data_source.lower(), event)
+                file = os.path.join(file_dir, f'{data_source.lower()}_info.csv')
+                if not os.path.exists(file):
+                    logger.info(f"   Site info file {file} not found for data source {data_source}; skipping.")
+                    continue
+                with open(file, 'r') as csvfile:
+                    rows = csv.reader(csvfile, delimiter=',')
+                    next(rows)
+                    for row in rows:
+                        info_list = _add_info_row(
+                            info_list, row[0], float(row[1]), float(row[2]),
+                            'B', 'calculated', data_source, event)
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")
 
