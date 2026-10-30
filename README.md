@@ -85,3 +85,70 @@ Config file (.yaml) in the configs subdirectory is used to define:
 - data class (e.g. ['measured','calculated']; if not defined, runs all)
 - main.py keyword arguments (exclude errors, summary table, etc.)
 - filter keyword arguments (for GIC measured data filtering)
+
+# HAPI
+
+The HAPI interface reads cached data from `SWERVE-data/data_processed` and
+provides dataset IDs, metadata, and time series.
+
+```python
+from swerve.hapi.catalog import catalog, catalog_all
+from swerve.hapi.info import info
+from swerve.hapi.swerve_to_numpy import swerve_to_numpy
+
+ids = catalog()
+entries = catalog_all()
+metadata = info(ids[0])
+rows = swerve_to_numpy(
+    'NERC', '10052', 'GIC', 'measured', True,
+    '2024-05-10T15:00:00Z', '2024-05-10T15:03:00Z',
+)
+```
+
+Dataset IDs have the form
+`data_source/site_id/data_type/data_class/{original,modified}`. Each ID covers
+the available event or annual partitions for that series. Only variants with
+cached records are listed. IDs are ordered by measured/calculated class,
+GIC/B/DMM type, provider, and site.
+
+`catalog()` returns the ID list and writes `catalog.json` in the SWERVE project
+root. `catalog_all()` returns `[{"id": ..., "info": ...}, ...]` and writes
+`catalog-all.json` there. Pass `output=None` to either function to return the
+result without writing, or `output=...` to choose another file.
+
+`info(id)` returns time coverage, parameter labels, units, and source metadata.
+The `additionalMetadata` field includes `source`, `siteID`, cache partition
+details, and citations from `data_original/<source>/info.json`.
+
+`swerve_to_numpy(...)` returns a NumPy object array with shape `(n, 2)`, where
+`n` is the number of matching records. Column 0 contains UTC datetime objects.
+Column 1 contains a numeric scalar for single-component data or a NumPy array
+of values for multi-component data. If no records match, it returns an empty
+array with shape `(0, 2)`.
+
+The interval includes start and excludes stop. Naive timestamps are interpreted
+as UTC. Missing values remain
+NaN; missing files and years are skipped. Requests for modified data use only
+that cache branch. Identical overlapping records are deduplicated; conflicting
+values raise `ValueError`. Values are returned without resampling or filtering.
+
+Annual sources read original records from `data_processed/non-event/<year>`
+and modified records from storm caches. Other sources use event caches.
+All four functions accept `data_root=...` to select a SWERVE-data checkout;
+the default is the sibling directory. The checkout must contain processed
+caches before these functions are called.
+
+For deployment, generate `catalog-all.json` when caches or citation metadata
+change, then load it once at startup:
+
+```python
+import json
+
+with open('catalog-all.json') as handle:
+    entries = json.load(handle)
+metadata_by_id = {entry['id']: entry['info'] for entry in entries}
+```
+
+Request handlers can use `metadata_by_id[dataset_id]` for metadata and
+`swerve_to_numpy(...)` for time series. The HTTP frontend supplies the HAPI
+response wrapper and data serialization.
