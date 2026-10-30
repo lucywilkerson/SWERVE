@@ -59,3 +59,7 @@ def info(id, *, data_root=None):
             seconds = f"{steps.iloc[0]:.6f}".rstrip("0").rstrip(".")
             result["cadence"] = f"PT{seconds}S"
     return result
+
+if __name__ == "__main__":
+    import utilrsw
+    utilrsw.print_dict(info("NERC/10052/GIC/measured/original"))

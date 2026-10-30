@@ -9,12 +9,16 @@ from .swerve_to_numpy import _root, _read_series
 from ..util.source_catalog import ANNUAL_SOURCES, DATE_PARTITION_PATTERN, YEAR_PARTITION_PATTERN, source_kind
 
 
-def catalog(*, data_root=None, output=Path(__file__).resolve().parents[2] / "catalog.json"):
-    """Return IDs: source/site/type/class/{original,modified}; write them as JSON.
+def catalog(*, source=None,data_root=None, output=Path(__file__).resolve().parents[2] / "catalog.json", update=False):
+    """Return list of IDs of form: source/site/type/class/{original,modified}; write list as JSON.
 
-    Each ID spans its available event or annual partitions. Only variants with
+    The data for each ID spans its available event or annual partitions. Only variants with
     cached records are listed. Pass output=None to return without writing.
+
+    If source is specified, only IDs for that source are returned.
     """
+    if update is False and Path(output).is_file():
+        return json.loads(Path(output).read_text())
     directory = _root(data_root) / "data_processed"
     if not directory.is_dir():
         raise FileNotFoundError(f"Processed SWERVE data not found: {directory}")
@@ -74,3 +78,6 @@ def catalog_all(*, data_root=None, output=Path(__file__).resolve().parents[2] / 
     if output is not None:
         Path(output).write_text(json.dumps(entries, indent=2, allow_nan=False) + "\n")
     return entries
+
+if __name__ == "__main__":
+    catalog()
