@@ -12,10 +12,20 @@ from scipy.interpolate import LinearNDInterpolator
 from swerve import config, savefig
 
 CONFIG = config()
+if 'files' not in CONFIG:
+    raise FileNotFoundError(
+        "No info file available because no --config was specified. "
+        "Run info.py --config <config.yaml> for the config before running "
+        "plot_maps with the same --config."
+    )
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-out_dir = '_map'
+paper = True # Saves map to paper dir
+out_dir = os.path.join(CONFIG['dirs']['data'], 'data_processed', 'summary', 'map')
+if paper:
+    paper_dir = '../SWERVE_data_paper'
 
+auto_crop = False # Crop each location map to its sites if True
 state = True # Show political boundaries if True
 
 crs = ccrs.PlateCarree()
@@ -38,19 +48,17 @@ def add_symbols(ax, df, transform, markersize):
 
     for row in df.itertuples():
         # Select the symbol
-        symbol_dict = {
-            ('TVA', 'GIC', 'calculated'): ('^', 'c', 'none'),
-            ('TVA', 'GIC', 'measured'): ('.', 'b', 'none'),
-            ('TVA', 'B', 'measured'): ('.', 'r', 'r'),
-            ('NERC', 'GIC', 'calculated'): ('+', 'c', 'none'),
-            ('NERC', 'GIC', 'measured'): ('+', 'b', 'none'),
-            ('NERC', 'B', 'measured'): ('+', 'r', 'r')
+
+        default_symbols = {
+            ('DMM', 'measured'): ('o', 'k', 'k'),
+            ('GIC', 'measured'): ('o', 'k', 'k'),
+            ('B', 'measured'): ('o', 'k', 'k'),
+            ('DMM', 'calculated'): ('^', 'g', 'none'),
+            ('GIC', 'calculated'): ('^', 'b', 'none'),
+            ('B', 'calculated'): ('^', 'r', 'none')
         }
 
-        key = (row.data_source, row.data_type, row.data_class)
-        symbol = symbol_dict.get(key, None)
-        if symbol is None:
-            continue
+        symbol = default_symbols.get((row.data_type, row.data_class))
 
         marker, color, face = symbol
 
@@ -59,8 +67,28 @@ def add_symbols(ax, df, transform, markersize):
                 markersize=markersize,
                 transform=transform)
 
+def _auto_crop(info_df):
+  if info_df.empty:
+    return [-180, 180, -90, 90]
+  coords = info_df[['geo_lon', 'geo_lat']].to_numpy(dtype=float)
+  if (not np.isfinite(coords).all()
+      or (np.abs(coords[:, 0]) > 180).any()
+      or (np.abs(coords[:, 1]) > 90).any()):
+    raise ValueError("Cannot fit map: sites must have valid geographic coordinates.")
+  lon_min, lat_min = coords.min(axis=0)
+  lon_max, lat_max = coords.max(axis=0)
+  lon_pad = max((lon_max - lon_min) * 0.05, 2)
+  lat_pad = max((lat_max - lat_min) * 0.05, 2)
+  return [max(-180, lon_min - lon_pad), min(180, lon_max + lon_pad),
+          max(-90, lat_min - lat_pad), min(90, lat_max + lat_pad)]
+
 def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, patch=False,
                  date='2024-05-11T00:00:00'):
+  if info_df.empty:
+    extent = [-180, 180, -90, 90]
+    logger.warning(f"Map '{out_name}' will be empty because no sites are available; using full-globe extent.")
+  elif extent is None:
+    extent = _auto_crop(info_df)
   # Create a figure and axes with a specific projection
   fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
   # Adding map features and symbols for locations
@@ -113,7 +141,10 @@ def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, 
 
   add_symbols(ax, info_df, transform, markersize)
   # Set the extent of the map
-  ax.set_extent(extent, crs=crs)
+  if list(extent) == [-180, 180, -90, 90]:
+    ax.set_global()
+  else:
+    ax.set_extent(extent, crs=crs)
   # Save map
   savefig(out_dir, out_name, logger)
 
@@ -407,3 +438,85 @@ def transmission_map(info_df, gdf, cc_df, std=False):
     else:
         ax.set_title(r'US Transmission Lines $\geq$ 200kV w "good" GIC Sites', fontsize=15)
         savefig(out_dir, 'transmission_map', logger)
+
+
+def _add_intermag(class_df):
+    intermag_info_file = os.path.join(
+        CONFIG['dirs']['original'], 'intermagnet', 'intermagnet_info.csv'
+    )
+    if not os.path.exists(intermag_info_file):
+        raise FileNotFoundError(f"File not found: {intermag_info_file}")
+    intermag_info = pd.read_csv(intermag_info_file, skiprows=1)
+    for site_id, geo_lat, geo_lon in zip(
+            intermag_info['IAGA code'], intermag_info['Latitude'], intermag_info['Longitude']):
+        class_df = pd.concat([class_df, pd.DataFrame([{
+            'site_id': site_id,
+            'geo_lat': float(geo_lat),
+            'geo_lon': float(geo_lon-360) if float(geo_lon) > 180 else float(geo_lon),
+            'data_source': 'INTERMAG',
+            'data_type': 'B',
+            'data_class': 'measured',
+            'event': list(CONFIG['event'].keys())[0]
+        }])], ignore_index=True)
+    return class_df
+
+
+if __name__ == "__main__":
+    info_file = CONFIG['files']['info']
+    if not os.path.exists(info_file):
+        raise FileNotFoundError(
+            f"Site metadata '{info_file}' not found. Run info.py with the same "
+            "--config before running plot_maps."
+        )
+    logger.info(f"Reading {info_file}")
+    info_df = pd.read_csv(info_file, dtype={'site_id': str, 'event': str})
+    for data_class in ['measured', 'calculated']:
+        class_df = info_df[info_df['data_class'] == data_class]
+        class_df = class_df.drop_duplicates(
+            subset=['site_id', 'geo_lat', 'geo_lon', 'data_source', 'data_type']
+        )
+        for data_type in ['GIC', 'DMM','B']:
+            # Add INTERMAG sites if INTERMAG not in info_df but in config data_sources
+            if data_class == 'measured' and data_type == 'B' and 'INTERMAG' not in class_df['data_source'].unique() and (CONFIG['info_kwargs']['data_source'] is None or 'INTERMAG' in CONFIG['info_kwargs']['data_source']):
+                class_df = _add_intermag(class_df)
+            sites = class_df[class_df['data_type'] == data_type]
+            extent = None if auto_crop else [-180, 180, -90, 90]
+            location_map(sites, extent, 3, out_dir,
+                         f'{data_class}_{data_type.lower()}_locations')
+            plt.close()
+    # If paper, combine all 3 measured plots into stack plot with a), b), c) labels
+    if paper:
+        from PIL import Image, ImageDraw, ImageFont
+        from matplotlib import font_manager
+
+        images = []
+        for dt in ['GIC', 'DMM', 'B']:
+            with Image.open(os.path.join(out_dir, f'measured_{dt.lower()}_locations.png')) as image:
+                images.append(image.convert('RGB'))
+        widths, heights = zip(*(i.size for i in images))
+        total_height = sum(heights)
+        max_width = max(widths)
+        combined = Image.new('RGB', (max_width, total_height))
+        y_offset = 0
+        for idx, im in enumerate(images):
+            combined.paste(im, (0, y_offset))
+            y_offset += im.size[1]
+        # Add labels a), b), c) to each stacked image
+        draw = ImageDraw.Draw(combined)
+        font_size = max(24, int(max_width * 0.03))
+        font = ImageFont.truetype(
+            font_manager.findfont(font_manager.FontProperties(weight='bold')),
+            size=font_size
+        )
+        margin = max(10, int(max_width * 0.02))
+        y_offset = 0
+        for idx, im in enumerate(images):
+            label = chr(97 + idx) + ')'  # a), b), c)
+            draw.text((margin, y_offset + margin), label, fill='black', font=font,
+                      anchor='lt', stroke_width=max(1, font_size // 30), stroke_fill='white')
+            y_offset += im.size[1]
+        os.makedirs(paper_dir, exist_ok=True)
+        for file_type in ['.pdf', '.png']:
+            stack_file = os.path.join(paper_dir, f'measured_locations_stack{file_type}')
+            logger.info(f"Writing {stack_file}")
+            combined.save(stack_file)
