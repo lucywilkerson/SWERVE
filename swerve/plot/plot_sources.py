@@ -29,6 +29,8 @@ from swerve import config, plt_config
 from swerve.util.source_catalog import ANNUAL_SOURCES, CONTINUOUS_SOURCES, EVENT_PARTITIONED_SOURCES, source_kind, source_partitions
 
 reparse = False # If True, rescan processed data files even if availability cache exists.
+min_width = datetime.timedelta(days=10)  # Min width for visibility of short availability windows in datetime days
+# If min_width = None, defaults to 0.001 of the total plot range.
 
 EVENT_FALLBACK_DAYS = 3 # Window length used when no processed cache exists for an event partition.
 
@@ -206,7 +208,7 @@ def availability(data_sources):
   return windows
 
 
-def plot_availability(windows, add_events=None):
+def plot_availability(windows, add_events=None, min_width=None):
   import matplotlib.dates as mdates
   sources = sorted(windows, key=str.lower)
 
@@ -217,7 +219,9 @@ def plot_availability(windows, add_events=None):
     for key in ('start', 'stop')
   ]
   # Pad short windows to a min drawn width so they remain visible
-  min_width = (max(all_times) - min(all_times)) * 0.004
+  if min_width is None:
+    min_width = (max(all_times) - min(all_times)) * 0.001
+  print(f'Minimum width: {min_width}')
 
   fig, ax = plt.subplots(figsize=(10, 0.4*len(sources) + 1.5))
 
@@ -268,4 +272,4 @@ if __name__ == '__main__':
   data_sources = _select_sources()
   log(f"Data sources: {', '.join(data_sources)}")
   windows = availability(data_sources)
-  plot_availability(windows, add_events=main_events.values())
+  plot_availability(windows, add_events=main_events.values(), min_width=min_width)
