@@ -469,6 +469,14 @@ def write_info_csv():
                     rows = csv.reader(csvfile, delimiter=',')
                     next(rows)
                     for row in rows:
+                        sid = row[0]
+                        # Check that files exist for this site
+                        site_tva_file = os.path.join(file_dir, 'tva', f'site_{sid}.csv')
+                        site_nerc_file = os.path.join(file_dir, 'nerc', f'site_{sid}.csv')
+                        site_file = site_tva_file if os.path.exists(site_tva_file) else site_nerc_file
+                        if not os.path.exists(site_file):
+                            logger.info(f"   No data available for source {data_source} at site {sid}; skipping.")
+                            continue
                         info_list = _add_info_row(
                             info_list, row[0], float(row[2]), float(row[3]),
                             'GIC', 'calculated', data_source, event)
