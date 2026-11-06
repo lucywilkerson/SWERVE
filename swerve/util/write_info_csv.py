@@ -59,6 +59,10 @@ def write_info_csv():
             if data_source in ANNUAL_SOURCES:
                 logger.info(f"   Checking annual data from source {data_source} for event {event}.")
             if data_source == 'INTERMAG':
+                # Skip INTERMAG if more than 5 events are being processed to save time
+                if len(events) > 5:
+                    logger.info(f"   Skipping INTERMAG for event {event} due to large number of events.")
+                    continue
                 if 'measured' in data_classes and 'B' in data_types:
                     data_class = 'measured'
                     data_type = 'B'
