@@ -141,17 +141,26 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
     extended_df = read_info_df(extended=True)
     query = (extended_df['site_id'] == sid) & (extended_df['data_source'] == 'Bor')
     nearest_sim_site = extended_df.loc[query, 'nearest_sim_site']
-    nearest_sim_site = int(nearest_sim_site.values[0])
-    logger.info(f"      Nearest simulation site: {nearest_sim_site}")
-
-    info = read_info_dict(sid)
-    measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
-    if 'NERC' in measured_sources:
-      fname = os.path.join(data_dir, 'bor', event, 'nerc', f'site_{nearest_sim_site}.csv')
-    elif 'TVA' in measured_sources:
-      fname = os.path.join(data_dir, 'bor', event, 'tva', f'site_{nearest_sim_site}.csv')
+    if numpy.isnan(nearest_sim_site.values[0]):
+      data_dir = os.path.join(data_dir, 'bor', event, 'gic')
+      # Loop thru files in tva and nerc folders to see if any match the sid
+      for folder in ['tva', 'nerc']:
+        folder_path = os.path.join(data_dir, folder)
+        for file in os.listdir(folder_path):
+          if file.startswith(f'site_{sid}'):
+            fname= os.path.join(folder_path, file)
     else:
-      raise ValueError(f"No corresponding measured data source found for site {sid}")
+      nearest_sim_site = int(nearest_sim_site.values[0])
+      logger.info(f"      Using site {sid}'s nearest simulation site: {nearest_sim_site}")
+
+      info = read_info_dict(sid)
+      measured_sources = [source for source in info['GIC']['measured'] if isinstance(source, str)]
+      if 'NERC' in measured_sources:
+        fname = os.path.join(data_dir, 'bor', event, 'gic', 'nerc', f'site_{nearest_sim_site}.csv')
+      elif 'TVA' in measured_sources:
+        fname = os.path.join(data_dir, 'bor', event, 'gic', 'tva', f'site_{nearest_sim_site}.csv')
+      else:
+        raise ValueError(f"No corresponding measured data source found for site {sid}")
     logger.info(f"      Reading {fname}")
     if not os.path.exists(fname):
       raise FileNotFoundError(f"File not found: {fname}")
@@ -205,7 +214,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
     import pandas
 
     sid = sid.replace(' ','')
-    data_dir = os.path.join(data_dir, data_source.lower(), event, sid.lower())
+    data_dir = os.path.join(data_dir, data_source.lower(), event, 'mag',sid.lower())
 
     if data_source == 'OpenGGCM':
       file = os.path.join(data_dir, f'dB_{data_source}_{sid}.pkl')
@@ -231,7 +240,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
     # TODO: A single file has data from all sites. Here we read full
     # file and only keep data for the requested site. Modify this code
     # so sites dict is cached and used if found.
-    file = os.path.join(data_dir, 'mage', 'TVAinterpdf.csv')
+    file = os.path.join(data_dir, 'mage', event, 'mag', 'TVAinterpdf.csv')
     logger.info(f"    Reading {file}")
     if not os.path.exists(file):
       raise FileNotFoundError(f"File not found: {file}")
