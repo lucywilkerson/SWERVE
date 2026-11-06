@@ -168,7 +168,10 @@ def write_info_csv():
                             rows = csv.reader(csvfile, delimiter=',')
                             next(rows)
                             for row in rows:
-                                info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
+                                if float(row[2]) > 180:
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2])-360, data_type, data_class, data_source, event)
+                                else:
+                                    info_list = _add_info_row(info_list, row[0], float(row[1]), float(row[2]), data_type, data_class, data_source, event)
 
             elif data_source == 'Parry2024':
                 for data_type in data_types:
@@ -475,7 +478,7 @@ def write_info_csv():
                     logger.info(f"   Only calculated B data are available for data source {data_source}; skipping.")
                     continue
                 file_dir = os.path.join(data_dir, data_source.lower(), event, 'mag')
-                file = os.path.join(file_dir, 'TVA_mg_loc_MAGE_GIC_proxy', 'mag_locations.csv')
+                file = os.path.join(file_dir, 'TVA_mag_loc_MAGE_GIC_proxy', 'mag_locations.csv')
                 if not os.path.exists(file):
                     logger.info(f"   Site info file {file} not found for data source {data_source}; skipping.")
                     continue
@@ -484,7 +487,7 @@ def write_info_csv():
                     next(rows)
                     for row in rows:
                         info_list = _add_info_row(
-                            info_list, row[0], float(row[1]), float(row[2]),
+                            info_list, row[0], float(row[1]), -float(row[2]),
                             'B', 'calculated', data_source, event)
 
             elif data_source == 'OpenGGCM' or data_source == 'SWMF':
@@ -501,7 +504,7 @@ def write_info_csv():
                     next(rows)
                     for row in rows:
                         info_list = _add_info_row(
-                            info_list, row[0], float(row[1]), float(row[2]),
+                            info_list, row[0], float(row[1]), -float(row[2]),
                             'B', 'calculated', data_source, event)
             else:
                 raise ValueError(f"     Data source {data_source} not recognized.")
