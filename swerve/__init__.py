@@ -3,7 +3,7 @@ from .config import config
 from .subset import subset
 from .cadence import cadence
 from .resample import resample
-from .util import write_pkl, parse_datetime
+from .util import write_meta_pkl, write_pkl, parse_datetime
 
 def update_info_extended(sids_only, data, exclude_errors=None, logger=None, CONFIG=None):
   from .util import update_info_extended as update_info_extended_impl

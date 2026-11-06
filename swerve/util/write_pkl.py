@@ -12,9 +12,24 @@ def write_pkl(fname, data, logger, indent=''):
         logger.info(f"{indent}Writing {fname}")
         pickle.dump(data, file_handle)
 
-    # Save pickle named fname.meta.pkl with data arrays excluded
+    _write_meta_pkl(fname, data, logger, indent=indent)
+
+
+def write_meta_pkl(fname, data, logger, indent=''):
+    """Write a metadata pickle beside fname, excluding numpy data arrays."""
+    if not os.path.isabs(fname):
+        from swerve import config
+        CONFIG = config()
+        fname = os.path.join(CONFIG['dirs']['data'], fname)
+
+    _write_meta_pkl(fname, data, logger, indent=indent)
+
+
+def _write_meta_pkl(fname, data, logger, indent=''):
     base, ext = os.path.splitext(fname)
     meta_fname = f"{base}.meta{ext}"
+
+    os.makedirs(os.path.dirname(meta_fname), exist_ok=True)
     meta = _exclude_arrays(data)
     with open(meta_fname, 'wb') as file_handle:
         logger.info(f"{indent}Writing {meta_fname}")

@@ -5,7 +5,7 @@ import pickle
 from .orig_readers import _site_read_orig
 from .output_error import _output_error
 from ..util.source_catalog import ANNUAL_SOURCES
-from .. import write_pkl
+from .. import write_meta_pkl, write_pkl
 
 def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None, add_errors=False, logger=None, debug=False):
   """Read data from one or more sites
@@ -19,6 +19,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
 
   If `reparse` is True, reparse the data files even if cache file exists
   (use if data files or code in this script that reads them has changed).
+  If a cached pickle is read and its metadata pickle is missing, create it.
 
   If `debug` is True, print processing details for computing resampled data.
 
@@ -50,6 +51,7 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
       logger.info(f"  Reading cached file with all data for site '{sid}': {site_all_file}")
     data = _read_cached_pickle(site_all_file, logger, indent='  ')
     if data is not None:
+      _write_meta_pkl_if_missing(site_all_file, data, logger, indent='  ')
       return data
 
   if start is None:
@@ -87,6 +89,8 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
             if os.path.exists(non_event_file):
               logger.info(f"    Reading cached non-event data for site '{sid}': {non_event_file}")
             orig = _read_cached_pickle(non_event_file, logger, indent='    ')
+            if orig is not None:
+              _write_meta_pkl_if_missing(non_event_file, orig, logger, indent='    ')
           else:
             orig = None
           if orig is None:
@@ -108,6 +112,8 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
           if os.path.exists(non_event_file):
             logger.info(f"    Reading cached non-event data for site '{sid}': {non_event_file}")
           orig = _read_cached_pickle(non_event_file, logger, indent='    ')
+          if orig is not None:
+            _write_meta_pkl_if_missing(non_event_file, orig, logger, indent='    ')
         else:
           orig = None
         if orig is None:
@@ -190,6 +196,12 @@ def _read_cached_pickle(file_name, logger, indent=''):
   except (EOFError, pickle.UnpicklingError) as error:
     logger.warning(f"{indent}Ignoring invalid cache file '{file_name}': {error}")
     return None
+
+def _write_meta_pkl_if_missing(file_name, data, logger, indent=''):
+  base, ext = os.path.splitext(file_name)
+  meta_file = f"{base}.meta{ext}"
+  if not os.path.exists(meta_file):
+    write_meta_pkl(file_name, data, logger, indent=indent)
 
 def _non_event_file(processed_dir, year, sid, data_type, data_class, data_source):
   sidx = sid.lower().replace(' ', '')
