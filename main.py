@@ -8,7 +8,7 @@
 reparse    = True  # Reparse the data files, even if they already exist (use if site_read.py modified).
 show_plots = False  # Show interactive plots as generated.
 add_errors = True # Add automated error checks to data and update info.extended files.
-summary_plots = False # Create and save plots for full run (e.g. map, stack plots, OMNI data)
+read_only = False  # Only run site_read, do not generate plots or statistics.
 
 import os
 import utilrsw
@@ -47,39 +47,41 @@ for sid, event in sids_only:
   stats.setdefault(event, {})
 
   # Read and parse data or use cached data if found and reparse is False.
-  data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
-
-  if CONFIG['event'][event].get('event_type', 'event') == 'annual':
-    logger.info(f"Skipping statistics and plots for annual data from '{sid}', {event}.")
+  if read_only:
+    site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
     continue
-
-  # Add stats and metrics to data[event][sid] and return what was added.
-  stats[event][sid] = site_stats(sid, data[event][sid], data_types=data_types, logger=logger)
-
-  utilrsw.print_dict(data[event][sid], indent=4)
-
-  site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
-
-if args['sites'] is None:
-  import utilrsw
-  if add_errors and info_kwargs['exclude_errors']==None:
-    # Update info.extended.csv and info.extended.json with automated errors
-    from swerve import update_info_extended
-    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
-  if info_kwargs['exclude_errors'] == None and data_types is None:
-    # Write data from all sites to a single file.
-    utilrsw.write(CONFIG['files']['all'], data, logger=logger)
-
-if CONFIG['main_kwargs']['summary_table'] and len(events) == 1:
-  event = next(iter(events))
-  if CONFIG['event'][event].get('event_type', 'event') == 'annual':
-    logger.info("Skipping summary table because the configured event is annual data.")
   else:
-    # Create table of results
-    site_stats_summary(stats[event], data_types=data_types, logger=logger)
-elif CONFIG['main_kwargs']['summary_table']:
-  logger.info("Skipping summary table because multiple events were requested.")
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
 
-#if summary_plots:
-#  from swerve.plot import plot_sw_and_indices
+    if CONFIG['event'][event].get('event_type', 'event') == 'annual':
+      logger.info(f"Skipping statistics and plots for annual data from '{sid}', {event}.")
+      continue
 
+    # Add stats and metrics to data[event][sid] and return what was added.
+    stats[event][sid] = site_stats(sid, data[event][sid], data_types=data_types, logger=logger)
+
+    utilrsw.print_dict(data[event][sid], indent=4)
+
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+
+# Generate summary if not read_only
+if not read_only:
+  if args['sites'] is None:
+    import utilrsw
+    if add_errors and info_kwargs['exclude_errors']==None:
+      # Update info.extended.csv and info.extended.json with automated errors
+      from swerve import update_info_extended
+      update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+    if info_kwargs['exclude_errors'] == None and data_types is None:
+      # Write data from all sites to a single file.
+      utilrsw.write(CONFIG['files']['all'], data, logger=logger)
+
+  if CONFIG['main_kwargs']['summary_table'] and len(events) == 1:
+    event = next(iter(events))
+    if CONFIG['event'][event].get('event_type', 'event') == 'annual':
+      logger.info("Skipping summary table because the configured event is annual data.")
+    else:
+      # Create table of results
+      site_stats_summary(stats[event], data_types=data_types, logger=logger)
+  elif CONFIG['main_kwargs']['summary_table']:
+    logger.info("Skipping summary table because multiple events were requested.")
