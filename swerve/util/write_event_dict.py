@@ -14,8 +14,10 @@ def write_event_dict(conf, data_dir, info_dir):
   event_types = {}
   start_time = conf.get('start_time')
   stop_time = conf.get('stop_time')
-  data_sources = conf.get('data_source') or []
-  if isinstance(data_sources, str):
+  data_sources = conf.get('data_source')
+  if data_sources is None:
+    data_sources = EVENT_PARTITIONED_SOURCES | ANNUAL_SOURCES
+  elif isinstance(data_sources, str):
     data_sources = [data_sources]
 
   def as_datetime(value):
