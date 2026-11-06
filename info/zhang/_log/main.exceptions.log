@@ -1,0 +1,12 @@
+[2026-11-05T05:49:16.307847Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 61, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 108, in site_plot
+    plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 261, in _plot_measured_original_vs_modified
+    if 'modified' not in data.keys() or ('automated_error' in data[sid].keys() and data[sid]['automated_error'] is not None):
+                                                              ~~~~^^^^^
+KeyError: 'Huangmeishan'
+

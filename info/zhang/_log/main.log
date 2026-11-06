@@ -75,3 +75,199 @@ Cadence is >= 60 seconds (60.0 seconds)
 2026-09-20T19:46:10.066969Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang_config\info.extended.csv
 2026-09-20T19:46:10.069340Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang_config\info.extended.json
 2026-09-20T19:46:10.071712Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang_config\info.extended.json
+2026-11-05T00:49:10.410035Z INFO  main Reading 'Huangmeishan' data for event '2016-03-06'
+2026-11-05T00:49:10.410035Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:49:10.452210Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:49:10.452210Z INFO  main   Cached data is missing automated error results; processing it again.
+2026-11-05T00:49:10.474721Z INFO  main   Reading 'GIC/measured/Zhang2020' data for event '2016-03-06'
+2026-11-05T00:49:10.476786Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\zhang2020\2016-03-06\gic\20160306-08_Fujian_Huangmeishan_220kV_GIC.txt
+2026-11-05T00:49:10.570475Z INFO  main     Running automated error checks on GIC measured data
+2026-11-05T00:49:11.103427Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-11-05T00:49:11.103427Z INFO  main     Uniq dts [#]  = 1
+2026-11-05T00:49:11.105439Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-11-05T00:49:11.152335Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\GIC_measured_Zhang2020.pkl
+2026-11-05T00:49:11.159976Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\GIC_measured_Zhang2020.meta.pkl
+2026-11-05T00:49:11.170200Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:49:11.180774Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:49:11.182904Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:49:11.195500Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-11-05T00:49:11.195500Z INFO  main   Uniq dts [#]  = 1
+2026-11-05T00:49:11.195500Z INFO  main   Stats for GIC/measured/Zhang2020:
+2026-11-05T00:49:11.195500Z INFO  main 
+    std: : [0.3266662700854805]
+    ave: : [-0.12441529225786552]
+    min: : [-1.1751]
+    max: : [0.82433]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-11-05T00:49:16.300638Z INFO  main Plotting 'Huangmeishan' data for event '2016-03-06'
+2026-11-05T00:49:16.307848Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2016-03-06'
+2026-11-05T00:51:56.567322Z INFO  main Reading 'Huangmeishan' data for event '2016-03-06'
+2026-11-05T00:51:56.567322Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:51:56.625537Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:51:56.637115Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-11-05T00:51:56.639127Z INFO  main   Uniq dts [#]  = 1
+2026-11-05T00:51:56.639127Z INFO  main   Stats for GIC/measured/Zhang2020:
+2026-11-05T00:51:56.639127Z INFO  main 
+    std: : [0.3266662700854805]
+    ave: : [-0.12441529225786552]
+    min: : [-1.1751]
+    max: : [0.82433]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-11-05T00:51:57.302696Z INFO  main Plotting 'Huangmeishan' data for event '2016-03-06'
+2026-11-05T00:51:57.308174Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2016-03-06'
+2026-11-05T00:52:04.286331Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.png
+2026-11-05T00:52:05.356606Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.pdf
+2026-11-05T00:52:09.120646Z INFO  main Reading 'Huangmeishan' data for event '2015-03-17'
+2026-11-05T00:52:09.122656Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:52:09.168689Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:52:09.172401Z INFO  main   Cached data is missing automated error results; processing it again.
+2026-11-05T00:52:09.192867Z INFO  main   Reading 'GIC/measured/Zhang2020' data for event '2015-03-17'
+2026-11-05T00:52:09.200709Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\zhang2020\2015-03-17\gic\20150317-18_Fujian_Huangmeishan_220kV_GIC.txt
+2026-11-05T00:52:09.300344Z INFO  main     Running automated error checks on GIC measured data
+2026-11-05T00:52:09.642888Z INFO  main     Uniq dts [ns] = [60000000000 61000000000]
+2026-11-05T00:52:09.642888Z INFO  main     Uniq dts [#]  = 2
+2026-11-05T00:52:09.649764Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-11-05T00:52:09.659707Z ERROR main     Error resampling data: integer division or modulo by zero
+2026-11-05T00:52:09.669141Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\GIC_measured_Zhang2020.pkl
+2026-11-05T00:52:09.680010Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\GIC_measured_Zhang2020.meta.pkl
+2026-11-05T00:52:09.690139Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:52:09.696558Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:52:09.696558Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:52:09.707107Z INFO  main Plotting 'Huangmeishan' data for event '2015-03-17'
+2026-11-05T00:52:09.713717Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2015-03-17'
+2026-11-05T00:52:12.474979Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-03-17/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.png
+2026-11-05T00:52:13.337194Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-03-17/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.pdf
+2026-11-05T00:52:13.526525Z INFO  main Reading 'Huangmeishan' data for event '2015-12-14'
+2026-11-05T00:52:13.529032Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:52:13.558566Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:52:13.558566Z INFO  main   Cached data is missing automated error results; processing it again.
+2026-11-05T00:52:13.575624Z INFO  main   Reading 'GIC/measured/Zhang2020' data for event '2015-12-14'
+2026-11-05T00:52:13.583054Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\zhang2020\2015-12-14\gic\20151214-15_Fujian_Huangmeishan_220kV_GIC.txt
+2026-11-05T00:52:13.654236Z INFO  main     Running automated error checks on GIC measured data
+2026-11-05T00:52:13.955181Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-11-05T00:52:13.955181Z INFO  main     Uniq dts [#]  = 1
+2026-11-05T00:52:13.957792Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-11-05T00:52:13.987337Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\GIC_measured_Zhang2020.pkl
+2026-11-05T00:52:13.995653Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\GIC_measured_Zhang2020.meta.pkl
+2026-11-05T00:52:14.004001Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:52:14.009622Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:52:14.013032Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:52:14.021163Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-11-05T00:52:14.021163Z INFO  main   Uniq dts [#]  = 1
+2026-11-05T00:52:14.021163Z INFO  main   Stats for GIC/measured/Zhang2020:
+2026-11-05T00:52:14.021163Z INFO  main 
+    std: : [0.3210831784819855]
+    ave: : [-0.05966291784871617]
+    min: : [-1.4824]
+    max: : [1.0944]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-11-05T00:52:14.034028Z INFO  main Plotting 'Huangmeishan' data for event '2015-12-14'
+2026-11-05T00:52:14.044198Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2015-12-14'
+2026-11-05T00:52:17.004293Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-14/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.png
+2026-11-05T00:52:19.118454Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-14/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.pdf
+2026-11-05T00:52:19.529429Z INFO  main   Adding error for site 'Huangmeishan', GIC/'measured/Zhang2020: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1612 A) > 1/4 * std after (0.3268 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-11-05T00:52:19.530015Z INFO  main   Adding error for site 'Huangmeishan', GIC/'measured/Zhang2020: Low signal: all GIC values within +/- 4 A
+2026-11-05T00:52:19.532025Z INFO  main   Adding error for site 'Huangmeishan', GIC/'measured/Zhang2020: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1313 A) > 1/4 * std after (0.3212 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-11-05T00:52:19.574074Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang\info.extended.csv
+2026-11-05T00:52:19.574074Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang\info.extended.json
+2026-11-05T00:52:19.576255Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang\info.extended.json
+2026-11-05T00:55:38.833827Z INFO  main Reading 'Huangmeishan' data for event '2016-03-06'
+2026-11-05T00:55:38.833827Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:55:38.902774Z INFO  main   Reading 'GIC/measured/Zhang2020' data for event '2016-03-06'
+2026-11-05T00:55:38.914918Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\zhang2020\2016-03-06\gic\20160306-08_Fujian_Huangmeishan_220kV_GIC.txt
+2026-11-05T00:55:38.999016Z INFO  main     Running automated error checks on GIC measured data
+2026-11-05T00:55:39.401028Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-11-05T00:55:39.404092Z INFO  main     Uniq dts [#]  = 1
+2026-11-05T00:55:39.411181Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-11-05T00:55:39.433530Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\GIC_measured_Zhang2020.pkl
+2026-11-05T00:55:39.445117Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\GIC_measured_Zhang2020.meta.pkl
+2026-11-05T00:55:39.452419Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:55:39.458151Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2016-03-06\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:55:39.458151Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:55:39.468393Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-11-05T00:55:39.468393Z INFO  main   Uniq dts [#]  = 1
+2026-11-05T00:55:39.468393Z INFO  main   Stats for GIC/measured/Zhang2020:
+2026-11-05T00:55:39.468393Z INFO  main 
+    std: : [0.3266662700854805]
+    ave: : [-0.12441529225786552]
+    min: : [-1.1751]
+    max: : [0.82433]
+    n: 1621
+    n_valid: : [1621]
+    dt_original: : [60000000000]
+2026-11-05T00:55:44.221808Z INFO  main Plotting 'Huangmeishan' data for event '2016-03-06'
+2026-11-05T00:55:44.229750Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2016-03-06'
+2026-11-05T00:55:51.136166Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.png
+2026-11-05T00:55:52.292239Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2016-03-06/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.pdf
+2026-11-05T00:55:56.378481Z INFO  main Reading 'Huangmeishan' data for event '2015-03-17'
+2026-11-05T00:55:56.383969Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:55:56.444887Z INFO  main   Reading 'GIC/measured/Zhang2020' data for event '2015-03-17'
+2026-11-05T00:55:56.455196Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\zhang2020\2015-03-17\gic\20150317-18_Fujian_Huangmeishan_220kV_GIC.txt
+2026-11-05T00:55:56.523849Z INFO  main     Running automated error checks on GIC measured data
+2026-11-05T00:55:56.879034Z INFO  main     Uniq dts [ns] = [60000000000 61000000000]
+2026-11-05T00:55:56.879034Z INFO  main     Uniq dts [#]  = 2
+2026-11-05T00:55:56.879034Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-11-05T00:55:56.891923Z ERROR main     Error resampling data: integer division or modulo by zero
+2026-11-05T00:55:56.898970Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\GIC_measured_Zhang2020.pkl
+2026-11-05T00:55:56.909176Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\GIC_measured_Zhang2020.meta.pkl
+2026-11-05T00:55:56.916328Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:55:56.922828Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-03-17\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:55:56.925263Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:55:56.929627Z INFO  main Plotting 'Huangmeishan' data for event '2015-03-17'
+2026-11-05T00:55:56.939263Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2015-03-17'
+2026-11-05T00:55:59.670895Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-03-17/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.png
+2026-11-05T00:56:00.678038Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-03-17/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.pdf
+2026-11-05T00:56:00.951581Z INFO  main Reading 'Huangmeishan' data for event '2015-12-14'
+2026-11-05T00:56:00.958126Z INFO  main   Reading cached file with all data for site 'Huangmeishan': C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:56:01.026611Z INFO  main   Reading 'GIC/measured/Zhang2020' data for event '2015-12-14'
+2026-11-05T00:56:01.046038Z INFO  main     Reading C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\zhang2020\2015-12-14\gic\20151214-15_Fujian_Huangmeishan_220kV_GIC.txt
+2026-11-05T00:56:01.120966Z INFO  main     Running automated error checks on GIC measured data
+2026-11-05T00:56:01.434844Z INFO  main     Uniq dts [ns] = [60000000000]
+2026-11-05T00:56:01.434844Z INFO  main     Uniq dts [#]  = 1
+2026-11-05T00:56:01.437662Z INFO  main     
+Resample to 1m aves and NaN pad or trim to start/stop.
+2026-11-05T00:56:01.464814Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\GIC_measured_Zhang2020.pkl
+2026-11-05T00:56:01.474814Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\GIC_measured_Zhang2020.meta.pkl
+2026-11-05T00:56:01.483918Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.pkl
+2026-11-05T00:56:01.494139Z INFO  main   Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\2015-12-14\sites\huangmeishan\data\_all.meta.pkl
+2026-11-05T00:56:01.494139Z INFO  main Computing stats for 'Huangmeishan' data
+2026-11-05T00:56:01.502049Z INFO  main   Uniq dts [ns] = [60000000000]
+2026-11-05T00:56:01.502049Z INFO  main   Uniq dts [#]  = 1
+2026-11-05T00:56:01.504061Z INFO  main   Stats for GIC/measured/Zhang2020:
+2026-11-05T00:56:01.504773Z INFO  main 
+    std: : [0.3210831784819855]
+    ave: : [-0.05966291784871617]
+    min: : [-1.4824]
+    max: : [1.0944]
+    n: 1441
+    n_valid: : [1441]
+    dt_original: : [60000000000]
+2026-11-05T00:56:01.512155Z INFO  main Plotting 'Huangmeishan' data for event '2015-12-14'
+2026-11-05T00:56:01.522182Z INFO  main   Plotting 'Huangmeishan/GIC/measured/Zhang2020' original vs. modified data for event '2015-12-14'
+2026-11-05T00:56:04.705527Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-14/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.png
+2026-11-05T00:56:05.778436Z INFO  main     Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/2015-12-14/sites/huangmeishan/figures\original\GIC_measured_Zhang2020.pdf
+2026-11-05T00:56:06.070900Z INFO  main   Adding error for site 'Huangmeishan', GIC/'measured/Zhang2020: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1612 A) > 1/4 * std after (0.3268 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-11-05T00:56:06.075361Z INFO  main   Adding error for site 'Huangmeishan', GIC/'measured/Zhang2020: Low signal: all GIC values within +/- 4 A
+2026-11-05T00:56:06.079101Z INFO  main   Adding error for site 'Huangmeishan', GIC/'measured/Zhang2020: Low signal: all GIC values within +/- 4 A;
+Excessive pre-storm noise: std before (0.1313 A) > 1/4 * std after (0.3212 A);
+Cadence is >= 60 seconds (60.0 seconds)
+2026-11-05T00:56:06.124251Z INFO  main Wrote C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang\info.extended.csv
+2026-11-05T00:56:06.124251Z INFO  main Preparing C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang\info.extended.json
+2026-11-05T00:56:06.126778Z INFO  main Writing C:\Users\lwilker\Documents\GitHub\SWERVE\info\zhang\info.extended.json

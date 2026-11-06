@@ -35,3 +35,51 @@ Traceback (most recent call last):
            ^^^^^^
 UnboundLocalError: cannot access local variable 'pandas' where it is not associated with a value
 
+[2026-11-05T05:33:18.556574Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 68, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
+[2026-11-05T05:38:15.963530Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 68, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
+[2026-11-06T02:16:28.815879Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 74, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
+[2026-11-06T03:24:39.168522Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 74, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 15, in update_info_extended
+    error_msg = site_data['GIC']['measured'][data_source]['automated_error']
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'automated_error'
+
