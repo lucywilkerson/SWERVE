@@ -1,0 +1,216 @@
+[2026-10-28T18:28:38.382604Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 42, in write_info_csv
+    for data_source in data_sources:
+                       ^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+[2026-10-28T18:28:38.422182Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 42, in write_info_csv
+    for data_source in data_sources:
+                       ^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+
+[2026-10-28T18:30:13.040180Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 40, in write_info_csv
+    from .source_catalog import ANNUAL_SOURCES, PARTITIONED_SOURCES, INTERMAG_SOURCES
+ImportError: cannot import name 'PARTITIONED_SOURCES' from 'swerve.util.source_catalog' (C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\source_catalog.py)
+
+[2026-10-28T18:30:13.045844Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 40, in write_info_csv
+    from .source_catalog import ANNUAL_SOURCES, PARTITIONED_SOURCES, INTERMAG_SOURCES
+ImportError: cannot import name 'PARTITIONED_SOURCES' from 'swerve.util.source_catalog' (C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\source_catalog.py)
+
+[2026-10-28T18:31:29.993900Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 41, in write_info_csv
+    data_sources = ANNUAL_SOURCES + EVENT_PARTITIONED_SOURCES + CONTINUOUS_SOURCES
+                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'frozenset' and 'frozenset'
+
+[2026-10-28T18:31:30.032939Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 41, in write_info_csv
+    data_sources = ANNUAL_SOURCES + EVENT_PARTITIONED_SOURCES + CONTINUOUS_SOURCES
+                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'frozenset' and 'frozenset'
+
+[2026-10-28T18:32:22.142625Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 86, in write_info_csv
+    raise ValueError(f"Data type not recognized: {data_type}. Valid options are 'GIC' and 'B'.")
+ValueError: Data type not recognized: DMM. Valid options are 'GIC' and 'B'.
+
+[2026-10-28T18:32:22.149277Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 86, in write_info_csv
+    raise ValueError(f"Data type not recognized: {data_type}. Valid options are 'GIC' and 'B'.")
+ValueError: Data type not recognized: DMM. Valid options are 'GIC' and 'B'.
+
+[2026-10-28T18:50:12.310616Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 456, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source Bor not recognized.
+
+[2026-10-28T18:50:12.329502Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 456, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source Bor not recognized.
+
+[2026-10-28T19:00:47.342673Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 474, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source MAGE not recognized.
+
+[2026-10-28T19:00:47.342673Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 474, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source MAGE not recognized.
+
+[2026-10-28T19:29:34.308829Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 491, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source OpenGGCM not recognized.
+
+[2026-10-28T19:29:34.323857Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 491, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source OpenGGCM not recognized.
+
+[2026-10-28T19:35:36.764712Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 508, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source SWUG not recognized.
+
+[2026-10-28T19:35:36.766403Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 508, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source SWUG not recognized.
+
+[2026-11-05T12:32:14.331330Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 695, in <module>
+    add_sim_site(info_df, CONFIG['files']['bor']['sim_file'], update_csv=False)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 197, in add_sim_site
+    tva_lat = meas_df.loc[meas_df['site_id'] == tva_site, 'geo_lat'].values[0]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+[2026-11-05T12:32:14.332334Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 695, in <module>
+    add_sim_site(info_df, CONFIG['files']['bor']['sim_file'], update_csv=False)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 197, in add_sim_site
+    tva_lat = meas_df.loc[meas_df['site_id'] == tva_site, 'geo_lat'].values[0]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+[2026-11-05T12:40:42.769905Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 695, in <module>
+    add_sim_site(info_df, CONFIG['files']['bor']['sim_file'], update_csv=False)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 197, in add_sim_site
+    tva_lat = meas_df.loc[meas_df['site_id'] == tva_site, 'geo_lat'].values[0]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+[2026-11-05T12:40:42.778768Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 695, in <module>
+    add_sim_site(info_df, CONFIG['files']['bor']['sim_file'], update_csv=False)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 197, in add_sim_site
+    tva_lat = meas_df.loc[meas_df['site_id'] == tva_site, 'geo_lat'].values[0]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
