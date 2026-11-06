@@ -4,7 +4,7 @@ import json
 import math
 import numpy as np
 
-from .swerve_to_numpy import _root, _series
+from .data import _root, _series
 
 
 def _json_value(value):

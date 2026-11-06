@@ -5,7 +5,7 @@ from pathlib import Path
 from pickle import UnpicklingError
 import sys
 
-from .swerve_to_numpy import _root, _read_series
+from .data import _root, _read_series
 from ..util.source_catalog import ANNUAL_SOURCES, DATE_PARTITION_PATTERN, YEAR_PARTITION_PATTERN, source_kind
 
 

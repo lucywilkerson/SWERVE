@@ -131,3 +131,22 @@ def swerve_to_numpy(data_source, site_id, data_type, data_class, modified, start
         result[index, 0] = timestamp.to_pydatetime()
         result[index, 1] = values[0] if len(values) == 1 else values.copy()
     return result
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Convert SWERVE HAPI series to NumPy array")
+    parser.add_argument("data_source", nargs="?", default="TVA")
+    parser.add_argument("site_id", nargs="?", default="Bull Run")
+    parser.add_argument("data_type", nargs="?", default="GIC")
+    parser.add_argument("data_class", nargs="?", default="measured")
+    parser.add_argument("modified", nargs="?", type=str.lower, choices=("true", "false"), default="false")
+    parser.add_argument("start", nargs="?", default="2024-05-10")
+    parser.add_argument("stop", nargs="?", default="2024-05-12")
+    parser.add_argument("--data_root", default=None)
+    args = parser.parse_args()
+    args.modified = args.modified == "true"
+    result = swerve_to_numpy(
+        args.data_source, args.site_id, args.data_type, args.data_class,
+        args.modified, args.start, args.stop, data_root=args.data_root
+    )
+    print(result)
