@@ -254,22 +254,28 @@ def _plot_measured_vs_calculated(data, calculated_source, sid, style='timeseries
 
 
 def _plot_measured_original_vs_modified(data, sid, show_plots=False):
+  """Use source-level error flags, falling back to site metadata in older caches."""
+  import pandas as pd
+
+  automated_error = data.get('automated_error', data[sid].get('automated_error'))
+  if isinstance(automated_error, (list, tuple)):
+    automated_error = ';\n'.join(map(str, automated_error))
+  elif pd.isna(automated_error):
+    automated_error = None
+  elif automated_error is not None:
+    automated_error = str(automated_error)
+
   component_labels1 = data['original']['labels'].copy()
   for idx, label in enumerate(component_labels1):
     component_labels1[idx] = f"{label} original"
 
-  if 'modified' not in data.keys() or ('automated_error' in data[sid].keys() and data[sid]['automated_error'] is not None):
+  if 'modified' not in data.keys() or automated_error:
     original = data['original']
-    if data[sid]['automated_error'] is not None:
-      ae = data[sid]['automated_error']
-      if isinstance(ae, (list, tuple)):
-        data[sid]['automated_error'] = ';\n'.join(map(str, ae))
-      else:
-        data[sid]['automated_error'] = str(ae)
+    if automated_error:
       if isinstance(data[sid]['manual_error'], str):
-        suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {data[sid]['automated_error']}"
+        suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {automated_error}"
       else:
-        suptitle = f"Automated Error: {data[sid]['automated_error']}"
+        suptitle = f"Automated Error: {automated_error}"
     elif 'modified' not in data.keys():
       suptitle = f"Modified Error: {original['error']}"
     output_figure = _plot_stack(original, None, ylabels=len(component_labels1)*[f"({original['unit']})"], component_labels1=component_labels1, component_labels2=None,
