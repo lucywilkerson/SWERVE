@@ -5,7 +5,7 @@ import numpy as np
 
 from swerve import config, subset, infodf2dict
 
-reparse_events = True # If true, rewrites events_dict.json before writing info.extended.csv and info.extended.json
+reparse_events = False # If true, rewrites events_dict.json before writing info.extended.csv and info.extended.json
 reparse_info = True # If true, rewrites info.csv before writing info.extended.csv and info.extended.json
 
 CONFIG = config()
@@ -164,12 +164,14 @@ def add_sim_site(info_df, sim_file, update_csv=False):
     tva_df = None
     nerc_df = None
     tva_site = None
+    tva_site_original = None
     nerc_site = None
 
     tva_fname = os.path.join(sim_dir, 'tva', f'site_{site}.csv')
     if os.path.exists(tva_fname):
       tva_df = pd.read_csv(tva_fname)
-      tva_site = tva_df['site_1_device'][0]
+      tva_site_original = tva_df['site_1_device'][0]
+      tva_site = tva_site_original
       if tva_site == 'Widows Creek 2':
         tva_site = 'Widows Creek'
       if tva_site == 'Paradise':
@@ -194,8 +196,11 @@ def add_sim_site(info_df, sim_file, update_csv=False):
       if tva_df is not None:
         sim_lat = tva_df['sub lat'][0]
         sim_lon = tva_df['sub lon'][0]
-        tva_lat = meas_df.loc[meas_df['site_id'] == tva_site, 'geo_lat'].values[0]
-        tva_lon = meas_df.loc[meas_df['site_id'] == tva_site, 'geo_lon'].values[0]
+        tva_match = meas_df.loc[meas_df['site_id'] == tva_site]
+        if tva_match.empty and tva_site != tva_site_original:
+          tva_match = meas_df.loc[meas_df['site_id'] == tva_site_original]
+        tva_lat = tva_match['geo_lat'].values[0]
+        tva_lon = tva_match['geo_lon'].values[0]
         tva_dist = tva_df['site_1_Distance'][0]
 
       if nerc_df is not None:
