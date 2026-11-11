@@ -58,7 +58,10 @@ def write_info_csv():
                 continue
             if data_source in ANNUAL_SOURCES:
                 logger.info(f"   Checking annual data from source {data_source} for event {event}.")
+
+            # Looping over sources
             if data_source == 'INTERMAG':
+                from hapiclient.util import HAPIError
                 # Skip INTERMAG if more than 5 events are being processed to save time
                 if len(events) > 5:
                     logger.info(f"   Skipping INTERMAG for event {event} due to large number of events.")
@@ -67,9 +70,12 @@ def write_info_csv():
                     data_class = 'measured'
                     data_type = 'B'
                     start, stop = CONFIG['event'][event]['data_limits']
-                    source_sites = read_intermag_info(start, stop, logger=logger)
-                    for site_id, geo_lat, geo_lon in zip(
-                            source_sites['sites'], source_sites['lat'], source_sites['lon']):
+                    try:
+                        source_sites = read_intermag_info(start, stop, logger=logger)
+                    except HAPIError as error:
+                        logger.info(f"   HAPIError:{error} \n   Skipping INTERMAG for event {event}.")
+                        continue
+                    for site_id, geo_lat, geo_lon in zip(source_sites['sites'], source_sites['lat'], source_sites['lon']):
                         info_list = _add_info_row(
                             info_list, site_id, geo_lat, geo_lon,
                             data_type, data_class, data_source, event)
