@@ -1,0 +1,108 @@
+[2026-11-05T06:39:19.594319Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 28, in <module>
+    runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 526, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source INTERMAG not recognized.
+
+[2026-11-05T06:58:59.886662Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 120, in site_read
+    orig = _site_read_orig(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 217, in _site_read_orig
+    raise FileNotFoundError(f"File not found: {file}")
+FileNotFoundError: File not found: C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_original\openggcm\2024-05-10\50100\dB_OpenGGCM_50100.pkl
+
+[2026-11-05T07:32:46.305632Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 114, in site_read
+    orig = _read_cached_pickle(non_event_file, logger, indent='    ')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 193, in _read_cached_pickle
+    return pickle.load(file_handle)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+MemoryError
+
+[2026-11-05T13:13:11.489466Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 59, in <module>
+    utilrsw.print_dict(data[event][sid], indent=4)
+                       ~~~~~~~~~~~^^^^^
+KeyError: 'Grassridge'
+
+[2026-11-05T13:39:42.832898Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 120, in site_read
+    orig = _site_read_orig(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 144, in _site_read_orig
+    nearest_sim_site = int(nearest_sim_site.values[0])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: cannot convert float NaN to integer
+
+[2026-11-05T13:55:47.095061Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 125, in site_read
+    if 'error' not in orig:
+       ^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+
+[2026-11-05T21:04:11.877694Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 38, in <module>
+    sids_only = sids(**info_kwargs, key=sids_only, add_event=True, logger=logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 42, in sids
+    raise ValueError(f"key '{key}' with data_type '{data_type}' not recognized. Check site IDs and data_type.")
+ValueError: key '['96650']' with data_type '['GIC', 'DMM', 'B']' not recognized. Check site IDs and data_type.
+
+[2026-11-05T21:05:06.758423Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 38, in <module>
+    sids_only = sids(**info_kwargs, key=sids_only, add_event=True, logger=logger)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 42, in sids
+    raise ValueError(f"key '{key}' with data_type '{data_type}' not recognized. Check site IDs and data_type.")
+ValueError: key '['96650']' with data_type '['GIC', 'DMM', 'B']' not recognized. Check site IDs and data_type.
+
+[2026-11-05T21:05:28.400965Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 50, in <module>
+    site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 125, in site_read
+    if 'error' not in orig:
+       ^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+
+[2026-11-06T00:13:57.829049Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 69, in <module>
+    update_info_extended(sids_only, data, logger=logger, CONFIG=CONFIG)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 10, in update_info_extended
+    return update_info_extended_impl(sids_only, data, exclude_errors=exclude_errors, logger=logger, CONFIG=CONFIG)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\update_info_extended.py", line 12, in update_info_extended
+    site_data = data[event][sid]
+                ~~~~~~~~~~~^^^^^
+KeyError: 'Grassridge'
+

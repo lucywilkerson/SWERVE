@@ -1,0 +1,889 @@
+2026-11-05T22:29:38.987235Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T22:29:39.055582Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T22:29:45.337492Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T22:29:45.889086Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T22:29:46.638498Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T22:29:47.066291Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T22:29:47.648605Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T22:35:20.531755Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T22:35:20.616260Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T22:35:28.389450Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T22:35:29.270571Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T22:35:30.243341Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T22:35:30.838689Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T22:35:31.634664Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T22:35:31.979620Z WARN  plot_maps No calculated DMM sites in C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv; saving an empty map.
+2026-11-05T22:35:32.063730Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T22:35:32.841686Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T22:35:33.222792Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-05T22:35:34.091232Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-05T22:35:34.600044Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-05T22:35:35.474741Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-05T23:16:06.518673Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:16:09.449711Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:16:19.016144Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:16:23.290269Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:16:25.080549Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:16:26.415353Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T23:16:27.801280Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T23:16:28.459837Z WARN  plot_maps No calculated DMM sites in C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv; saving an empty map.
+2026-11-05T23:16:28.675820Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T23:16:30.193792Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T23:16:31.075899Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-05T23:16:32.598958Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-05T23:16:33.607371Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-05T23:16:35.144583Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-05T23:21:05.142703Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:21:05.424356Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:21:10.568346Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:21:11.426867Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:21:12.273345Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:21:12.811604Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T23:21:13.504545Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T23:21:13.789004Z WARN  plot_maps No calculated DMM sites in C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv; saving an empty map.
+2026-11-05T23:21:13.877908Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T23:21:14.675821Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T23:21:15.060125Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-05T23:21:15.742296Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-05T23:21:16.125580Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-05T23:21:16.748078Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-05T23:21:59.217070Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:21:59.488287Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:22:04.514421Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:22:05.247945Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:22:05.878520Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:22:06.324275Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T23:22:06.902095Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T23:22:07.234373Z WARN  plot_maps No calculated DMM sites in C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv; saving an empty map.
+2026-11-05T23:22:07.314906Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T23:22:08.362233Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T23:22:08.914472Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-05T23:22:09.962107Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-05T23:22:10.442851Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-05T23:22:11.343366Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-05T23:27:41.378830Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:27:41.697220Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:27:49.058346Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:27:52.192466Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:27:52.812310Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:27:53.325788Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T23:27:53.853286Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T23:27:54.088825Z WARN  plot_maps No calculated DMM sites in C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv; saving an empty map.
+2026-11-05T23:27:54.158966Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T23:27:54.691806Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T23:27:55.084158Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-05T23:27:55.621085Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-05T23:27:55.915088Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-05T23:27:56.450021Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-05T23:33:17.150224Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:33:17.324185Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:33:22.569832Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:33:23.297019Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:33:27.252140Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:37:41.846713Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:37:42.096068Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:37:47.761935Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:37:48.502902Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:37:52.582531Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:39:35.847974Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:39:36.001926Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:39:43.213732Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:39:44.080312Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:39:49.354813Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:39:59.926713Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-05T23:39:59.968002Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T23:40:06.963191Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T23:50:50.721933Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-05T23:50:51.050955Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-05T23:51:00.171600Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-05T23:51:03.506620Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-05T23:51:09.763376Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-05T23:51:10.358580Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-05T23:51:12.817460Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-05T23:51:13.444932Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-05T23:51:13.553309Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-05T23:51:16.064837Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-05T23:51:16.553404Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-05T23:51:17.094689Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-05T23:51:17.719264Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-05T23:51:18.414729Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-06T00:17:38.568707Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T00:17:40.412492Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.png
+2026-11-06T00:17:49.594012Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_dmm_locations.pdf
+2026-11-06T00:17:52.898079Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.png
+2026-11-06T00:17:59.796626Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_gic_locations.pdf
+2026-11-06T00:18:00.405755Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.png
+2026-11-06T00:18:03.085578Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\measured_b_locations.pdf
+2026-11-06T00:18:03.730789Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T00:18:03.829805Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.png
+2026-11-06T00:18:05.857402Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_dmm_locations.pdf
+2026-11-06T00:18:06.293323Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.png
+2026-11-06T00:18:06.771142Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_gic_locations.pdf
+2026-11-06T00:18:07.310984Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.png
+2026-11-06T00:18:07.919842Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\_map\calculated_b_locations.pdf
+2026-11-06T02:20:05.095270Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:20:08.846027Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:20:27.706773Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:20:33.955222Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:20:46.899665Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:22:45.418099Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:22:46.057166Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:22:58.206988Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:22:59.717462Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:23:14.225713Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:31:16.317272Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:31:19.778760Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:31:34.171340Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:31:40.149794Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:31:49.797172Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:35:23.069635Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:35:23.603478Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:35:36.519319Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:35:38.593024Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:35:47.346731Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:36:47.488876Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:36:48.152899Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:37:00.991886Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:37:02.903230Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:37:12.508123Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:38:26.499242Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:38:27.106550Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:38:40.021521Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:38:42.166538Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:38:56.408158Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:39:38.443056Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:39:38.936352Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:39:52.823636Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:39:54.376099Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:40:03.822263Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:40:42.389398Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:40:43.022718Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:40:55.669839Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:40:57.388735Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:41:08.767695Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:42:40.878683Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:42:41.550399Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T02:42:56.174878Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T02:42:58.071633Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T02:43:07.612969Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T02:45:44.576268Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:46:11.105138Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:47:36.947725Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:51:19.768315Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:51:23.345913Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_b_locations.png
+2026-11-06T02:51:37.350467Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_b_locations.pdf
+2026-11-06T02:51:43.106554Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_b_locations.png
+2026-11-06T02:53:11.545564Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:53:12.175502Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_b_locations.png
+2026-11-06T02:53:24.974397Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_b_locations.pdf
+2026-11-06T02:53:26.170191Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_b_locations.png
+2026-11-06T02:53:38.121882Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_b_locations.pdf
+2026-11-06T02:56:34.755182Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:56:35.659989Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.png
+2026-11-06T02:56:49.639244Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.pdf
+2026-11-06T02:56:51.266749Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.png
+2026-11-06T02:56:52.903492Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.pdf
+2026-11-06T02:56:54.080262Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.png
+2026-11-06T02:56:55.353682Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.pdf
+2026-11-06T02:56:56.391275Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.png
+2026-11-06T02:56:57.823533Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.pdf
+2026-11-06T02:56:58.267544Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T02:56:58.570455Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.png
+2026-11-06T02:57:00.072079Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.pdf
+2026-11-06T02:57:00.938047Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.png
+2026-11-06T02:57:02.330792Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.pdf
+2026-11-06T02:57:53.731767Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:57:54.548115Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.png
+2026-11-06T02:58:09.413804Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.pdf
+2026-11-06T02:58:11.033450Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.png
+2026-11-06T02:58:12.355208Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.pdf
+2026-11-06T02:58:13.502546Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.png
+2026-11-06T02:58:15.175801Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.pdf
+2026-11-06T02:58:16.117962Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.png
+2026-11-06T02:58:17.297541Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.pdf
+2026-11-06T02:58:17.868802Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T02:58:18.061749Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.png
+2026-11-06T02:58:19.483913Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.pdf
+2026-11-06T02:58:20.125207Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.png
+2026-11-06T02:58:21.615859Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.pdf
+2026-11-06T02:59:31.996025Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T02:59:32.858555Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.png
+2026-11-06T02:59:47.056642Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.pdf
+2026-11-06T02:59:48.637379Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.png
+2026-11-06T02:59:50.142334Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.pdf
+2026-11-06T02:59:51.778576Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.png
+2026-11-06T02:59:53.521817Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.pdf
+2026-11-06T02:59:55.761527Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.png
+2026-11-06T02:59:57.342521Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.pdf
+2026-11-06T02:59:57.990044Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T02:59:58.481519Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.png
+2026-11-06T03:00:00.216512Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.pdf
+2026-11-06T03:00:01.101801Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.png
+2026-11-06T03:00:02.550219Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.pdf
+2026-11-06T03:01:10.424874Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T03:01:12.936647Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.png
+2026-11-06T03:01:30.795989Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.pdf
+2026-11-06T03:01:36.692102Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.png
+2026-11-06T03:01:38.087185Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.pdf
+2026-11-06T03:01:39.338842Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.png
+2026-11-06T03:01:40.871100Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.pdf
+2026-11-06T03:01:41.777040Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.png
+2026-11-06T03:01:43.221006Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.pdf
+2026-11-06T03:01:43.822783Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T03:01:44.006436Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.png
+2026-11-06T03:01:45.395476Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.pdf
+2026-11-06T03:01:46.174211Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.png
+2026-11-06T03:01:47.543915Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.pdf
+2026-11-06T03:04:52.579179Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T03:04:53.401322Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.png
+2026-11-06T03:05:06.042243Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_gic_locations.pdf
+2026-11-06T03:05:07.490920Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.png
+2026-11-06T03:05:08.779297Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_dmm_locations.pdf
+2026-11-06T03:05:09.976708Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.png
+2026-11-06T03:05:11.476963Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\measured_b_locations.pdf
+2026-11-06T03:05:12.457347Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.png
+2026-11-06T03:05:14.017921Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_gic_locations.pdf
+2026-11-06T03:05:14.424129Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T03:05:14.564954Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.png
+2026-11-06T03:05:15.619126Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_dmm_locations.pdf
+2026-11-06T03:05:16.299356Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.png
+2026-11-06T03:05:17.518469Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\../SWERVE_data_paper\calculated_b_locations.pdf
+2026-11-06T03:06:18.770895Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T03:06:19.489913Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.png
+2026-11-06T03:06:31.523026Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_gic_locations.pdf
+2026-11-06T03:06:33.522345Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.png
+2026-11-06T03:06:35.334600Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_dmm_locations.pdf
+2026-11-06T03:06:37.045877Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_b_locations.png
+2026-11-06T03:06:39.022925Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\measured_b_locations.pdf
+2026-11-06T03:06:40.073999Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_gic_locations.png
+2026-11-06T03:06:41.765157Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_gic_locations.pdf
+2026-11-06T03:06:42.623710Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T03:06:42.877677Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_dmm_locations.png
+2026-11-06T03:06:45.106990Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_dmm_locations.pdf
+2026-11-06T03:06:46.254091Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_b_locations.png
+2026-11-06T03:06:48.397276Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed/summary/map\calculated_b_locations.pdf
+2026-11-06T03:10:08.419308Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T03:10:09.101995Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.png
+2026-11-06T03:10:25.449892Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.pdf
+2026-11-06T03:10:27.331105Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.png
+2026-11-06T03:10:28.865546Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.pdf
+2026-11-06T03:10:29.951668Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T03:10:31.487790Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T03:10:32.425660Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.png
+2026-11-06T03:10:34.047516Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.pdf
+2026-11-06T03:10:34.792673Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T03:10:34.816328Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.png
+2026-11-06T03:10:36.411332Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.pdf
+2026-11-06T03:10:37.158142Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T03:10:38.722356Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T03:10:40.339268Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T03:12:04.949797Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T03:12:05.794988Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.png
+2026-11-06T03:12:18.178148Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.pdf
+2026-11-06T03:12:19.403328Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.png
+2026-11-06T03:12:20.779141Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.pdf
+2026-11-06T03:12:22.001442Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T03:12:23.639503Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T03:12:24.524429Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.png
+2026-11-06T03:12:25.961963Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.pdf
+2026-11-06T03:12:26.578096Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T03:12:26.747039Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.png
+2026-11-06T03:12:28.246383Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.pdf
+2026-11-06T03:12:29.030089Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T03:12:30.586542Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T03:17:14.705129Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T03:17:15.636336Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.png
+2026-11-06T03:17:27.923494Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.pdf
+2026-11-06T03:17:29.411212Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.png
+2026-11-06T03:17:30.761058Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.pdf
+2026-11-06T03:17:31.804731Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T03:17:33.192176Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T03:17:34.069742Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.png
+2026-11-06T03:17:35.402199Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.pdf
+2026-11-06T03:17:36.036094Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T03:17:36.201403Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.png
+2026-11-06T03:17:37.557249Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.pdf
+2026-11-06T03:17:38.304549Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T03:17:39.709315Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T03:17:41.217495Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T03:17:41.822491Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:14:11.223100Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:14:11.311971Z INFO  plot_maps Number of unique sites for measured GIC: 564
+2026-11-06T10:14:14.649820Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.png
+2026-11-06T10:14:32.250306Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.pdf
+2026-11-06T10:14:37.818163Z INFO  plot_maps Number of unique sites for measured DMM: 37
+2026-11-06T10:14:38.049942Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.png
+2026-11-06T10:14:39.609036Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.pdf
+2026-11-06T10:14:40.630357Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:14:41.049264Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:14:42.717040Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:14:43.452170Z INFO  plot_maps Number of unique sites for calculated GIC: 66
+2026-11-06T10:14:43.683020Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.png
+2026-11-06T10:14:45.402546Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.pdf
+2026-11-06T10:14:46.183790Z INFO  plot_maps Number of unique sites for calculated DMM: 0
+2026-11-06T10:14:46.184787Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T10:14:46.570079Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.png
+2026-11-06T10:14:48.109449Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.pdf
+2026-11-06T10:14:48.727493Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:14:48.988725Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:14:50.575000Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:14:52.613136Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:14:54.804971Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:20:05.522995Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:20:05.569619Z INFO  plot_maps Number of unique sites for measured GIC: 564
+2026-11-06T10:20:05.572629Z INFO  plot_maps Number of unique NERC GIC sites: 520
+2026-11-06T10:20:06.466833Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.png
+2026-11-06T10:20:22.813569Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_locations.pdf
+2026-11-06T10:20:24.243333Z INFO  plot_maps Number of unique sites for measured DMM: 37
+2026-11-06T10:20:24.544158Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.png
+2026-11-06T10:20:26.067658Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_dmm_locations.pdf
+2026-11-06T10:20:27.077683Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:20:27.424812Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:20:28.950877Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:20:29.682071Z INFO  plot_maps Number of unique sites for calculated GIC: 66
+2026-11-06T10:20:29.918239Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.png
+2026-11-06T10:20:31.650777Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_locations.pdf
+2026-11-06T10:20:32.363875Z INFO  plot_maps Number of unique sites for calculated DMM: 0
+2026-11-06T10:20:32.365375Z WARN  plot_maps Map 'calculated_dmm_locations' will be empty because no sites are available; using full-globe extent.
+2026-11-06T10:20:32.553051Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.png
+2026-11-06T10:20:34.133670Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_dmm_locations.pdf
+2026-11-06T10:20:34.828585Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:20:35.114064Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:20:36.680783Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:20:38.379384Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:20:38.973068Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:47:28.794333Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:47:28.869882Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T10:49:24.505906Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:49:24.567419Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T10:49:28.408695Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T10:49:44.440704Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T10:49:51.561679Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:49:52.822114Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:49:55.973943Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:49:57.330028Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T10:49:57.775538Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T10:49:59.899808Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T10:50:00.883576Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:50:01.303798Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:50:03.563732Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:50:06.116354Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:50:08.289072Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:51:40.207601Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:51:40.322216Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T10:51:41.618878Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T10:51:58.403081Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T10:52:01.020813Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:52:01.536452Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:52:03.543683Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:52:04.528681Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T10:52:04.914986Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T10:52:06.852803Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T10:52:07.716376Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:52:08.341163Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:52:10.312003Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:52:11.780843Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:52:12.334939Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:52:41.837355Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:52:41.899384Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T10:52:43.250942Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T10:53:00.078285Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T10:53:02.239135Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:53:02.743559Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:53:04.533603Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:53:05.336668Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T10:53:05.634618Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T10:53:07.514550Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T10:53:08.219461Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:53:08.527666Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:53:10.432027Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:53:11.885875Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:53:12.235242Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:55:05.995252Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:55:06.120677Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T10:55:07.568555Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T10:55:23.945827Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T10:55:26.338478Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:55:26.819487Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:55:28.710031Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:55:29.571490Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T10:55:29.899086Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T10:55:31.647214Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T10:55:32.390696Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:55:32.725190Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:55:34.403094Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:55:35.832896Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:55:36.211644Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T10:56:57.706051Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T10:56:57.806936Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T10:56:59.132234Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T10:57:15.412703Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T10:57:17.615712Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T10:57:18.099572Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T10:57:20.092225Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T10:57:20.949925Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T10:57:21.265840Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T10:57:22.859546Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T10:57:23.557141Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T10:57:23.845221Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T10:57:25.550018Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T10:57:27.008671Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T10:57:27.363735Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:00:02.748739Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:00:02.839703Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:00:04.251679Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:00:18.165286Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:00:20.493208Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:00:21.046513Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:00:26.383379Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:00:27.399622Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:00:27.856446Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:01:14.107205Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:01:15.916966Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:01:17.040121Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:01:20.453345Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:01:23.510865Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:01:24.516942Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:23:38.933552Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:23:39.047605Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:23:42.881057Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:23:58.674670Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:24:04.959708Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:24:05.577432Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:24:11.485288Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:24:12.245380Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:24:12.674455Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:24:37.055837Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:24:37.891642Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:24:38.156589Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:24:39.349173Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:24:40.765687Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:24:42.532400Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:25:11.801222Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:25:11.852136Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:25:12.957186Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:25:29.980677Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:25:32.378246Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:25:32.983530Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:25:38.660886Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:25:39.456171Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:25:39.846061Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:25:57.608003Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:25:58.401778Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:25:58.638200Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:25:59.885668Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:26:01.173293Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:26:01.481730Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:27:37.728774Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:27:37.790482Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:27:38.831555Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:27:50.108497Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:27:51.840181Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:27:52.290618Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:27:56.055707Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:27:56.576371Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:27:56.812216Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:28:12.150018Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:28:13.032319Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:28:13.317960Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:28:14.388601Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:28:15.560809Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:28:15.899600Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:30:14.598434Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:30:14.640970Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:30:15.580901Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:30:26.877863Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:30:28.651385Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:30:29.131043Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:30:33.334247Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:30:33.924616Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:30:34.193517Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:30:49.500726Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:30:50.293448Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:30:50.521298Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:30:51.488158Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:30:52.857987Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:30:53.101674Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:32:17.057217Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:32:17.105496Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:32:18.067497Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:32:29.166867Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:32:30.582174Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:32:31.049756Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:32:34.703905Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:32:35.221460Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:32:35.450927Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:32:50.912792Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:32:51.748680Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:32:52.012521Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:32:53.103091Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:32:54.148671Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:32:54.377335Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:33:40.414551Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:33:40.458490Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:33:41.361619Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:33:51.349503Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:33:52.865549Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:33:53.230281Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:33:56.671200Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:33:57.158852Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:33:57.400727Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:34:12.484190Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:34:13.157614Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:34:13.384073Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:34:14.296283Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:34:15.543589Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:34:15.761072Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T11:36:31.479936Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T11:36:31.526536Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T11:36:32.498329Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T11:36:42.228689Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T11:36:43.765412Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T11:36:44.137756Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T11:36:47.550674Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T11:36:48.082469Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T11:36:48.328824Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T11:37:10.054474Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T11:37:11.023528Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T11:37:11.369036Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T11:37:12.721089Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T11:37:14.221141Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T11:37:14.558795Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:35:10.153273Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:35:10.242849Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:35:13.081194Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:35:22.297721Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:35:26.643529Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:35:26.933030Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:35:29.878874Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:35:30.384271Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:35:30.591626Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:35:42.492043Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:35:43.121567Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:35:43.332930Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:35:44.188121Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:35:45.252964Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:35:46.471165Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:36:43.292276Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:36:43.333406Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:36:44.074613Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:36:52.214315Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:36:53.421686Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:36:53.719878Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:36:56.685404Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:36:57.138229Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:36:57.352166Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:37:08.232065Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:37:08.892431Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:37:09.108547Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:37:09.970613Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:37:10.926174Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:37:11.125063Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:38:29.330553Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:38:29.376538Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:38:30.151246Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:38:38.317989Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:38:39.549879Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:38:39.917757Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:38:42.898199Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:38:43.375549Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:38:43.581217Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:38:54.838769Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:38:55.395099Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:38:55.594416Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:38:56.514797Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:38:57.518455Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:38:57.679317Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:41:17.218023Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:41:17.263880Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:41:17.970186Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:41:25.536446Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:41:26.828149Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:41:27.142488Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:41:30.256279Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:41:30.716346Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:41:30.908201Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:41:42.024028Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:41:42.655436Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:41:42.862930Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:41:43.742777Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:41:44.683915Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:41:44.867402Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:45:37.984091Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:45:38.026807Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:45:38.797225Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:45:47.241697Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:45:48.507262Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:45:48.806576Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:45:51.699960Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:45:52.161210Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:45:52.367605Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:46:02.292869Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:46:02.983798Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:46:03.191021Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:46:04.062927Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:46:05.065206Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:46:05.267687Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:51:03.925286Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:51:03.974132Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:51:04.739768Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:51:13.232537Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:51:14.504660Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:51:14.813370Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:51:17.896354Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:51:18.393617Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:51:18.600294Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:51:29.460660Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:51:30.088536Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:51:30.305037Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:51:31.103910Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:51:32.085417Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:51:32.275839Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:52:01.040015Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:52:01.084482Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:52:01.958449Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:52:10.234366Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:52:11.502178Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:52:11.812762Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:52:14.766482Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:52:15.242445Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:52:15.426726Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:52:26.616645Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:52:27.247641Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:52:27.439501Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:52:28.285575Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:52:29.248102Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:52:29.437447Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T13:54:05.018645Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T13:54:05.104206Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T13:54:09.058733Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T13:54:17.460078Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T13:54:23.064340Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T13:54:23.359326Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T13:54:26.534361Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T13:54:27.002526Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T13:54:27.216235Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T13:54:38.920739Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T13:54:39.548921Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T13:54:39.765328Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T13:54:40.613152Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T13:54:41.725833Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T13:54:43.548892Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T14:03:46.889685Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T14:03:46.948886Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T14:03:47.884139Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T14:03:56.248623Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T14:03:57.677490Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T14:03:57.981608Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T14:04:01.126668Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T14:04:01.616003Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T14:04:01.842763Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T14:04:12.716749Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T14:04:13.373887Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T14:04:13.600624Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T14:04:14.506721Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T14:04:15.512602Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T14:04:15.749015Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T14:21:42.386670Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T14:21:42.436371Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T14:21:43.214756Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T14:21:51.188632Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T14:21:52.518907Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T14:21:52.835041Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T14:21:55.787544Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T14:21:56.267310Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T14:21:56.475647Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T14:22:07.548975Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T14:22:08.194114Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T14:22:08.426063Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T14:22:09.292171Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T14:22:10.269758Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T14:22:10.462958Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-06T14:22:47.476956Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-06T14:22:47.518308Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-06T14:22:48.403369Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-06T14:22:57.148420Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-06T14:22:58.380501Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-06T14:22:58.680679Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-06T14:23:01.683248Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-06T14:23:02.158525Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-06T14:23:02.369361Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-06T14:23:13.698264Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-06T14:23:14.329250Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-06T14:23:14.556865Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-06T14:23:15.403668Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-06T14:23:16.405858Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-06T14:23:16.647849Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-09T11:40:01.458521Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T11:40:01.555958Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-09T11:40:04.381215Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-09T11:40:15.000966Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-09T11:40:19.420927Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-09T11:40:19.733777Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-09T11:40:22.942931Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-09T11:40:23.422420Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-09T11:40:23.615476Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-09T11:40:38.515942Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-09T11:40:39.449669Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-09T11:40:39.789104Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-09T11:40:41.250932Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-09T11:40:42.923483Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-09T11:40:44.663761Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-09T11:42:38.208516Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T11:42:38.279087Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-09T11:42:39.142032Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-09T11:42:47.229129Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-09T11:42:48.636059Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-09T11:42:48.991876Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-09T11:42:52.392982Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-09T11:42:52.851109Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-09T11:42:53.071418Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-09T11:43:07.551644Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-09T11:43:08.392101Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-09T11:43:08.689392Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-09T11:43:09.987704Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-09T11:43:11.437925Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-09T11:43:13.020687Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-09T11:44:53.047084Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T11:44:53.114522Z INFO  plot_maps Number of unique sites for measured ['GIC', 'DMM']: 601
+2026-11-09T11:44:56.156655Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.png
+2026-11-09T11:45:04.151560Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_gic_dmm_locations.pdf
+2026-11-09T11:45:08.759864Z INFO  plot_maps Number of unique sites for measured B: 189
+2026-11-09T11:45:09.037839Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.png
+2026-11-09T11:45:12.143057Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_b_locations.pdf
+2026-11-09T11:45:12.628145Z INFO  plot_maps Number of unique sites for calculated ['GIC', 'DMM']: 66
+2026-11-09T11:45:12.817816Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.png
+2026-11-09T11:45:24.292324Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_gic_dmm_locations.pdf
+2026-11-09T11:45:24.997720Z INFO  plot_maps Number of unique sites for calculated B: 19
+2026-11-09T11:45:25.241740Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.png
+2026-11-09T11:45:26.140084Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_b_locations.pdf
+2026-11-09T11:45:27.100749Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-09T11:45:27.286530Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-09T11:48:53.048527Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T11:48:53.279757Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T11:48:54.112315Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T11:49:05.335339Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T11:49:06.309606Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T11:49:06.539908Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T11:50:20.348752Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T11:50:20.537024Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T11:50:21.022223Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T11:50:30.975005Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T11:50:31.946839Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T11:50:32.349416Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T11:50:44.748376Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T11:50:45.682067Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.pdf
+2026-11-09T11:50:45.829006Z INFO  plot_maps Writing ../SWERVE_data_paper\measured_locations_stack.png
+2026-11-09T11:54:53.681474Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T11:54:53.871330Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T11:54:54.436123Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T11:55:05.604776Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T11:55:06.870750Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T11:55:07.212068Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T11:55:19.302389Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T12:06:50.757401Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T12:06:51.061455Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T12:06:54.176232Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T12:07:05.198745Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T12:07:09.655926Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T12:07:09.893505Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T12:07:19.764250Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T12:07:58.192559Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T12:07:58.373652Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T12:07:58.926828Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T12:08:08.612471Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T12:08:10.175320Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T12:08:10.536293Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T12:08:21.767858Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T12:09:13.852650Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T12:09:14.100561Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T12:09:32.940768Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T12:09:33.177998Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T12:09:33.700378Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T12:09:42.599892Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T12:09:43.556282Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T12:09:43.857187Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T12:09:54.321205Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:01:36.095423Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:01:36.447193Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:02:05.661959Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:02:05.908286Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:02:06.924436Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:02:17.826611Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:02:22.237564Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:02:22.547630Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:02:34.673586Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:04:41.284364Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:04:41.614842Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:04:45.738935Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:04:57.311837Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:05:02.971238Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:05:03.348396Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:05:14.021228Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:07:01.454776Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:07:01.736341Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:07:02.532970Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:07:13.046643Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:07:14.205523Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:07:14.587823Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:07:26.151130Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:08:27.147434Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:08:27.392973Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:08:28.153877Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:08:37.435575Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:08:38.388922Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:08:38.700671Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:08:50.212435Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:09:49.245367Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:09:49.631749Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:09:50.622875Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:09:59.878399Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:10:01.213917Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:10:01.493568Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:10:13.228986Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:11:43.279096Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:11:43.559440Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:11:44.472651Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:11:55.157106Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:11:56.422096Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:11:57.014089Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:12:11.571168Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:13:23.819749Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:13:24.086699Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:13:25.064008Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:13:34.625104Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:13:35.740983Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:13:36.087742Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:13:37.469909Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:14:06.198393Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:14:06.488188Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:14:07.351204Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:14:16.920295Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:14:17.833396Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:14:18.317230Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:14:19.520230Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:14:52.110062Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:14:52.361590Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:14:53.356508Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:15:25.519995Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:15:29.579664Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:15:30.083641Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:15:30.671442Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:15:45.605757Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:15:45.909955Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:15:46.807070Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:15:56.262595Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:15:57.164164Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:15:57.639573Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:15:58.793851Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf
+2026-11-09T15:17:27.440973Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:17:27.744293Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:17:28.843019Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:17:37.451533Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:18:04.242639Z INFO  plot_maps Reading C:\Users\lwilker\Documents\GitHub\SWERVE\info\all\info.csv
+2026-11-09T15:18:04.481951Z INFO  plot_maps Number of unique sites for measured: 785
+2026-11-09T15:18:05.261599Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.png
+2026-11-09T15:18:14.833188Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\measured_locations.pdf
+2026-11-09T15:18:15.889553Z INFO  plot_maps Number of unique sites for calculated: 85
+2026-11-09T15:18:16.372377Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.png
+2026-11-09T15:18:17.413672Z INFO  plot_maps Writing C:\Users\lwilker\Documents\GitHub\SWERVE-data\data_processed\summary\map\calculated_locations.pdf

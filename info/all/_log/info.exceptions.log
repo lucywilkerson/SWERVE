@@ -1,0 +1,38 @@
+[2026-11-05T06:39:19.590282Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 28, in <module>
+    runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 526, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source INTERMAG not recognized.
+
+[2026-11-05T06:39:19.594319Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 28, in <module>
+    runpy.run_path(os.path.join(os.path.dirname(__file__), 'info.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\info.py", line 687, in <module>
+    write_info_csv()
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 14, in write_info_csv
+    return write_info_csv_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\write_info_csv.py", line 526, in write_info_csv
+    raise ValueError(f"     Data source {data_source} not recognized.")
+ValueError:      Data source INTERMAG not recognized.
+
+[2026-11-05T13:10:31.987618Z] Uncaught exception
+OSError: [Errno 22] Invalid argument
+
+[2026-11-05T13:10:31.988623Z] Uncaught exception
+OSError: [Errno 22] Invalid argument
+
