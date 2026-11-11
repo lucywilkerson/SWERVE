@@ -223,19 +223,29 @@ def plot_availability(windows, add_events=None, min_width=None):
     min_width = (max(all_times) - min(all_times)) * 0.001
   print(f'Minimum width: {min_width}')
 
-  fig, ax = plt.subplots(figsize=(10, 0.4*len(sources) + 1.5))
+  break_start = datetime.datetime(2008, 1, 1)
+  break_stop = datetime.datetime(2013, 1, 1)
+  left_days = (break_start - PLOT_START).days
+  right_days = (PLOT_STOP - break_stop).days
+  fig, (left_ax, right_ax) = plt.subplots(
+    1, 2, sharey=True, figsize=(10, 0.2*len(sources) + 1.5),
+    gridspec_kw={'width_ratios': [left_days, right_days], 'wspace': 0.04}
+  )
+  axes = (left_ax, right_ax)
 
   if add_events is not None:
     for event in add_events:
+      event_date = datetime.datetime.fromisoformat(event['date'])
+      ax = left_ax if event_date < break_start else right_ax
       ax.axvline(
-          x=datetime.datetime.fromisoformat(event['date']), 
+        x=event_date,
           color=event.get('color', 'm'), 
           linestyle='--', 
           linewidth=1
       )
       ax.text(
-          datetime.datetime.fromisoformat(event['date'])+datetime.timedelta(days=30), 
-          -0.3, 
+        event_date+datetime.timedelta(days=30),
+          -0.5, 
           event['label'], 
           color=event.get('color', 'm'), 
           rotation=0, 
@@ -251,19 +261,60 @@ def plot_availability(windows, add_events=None, min_width=None):
         center = start + (stop - start)/2
         start, stop = center - min_width/2, center + min_width/2
       methods_used.add(window['method'])
-      ax.hlines(y, start, stop, color='k', linewidth=6)
+      for ax, segment_start, segment_stop in (
+          (left_ax, PLOT_START, break_start),
+          (right_ax, break_stop, PLOT_STOP),
+      ):
+        clipped_start = max(start, segment_start)
+        clipped_stop = min(stop, segment_stop)
+        if clipped_start <= clipped_stop:
+          ax.hlines(y, clipped_start, clipped_stop, color='k', linewidth=6)
   
-  ax.set_yticks(range(len(sources)))
-  ax.set_yticklabels(sources)
-  ax.set_ylim(len(sources) - 0.5, -0.5) # First source alphabetically at top
-  ax.grid()
-  ax.set_title('Data availability by source')
+  left_ax.set_yticks(range(len(sources)))
+  left_ax.set_yticklabels(sources)
+  left_ax.tick_params(axis='y', which='both', length=0)
+  left_ax.set_ylim(len(sources) - 0.5, -0.5) # First source alphabetically at top
+  left_ax.spines['right'].set_visible(False)
+  right_ax.spines['left'].set_visible(False)
+  right_ax.tick_params(axis='y', which='both', left=False, labelleft=False)
+  for ax in axes:
+    for spine in ax.spines.values():
+      spine.set_visible(False)
+    ax.grid()
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    ax.xaxis.set_minor_locator(mdates.YearLocator())
+  left_ax.set_xlim(PLOT_START, break_start)
+  right_ax.set_xlim(break_stop, PLOT_STOP)
+  left_ax.set_xticks([
+    datetime.datetime(year, 1, 1)
+    for year in sorted(range(break_start.year, PLOT_START.year - 1, -2))
+  ])
+  right_ax.set_xticks([
+    datetime.datetime(year, 1, 1)
+    for year in range(break_stop.year, PLOT_STOP.year + 1, 2)
+  ])
+  left_ax.get_xticklabels()[-1].set_horizontalalignment('right')
+  right_ax.get_xticklabels()[0].set_horizontalalignment('left')
+  # Add zig-zag at break
+  for ax, tick_index in ((left_ax, -1), (right_ax, 0)):
+    gridline = ax.xaxis.get_major_ticks()[tick_index].gridline
+    offsets = numpy.zeros(41)
+    offsets[1:-1:2] = 25
+    offsets[2:-1:2] = -25
+    ax.plot(
+      ax.get_xticks()[tick_index] + offsets,
+      numpy.linspace(0, 1, len(offsets)),
+      transform=ax.get_xaxis_transform(),
+      color=gridline.get_color(),
+      linewidth=gridline.get_linewidth(),
+      linestyle=gridline.get_linestyle(),
+      alpha=gridline.get_alpha(),
+      zorder=ax.xaxis.get_zorder(),
+      clip_on=False,
+    )
+    gridline.set_visible(False)
+  #left_ax.set_title('Data availability by source')
 
-  ax.xaxis.set_major_locator(mdates.AutoDateLocator())
-  ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
-  ax.xaxis.set_minor_locator(mdates.YearLocator())
-
-  ax.set_xlim(PLOT_START, PLOT_STOP)
   plt.savefig(os.path.join(paper_dir, 'availability_plot.png'), bbox_inches='tight')
   plt.savefig(os.path.join(paper_dir, 'availability_plot.pdf'), bbox_inches='tight')
 
