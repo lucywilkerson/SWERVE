@@ -502,6 +502,23 @@ def write_info_csv():
                             info_list, row[0], float(row[1]), -float(row[2]),
                             'B', 'calculated', data_source, event)
 
+            elif data_source == 'SWUG':
+                if 'B' not in data_types and 'measured' not in data_classes:
+                    logger.info(f"   Only measured B data are available for data source {data_source}; skipping.")
+                    continue
+                file_dir = os.path.join(data_dir, data_source.lower())
+                file = os.path.join(file_dir, 'swug_info.csv')
+                if not os.path.exists(file):
+                    logger.info(f"   Site info file {file} not found for data source {data_source}; skipping.")
+                    continue
+                with open(file, 'r') as csvfile:
+                    rows = csv.reader(csvfile, delimiter=',')
+                    next(rows)
+                    for row in rows:
+                        info_list = _add_info_row(
+                            info_list, row[0], float(row[1]), float(row[2]),
+                            'B', 'measured', data_source, event)
+
             elif data_source == 'OpenGGCM' or data_source == 'SWMF':
                 if 'B' not in data_types and 'calculated' not in data_classes:
                     logger.info(f"   Only calculated B data are available for data source {data_source}; skipping.")
