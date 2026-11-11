@@ -20,7 +20,7 @@ if 'files' not in CONFIG:
     )
 logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-paper = True # Saves map to paper dir
+paper = False # Saves map to paper dir
 out_dir = os.path.join(CONFIG['dirs']['data'], 'data_processed', 'summary', 'map')
 if paper:
     paper_dir = '../SWERVE_data_paper'
@@ -34,38 +34,61 @@ projection = ccrs.Miller()
 
 def add_features(ax, state):
     # Add coastlines and other features
-    ax.add_feature(cfeature.OCEAN)
+    ax.add_feature(cfeature.OCEAN, facecolor='lightgray')
     ax.add_feature(cfeature.COASTLINE, linewidth=0.5)
     lakes = cfeature.NaturalEarthFeature('physical', 'lakes', '50m',
                                          edgecolor='face',
                                          facecolor='lightblue')
-    ax.add_feature(lakes)
-    ax.add_feature(cfeature.BORDERS, linewidth=0.5)
+    #ax.add_feature(lakes)
+    ax.add_feature(cfeature.BORDERS, linewidth=0.5, edgecolor='darkgray')
     if state:
-        ax.add_feature(cfeature.STATES, linewidth=0.5)
+        ax.add_feature(cfeature.STATES, linewidth=0.5, edgecolor='darkgray')
 
-def add_symbols(ax, df, transform, markersize):
+def add_symbols(ax, df, transform, markersize, add_key=False):
 
-    for row in df.itertuples():
-        # Select the symbol
-
-        default_symbols = {
-            ('DMM', 'measured'): ('o', 'k', 'k'),
-            ('GIC', 'measured'): ('o', 'k', 'k'),
-            ('B', 'measured'): ('o', 'k', 'k'),
-            ('DMM', 'calculated'): ('^', 'g', 'none'),
-            ('GIC', 'calculated'): ('^', 'b', 'none'),
-            ('B', 'calculated'): ('^', 'r', 'none')
+    default_symbols = {
+            ('DMM', 'measured'): ('o', 'r', 'r'),
+            ('GIC', 'measured'): ('x', 'c', 'c'),
+            ('B', 'measured'): ('^', 'k', 'k'),
+            ('DMM', 'calculated'): ('^', 'r', 'none'),
+            ('GIC', 'calculated'): ('^', 'k', 'none'),
+            ('B', 'calculated'): ('^', 'b', 'none')
         }
 
-        symbol = default_symbols.get((row.data_type, row.data_class))
+    plotted_symbols = {}
+    for row in df.itertuples():
+        # Select the symbol
+        data_key = (row.data_type, row.data_class)
+        symbol = default_symbols.get(data_key)
+
+        # Add specific color for INTERMAG
+        if (getattr(row, 'data_source', None), row.data_class) == ('INTERMAG', 'measured'):
+            symbol = ('o', 'k', 'lightgray')
+
+        if symbol is None:
+            continue
 
         marker, color, face = symbol
+        legend_label = ('INTERMAG'
+                        if (getattr(row, 'data_source', None), row.data_class)
+                        == ('INTERMAG', 'measured')
+                        else f'{row.data_type} {row.data_class}')
+        plotted_symbols.setdefault(legend_label, symbol)
 
         ax.plot(row.geo_lon, row.geo_lat,
                 mfc=face, marker=marker, color=color,
                 markersize=markersize,
                 transform=transform)
+
+    if add_key:
+        import matplotlib.lines as mlines
+        legend_elements = [
+            mlines.Line2D([], [], color=color, marker=marker,
+                          markerfacecolor=face, markeredgecolor=color,
+                          linestyle='None', label=label)
+            for label, (marker, color, face) in plotted_symbols.items()
+        ]
+        ax.legend(handles=legend_elements, loc='lower left')
 
 def _auto_crop(info_df):
   if info_df.empty:
@@ -82,7 +105,7 @@ def _auto_crop(info_df):
   return [max(-180, lon_min - lon_pad), min(180, lon_max + lon_pad),
           max(-90, lat_min - lat_pad), min(90, lat_max + lat_pad)]
 
-def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, patch=False,
+def location_map(info_df, extent, markersize, out_dir, out_name, add_key=False, mag_lat=False, patch=False,
                  date='2024-05-11T00:00:00'):
   if info_df.empty:
     extent = [-180, 180, -90, 90]
@@ -92,7 +115,7 @@ def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, 
   # Create a figure and axes with a specific projection
   fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={'projection': projection})
   # Adding map features and symbols for locations
-  add_features(ax, state)
+  add_features(ax, state=False)
   if patch:
     patch_kwargs = {"fc": 'lightyellow', "ec": 'g', "transform": transform}
     ax.add_patch(patches.Rectangle([-91, 33], 9, 5, **patch_kwargs))
@@ -139,7 +162,7 @@ def location_map(info_df, extent, markersize, out_dir, out_name, mag_lat=False, 
         ax.clabel(lat_contour, inline=True, manual=label_loc, fontsize=10, fmt='%.1f°')
 
 
-  add_symbols(ax, info_df, transform, markersize)
+  add_symbols(ax, info_df, transform, markersize, add_key=add_key)
   # Set the extent of the map
   if list(extent) == [-180, 180, -90, 90]:
     ax.set_global()
@@ -475,23 +498,32 @@ if __name__ == "__main__":
         class_df = class_df.drop_duplicates(
             subset=['site_id', 'geo_lat', 'geo_lon', 'data_source', 'data_type']
         )
-        for data_type in ['GIC', 'DMM','B']:
-            # Add INTERMAG sites if INTERMAG not in info_df but in config data_sources
-            if data_class == 'measured' and data_type == 'B' and 'INTERMAG' not in class_df['data_source'].unique() and (CONFIG['info_kwargs']['data_source'] is None or 'INTERMAG' in CONFIG['info_kwargs']['data_source']):
-                class_df = _add_intermag(class_df)
-            sites = class_df[class_df['data_type'] == data_type]
-            extent = None if auto_crop else [-180, 180, -90, 90]
-            location_map(sites, extent, 3, out_dir,
-                         f'{data_class}_{data_type.lower()}_locations')
-            plt.close()
-    # If paper, combine all 3 measured plots into stack plot with a), b), c) labels
+        # Add INTERMAG sites if INTERMAG not in info_df but in config data_sources
+        if data_class == 'measured' and 'INTERMAG' not in class_df['data_source'].unique() and (CONFIG['info_kwargs']['data_source'] is None or 'INTERMAG' in CONFIG['info_kwargs']['data_source']):
+            class_df = _add_intermag(class_df)
+        # Draw B first, then DMM, with GIC on top
+        class_df = class_df.sort_values(
+            'data_type',
+            key=lambda data_type: data_type.map({'B': 0, 'DMM': 1, 'GIC': 2}),
+            kind='stable'
+        )
+        logger.info(f"Number of unique sites for {data_class}: {class_df['site_id'].nunique()}")
+        # Make one map for each data class, including all data types.
+        extent = None if auto_crop else [-180, 180, -80, 85]
+        location_map(class_df, extent, 2, out_dir, f'{data_class}_locations', add_key=True)
+        plt.close()
+    # If paper, combine all measured plots into stack plot with a), b), c) labels
     if paper:
         from PIL import Image, ImageDraw, ImageFont
         from matplotlib import font_manager
 
         images = []
-        for dt in ['GIC', 'DMM', 'B']:
-            with Image.open(os.path.join(out_dir, f'measured_{dt.lower()}_locations.png')) as image:
+        for dt in [['GIC', 'DMM'], 'B']:
+            if isinstance(dt, list):
+                dt_str = "_".join([d.lower() for d in dt])
+            else:
+                dt_str = dt.lower()
+            with Image.open(os.path.join(out_dir, f'measured_{dt_str}_locations.png')) as image:
                 images.append(image.convert('RGB'))
         widths, heights = zip(*(i.size for i in images))
         total_height = sum(heights)
@@ -501,7 +533,7 @@ if __name__ == "__main__":
         for idx, im in enumerate(images):
             combined.paste(im, (0, y_offset))
             y_offset += im.size[1]
-        # Add labels a), b), c) to each stacked image
+        # Add labels a), b), c), etc. to each stacked image
         draw = ImageDraw.Draw(combined)
         font_size = max(24, int(max_width * 0.03))
         font = ImageFont.truetype(
