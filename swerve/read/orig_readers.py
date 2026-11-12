@@ -1042,3 +1042,29 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
           "labels": ["Bx", "By", "Bz"],
           "unit": "nT"
         }
+
+  if data_type == 'B' and data_class == 'measured' and data_source == 'SWUG':
+    data_path = os.path.join(data_dir, data_source.lower(), event, 'mag', sid.capitalize())
+    if not os.path.isdir(data_path):
+      raise FileNotFoundError(f"Data path not found: {data_path}")
+    data_files = [os.path.join(data_path, f) for f in os.listdir(data_path) if f.lower().endswith(('.csv', '.txt'))]
+    if not data_files:
+      raise FileNotFoundError(f"No SWUG data files found in {data_path}")
+
+    for file in sorted(data_files):
+      logger.info(f"    Reading {file}")
+      with open(file, 'r') as csvfile:
+        rows = csv.DictReader(csvfile)
+        for row in rows:
+          time.append(parse_datetime(row['Date']))
+          data.append([float(row[component]) for component in ['X', 'Y', 'Z']])
+
+    ret = {
+          "time": numpy.array(time),
+          "data": numpy.array(data),
+          "labels": ["Bx", "By", "Bz"],
+          "unit": "nT"
+        }
+    if len(time) != len(numpy.unique(time)):
+      ret['error'] = 'Duplicate time stamps found'
+    return ret
