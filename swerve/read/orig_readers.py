@@ -945,16 +945,19 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
     time = []
     data = []
 
-    read_start = None
-    read_stop = None
     if start is not None and stop is not None:
       read_start = datetime.datetime.fromisoformat(str(start)) - datetime.timedelta(days=1)
       read_stop = datetime.datetime.fromisoformat(str(stop)) + datetime.timedelta(days=1)
-      read_start = read_start.strftime('%Y-%m-%d/%H:%M:%S')
-      read_stop = read_stop.strftime('%Y-%m-%d/%H:%M:%S')
+    elif CONFIG.get('event', {}).get(str(event), {}).get('event_type') == 'annual':
+      read_start = datetime.datetime(int(event), 1, 1)
+      read_stop = datetime.datetime(int(event), 12, 31, 23, 59, 59)
+    else:
+      read_start = datetime.datetime.fromisoformat(str(event)[:10])
+      read_stop = read_start + datetime.timedelta(days=1) - datetime.timedelta(seconds=1)
+    read_start = read_start.strftime('%Y-%m-%d/%H:%M:%S')
+    read_stop = read_stop.strftime('%Y-%m-%d/%H:%M:%S')
 
     with open(data_file, 'r') as csvfile:
-        next(csvfile)  # Skip header row
         rows = pandas.read_csv(csvfile, delimiter=',').values
         for row in rows:
             if read_start is not None and row[0] < read_start:
@@ -995,7 +998,7 @@ def _site_read_orig(sid, data_type, data_class, data_source, event, logger, star
       # Define start/stop from event
       event_start = start.date() if hasattr(start, 'date') else datetime.date.fromisoformat(start[:10])
       event_stop = stop.date() if hasattr(stop, 'date') else datetime.date.fromisoformat(stop[:10])
-    elif CONFIG['event'].get(str(event), {}).get('event_type') == 'annual':
+    elif CONFIG.get('event', {}).get(str(event), {}).get('event_type') == 'annual':
       event_start = datetime.date(int(event), 1, 1)
       event_stop = datetime.date(int(event), 12, 31)
     else:
