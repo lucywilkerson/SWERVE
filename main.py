@@ -64,6 +64,12 @@ for sid, event in sids_only:
 
     site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
 
+    # Delete data, only keep errors if add_errors is True.
+    if add_errors:
+      data[event][sid] = {k: v for k, v in data[event][sid].items() if k == 'errors'}
+    else:
+      data[event][sid] = {}
+
 # Generate summary if not read_only
 if not read_only:
   if args['sites'] is None:
