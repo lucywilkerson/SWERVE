@@ -67,3 +67,90 @@ Traceback (most recent call last):
        ^^^^^^^^^^^^^^^^^^^
 TypeError: argument of type 'NoneType' is not iterable
 
+[2026-11-11T20:46:23.973532Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 65, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 108, in site_plot
+    plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 260, in _plot_measured_original_vs_modified
+    automated_error = data.get('automated_error', data[sid].get('automated_error'))
+                                                  ~~~~^^^^^
+KeyError: '50100'
+
+[2026-11-11T21:04:49.386221Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 65, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 61, in site_plot
+    if 'data_raw' in data[data_type][data_class][data_source]['original']:
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'original'
+
+[2026-11-12T18:44:34.092434Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 54, in <module>
+    data[event][sid] = site_read(sid, event, data_types=data_types, logger=logger, reparse=reparse, add_errors=add_errors)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\site_read.py", line 144, in site_read
+    orig = _site_read_orig(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\read\orig_readers.py", line 1058, in _site_read_orig
+    time.append(parse_datetime(f'{row[0]} {row[1]}'))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\util\parse_datetime.py", line 27, in parse_datetime
+    raise ValueError(f"Unrecognized datetime format: {value!r}")
+ValueError: Unrecognized datetime format: '2024/05/08 04:01:06 14.88'
+
+[2026-11-12T20:32:08.802707Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 65, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 108, in site_plot
+    plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 290, in _plot_measured_original_vs_modified
+    component_labels2['modified'] = data['modified']['labels'].copy()
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'labels'
+
+[2026-11-12T21:12:10.194988Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 65, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 108, in site_plot
+    plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 290, in _plot_measured_original_vs_modified
+    component_labels2['modified'] = data['modified']['labels'].copy()
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'labels'
+
+[2026-11-12T21:26:50.772696Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 65, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 108, in site_plot
+    plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 290, in _plot_measured_original_vs_modified
+    component_labels2['modified'] = data['modified']['labels'].copy()
+                                    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'labels'
+
+[2026-11-12T21:58:00.202779Z] Uncaught exception
+Traceback (most recent call last):
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\main.py", line 65, in <module>
+    site_plot(sid, event, data[event][sid], data_types=data_types, logger=logger, show_plots=show_plots)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 108, in site_plot
+    plots = _plot_measured_original_vs_modified(data[data_type][data_class][data_source], sid, show_plots=show_plots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 283, in _plot_measured_original_vs_modified
+    output_figure = _plot_stack(original, None, ylabels=len(component_labels1)*[f"({original['unit']})"], component_labels1=component_labels1, component_labels2=None,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\site_plot.py", line 343, in _plot_stack
+    n_stack = data1['data'].shape[1]
+              ~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+

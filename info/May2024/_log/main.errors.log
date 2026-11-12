@@ -1,0 +1,4 @@
+2026-11-12T15:32:08.174097Z ERROR main     Error resampling data: cannot reindex on an axis with duplicate labels
+2026-11-12T16:28:11.323265Z ERROR main     Not computing modified due to error: Duplicate time stamps found
+2026-11-12T16:58:00.187549Z ERROR main     Not computing modified due to error: No valid time stamps found in original data
+2026-11-12T18:17:55.910030Z ERROR main     Not computing modified due to error: Duplicate time stamps found
