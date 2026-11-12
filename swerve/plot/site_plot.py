@@ -257,7 +257,9 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   """Use source-level error flags, falling back to site metadata in older caches."""
   import pandas as pd
 
-  automated_error = data.get('automated_error', data[sid].get('automated_error'))
+  site_metadata = data.get(sid, data)
+  automated_error = data.get('automated_error', site_metadata.get('automated_error'))
+  manual_error = data.get('manual_error', site_metadata.get('manual_error'))
   if isinstance(automated_error, (list, tuple)):
     automated_error = ';\n'.join(map(str, automated_error))
   elif pd.isna(automated_error):
@@ -272,8 +274,8 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   if 'modified' not in data.keys() or automated_error:
     original = data['original']
     if automated_error:
-      if isinstance(data[sid]['manual_error'], str):
-        suptitle = f"Manual Error: {data[sid]['manual_error']}\nAutomated Error: {automated_error}"
+      if isinstance(manual_error, str):
+        suptitle = f"Manual Error: {manual_error}\nAutomated Error: {automated_error}"
       else:
         suptitle = f"Automated Error: {automated_error}"
     elif 'modified' not in data.keys():
@@ -303,8 +305,8 @@ def _plot_measured_original_vs_modified(data, sid, show_plots=False):
   modified['modified'] = data['modified'] #TODO: clean up so don't need modified['modified']
 
   kwargs['suptitle'] = f"Modification = {data['modified']['modification']}"
-  if isinstance(data[sid]['manual_error'], str):
-    kwargs['suptitle'] = f"Manual Error: {data[sid]['manual_error']}\n{kwargs['suptitle']}"
+  if isinstance(manual_error, str):
+    kwargs['suptitle'] = f"Manual Error: {manual_error}\n{kwargs['suptitle']}"
   output_figure = _plot_stack(original, modified, **kwargs)
   figures = {}
   for idx in range(original['data'].shape[1]):
