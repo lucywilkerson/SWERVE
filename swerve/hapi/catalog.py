@@ -56,7 +56,7 @@ def catalog(*, source=None,data_root=None, output=Path(__file__).resolve().paren
                 print(f"Skipping {variant} in {path}: {error}", file=sys.stderr)
     def importance(identifier):
         source, site, quantity, kind, variant = identifier.split("/")
-        sources = ("NERC", "TVA", "Bor", "GMU", "SWMF", "OpenGGCM", "MAGE")
+        sources = ("NERC", "TVA", "Bor", "SWMF", "OpenGGCM", "MAGE")
         return (kind != "measured", {"GIC": 0, "B": 1, "DMM": 2}.get(quantity, 3),
                 sources.index(source) if source in sources else len(sources), source.lower(), site, variant != "original")
     ids = sorted(ids, key=importance)
