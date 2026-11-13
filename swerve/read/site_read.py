@@ -20,6 +20,8 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
   If `reparse` is True, reparse the data files even if cache file exists
   (use if data files or code in this script that reads them has changed).
   If a cached pickle is read and its metadata pickle is missing, create it.
+  Complete caches with missing originals for requested data types, preserving
+  already loaded sources.
 
   If `debug` is True, print processing details for computing resampled data.
 
@@ -46,20 +48,35 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
 
   logger.info(f"Reading '{sid}' data for event '{event}'")
 
+  cached_site_info = None
   if not reparse and not is_annual_event:
     if os.path.exists(site_all_file):
       logger.info(f"  Reading cached file with all data for site '{sid}': {site_all_file}")
     data = _read_cached_pickle(site_all_file, logger, indent='  ')
     if data is not None:
-      _write_meta_pkl_if_missing(site_all_file, data, logger, indent='  ')
-      return data
+      missing_originals = [
+        f"{data_type}/{data_class}/{data_source}"
+        for data_type, data_classes in data.items()
+        if data_types is None or data_type in data_types
+        for data_class, data_sources in data_classes.items()
+        for data_source, source_data in data_sources.items()
+        if source_data is None or source_data.get('original') is None
+      ]
+      if not missing_originals:
+        _write_meta_pkl_if_missing(site_all_file, data, logger, indent='  ')
+        return data
+      logger.warning(
+        f"  Completing incomplete cache for '{sid}', {event}: "
+        f"missing original data for {', '.join(missing_originals)}."
+      )
+      cached_site_info = data
 
   if start is None:
     start = CONFIG['event'][event]['data_limits'][0]
   if stop is None:
     stop = CONFIG['event'][event]['data_limits'][1]
 
-  site_info = read_info_dict(sid=sid, event=event, logger=logger)
+  site_info = cached_site_info if cached_site_info is not None else read_info_dict(sid=sid, event=event, logger=logger)
 
   for data_type in site_info.keys(): # e.g., GIC, B
 
@@ -81,6 +98,13 @@ def site_read(sid, event, data_types=None, reparse=False, start=None, stop=None,
       data_sources = site_info[data_type][data_class]
 
       for data_source in data_sources.keys():
+
+        if cached_site_info is not None:
+          source_data = data_sources[data_source]
+          if source_data is not None and source_data.get('original') is not None:
+            continue
+          if source_data is None:
+            data_sources[data_source] = {}
 
         logger.info(f"  Reading '{data_type}/{data_class}/{data_source}' data for event '{event}'")
         if is_annual_event:
