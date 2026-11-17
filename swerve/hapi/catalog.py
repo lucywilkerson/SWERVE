@@ -9,7 +9,7 @@ from .data import _root, _read_series
 from ..util.source_catalog import ANNUAL_SOURCES, DATE_PARTITION_PATTERN, YEAR_PARTITION_PATTERN, source_kind
 
 
-def catalog(*, source=None,data_root=None, output=Path(__file__).resolve().parents[2] / "catalog.json", update=False):
+def catalog(*, source=None,data_root=None, output=Path(__file__).resolve().parents[2] / "hapi" / "catalog.json", update=False):
     """Return list of IDs of form: source/site/type/class/{original,modified}; write list as JSON.
 
     The data for each ID spans its available event or annual partitions. Only variants with
@@ -65,7 +65,7 @@ def catalog(*, source=None,data_root=None, output=Path(__file__).resolve().paren
     return ids
 
 
-def catalog_all(*, data_root=None, output=Path(__file__).resolve().parents[2] / "catalog-all.json"):
+def catalog_all(*, data_root=None, output=Path(__file__).resolve().parents[2] / "hapi" / "catalog-all.json"):
     """Return IDs with metadata; write JSON unless output=None.
 
     Build when the caches change. Deployment can load the JSON once and reuse
