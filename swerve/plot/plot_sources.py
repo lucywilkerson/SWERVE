@@ -245,11 +245,12 @@ def plot_availability(windows, add_events=None, min_width=None):
       )
       ax.text(
         event_date+datetime.timedelta(days=30),
-          -0.5, 
+          -0.7, 
           event['label'], 
           color=event.get('color', 'm'), 
           rotation=0, 
-          verticalalignment='top'
+          verticalalignment='top',
+          fontsize=12
       )
 
   methods_used = set()
@@ -268,7 +269,7 @@ def plot_availability(windows, add_events=None, min_width=None):
         clipped_start = max(start, segment_start)
         clipped_stop = min(stop, segment_stop)
         if clipped_start <= clipped_stop:
-          ax.hlines(y, clipped_start, clipped_stop, color='k', linewidth=6)
+          ax.hlines(y, clipped_start, clipped_stop, color='k', linewidth=10)
   
   left_ax.set_yticks(range(len(sources)))
   left_ax.set_yticklabels(sources)
