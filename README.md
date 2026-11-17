@@ -80,7 +80,7 @@ Config file (.yaml) in the configs subdirectory is used to define:
 - run config name (names subdir for info files and log files, default is same as config file name)
 - event (e.g. ['2015-03-17','2024-05-10']; if 'all', runs all events for given data source/type/class; if not specified, must have storm start/stop specified)
 - start/stop time (optional, must be provided together)
-- data source (e.g. ['TVA','INTERMAG','Watari'])
+- data source (e.g. ['TVA','INTERMAGNET','Watari'])
 - data type (e.g. ['GIC','B','DMM']; if not defined, runs all)
 - data class (e.g. ['measured','calculated']; if not defined, runs all)
 - main.py keyword arguments (exclude errors, summary table, etc.)
