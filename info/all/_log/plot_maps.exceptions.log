@@ -344,3 +344,55 @@ Traceback (most recent call last):
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 PermissionError: [Errno 13] Permission denied: 'C:\\Users\\lwilker\\Documents\\GitHub\\SWERVE-data\\data_processed\\summary\\map\\measured_locations.pdf'
 
+[2026-11-13T19:46:18.435747Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_maps.py", line 513, in <module>
+    location_map(class_df, extent, 2, out_dir, f'{data_class}_locations', add_key=True)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_maps.py", line 165, in location_map
+    add_symbols(ax, info_df, transform, markersize, add_key=add_key)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_maps.py", line 91, in add_symbols
+    ax.legend(handles=legend_elements, loc='upper right', columns=2)
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\axes\_axes.py", line 337, in legend
+    self.legend_ = mlegend.Legend(self, handles, labels, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Legend.__init__() got an unexpected keyword argument 'columns'
+
+[2026-11-13T20:45:13.450566Z] Uncaught exception
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_maps.py", line 528, in <module>
+    location_map(class_df, extent, 2, out_dir, f'{data_class}_locations',
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\plot\plot_maps.py", line 187, in location_map
+    savefig(out_dir, out_name, logger)
+  File "C:\Users\lwilker\Documents\GitHub\SWERVE\swerve\__init__.py", line 335, in savefig
+    plt.savefig(f'{fname}.{fmt}', dpi=600, bbox_inches='tight')
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\pyplot.py", line 1243, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\backend_bases.py", line 2158, in print_figure
+    bbox_inches = self.figure.get_tightbbox(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\figure.py", line 1848, in get_tightbbox
+    bbox = ax.get_tightbbox(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\cartopy\mpl\geoaxes.py", line 498, in get_tightbbox
+    return super().get_tightbbox(renderer, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\axes\_base.py", line 4542, in get_tightbbox
+    bbox = a.get_tightbbox(renderer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\cartopy\mpl\geoaxes.py", line 498, in get_tightbbox
+    return super().get_tightbbox(renderer, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\axes\_base.py", line 4547, in get_tightbbox
+    return mtransforms.Bbox.union(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lwilker\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\matplotlib\transforms.py", line 645, in union
+    raise ValueError("'bboxes' cannot be empty")
+ValueError: 'bboxes' cannot be empty
+
