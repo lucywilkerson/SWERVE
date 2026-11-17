@@ -26,6 +26,7 @@ if paper:
     paper_dir = '../SWERVE_data_paper'
 
 auto_crop = False # Crop each location map to its sites if True
+inset = True # Add a Canada, US, and Mexico inset in the lower left if True
 state = True # Show political boundaries if True
 
 crs = ccrs.PlateCarree()
@@ -35,21 +36,21 @@ projection = ccrs.Miller()
 def add_features(ax, state):
     # Add coastlines and other features
     ax.add_feature(cfeature.OCEAN, facecolor='lightgray')
-    ax.add_feature(cfeature.COASTLINE, linewidth=0.5)
+    if state:
+        ax.add_feature(cfeature.STATES, linewidth=0.5, edgecolor='darkgray')
+    ax.add_feature(cfeature.COASTLINE, linewidth=0.5, edgecolor='darkgray')
     lakes = cfeature.NaturalEarthFeature('physical', 'lakes', '50m',
                                          edgecolor='face',
                                          facecolor='lightblue')
     #ax.add_feature(lakes)
     ax.add_feature(cfeature.BORDERS, linewidth=0.5, edgecolor='darkgray')
-    if state:
-        ax.add_feature(cfeature.STATES, linewidth=0.5, edgecolor='darkgray')
 
 def add_symbols(ax, df, transform, markersize, add_key=False):
 
     default_symbols = {
-            ('DMM', 'measured'): ('o', 'r', 'r'),
-            ('GIC', 'measured'): ('x', 'c', 'c'),
-            ('B', 'measured'): ('^', 'k', 'k'),
+            ('DMM', 'measured'): ('o', 'c', 'c'),
+            ('GIC', 'measured'): ('.', 'k', 'k'),
+            ('B', 'measured'): ('^', 'violet', 'violet'),
             ('DMM', 'calculated'): ('^', 'r', 'none'),
             ('GIC', 'calculated'): ('^', 'k', 'none'),
             ('B', 'calculated'): ('^', 'b', 'none')
@@ -61,9 +62,9 @@ def add_symbols(ax, df, transform, markersize, add_key=False):
         data_key = (row.data_type, row.data_class)
         symbol = default_symbols.get(data_key)
 
-            symbol = ('o', 'k', 'lightgray')
         # Add specific color for INTERMAGNET
         if (getattr(row, 'data_source', None), row.data_class) == ('INTERMAGNET', 'measured'):
+            symbol = ('v', 'purple', 'purple')
 
         if symbol is None:
             continue
@@ -88,7 +89,8 @@ def add_symbols(ax, df, transform, markersize, add_key=False):
                           linestyle='None', label=label)
             for label, (marker, color, face) in plotted_symbols.items()
         ]
-        ax.legend(handles=legend_elements, loc='lower left')
+        ax.legend(handles=legend_elements, loc='lower left', ncol=4,
+              bbox_to_anchor=(0, 1.02), borderaxespad=0)
 
 def _auto_crop(info_df):
   if info_df.empty:
@@ -106,7 +108,7 @@ def _auto_crop(info_df):
           max(-90, lat_min - lat_pad), min(90, lat_max + lat_pad)]
 
 def location_map(info_df, extent, markersize, out_dir, out_name, add_key=False, mag_lat=False, patch=False,
-                 date='2024-05-11T00:00:00'):
+                 date='2024-05-11T00:00:00', inset=False):
   if info_df.empty:
     extent = [-180, 180, -90, 90]
     logger.warning(f"Map '{out_name}' will be empty because no sites are available; using full-globe extent.")
@@ -168,6 +170,20 @@ def location_map(info_df, extent, markersize, out_dir, out_name, add_key=False, 
     ax.set_global()
   else:
     ax.set_extent(extent, crs=crs)
+  if inset:
+    inset_ax_us = ax.inset_axes([0, 0, 0.30, 0.38],
+                             projection=projection)
+    inset_ax_us.set_extent([-130, -63, 17, 57], crs=crs)
+    inset_ax_us.set_anchor('SW')
+    add_features(inset_ax_us, state=state)
+    add_symbols(inset_ax_us, info_df, transform, markersize)
+
+    inset_ax_eu = ax.inset_axes([0.62, 0.75, 0.25, 0.25],
+                             projection=projection)
+    inset_ax_eu.set_extent([-13, 33, 35, 57], crs=crs)
+    inset_ax_eu.set_anchor('NW')
+    add_features(inset_ax_eu, state=False)
+    add_symbols(inset_ax_eu, info_df, transform, markersize)
   # Save map
   savefig(out_dir, out_name, logger)
 
@@ -509,8 +525,9 @@ if __name__ == "__main__":
         )
         logger.info(f"Number of unique sites for {data_class}: {class_df['site_id'].nunique()}")
         # Make one map for each data class, including all data types.
-        extent = None if auto_crop else [-180, 180, -80, 85]
-        location_map(class_df, extent, 2, out_dir, f'{data_class}_locations', add_key=True)
+        extent = None if auto_crop else [-180, 180, -81, 86]
+        location_map(class_df, extent, 2, out_dir, f'{data_class}_locations',
+                     add_key=True, inset=inset)
         plt.close()
     # If paper, combine all measured plots into stack plot with a), b), c) labels
     if paper:
