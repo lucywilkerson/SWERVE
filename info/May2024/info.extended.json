@@ -11715,7 +11715,7 @@
   "VOS": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -78.464,
           "geo_lon": 106.835,
           "event": "2024-05-10",
@@ -11736,7 +11736,7 @@
   "SBA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -77.82900000000001,
           "geo_lon": 166.671,
           "event": "2024-05-10",
@@ -11757,7 +11757,7 @@
   "VNA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -70.68299999999999,
           "geo_lon": 351.718,
           "event": "2024-05-10",
@@ -11778,7 +11778,7 @@
   "MAW": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -67.6,
           "geo_lon": 62.88,
           "event": "2024-05-10",
@@ -11799,7 +11799,7 @@
   "CSY": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -66.28299999999999,
           "geo_lon": 110.533,
           "event": "2024-05-10",
@@ -11820,7 +11820,7 @@
   "AIA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -65.245,
           "geo_lon": 295.742,
           "event": "2024-05-10",
@@ -11841,7 +11841,7 @@
   "ORC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -60.737,
           "geo_lon": 315.263,
           "event": "2024-05-10",
@@ -11862,7 +11862,7 @@
   "MCQ": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -54.5,
           "geo_lon": 158.95,
           "event": "2024-05-10",
@@ -11883,7 +11883,7 @@
   "KEP": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -54.28200000000001,
           "geo_lon": 323.507,
           "event": "2024-05-10",
@@ -11904,7 +11904,7 @@
   "PST": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -51.69999999999999,
           "geo_lon": 302.11,
           "event": "2024-05-10",
@@ -11925,7 +11925,7 @@
   "EYR": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -43.47399999999999,
           "geo_lon": 172.393,
           "event": "2024-05-10",
@@ -11946,7 +11946,7 @@
   "TDC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -37.06699999999999,
           "geo_lon": 347.684,
           "event": "2024-05-10",
@@ -11967,7 +11967,7 @@
   "CNB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -35.31999999999999,
           "geo_lon": 149.36,
           "event": "2024-05-10",
@@ -11988,7 +11988,7 @@
   "HER": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -34.43000000000001,
           "geo_lon": 19.23,
           "event": "2024-05-10",
@@ -12009,7 +12009,7 @@
   "PIL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -31.667,
           "geo_lon": 296.119,
           "event": "2024-05-10",
@@ -12030,7 +12030,7 @@
   "GNG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -31.355999999999995,
           "geo_lon": 115.715,
           "event": "2024-05-10",
@@ -12051,7 +12051,7 @@
   "IPM": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -27.171000000000006,
           "geo_lon": 250.58,
           "event": "2024-05-10",
@@ -12072,7 +12072,7 @@
   "KMH": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -26.540000000000006,
           "geo_lon": 18.11,
           "event": "2024-05-10",
@@ -12093,7 +12093,7 @@
   "HBK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -25.879999999999995,
           "geo_lon": 27.71,
           "event": "2024-05-10",
@@ -12114,7 +12114,7 @@
   "ASP": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -23.762,
           "geo_lon": 133.883,
           "event": "2024-05-10",
@@ -12135,7 +12135,7 @@
   "VSS": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -22.40000000000001,
           "geo_lon": 316.35,
           "event": "2024-05-10",
@@ -12156,7 +12156,7 @@
   "LRM": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -22.22,
           "geo_lon": 114.1,
           "event": "2024-05-10",
@@ -12177,7 +12177,7 @@
   "REU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -21.206000000000003,
           "geo_lon": 55.576,
           "event": "2024-05-10",
@@ -12198,7 +12198,7 @@
   "CTA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -20.090000000000003,
           "geo_lon": 146.264,
           "event": "2024-05-10",
@@ -12219,7 +12219,7 @@
   "TSU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -19.202,
           "geo_lon": 17.584,
           "event": "2024-05-10",
@@ -12240,7 +12240,7 @@
   "PPT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -17.566999999999993,
           "geo_lon": 210.426,
           "event": "2024-05-10",
@@ -12261,7 +12261,7 @@
   "SHE": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -15.961,
           "geo_lon": 354.253,
           "event": "2024-05-10",
@@ -12282,7 +12282,7 @@
   "API": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -13.816000000000004,
           "geo_lon": 188.219,
           "event": "2024-05-10",
@@ -12303,7 +12303,7 @@
   "KDU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -12.689999999999998,
           "geo_lon": 132.47,
           "event": "2024-05-10",
@@ -12324,7 +12324,7 @@
   "CKI": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -12.188000000000002,
           "geo_lon": 96.834,
           "event": "2024-05-10",
@@ -12345,7 +12345,7 @@
   "HUA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -12.049999999999995,
           "geo_lon": 284.67,
           "event": "2024-05-10",
@@ -12366,7 +12366,7 @@
   "ASC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -7.950000000000003,
           "geo_lon": 345.62,
           "event": "2024-05-10",
@@ -12387,7 +12387,7 @@
   "TTB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -1.2049999999999983,
           "geo_lon": 311.487,
           "event": "2024-05-10",
@@ -12408,7 +12408,7 @@
   "GAN": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": -0.6949999999999932,
           "geo_lon": 73.154,
           "event": "2024-05-10",
@@ -12429,7 +12429,7 @@
   "KOU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 5.209999999999994,
           "geo_lon": 307.27,
           "event": "2024-05-10",
@@ -12450,7 +12450,7 @@
   "DLT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 11.950000000000005,
           "geo_lon": 108.48,
           "event": "2024-05-10",
@@ -12471,7 +12471,7 @@
   "GUA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 13.590000000000003,
           "geo_lon": 144.87,
           "event": "2024-05-10",
@@ -12492,7 +12492,7 @@
   "CPL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 17.293999999999997,
           "geo_lon": 78.919,
           "event": "2024-05-10",
@@ -12513,7 +12513,7 @@
   "HYB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 17.42,
           "geo_lon": 78.55,
           "event": "2024-05-10",
@@ -12534,7 +12534,7 @@
   "SJG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 18.11,
           "geo_lon": 293.85,
           "event": "2024-05-10",
@@ -12555,7 +12555,7 @@
   "ABG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 18.638000000000005,
           "geo_lon": 72.872,
           "event": "2024-05-10",
@@ -12576,7 +12576,7 @@
   "PHU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 21.03,
           "geo_lon": 105.96,
           "event": "2024-05-10",
@@ -12597,7 +12597,7 @@
   "HON": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 21.32,
           "geo_lon": 202.0,
           "event": "2024-05-10",
@@ -12618,7 +12618,7 @@
   "TAM": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 22.790000000000006,
           "geo_lon": 5.53,
           "event": "2024-05-10",
@@ -12639,7 +12639,7 @@
   "JAI": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 26.92,
           "geo_lon": 75.8,
           "event": "2024-05-10",
@@ -12660,7 +12660,7 @@
   "GUI": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 28.321,
           "geo_lon": 343.559,
           "event": "2024-05-10",
@@ -12681,7 +12681,7 @@
   "BSL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 30.35,
           "geo_lon": 270.36,
           "event": "2024-05-10",
@@ -12702,7 +12702,7 @@
   "KNY": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 31.42,
           "geo_lon": 130.88,
           "event": "2024-05-10",
@@ -12723,7 +12723,7 @@
   "TUC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 32.17,
           "geo_lon": 249.27,
           "event": "2024-05-10",
@@ -12744,7 +12744,7 @@
   "KAK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 36.232,
           "geo_lon": 140.186,
           "event": "2024-05-10",
@@ -12765,7 +12765,7 @@
   "CYG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 36.37,
           "geo_lon": 126.854,
           "event": "2024-05-10",
@@ -12786,7 +12786,7 @@
   "SFS": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 36.667,
           "geo_lon": 354.055,
           "event": "2024-05-10",
@@ -12807,7 +12807,7 @@
   "FRN": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 37.09,
           "geo_lon": 240.28,
           "event": "2024-05-10",
@@ -12828,7 +12828,7 @@
   "STT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 37.547,
           "geo_lon": 351.272,
           "event": "2024-05-10",
@@ -12849,7 +12849,7 @@
   "PEG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 38.1,
           "geo_lon": 23.9,
           "event": "2024-05-10",
@@ -12870,7 +12870,7 @@
   "FRD": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 38.21,
           "geo_lon": 282.633,
           "event": "2024-05-10",
@@ -12891,7 +12891,7 @@
   "SPT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 39.55,
           "geo_lon": 355.65,
           "event": "2024-05-10",
@@ -12912,7 +12912,7 @@
   "BOU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 40.14,
           "geo_lon": 254.767,
           "event": "2024-05-10",
@@ -12933,7 +12933,7 @@
   "BMT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 40.3,
           "geo_lon": 116.2,
           "event": "2024-05-10",
@@ -12954,7 +12954,7 @@
   "IZN": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 40.5,
           "geo_lon": 29.72,
           "event": "2024-05-10",
@@ -12975,7 +12975,7 @@
   "EBR": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 40.957,
           "geo_lon": 0.333,
           "event": "2024-05-10",
@@ -12996,7 +12996,7 @@
   "DUR": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 41.65,
           "geo_lon": 14.47,
           "event": "2024-05-10",
@@ -13017,7 +13017,7 @@
   "PAG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 42.515,
           "geo_lon": 24.177,
           "event": "2024-05-10",
@@ -13038,7 +13038,7 @@
   "MMB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 43.91,
           "geo_lon": 144.19,
           "event": "2024-05-10",
@@ -13059,7 +13059,7 @@
   "SBL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 43.932,
           "geo_lon": 299.99,
           "event": "2024-05-10",
@@ -13080,7 +13080,7 @@
   "GCK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 44.633,
           "geo_lon": 20.767,
           "event": "2024-05-10",
@@ -13101,7 +13101,7 @@
   "SUA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 44.68,
           "geo_lon": 26.25,
           "event": "2024-05-10",
@@ -13122,7 +13122,7 @@
   "OTT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 45.403,
           "geo_lon": 284.448,
           "event": "2024-05-10",
@@ -13143,7 +13143,7 @@
   "LON": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 45.408,
           "geo_lon": 16.659,
           "event": "2024-05-10",
@@ -13164,7 +13164,7 @@
   "THY": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 46.9,
           "geo_lon": 17.89,
           "event": "2024-05-10",
@@ -13185,7 +13185,7 @@
   "STJ": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 47.595,
           "geo_lon": 307.323,
           "event": "2024-05-10",
@@ -13206,7 +13206,7 @@
   "KHB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 47.61,
           "geo_lon": 134.69,
           "event": "2024-05-10",
@@ -13227,7 +13227,7 @@
   "NCK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 47.63,
           "geo_lon": 16.72,
           "event": "2024-05-10",
@@ -13248,7 +13248,7 @@
   "HRB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 47.873,
           "geo_lon": 18.19,
           "event": "2024-05-10",
@@ -13269,7 +13269,7 @@
   "WIC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 47.931,
           "geo_lon": 15.866,
           "event": "2024-05-10",
@@ -13290,7 +13290,7 @@
   "CLF": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 48.025,
           "geo_lon": 2.26,
           "event": "2024-05-10",
@@ -13311,7 +13311,7 @@
   "FUR": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 48.17,
           "geo_lon": 11.28,
           "event": "2024-05-10",
@@ -13332,7 +13332,7 @@
   "NEW": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 48.27,
           "geo_lon": 242.88,
           "event": "2024-05-10",
@@ -13353,7 +13353,7 @@
   "BFO": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 48.331,
           "geo_lon": 8.325,
           "event": "2024-05-10",
@@ -13374,7 +13374,7 @@
   "VIC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 48.52,
           "geo_lon": 236.58,
           "event": "2024-05-10",
@@ -13395,7 +13395,7 @@
   "BDV": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 49.08,
           "geo_lon": 14.02,
           "event": "2024-05-10",
@@ -13416,7 +13416,7 @@
   "BRD": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 49.87,
           "geo_lon": 260.026,
           "event": "2024-05-10",
@@ -13437,7 +13437,7 @@
   "LVV": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 49.9,
           "geo_lon": 23.75,
           "event": "2024-05-10",
@@ -13458,7 +13458,7 @@
   "DOU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 50.1,
           "geo_lon": 4.6,
           "event": "2024-05-10",
@@ -13479,7 +13479,7 @@
   "MAB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 50.298,
           "geo_lon": 5.682,
           "event": "2024-05-10",
@@ -13500,7 +13500,7 @@
   "KIV": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 50.72,
           "geo_lon": 30.3,
           "event": "2024-05-10",
@@ -13521,7 +13521,7 @@
   "HAD": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 51.0,
           "geo_lon": 355.52,
           "event": "2024-05-10",
@@ -13542,7 +13542,7 @@
   "BEL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 51.836,
           "geo_lon": 20.789,
           "event": "2024-05-10",
@@ -13563,7 +13563,7 @@
   "VAL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 51.933,
           "geo_lon": 349.75,
           "event": "2024-05-10",
@@ -13584,7 +13584,7 @@
   "NGK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 52.07,
           "geo_lon": 12.68,
           "event": "2024-05-10",
@@ -13605,7 +13605,7 @@
   "IRT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 52.17,
           "geo_lon": 104.45,
           "event": "2024-05-10",
@@ -13626,7 +13626,7 @@
   "PET": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 52.971,
           "geo_lon": 158.248,
           "event": "2024-05-10",
@@ -13647,7 +13647,7 @@
   "WNG": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 53.725,
           "geo_lon": 9.053,
           "event": "2024-05-10",
@@ -13668,7 +13668,7 @@
   "HLP": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 54.603,
           "geo_lon": 18.811,
           "event": "2024-05-10",
@@ -13689,7 +13689,7 @@
   "MEA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 54.616,
           "geo_lon": 246.653,
           "event": "2024-05-10",
@@ -13710,7 +13710,7 @@
   "NVS": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 54.85,
           "geo_lon": 83.23,
           "event": "2024-05-10",
@@ -13731,7 +13731,7 @@
   "ESK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 55.314,
           "geo_lon": 356.794,
           "event": "2024-05-10",
@@ -13752,7 +13752,7 @@
   "SHU": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 55.35,
           "geo_lon": 199.54,
           "event": "2024-05-10",
@@ -13773,7 +13773,7 @@
   "ARS": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 56.433,
           "geo_lon": 58.567,
           "event": "2024-05-10",
@@ -13794,7 +13794,7 @@
   "SIT": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 57.06,
           "geo_lon": 224.67,
           "event": "2024-05-10",
@@ -13815,7 +13815,7 @@
   "FCC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 58.759,
           "geo_lon": 265.912,
           "event": "2024-05-10",
@@ -13836,7 +13836,7 @@
   "UPS": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 59.903,
           "geo_lon": 17.353,
           "event": "2024-05-10",
@@ -13857,7 +13857,7 @@
   "LER": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 60.138000000000005,
           "geo_lon": 358.817,
           "event": "2024-05-10",
@@ -13878,7 +13878,7 @@
   "NUR": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 60.510000000000005,
           "geo_lon": 24.66,
           "event": "2024-05-10",
@@ -13899,7 +13899,7 @@
   "NAQ": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 61.167,
           "geo_lon": 314.567,
           "event": "2024-05-10",
@@ -13920,7 +13920,7 @@
   "YKC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 62.48,
           "geo_lon": 245.518,
           "event": "2024-05-10",
@@ -13941,7 +13941,7 @@
   "IQA": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 63.753,
           "geo_lon": 291.482,
           "event": "2024-05-10",
@@ -13962,7 +13962,7 @@
   "BLC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 64.318,
           "geo_lon": 263.988,
           "event": "2024-05-10",
@@ -13983,7 +13983,7 @@
   "LYC": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 64.612,
           "geo_lon": 18.748,
           "event": "2024-05-10",
@@ -14004,7 +14004,7 @@
   "CMO": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 64.87,
           "geo_lon": 212.14,
           "event": "2024-05-10",
@@ -14025,7 +14025,7 @@
   "SOD": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 67.37,
           "geo_lon": 26.63,
           "event": "2024-05-10",
@@ -14046,7 +14046,7 @@
   "KIR": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 67.843,
           "geo_lon": 20.42,
           "event": "2024-05-10",
@@ -14067,7 +14067,7 @@
   "ABK": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 68.358,
           "geo_lon": 18.823,
           "event": "2024-05-10",
@@ -14088,7 +14088,7 @@
   "CBB": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 69.123,
           "geo_lon": 254.969,
           "event": "2024-05-10",
@@ -14109,7 +14109,7 @@
   "GDH": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 69.252,
           "geo_lon": 306.467,
           "event": "2024-05-10",
@@ -14130,7 +14130,7 @@
   "JCO": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 70.356,
           "geo_lon": 211.201,
           "event": "2024-05-10",
@@ -14151,7 +14151,7 @@
   "DED": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 70.36,
           "geo_lon": 211.21,
           "event": "2024-05-10",
@@ -14172,7 +14172,7 @@
   "BRW": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 71.32,
           "geo_lon": 203.38,
           "event": "2024-05-10",
@@ -14193,7 +14193,7 @@
   "RES": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 74.69,
           "geo_lon": 265.105,
           "event": "2024-05-10",
@@ -14214,7 +14214,7 @@
   "HRN": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 77.0,
           "geo_lon": 15.55,
           "event": "2024-05-10",
@@ -14235,7 +14235,7 @@
   "THL": {
     "B": {
       "measured": {
-        "INTERMAG": {
+        "INTERMAGNET": {
           "geo_lat": 77.47,
           "geo_lon": 290.773,
           "event": "2024-05-10",

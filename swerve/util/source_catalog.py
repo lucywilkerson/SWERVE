@@ -50,7 +50,7 @@ def source_kind(data_source, original_dir=None):
 def source_partitions(original_dir, data_source):
   """Return the source's native local data partitions."""
   kind = source_kind(data_source, original_dir)
-  if data_source == 'INTERMAG':
+  if data_source == 'INTERMAGNET':
     return []
   if kind == 'continuous':
     return ['unpartitioned']

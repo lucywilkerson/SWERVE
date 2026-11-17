@@ -10,7 +10,7 @@ _DATA_RANGE_CACHE = {} # To save the date range of each annual data file to avoi
 def write_info_csv():
     """Write the configured site metadata to info.csv."""
     import pandas as pd
-    from swerve import config, read_intermag_info
+    from swerve import config, read_intermagnet_info
     from .source_catalog import ANNUAL_SOURCES, source_partitions
 
     def _add_info_row(info_list, site_id, geo_lat, geo_lon, data_type, data_class, data_source, event, manual_error=None):
@@ -53,27 +53,27 @@ def write_info_csv():
                 if str(event) not in source_partitions(data_dir, data_source):
                     logger.info(f"   Annual source {data_source} has no data for {event}. Skipping...")
                     continue
-            if (data_source not in ANNUAL_SOURCES and data_source != 'INTERMAG'
+            if (data_source not in ANNUAL_SOURCES and data_source != 'INTERMAGNET'
                     and not _event_available(event, data_source, data_dir, logger)):
                 continue
             if data_source in ANNUAL_SOURCES:
                 logger.info(f"   Checking annual data from source {data_source} for event {event}.")
 
             # Looping over sources
-            if data_source == 'INTERMAG':
+            if data_source == 'INTERMAGNET':
                 from hapiclient.util import HAPIError
-                # Skip INTERMAG if more than 5 events are being processed to save time
+                # Skip INTERMAGNET if more than 5 events are being processed to save time
                 if len(events) > 5:
-                    logger.info(f"   Skipping INTERMAG for event {event} due to large number of events.")
+                    logger.info(f"   Skipping INTERMAGNET for event {event} due to large number of events.")
                     continue
                 if 'measured' in data_classes and 'B' in data_types:
                     data_class = 'measured'
                     data_type = 'B'
                     start, stop = CONFIG['event'][event]['data_limits']
                     try:
-                        source_sites = read_intermag_info(start, stop, logger=logger)
+                        source_sites = read_intermagnet_info(start, stop, logger=logger)
                     except HAPIError as error:
-                        logger.info(f"   HAPIError:{error} \n   Skipping INTERMAG for event {event}.")
+                        logger.info(f"   HAPIError:{error} \n   Skipping INTERMAGNET for event {event}.")
                         continue
                     for site_id, geo_lat, geo_lon in zip(source_sites['sites'], source_sites['lat'], source_sites['lon']):
                         info_list = _add_info_row(
@@ -551,7 +551,7 @@ def write_info_csv():
     info_df.to_csv(info_fname, index=False)
 
 def _source_available(data_source, data_dir, logger):
-    if data_source == 'INTERMAG':
+    if data_source == 'INTERMAGNET':
         return True
 
     source_dir = os.path.join(data_dir, data_source.lower())

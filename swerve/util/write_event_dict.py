@@ -29,8 +29,8 @@ def write_event_dict(conf, data_dir, info_dir):
       return datetime.datetime.fromisoformat(value)
     return value
 
-  if data_sources == ['INTERMAG'] and not conf.get('event') and start_time is None:
-    raise ValueError("For INTERMAG data source, either an event or start_time/stop_time must be specified.")
+  if data_sources == ['INTERMAGNET'] and not conf.get('event') and start_time is None:
+    raise ValueError("For INTERMAGNET data source, either an event or start_time/stop_time must be specified.")
 
   if events is None and start_time is not None:
     events = [as_datetime(start_time).strftime('%Y-%m-%d')]

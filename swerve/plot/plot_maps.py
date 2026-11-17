@@ -61,17 +61,17 @@ def add_symbols(ax, df, transform, markersize, add_key=False):
         data_key = (row.data_type, row.data_class)
         symbol = default_symbols.get(data_key)
 
-        # Add specific color for INTERMAG
-        if (getattr(row, 'data_source', None), row.data_class) == ('INTERMAG', 'measured'):
             symbol = ('o', 'k', 'lightgray')
+        # Add specific color for INTERMAGNET
+        if (getattr(row, 'data_source', None), row.data_class) == ('INTERMAGNET', 'measured'):
 
         if symbol is None:
             continue
 
         marker, color, face = symbol
-        legend_label = ('INTERMAG'
+        legend_label = ('INTERMAGNET'
                         if (getattr(row, 'data_source', None), row.data_class)
-                        == ('INTERMAG', 'measured')
+                        == ('INTERMAGNET', 'measured')
                         else f'{row.data_type} {row.data_class}')
         plotted_symbols.setdefault(legend_label, symbol)
 
@@ -463,20 +463,20 @@ def transmission_map(info_df, gdf, cc_df, std=False):
         savefig(out_dir, 'transmission_map', logger)
 
 
-def _add_intermag(class_df):
-    intermag_info_file = os.path.join(
+def _add_intermagnet(class_df):
+    intermagnet_info_file = os.path.join(
         CONFIG['dirs']['original'], 'intermagnet', 'intermagnet_info.csv'
     )
-    if not os.path.exists(intermag_info_file):
-        raise FileNotFoundError(f"File not found: {intermag_info_file}")
-    intermag_info = pd.read_csv(intermag_info_file, skiprows=1)
+    if not os.path.exists(intermagnet_info_file):
+        raise FileNotFoundError(f"File not found: {intermagnet_info_file}")
+    intermagnet_info = pd.read_csv(intermagnet_info_file, skiprows=1)
     for site_id, geo_lat, geo_lon in zip(
-            intermag_info['IAGA code'], intermag_info['Latitude'], intermag_info['Longitude']):
+            intermagnet_info['IAGA code'], intermagnet_info['Latitude'], intermagnet_info['Longitude']):
         class_df = pd.concat([class_df, pd.DataFrame([{
             'site_id': site_id,
             'geo_lat': float(geo_lat),
             'geo_lon': float(geo_lon-360) if float(geo_lon) > 180 else float(geo_lon),
-            'data_source': 'INTERMAG',
+            'data_source': 'INTERMAGNET',
             'data_type': 'B',
             'data_class': 'measured',
             'event': list(CONFIG['event'].keys())[0]
@@ -498,9 +498,9 @@ if __name__ == "__main__":
         class_df = class_df.drop_duplicates(
             subset=['site_id', 'geo_lat', 'geo_lon', 'data_source', 'data_type']
         )
-        # Add INTERMAG sites if INTERMAG not in info_df but in config data_sources
-        if data_class == 'measured' and 'INTERMAG' not in class_df['data_source'].unique() and (CONFIG['info_kwargs']['data_source'] is None or 'INTERMAG' in CONFIG['info_kwargs']['data_source']):
-            class_df = _add_intermag(class_df)
+        # Add INTERMAGNET sites if INTERMAGNET not in info_df but in config data_sources
+        if data_class == 'measured' and 'INTERMAGNET' not in class_df['data_source'].unique() and (CONFIG['info_kwargs']['data_source'] is None or 'INTERMAGNET' in CONFIG['info_kwargs']['data_source']):
+            class_df = _add_intermagnet(class_df)
         # Draw B first, then DMM, with GIC on top
         class_df = class_df.sort_values(
             'data_type',

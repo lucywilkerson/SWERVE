@@ -14,7 +14,7 @@ def write_info_csv():
   return write_info_csv_impl()
 
 from .read.site_read import site_read
-from .read.read_intermag import read_intermag, read_intermag_info
+from .read.read_intermagnet import read_intermagnet, read_intermagnet_info
 from .read.orig_readers import _site_read_orig
 from .read.output_error import _output_error
 from .plot.site_plot import site_plot

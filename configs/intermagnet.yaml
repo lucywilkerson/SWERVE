@@ -1,10 +1,10 @@
-run_config_name: intermag # for saving info files/logs # derive from file name?
+run_config_name: intermagnet # for saving info files/logs # derive from file name?
 
 reparse_info: True # If True, creates new events_dict.json and info.csv when info.py is run
 
-event: ['2024-05-10'] # must have event or start/stop for INTERMAG data only
+event: ['2024-05-10'] # must have event or start/stop for INTERMAGNET data only
 
-data_source: ['INTERMAG'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
+data_source: ['INTERMAGNET'] # If specified, only return sites with this data source (e.g., TVA, NERC, SWMF)
 
 exclude_errors: null # If specified, excludes sites with known data issues ('all', 'manual', 'automated', or null)
 

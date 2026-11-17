@@ -1,7 +1,7 @@
 """Plot data availability for each data source.
 
 For each data source, a horizontal bar is plotted for every time window with available data.
-INTERMAG is shown as a continuous bar spanning the full date range.
+INTERMAGNET is shown as a continuous bar spanning the full date range.
 
 Availability windows are determined by reading the 'original' time from cached
 pkl files in data_processed. If no processed cache exists for a event-partition source, 
@@ -72,10 +72,10 @@ def _select_sources():
   if 'info_kwargs' in CONFIG:
     data_sources = CONFIG['info_kwargs']['data_source']
   if data_sources is None:
-    data_sources = EVENT_PARTITIONED_SOURCES | ANNUAL_SOURCES | {'INTERMAG'}
+    data_sources = EVENT_PARTITIONED_SOURCES | ANNUAL_SOURCES | {'INTERMAGNET'}
   elif isinstance(data_sources, str):
     data_sources = [data_sources]
-  return sorted(set(data_sources) - (CONTINUOUS_SOURCES - {'INTERMAG'}))
+  return sorted(set(data_sources) - (CONTINUOUS_SOURCES - {'INTERMAGNET'}))
 
 
 def _original_time_range(pkl_file, data_source):
@@ -141,7 +141,7 @@ def availability(data_sources):
   """Dict of {source: {partition: {'start', 'stop', 'method'}}}.
 
   'method' is 'scanned' (from processed data files) or 'fallback' (from
-  partition names), or 'continuous' (INTERMAG across the plotted date range).
+  partition names), or 'continuous' (INTERMAGNET across the plotted date range).
   """
   original_dir = CONFIG['dirs']['original']
   processed_dir = CONFIG['dirs']['processed']
@@ -155,7 +155,7 @@ def availability(data_sources):
 
   windows = {}
   for data_source in data_sources:
-    if data_source == 'INTERMAG':
+    if data_source == 'INTERMAGNET':
       windows[data_source] = {
         'continuous': {
           'start': PLOT_START.isoformat(),
@@ -283,6 +283,7 @@ def plot_availability(windows, add_events=None, min_width=None):
     ax.grid()
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
     ax.xaxis.set_minor_locator(mdates.YearLocator())
+    ax.tick_params(axis='x', which='both', color='darkgray')
   left_ax.set_xlim(PLOT_START, break_start)
   right_ax.set_xlim(break_stop, PLOT_STOP)
   left_ax.set_xticks([

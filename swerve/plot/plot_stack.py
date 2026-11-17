@@ -64,13 +64,13 @@ def stack_plot_config(axes, data_with_offset, units, offset=40, sites_plotted=No
   axes.text(xbar - cap_width, -offset/2, f'{offset} {units}', fontsize=plt.rcParams['ytick.labelsize'], verticalalignment='center', horizontalalignment='right')
 
 
-def plot_intermag(intermag_df, source_sites, offset=1000):
+def plot_intermagnet(intermagnet_df, source_sites, offset=1000):
   units = '(nT)'
 
   for orientation in ['X', 'Y', 'Z']:
     fig, axes = plt.subplots(1, 1, figsize=(8.5, 11))
     for i, sid in enumerate(source_sites['sites']):
-      site_df = intermag_df[intermag_df['site_id'] == sid]
+      site_df = intermagnet_df[intermagnet_df['site_id'] == sid]
       time_b = site_df['Timestamp'].values
       data = site_df[orientation].values.astype(float)
 
@@ -92,7 +92,7 @@ def plot_intermag(intermag_df, source_sites, offset=1000):
     stack_plot_config(axes, data_with_offset, units, offset=offset, sites_plotted=sites_plotted)
     # Save the figure
     fdir = os.path.join(base_dir, '_db')
-    savefig(fdir, f'intermag_hapi_{orientation}', logger)
+    savefig(fdir, f'intermagnet_hapi_{orientation}', logger)
     plt.close()
 
 

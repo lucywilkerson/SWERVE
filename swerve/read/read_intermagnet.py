@@ -9,7 +9,7 @@ def _utc_timestamp(value):
   return timestamp.tz_convert('UTC')
 
 
-def read_intermag_info(start, stop, sid=None, logger=None):
+def read_intermagnet_info(start, stop, sid=None, logger=None):
   from hapiclient import hapi
 
   if logger is None:
@@ -17,8 +17,8 @@ def read_intermag_info(start, stop, sid=None, logger=None):
     CONFIG = config()
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-  # Read in info for info.csv from available INTERMAG datasets
-  logger.info("      Reading HAPI INTERMAG site information")
+  # Read in info for info.csv from available INTERMAGNET datasets
+  logger.info("      Reading HAPI INTERMAGNET site information")
   server = 'https://imag-data.bgs.ac.uk/GIN_V1/hapi'
   catalog = hapi(server)
   datasets = [
@@ -54,7 +54,7 @@ def read_intermag_info(start, stop, sid=None, logger=None):
   return source_sites
 
 
-def read_intermag(start, stop, sid=None, logger=None):
+def read_intermagnet(start, stop, sid=None, logger=None):
   from hapiclient import hapi, hapitime2datetime
 
   if logger is None:
@@ -62,14 +62,14 @@ def read_intermag(start, stop, sid=None, logger=None):
     CONFIG = config()
     logger = CONFIG['logger'](**CONFIG['logger_kwargs'])
 
-  # Read INTERMAG data for given start/stop and site
-  logger.info("      Using HAPI INTERMAG data")
+  # Read INTERMAGNET data for given start/stop and site
+  logger.info("      Using HAPI INTERMAGNET data")
   server = 'https://imag-data.bgs.ac.uk/GIN_V1/hapi'
-  source_sites = read_intermag_info(start, stop, sid=sid, logger=logger)
+  source_sites = read_intermagnet_info(start, stop, sid=sid, logger=logger)
   start = _utc_timestamp(start).isoformat().replace('+00:00', 'Z')
   stop = _utc_timestamp(stop).isoformat().replace('+00:00', 'Z')
 
-  intermag_df = pandas.DataFrame()
+  intermagnet_df = pandas.DataFrame()
   parameters = 'Field_Vector'
   for sid, dataset in zip(source_sites['sites'], source_sites['datasets']):
     data, meta = hapi(server, dataset, parameters, start, stop)
@@ -87,6 +87,6 @@ def read_intermag(start, stop, sid=None, logger=None):
       dfs[-1][component] = dfs[-1][component] - numpy.nanmedian(dfs[-1][component])  # remove median offset
 
     df = pandas.concat(dfs, axis=1)
-    intermag_df = pandas.concat([intermag_df, df.assign(site_id=sid)], ignore_index=True)
+    intermagnet_df = pandas.concat([intermagnet_df, df.assign(site_id=sid)], ignore_index=True)
 
-  return intermag_df, source_sites
+  return intermagnet_df, source_sites
